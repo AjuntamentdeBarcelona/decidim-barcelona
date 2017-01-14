@@ -23,6 +23,7 @@ end
 
 group :production do
   gem "rails_12factor"
+  gem "fog-aws"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

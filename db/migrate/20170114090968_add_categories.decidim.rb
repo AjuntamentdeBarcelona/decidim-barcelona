@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim (originally 20161123085134)
 class AddCategories < ActiveRecord::Migration[5.0]
   def change

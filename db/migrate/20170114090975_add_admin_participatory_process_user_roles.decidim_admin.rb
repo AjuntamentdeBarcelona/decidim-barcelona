@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_admin (originally 20161102144648)
 class AddAdminParticipatoryProcessUserRoles < ActiveRecord::Migration[5.0]
   def change
@@ -9,8 +10,8 @@ class AddAdminParticipatoryProcessUserRoles < ActiveRecord::Migration[5.0]
     end
 
     add_index :decidim_admin_participatory_process_user_roles,
-      [:decidim_participatory_process_id, :decidim_user_id, :role],
-      unique: true,
-      name: "index_unique_user_and_process_role"
+              [:decidim_participatory_process_id, :decidim_user_id, :role],
+              unique: true,
+              name: "index_unique_user_and_process_role"
   end
 end
