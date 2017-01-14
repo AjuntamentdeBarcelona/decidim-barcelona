@@ -1,0 +1,35 @@
+sudo: required
+dist: trusty
+
+services:
+  - postgres
+
+language: ruby
+
+branches:
+  only:
+    - master
+
+before_install:
+  # Repo for newer Node.js versions
+  - export BUNDLE_PATH="$TRAVIS_BUILD_DIR/.bundle"
+
+# Skip the install step
+install: true
+
+cache:
+  bundler: true
+  directories:
+    - $TRAVIS_BUILD_DIR/.yarn-cache
+    - $TRAVIS_BUILD_DIR/node_modules
+    - $BUNDLE_PATH
+    - vendor/bundle
+
+rvm:
+  - 2.4.0
+
+notifications:
+    email: false
+
+addons:
+  postgresql: "9.4"
