@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim (originally 20161108093802)
 class CreateDecidimStaticPages < ActiveRecord::Migration[5.0]
   def change

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_comments (originally 20161216102820)
 class AddAlignmentToComments < ActiveRecord::Migration[5.0]
   def change

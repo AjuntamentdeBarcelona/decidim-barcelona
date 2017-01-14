@@ -4,5 +4,5 @@ Decidim.configure do |config|
   config.mailer_sender    = Rails.application.secrets.email
   config.authorization_handlers = [ExampleAuthorizationHandler]
 
-  config.available_locales = %i{en ca es}
+  config.available_locales = %i(en ca es)
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim (originally 20161116115156)
 class CreateAttachments < ActiveRecord::Migration[5.0]
   def change
@@ -10,8 +11,8 @@ class CreateAttachments < ActiveRecord::Migration[5.0]
       t.string :content_type, null: false
       t.string :file_size, null: false
       t.references :decidim_participatory_process,
-        foreign_key: true,
-        index: { name: 'index_decidim_processes_attachments_on_decidim_process_id' }
+                   foreign_key: true,
+                   index: { name: "index_decidim_processes_attachments_on_decidim_process_id" }
 
       t.timestamps
     end
