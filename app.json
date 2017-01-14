@@ -1,0 +1,16 @@
+{
+  "name": "decidim-barcelona",
+  "description": "TODO: Add a short description about decidim-barcelona",
+  "keywords": [],
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
+    "sendgrid:starter"
+  ],
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "A secret used by Rails to identify sessions",
+      "generator": "secret"
+    }
+  }
+}
