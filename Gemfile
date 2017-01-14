@@ -7,8 +7,6 @@ gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git", tag: "df0bd8e"
-
 group :development, :test do
   gem 'byebug', platform: :mri
 end
