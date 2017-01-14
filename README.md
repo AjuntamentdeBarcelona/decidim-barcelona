@@ -19,10 +19,6 @@ This is the opensource code repository for "decidim-barcelona", based on [Decidi
 
 Code published under AFFERO GPL v3 (see [LICENSE-AGPLv3.txt](LICENSE-AGPLv3.txt))
 
-## Contributions
-
-See [CONTRIBUTING.md](CONTRIBUTING.md)
-
 ## Code of conduct
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
