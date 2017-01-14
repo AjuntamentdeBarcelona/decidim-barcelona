@@ -10,13 +10,6 @@ branches:
   only:
     - master
 
-before_install:
-  # Repo for newer Node.js versions
-  - export BUNDLE_PATH="$TRAVIS_BUILD_DIR/.bundle"
-
-# Skip the install step
-install: true
-
 cache:
   bundler: true
   directories:
