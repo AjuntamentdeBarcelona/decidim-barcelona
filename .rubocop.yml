@@ -24,9 +24,8 @@ AllCops:
     - '**/*.gemspec'
     - 'vendor/**/*'
     - 'spec/*'
-    - 'decidim-*/spec/**/*'
-    - 'decidim-*/test/**/*'
-    - 'decidim-*/db/**/*'
+    - 'test/*'
+    - 'db/schema.rb'
     - 'development_app/**/*'
     - 'node_modules/**/*'
   # Default formatter will be used if no -f/--format option is given.
@@ -95,10 +94,6 @@ Style/Alias:
   SupportedStyles:
     - prefer_alias
     - prefer_alias_method
-
-Style/AccessorMethodName:
-  Exclude:
-    - "lib/generators/decidim/app_generator.rb"
 
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
@@ -628,10 +623,6 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
-  Exclude:
-    - 'decidim-api/lib/decidim/api/schema.rb'
-    - 'decidim-api/lib/decidim/api/types/**/*'
-    - 'decidim-core/lib/decidim/query_extensions.rb'
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -1299,13 +1290,6 @@ Rails/UniqBeforePluck:
 Rails/Validation:
   Include:
     - app/models/**/*.rb
-
-Metrics/BlockLength:
-  Exclude:
-    - 'decidim-api/lib/decidim/api/schema.rb'
-    - 'decidim-*/**/*/types/**/*'
-    - 'decidim-*/lib/**/*/test/**/*'
-    - 'decidim-*/lib/**/*/feature.rb'
 
 Lint/HandleExceptions:
   Exclude:
