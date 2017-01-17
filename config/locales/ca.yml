@@ -1,0 +1,16 @@
+ca:
+  activemodel:
+    attributes:
+      census_authorization_handler:
+        document_number: Número de document
+        document_type: Tipus de document
+        postal_code: Codi postal
+        date_of_birth: Data de naixement
+  decidim:
+    authorization_handlers:
+      census_authorization_handler: el padró
+    census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
