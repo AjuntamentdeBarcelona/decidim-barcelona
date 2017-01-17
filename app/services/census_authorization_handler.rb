@@ -9,7 +9,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :date_of_birth, Date
 
   validates :document_number, :document_type, :postal_code, :date_of_birth,
-    presence: true
+            presence: true
 
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
@@ -25,6 +25,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   def metadata
     super.merge(postal_code: postal_code)
+  end
+
+  def census_document_types
+    %i{dni nie passport}.map do |type|
+      [I18n.t(type, scope: "decidim.census_authorization_handler.document_types"), type]
+    end
   end
 
   private
