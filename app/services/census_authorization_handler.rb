@@ -10,7 +10,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   validates :document_number, :document_type, :postal_code, :date_of_birth,
             presence: true
-  validates :document_type, inclusion: { in: %w{dni nie passport} }
+  validates :document_type, inclusion: { in: %w(dni nie passport) }
 
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
@@ -29,7 +29,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def census_document_types
-    %i{dni nie passport}.map do |type|
+    %i(dni nie passport).map do |type|
       [I18n.t(type, scope: "decidim.census_authorization_handler.document_types"), type]
     end
   end
@@ -55,8 +55,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       "02"
     when :nie
       "03"
-    else
-      nil
     end
   end
 
@@ -73,7 +71,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       <sch:usuari>PAM</sch:usuari>
       <sch:Dades>
         <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
-        <sch:docId>#{sanitize document_number}</sch:docId>
+        <sch:docId>#{sanitize document_number.upcase}</sch:docId>
         <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
         <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
       </sch:Dades>
