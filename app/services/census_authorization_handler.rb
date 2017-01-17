@@ -10,12 +10,13 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   validates :document_number, :document_type, :postal_code, :date_of_birth,
             presence: true
+  validates :document_type, inclusion: { in: %w{dni nie passport} }
 
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
   # be created or not, you should return a Boolean value.
   def authorized?
-    response.xpath("//codiRetorn").text == "01"
+    valid? && response.xpath("//codiRetorn").text == "01"
   end
 
   # If you need to store any of the defined attributes in the authorization you
@@ -46,7 +47,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     @response ||= Nokogiri::XML(response.body).remove_namespaces!
   end
 
-  def document_type_number
+  def sanitized_document_type
     case document_type.to_sym
     when :dni
       "01"
@@ -55,7 +56,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     when :nie
       "03"
     else
-      raise "Invalid value for document_type provided"
+      nil
     end
   end
 
@@ -71,7 +72,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     <sch:GetPersonaLocalitzaAdrecaRequest>
       <sch:usuari>PAM</sch:usuari>
       <sch:Dades>
-        <sch:tipDocument>#{sanitize document_type_number}</sch:tipDocument>
+        <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
         <sch:docId>#{sanitize document_number}</sch:docId>
         <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
         <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
