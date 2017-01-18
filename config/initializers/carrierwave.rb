@@ -21,7 +21,7 @@ if Rails.env.production?
       host:                  "s3.eu-central-1.amazonaws.com",
       region:                "eu-central-1"                                     # optional, defaults to 'us-east-1'
     }
-    config.fog_directory  = "decidim-hospitalet"                                # required
+    config.fog_directory  = "decidim-barcelona"                                 # required
     config.fog_attributes = { "Cache-Control" => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
   end
 end
