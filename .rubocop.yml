@@ -21,6 +21,7 @@ AllCops:
     - '**/*Fastfile'
   Exclude:
     - '**/Gemfile'
+    - 'db/migrate/**/*'
     - '**/*.gemspec'
     - 'vendor/**/*'
     - 'spec/*'
