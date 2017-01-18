@@ -1,0 +1,51 @@
+---
+en:
+  decidim:
+    features:
+      debates:
+        name: Debates
+    debates:
+      actions:
+        confirm_destroy: Are you sure you want to delete this debate?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
+      admin:
+        debates:
+          create:
+            invalid: There's been a problem creating this debate
+            success: Debate successfully created
+          destroy:
+            success: Debate successfully deleted
+          edit:
+            title: Edit debate
+            update: Update debate
+          index:
+            title: Debates
+          new:
+            create: Create debate
+            title: New debate
+          update:
+            invalid: There's been a problem updating this debate
+            success: Debate successfully updated
+        models:
+          debate:
+            name: Debate
+      debates:
+        filters:
+          ascendent: Ascendent
+          category: Category
+          date: Date
+          descendent: Descendent
+          scopes: Scopes
+        index:
+          title: Debates
+        show:
+          debate_description: Debate description
+      models:
+        debate:
+          fields:
+            end_time: End date
+            start_time: Start date
+            title: Title
