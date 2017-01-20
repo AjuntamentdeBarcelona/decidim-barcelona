@@ -21,6 +21,7 @@ AllCops:
     - '**/*Fastfile'
   Exclude:
     - '**/Gemfile'
+    - 'db/migrate/**/*'
     - '**/*.gemspec'
     - 'vendor/**/*'
     - 'spec/*'
@@ -28,6 +29,7 @@ AllCops:
     - 'db/schema.rb'
     - 'development_app/**/*'
     - 'node_modules/**/*'
+    - 'config/initializers/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior

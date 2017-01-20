@@ -6,7 +6,7 @@ gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
-gem "faraday", "~>0.11.0"
+gem "faraday"
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -16,10 +16,10 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '~> 3.1.0'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker', '~> 1.7.2'
+  gem 'spring-watcher-listen'
+  gem 'faker'
 end
 
 group :production do

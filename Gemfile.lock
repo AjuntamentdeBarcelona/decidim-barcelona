@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 26e649271cfa1f9a8a543d6286027659764ee9a6
+  revision: 4977399e7c7f5581347bc5718085ecd740a08aa7
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)
@@ -52,6 +52,10 @@ GIT
       high_voltage (~> 3.0.0)
       jquery-rails (~> 4.2.2)
       mini_magick (~> 4.6.0)
+      omniauth (~> 1.3.1)
+      omniauth-facebook (~> 4.0.0)
+      omniauth-google-oauth2 (~> 0.4.1)
+      omniauth-twitter (~> 1.3.0)
       pg (~> 0.19.0)
       rails (~> 5.0.0, >= 5.0.0.1)
       rectify (~> 0.8.0)
@@ -72,7 +76,7 @@ GIT
       decidim (= 0.0.2)
       factory_girl_rails
       faker (~> 1.7.2)
-      i18n-tasks (~> 0.9.8)
+      i18n-tasks (= 0.9.8)
       launchy
       listen (~> 3.1.0)
       poltergeist (~> 1.12.0)
@@ -85,7 +89,7 @@ GIT
     decidim-meetings (0.0.2)
       date_validator (~> 0.9)
       decidim-core (= 0.0.2)
-      kaminari (~> 1.0.0.rc1)
+      kaminari (~> 1.0.1)
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
     decidim-pages (0.0.2)
@@ -95,7 +99,7 @@ GIT
     decidim-proposals (0.0.2)
       decidim-comments (= 0.0.2)
       decidim-core (= 0.0.2)
-      kaminari (~> 1.0.0.rc1)
+      kaminari (~> 1.0.1)
       rectify (~> 0.8.0)
       social-share-button (~> 0.8.8)
     decidim-system (0.0.2)
@@ -218,7 +222,7 @@ GEM
     devise_invitable (1.7.0)
       actionmailer (>= 4.0.0)
       devise (>= 4.0.0)
-    diff-lcs (1.2.5)
+    diff-lcs (1.3)
     docile (1.1.5)
     easy_translate (0.5.0)
       json
@@ -235,7 +239,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.7.2)
       i18n (~> 0.5)
-    faraday (0.11.0)
+    faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
     file_validators (2.1.0)
@@ -272,6 +276,7 @@ GEM
     graphiql-rails (1.4.1)
       rails
     graphql (1.4.1)
+    hashie (3.4.6)
     high_voltage (3.0.0)
     highline (1.7.8)
     htmlentities (4.3.4)
@@ -293,18 +298,19 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.3)
-    kaminari (1.0.0)
+    jwt (1.5.6)
+    kaminari (1.0.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.0.0)
-      kaminari-activerecord (= 1.0.0)
-      kaminari-core (= 1.0.0)
-    kaminari-actionview (1.0.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
       actionview
-      kaminari-core (= 1.0.0)
-    kaminari-activerecord (1.0.0)
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
       activerecord
-      kaminari-core (= 1.0.0)
-    kaminari-core (1.0.0)
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -323,10 +329,37 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    oauth (0.5.1)
+    oauth2 (1.3.0)
+      faraday (>= 0.8, < 0.11)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.3.2)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-facebook (4.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (0.4.1)
+      jwt (~> 1.5.2)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.3.1)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-twitter (1.3.0)
+      omniauth-oauth (~> 1.1)
+      rack
     orm_adapter (0.5.0)
     parser (2.3.3.1)
       ast (~> 2.2)
@@ -420,7 +453,7 @@ GEM
     rspec-repeat (1.0.2)
       rspec (~> 3.0)
     rspec-support (3.5.0)
-    rubocop (0.47.0)
+    rubocop (0.47.1)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -429,7 +462,7 @@ GEM
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     sass (3.4.23)
-    sassc (1.11.1)
+    sassc (1.11.2)
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
@@ -512,15 +545,15 @@ DEPENDENCIES
   byebug
   decidim!
   decidim-dev!
-  faker (~> 1.7.2)
-  faraday (~> 0.11.0)
+  faker
+  faraday
   fog-aws
-  listen (~> 3.1.0)
+  listen
   puma (~> 3.0)
   rails_12factor
   rspec-rails (~> 3.5.0)
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
