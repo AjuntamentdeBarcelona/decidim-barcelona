@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 49acb583d069e5ddfd1ed0dffa2cfcf8ed76eafe
+  revision: e51ee081a73f884e6d34142df3577250551f58a7
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)
@@ -355,7 +355,7 @@ GEM
       railties (>= 3.0, < 5.1)
       roadie (~> 3.1)
     sass (3.4.23)
-    sassc (1.11.1)
+    sassc (1.11.2)
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
