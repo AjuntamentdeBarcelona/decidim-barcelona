@@ -24,7 +24,7 @@ describe CensusAuthorizationHandler do
     before do
       allow(handler)
         .to receive(:response)
-              .and_return(Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!)
+        .and_return(Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!)
     end
 
     context "without a document number" do

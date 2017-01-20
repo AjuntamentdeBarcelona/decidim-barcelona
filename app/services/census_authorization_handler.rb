@@ -35,7 +35,9 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def unique_id
-    Digest::MD5.hexdigest("#{document_number}-#{Rails.application.secrets.secret_key_base}")
+    Digest::MD5.hexdigest(
+      "#{document_number}-#{Rails.application.secrets.secret_key_base}"
+    )
   end
 
   private
