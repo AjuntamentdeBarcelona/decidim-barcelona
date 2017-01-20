@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "rails_helper"
 require "decidim/dev/test/authorization_shared_examples"
@@ -27,34 +28,54 @@ describe CensusAuthorizationHandler do
         .and_return(Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!)
     end
 
-    context "without a document number" do
-      let(:document_number) { nil }
+    describe "document_number" do
+      context "when it isn't present" do
+        let(:document_number) { nil }
 
-      it { is_expected.not_to be_valid }
+        it { is_expected.not_to be_valid }
+      end
+
+      context "with an invalid format" do
+        let(:document_number) { "(╯°□°）╯︵ ┻━┻" }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
-    context "without a document type" do
-      let(:document_type) { nil }
+    describe "document_type" do
+      context "when it isn't present" do
+        let(:document_type) { nil }
 
-      it { is_expected.not_to be_valid }
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when it has a weird value" do
+        let(:document_type) { :driver_license }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
-    context "when document type has a weird value" do
-      let(:document_type) { :driver_license }
+    describe "postal_code" do
+      context "when it isn't present" do
+        let(:postal_code) { nil }
 
-      it { is_expected.not_to be_valid }
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when it has an invalid format" do
+        let(:postal_code) { "(ヘ･_･)ヘ┳━┳" }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
-    context "without a postal_code" do
-      let(:postal_code) { nil }
+    describe "date_of_birth" do
+      context "when it isn't present" do
+        let(:date_of_birth) { nil }
 
-      it { is_expected.not_to be_valid }
-    end
-
-    context "without a document number" do
-      let(:date_of_birth) { nil }
-
-      it { is_expected.not_to be_valid }
+        it { is_expected.not_to be_valid }
+      end
     end
 
     context "when everything is fine" do
@@ -63,12 +84,24 @@ describe CensusAuthorizationHandler do
   end
 
   context "with an invalid response" do
-    before do
-      allow(handler)
-        .to receive(:response)
-        .and_return(Nokogiri::XML("Messed up response!").remove_namespaces!)
+    context "with a malformed response" do
+      before do
+        allow(handler)
+          .to receive(:response)
+          .and_return(Nokogiri::XML("Messed up response!").remove_namespaces!)
+      end
+
+      it { is_expected.to_not be_valid }
     end
 
-    it { is_expected.to_not be_valid }
+    context "with an invalid response code" do
+      before do
+        allow(handler)
+          .to receive(:response)
+          .and_return(Nokogiri::XML("<codiRetorn>02</codiRetorn>").remove_namespaces!)
+      end
+
+      it { is_expected.to_not be_valid }
+    end
   end
 end
