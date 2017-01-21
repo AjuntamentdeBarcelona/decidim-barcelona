@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: b836f3c69fb9a9e95a8a6ae6afd453c207330a63
+  revision: ff0624b979b14d54c0a17b1c3b2f2a96fbcbb201
   branch: refactor_authorizations
   specs:
     decidim (0.0.2)
