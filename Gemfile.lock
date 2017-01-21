@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 4977399e7c7f5581347bc5718085ecd740a08aa7
+  revision: b836f3c69fb9a9e95a8a6ae6afd453c207330a63
+  branch: refactor_authorizations
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)
@@ -245,7 +246,7 @@ GEM
     file_validators (2.1.0)
       activemodel (>= 3.0)
       mime-types (>= 1.0)
-    fog-aws (1.1.0)
+    fog-aws (1.2.0)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -546,12 +547,10 @@ DEPENDENCIES
   decidim!
   decidim-dev!
   faker
-  faraday
   fog-aws
   listen
   puma (~> 3.0)
   rails_12factor
-  rspec-rails (~> 3.5.0)
   spring
   spring-watcher-listen
   tzinfo-data

@@ -2,19 +2,17 @@ source "https://rubygems.org"
 
 ruby '2.4.0'
 
-gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_authorizations"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
-gem "faraday"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "rspec-rails", "~>3.5.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
 end
 
 group :development do
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_authorizations"
   gem 'web-console'
   gem 'listen'
   gem 'spring'
