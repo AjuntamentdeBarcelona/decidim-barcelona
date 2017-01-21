@@ -552,6 +552,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails_12factor
   rainbow (= 2.1.0)
+  rspec-rails
   spring
   spring-watcher-listen
   tzinfo-data
