@@ -10,7 +10,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
-  attribute :date_of_birth, DateTime
+  attribute :date_of_birth, Date
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -107,7 +107,7 @@ EOS
   def age
     return nil if date_of_birth.blank?
 
-    now = Time.now.utc.to_date
+    now = Date.current
     extra_year = (now.month > date_of_birth.month) || (
       now.month == date_of_birth.month && now.day >= date_of_birth.day
     )
