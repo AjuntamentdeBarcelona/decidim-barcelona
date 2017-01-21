@@ -10,6 +10,12 @@ branches:
   only:
     - master
 
+before_script:
+  - bundle exec rake db:setup
+
+env:
+  - RAILS_ENV=test
+
 cache:
   bundler: true
   directories:
