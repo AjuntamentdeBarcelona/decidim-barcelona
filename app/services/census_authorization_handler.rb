@@ -10,7 +10,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
-  attribute :date_of_birth, Date
+  attribute :date_of_birth, DateTime
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -43,17 +43,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   private
 
-  def response
-    return @response if defined?(@response)
-
-    response ||= Faraday.post Rails.application.secrets.census_url do |request|
-      request.headers["Content-Type"] = "text/xml"
-      request.body = request_body
-    end
-
-    @response ||= Nokogiri::XML(response.body).remove_namespaces!
-  end
-
   def sanitized_document_type
     case document_type&.to_sym
     when :dni
@@ -68,6 +57,29 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   def sanitized_date_of_birth
     @sanitized_date_of_birth ||= date_of_birth&.strftime("%Y%m%d")
   end
+
+  def document_type_valid
+    return nil if response.blank?
+
+    errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
+  end
+
+  def response
+    return nil if document_number.blank? ||
+                  document_type.blank? ||
+                  postal_code.blank? ||
+                  date_of_birth.blank?
+
+    return @response if defined?(@response)
+
+    response ||= Faraday.post Rails.application.secrets.census_url do |request|
+      request.headers["Content-Type"] = "text/xml"
+      request.body = request_body
+    end
+
+    @response ||= Nokogiri::XML(response.body).remove_namespaces!
+  end
+
 
   def request_body
     @request_body ||= <<EOS
@@ -88,17 +100,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 EOS
   end
 
-  def document_type_valid
-    errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
-  end
-
   def over_18
-    return true unless date_of_birth
-    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age >= 18
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age && age >= 18
   end
 
   def age
-    return nil unless date_of_birth
+    return nil if date_of_birth.blank?
 
     now = Time.now.utc.to_date
     extra_year = (now.month > date_of_birth.month) || (

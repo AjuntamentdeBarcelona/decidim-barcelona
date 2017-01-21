@@ -89,6 +89,35 @@ describe CensusAuthorizationHandler do
     end
   end
 
+  context "unique_id" do
+    it "generates a different ID for a different document number" do
+      handler.document_number = "ABC123"
+      unique_id1 = handler.unique_id
+
+      handler.document_number = "XYZ456"
+      unique_id2 = handler.unique_id
+
+      expect(unique_id1).to_not eq(unique_id2)
+    end
+
+    it "generates the same ID for the same document number" do
+      handler.document_number = "ABC123"
+      unique_id1 = handler.unique_id
+
+      handler.document_number = "ABC123"
+      unique_id2 = handler.unique_id
+
+      expect(unique_id1).to eq(unique_id2)
+    end
+
+    it "hashes the document number" do
+      handler.document_number = "ABC123"
+      unique_id = handler.unique_id
+
+      expect(unique_id).to_not include(handler.document_number)
+    end
+  end
+
   context "with an invalid response" do
     context "with a malformed response" do
       before do
