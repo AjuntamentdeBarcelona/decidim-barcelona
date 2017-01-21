@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 # Checks the authorization against the census for Barcelona.
-require 'digest/md5'
+require "digest/md5"
 
+# This class performs a check against the official census database in order
+# to verify the citizen's residence.
 class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
 
@@ -14,11 +16,9 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
   validates :document_number, format: { with: /\A[A-z0-9]*\z/ }, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]*\z/ }
-  validate :document_type_valid
 
-  def document_type_valid
-    errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
-  end
+  validate :document_type_valid
+  validate :over_18
 
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
@@ -86,5 +86,25 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   </soapenv:Body>
 </soapenv:Envelope>
 EOS
+  end
+
+  def document_type_valid
+    errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
+  end
+
+  def over_18
+    return true unless date_of_birth
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age >= 18
+  end
+
+  def age
+    return nil unless date_of_birth
+
+    now = Time.now.utc.to_date
+    now.year - date_of_birth.year - (
+      (now.month > date_of_birth.month || (
+         now.month == date_of_birth.month && now.day >= date_of_birth.day
+       )) ? 0 : 1
+    )
   end
 end

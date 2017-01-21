@@ -76,6 +76,12 @@ describe CensusAuthorizationHandler do
 
         it { is_expected.not_to be_valid }
       end
+
+      context "when it's under 18" do
+        let(:date_of_birth) { 15.years.from_now }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
     context "when everything is fine" do

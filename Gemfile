@@ -12,6 +12,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rainbow', "2.1.0"
   gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_authorizations"
   gem 'web-console'
   gem 'listen'
