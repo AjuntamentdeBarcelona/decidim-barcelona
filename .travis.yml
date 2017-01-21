@@ -11,7 +11,7 @@ branches:
     - master
 
 before_script:
-  - bundle exec rake db:schema:load
+  - bundle exec rake db:create db:schema:load
 
 env:
   - RAILS_ENV=test
