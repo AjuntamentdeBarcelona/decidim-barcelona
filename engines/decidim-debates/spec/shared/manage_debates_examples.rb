@@ -81,7 +81,6 @@ RSpec.shared_examples "manage debates" do
       fill_in :debate_start_time, with: 1.day.from_now
       fill_in :debate_end_time, with: 1.day.from_now + 2.hours
 
-      select scope.name, from: :debate_decidim_scope_id
       select translated(category.name), from: :debate_decidim_category_id
 
       find("*[type=submit]").click

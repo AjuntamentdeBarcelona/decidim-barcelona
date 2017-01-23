@@ -13,11 +13,4 @@ describe Decidim::Debates::Debate do
 
     it { is_expected.not_to be_valid }
   end
-
-  context "when the scope is from another organization" do
-    let(:scope) { create :scope }
-    let(:debate) { build :debate, scope: scope }
-
-    it { is_expected.not_to be_valid }
-  end
 end

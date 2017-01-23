@@ -52,7 +52,7 @@ describe "Explore debates", type: :feature do
       end
     end
 
-    context "without category or scope" do
+    context "without category" do
       it "does not show any tag" do
         expect(page).not_to have_selector("ul.tags.tags--debate")
       end
@@ -78,29 +78,6 @@ describe "Explore debates", type: :feature do
           click_link translated(debate.category.name)
         end
         expect(page).to have_select("filter_category_id", selected: translated(debate.category.name))
-      end
-    end
-
-    context "with a scope" do
-      let(:debate) do
-        debate = debates.first
-        debate.scope = create :scope, organization: organization
-        debate.save
-        debate
-      end
-
-      it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--debate")
-        within "ul.tags.tags--debate" do
-          expect(page).to have_content(debate.scope.name)
-        end
-      end
-
-      it "links to the filter for this scope" do
-        within "ul.tags.tags--debate" do
-          click_link debate.scope.name
-        end
-        expect(page).to have_checked_field(debate.scope.name)
       end
     end
   end

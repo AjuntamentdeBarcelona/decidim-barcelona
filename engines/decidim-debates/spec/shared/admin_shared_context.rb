@@ -5,7 +5,6 @@ RSpec.shared_context "admin" do
   let(:process_admin) { create :user, :confirmed, organization: organization }
   let!(:user_role) { create :participatory_process_user_role, user: process_admin, participatory_process: participatory_process }
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:debate) { create :debate, scope: scope, feature: current_feature }
 end

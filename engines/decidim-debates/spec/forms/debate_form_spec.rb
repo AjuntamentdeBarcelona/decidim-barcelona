@@ -18,32 +18,15 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:description) do
     Decidim::Faker::Localized.sentence(3)
   end
-  let(:short_description) do
-    Decidim::Faker::Localized.sentence(3)
-  end
-  let(:location) do
-    Decidim::Faker::Localized.sentence(3)
-  end
-  let(:location_hints) do
-    Decidim::Faker::Localized.sentence(3)
-  end
-  let(:address) { Faker::Lorem.sentence(3) }
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
-  let(:scope) { create :scope, organization: organization }
-  let(:scope_id) { scope.id }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {
-      decidim_scope_id: scope_id,
       decidim_category_id: category_id,
       title_en: title[:en],
       description_en: description[:en],
-      short_description_en: short_description[:en],
-      location_en: location[:en],
-      location_hints_en: location_hints[:en],
-      address: address,
       start_time: start_time,
       end_time: end_time
     }
@@ -61,24 +44,6 @@ describe Decidim::Debates::Admin::DebateForm do
 
   describe "when description is missing" do
     let(:description) { { en: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when short_description is missing" do
-    let(:short_description) { { en: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when location is missing" do
-    let(:location) { { en: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when address is missing" do
-    let(:address) { nil }
 
     it { is_expected.not_to be_valid }
   end
@@ -115,12 +80,6 @@ describe Decidim::Debates::Admin::DebateForm do
 
   describe "when start_time is equal to start_time" do
     let(:start_time) { end_time }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when the scope does not exist" do
-    let(:scope_id) { scope.id + 10 }
 
     it { is_expected.not_to be_valid }
   end

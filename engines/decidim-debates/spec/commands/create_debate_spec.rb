@@ -4,20 +4,14 @@ describe Decidim::Debates::Admin::CreateDebates do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process }
-  let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_process: debate.feature.participatory_process }
   let(:form) do
     double(
       :invalid? => invalid,
       title: {en: "title"},
       description: {en: "description"},
-      short_description: {en: "short_description"},
-      location: {en: "location"},
-      location_hints: {en: "location_hints"},
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      address: "address",
-      scope: scope,
       category: category,
       current_feature: current_feature
     )
