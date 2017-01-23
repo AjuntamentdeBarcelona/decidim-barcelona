@@ -1,0 +1,21 @@
+<div class="field">
+  <%= form.select :document_type, handler.census_document_types, prompt: true %>
+</div>
+
+<div class="field">
+  <%= form.text_field :document_number %>
+</div>
+
+<div class="field">
+  <%= form.text_field :postal_code %>
+</div>
+
+<div class="field">
+  <%= form.date_field :date_of_birth %>
+</div>
+
+<%= form.hidden_field :handler_name %>
+
+<div class="actions">
+  <%= form.submit t("authorize", scope: "decidim.authorizations.new"), class: "button expanded" %>
+</div>

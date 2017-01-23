@@ -12,16 +12,22 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rainbow', "2.1.0"
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'faker', '~> 1.6.6'
+  gem 'spring-watcher-listen'
+  gem 'faker'
 end
 
 group :production do
   gem "rails_12factor"
   gem "fog-aws"
+end
+
+group :test do
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

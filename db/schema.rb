@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119115629) do
+ActiveRecord::Schema.define(version: 20170121115257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,17 +110,18 @@ ActiveRecord::Schema.define(version: 20170119115629) do
   end
 
   create_table "decidim_organizations", force: :cascade do |t|
-    t.string   "name",                           null: false
-    t.string   "host",                           null: false
-    t.string   "default_locale",                 null: false
-    t.string   "available_locales", default: [],              array: true
+    t.string   "name",                             null: false
+    t.string   "host",                             null: false
+    t.string   "default_locale",                   null: false
+    t.string   "available_locales", default: [],                array: true
     t.jsonb    "welcome_text"
     t.string   "homepage_image"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.jsonb    "description"
     t.string   "logo"
     t.string   "twitter_handler"
+    t.boolean  "show_statistics",   default: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true, using: :btree
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true, using: :btree
   end
@@ -241,6 +242,25 @@ ActiveRecord::Schema.define(version: 20170119115629) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_decidim_system_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "decidim_user_group_memberships", force: :cascade do |t|
+    t.integer  "decidim_user_id",       null: false
+    t.integer  "decidim_user_group_id", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["decidim_user_group_id"], name: "index_decidim_user_group_memberships_on_decidim_user_group_id", using: :btree
+    t.index ["decidim_user_id", "decidim_user_group_id"], name: "decidim_user_group_memberships_unique_user_and_group_ids", unique: true, using: :btree
+    t.index ["decidim_user_id"], name: "index_decidim_user_group_memberships_on_decidim_user_id", using: :btree
+  end
+
+  create_table "decidim_user_groups", force: :cascade do |t|
+    t.string   "name",                            null: false
+    t.string   "document_number",                 null: false
+    t.string   "phone",                           null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "verified",        default: false
   end
 
   create_table "decidim_users", force: :cascade do |t|
