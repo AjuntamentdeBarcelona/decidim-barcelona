@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: ff0624b979b14d54c0a17b1c3b2f2a96fbcbb201
-  branch: refactor_authorizations
+  revision: 48991b99e60983af0db015263f1187cba93c55bc
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)
@@ -531,7 +530,7 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     wisper (1.6.1)

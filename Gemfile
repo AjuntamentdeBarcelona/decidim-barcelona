@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.0'
 
-gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_authorizations"
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,7 +13,7 @@ end
 
 group :development do
   gem 'rainbow', "2.1.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_authorizations"
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
   gem 'web-console'
   gem 'listen'
   gem 'spring'
