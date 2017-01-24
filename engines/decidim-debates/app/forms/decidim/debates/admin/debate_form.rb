@@ -6,7 +6,19 @@ module Decidim
       class DebateForm < Decidim::Form
         include TranslatableAttributes
 
-        # TODO: attributes and validates
+        translatable_attribute :title, String
+        translatable_attribute :description, String
+        attribute :start_time, DateTime
+        attribute :end_time, DateTime
+        attribute :decidim_category_id, Integer
+
+        validates :title, translatable_presence: true
+        validates :description, translatable_presence: true
+        validates :start_time, presence: true, date: { before: :end_time }
+        validates :end_time, presence: true, date: { after: :start_time }
+
+        validates :current_feature, presence: true
+        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def scope
           return unless current_feature

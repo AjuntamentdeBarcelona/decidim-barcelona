@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "decidim/debates/admin"
-require "decidim/debates/list_engine"
+require "decidim/debates/engine"
 require "decidim/debates/admin_engine"
 require "decidim/debates/feature"
 

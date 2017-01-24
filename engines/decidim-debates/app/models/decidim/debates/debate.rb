@@ -10,15 +10,10 @@ module Decidim
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       has_one :organization, through: :feature
 
-      validate :scope_belongs_to_organization
       validate :category_belongs_to_organization
+      validates :title, presence: true
 
       private
-
-      def scope_belongs_to_organization
-        return unless scope
-        errors.add(:scope, :invalid) unless feature.scopes.where(id: scope.id).exists?
-      end
 
       def category_belongs_to_organization
         return unless category

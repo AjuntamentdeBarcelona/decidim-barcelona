@@ -1,9 +1,6 @@
 ---
 en:
   decidim:
-    features:
-      debates:
-        name: Debates
     debates:
       actions:
         confirm_destroy: Are you sure you want to delete this debate?
@@ -49,3 +46,6 @@ en:
             end_time: End date
             start_time: Start date
             title: Title
+    features:
+      debates:
+        name: Debates
