@@ -23,7 +23,12 @@ module Decidim
 
         def create_debate
           Debate.create!(
-            # TODO: Params
+            category: @form.category,
+            title: @form.title,
+            description: @form.description,
+            end_time: @form.end_time,
+            start_time: @form.start_time,
+            feature: @form.current_feature
           )
         end
       end

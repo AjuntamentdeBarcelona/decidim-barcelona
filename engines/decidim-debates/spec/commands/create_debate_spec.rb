@@ -4,7 +4,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process }
-  let(:category) { create :category, participatory_process: debate.feature.participatory_process }
+  let(:category) { create :category, participatory_process: participatory_process }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -33,11 +33,6 @@ describe Decidim::Debates::Admin::CreateDebate do
 
     it "creates the debate" do
       expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
-    end
-
-    it "sets the scope" do
-      subject.call
-      expect(debate.scope).to eq scope
     end
 
     it "sets the category" do

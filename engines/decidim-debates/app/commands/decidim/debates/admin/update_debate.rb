@@ -28,7 +28,11 @@ module Decidim
 
         def update_debate
           @debate.update_attributes!(
-            # TODO: PARAMS
+            category: @form.category,
+            title: @form.title,
+            description: @form.description,
+            end_time: @form.end_time,
+            start_time: @form.start_time,
           )
         end
       end

@@ -32,11 +32,6 @@ describe Decidim::Debates::Admin::UpdateDebate do
       expect(translated(debate.title)).to eq "title"
     end
 
-    it "sets the scope" do
-      subject.call
-      expect(debate.scope).to eq scope
-    end
-
     it "sets the category" do
       subject.call
       expect(debate.category).to eq category
