@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125130555) do
+ActiveRecord::Schema.define(version: 20170127152304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 20170125130555) do
   end
 
   create_table "decidim_attachments", force: :cascade do |t|
-    t.jsonb    "title",           null: false
-    t.jsonb    "description",     null: false
-    t.string   "file",            null: false
-    t.string   "content_type",    null: false
-    t.string   "file_size",       null: false
-    t.integer  "attachable_id",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "attachable_type", null: false
-    t.index ["attachable_id", "attachable_type"], name: "index_decidim_attachments_on_attachable_id_and_attachable_type", using: :btree
+    t.jsonb    "title",            null: false
+    t.jsonb    "description",      null: false
+    t.string   "file",             null: false
+    t.string   "content_type",     null: false
+    t.string   "file_size",        null: false
+    t.integer  "attached_to_id",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "attached_to_type", null: false
+    t.index ["attached_to_id", "attached_to_type"], name: "index_decidim_attachments_on_attached_to", using: :btree
   end
 
   create_table "decidim_authorizations", force: :cascade do |t|
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170125130555) do
     t.jsonb   "name"
     t.integer "decidim_participatory_process_id"
     t.jsonb   "settings",                         default: {}
+    t.integer "weight",                           default: 0
     t.index ["decidim_participatory_process_id"], name: "index_decidim_features_on_decidim_participatory_process_id", using: :btree
   end
 
@@ -227,6 +228,20 @@ ActiveRecord::Schema.define(version: 20170125130555) do
     t.index ["to_type", "to_id"], name: "index_decidim_resource_links_on_to_type_and_to_id", using: :btree
   end
 
+  create_table "decidim_results_results", force: :cascade do |t|
+    t.jsonb    "title"
+    t.jsonb    "description"
+    t.jsonb    "short_description"
+    t.integer  "decidim_feature_id"
+    t.integer  "decidim_scope_id"
+    t.integer  "decidim_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["decidim_category_id"], name: "index_decidim_results_results_on_decidim_category_id", using: :btree
+    t.index ["decidim_feature_id"], name: "index_decidim_results_results_on_decidim_feature_id", using: :btree
+    t.index ["decidim_scope_id"], name: "index_decidim_results_results_on_decidim_scope_id", using: :btree
+  end
+
   create_table "decidim_scopes", force: :cascade do |t|
     t.string   "name",                    null: false
     t.integer  "decidim_organization_id"
@@ -320,7 +335,6 @@ ActiveRecord::Schema.define(version: 20170125130555) do
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "decidim_attachments", "decidim_participatory_processes", column: "attachable_id"
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
