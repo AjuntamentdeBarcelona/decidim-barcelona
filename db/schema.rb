@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125130555) do
+ActiveRecord::Schema.define(version: 20170125163933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 20170125130555) do
   end
 
   create_table "decidim_attachments", force: :cascade do |t|
-    t.jsonb    "title",           null: false
-    t.jsonb    "description",     null: false
-    t.string   "file",            null: false
-    t.string   "content_type",    null: false
-    t.string   "file_size",       null: false
-    t.integer  "attachable_id",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "attachable_type", null: false
-    t.index ["attachable_id", "attachable_type"], name: "index_decidim_attachments_on_attachable_id_and_attachable_type", using: :btree
+    t.jsonb    "title",            null: false
+    t.jsonb    "description",      null: false
+    t.string   "file",             null: false
+    t.string   "content_type",     null: false
+    t.string   "file_size",        null: false
+    t.integer  "attached_to_id",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "attached_to_type", null: false
+    t.index ["attached_to_id", "attached_to_type"], name: "index_decidim_attachments_on_attached_to", using: :btree
   end
 
   create_table "decidim_authorizations", force: :cascade do |t|
@@ -320,7 +320,6 @@ ActiveRecord::Schema.define(version: 20170125130555) do
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "decidim_attachments", "decidim_participatory_processes", column: "attachable_id"
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
