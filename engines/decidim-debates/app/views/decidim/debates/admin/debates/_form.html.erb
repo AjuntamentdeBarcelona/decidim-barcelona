@@ -1,0 +1,19 @@
+<div class="field" >
+  <%= form.translated :text_field, :title, autofocus: true %>
+</div>
+
+<div class="field" >
+  <%= form.translated :editor, :description %>
+</div>
+
+<div class="field" >
+  <%= form.datetime_field :start_time %>
+</div>
+
+<div class="field" >
+  <%= form.datetime_field :end_time %>
+</div>
+
+<div class="field" >
+  <%= form.categories_select :decidim_category_id, current_participatory_process.categories, prompt: "", disable_parents: false %>
+</div>

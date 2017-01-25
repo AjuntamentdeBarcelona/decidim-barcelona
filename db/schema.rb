@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 20170127152738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "debates", force: :cascade do |t|
+    t.jsonb    "string"
+    t.jsonb    "text"
+    t.datetime "open_date"
+    t.datetime "close_date"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
     t.integer  "decidim_participatory_process_id"
