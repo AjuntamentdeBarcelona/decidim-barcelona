@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 48991b99e60983af0db015263f1187cba93c55bc
+  revision: 0d285abfe7341a4084b905bb9970348cb2906a2e
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)
@@ -275,7 +275,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.4.1)
+    graphql (1.4.2)
     hashie (3.4.6)
     high_voltage (3.0.0)
     highline (1.7.8)
@@ -421,7 +421,7 @@ GEM
       activesupport (>= 4.1.0)
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
-    redis (3.3.2)
+    redis (3.3.3)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     roadie (3.2.1)
@@ -481,7 +481,7 @@ GEM
     simplecov-html (0.10.0)
     social-share-button (0.8.8)
       coffee-rails
-    spring (2.0.0)
+    spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
