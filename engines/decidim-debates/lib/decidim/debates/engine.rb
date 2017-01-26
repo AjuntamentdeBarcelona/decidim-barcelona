@@ -7,7 +7,7 @@ module Decidim
     # This is the engine that runs on the public interface of `decidim-debates`.
     # It mostly handles rendering the created debate associated to a participatory
     # process.
-    class ListEngine < ::Rails::Engine
+    class Engine < ::Rails::Engine
       isolate_namespace Decidim::Debates
 
       routes do

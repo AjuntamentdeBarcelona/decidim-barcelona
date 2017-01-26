@@ -3,7 +3,7 @@
 require_dependency "decidim/features/namer"
 
 Decidim.register_feature(:debates) do |feature|
-  feature.engine = Decidim::Debates::ListEngine
+  feature.engine = Decidim::Debates::Engine
   feature.admin_engine = Decidim::Debates::AdminEngine
   feature.icon = "decidim/debates/icon.svg"
 
@@ -24,20 +24,13 @@ Decidim.register_feature(:debates) do |feature|
       3.times do
         debate = Decidim::Debates::Debate.create!(
           feature: feature,
-          scope: process.organization.scopes.sample,
           category: process.categories.sample,
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
-          location: Decidim::Faker::Localized.sentence,
-          location_hints: Decidim::Faker::Localized.sentence,
           start_time: 3.weeks.from_now,
-          end_time: 3.weeks.from_now + 4.hours,
-          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
+          end_time: 3.weeks.from_now + 4.hours
         )
 
         Decidim::Comments::Seed.comments_for(debate)

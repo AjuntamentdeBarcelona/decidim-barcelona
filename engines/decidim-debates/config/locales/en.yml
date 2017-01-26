@@ -46,6 +46,7 @@ en:
             end_time: End date
             start_time: Start date
             title: Title
+            official_debate: Official debate
     features:
       debates:
         name: Debates

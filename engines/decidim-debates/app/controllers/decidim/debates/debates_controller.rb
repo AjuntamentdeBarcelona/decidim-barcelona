@@ -34,7 +34,6 @@ module Decidim
       def default_filter_params
         {
           order_start_time: "asc",
-          scope_id: "",
           category_id: ""
         }
       end

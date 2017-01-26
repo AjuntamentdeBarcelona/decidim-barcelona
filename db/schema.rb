@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20170127152738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "debates", force: :cascade do |t|
-    t.jsonb    "string"
-    t.jsonb    "text"
-    t.datetime "open_date"
-    t.datetime "close_date"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
     t.integer  "decidim_participatory_process_id"
@@ -91,6 +81,24 @@ ActiveRecord::Schema.define(version: 20170127152738) do
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at", using: :btree
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author", using: :btree
     t.index ["decidim_commentable_type", "decidim_commentable_id"], name: "decidim_comments_comment_commentable", using: :btree
+  end
+
+  create_table "decidim_debates_debates", force: :cascade do |t|
+    t.jsonb    "title"
+    t.jsonb    "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "image"
+    t.integer  "decidim_feature_id"
+    t.integer  "decidim_author_id"
+    t.integer  "decidim_scope_id"
+    t.integer  "decidim_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["decidim_author_id"], name: "index_decidim_debates_debates_on_decidim_author_id", using: :btree
+    t.index ["decidim_category_id"], name: "index_decidim_debates_debates_on_decidim_category_id", using: :btree
+    t.index ["decidim_feature_id"], name: "index_decidim_debates_debates_on_decidim_feature_id", using: :btree
+    t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id", using: :btree
   end
 
   create_table "decidim_features", force: :cascade do |t|
