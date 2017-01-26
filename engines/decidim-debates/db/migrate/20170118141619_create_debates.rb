@@ -3,6 +3,7 @@ class CreateDebates < ActiveRecord::Migration[5.0]
     create_table :decidim_debates_debates do |t|
       t.jsonb :title
       t.jsonb :description
+      t.jsonb :instructions
       t.datetime :start_time
       t.datetime :end_time
       t.string :image
