@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125163933) do
+ActiveRecord::Schema.define(version: 20170126132424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170125163933) do
     t.jsonb   "name"
     t.integer "decidim_participatory_process_id"
     t.jsonb   "settings",                         default: {}
+    t.integer "weight",                           default: 0
     t.index ["decidim_participatory_process_id"], name: "index_decidim_features_on_decidim_participatory_process_id", using: :btree
   end
 
