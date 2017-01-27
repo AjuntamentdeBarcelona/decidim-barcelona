@@ -1,5 +1,5 @@
-<% content_for :meta_description, debate.description %>
-<% content_for :meta_title, debate.title %>
+<% content_for :meta_description, translated_attribute(debate.description) %>
+<% content_for :meta_title, translated_attribute(debate.title) %>
 <% content_for :meta_url, debate_url(debate.id) %>
 <% content_for :twitter_handler, current_organization.twitter_handler %>
 
@@ -9,13 +9,9 @@
       <%== translated_attribute debate.title %>
     </h2>
     <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
-      <div class="author-data">
-        <div class="author-data__extra">
-          <a href="#comments" title="<%= t('.comments') %>">
-            <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
-          </a>
-        </div>
-      </div>
+      <a href="#comments" title="<%= t('.comments') %>">
+        <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
+      </a>
     <% end %>
   </div>
   <div class="row">
@@ -49,7 +45,7 @@
 
 <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
   <%= content_for :expanded do %>
-    <%= comments_for debate, arguable: true, votable: true %>
+    <%= comments_for debate, arguable: false, votable: true %>
   <% end %>
 <% end %>
 

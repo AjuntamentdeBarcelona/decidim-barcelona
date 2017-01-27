@@ -9,7 +9,7 @@ module Decidim
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       has_one :organization, through: :feature
-      has_many :comments, as: :commentable
+      has_many :comments, as: :decidim_commentable, class_name: Decidim::Comments::Comment
 
       validate :category_belongs_to_organization
       validates :title, presence: true

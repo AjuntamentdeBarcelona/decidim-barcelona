@@ -11,9 +11,9 @@
         <article class="card card--debate">
           <div class="card__content">
             <div class="card__header">
-              <a href="/debate-view-AMA" class="card__link">
+              <%= link_to decidim_debates.debate_path(debate), class: "card__link" do %>
                 <h5 class="card__title"><%= translated_attribute debate.title %></h5>
-              </a>
+              <% end %>
             </div>
             <div class="card__datetime">
               <div class="card__datetime__date">
