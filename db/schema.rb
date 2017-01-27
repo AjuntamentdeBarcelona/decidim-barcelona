@@ -86,19 +86,18 @@ ActiveRecord::Schema.define(version: 20170127152738) do
   create_table "decidim_debates_debates", force: :cascade do |t|
     t.jsonb    "title"
     t.jsonb    "description"
+    t.jsonb    "instructions"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "image"
     t.integer  "decidim_feature_id"
     t.integer  "decidim_author_id"
-    t.integer  "decidim_scope_id"
     t.integer  "decidim_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["decidim_author_id"], name: "index_decidim_debates_debates_on_decidim_author_id", using: :btree
     t.index ["decidim_category_id"], name: "index_decidim_debates_debates_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_debates_debates_on_decidim_feature_id", using: :btree
-    t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id", using: :btree
   end
 
   create_table "decidim_features", force: :cascade do |t|

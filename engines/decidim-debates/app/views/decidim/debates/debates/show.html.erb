@@ -55,21 +55,11 @@
     </div>
   </div>
 </div>
-<div class="expanded">
-  <div class="wrapper wrapper--inner">
-    <div class="row">
-      <div class="columns large-9" id="comments">
-        <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
-          <%= content_for :expanded do %>
-            <%= comments_for @page, arguable: true, votable: true %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%= render partial: "decidim/shared/login_modal" %>
+<% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
+  <%= content_for :expanded do %>
+    <%= comments_for debate, arguable: true, votable: true %>
+  <% end %>
+<% end %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
