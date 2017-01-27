@@ -9,7 +9,6 @@ class CreateDebates < ActiveRecord::Migration[5.0]
       t.datetime :end_time
       t.string :image
       t.references :decidim_feature, index: true
-      t.references :decidim_author, index: true
       t.references :decidim_category, index: true
 
       t.timestamps

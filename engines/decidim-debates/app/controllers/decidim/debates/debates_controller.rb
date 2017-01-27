@@ -8,8 +8,6 @@ module Decidim
 
       helper_method :debates, :debate
 
-      def index; end
-
       private
 
       def debates

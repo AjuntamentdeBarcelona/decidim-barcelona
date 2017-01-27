@@ -14,19 +14,6 @@
               <a href="/debate-view-AMA" class="card__link">
                 <h5 class="card__title"><%= translated_attribute debate.title %></h5>
               </a>
-              <div class="card__author author-data author-data--small">
-                <div class="author-data__main">
-                  <div class="author author--inline">
-                    <a href="#" class="author__avatar author__avatar--small">
-                      <img src="<%= debate.author_avatar_url %>" alt="">
-                    </a>
-                    <a href="#" class="author__name">
-                      <%= debate.author_name %>
-                    </a>
-                    <%= l debate.created_at, format: "%d/%m/%Y" %>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="card__datetime">
               <div class="card__datetime__date">

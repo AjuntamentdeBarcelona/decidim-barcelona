@@ -9,17 +9,6 @@
       <%== translated_attribute debate.title %>
     </h2>
     <div class="author-data">
-      <div class="author-data__main">
-        <div class="author author--inline">
-          <a href="#" class="author__avatar">
-            <img src="<%= debate.author_avatar_url %>" alt="">
-          </a>
-          <%= l debate.created_at, format: :long %>
-          <a href="#" class="author__name">
-            <%= debate.author_name %>
-          </a>
-        </div>
-      </div>
       <div class="author-data__extra">
         <a href="#comments" title="<%= t('.comments') %>">
           <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= Decidim::Comments::Comment.where(commentable: debate).count %>
