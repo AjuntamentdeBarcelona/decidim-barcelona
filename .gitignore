@@ -18,3 +18,4 @@
 
 **/spec/*_dummy_app
 /public/uploads/*
+.DS_Store
