@@ -11,7 +11,7 @@
     <div class="author-data">
       <div class="author-data__extra">
         <a href="#comments" title="<%= t('.comments') %>">
-          <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= Decidim::Comments::Comment.where(commentable: debate).count %>
+          <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
         </a>
       </div>
     </div>
