@@ -8,13 +8,15 @@
     <h2 class="heading2">
       <%== translated_attribute debate.title %>
     </h2>
-    <div class="author-data">
-      <div class="author-data__extra">
-        <a href="#comments" title="<%= t('.comments') %>">
-          <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
-        </a>
+    <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
+      <div class="author-data">
+        <div class="author-data__extra">
+          <a href="#comments" title="<%= t('.comments') %>">
+            <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
+          </a>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
