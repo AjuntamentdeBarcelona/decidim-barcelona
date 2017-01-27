@@ -38,8 +38,15 @@ en:
           scopes: Scopes
         index:
           title: Debates
+          open_debates: Open debates
+          participate: Participate
         show:
+          comments: Comments
           debate_description: Debate description
+        share:
+          close_window: Close window
+          share: Share
+          share_link: Share link
       models:
         debate:
           fields:

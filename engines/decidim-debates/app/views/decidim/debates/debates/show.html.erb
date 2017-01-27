@@ -6,7 +6,7 @@
 <div class="wrapper">
   <div class="row column view-header">
     <h2 class="heading2">
-      La proposta inicial del Pla Municipal elaborat per l'Ajuntament de Barcelona
+      <%== translated_attribute debate.title %>
     </h2>
     <div class="author-data">
       <div class="author-data__main">
@@ -21,8 +21,8 @@
         </div>
       </div>
       <div class="author-data__extra">
-        <a href="#comments" title="Comentarios">
-          <%= icon "comment-square", aria_label: "Comentarios", role: "img" %> 108
+        <a href="#comments" title="<%= t('.comments') %>">
+          <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= Decidim::Comments::Comment.where(commentable: debate).count %>
         </a>
       </div>
     </div>
@@ -55,6 +55,7 @@
     </div>
   </div>
 </div>
+
 <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
   <%= content_for :expanded do %>
     <%= comments_for debate, arguable: true, votable: true %>
