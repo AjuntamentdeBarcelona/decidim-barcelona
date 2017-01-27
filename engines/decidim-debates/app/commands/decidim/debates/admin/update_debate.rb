@@ -33,7 +33,7 @@ module Decidim
             description: @form.description,
             instructions: @form.instructions,
             end_time: @form.end_time,
-            start_time: @form.start_time,
+            start_time: @form.start_time
           )
         end
       end

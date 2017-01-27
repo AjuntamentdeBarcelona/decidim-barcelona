@@ -1,18 +1,19 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Debates::Admin::UpdateDebate do
-  let(:debate) { create :debate}
+  let(:debate) { create :debate }
   let(:organization) { debate.feature.organization }
   let(:category) { create :category, participatory_process: debate.feature.participatory_process }
   let(:form) do
     double(
-      :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
-      instructions: {en: "instructions"},
+      invalid?: invalid,
+      title: { en: "title" },
+      description: { en: "description" },
+      instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      category: category,
+      category: category
     )
   end
   let(:invalid) { false }

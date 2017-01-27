@@ -17,8 +17,8 @@ describe Decidim::Debates::Debate do
   end
 
   context "when the author is from another organization" do
-    subject { build(:debate, author: create(:user))}
+    subject { build(:debate, author: create(:user)) }
 
-    it { is_expected.to be_invalid}
+    it { is_expected.to be_invalid }
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe "Explore debates", type: :feature do
@@ -27,7 +28,7 @@ describe "Explore debates", type: :feature do
       expect(page).to have_selector("article.card", count: debates_count)
 
       debates.each do |debate|
-        expect(page).to have_content(translated debate.title)
+        expect(page).to have_content(translated(debate.title))
       end
     end
   end

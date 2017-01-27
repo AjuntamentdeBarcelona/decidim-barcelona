@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Debates::DebateSearch do
@@ -33,7 +34,7 @@ describe Decidim::Debates::DebateSearch do
       let(:default_params) { { feature: nil } }
 
       it "raises an error" do
-        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
+        expect { subject.results }.to raise_error(StandardError, "Missing feature")
       end
     end
   end
