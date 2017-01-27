@@ -8,12 +8,14 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
+        translatable_attribute :instructions, String
         attribute :start_time, DateTime
         attribute :end_time, DateTime
         attribute :decidim_category_id, Integer
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
+        validates :instructions, translatable_presence: true
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 

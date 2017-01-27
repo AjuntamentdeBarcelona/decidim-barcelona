@@ -23,16 +23,6 @@ module Decidim
         author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
       end
 
-      # Public: Canpeople comment on this debate?
-      #
-      # Until we have a way to store options fore features and its resources we
-      # assume all debates can be commented.
-      #
-      # Returns Boolean
-      def commentable?
-        true
-      end
-
       private
 
       def author_belongs_to_organization

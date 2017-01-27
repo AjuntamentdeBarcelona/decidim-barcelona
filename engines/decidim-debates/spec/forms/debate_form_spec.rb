@@ -18,6 +18,9 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:description) do
     Decidim::Faker::Localized.sentence(3)
   end
+  let(:instructions) do
+    Decidim::Faker::Localized.sentence(3)
+  end
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:category) { create :category, participatory_process: participatory_process }
@@ -27,6 +30,7 @@ describe Decidim::Debates::Admin::DebateForm do
       decidim_category_id: category_id,
       title_en: title[:en],
       description_en: description[:en],
+      instructions_en: instructions[:en],
       start_time: start_time,
       end_time: end_time
     }
@@ -44,6 +48,12 @@ describe Decidim::Debates::Admin::DebateForm do
 
   describe "when description is missing" do
     let(:description) { { en: nil } }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when instructions is missing" do
+    let(:instructions) { { en: nil } }
 
     it { is_expected.not_to be_valid }
   end

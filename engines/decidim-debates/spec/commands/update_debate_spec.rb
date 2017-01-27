@@ -9,6 +9,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       :invalid? => invalid,
       title: {en: "title"},
       description: {en: "description"},
+      instructions: {en: "instructions"},
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       category: category,

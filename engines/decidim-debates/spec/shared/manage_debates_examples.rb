@@ -49,33 +49,19 @@ RSpec.shared_examples "manage debates" do
         es: "Mi debate",
         ca: "El meu debate"
       )
-      fill_in_i18n(
-        :debate_location,
-        "#location-tabs",
-        en: "Location",
-        es: "Location",
-        ca: "Location"
-      )
-      fill_in_i18n(
-        :debate_location_hints,
-        "#location_hints-tabs",
-        en: "Location hints",
-        es: "Location hints",
-        ca: "Location hints"
-      )
-      fill_in_i18n_editor(
-        :debate_short_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
-      )
       fill_in_i18n_editor(
         :debate_description,
         "#description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
+      )
+      fill_in_i18n_editor(
+        :debate_instructions,
+        "#instructions-tabs",
+        en: "A longer instructions",
+        es: "Instrucciones más largas",
+        ca: "Instruccions més llargues"
       )
 
       fill_in :debate_start_time, with: 1.day.from_now

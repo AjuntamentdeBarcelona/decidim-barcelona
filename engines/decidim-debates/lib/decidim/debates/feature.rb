@@ -37,6 +37,9 @@ Decidim.register_feature(:debates) do |feature|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
+          instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours
         )
