@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127152738) do
+ActiveRecord::Schema.define(version: 20170128150948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,11 +91,9 @@ ActiveRecord::Schema.define(version: 20170127152738) do
     t.datetime "end_time"
     t.string   "image"
     t.integer  "decidim_feature_id"
-    t.integer  "decidim_author_id"
     t.integer  "decidim_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["decidim_author_id"], name: "index_decidim_debates_debates_on_decidim_author_id", using: :btree
     t.index ["decidim_category_id"], name: "index_decidim_debates_debates_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_debates_debates_on_decidim_feature_id", using: :btree
   end
@@ -110,9 +108,11 @@ ActiveRecord::Schema.define(version: 20170127152738) do
   end
 
   create_table "decidim_identities", force: :cascade do |t|
-    t.string  "provider",        null: false
-    t.string  "uid",             null: false
-    t.integer "decidim_user_id", null: false
+    t.string   "provider",        null: false
+    t.string   "uid",             null: false
+    t.integer  "decidim_user_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["decidim_user_id"], name: "index_decidim_identities_on_decidim_user_id", using: :btree
     t.index ["provider", "uid"], name: "index_decidim_identities_on_provider_and_uid", unique: true, using: :btree
   end
@@ -200,6 +200,10 @@ ActiveRecord::Schema.define(version: 20170127152738) do
     t.string   "banner_image"
     t.boolean  "promoted",                default: false
     t.datetime "published_at"
+    t.jsonb    "domain"
+    t.date     "end_date"
+    t.string   "developer_group"
+    t.jsonb    "scope"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
   end
@@ -304,13 +308,13 @@ ActiveRecord::Schema.define(version: 20170127152738) do
   end
 
   create_table "decidim_user_groups", force: :cascade do |t|
-    t.string   "name",                            null: false
-    t.string   "document_number",                 null: false
-    t.string   "phone",                           null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "verified",        default: false
+    t.string   "name",            null: false
+    t.string   "document_number", null: false
+    t.string   "phone",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "avatar"
+    t.datetime "verified_at"
   end
 
   create_table "decidim_users", force: :cascade do |t|
