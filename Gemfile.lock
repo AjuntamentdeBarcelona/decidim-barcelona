@@ -216,6 +216,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    connection_pool (2.2.1)
     css_parser (1.4.7)
       addressable
     database_cleaner (1.5.3)
@@ -387,6 +388,8 @@ GEM
     puma (3.7.0)
     rack (2.0.1)
     rack-cors (0.4.0)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.1)
@@ -488,6 +491,11 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
+    sidekiq (4.2.9)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -564,6 +572,7 @@ DEPENDENCIES
   rails_12factor
   rainbow (= 2.1.0)
   rspec-rails
+  sidekiq
   spring
   spring-watcher-listen
   tzinfo-data
