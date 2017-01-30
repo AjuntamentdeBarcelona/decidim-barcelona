@@ -4,6 +4,7 @@ module Decidim
   module Debates
     # Exposes the debate resource so users can view them
     class DebatesController < Decidim::Debates::ApplicationController
+      helper Decidim::ApplicationHelper
       include FilterResource
 
       helper_method :debates, :debate
