@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: a4d6eebf412a4a82ff41f4625b63689c26fe4c94
-  branch: fix/changes_for_migration
+  revision: c9ace4174deac9a85795be6c1e6f24076f0e77a8
   specs:
     decidim (0.0.2)
       decidim-admin (= 0.0.2)

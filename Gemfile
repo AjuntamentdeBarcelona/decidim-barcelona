@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.0'
 
-gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "fix/changes_for_migration"
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
 gem "decidim-debates", path: "engines/decidim-debates"
 
 gem 'puma', '~> 3.0'
@@ -15,7 +15,7 @@ end
 group :development do
   gem "progressbar"
   gem 'rainbow', "2.1.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "fix/changes_for_migration"
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
   gem 'web-console'
   gem 'listen'
   gem 'spring'
