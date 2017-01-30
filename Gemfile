@@ -5,7 +5,6 @@ ruby '2.4.0'
 gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "fix/changes_for_migration"
 gem "decidim-debates", path: "engines/decidim-debates"
 
-gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
@@ -24,6 +23,7 @@ group :development do
 end
 
 group :production do
+  gem "passenger"
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
