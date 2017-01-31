@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130181238) do
+ActiveRecord::Schema.define(version: 20170131183026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,9 @@ ActiveRecord::Schema.define(version: 20170130181238) do
     t.integer  "proposal_votes_count",  default: 0, null: false
     t.integer  "decidim_user_group_id"
     t.jsonb    "extra"
+    t.string   "state"
+    t.datetime "answered_at"
+    t.jsonb    "answer"
     t.index ["body"], name: "decidim_proposals_proposal_body_search", using: :btree
     t.index ["decidim_author_id"], name: "index_decidim_proposals_proposals_on_decidim_author_id", using: :btree
     t.index ["decidim_category_id"], name: "index_decidim_proposals_proposals_on_decidim_category_id", using: :btree
