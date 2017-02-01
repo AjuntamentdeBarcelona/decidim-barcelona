@@ -35,6 +35,12 @@ namespace :import do
           body: proposal_data.fetch("body"),
           created_at: proposal_data.fetch("created_at"),
           updated_at: proposal_data.fetch("updated_at"),
+          answer: {
+            ca: proposal_data.fetch("answer"),
+            es: proposal_data.fetch("answer")
+          },
+          state: proposal_data.fetch("state"),
+          answered_at: proposal_data.fetch("answered_at"),
           extra: proposal_data.fetch("extra")
         )
 
