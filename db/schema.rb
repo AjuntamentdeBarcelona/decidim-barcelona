@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131183026) do
+ActiveRecord::Schema.define(version: 20170201151658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,40 @@ ActiveRecord::Schema.define(version: 20170131183026) do
     t.string   "unique_id"
     t.index ["decidim_user_id", "name"], name: "index_decidim_authorizations_on_decidim_user_id_and_name", unique: true, using: :btree
     t.index ["decidim_user_id"], name: "index_decidim_authorizations_on_decidim_user_id", using: :btree
+  end
+
+  create_table "decidim_budgets_line_items", force: :cascade do |t|
+    t.integer "decidim_order_id"
+    t.integer "decidim_project_id"
+    t.index ["decidim_order_id", "decidim_project_id"], name: "decidim_budgets_line_items_order_project_unique", unique: true, using: :btree
+    t.index ["decidim_order_id"], name: "index_decidim_budgets_line_items_on_decidim_order_id", using: :btree
+    t.index ["decidim_project_id"], name: "index_decidim_budgets_line_items_on_decidim_project_id", using: :btree
+  end
+
+  create_table "decidim_budgets_orders", force: :cascade do |t|
+    t.integer  "decidim_user_id"
+    t.integer  "decidim_feature_id"
+    t.datetime "checked_out_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["decidim_feature_id"], name: "index_decidim_budgets_orders_on_decidim_feature_id", using: :btree
+    t.index ["decidim_user_id", "decidim_feature_id"], name: "decidim_budgets_order_user_feature_unique", unique: true, using: :btree
+    t.index ["decidim_user_id"], name: "index_decidim_budgets_orders_on_decidim_user_id", using: :btree
+  end
+
+  create_table "decidim_budgets_projects", force: :cascade do |t|
+    t.jsonb    "title"
+    t.jsonb    "description"
+    t.jsonb    "short_description"
+    t.integer  "budget",              null: false
+    t.integer  "decidim_feature_id"
+    t.integer  "decidim_scope_id"
+    t.integer  "decidim_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["decidim_category_id"], name: "index_decidim_budgets_projects_on_decidim_category_id", using: :btree
+    t.index ["decidim_feature_id"], name: "index_decidim_budgets_projects_on_decidim_feature_id", using: :btree
+    t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id", using: :btree
   end
 
   create_table "decidim_categories", force: :cascade do |t|
