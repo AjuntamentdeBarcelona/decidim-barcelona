@@ -28,6 +28,7 @@ group :production do
   gem "rails_12factor"
   gem "fog-aws"
   gem "newrelic_rpm"
+  gem "dalli"
 end
 
 group :test do
