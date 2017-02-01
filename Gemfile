@@ -27,6 +27,7 @@ group :production do
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
+  gem "newrelic_rpm"
 end
 
 group :test do
