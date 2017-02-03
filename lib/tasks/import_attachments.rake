@@ -14,14 +14,18 @@ namespace :import do
       next unless attachment_data["remote_file_url"]
 
       attachment = Decidim::Attachment.new(
-        id: attachment_data.fetch("id"),
         attached_to: process,
         remote_file_url: attachment_data.fetch("remote_file_url"),
         description: attachment_data.fetch("description"),
         title: attachment_data.fetch("title")
       )
 
-      attachment.save!(validate: false)
+      begin
+        attachment.save!(validate: false)
+      rescue ActiveRecord::StatementInvalid, ActiveRecord::RecordInvalid
+        nil
+      end
+
       progress_bar.increment
     end
 
