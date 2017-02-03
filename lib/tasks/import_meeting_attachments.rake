@@ -19,7 +19,11 @@ namespace :import do
           remote_file_url: attachment_data.fetch("remote_file_url"),
         )
 
-        attachment.save!(validate: false)
+        begin
+          attachment.save!(validate: false)
+        rescue ActiveRecord::StatementInvalid, ActiveRecord::RecordInvalid
+          nil
+        end
       end
 
       progress_bar.increment
