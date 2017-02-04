@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201151658) do
+ActiveRecord::Schema.define(version: 20170204160440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -363,18 +363,18 @@ ActiveRecord::Schema.define(version: 20170201151658) do
   end
 
   create_table "decidim_users", force: :cascade do |t|
-    t.string   "email",                   default: ""
-    t.string   "encrypted_password",      default: "", null: false
+    t.string   "email",                    default: ""
+    t.string   "encrypted_password",       default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",           default: 0,  null: false
+    t.integer  "sign_in_count",            default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -382,9 +382,9 @@ ActiveRecord::Schema.define(version: 20170201151658) do
     t.integer  "invitation_limit"
     t.string   "invited_by_type"
     t.integer  "invited_by_id"
-    t.integer  "invitations_count",       default: 0
+    t.integer  "invitations_count",        default: 0
     t.integer  "decidim_organization_id"
-    t.string   "roles",                   default: [],              array: true
+    t.string   "roles",                    default: [],                 array: true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -394,6 +394,9 @@ ActiveRecord::Schema.define(version: 20170201151658) do
     t.string   "avatar"
     t.jsonb    "extra"
     t.datetime "imported_erased_at"
+    t.boolean  "comments_notifications",   default: false, null: false
+    t.boolean  "replies_notifications",    default: false, null: false
+    t.boolean  "newsletter_notifications", default: false, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id", using: :btree
     t.index ["email"], name: "index_unique_user_on_email_not_erased", unique: true, where: "(imported_erased_at IS NULL)", using: :btree
