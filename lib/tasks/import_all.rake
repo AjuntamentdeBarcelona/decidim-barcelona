@@ -26,6 +26,9 @@ Entra, participa y decide."
       }
     )
 
+    puts "Importing pages..."
+    Rake::Task["import:pages"].invoke
+
     puts "Importing users..."
     Rake::Task["import:users"].invoke
 
@@ -59,12 +62,12 @@ Entra, participa y decide."
     puts "Importing comments..."
     Rake::Task["import:comments"].invoke
 
-    puts "Data importing finished! Let's update attachments now - that could take a while!"
+    # puts "Data importing finished! Let's update attachments now - that could take a while!"
 
-    puts "Importing attachments..."
-    Rake::Task["import:attachments"].invoke
+    # puts "Importing attachments..."
+    # Rake::Task["import:attachments"].invoke
 
-    puts "Importing meeting attachments..."
-    Rake::Task["import:meeting_attachments"].invoke
+    # puts "Importing meeting attachments..."
+    # Rake::Task["import:meeting_attachments"].invoke
   end
 end
