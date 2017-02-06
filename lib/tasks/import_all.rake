@@ -8,7 +8,7 @@ namespace :import do
       host: "decidim-barcelona.herokuapp.com",
       available_locales: ["ca", "es"],
       default_locale: "ca",
-      remote_homepage_image_url: "https://decidim.barcelona/assets/hero-home-0db7332ec7fbcc9af56c7dde8df3716ce8227d6044ad5f74476ad2dc70793d63.jpg",
+      remote_homepage_image_url: "https://github.com/AjuntamentdeBarcelona/decidim.barcelona/raw/master/app/assets/images/hero-home.jpg",
       remote_logo_url: "https://i.imgur.com/tHG04IS.png",
       twitter_handler: "decidimbcn",
       favicon: File.new(Rails.root.join("app", "assets", "images", "barcelona", "favicon.png")),
