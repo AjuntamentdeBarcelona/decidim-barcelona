@@ -25,6 +25,8 @@ namespace :import do
           attributes.update(attribute => user_data.fetch(attribute.to_s))
         end
 
+        user_attributes[:newsletter_notifications] = user_data.fetch("extra").fetch("newsletter")
+
         user = Decidim::User.new(user_attributes)
         user.organization = organization
         user.imported_erased_at = user_data.fetch("extra").fetch("erased_at")
