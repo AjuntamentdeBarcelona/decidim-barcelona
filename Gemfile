@@ -29,6 +29,7 @@ group :production do
   gem "fog-aws"
   gem "newrelic_rpm"
   gem "dalli"
+  gem "sentry-raven"
 end
 
 group :test do

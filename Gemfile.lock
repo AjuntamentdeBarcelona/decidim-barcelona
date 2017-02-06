@@ -518,6 +518,8 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
+    sentry-raven (2.3.0)
+      faraday (>= 0.7.6, < 1.0)
     sidekiq (4.2.9)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -602,6 +604,7 @@ DEPENDENCIES
   rails_12factor
   rainbow (= 2.1.0)
   rspec-rails
+  sentry-raven
   sidekiq
   spring
   spring-watcher-listen
