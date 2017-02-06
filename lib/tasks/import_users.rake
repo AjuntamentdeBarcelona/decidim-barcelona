@@ -25,7 +25,9 @@ namespace :import do
           attributes.update(attribute => user_data.fetch(attribute.to_s))
         end
 
-        user_attributes[:newsletter_notifications] = user_data.fetch("extra").fetch("newsletter")
+        user_attributes[:newsletter_notifications] = user_data.dig("extra", "flags").fetch("newsletter")
+        user_attributes[:comments_notifications] = user_data.dig("extra", "flags").fetch("email_on_comment")
+        user_attributes[:replies_notifications] = user_data.dig("extra", "flags").fetch("email_on_comment_reply")
 
         user = Decidim::User.new(user_attributes)
         user.organization = organization
