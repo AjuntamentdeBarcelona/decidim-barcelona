@@ -27,9 +27,12 @@ namespace :import do
           remote_banner_image_url: process_data.fetch("banner_image"),
           promoted: process_data.fetch("promoted"),
           published_at: process_data.fetch("published_at"),
-          domain: Importer.fake_i18n(process_data.fetch("domain")),
-          developer_group: process_data.fetch("developer_group"),
           scope: Importer.fake_i18n(process_data.fetch("scope")),
+          developer_group: process_data.fetch("developer_group"),
+          local_area: Importer.fake_i18n(process_data.fetch("domain")),
+          target: Importer.fake_i18n(process_data.fetch("extra").fetch("audience")),
+          participatory_scope: Importer.fake_i18n(process_data.fetch("extra").fetch("citizenship_scope")),
+          participatory_structure: Importer.fake_i18n(process_data.fetch("extra").fetch("participatory_structure")),
           extra: {
             scope_id: process_data.fetch("scope_id")
           }.merge(process_data.fetch("extra"))
