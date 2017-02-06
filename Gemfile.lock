@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: f28a390f546892e81b383599eed09b616c75009e
+  revision: 0128692508d1a0c20fda2864fb49ea13704858dd
   specs:
     decidim (0.0.3)
       decidim-admin (= 0.0.3)

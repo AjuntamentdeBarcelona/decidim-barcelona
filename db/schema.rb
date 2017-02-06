@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206105546) do
+ActiveRecord::Schema.define(version: 20170206125658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -240,11 +240,14 @@ ActiveRecord::Schema.define(version: 20170206105546) do
     t.string   "banner_image"
     t.boolean  "promoted",                default: false
     t.datetime "published_at"
-    t.jsonb    "domain"
+    t.jsonb    "developer_group"
     t.date     "end_date"
-    t.string   "developer_group"
     t.jsonb    "scope"
     t.jsonb    "extra"
+    t.jsonb    "local_area"
+    t.jsonb    "target"
+    t.jsonb    "participatory_scope"
+    t.jsonb    "participatory_structure"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
   end
