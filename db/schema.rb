@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204160440) do
+ActiveRecord::Schema.define(version: 20170206105546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -275,10 +275,13 @@ ActiveRecord::Schema.define(version: 20170204160440) do
     t.datetime "answered_at"
     t.jsonb    "answer"
     t.index ["body"], name: "decidim_proposals_proposal_body_search", using: :btree
+    t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at", using: :btree
     t.index ["decidim_author_id"], name: "index_decidim_proposals_proposals_on_decidim_author_id", using: :btree
     t.index ["decidim_category_id"], name: "index_decidim_proposals_proposals_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_proposals_proposals_on_decidim_feature_id", using: :btree
     t.index ["decidim_scope_id"], name: "index_decidim_proposals_proposals_on_decidim_scope_id", using: :btree
+    t.index ["proposal_votes_count"], name: "index_decidim_proposals_proposals_on_proposal_votes_count", using: :btree
+    t.index ["state"], name: "index_decidim_proposals_proposals_on_state", using: :btree
     t.index ["title"], name: "decidim_proposals_proposal_title_search", using: :btree
   end
 
