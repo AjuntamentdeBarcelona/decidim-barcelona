@@ -10,6 +10,12 @@ ca:
   decidim:
     authorization_handlers:
       census_authorization_handler:
+        fields:
+          document_number: Número de document
+          document_type: Tipus de document
+          postal_code: Codi postal
+          date_of_birth: Data de naixement
+          scope_id: Districte
         name: El padró
     census_authorization_handler:
       document_types:

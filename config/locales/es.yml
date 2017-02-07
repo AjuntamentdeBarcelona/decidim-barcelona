@@ -11,6 +11,12 @@ es:
     authorization_handlers:
       census_authorization_handler:
         name: El padrón
+        fields:
+          document_number: Número de documento
+          document_type: Tipo de documento
+          postal_code: Código postal
+          date_of_birth: Fecha de nacimiento
+          scope_id: Distrito
     census_authorization_handler:
       document_types:
         dni: DNI
