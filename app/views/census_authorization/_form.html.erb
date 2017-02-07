@@ -7,11 +7,15 @@
 </div>
 
 <div class="field">
+  <%= form.date_field :date_of_birth %>
+</div>
+
+<div class="field">
   <%= form.text_field :postal_code %>
 </div>
 
 <div class="field">
-  <%= form.date_field :date_of_birth %>
+  <%= form.collection_select :scope_id, current_organization.scopes, :id, :name %>
 </div>
 
 <%= form.hidden_field :handler_name %>
