@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206201933) do
+ActiveRecord::Schema.define(version: 20170207193643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20170206201933) do
   create_table "decidim_budgets_projects", force: :cascade do |t|
     t.jsonb    "title"
     t.jsonb    "description"
-    t.jsonb    "short_description"
     t.integer  "budget",              null: false
     t.integer  "decidim_feature_id"
     t.integer  "decidim_scope_id"
@@ -141,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170206201933) do
     t.jsonb    "settings",                         default: {}
     t.integer  "weight",                           default: 0
     t.datetime "published_at"
+    t.jsonb    "permissions"
     t.index ["decidim_participatory_process_id"], name: "index_decidim_features_on_decidim_participatory_process_id", using: :btree
   end
 
@@ -183,19 +183,22 @@ ActiveRecord::Schema.define(version: 20170206201933) do
   end
 
   create_table "decidim_organizations", force: :cascade do |t|
-    t.string   "name",                             null: false
-    t.string   "host",                             null: false
-    t.string   "default_locale",                   null: false
-    t.string   "available_locales", default: [],                array: true
+    t.string   "name",                               null: false
+    t.string   "host",                               null: false
+    t.string   "default_locale",                     null: false
+    t.string   "available_locales",   default: [],                array: true
     t.jsonb    "welcome_text"
     t.string   "homepage_image"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.jsonb    "description"
     t.string   "logo"
     t.string   "twitter_handler"
-    t.boolean  "show_statistics",   default: true
+    t.boolean  "show_statistics",     default: true
     t.string   "favicon"
+    t.string   "official_img_header"
+    t.string   "official_img_footer"
+    t.string   "official_url"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true, using: :btree
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true, using: :btree
   end
