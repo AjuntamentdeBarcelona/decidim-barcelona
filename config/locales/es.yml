@@ -9,7 +9,8 @@ es:
         scope_id: Distrito
   decidim:
     authorization_handlers:
-      census_authorization_handler: el padrón
+      census_authorization_handler:
+        name: El padrón
     census_authorization_handler:
       document_types:
         dni: DNI
