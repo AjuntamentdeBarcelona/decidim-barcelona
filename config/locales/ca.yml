@@ -6,6 +6,7 @@ ca:
         document_type: Tipus de document
         postal_code: Codi postal
         date_of_birth: Data de naixement
+        scope_id: Districte
   decidim:
     authorization_handlers:
       census_authorization_handler: el padró

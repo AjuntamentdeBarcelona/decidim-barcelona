@@ -10,11 +10,13 @@ describe CensusAuthorizationHandler do
   let(:document_type) { :nie }
   let(:postal_code) { "08001" }
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
+  let(:scope) { 123 }
   let(:params) do
     {
       document_number: document_number,
       document_type: document_type,
       postal_code: postal_code,
+      scope_id: scope,
       date_of_birth: date_of_birth
     }
   end
@@ -77,8 +79,8 @@ describe CensusAuthorizationHandler do
         it { is_expected.not_to be_valid }
       end
 
-      context "when it's under 18" do
-        let(:date_of_birth) { 17.years.ago }
+      context "when it's under 16" do
+        let(:date_of_birth) { 15.years.ago }
 
         it { is_expected.not_to be_valid }
       end
@@ -137,6 +139,16 @@ describe CensusAuthorizationHandler do
       end
 
       it { is_expected.to_not be_valid }
+    end
+  end
+
+  describe "metadata" do
+    it "includes the postal code" do
+      expect(subject.metadata).to include(postal_code: "08001")
+    end
+
+    it "includes the scope" do
+      expect(subject.metadata).to include(scope_id: 123)
     end
   end
 end

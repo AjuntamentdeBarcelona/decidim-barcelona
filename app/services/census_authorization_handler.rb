@@ -10,15 +10,17 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
+  attribute :scope_id, Integer
   attribute :date_of_birth, Date
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
   validates :document_number, format: { with: /\A[A-z0-9]*\z/ }, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]*\z/ }
+  validates :scope_id, presence: true
 
   validate :document_type_valid
-  validate :over_18
+  validate :over_16
 
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
@@ -26,7 +28,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # You must return a Hash that will be serialized to the authorization when
   # it's created, and available though authorization.metadata
   def metadata
-    super.merge(postal_code: postal_code)
+    super.merge(postal_code: postal_code, scope_id: scope_id)
   end
 
   def census_document_types
@@ -100,8 +102,8 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 EOS
   end
 
-  def over_18
-    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age && age >= 18
+  def over_16
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age && age >= 16
   end
 
   def age
