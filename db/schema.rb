@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207193643) do
+ActiveRecord::Schema.define(version: 20170207200626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,10 @@ ActiveRecord::Schema.define(version: 20170207193643) do
     t.string   "official_img_header"
     t.string   "official_img_footer"
     t.string   "official_url"
+    t.string   "instagram_handler"
+    t.string   "facebook_handler"
+    t.string   "youtube_handler"
+    t.string   "github_handler"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true, using: :btree
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true, using: :btree
   end
