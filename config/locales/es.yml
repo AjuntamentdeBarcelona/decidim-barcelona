@@ -1,4 +1,6 @@
 es:
+  census_authorization_handler:
+    invalid_document: Número de documento incorrecto
   activemodel:
     attributes:
       census_authorization_handler:
