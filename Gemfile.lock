@@ -596,7 +596,6 @@ DEPENDENCIES
   decidim!
   decidim-debates!
   decidim-dev!
-  factory_girl_rails
   faker
   fog-aws
   listen
