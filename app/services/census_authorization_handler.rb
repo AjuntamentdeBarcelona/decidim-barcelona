@@ -40,9 +40,13 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def date_of_birth=(date)
-    @date_of_birth = date if date.is_a?(Date)
+    return unless date
 
-    @date_of_birth = Date.civil(*params[:date].sort.map(&:last).map(&:to_i))
+    @date_of_birth = if date.is_a?(Date) || date.is_a?(ActiveSupport::TimeWithZone)
+                       date
+                     else
+                       Date.civil(*date.sort.map(&:last).map(&:to_i))
+                     end
   end
 
   def census_document_types
