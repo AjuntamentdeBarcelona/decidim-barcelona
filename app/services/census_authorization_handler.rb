@@ -22,6 +22,24 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validate :document_type_valid
   validate :over_16
 
+  def self.from_params(params, additional_params = {})
+    instance = super(params, additional_params)
+
+    params_hash = hash_from(params)
+
+    if params_hash["date_of_birth(1i)"]
+      date = Date.civil(
+        params["date_of_birth(1i)"].to_i,
+        params["date_of_birth(2i)"].to_i,
+        params["date_of_birth(3i)"].to_i
+      )
+
+      instance.date_of_birth = date
+    end
+
+    instance
+  end
+
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
   #
