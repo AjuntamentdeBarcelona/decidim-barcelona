@@ -11,7 +11,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_type, Symbol
   attribute :postal_code, String
   attribute :scope_id, Integer
-  attribute :date_of_birth, Date
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -22,6 +21,11 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validate :document_type_valid
   validate :over_16
 
+  def initialize(attributes)
+    super
+    self.date_of_birth = attributes.fetch(:date_of_birth, nil)
+  end
+
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
   #
@@ -29,6 +33,16 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   def metadata
     super.merge(postal_code: postal_code, scope_id: scope_id)
+  end
+
+  def date_of_birth
+    @date_of_birth
+  end
+
+  def date_of_birth=(date)
+    @date_of_birth = date if date.is_a?(Date)
+
+    @date_of_birth = Date.civil(*params[:date].sort.map(&:last).map(&:to_i))
   end
 
   def census_document_types
