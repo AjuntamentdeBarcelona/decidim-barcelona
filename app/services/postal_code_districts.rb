@@ -14,6 +14,6 @@ module PostalCodeDistricts
   }
 
   def self.valid?(postal_code, district_name)
-    DATA[district_name].include? postal_code
+    DATA[district_name]&.include?(postal_code)
   end
 end

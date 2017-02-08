@@ -177,7 +177,7 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the scope" do
-      expect(subject.metadata).to include(scope_id: scope_id)
+      expect(subject.metadata).to include(scope: "Ciutat Vella")
     end
   end
 end
