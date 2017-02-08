@@ -11,6 +11,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_type, Symbol
   attribute :postal_code, String
   attribute :scope_id, Integer
+  attribute :date_of_birth, Date
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -21,9 +22,22 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validate :document_type_valid
   validate :over_16
 
-  def initialize(attributes)
-    super
-    self.date_of_birth = attributes.fetch(:date_of_birth, nil)
+  def self.from_params(params, additional_params = {})
+    instance = super(params, additional_params)
+
+    params_hash = hash_from(params)
+
+    if params_hash["date_of_birth(1i)"]
+      date = Date.civil(
+        params["date_of_birth(1i)"].to_i,
+        params["date_of_birth(2i)"].to_i,
+        params["date_of_birth(3i)"].to_i
+      )
+
+      instance.date_of_birth = date
+    end
+
+    instance
   end
 
   # If you need to store any of the defined attributes in the authorization you
@@ -33,20 +47,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   def metadata
     super.merge(postal_code: postal_code, scope_id: scope_id)
-  end
-
-  def date_of_birth
-    @date_of_birth
-  end
-
-  def date_of_birth=(date)
-    return unless date
-
-    @date_of_birth = if date.is_a?(Date) || date.is_a?(ActiveSupport::TimeWithZone)
-                       date
-                     else
-                       Date.civil(*date.sort.map(&:last).map(&:to_i))
-                     end
   end
 
   def census_document_types

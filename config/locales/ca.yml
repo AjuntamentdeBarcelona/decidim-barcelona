@@ -7,6 +7,13 @@ ca:
         postal_code: Codi postal
         date_of_birth: Data de naixement
         scope_id: Districte
+  census_authorization:
+    form:
+      scope_prompt: Si us plau, selecciona el teu districte
+      date_select:
+        day: "Dia"
+        month: "Mes"
+        year: "Any"
   decidim:
     authorization_handlers:
       census_authorization_handler:

@@ -5,7 +5,7 @@ require "decidim/dev/test/authorization_shared_examples"
 
 describe CensusAuthorizationHandler do
   let(:subject) { handler }
-  let(:handler) { described_class.new(params) }
+  let(:handler) { described_class.from_params(params) }
   let(:document_number) { "12345678A" }
   let(:document_type) { :nie }
   let(:postal_code) { "08001" }
@@ -86,9 +86,15 @@ describe CensusAuthorizationHandler do
       end
 
       context "when data from a date field is provided" do
-        let(:date_of_birth) do
-          { "(1i)" => "2010", "(2i)" => "8", "(3i)" => "16" }
+        let(:params) do
+          {
+            "date_of_birth(1i)" => "2010",
+            "date_of_birth(2i)" => "8",
+            "date_of_birth(3i)" => "16"
+          }
         end
+
+        let(:date_of_birth) { nil }
 
         it "correctly parses the date" do
           expect(subject.date_of_birth.year).to eq(2010)
