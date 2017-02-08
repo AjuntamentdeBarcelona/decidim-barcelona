@@ -29,3 +29,6 @@ es:
         dni: DNI
         nie: NIE
         passport: Pasaporte
+  errors:
+    messages:
+      not_in_district: El código postal no pertenece al distrito

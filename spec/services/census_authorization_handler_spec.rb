@@ -10,15 +10,20 @@ describe CensusAuthorizationHandler do
   let(:document_type) { :nie }
   let(:postal_code) { "08001" }
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
-  let(:scope) { 123 }
+  let(:scope_id) { 123 }
+  let(:scope) { double(name: "Ciutat Vella") }
   let(:params) do
     {
       document_number: document_number,
       document_type: document_type,
       postal_code: postal_code,
-      scope_id: scope,
+      scope_id: scope_id,
       date_of_birth: date_of_birth
     }
+  end
+
+  before do
+    allow(Decidim::Scope).to receive(:find).and_return(scope)
   end
 
   it_behaves_like "an authorization handler"
@@ -67,6 +72,12 @@ describe CensusAuthorizationHandler do
 
       context "when it has an invalid format" do
         let(:postal_code) { "(ヘ･_･)ヘ┳━┳" }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when it doesn't belong to the district" do
+        let(:postal_code) { "08035" }
 
         it { is_expected.not_to be_valid }
       end
@@ -166,7 +177,7 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the scope" do
-      expect(subject.metadata).to include(scope_id: 123)
+      expect(subject.metadata).to include(scope_id: scope_id)
     end
   end
 end

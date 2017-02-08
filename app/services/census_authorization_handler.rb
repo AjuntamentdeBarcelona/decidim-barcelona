@@ -21,6 +21,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   validate :document_type_valid
   validate :over_16
+  validate :valid_postal_code
 
   def self.from_params(params, additional_params = {})
     instance = super(params, additional_params)
@@ -133,5 +134,11 @@ EOS
     )
 
     now.year - date_of_birth.year - (extra_year ? 0 : 1)
+  end
+
+  def valid_postal_code
+    scope = Decidim::Scope.find(scope_id)
+
+    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.name)
   end
 end

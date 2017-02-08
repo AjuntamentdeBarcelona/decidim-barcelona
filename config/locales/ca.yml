@@ -29,3 +29,6 @@ ca:
         dni: DNI
         nie: NIE
         passport: Passaport
+  errors:
+    messages:
+      not_in_district: El codi postal no pertany al districte
