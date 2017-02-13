@@ -8,7 +8,7 @@ es:
         document_type: Tipo de documento
         postal_code: Código postal
         date_of_birth: Fecha de nacimiento
-        scope_id: Distrito
+        scope: Distrito
   census_authorization:
     form:
       scope_prompt: Por favor, selecciona tu distrito
