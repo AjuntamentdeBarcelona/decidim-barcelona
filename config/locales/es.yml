@@ -31,6 +31,10 @@ es:
         dni: DNI
         nie: NIE
         passport: Pasaporte
+  pages:
+    home:
+      extended:
+        debates_explanation: Espacios para informarse y decidir sobre las propuestas de cada proceso.
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito

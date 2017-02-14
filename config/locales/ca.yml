@@ -31,6 +31,10 @@ ca:
         dni: DNI
         nie: NIE
         passport: Passaport
+  pages:
+    home:
+      extended:
+        debates_explanation: Espais per informar-te i decidir sobre les propostes de cada procés.
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte
