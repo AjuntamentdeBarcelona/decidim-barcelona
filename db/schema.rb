@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208123021) do
+ActiveRecord::Schema.define(version: 20170214191230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
@@ -179,6 +180,20 @@ ActiveRecord::Schema.define(version: 20170208123021) do
     t.index ["decidim_category_id"], name: "index_decidim_meetings_meetings_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_meetings_meetings_on_decidim_feature_id", using: :btree
     t.index ["decidim_scope_id"], name: "index_decidim_meetings_meetings_on_decidim_scope_id", using: :btree
+  end
+
+  create_table "decidim_newsletters", force: :cascade do |t|
+    t.jsonb    "subject"
+    t.jsonb    "body"
+    t.integer  "organization_id"
+    t.integer  "author_id"
+    t.integer  "total_recipients"
+    t.integer  "total_deliveries"
+    t.datetime "sent_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["author_id"], name: "index_decidim_newsletters_on_author_id", using: :btree
+    t.index ["organization_id"], name: "index_decidim_newsletters_on_organization_id", using: :btree
   end
 
   create_table "decidim_organizations", force: :cascade do |t|
@@ -420,6 +435,7 @@ ActiveRecord::Schema.define(version: 20170208123021) do
   end
 
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
