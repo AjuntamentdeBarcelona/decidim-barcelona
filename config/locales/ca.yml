@@ -24,7 +24,7 @@ ca:
           document_type: Tipus de document
           postal_code: Codi postal
           date_of_birth: Data de naixement
-          scope_id: Districte
+          scope: Districte
         name: El padró
     census_authorization_handler:
       document_types:
