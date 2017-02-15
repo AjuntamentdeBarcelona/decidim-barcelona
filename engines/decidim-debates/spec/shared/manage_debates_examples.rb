@@ -3,14 +3,13 @@
 RSpec.shared_examples "manage debates" do
   it "updates a debate" do
     within find("tr", text: translated(debate.title)) do
-      click_link "Edit"
+      click_link "Editar"
     end
 
     within ".edit_debate" do
       fill_in_i18n(
         :debate_title,
         "#title-tabs",
-        en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
@@ -19,11 +18,11 @@ RSpec.shared_examples "manage debates" do
     end
 
     within ".flash" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_content("correctament")
     end
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_content("El meu nou títol")
     end
   end
 
@@ -45,21 +44,18 @@ RSpec.shared_examples "manage debates" do
       fill_in_i18n(
         :debate_title,
         "#title-tabs",
-        en: "My debate",
         es: "Mi debate",
-        ca: "El meu debate"
+        ca: "El meu debat"
       )
       fill_in_i18n_editor(
         :debate_description,
         "#description-tabs",
-        en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
       fill_in_i18n_editor(
         :debate_instructions,
         "#instructions-tabs",
-        en: "A longer instructions",
         es: "Instrucciones más largas",
         ca: "Instruccions més llargues"
       )
@@ -73,11 +69,11 @@ RSpec.shared_examples "manage debates" do
     end
 
     within ".flash" do
-      expect(page).to have_content("successfully")
+      expect(page).to have_content("correctament")
     end
 
     within "table" do
-      expect(page).to have_content("My debate")
+      expect(page).to have_content("El meu debat")
     end
   end
 
@@ -90,11 +86,11 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        click_link "Delete"
+        click_link "Esborrar"
       end
 
       within ".flash" do
-        expect(page).to have_content("successfully")
+        expect(page).to have_content("correctament")
       end
 
       within "table" do

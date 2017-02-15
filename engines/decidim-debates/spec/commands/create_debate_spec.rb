@@ -3,16 +3,16 @@
 require "spec_helper"
 
 describe Decidim::Debates::Admin::CreateDebate do
-  let(:organization) { create :organization, available_locales: [:en] }
+  let(:organization) { create :organization, available_locales: [:ca, :es] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:form) do
     double(
       invalid?: invalid,
-      title: { en: "title" },
-      description: { en: "description" },
-      instructions: { en: "instructions" },
+      title: { ca: "title" },
+      description: { ca: "description" },
+      instructions: { ca: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       category: category,
