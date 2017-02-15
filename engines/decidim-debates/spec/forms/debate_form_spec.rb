@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::Admin::DebateForm do
-  let(:organization) { create(:organization, available_locales: [:en]) }
+  let(:organization) { create(:organization) }
   let(:context) do
     {
       current_organization: organization,
@@ -28,9 +28,9 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:attributes) do
     {
       decidim_category_id: category_id,
-      title_en: title[:en],
-      description_en: description[:en],
-      instructions_en: instructions[:en],
+      title: title,
+      description: description,
+      instructions: instructions,
       start_time: start_time,
       end_time: end_time
     }
@@ -41,19 +41,19 @@ describe Decidim::Debates::Admin::DebateForm do
   it { is_expected.to be_valid }
 
   describe "when title is missing" do
-    let(:title) { { en: nil } }
+    let(:title) { { ca: nil, es: nil } }
 
     it { is_expected.not_to be_valid }
   end
 
   describe "when description is missing" do
-    let(:description) { { en: nil } }
+    let(:description) { { ca: nil, es: nil } }
 
     it { is_expected.not_to be_valid }
   end
 
   describe "when instructions is missing" do
-    let(:instructions) { { en: nil } }
+    let(:instructions) { { ca: nil, es: nil } }
 
     it { is_expected.not_to be_valid }
   end

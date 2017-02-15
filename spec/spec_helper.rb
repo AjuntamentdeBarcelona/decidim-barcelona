@@ -97,4 +97,11 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
   config.order = :random
+
+  config.before(:each) do
+    I18n.available_locales = [:ca, :es]
+    I18n.default_locale = :ca
+    I18n.locale = :ca
+    Decidim.available_locales = [:ca, :es]
+  end
 end

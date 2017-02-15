@@ -35,25 +35,25 @@ ca:
           category: Categoria
           date: Data
           descendent: Descendent
-          scopes: Àmbits 
+          scopes: Àmbits
         index:
-          title: Debats
           open_debates: Debats oberts
           participate: Participa
-        show:
-          comments: Comentaris
-          debate_description: Descripció
+          title: Debats
         share:
           close_window: Tancar finesta
           share: Compartir
           share_link: Enllaç per compartir
+        show:
+          comments: Comentaris
+          debate_description: Descripció
       models:
         debate:
           fields:
             end_time: Data de finalització
+            official_debate: Debat oficial
             start_time: Data d'inici
             title: Títol
-            official_debate: Debat oficial
     features:
       debates:
         name: Debats
