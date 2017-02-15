@@ -2,15 +2,15 @@
 require "spec_helper"
 
 describe Decidim::Debates::DebateSearch do
-  let(:current_feature) { create :feature }
-  let(:scope1) { create :scope, organization: current_feature.organization }
-  let(:scope2) { create :scope, organization: current_feature.organization }
+  let(:current_feature) { create :feature, manifest_name: "debates" }
+  let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
+  let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:debate1) do
     create(
       :debate,
       feature: current_feature,
       start_time: 1.day.from_now,
-      scope: scope1
+      category: parent_category
     )
   end
   let!(:debate2) do
@@ -18,7 +18,7 @@ describe Decidim::Debates::DebateSearch do
       :debate,
       feature: current_feature,
       start_time: 2.day.from_now,
-      scope: scope2
+      category: subcategory
     )
   end
   let(:external_debate) { create :debate }
@@ -68,38 +68,31 @@ describe Decidim::Debates::DebateSearch do
       end
     end
 
-    context "scope_id" do
-      context "when a single id is being sent" do
-        let(:params) { default_params.merge(scope_id: scope1.id) }
+    context "category_id" do
+      context "when the given category has no subcategories" do
+        let(:params) { default_params.merge(category_id: subcategory.id) }
 
-        it "filters debates by scope" do
-          expect(subject.results).to eq [debate1]
+        it "returns only debates from the given category" do
+          expect(subject.results).to eq [debate2]
         end
       end
 
-      context "when multiple ids are sent" do
-        let(:params) { default_params.merge(scope_id: [scope2.id, scope1.id]) }
+      context "when the given category has some subcategories" do
+        let(:params) { default_params.merge(category_id: parent_category.id) }
 
-        it "filters debates by scope" do
-          expect(subject.results).to match_array [debate1, debate2]
+        it "returns debates from this category and its children's" do
+          expect(subject.results).to match_array [debate2, debate1]
         end
       end
-    end
-  end
 
-  context "pagination" do
-    let(:params) do
-      default_params.merge(
-        per_page: 2
-      )
-    end
+      context "when the category does not belong to the current feature" do
+        let(:external_category) { create :category }
+        let(:params) { default_params.merge(category_id: external_category.id) }
 
-    it "filters the debates per page" do
-      create(:debate, feature: current_feature)
-      debates = subject.results
-
-      expect(debates.total_pages).to eq(2)
-      expect(debates.total_count).to eq(3)
+        it "returns an empty array" do
+          expect(subject.results).to eq []
+        end
+      end
     end
   end
 end
