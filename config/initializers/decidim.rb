@@ -8,7 +8,6 @@ Decidim.configure do |config|
   config.maximum_attachment_size = 150.megabytes
 
   config.available_locales = %i(ca es)
-  config.i18n.default_locale = :ca
 
   if Rails.application.secrets.geocoder
     config.geocoder = {
