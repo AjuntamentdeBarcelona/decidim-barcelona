@@ -2,4 +2,4 @@
 :queues:
   - default
   - mailers
-  - newsletters
+  - newsletter
