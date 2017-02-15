@@ -9,6 +9,6 @@ FactoryGirl.define do
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    feature { build(:feature, manifest_name: "debates") }
+    feature
   end
 end

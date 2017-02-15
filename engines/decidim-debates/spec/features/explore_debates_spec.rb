@@ -3,7 +3,7 @@ require "spec_helper"
 
 describe "Explore debates", type: :feature do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization: organization) }
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
   let(:debates_count) { 5 }
   let!(:debates) do
@@ -66,10 +66,16 @@ describe "Explore debates", type: :feature do
 
       it "shows tags for category" do
         expect(page).to have_selector("ul.tags.tags--debate")
-
         within "ul.tags.tags--debate" do
           expect(page).to have_content(translated(debate.category.name))
         end
+      end
+
+      it "links to the filter for this category" do
+        within "ul.tags.tags--debate" do
+          click_link translated(debate.category.name)
+        end
+        expect(page).to have_select("filter_category_id", selected: translated(debate.category.name))
       end
     end
   end

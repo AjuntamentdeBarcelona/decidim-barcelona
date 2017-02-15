@@ -12,11 +12,11 @@ Decidim.register_feature(:debates) do |feature|
   end
 
   feature.settings(:global) do |settings|
-    settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_always_enabled, type: :boolean
   end
 
   feature.settings(:step) do |settings|
-    settings.attribute :comments_blocked, type: :boolean, default: false
+    settings.attribute :comments_enabled, type: :boolean
   end
 
   feature.seeds do

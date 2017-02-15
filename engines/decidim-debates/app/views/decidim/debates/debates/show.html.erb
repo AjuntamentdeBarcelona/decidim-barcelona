@@ -7,7 +7,7 @@
   <h2 class="heading2">
     <%== translated_attribute debate.title %>
   </h2>
-  <% if debate.commentable? %>
+  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
     <a href="#comments" title="<%= t('.comments') %>">
       <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
     </a>
@@ -45,7 +45,11 @@
   </div>
 </div>
 
-<%= comments_for debate %>
+<% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
+  <%= content_for :expanded do %>
+    <%= comments_for debate, arguable: false, votable: true %>
+  <% end %>
+<% end %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

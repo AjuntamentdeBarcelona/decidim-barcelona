@@ -1,11 +1,10 @@
-# encoding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Debates::Admin::CreateDebate do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
+  let(:current_feature) { create :feature, participatory_process: participatory_process }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:form) do
     double(

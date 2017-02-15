@@ -5,38 +5,20 @@ module Decidim
     # title, description and any other useful information to render a custom
     # debate.
     class Debate < Debates::ApplicationRecord
-      include Decidim::HasFeature
-      include Decidim::HasCategory
-
-      feature_manifest_name "debates"
-
+      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
+      belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
+      belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
+      has_one :organization, through: :feature
       has_many :comments, as: :decidim_commentable, class_name: Decidim::Comments::Comment
 
+      validate :category_belongs_to_organization
       validates :title, presence: true
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        feature.settings.comments_enabled?
-      end
+      private
 
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !feature.active_step_settings.comments_blocked
-      end
-
-      # Public: Overrides the `comments_have_alignment?` Commentable concern method.
-      def comments_have_alignment?
-        true
-      end
-
-      # Public: Overrides the `comments_have_votes?` Commentable concern method.
-      def comments_have_votes?
-        true
-      end
-
-      # Public: Identifies the commentable type in the API.
-      def commentable_type
-        self.class.name
+      def category_belongs_to_organization
+        return unless category
+        errors.add(:category, :invalid) unless feature.categories.where(id: category.id).exists?
       end
     end
   end
