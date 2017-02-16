@@ -110,6 +110,12 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.middleware.use(
+    Rack::HostRedirect, {
+      "www.decidim.barcelona" => "decidim.barcelona"
+    }
+  )
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.active_job.queue_adapter = :sidekiq
