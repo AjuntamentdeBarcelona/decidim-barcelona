@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.0'
 
-gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_decidim_dev"
 gem "decidim-debates", path: "engines/decidim-debates"
 
 gem 'uglifier', '>= 1.3.0'
@@ -14,7 +14,7 @@ end
 group :development do
   gem "progressbar"
   gem 'rainbow', "2.1.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git", branch: "refactor_decidim_dev"
   gem 'web-console'
   gem 'listen'
   gem 'spring'
@@ -34,7 +34,8 @@ group :production do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem "rspec-rails"
+  gem "database_cleaner"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
