@@ -15,6 +15,7 @@ class RemoveStepsShortDescription < ActiveRecord::Migration[5.0]
   def new_description_for(step)
     desc = {}
     step.description.keys.each do |locale|
+      next unless step.short_description && step.description
       desc[locale] = step.short_description[locale] + step.description[locale]
     end
     desc
