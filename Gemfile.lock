@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 914095017eb4a73bfdbb2a75c2234298deaa9d43
+  revision: 5014ef6b6f9b0fd09079a9bacfd1f61cc088fa86
   branch: refactor_decidim_dev
   specs:
     decidim (0.0.5)
@@ -89,6 +89,7 @@ GIT
       listen (~> 3.1.0)
       poltergeist (~> 1.13.0)
       rails-controller-testing (~> 1.0.1)
+      rspec-html-matchers (~> 0.9.1)
       rspec-rails (~> 3.5)
       rspec-repeat (~> 1.0.2)
       rubocop (~> 0.47)
@@ -489,6 +490,9 @@ GEM
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
+    rspec-html-matchers (0.9.1)
+      nokogiri (~> 1)
+      rspec (>= 3.0.0.a, < 4)
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
