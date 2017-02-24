@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220144518) do
+ActiveRecord::Schema.define(version: 20170224100359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -271,6 +271,18 @@ ActiveRecord::Schema.define(version: 20170220144518) do
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
   end
 
+  create_table "decidim_proposals_proposal_reports", force: :cascade do |t|
+    t.integer  "decidim_proposal_id", null: false
+    t.integer  "decidim_user_id",     null: false
+    t.string   "reason",              null: false
+    t.text     "details"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["decidim_proposal_id", "decidim_user_id"], name: "decidim_proposals_proposal_report_proposal_user_unique", unique: true, using: :btree
+    t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_result_proposal", using: :btree
+    t.index ["decidim_user_id"], name: "decidim_proposals_proposal_result_user", using: :btree
+  end
+
   create_table "decidim_proposals_proposal_votes", force: :cascade do |t|
     t.integer  "decidim_proposal_id", null: false
     t.integer  "decidim_author_id",   null: false
@@ -296,6 +308,8 @@ ActiveRecord::Schema.define(version: 20170220144518) do
     t.string   "state"
     t.datetime "answered_at"
     t.jsonb    "answer"
+    t.integer  "report_count",          default: 0
+    t.datetime "hidden_at"
     t.index ["body"], name: "decidim_proposals_proposal_body_search", using: :btree
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at", using: :btree
     t.index ["decidim_author_id"], name: "index_decidim_proposals_proposals_on_decidim_author_id", using: :btree
