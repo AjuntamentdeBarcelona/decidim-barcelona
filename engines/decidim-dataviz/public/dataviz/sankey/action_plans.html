@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Propostes i actuacions</title>
+<style>
+.axis {
+  font-size: 25px;
+  padding-bottom:10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  src: url('source-sans-pro/SourceSansPro-Regular.otf');
+} 
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+ 
+.node text {
+  pointer-events: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  src: url('source-sans-pro/SourceSansPro-Regular.otf');
+  font-size: 12px;
+  font-weight: 400;
+}
+ 
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+ 
+.link:hover {
+  stroke-opacity: .5;
+}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src='https://d3js.org/d3.v3.js'></script>
+<script src='sankey.js'></script>
+
+<div class="row">
+  <div class="col-sm-6 axis">Origen de les propostes</div>
+  <div class="col-sm-6 text-right axis">Eixos de les actuacions</div>
+</div>
+
+<div id='chart'>
+ 
+<script>
+
+var colors = {
+  'Bon viure': '#660000',
+  'Economia plural': '#000099',
+  'Bon govern': '#2E0854',
+  'Transició ecològica': '#004c00',
+  'Justícia global': '#b27300',
+  'Ajuntament': '#c83349',
+  'Ciutadania': '#BAE4F0',
+  'Organitzacions': '#A9D26A',
+  'Cites presencials': '#E7D17C',
+};
+  
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
+    width = 600 - margin.left - margin.right,
+    height = width/2;//400 - margin.top - margin.bottom;
+ 
+var formatNumber = d3.format(',.0f'),    // zero decimal places
+    format = function(d) { return formatNumber(d); };
+ 
+// append the svg canvas to the page
+var svg = d3.select('#chart').append('svg')
+    .attr('width', '100%')
+    .attr('height', '100%')
+    .attr('viewBox','0 0 '+width+' '+height)
+    .attr('preserveAspectRatio','xMinYMin')
+  .append('g')
+    .attr('transform', 
+           'translate(' + 0 + ',' + 0 + ')');
+
+
+// Set the sankey diagram properties
+var sankey = d3.sankey()
+    .nodeWidth(36)
+    .nodePadding(10)
+    .size([width, height/1.5]);
+ 
+var path = sankey.link();
+ 
+// load the data
+d3.json('action_plans.json', function(error, graph) {
+ 
+    var nodeMap = {};
+    graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
+    graph.links = graph.links.map(function(x) {
+      return {
+        source: nodeMap[x.source],
+        target: nodeMap[x.target],
+        value: x.value
+      };
+    });
+ 
+  sankey
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .layout(32);
+ 
+// add in the links
+  var link = svg.append('g').selectAll('.link')
+      .data(graph.links)
+    .enter().append('path')
+      .attr('class', 'link')
+      .attr('d', path)
+      .style('stroke-width', function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+ 
+// add the link titles
+  link.append('title')
+        .text(function(d) {
+		message = format(d.value) + ' propostes de' ;
+		if (d.source.name=='Ajuntament') message = message + 'l ' + d.source.name;
+		else if (d.source.name=='Ciutadania') message = message + ' la ' + d.source.name.toLowerCase();
+		else  message = message + ' ' + d.source.name.toLowerCase();
+		if (d.target.name=='No aprovades') return message + ' no han estat aprovades';
+		else return message + ' es contemplen en actuacions de ' + d.target.name; 
+	});
+ 
+// add in the nodes
+  var node = svg.append('g').selectAll('.node')
+      .data(graph.nodes)
+    .enter().append('g')
+      .attr('class', 'node')
+      .attr('transform', function(d) { 
+		  return 'translate(' + d.x + ',' + d.y + ')'; })
+    .call(d3.behavior.drag()
+      .origin(function(d) { return d; })
+      .on('dragstart', function() { 
+		  this.parentNode.appendChild(this); })
+      .on('drag', dragmove));
+ 
+// add the rectangles for the nodes
+  node.append('rect')
+      .attr('height', function(d) { return d.dy; })
+      .attr('width', sankey.nodeWidth())
+      .style('fill', function(d) { return colors[d.name]; })
+      .style('stroke', function(d) { 
+		  return colors[d.name]; });
+ 
+// add in the title for the nodes
+  node.append('text')
+      .attr('x', -6)
+      .attr('y', function(d) { return d.dy / 2; })
+      .attr('dy', '.35em')
+      .attr('text-anchor', 'end')
+      .attr('transform', null)
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x < width / 2; })
+      .attr('x', 6 + sankey.nodeWidth())
+      .attr('text-anchor', 'start');
+ 
+// the function for moving the nodes
+  function dragmove(d) {
+    d3.select(this).attr('transform', 
+        'translate(' + (
+        	   d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
+        	) + ',' + (
+                   d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
+            ) + ')');
+    sankey.relayout();
+    link.attr('d', path);
+  }
+});
+ 
+</script>
+</body>
+</html>

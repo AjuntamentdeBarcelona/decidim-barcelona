@@ -1,0 +1,17 @@
+<div class="page row-full">
+  <div class="row">
+    <div class="more-information text small-12 medium-8 medium-centered column">
+      <ul>
+        <% %w{proposals meetings action_plans}.each do |item| %>
+          <li>
+            <span>
+              <%= link_to asset_url("decidim/dataviz/#{item}.csv"), download: "#{item}.csv" do %>
+                <%=t ".download-#{item}" %>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

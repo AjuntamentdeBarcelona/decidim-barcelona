@@ -1,0 +1,62 @@
+---
+ca:
+  decidim:
+    dataviz:
+      dataviz:
+        open_data:
+          download-action_plans: Actuacions (.csv)
+          download-meetings: Cites presencials (.csv)
+          download-proposals: Propostes (.csv)
+        show:
+          dataviz:
+            action_plans:
+              description: Aquest  gràfic interactiu et permet visualitzar el repartiment
+                de propostes originals segons l'origen (Ajuntament, cites presencials,
+                organitzacions o ciutadania) i quantes s'han incorporat als eixos
+                de les actuacions finals del PAM (bon viure, economia plural, etc
+                ...)  o finalment no han estat aprovades. Fes clic en les connexions
+                per  veure  quantes propostes han estat finalment incloses. També
+                pots navegar per la <a  href="https://decidim.barcelona/action_plans">llista
+                completa d'actuacions</a>.
+              title: Actuacions
+            map:
+              description: Aquest mapa interactiupermet veure totes les cites presencials
+                que s'han realitzat en el procés participatiu del Pla Municipal. Cada
+                punt indica la localització on s'ha realitzat la cita presencial,
+                permet veurel'eix, el nombre de participants, el nombre de propostes
+                sorgides a la cita i et proporciona un enllaç a la pàgina de la cita
+                per consultar-hi tota la informació relacionada.
+              title: Mapa de cites
+            meetings:
+              description: 'Aquest gràfic interactiu et permet visualitzar el total
+                de cites presencials realitzades en el procés participatiu del Pla
+                Municipal. La navegació a  través dels diferents anells permet navegar
+                per la quantitat de cites presencials segons escala (propostes de
+                ciutat o de cadascun dels  districtes), segons eix (bon viure, economia
+                plural, etc...) i segons la  línia estratègica (justícia social, desenvolupament
+                i economia de  proximitat, etc...). '
+              title: Cites presencials
+            open_data:
+              title: Dades obertes
+            proposals:
+              description: Aquest gràfic interactiu et permet visualitzar el total
+                de propostes realitzades en el procés participatiu del Pla Municipal.
+                La navegació a través dels diferents anells permet navegar per la
+                quantitat de propostes segons escala (propostes de ciutat o de cadascun
+                dels districtes), segons eix (bon viure, economia plural, etc...)
+                i segons la línia estratègica (justícia social, desenvolupament i
+                economia de proximitat, etc...).
+              title: Propostes
+            summary:
+              title: Resum del procés
+            title: Visualitzacions
+            total_interactions:
+              description: Aquest gràfic et permet navegar per la xarxa de interaccions
+                establertes entre usuàries del decidim.barcelona en el procés de participació
+                del Pla Municipal. Cada node és un usuari i els enllaços son comentaris
+                i respostes a comentaris dins de les propostes, mostrant així la relació
+                entre usuàries a través de les propostes.
+              title: Xarxa d'interaccions
+    features:
+      dataviz:
+        name: Visualitzacions del PAM

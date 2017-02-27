@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "text": "Decidim.Barcelona",
+    "file": "images/decidim-logo.png",
+    "link": "https://decidim.barcelona/"
+  },
+  "text": {
+    "title": "",
+    "more": "\u003cstrong\u003e\nPassos per a la construcció de la xarxa\u003c/strong\u003e\n\u003cbr/\u003e\n\u003cbr/\u003e\n- Els nodes són els usuaris\u003cbr/\u003e\n- Les arestes són les respostes entre parelles d'usuaris\u003cbr/\u003e\n- Les comunitats (colors) s'identifiquen pel mètode Louvain\u003cbr/\u003e\n- La mida del node és la popularitat per PageRank\u003cbr/\u003e\n\u003cbr/\u003e\nDesenvolupat amb el \u003ca href\u003d\"https://marketplace.gephi.org/plugin/sigmajs-exporter/\" target\u003d\"blank\"\u003eSigma-JS exporter plugin\u003c/a\u003e.",
+    "intro": "Xarxa de respostes entre els usuaris de \u003ca href\u003d\"https://decidim.barcelona\" target\u003d\"blank\"\u003eDecidim Barcelona\u003c/a\u003e."
+  },
+  "legend": {
+    "edgeLabel": "Reply",
+    "colorLabel": "Community",
+    "nodeLabel": "User"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "Modularity Class",
+    "hoverBehavior": "dim"
+  },
+  "informationPanel": {
+    "imageAttribute": false,
+    "groupByEdgeDirection": true
+  },
+  "sigma": {
+    "graphProperties": {
+      "minEdgeSize": 0.75,
+      "maxNodeSize": 25,
+      "maxEdgeSize": 2,
+      "minNodeSize": 0.5
+    },
+    "drawingProperties": {
+      "labelThreshold": 15,
+      "hoverFontStyle": "bold",
+      "defaultEdgeType": "curve",
+      "defaultLabelColor": "#000",
+      "defaultLabelHoverColor": "#fff",
+      "defaultLabelSize": 14,
+      "activeFontStyle": "bold",
+      "fontStyle": "bold",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd"
+    },
+    "mouseProperties": {
+      "minRatio": 0.75,
+      "maxRatio": 20
+    }
+  }
+}

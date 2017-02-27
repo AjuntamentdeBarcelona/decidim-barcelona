@@ -1,0 +1,61 @@
+---
+es:
+  decidim:
+    dataviz:
+      dataviz:
+        open_data:
+          download-action_plans: Actuaciones (.csv)
+          download-meetings: Citas presenciales (.csv)
+          download-proposals: Propuestas (.csv)
+        show:
+          dataviz:
+            action_plans:
+              description: Este  gráfico interactivo te permite visualizar el reparto
+                de las propuestas  originales según su origen (Ayuntamiento, citas presenciales,  organizaciones
+                o ciudadanía) y cuantas se han incorporado en los ejes de las actuaciones
+                finales del PAM (buen  vivir, economía plural, etc ...)  o finalmente
+                no fueron aprobadas. Haz click en las conexiones para ver  cuantas fueron
+                finalmente incluidas. También puedes navegar la <a href="https://decidim.barcelona/action_plans">lista
+                completa de actuaciones</a>.
+              title: Actuaciones
+            map:
+              description: Este mapa interactivo permite ver todas las citas presenciales
+                que se han realizado en el proceso participativo del Plan Municipal.
+                Cada punto indica la localización donde se ha realizado la cita presencial,
+                permite ver el eje, el número de participantes, el número de propuestas
+                surgidas en la cita y te proporciona un enlace a la página de la cita
+                para consultar toda la información relacionada.
+              title: Mapa de citas
+            meetings:
+              description: Este gráfico interactivo te permite visualizar el total de
+                citas presenciales realizadas en el proceso participativo del Plan Municipal.
+                La navegación a través de los diferentes anillos permite navegar por
+                la cantidad de citas presenciales según escala (propuestas de ciudad
+                o de cada uno de los  distritos), según eje (buen vivir, economía plural,etc
+                ...) y según la  línea estratégica (justicia social, desarrollo y economía
+                de proximidad,  etc ...).
+              title: Citas presenciales
+            open_data:
+              title: Datos abiertos
+            proposals:
+              description: Este gráfico interactivo te permite visualizar el total de
+                propuestas realizadas en el proceso participativo del Plan Municipal.
+                La navegación a través de los diferentes anillos permite navegar por
+                la cantidad de propuestas según escala (propuestas de ciudad o de cada
+                uno de los distritos), según eje (buen vivir, economía plural,etc ...)
+                y según la línea estratégica (justicia social, desarrollo y economía
+                de proximidad, etc ...).
+              title: Propuestas
+            summary:
+              title: Resumen del proceso
+            title: Visualizaciones
+            total_interactions:
+              description: Este gráfico te permite navegar por la red de interacciones
+                establecidas entre usuarias del decidim.barcelona en el proceso de participación
+                del Plan Municipal. Cada nodo es un usuario y los enlaces son comentarios
+                y respuestas a comentarios dentro de las propuestas, mostrando así la
+                relación entre usuàrias a través de las propuestas.
+              title: Red de interacciones
+    features:
+      dataviz:
+        name: Visualizaciones del PAM

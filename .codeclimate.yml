@@ -47,3 +47,7 @@ exclude_paths:
 - "db/**/*"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
+- "engines/decidim-dataviz/vendor/**/*"
+- "engines/decidim-dataviz/public/**/*"
+- "engines/decidim-dataviz/app/assets/documents/**/*"
+

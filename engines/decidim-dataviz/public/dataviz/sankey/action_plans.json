@@ -1,0 +1,45 @@
+{
+"links": [
+{"source":"Ajuntament","target":"Bon govern","value":"118"},
+{"source":"Ajuntament","target":"Bon viure","value":"620"},
+{"source":"Ajuntament","target":"Economia plural","value":"195"},
+{"source":"Ajuntament","target":"Justícia global","value":"18"},
+{"source":"Ajuntament","target":"Transició ecològica","value":"308"},
+{"source":"Ciutadania","target":"Bon govern","value":"145"},
+{"source":"Ciutadania","target":"Bon viure","value":"686"},
+{"source":"Ciutadania","target":"Economia plural","value":"153"},
+{"source":"Ciutadania","target":"Justícia global","value":"6"},
+{"source":"Ciutadania","target":"Transició ecològica","value":"1272"},
+{"source":"Organitzacions","target":"Bon govern","value":"176"},
+{"source":"Organitzacions","target":"Bon viure","value":"405"},
+{"source":"Organitzacions","target":"Economia plural","value":"255"},
+{"source":"Organitzacions","target":"Justícia global","value":"9"},
+{"source":"Organitzacions","target":"Transició ecològica","value":"410"},
+{"source":"Cites presencials","target":"Bon govern","value":"283"},
+{"source":"Cites presencials","target":"Bon viure","value":"1812"},
+{"source":"Cites presencials","target":"Economia plural","value":"507"},
+{"source":"Cites presencials","target":"Justícia global","value":"8"},
+{"source":"Cites presencials","target":"Transició ecològica","value":"833"},
+
+
+{"source":"Ajuntament","target":"No aprovades","value":"41"},
+{"source":"Ciutadania","target":"No aprovades","value":"1182"},
+{"source":"Organitzacions","target":"No aprovades","value":"362"},
+{"source":"Cites presencials","target":"No aprovades","value":"1055"}
+] ,
+"nodes": [
+{"name":"Ajuntament"},
+{"name":"Ciutadania"},
+{"name":"Organitzacions"},
+{"name":"Cites presencials"},
+
+{"name":"Bon govern"},
+{"name":"Bon viure"},
+{"name":"Economia plural"},
+{"name":"Justícia global"},
+{"name":"Transició ecològica"},
+{"name":"No aprovades"}
+
+] }
+
+
