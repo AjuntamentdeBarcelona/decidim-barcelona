@@ -1,0 +1,819 @@
+f,propuestas,votos,comentarios
+Ciutat Vella---Buen gobierno---Acción comunitaria---ciudadano,2,16,0
+Ciutat Vella---Buen gobierno---Acción comunitaria---encuentro,11,3,13
+Ciutat Vella---Buen gobierno---Acción comunitaria---organización,12,56,3
+Ciutat Vella---Buen gobierno---Administración inteligente e inclusiva---ciudadano,1,1,1
+Ciutat Vella---Buen gobierno---Administración inteligente e inclusiva---oficial,2,30,0
+Ciutat Vella---Buen gobierno---Administración inteligente e inclusiva---organización,1,4,0
+Ciutat Vella---Buen gobierno---Eficiencia y profesionalidad---encuentro,1,4,0
+Ciutat Vella---Buen gobierno---Gobierno transparente y rendición de cuentas---ciudadano,2,14,1
+Ciutat Vella---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,3,1,0
+Ciutat Vella---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,46,2
+Ciutat Vella---Buen gobierno---Gobierno transparente y rendición de cuentas---organización,3,26,3
+Ciutat Vella---Buen gobierno---Participación ciudadana---ciudadano,2,0,2
+Ciutat Vella---Buen gobierno---Participación ciudadana---encuentro,2,0,1
+Ciutat Vella---Buen gobierno---Participación ciudadana---oficial,3,50,2
+Ciutat Vella---Buen gobierno---Participación ciudadana---organización,8,61,8
+Ciutat Vella---Economía plural---Desarrollo y economía de proximidad---ciudadano,9,246,6
+Ciutat Vella---Economía plural---Desarrollo y economía de proximidad---encuentro,23,114,8
+Ciutat Vella---Economía plural---Desarrollo y economía de proximidad---oficial,6,77,67
+Ciutat Vella---Economía plural---Desarrollo y economía de proximidad---organización,28,149,7
+Ciutat Vella---Economía plural---Economía cooperativa social y solidaria---ciudadano,1,58,0
+Ciutat Vella---Economía plural---Economía cooperativa social y solidaria---encuentro,7,16,0
+Ciutat Vella---Economía plural---Economía cooperativa social y solidaria---oficial,4,76,13
+Ciutat Vella---Economía plural---Economía cooperativa social y solidaria---organización,3,34,0
+Ciutat Vella---Economía plural---Empleo de calidad---ciudadano,1,1,0
+Ciutat Vella---Economía plural---Empleo de calidad---encuentro,6,6,1
+Ciutat Vella---Economía plural---Empleo de calidad---oficial,3,39,23
+Ciutat Vella---Economía plural---Empleo de calidad---organización,20,82,6
+Ciutat Vella---Economía plural---Turismo sostenible---ciudadano,12,508,37
+Ciutat Vella---Economía plural---Turismo sostenible---encuentro,29,134,20
+Ciutat Vella---Economía plural---Turismo sostenible---oficial,7,299,50
+Ciutat Vella---Economía plural---Turismo sostenible---organización,15,383,5
+Ciutat Vella---Economía plural---Un nuevo liderazgo público---encuentro,1,0,0
+Ciutat Vella---Economía plural---Un nuevo liderazgo público---oficial,2,29,2
+Ciutat Vella---Economía plural---Un nuevo liderazgo público---organización,1,4,0
+Ciutat Vella---Transición ecológica---Energía y cambio climático---ciudadano,4,13,1
+Ciutat Vella---Transición ecológica---Energía y cambio climático---encuentro,3,7,0
+Ciutat Vella---Transición ecológica---Energía y cambio climático---oficial,2,74,1
+Ciutat Vella---Transición ecológica---Energía y cambio climático---organización,11,171,11
+Ciutat Vella---Transición ecológica---Medio ambiente y espacio público---ciudadano,22,291,27
+Ciutat Vella---Transición ecológica---Medio ambiente y espacio público---encuentro,69,269,47
+Ciutat Vella---Transición ecológica---Medio ambiente y espacio público---oficial,9,352,70
+Ciutat Vella---Transición ecológica---Medio ambiente y espacio público---organización,31,425,16
+Ciutat Vella---Transición ecológica---Movilidad sostenible---ciudadano,21,241,56
+Ciutat Vella---Transición ecológica---Movilidad sostenible---encuentro,32,124,46
+Ciutat Vella---Transición ecológica---Movilidad sostenible---oficial,4,308,25
+Ciutat Vella---Transición ecológica---Movilidad sostenible---organización,18,149,17
+Ciutat Vella---Transición ecológica---Urbanismo para los barrios---ciudadano,16,253,32
+Ciutat Vella---Transición ecológica---Urbanismo para los barrios---encuentro,19,40,17
+Ciutat Vella---Transición ecológica---Urbanismo para los barrios---oficial,6,91,10
+Ciutat Vella---Transición ecológica---Urbanismo para los barrios---organización,19,137,17
+Ciutat Vella---Transición ecológica---Verde urbano y biodiversidad---ciudadano,7,417,20
+Ciutat Vella---Transición ecológica---Verde urbano y biodiversidad---encuentro,5,28,1
+Ciutat Vella---Transición ecológica---Verde urbano y biodiversidad---oficial,1,28,1
+Ciutat Vella---Transición ecológica---Verde urbano y biodiversidad---organización,5,33,5
+Ciutat Vella---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,19,74,13
+Ciutat Vella---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,3,33,9
+Ciutat Vella---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,5,39,4
+Ciutat Vella---Vivir Bien---Ciclos de vida---ciudadano,6,9,4
+Ciutat Vella---Vivir Bien---Ciclos de vida---encuentro,35,119,22
+Ciutat Vella---Vivir Bien---Ciclos de vida---oficial,5,74,18
+Ciutat Vella---Vivir Bien---Ciclos de vida---organización,7,23,3
+Ciutat Vella---Vivir Bien---Convivencia y seguridad---ciudadano,23,327,59
+Ciutat Vella---Vivir Bien---Convivencia y seguridad---encuentro,32,133,21
+Ciutat Vella---Vivir Bien---Convivencia y seguridad---oficial,3,26,35
+Ciutat Vella---Vivir Bien---Convivencia y seguridad---organización,10,37,0
+Ciutat Vella---Vivir Bien---Cultura---ciudadano,10,323,22
+Ciutat Vella---Vivir Bien---Cultura---encuentro,31,40,5
+Ciutat Vella---Vivir Bien---Cultura---oficial,5,116,26
+Ciutat Vella---Vivir Bien---Cultura---organización,7,59,7
+Ciutat Vella---Vivir Bien---Deportes---ciudadano,2,12,0
+Ciutat Vella---Vivir Bien---Deportes---encuentro,13,23,1
+Ciutat Vella---Vivir Bien---Deportes---oficial,1,15,2
+Ciutat Vella---Vivir Bien---Deportes---organización,2,34,10
+Ciutat Vella---Vivir Bien---Educación y conocimiento---ciudadano,9,159,24
+Ciutat Vella---Vivir Bien---Educación y conocimiento---encuentro,21,30,19
+Ciutat Vella---Vivir Bien---Educación y conocimiento---oficial,7,134,23
+Ciutat Vella---Vivir Bien---Educación y conocimiento---organización,29,177,14
+Ciutat Vella---Vivir Bien---Equidad de género y diversidad sexual---ciudadano,1,4,0
+Ciutat Vella---Vivir Bien---Equidad de género y diversidad sexual---encuentro,23,78,2
+Ciutat Vella---Vivir Bien---Equidad de género y diversidad sexual---oficial,3,38,16
+Ciutat Vella---Vivir Bien---Justicia social---encuentro,13,2,18
+Ciutat Vella---Vivir Bien---Justicia social---oficial,2,55,3
+Ciutat Vella---Vivir Bien---Justicia social---organización,10,100,8
+Ciutat Vella---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,0,0
+Ciutat Vella---Vivir Bien---Migración interculturalidad y discriminación cero---encuentro,12,15,0
+Ciutat Vella---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,8,116,17
+Ciutat Vella---Vivir Bien---Migración interculturalidad y discriminación cero---organización,1,5,0
+Ciutat Vella---Vivir Bien---Sanidad y salud---ciudadano,3,93,2
+Ciutat Vella---Vivir Bien---Sanidad y salud---encuentro,27,91,17
+Ciutat Vella---Vivir Bien---Sanidad y salud---oficial,8,118,27
+Ciutat Vella---Vivir Bien---Sanidad y salud---organización,6,27,1
+Ciutat Vella---Vivir Bien---Vivienda---ciudadano,1,3,1
+Ciutat Vella---Vivir Bien---Vivienda---encuentro,13,79,5
+Ciutat Vella---Vivir Bien---Vivienda---oficial,7,188,29
+Ciutat Vella---Vivir Bien---Vivienda---organización,16,161,3
+Eixample---Buen gobierno---Acción comunitaria---ciudadano,2,19,3
+Eixample---Buen gobierno---Acción comunitaria---encuentro,13,76,12
+Eixample---Buen gobierno---Acción comunitaria---oficial,3,42,5
+Eixample---Buen gobierno---Acción comunitaria---organización,7,75,7
+Eixample---Buen gobierno---Administración inteligente e inclusiva---encuentro,1,3,0
+Eixample---Buen gobierno---Administración inteligente e inclusiva---oficial,2,33,0
+Eixample---Buen gobierno---Administración inteligente e inclusiva---organización,1,4,0
+Eixample---Buen gobierno---Eficiencia y profesionalidad---organización,1,11,0
+Eixample---Buen gobierno---Gobierno transparente y rendición de cuentas---organización,4,54,7
+Eixample---Buen gobierno---Participación ciudadana---encuentro,2,14,0
+Eixample---Buen gobierno---Participación ciudadana---oficial,1,16,0
+Eixample---Buen gobierno---Participación ciudadana---organización,6,73,0
+Eixample---Economía plural---Desarrollo y economía de proximidad---encuentro,5,6,2
+Eixample---Economía plural---Desarrollo y economía de proximidad---oficial,8,430,21
+Eixample---Economía plural---Desarrollo y economía de proximidad---organización,7,136,1
+Eixample---Economía plural---Economía cooperativa social y solidaria---encuentro,10,59,0
+Eixample---Economía plural---Economía cooperativa social y solidaria---oficial,5,255,20
+Eixample---Economía plural---Economía cooperativa social y solidaria---organización,5,59,1
+Eixample---Economía plural---Empleo de calidad---oficial,1,16,0
+Eixample---Economía plural---Turismo sostenible---ciudadano,4,99,0
+Eixample---Economía plural---Turismo sostenible---encuentro,21,245,12
+Eixample---Economía plural---Turismo sostenible---oficial,9,721,65
+Eixample---Economía plural---Turismo sostenible---organización,5,83,7
+Eixample---Economía plural---Un nuevo liderazgo público---oficial,1,11,1
+Eixample---Justicia global---Ciudad de acogida---oficial,1,20,0
+Eixample---Justicia global---Ciudad de acogida---organización,4,114,9
+Eixample---Justicia global---Justicia global---organización,1,8,3
+Eixample---Transición ecológica---Energía y cambio climático---ciudadano,1,92,0
+Eixample---Transición ecológica---Energía y cambio climático---encuentro,1,2,0
+Eixample---Transición ecológica---Energía y cambio climático---oficial,4,108,3
+Eixample---Transición ecológica---Energía y cambio climático---organización,3,59,1
+Eixample---Transición ecológica---Medio ambiente y espacio público---ciudadano,8,356,30
+Eixample---Transición ecológica---Medio ambiente y espacio público---encuentro,11,64,3
+Eixample---Transición ecológica---Medio ambiente y espacio público---oficial,3,158,19
+Eixample---Transición ecológica---Medio ambiente y espacio público---organización,8,147,2
+Eixample---Transición ecológica---Movilidad sostenible---ciudadano,24,725,38
+Eixample---Transición ecológica---Movilidad sostenible---encuentro,16,119,5
+Eixample---Transición ecológica---Movilidad sostenible---oficial,4,826,135
+Eixample---Transición ecológica---Movilidad sostenible---organización,10,588,35
+Eixample---Transición ecológica---Urbanismo para los barrios---ciudadano,32,1500,128
+Eixample---Transición ecológica---Urbanismo para los barrios---encuentro,13,57,21
+Eixample---Transición ecológica---Urbanismo para los barrios---oficial,9,293,11
+Eixample---Transición ecológica---Urbanismo para los barrios---organización,14,277,21
+Eixample---Transición ecológica---Verde urbano y biodiversidad---ciudadano,10,252,10
+Eixample---Transición ecológica---Verde urbano y biodiversidad---encuentro,4,11,0
+Eixample---Transición ecológica---Verde urbano y biodiversidad---organización,3,118,12
+Eixample---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,10,29,6
+Eixample---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,7,111,23
+Eixample---Vivir Bien---Ciclos de vida---ciudadano,1,13,1
+Eixample---Vivir Bien---Ciclos de vida---encuentro,24,234,30
+Eixample---Vivir Bien---Ciclos de vida---oficial,19,293,19
+Eixample---Vivir Bien---Ciclos de vida---organización,3,29,1
+Eixample---Vivir Bien---Convivencia y seguridad---ciudadano,8,126,20
+Eixample---Vivir Bien---Convivencia y seguridad---encuentro,3,32,3
+Eixample---Vivir Bien---Convivencia y seguridad---oficial,3,46,6
+Eixample---Vivir Bien---Convivencia y seguridad---organización,3,23,0
+Eixample---Vivir Bien---Cultura---ciudadano,9,54,4
+Eixample---Vivir Bien---Cultura---encuentro,6,21,3
+Eixample---Vivir Bien---Cultura---oficial,8,210,16
+Eixample---Vivir Bien---Cultura---organización,3,35,3
+Eixample---Vivir Bien---Defensa y protección de los derechos humanos---encuentro,1,7,0
+Eixample---Vivir Bien---Deportes---ciudadano,3,19,0
+Eixample---Vivir Bien---Deportes---encuentro,2,8,1
+Eixample---Vivir Bien---Deportes---oficial,2,39,8
+Eixample---Vivir Bien---Deportes---organización,2,31,11
+Eixample---Vivir Bien---Educación y conocimiento---ciudadano,8,357,41
+Eixample---Vivir Bien---Educación y conocimiento---encuentro,11,40,18
+Eixample---Vivir Bien---Educación y conocimiento---oficial,14,742,60
+Eixample---Vivir Bien---Educación y conocimiento---organización,4,56,11
+Eixample---Vivir Bien---Equidad de género y diversidad sexual---encuentro,10,148,2
+Eixample---Vivir Bien---Equidad de género y diversidad sexual---oficial,7,140,10
+Eixample---Vivir Bien---Justicia social---encuentro,4,11,5
+Eixample---Vivir Bien---Justicia social---oficial,5,647,9
+Eixample---Vivir Bien---Justicia social---organización,6,92,5
+Eixample---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,3,0
+Eixample---Vivir Bien---Migración interculturalidad y discriminación cero---encuentro,1,2,0
+Eixample---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,1,20,0
+Eixample---Vivir Bien---Sanidad y salud---ciudadano,1,4,0
+Eixample---Vivir Bien---Sanidad y salud---encuentro,8,27,8
+Eixample---Vivir Bien---Sanidad y salud---oficial,4,105,25
+Eixample---Vivir Bien---Sanidad y salud---organización,5,110,10
+Eixample---Vivir Bien---Vivienda---ciudadano,3,58,6
+Eixample---Vivir Bien---Vivienda---encuentro,6,7,0
+Eixample---Vivir Bien---Vivienda---oficial,4,95,8
+Eixample---Vivir Bien---Vivienda---organización,3,46,0
+Gràcia---Buen gobierno---Acción comunitaria---ciudadano,1,309,13
+Gràcia---Buen gobierno---Acción comunitaria---encuentro,12,54,7
+Gràcia---Buen gobierno---Acción comunitaria---oficial,4,67,5
+Gràcia---Buen gobierno---Acción comunitaria---organización,12,333,24
+Gràcia---Buen gobierno---Administración inteligente e inclusiva---encuentro,2,4,0
+Gràcia---Buen gobierno---Eficiencia y profesionalidad---encuentro,1,5,1
+Gràcia---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,2,8,2
+Gràcia---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,14,0
+Gràcia---Buen gobierno---Participación ciudadana---ciudadano,1,143,6
+Gràcia---Buen gobierno---Participación ciudadana---encuentro,7,27,5
+Gràcia---Buen gobierno---Participación ciudadana---oficial,4,102,13
+Gràcia---Buen gobierno---Participación ciudadana---organización,6,35,5
+Gràcia---Economía plural---Desarrollo y economía de proximidad---ciudadano,2,7,0
+Gràcia---Economía plural---Desarrollo y economía de proximidad---encuentro,5,24,0
+Gràcia---Economía plural---Desarrollo y economía de proximidad---oficial,6,148,24
+Gràcia---Economía plural---Desarrollo y economía de proximidad---organización,9,80,4
+Gràcia---Economía plural---Economía cooperativa social y solidaria---ciudadano,1,3,0
+Gràcia---Economía plural---Economía cooperativa social y solidaria---encuentro,10,31,0
+Gràcia---Economía plural---Economía cooperativa social y solidaria---oficial,4,161,39
+Gràcia---Economía plural---Economía cooperativa social y solidaria---organización,4,32,2
+Gràcia---Economía plural---Empleo de calidad---ciudadano,1,0,0
+Gràcia---Economía plural---Empleo de calidad---encuentro,1,0,0
+Gràcia---Economía plural---Empleo de calidad---oficial,2,33,2
+Gràcia---Economía plural---Turismo sostenible---ciudadano,1,3,1
+Gràcia---Economía plural---Turismo sostenible---encuentro,19,39,9
+Gràcia---Economía plural---Turismo sostenible---oficial,2,67,21
+Gràcia---Economía plural---Turismo sostenible---organización,1,20,0
+Gràcia---Economía plural---Un nuevo liderazgo público---organización,1,1,0
+Gràcia---Transición ecológica---Energía y cambio climático---ciudadano,3,22,0
+Gràcia---Transición ecológica---Energía y cambio climático---encuentro,2,9,5
+Gràcia---Transición ecológica---Energía y cambio climático---oficial,1,32,1
+Gràcia---Transición ecológica---Energía y cambio climático---organización,4,49,5
+Gràcia---Transición ecológica---Medio ambiente y espacio público---ciudadano,11,48,20
+Gràcia---Transición ecológica---Medio ambiente y espacio público---encuentro,34,108,21
+Gràcia---Transición ecológica---Medio ambiente y espacio público---oficial,6,196,20
+Gràcia---Transición ecológica---Medio ambiente y espacio público---organización,10,114,16
+Gràcia---Transición ecológica---Movilidad sostenible---ciudadano,33,643,104
+Gràcia---Transición ecológica---Movilidad sostenible---encuentro,32,232,42
+Gràcia---Transición ecológica---Movilidad sostenible---oficial,5,321,27
+Gràcia---Transición ecológica---Movilidad sostenible---organización,11,126,26
+Gràcia---Transición ecológica---Urbanismo para los barrios---ciudadano,50,739,122
+Gràcia---Transición ecológica---Urbanismo para los barrios---encuentro,100,324,116
+Gràcia---Transición ecológica---Urbanismo para los barrios---oficial,7,171,9
+Gràcia---Transición ecológica---Urbanismo para los barrios---organización,31,275,98
+Gràcia---Transición ecológica---Verde urbano y biodiversidad---ciudadano,14,996,46
+Gràcia---Transición ecológica---Verde urbano y biodiversidad---encuentro,6,32,4
+Gràcia---Transición ecológica---Verde urbano y biodiversidad---oficial,1,41,2
+Gràcia---Transición ecológica---Verde urbano y biodiversidad---organización,5,135,14
+Gràcia---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,6,186,18
+Gràcia---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,7,107,4
+Gràcia---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,3,75,6
+Gràcia---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,2,33,2
+Gràcia---Vivir Bien---Ciclos de vida---ciudadano,1,0,0
+Gràcia---Vivir Bien---Ciclos de vida---encuentro,13,109,6
+Gràcia---Vivir Bien---Ciclos de vida---oficial,9,244,11
+Gràcia---Vivir Bien---Ciclos de vida---organización,6,150,24
+Gràcia---Vivir Bien---Convivencia y seguridad---ciudadano,8,107,14
+Gràcia---Vivir Bien---Convivencia y seguridad---encuentro,19,42,4
+Gràcia---Vivir Bien---Convivencia y seguridad---oficial,1,20,14
+Gràcia---Vivir Bien---Convivencia y seguridad---organización,6,142,16
+Gràcia---Vivir Bien---Cultura---ciudadano,3,48,0
+Gràcia---Vivir Bien---Cultura---encuentro,10,99,14
+Gràcia---Vivir Bien---Cultura---oficial,6,136,9
+Gràcia---Vivir Bien---Cultura---organización,12,181,12
+Gràcia---Vivir Bien---Defensa y protección de los derechos humanos---ciudadano,1,16,1
+Gràcia---Vivir Bien---Deportes---ciudadano,4,62,3
+Gràcia---Vivir Bien---Deportes---encuentro,2,6,2
+Gràcia---Vivir Bien---Deportes---oficial,4,55,5
+Gràcia---Vivir Bien---Educación y conocimiento---ciudadano,4,275,96
+Gràcia---Vivir Bien---Educación y conocimiento---encuentro,10,69,13
+Gràcia---Vivir Bien---Educación y conocimiento---oficial,8,494,37
+Gràcia---Vivir Bien---Educación y conocimiento---organización,9,410,35
+Gràcia---Vivir Bien---Equidad de género y diversidad sexual---encuentro,1,1,0
+Gràcia---Vivir Bien---Equidad de género y diversidad sexual---oficial,4,104,0
+Gràcia---Vivir Bien---Equidad de género y diversidad sexual---organización,1,27,2
+Gràcia---Vivir Bien---Justicia social---ciudadano,1,112,2
+Gràcia---Vivir Bien---Justicia social---encuentro,14,4,10
+Gràcia---Vivir Bien---Justicia social---organización,2,118,0
+Gràcia---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,0,1
+Gràcia---Vivir Bien---Sanidad y salud---encuentro,15,183,3
+Gràcia---Vivir Bien---Sanidad y salud---oficial,4,124,14
+Gràcia---Vivir Bien---Sanidad y salud---organización,4,27,2
+Gràcia---Vivir Bien---Vivienda---ciudadano,4,72,9
+Gràcia---Vivir Bien---Vivienda---encuentro,11,5,0
+Gràcia---Vivir Bien---Vivienda---oficial,1,33,6
+Gràcia---Vivir Bien---Vivienda---organización,2,40,1
+Horta - Guinardó---Buen gobierno---Acción comunitaria---ciudadano,3,88,3
+Horta - Guinardó---Buen gobierno---Acción comunitaria---encuentro,6,26,4
+Horta - Guinardó---Buen gobierno---Acción comunitaria---oficial,8,250,7
+Horta - Guinardó---Buen gobierno---Acción comunitaria---organización,3,79,2
+Horta - Guinardó---Buen gobierno---Administración inteligente e inclusiva---encuentro,2,4,2
+Horta - Guinardó---Buen gobierno---Administración inteligente e inclusiva---oficial,1,15,1
+Horta - Guinardó---Buen gobierno---Eficiencia y profesionalidad---oficial,1,9,0
+Horta - Guinardó---Buen gobierno---Gobierno transparente y rendición de cuentas---ciudadano,2,42,4
+Horta - Guinardó---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,2,1,1
+Horta - Guinardó---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,26,0
+Horta - Guinardó---Buen gobierno---Gobierno transparente y rendición de cuentas---organización,1,6,0
+Horta - Guinardó---Buen gobierno---Participación ciudadana---ciudadano,3,40,6
+Horta - Guinardó---Buen gobierno---Participación ciudadana---encuentro,4,1,4
+Horta - Guinardó---Buen gobierno---Participación ciudadana---oficial,2,95,5
+Horta - Guinardó---Economía plural---Desarrollo y economía de proximidad---ciudadano,5,115,4
+Horta - Guinardó---Economía plural---Desarrollo y economía de proximidad---encuentro,17,55,0
+Horta - Guinardó---Economía plural---Desarrollo y economía de proximidad---oficial,5,115,21
+Horta - Guinardó---Economía plural---Economía cooperativa social y solidaria---encuentro,3,0,0
+Horta - Guinardó---Economía plural---Economía cooperativa social y solidaria---oficial,2,51,4
+Horta - Guinardó---Economía plural---Economía cooperativa social y solidaria---organización,3,44,1
+Horta - Guinardó---Economía plural---Empleo de calidad---oficial,2,55,5
+Horta - Guinardó---Economía plural---Empleo de calidad---organización,1,9,0
+Horta - Guinardó---Economía plural---Turismo sostenible---ciudadano,2,20,4
+Horta - Guinardó---Economía plural---Turismo sostenible---encuentro,6,34,5
+Horta - Guinardó---Economía plural---Turismo sostenible---oficial,2,72,13
+Horta - Guinardó---Economía plural---Un nuevo liderazgo público---oficial,1,26,3
+Horta - Guinardó---Justicia global---Justicia global---oficial,2,29,0
+Horta - Guinardó---Transición ecológica---Energía y cambio climático---ciudadano,2,30,5
+Horta - Guinardó---Transición ecológica---Energía y cambio climático---encuentro,2,16,1
+Horta - Guinardó---Transición ecológica---Energía y cambio climático---organización,3,89,3
+Horta - Guinardó---Transición ecológica---Medio ambiente y espacio público---ciudadano,20,291,29
+Horta - Guinardó---Transición ecológica---Medio ambiente y espacio público---encuentro,13,36,2
+Horta - Guinardó---Transición ecológica---Medio ambiente y espacio público---oficial,15,636,79
+Horta - Guinardó---Transición ecológica---Medio ambiente y espacio público---organización,6,209,6
+Horta - Guinardó---Transición ecológica---Movilidad sostenible---ciudadano,50,1270,83
+Horta - Guinardó---Transición ecológica---Movilidad sostenible---encuentro,22,114,19
+Horta - Guinardó---Transición ecológica---Movilidad sostenible---oficial,8,475,77
+Horta - Guinardó---Transición ecológica---Movilidad sostenible---organización,29,866,28
+Horta - Guinardó---Transición ecológica---Urbanismo para los barrios---ciudadano,51,1052,112
+Horta - Guinardó---Transición ecológica---Urbanismo para los barrios---encuentro,32,105,45
+Horta - Guinardó---Transición ecológica---Urbanismo para los barrios---oficial,12,503,35
+Horta - Guinardó---Transición ecológica---Urbanismo para los barrios---organización,25,649,28
+Horta - Guinardó---Transición ecológica---Verde urbano y biodiversidad---ciudadano,14,216,4
+Horta - Guinardó---Transición ecológica---Verde urbano y biodiversidad---encuentro,10,124,7
+Horta - Guinardó---Transición ecológica---Verde urbano y biodiversidad---oficial,6,245,30
+Horta - Guinardó---Transición ecológica---Verde urbano y biodiversidad---organización,3,75,4
+Horta - Guinardó---Transición ecológica---Vivienda---encuentro,1,2,1
+Horta - Guinardó---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,16,137,28
+Horta - Guinardó---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,3,53,2
+Horta - Guinardó---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,1,37,3
+Horta - Guinardó---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,2,51,1
+Horta - Guinardó---Vivir Bien---Ciclos de vida---ciudadano,3,48,4
+Horta - Guinardó---Vivir Bien---Ciclos de vida---encuentro,6,10,2
+Horta - Guinardó---Vivir Bien---Ciclos de vida---oficial,5,106,2
+Horta - Guinardó---Vivir Bien---Convivencia y seguridad---ciudadano,22,726,69
+Horta - Guinardó---Vivir Bien---Convivencia y seguridad---encuentro,8,35,3
+Horta - Guinardó---Vivir Bien---Convivencia y seguridad---oficial,2,130,12
+Horta - Guinardó---Vivir Bien---Convivencia y seguridad---organización,5,197,8
+Horta - Guinardó---Vivir Bien---Cultura---ciudadano,11,1053,46
+Horta - Guinardó---Vivir Bien---Cultura---encuentro,19,75,6
+Horta - Guinardó---Vivir Bien---Cultura---oficial,2,121,13
+Horta - Guinardó---Vivir Bien---Cultura---organización,5,103,1
+Horta - Guinardó---Vivir Bien---Deportes---ciudadano,9,113,7
+Horta - Guinardó---Vivir Bien---Deportes---encuentro,5,2,0
+Horta - Guinardó---Vivir Bien---Deportes---oficial,5,342,37
+Horta - Guinardó---Vivir Bien---Deportes---organización,1,14,0
+Horta - Guinardó---Vivir Bien---Educación y conocimiento---ciudadano,5,629,23
+Horta - Guinardó---Vivir Bien---Educación y conocimiento---oficial,5,436,5
+Horta - Guinardó---Vivir Bien---Educación y conocimiento---organización,5,189,4
+Horta - Guinardó---Vivir Bien---Equidad de género y diversidad sexual---encuentro,2,14,0
+Horta - Guinardó---Vivir Bien---Equidad de género y diversidad sexual---oficial,2,58,3
+Horta - Guinardó---Vivir Bien---Justicia social---ciudadano,2,18,1
+Horta - Guinardó---Vivir Bien---Justicia social---encuentro,1,0,0
+Horta - Guinardó---Vivir Bien---Justicia social---oficial,1,59,3
+Horta - Guinardó---Vivir Bien---Sanidad y salud---ciudadano,4,84,1
+Horta - Guinardó---Vivir Bien---Sanidad y salud---encuentro,17,179,2
+Horta - Guinardó---Vivir Bien---Sanidad y salud---oficial,4,118,47
+Horta - Guinardó---Vivir Bien---Sanidad y salud---organización,4,73,1
+Horta - Guinardó---Vivir Bien---Vivienda---ciudadano,5,39,3
+Horta - Guinardó---Vivir Bien---Vivienda---encuentro,7,4,0
+Horta - Guinardó---Vivir Bien---Vivienda---oficial,3,60,12
+Les Corts---Buen gobierno---Acción comunitaria---encuentro,12,9,5
+Les Corts---Buen gobierno---Acción comunitaria---organización,11,162,15
+Les Corts---Buen gobierno---Administración inteligente e inclusiva---encuentro,3,5,0
+Les Corts---Buen gobierno---Administración inteligente e inclusiva---oficial,1,7,1
+Les Corts---Buen gobierno---Gobierno transparente y rendición de cuentas---ciudadano,2,2,1
+Les Corts---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,1,2,1
+Les Corts---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,2,32,0
+Les Corts---Buen gobierno---Gobierno transparente y rendición de cuentas---organización,1,3,1
+Les Corts---Buen gobierno---Participación ciudadana---encuentro,12,11,10
+Les Corts---Buen gobierno---Participación ciudadana---oficial,2,17,0
+Les Corts---Buen gobierno---Participación ciudadana---organización,5,41,4
+Les Corts---Economía plural---Desarrollo y economía de proximidad---ciudadano,1,9,0
+Les Corts---Economía plural---Desarrollo y economía de proximidad---encuentro,2,3,0
+Les Corts---Economía plural---Desarrollo y economía de proximidad---oficial,5,31,2
+Les Corts---Economía plural---Desarrollo y economía de proximidad---organización,1,22,0
+Les Corts---Economía plural---Economía cooperativa social y solidaria---encuentro,5,22,0
+Les Corts---Economía plural---Empleo de calidad---encuentro,1,0,0
+Les Corts---Economía plural---Empleo de calidad---oficial,1,12,0
+Les Corts---Economía plural---Empleo de calidad---organización,1,10,0
+Les Corts---Economía plural---Turismo sostenible---encuentro,2,13,0
+Les Corts---Economía plural---Turismo sostenible---oficial,3,14,3
+Les Corts---Economía plural---Un nuevo liderazgo público---encuentro,1,0,0
+Les Corts---Transición ecológica---Energía y cambio climático---ciudadano,2,2,2
+Les Corts---Transición ecológica---Energía y cambio climático---encuentro,1,9,0
+Les Corts---Transición ecológica---Energía y cambio climático---oficial,1,28,1
+Les Corts---Transición ecológica---Energía y cambio climático---organización,2,28,6
+Les Corts---Transición ecológica---Medio ambiente y espacio público---ciudadano,11,25,10
+Les Corts---Transición ecológica---Medio ambiente y espacio público---encuentro,23,49,10
+Les Corts---Transición ecológica---Medio ambiente y espacio público---oficial,2,17,4
+Les Corts---Transición ecológica---Medio ambiente y espacio público---organización,6,45,15
+Les Corts---Transición ecológica---Movilidad sostenible---ciudadano,26,86,38
+Les Corts---Transición ecológica---Movilidad sostenible---encuentro,27,44,28
+Les Corts---Transición ecológica---Movilidad sostenible---oficial,7,286,28
+Les Corts---Transición ecológica---Movilidad sostenible---organización,17,198,18
+Les Corts---Transición ecológica---Urbanismo para los barrios---ciudadano,19,144,26
+Les Corts---Transición ecológica---Urbanismo para los barrios---encuentro,32,34,35
+Les Corts---Transición ecológica---Urbanismo para los barrios---oficial,12,119,16
+Les Corts---Transición ecológica---Urbanismo para los barrios---organización,21,108,26
+Les Corts---Transición ecológica---Verde urbano y biodiversidad---ciudadano,5,45,7
+Les Corts---Transición ecológica---Verde urbano y biodiversidad---encuentro,7,16,11
+Les Corts---Transición ecológica---Verde urbano y biodiversidad---oficial,3,146,9
+Les Corts---Transición ecológica---Verde urbano y biodiversidad---organización,4,48,1
+Les Corts---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,2,2,2
+Les Corts---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,11,12,8
+Les Corts---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,6,377,17
+Les Corts---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,4,71,7
+Les Corts---Vivir Bien---Ciclos de vida---ciudadano,1,1,0
+Les Corts---Vivir Bien---Ciclos de vida---encuentro,11,18,5
+Les Corts---Vivir Bien---Ciclos de vida---oficial,8,219,26
+Les Corts---Vivir Bien---Ciclos de vida---organización,6,110,7
+Les Corts---Vivir Bien---Convivencia y seguridad---ciudadano,18,89,17
+Les Corts---Vivir Bien---Convivencia y seguridad---encuentro,25,130,19
+Les Corts---Vivir Bien---Convivencia y seguridad---oficial,2,15,9
+Les Corts---Vivir Bien---Convivencia y seguridad---organización,8,57,5
+Les Corts---Vivir Bien---Cultura---ciudadano,2,8,0
+Les Corts---Vivir Bien---Cultura---encuentro,47,116,16
+Les Corts---Vivir Bien---Cultura---oficial,7,56,26
+Les Corts---Vivir Bien---Cultura---organización,3,69,0
+Les Corts---Vivir Bien---Deportes---ciudadano,8,16,2
+Les Corts---Vivir Bien---Deportes---encuentro,5,10,0
+Les Corts---Vivir Bien---Deportes---oficial,4,27,18
+Les Corts---Vivir Bien---Deportes---organización,3,11,0
+Les Corts---Vivir Bien---Educación y conocimiento---ciudadano,10,103,14
+Les Corts---Vivir Bien---Educación y conocimiento---encuentro,22,17,18
+Les Corts---Vivir Bien---Educación y conocimiento---oficial,6,84,0
+Les Corts---Vivir Bien---Educación y conocimiento---organización,9,178,8
+Les Corts---Vivir Bien---Equidad de género y diversidad sexual---encuentro,2,1,0
+Les Corts---Vivir Bien---Equidad de género y diversidad sexual---oficial,4,84,3
+Les Corts---Vivir Bien---Justicia social---ciudadano,3,11,0
+Les Corts---Vivir Bien---Justicia social---encuentro,4,14,0
+Les Corts---Vivir Bien---Justicia social---oficial,2,21,2
+Les Corts---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,1,0
+Les Corts---Vivir Bien---Sanidad y salud---ciudadano,2,0,2
+Les Corts---Vivir Bien---Sanidad y salud---encuentro,26,63,11
+Les Corts---Vivir Bien---Sanidad y salud---oficial,2,20,0
+Les Corts---Vivir Bien---Sanidad y salud---organización,1,4,3
+Les Corts---Vivir Bien---Vivienda---encuentro,2,13,0
+Nou Barris---Buen gobierno---Acción comunitaria---ciudadano,3,21,3
+Nou Barris---Buen gobierno---Acción comunitaria---encuentro,3,0,0
+Nou Barris---Buen gobierno---Acción comunitaria---oficial,4,62,8
+Nou Barris---Buen gobierno---Acción comunitaria---organización,2,18,2
+Nou Barris---Buen gobierno---Eficiencia y profesionalidad---encuentro,2,3,1
+Nou Barris---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,78,1
+Nou Barris---Buen gobierno---Participación ciudadana---encuentro,2,1,0
+Nou Barris---Buen gobierno---Participación ciudadana---oficial,1,50,3
+Nou Barris---Economía plural---Desarrollo y economía de proximidad---ciudadano,2,20,5
+Nou Barris---Economía plural---Desarrollo y economía de proximidad---encuentro,2,6,0
+Nou Barris---Economía plural---Desarrollo y economía de proximidad---oficial,2,20,4
+Nou Barris---Economía plural---Desarrollo y economía de proximidad---organización,1,22,0
+Nou Barris---Economía plural---Economía cooperativa social y solidaria---encuentro,17,31,1
+Nou Barris---Economía plural---Economía cooperativa social y solidaria---oficial,3,111,14
+Nou Barris---Economía plural---Economía cooperativa social y solidaria---organización,1,49,0
+Nou Barris---Economía plural---Empleo de calidad---ciudadano,2,22,0
+Nou Barris---Economía plural---Empleo de calidad---encuentro,2,6,0
+Nou Barris---Economía plural---Empleo de calidad---oficial,2,25,4
+Nou Barris---Economía plural---Turismo sostenible---ciudadano,1,8,0
+Nou Barris---Economía plural---Turismo sostenible---encuentro,1,3,0
+Nou Barris---Economía plural---Turismo sostenible---oficial,2,25,1
+Nou Barris---Economía plural---Turismo sostenible---organización,1,3,1
+Nou Barris---Economía plural---Un nuevo liderazgo público---ciudadano,2,42,0
+Nou Barris---Economía plural---Un nuevo liderazgo público---encuentro,1,0,0
+Nou Barris---Transición ecológica---Energía y cambio climático---encuentro,1,2,0
+Nou Barris---Transición ecológica---Energía y cambio climático---oficial,3,306,6
+Nou Barris---Transición ecológica---Energía y cambio climático---organización,2,62,0
+Nou Barris---Transición ecológica---Medio ambiente y espacio público---ciudadano,11,146,10
+Nou Barris---Transición ecológica---Medio ambiente y espacio público---encuentro,2,0,0
+Nou Barris---Transición ecológica---Medio ambiente y espacio público---oficial,3,38,14
+Nou Barris---Transición ecológica---Medio ambiente y espacio público---organización,1,29,2
+Nou Barris---Transición ecológica---Movilidad sostenible---ciudadano,23,367,32
+Nou Barris---Transición ecológica---Movilidad sostenible---encuentro,11,13,4
+Nou Barris---Transición ecológica---Movilidad sostenible---oficial,4,145,25
+Nou Barris---Transición ecológica---Movilidad sostenible---organización,7,100,3
+Nou Barris---Transición ecológica---Urbanismo para los barrios---ciudadano,23,236,29
+Nou Barris---Transición ecológica---Urbanismo para los barrios---encuentro,9,12,1
+Nou Barris---Transición ecológica---Urbanismo para los barrios---oficial,18,189,12
+Nou Barris---Transición ecológica---Urbanismo para los barrios---organización,39,302,49
+Nou Barris---Transición ecológica---Verde urbano y biodiversidad---ciudadano,5,224,5
+Nou Barris---Transición ecológica---Verde urbano y biodiversidad---encuentro,11,7,0
+Nou Barris---Transición ecológica---Verde urbano y biodiversidad---oficial,6,208,21
+Nou Barris---Transición ecológica---Verde urbano y biodiversidad---organización,4,63,1
+Nou Barris---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,5,72,5
+Nou Barris---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,4,14,3
+Nou Barris---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,2,111,11
+Nou Barris---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,1,15,0
+Nou Barris---Vivir Bien---Ciclos de vida---ciudadano,5,200,8
+Nou Barris---Vivir Bien---Ciclos de vida---encuentro,11,32,2
+Nou Barris---Vivir Bien---Ciclos de vida---oficial,8,139,2
+Nou Barris---Vivir Bien---Ciclos de vida---organización,4,79,7
+Nou Barris---Vivir Bien---Convivencia y seguridad---ciudadano,4,71,5
+Nou Barris---Vivir Bien---Convivencia y seguridad---encuentro,4,3,1
+Nou Barris---Vivir Bien---Convivencia y seguridad---oficial,1,16,6
+Nou Barris---Vivir Bien---Convivencia y seguridad---organización,3,43,3
+Nou Barris---Vivir Bien---Cultura---ciudadano,3,31,1
+Nou Barris---Vivir Bien---Cultura---encuentro,11,30,0
+Nou Barris---Vivir Bien---Cultura---oficial,4,81,11
+Nou Barris---Vivir Bien---Cultura---organización,1,33,2
+Nou Barris---Vivir Bien---Deportes---ciudadano,6,149,23
+Nou Barris---Vivir Bien---Deportes---encuentro,1,7,1
+Nou Barris---Vivir Bien---Deportes---oficial,5,53,7
+Nou Barris---Vivir Bien---Deportes---organización,5,56,1
+Nou Barris---Vivir Bien---Educación y conocimiento---ciudadano,6,71,5
+Nou Barris---Vivir Bien---Educación y conocimiento---encuentro,35,230,33
+Nou Barris---Vivir Bien---Educación y conocimiento---oficial,3,127,4
+Nou Barris---Vivir Bien---Educación y conocimiento---organización,13,130,5
+Nou Barris---Vivir Bien---Equidad de género y diversidad sexual---encuentro,10,1,0
+Nou Barris---Vivir Bien---Equidad de género y diversidad sexual---oficial,4,230,12
+Nou Barris---Vivir Bien---Equidad de género y diversidad sexual---organización,1,9,0
+Nou Barris---Vivir Bien---Justicia social---ciudadano,2,37,1
+Nou Barris---Vivir Bien---Justicia social---encuentro,2,10,2
+Nou Barris---Vivir Bien---Justicia social---oficial,5,588,8
+Nou Barris---Vivir Bien---Justicia social---organización,3,23,1
+Nou Barris---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,12,0
+Nou Barris---Vivir Bien---Sanidad y salud---ciudadano,5,19,2
+Nou Barris---Vivir Bien---Sanidad y salud---encuentro,13,57,13
+Nou Barris---Vivir Bien---Sanidad y salud---oficial,2,16,7
+Nou Barris---Vivir Bien---Vivienda---ciudadano,2,20,1
+Nou Barris---Vivir Bien---Vivienda---encuentro,2,2,0
+Nou Barris---Vivir Bien---Vivienda---oficial,4,122,8
+Sant Andreu---Buen gobierno---Acción comunitaria---ciudadano,9,69,18
+Sant Andreu---Buen gobierno---Acción comunitaria---encuentro,15,24,15
+Sant Andreu---Buen gobierno---Acción comunitaria---oficial,3,42,1
+Sant Andreu---Buen gobierno---Acción comunitaria---organización,1,22,1
+Sant Andreu---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,20,0
+Sant Andreu---Buen gobierno---Participación ciudadana---ciudadano,1,6,0
+Sant Andreu---Buen gobierno---Participación ciudadana---oficial,2,22,0
+Sant Andreu---Buen gobierno---Participación ciudadana---organización,1,7,0
+Sant Andreu---Economía plural---Desarrollo y economía de proximidad---ciudadano,1,1,1
+Sant Andreu---Economía plural---Desarrollo y economía de proximidad---encuentro,18,79,4
+Sant Andreu---Economía plural---Desarrollo y economía de proximidad---oficial,8,126,24
+Sant Andreu---Economía plural---Desarrollo y economía de proximidad---organización,1,13,0
+Sant Andreu---Economía plural---Economía cooperativa social y solidaria---oficial,3,48,1
+Sant Andreu---Economía plural---Empleo de calidad---ciudadano,3,47,4
+Sant Andreu---Economía plural---Empleo de calidad---oficial,3,46,3
+Sant Andreu---Economía plural---Turismo sostenible---ciudadano,1,5,4
+Sant Andreu---Economía plural---Turismo sostenible---encuentro,1,6,0
+Sant Andreu---Economía plural---Turismo sostenible---oficial,3,49,7
+Sant Andreu---Economía plural---Un nuevo liderazgo público---oficial,1,20,0
+Sant Andreu---Justicia global---Ciudad de acogida---oficial,1,69,1
+Sant Andreu---Transición ecológica---Energía y cambio climático---ciudadano,2,11,2
+Sant Andreu---Transición ecológica---Energía y cambio climático---encuentro,2,2,0
+Sant Andreu---Transición ecológica---Energía y cambio climático---oficial,5,96,3
+Sant Andreu---Transición ecológica---Medio ambiente y espacio público---ciudadano,4,53,0
+Sant Andreu---Transición ecológica---Medio ambiente y espacio público---encuentro,30,131,6
+Sant Andreu---Transición ecológica---Medio ambiente y espacio público---oficial,5,205,35
+Sant Andreu---Transición ecológica---Movilidad sostenible---ciudadano,17,300,17
+Sant Andreu---Transición ecológica---Movilidad sostenible---encuentro,44,200,26
+Sant Andreu---Transición ecológica---Movilidad sostenible---oficial,6,243,62
+Sant Andreu---Transición ecológica---Movilidad sostenible---organización,1,19,0
+Sant Andreu---Transición ecológica---Urbanismo para los barrios---ciudadano,24,484,36
+Sant Andreu---Transición ecológica---Urbanismo para los barrios---encuentro,24,66,21
+Sant Andreu---Transición ecológica---Urbanismo para los barrios---oficial,7,155,5
+Sant Andreu---Transición ecológica---Urbanismo para los barrios---organización,8,138,11
+Sant Andreu---Transición ecológica---Verde urbano y biodiversidad---ciudadano,3,86,4
+Sant Andreu---Transición ecológica---Verde urbano y biodiversidad---encuentro,7,27,1
+Sant Andreu---Transición ecológica---Verde urbano y biodiversidad---oficial,1,25,6
+Sant Andreu---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,3,105,5
+Sant Andreu---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,24,289,7
+Sant Andreu---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,3,48,26
+Sant Andreu---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,1,3,0
+Sant Andreu---Vivir Bien---Ciclos de vida---ciudadano,4,45,3
+Sant Andreu---Vivir Bien---Ciclos de vida---encuentro,9,19,2
+Sant Andreu---Vivir Bien---Ciclos de vida---oficial,9,145,6
+Sant Andreu---Vivir Bien---Convivencia y seguridad---ciudadano,7,232,19
+Sant Andreu---Vivir Bien---Convivencia y seguridad---encuentro,5,18,0
+Sant Andreu---Vivir Bien---Convivencia y seguridad---oficial,4,125,6
+Sant Andreu---Vivir Bien---Convivencia y seguridad---organización,1,13,0
+Sant Andreu---Vivir Bien---Cultura---ciudadano,3,63,12
+Sant Andreu---Vivir Bien---Cultura---encuentro,16,17,0
+Sant Andreu---Vivir Bien---Cultura---oficial,8,134,24
+Sant Andreu---Vivir Bien---Cultura---organización,1,49,11
+Sant Andreu---Vivir Bien---Deportes---ciudadano,7,134,14
+Sant Andreu---Vivir Bien---Deportes---encuentro,39,54,6
+Sant Andreu---Vivir Bien---Deportes---oficial,2,29,50
+Sant Andreu---Vivir Bien---Deportes---organización,8,383,28
+Sant Andreu---Vivir Bien---Educación y conocimiento---ciudadano,6,382,33
+Sant Andreu---Vivir Bien---Educación y conocimiento---encuentro,35,335,50
+Sant Andreu---Vivir Bien---Educación y conocimiento---oficial,17,827,45
+Sant Andreu---Vivir Bien---Educación y conocimiento---organización,1,436,52
+Sant Andreu---Vivir Bien---Equidad de género y diversidad sexual---oficial,3,90,4
+Sant Andreu---Vivir Bien---Justicia social---ciudadano,2,17,1
+Sant Andreu---Vivir Bien---Justicia social---oficial,4,89,2
+Sant Andreu---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,3,56,0
+Sant Andreu---Vivir Bien---Sanidad y salud---ciudadano,1,61,4
+Sant Andreu---Vivir Bien---Sanidad y salud---encuentro,7,37,5
+Sant Andreu---Vivir Bien---Sanidad y salud---oficial,3,64,12
+Sant Andreu---Vivir Bien---Vivienda---ciudadano,6,122,3
+Sant Andreu---Vivir Bien---Vivienda---encuentro,1,7,0
+Sant Andreu---Vivir Bien---Vivienda---oficial,4,117,6
+Sant Martí---Buen gobierno---Acción comunitaria---ciudadano,5,35,10
+Sant Martí---Buen gobierno---Acción comunitaria---encuentro,22,40,25
+Sant Martí---Buen gobierno---Acción comunitaria---oficial,4,67,4
+Sant Martí---Buen gobierno---Acción comunitaria---organización,1,6,0
+Sant Martí---Buen gobierno---Gobierno transparente y rendición de cuentas---ciudadano,2,58,3
+Sant Martí---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,1,3,0
+Sant Martí---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,2,43,1
+Sant Martí---Buen gobierno---Participación ciudadana---ciudadano,8,50,3
+Sant Martí---Buen gobierno---Participación ciudadana---encuentro,14,18,10
+Sant Martí---Buen gobierno---Participación ciudadana---oficial,1,27,9
+Sant Martí---Economía plural---Desarrollo y economía de proximidad---ciudadano,16,146,11
+Sant Martí---Economía plural---Desarrollo y economía de proximidad---encuentro,9,27,0
+Sant Martí---Economía plural---Desarrollo y economía de proximidad---oficial,5,178,34
+Sant Martí---Economía plural---Desarrollo y economía de proximidad---organización,2,18,3
+Sant Martí---Economía plural---Economía cooperativa social y solidaria---ciudadano,5,74,0
+Sant Martí---Economía plural---Economía cooperativa social y solidaria---encuentro,8,10,0
+Sant Martí---Economía plural---Economía cooperativa social y solidaria---oficial,6,153,20
+Sant Martí---Economía plural---Economía cooperativa social y solidaria---organización,1,15,0
+Sant Martí---Economía plural---Empleo de calidad---ciudadano,5,14,0
+Sant Martí---Economía plural---Empleo de calidad---encuentro,4,0,0
+Sant Martí---Economía plural---Empleo de calidad---oficial,2,44,7
+Sant Martí---Economía plural---Turismo sostenible---ciudadano,2,55,1
+Sant Martí---Economía plural---Turismo sostenible---encuentro,8,73,1
+Sant Martí---Economía plural---Turismo sostenible---oficial,3,100,20
+Sant Martí---Economía plural---Un nuevo liderazgo público---ciudadano,2,0,0
+Sant Martí---Transición ecológica---Energía y cambio climático---ciudadano,6,78,4
+Sant Martí---Transición ecológica---Energía y cambio climático---encuentro,1,6,0
+Sant Martí---Transición ecológica---Energía y cambio climático---oficial,2,62,2
+Sant Martí---Transición ecológica---Energía y cambio climático---organización,2,34,1
+Sant Martí---Transición ecológica---Medio ambiente y espacio público---ciudadano,37,322,45
+Sant Martí---Transición ecológica---Medio ambiente y espacio público---encuentro,6,27,2
+Sant Martí---Transición ecológica---Medio ambiente y espacio público---oficial,3,150,43
+Sant Martí---Transición ecológica---Medio ambiente y espacio público---organización,1,26,0
+Sant Martí---Transición ecológica---Movilidad sostenible---ciudadano,58,1194,91
+Sant Martí---Transición ecológica---Movilidad sostenible---encuentro,16,75,28
+Sant Martí---Transición ecológica---Movilidad sostenible---oficial,5,545,45
+Sant Martí---Transición ecológica---Movilidad sostenible---organización,4,45,10
+Sant Martí---Transición ecológica---Urbanismo para los barrios---ciudadano,98,1489,163
+Sant Martí---Transición ecológica---Urbanismo para los barrios---encuentro,25,83,29
+Sant Martí---Transición ecológica---Urbanismo para los barrios---oficial,12,277,17
+Sant Martí---Transición ecológica---Urbanismo para los barrios---organización,14,325,25
+Sant Martí---Transición ecológica---Verde urbano y biodiversidad---ciudadano,25,374,30
+Sant Martí---Transición ecológica---Verde urbano y biodiversidad---encuentro,12,59,21
+Sant Martí---Transición ecológica---Verde urbano y biodiversidad---oficial,3,543,18
+Sant Martí---Transición ecológica---Verde urbano y biodiversidad---organización,2,53,5
+Sant Martí---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,3,39,1
+Sant Martí---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,18,51,7
+Sant Martí---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,2,48,18
+Sant Martí---Vivir Bien---Ciclos de vida---ciudadano,22,228,23
+Sant Martí---Vivir Bien---Ciclos de vida---oficial,8,332,14
+Sant Martí---Vivir Bien---Ciclos de vida---organización,1,19,1
+Sant Martí---Vivir Bien---Convivencia y seguridad---ciudadano,28,166,10
+Sant Martí---Vivir Bien---Convivencia y seguridad---encuentro,23,124,29
+Sant Martí---Vivir Bien---Convivencia y seguridad---oficial,5,108,29
+Sant Martí---Vivir Bien---Convivencia y seguridad---organización,2,26,0
+Sant Martí---Vivir Bien---Cultura---ciudadano,22,649,45
+Sant Martí---Vivir Bien---Cultura---encuentro,28,119,6
+Sant Martí---Vivir Bien---Cultura---oficial,7,252,46
+Sant Martí---Vivir Bien---Cultura---organización,4,193,17
+Sant Martí---Vivir Bien---Deportes---ciudadano,10,459,45
+Sant Martí---Vivir Bien---Deportes---encuentro,7,46,1
+Sant Martí---Vivir Bien---Deportes---oficial,1,13,1
+Sant Martí---Vivir Bien---Deportes---organización,2,33,4
+Sant Martí---Vivir Bien---Educación y conocimiento---ciudadano,18,518,59
+Sant Martí---Vivir Bien---Educación y conocimiento---encuentro,4,9,2
+Sant Martí---Vivir Bien---Educación y conocimiento---oficial,11,454,6
+Sant Martí---Vivir Bien---Educación y conocimiento---organización,3,51,3
+Sant Martí---Vivir Bien---Equidad de género y diversidad sexual---encuentro,24,40,6
+Sant Martí---Vivir Bien---Equidad de género y diversidad sexual---oficial,4,255,11
+Sant Martí---Vivir Bien---Justicia social---ciudadano,6,125,3
+Sant Martí---Vivir Bien---Justicia social---oficial,2,28,1
+Sant Martí---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,1,0,0
+Sant Martí---Vivir Bien---Migración interculturalidad y discriminación cero---encuentro,20,74,2
+Sant Martí---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,5,123,17
+Sant Martí---Vivir Bien---Sanidad y salud---ciudadano,9,173,11
+Sant Martí---Vivir Bien---Sanidad y salud---encuentro,20,143,6
+Sant Martí---Vivir Bien---Sanidad y salud---oficial,3,70,16
+Sant Martí---Vivir Bien---Sanidad y salud---organización,2,51,1
+Sant Martí---Vivir Bien---Vivienda---ciudadano,12,279,6
+Sant Martí---Vivir Bien---Vivienda---encuentro,5,12,0
+Sant Martí---Vivir Bien---Vivienda---oficial,5,393,24
+Sant Martí---Vivir Bien---Vivienda---organización,2,40,0
+Sants Montjuïc---Buen gobierno---Acción comunitaria---ciudadano,13,47,17
+Sants Montjuïc---Buen gobierno---Acción comunitaria---encuentro,3,17,2
+Sants Montjuïc---Buen gobierno---Acción comunitaria---oficial,1,25,1
+Sants Montjuïc---Buen gobierno---Acción comunitaria---organización,2,13,0
+Sants Montjuïc---Buen gobierno---Administración inteligente e inclusiva---ciudadano,1,7,0
+Sants Montjuïc---Buen gobierno---Administración inteligente e inclusiva---organización,1,11,1
+Sants Montjuïc---Buen gobierno---Eficiencia y profesionalidad---encuentro,2,11,0
+Sants Montjuïc---Buen gobierno---Gobierno transparente y rendición de cuentas---ciudadano,9,48,9
+Sants Montjuïc---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,1,17,0
+Sants Montjuïc---Buen gobierno---Gobierno transparente y rendición de cuentas---organización,1,1,1
+Sants Montjuïc---Buen gobierno---Participación ciudadana---ciudadano,14,47,15
+Sants Montjuïc---Buen gobierno---Participación ciudadana---encuentro,4,12,6
+Sants Montjuïc---Buen gobierno---Participación ciudadana---oficial,3,68,0
+Sants Montjuïc---Buen gobierno---Participación ciudadana---organización,6,62,7
+Sants Montjuïc---Economía plural---Desarrollo y economía de proximidad---ciudadano,13,61,4
+Sants Montjuïc---Economía plural---Desarrollo y economía de proximidad---encuentro,5,21,3
+Sants Montjuïc---Economía plural---Desarrollo y economía de proximidad---oficial,6,102,16
+Sants Montjuïc---Economía plural---Economía cooperativa social y solidaria---ciudadano,8,37,0
+Sants Montjuïc---Economía plural---Economía cooperativa social y solidaria---encuentro,7,26,4
+Sants Montjuïc---Economía plural---Economía cooperativa social y solidaria---oficial,5,63,20
+Sants Montjuïc---Economía plural---Empleo de calidad---ciudadano,4,24,0
+Sants Montjuïc---Economía plural---Empleo de calidad---encuentro,5,12,1
+Sants Montjuïc---Economía plural---Turismo sostenible---ciudadano,10,46,2
+Sants Montjuïc---Economía plural---Turismo sostenible---oficial,2,29,0
+Sants Montjuïc---Economía plural---Un nuevo liderazgo público---ciudadano,1,3,0
+Sants Montjuïc---Economía plural---Un nuevo liderazgo público---oficial,1,24,2
+Sants Montjuïc---Justicia global---Ciudad de acogida---encuentro,1,15,1
+Sants Montjuïc---Transición ecológica---Energía y cambio climático---ciudadano,9,207,12
+Sants Montjuïc---Transición ecológica---Medio ambiente y espacio público---ciudadano,22,251,29
+Sants Montjuïc---Transición ecológica---Medio ambiente y espacio público---encuentro,6,15,1
+Sants Montjuïc---Transición ecológica---Medio ambiente y espacio público---organización,3,41,1
+Sants Montjuïc---Transición ecológica---Movilidad sostenible---ciudadano,75,1126,93
+Sants Montjuïc---Transición ecológica---Movilidad sostenible---encuentro,16,111,5
+Sants Montjuïc---Transición ecológica---Movilidad sostenible---oficial,8,955,101
+Sants Montjuïc---Transición ecológica---Movilidad sostenible---organización,2,32,7
+Sants Montjuïc---Transición ecológica---Urbanismo para los barrios---ciudadano,48,603,92
+Sants Montjuïc---Transición ecológica---Urbanismo para los barrios---encuentro,10,48,10
+Sants Montjuïc---Transición ecológica---Urbanismo para los barrios---oficial,9,334,17
+Sants Montjuïc---Transición ecológica---Urbanismo para los barrios---organización,12,157,11
+Sants Montjuïc---Transición ecológica---Verde urbano y biodiversidad---ciudadano,26,409,35
+Sants Montjuïc---Transición ecológica---Verde urbano y biodiversidad---encuentro,6,25,28
+Sants Montjuïc---Transición ecológica---Verde urbano y biodiversidad---oficial,5,211,5
+Sants Montjuïc---Transición ecológica---Verde urbano y biodiversidad---organización,1,18,0
+Sants Montjuïc---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,8,54,4
+Sants Montjuïc---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,5,17,1
+Sants Montjuïc---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,2,23,15
+Sants Montjuïc---Vivir Bien---Ciclos de vida---ciudadano,7,49,7
+Sants Montjuïc---Vivir Bien---Ciclos de vida---encuentro,17,73,9
+Sants Montjuïc---Vivir Bien---Ciclos de vida---oficial,5,111,8
+Sants Montjuïc---Vivir Bien---Ciclos de vida---organización,2,26,0
+Sants Montjuïc---Vivir Bien---Convivencia y seguridad---ciudadano,28,265,17
+Sants Montjuïc---Vivir Bien---Convivencia y seguridad---encuentro,3,29,2
+Sants Montjuïc---Vivir Bien---Convivencia y seguridad---oficial,2,101,15
+Sants Montjuïc---Vivir Bien---Convivencia y seguridad---organización,5,47,0
+Sants Montjuïc---Vivir Bien---Cultura---ciudadano,30,499,20
+Sants Montjuïc---Vivir Bien---Cultura---encuentro,22,96,1
+Sants Montjuïc---Vivir Bien---Cultura---oficial,7,129,32
+Sants Montjuïc---Vivir Bien---Cultura---organización,2,31,11
+Sants Montjuïc---Vivir Bien---Defensa y protección de los derechos humanos---ciudadano,2,12,1
+Sants Montjuïc---Vivir Bien---Deportes---ciudadano,10,277,16
+Sants Montjuïc---Vivir Bien---Deportes---encuentro,21,163,10
+Sants Montjuïc---Vivir Bien---Deportes---oficial,3,77,54
+Sants Montjuïc---Vivir Bien---Deportes---organización,1,21,16
+Sants Montjuïc---Vivir Bien---Educación y conocimiento---ciudadano,14,160,18
+Sants Montjuïc---Vivir Bien---Educación y conocimiento---encuentro,22,298,19
+Sants Montjuïc---Vivir Bien---Educación y conocimiento---oficial,6,134,4
+Sants Montjuïc---Vivir Bien---Educación y conocimiento---organización,1,17,4
+Sants Montjuïc---Vivir Bien---Equidad de género y diversidad sexual---ciudadano,4,33,0
+Sants Montjuïc---Vivir Bien---Equidad de género y diversidad sexual---encuentro,2,7,1
+Sants Montjuïc---Vivir Bien---Equidad de género y diversidad sexual---oficial,2,36,0
+Sants Montjuïc---Vivir Bien---Justicia social---ciudadano,2,11,2
+Sants Montjuïc---Vivir Bien---Justicia social---encuentro,4,17,4
+Sants Montjuïc---Vivir Bien---Justicia social---oficial,1,19,1
+Sants Montjuïc---Vivir Bien---Justicia social---organización,2,37,0
+Sants Montjuïc---Vivir Bien---Migración interculturalidad y discriminación cero---ciudadano,4,28,1
+Sants Montjuïc---Vivir Bien---Migración interculturalidad y discriminación cero---encuentro,10,55,3
+Sants Montjuïc---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,4,59,13
+Sants Montjuïc---Vivir Bien---Sanidad y salud---ciudadano,8,25,3
+Sants Montjuïc---Vivir Bien---Sanidad y salud---encuentro,5,26,2
+Sants Montjuïc---Vivir Bien---Sanidad y salud---oficial,2,76,6
+Sants Montjuïc---Vivir Bien---Vivienda---ciudadano,4,109,5
+Sants Montjuïc---Vivir Bien---Vivienda---encuentro,4,30,1
+Sants Montjuïc---Vivir Bien---Vivienda---oficial,5,104,9
+Sants Montjuïc---Vivir Bien---Vivienda---organización,1,11,0
+Sarrià - Sant Gervasi---Buen gobierno---Acción comunitaria---ciudadano,5,9,4
+Sarrià - Sant Gervasi---Buen gobierno---Acción comunitaria---encuentro,14,11,11
+Sarrià - Sant Gervasi---Buen gobierno---Acción comunitaria---oficial,3,30,0
+Sarrià - Sant Gervasi---Buen gobierno---Administración inteligente e inclusiva---encuentro,1,3,0
+Sarrià - Sant Gervasi---Buen gobierno---Administración inteligente e inclusiva---oficial,1,11,0
+Sarrià - Sant Gervasi---Buen gobierno---Eficiencia y profesionalidad---encuentro,1,0,0
+Sarrià - Sant Gervasi---Buen gobierno---Gobierno transparente y rendición de cuentas---encuentro,1,1,0
+Sarrià - Sant Gervasi---Buen gobierno---Gobierno transparente y rendición de cuentas---oficial,4,58,9
+Sarrià - Sant Gervasi---Buen gobierno---Participación ciudadana---ciudadano,2,31,2
+Sarrià - Sant Gervasi---Buen gobierno---Participación ciudadana---encuentro,3,1,2
+Sarrià - Sant Gervasi---Buen gobierno---Participación ciudadana---oficial,1,26,6
+Sarrià - Sant Gervasi---Economía plural---Desarrollo y economía de proximidad---ciudadano,1,2,0
+Sarrià - Sant Gervasi---Economía plural---Desarrollo y economía de proximidad---encuentro,13,36,2
+Sarrià - Sant Gervasi---Economía plural---Desarrollo y economía de proximidad---oficial,5,103,14
+Sarrià - Sant Gervasi---Economía plural---Desarrollo y economía de proximidad---organización,1,2,0
+Sarrià - Sant Gervasi---Economía plural---Economía cooperativa social y solidaria---encuentro,3,10,0
+Sarrià - Sant Gervasi---Economía plural---Economía cooperativa social y solidaria---oficial,1,11,0
+Sarrià - Sant Gervasi---Economía plural---Empleo de calidad---encuentro,1,4,0
+Sarrià - Sant Gervasi---Economía plural---Empleo de calidad---oficial,1,17,1
+Sarrià - Sant Gervasi---Economía plural---Turismo sostenible---encuentro,2,2,0
+Sarrià - Sant Gervasi---Economía plural---Turismo sostenible---oficial,2,30,3
+Sarrià - Sant Gervasi---Economía plural---Un nuevo liderazgo público---oficial,1,24,2
+Sarrià - Sant Gervasi---Justicia global---Ciudad de acogida---encuentro,3,20,7
+Sarrià - Sant Gervasi---Justicia global---Ciudad de acogida---oficial,1,23,0
+Sarrià - Sant Gervasi---Justicia global---Justicia global---encuentro,1,5,2
+Sarrià - Sant Gervasi---Justicia global---Justicia global---oficial,1,7,0
+Sarrià - Sant Gervasi---Transición ecológica---Energía y cambio climático---ciudadano,4,81,5
+Sarrià - Sant Gervasi---Transición ecológica---Energía y cambio climático---encuentro,3,14,5
+Sarrià - Sant Gervasi---Transición ecológica---Energía y cambio climático---oficial,5,210,9
+Sarrià - Sant Gervasi---Transición ecológica---Medio ambiente y espacio público---ciudadano,11,72,10
+Sarrià - Sant Gervasi---Transición ecológica---Medio ambiente y espacio público---encuentro,9,39,17
+Sarrià - Sant Gervasi---Transición ecológica---Medio ambiente y espacio público---oficial,9,366,16
+Sarrià - Sant Gervasi---Transición ecológica---Medio ambiente y espacio público---organización,5,119,1
+Sarrià - Sant Gervasi---Transición ecológica---Movilidad sostenible---ciudadano,38,411,74
+Sarrià - Sant Gervasi---Transición ecológica---Movilidad sostenible---encuentro,37,290,49
+Sarrià - Sant Gervasi---Transición ecológica---Movilidad sostenible---oficial,6,383,25
+Sarrià - Sant Gervasi---Transición ecológica---Movilidad sostenible---organización,8,337,20
+Sarrià - Sant Gervasi---Transición ecológica---Urbanismo para los barrios---ciudadano,48,493,75
+Sarrià - Sant Gervasi---Transición ecológica---Urbanismo para los barrios---encuentro,9,35,17
+Sarrià - Sant Gervasi---Transición ecológica---Urbanismo para los barrios---oficial,1,32,0
+Sarrià - Sant Gervasi---Transición ecológica---Urbanismo para los barrios---organización,7,260,32
+Sarrià - Sant Gervasi---Transición ecológica---Verde urbano y biodiversidad---ciudadano,8,165,8
+Sarrià - Sant Gervasi---Transición ecológica---Verde urbano y biodiversidad---encuentro,16,52,25
+Sarrià - Sant Gervasi---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---ciudadano,8,50,5
+Sarrià - Sant Gervasi---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---encuentro,5,28,3
+Sarrià - Sant Gervasi---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---oficial,2,60,1
+Sarrià - Sant Gervasi---Vivir Bien---Autonomía personal y reconocimiento de los cuidados---organización,1,7,0
+Sarrià - Sant Gervasi---Vivir Bien---Ciclos de vida---ciudadano,4,24,2
+Sarrià - Sant Gervasi---Vivir Bien---Ciclos de vida---encuentro,10,77,11
+Sarrià - Sant Gervasi---Vivir Bien---Ciclos de vida---oficial,9,160,15
+Sarrià - Sant Gervasi---Vivir Bien---Convivencia y seguridad---ciudadano,6,81,14
+Sarrià - Sant Gervasi---Vivir Bien---Convivencia y seguridad---encuentro,12,38,4
+Sarrià - Sant Gervasi---Vivir Bien---Convivencia y seguridad---oficial,4,78,19
+Sarrià - Sant Gervasi---Vivir Bien---Convivencia y seguridad---organización,2,6,0
+Sarrià - Sant Gervasi---Vivir Bien---Cultura---ciudadano,5,62,5
+Sarrià - Sant Gervasi---Vivir Bien---Cultura---encuentro,3,10,0
+Sarrià - Sant Gervasi---Vivir Bien---Cultura---oficial,10,542,25
+Sarrià - Sant Gervasi---Vivir Bien---Cultura---organización,5,85,3
+Sarrià - Sant Gervasi---Vivir Bien---Deportes---ciudadano,3,30,3
+Sarrià - Sant Gervasi---Vivir Bien---Deportes---encuentro,2,25,1
+Sarrià - Sant Gervasi---Vivir Bien---Deportes---oficial,2,21,2
+Sarrià - Sant Gervasi---Vivir Bien---Educación y conocimiento---ciudadano,6,128,14
+Sarrià - Sant Gervasi---Vivir Bien---Educación y conocimiento---encuentro,15,39,11
+Sarrià - Sant Gervasi---Vivir Bien---Educación y conocimiento---oficial,4,104,0
+Sarrià - Sant Gervasi---Vivir Bien---Educación y conocimiento---organización,1,58,4
+Sarrià - Sant Gervasi---Vivir Bien---Equidad de género y diversidad sexual---encuentro,1,2,0
+Sarrià - Sant Gervasi---Vivir Bien---Equidad de género y diversidad sexual---oficial,11,248,3
+Sarrià - Sant Gervasi---Vivir Bien---Justicia social---encuentro,5,25,2
+Sarrià - Sant Gervasi---Vivir Bien---Justicia social---oficial,4,505,11
+Sarrià - Sant Gervasi---Vivir Bien---Migración interculturalidad y discriminación cero---encuentro,1,10,1
+Sarrià - Sant Gervasi---Vivir Bien---Migración interculturalidad y discriminación cero---oficial,3,42,2
+Sarrià - Sant Gervasi---Vivir Bien---Sanidad y salud---encuentro,12,155,11
+Sarrià - Sant Gervasi---Vivir Bien---Sanidad y salud---oficial,2,34,6
+Sarrià - Sant Gervasi---Vivir Bien---Sanidad y salud---organización,1,9,0
+Sarrià - Sant Gervasi---Vivir Bien---Vivienda---ciudadano,1,4,2
+Sarrià - Sant Gervasi---Vivir Bien---Vivienda---encuentro,7,49,9
+Sarrià - Sant Gervasi---Vivir Bien---Vivienda---oficial,1,24,2

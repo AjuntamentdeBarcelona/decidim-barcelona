@@ -1,0 +1,104 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: #fff;
+  /* width: 960px; */
+  /* height: 700px;*/
+  margin-top: 10px;
+}
+
+#main {
+  /* float: left; */
+  /* width: 750px; */
+}
+
+#sidebar {
+  float: right;
+  width: 150px;
+}
+
+#legend {
+  padding: 10px 0 0 3px;
+}
+
+
+#text2 {
+  font-size: 2.5em;
+}
+
+.explanation-box {
+  fill: #fff;
+}
+
+text.text-explanation {
+  position: absolute;
+  top: 260px;
+  left: 305px;
+  width: 140px;
+  text-align: center;
+  fill: #666;
+  z-index: -1;
+}
+
+#trail text, #legend text, text.text-legend {
+  font-weight: 600;
+  fill: #fff;
+}
+
+#chart {
+  position:fixed !important;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+
+#chart path {
+  stroke: #fff;
+}
+
+#explanation {
+  position: absolute;
+  top: 260px;
+  left: 305px;
+  width: 140px;
+  text-align: center;
+  color: #666;
+  z-index: -1;
+}
+
+#total {
+  font-size: 2.5em;
+}
+
+.svg-container {
+    display: inline-block;
+    /* position: relative; */ 
+    /* width: 100%; */
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    /* display: inline-block; */
+    /* position: absolute; */
+    /* top: 10px; */
+    /* left: 0; */
+	/* height: 100%; */
+	position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.svg-content-responsive>g {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+}

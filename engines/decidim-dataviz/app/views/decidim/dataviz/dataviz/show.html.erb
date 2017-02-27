@@ -1,1 +1,27 @@
-TODO
+<div class="dataviz row-full more-information">
+  <div class="row">
+    <div class="small-12 column">
+      <ul class="vertical large-horizontal menu">
+        <% available_dataviz.each do |dataviz| %>
+          <li class="<%= 'active' if dataviz == @id %>">
+            <%= link_to({ id: dataviz }) do %><%= t ".dataviz.#{dataviz}.title" %><% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="small-12 column">
+      <div class="dataviz-show dataviz-<%= @id %>">
+        <div class="page-title">
+          <h2 class="heading2"><%= t ".dataviz.#{@id}.title" %></h2>
+          <% if t(".dataviz.#{@id}").keys.include?(:description) %>
+            <p class="lead"><%== t ".dataviz.#{@id}.description" %></p>
+          <% end %>
+        </div>
+        <%= render partial: "#{@id}" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'decidim/dataviz/dataviz' %>

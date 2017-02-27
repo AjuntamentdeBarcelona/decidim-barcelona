@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100%"
+   version="1.2"
+   viewBox="0 0 350 125"
+   width="100%"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="calendari.svg">
+  <metadata
+     id="metadata136">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1869"
+     inkscape:window-height="1056"
+     id="namedview134"
+     showgrid="false"
+     inkscape:zoom="4.3905839"
+     inkscape:cx="186.45472"
+     inkscape:cy="17.010484"
+     inkscape:window-x="51"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4" />
+  <line
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.5 0.5"
+     stroke-width="0.5"
+     x1="0"
+     x2="350"
+     y1="50"
+     y2="50"
+     id="line6" />
+  <line
+     class="setmana_0"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="12"
+     x2="12"
+     y1="0"
+     y2="125.0"
+     id="line8" />
+  <text
+     class="setmana_0"
+     font-size="4"
+     x="-125.34375"
+     y="10.265625"
+     id="text10"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">18-01-2016</text>
+  <line
+     class="setmana_1"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="37"
+     x2="37"
+     y1="0"
+     y2="125.0"
+     id="line12" />
+  <text
+     class="setmana_1"
+     font-size="4"
+     x="-125.24023"
+     y="35.162109"
+     id="text14"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">25-01-2016</text>
+  <line
+     class="setmana_2"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="62"
+     x2="62"
+     y1="0"
+     y2="125.0"
+     id="line16" />
+  <text
+     class="setmana_2"
+     font-size="4"
+     x="-125.19531"
+     y="60.117188"
+     id="text18"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">01-02-2016</text>
+  <line
+     class="setmana_3"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="87"
+     x2="87"
+     y1="0"
+     y2="125.0"
+     id="line20" />
+  <text
+     class="setmana_3"
+     font-size="4"
+     x="-125.19531"
+     y="85.117188"
+     id="text22"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">08-02-2016</text>
+  <line
+     class="setmana_4"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="112"
+     x2="112"
+     y1="0"
+     y2="125.0"
+     id="line24" />
+  <text
+     class="setmana_4"
+     font-size="4"
+     x="-125.34375"
+     y="110.26562"
+     id="text26"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">15-02-2016</text>
+  <line
+     class="setmana_5"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="137"
+     x2="137"
+     y1="0"
+     y2="125.0"
+     id="line28" />
+  <text
+     class="setmana_5"
+     font-size="4"
+     x="-125.24023"
+     y="135.16211"
+     id="text30"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">22-02-2016</text>
+  <line
+     class="setmana_6"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="162"
+     x2="162"
+     y1="0"
+     y2="125.0"
+     id="line32" />
+  <text
+     class="setmana_6"
+     font-size="4"
+     x="-125.24023"
+     y="160.16211"
+     id="text34"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">29-02-2016</text>
+  <line
+     class="setmana_7"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="187"
+     x2="187"
+     y1="0"
+     y2="125.0"
+     id="line36" />
+  <text
+     class="setmana_7"
+     font-size="4"
+     x="-125.19531"
+     y="185.11719"
+     id="text38"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">07-03-2016</text>
+  <line
+     class="setmana_8"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="212"
+     x2="212"
+     y1="0"
+     y2="125.0"
+     id="line40" />
+  <text
+     class="setmana_8"
+     font-size="4"
+     x="-125.34375"
+     y="210.26562"
+     id="text42"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">14-03-2016</text>
+  <line
+     class="setmana_9"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="237"
+     x2="237"
+     y1="0"
+     y2="125.0"
+     id="line44" />
+  <text
+     class="setmana_9"
+     font-size="4"
+     x="-125.24023"
+     y="235.16211"
+     id="text46"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">21-03-2016</text>
+  <line
+     class="setmana_10"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="262"
+     x2="262"
+     y1="0"
+     y2="125.0"
+     id="line48" />
+  <text
+     class="setmana_10"
+     font-size="4"
+     x="-125.24023"
+     y="260.16211"
+     id="text50"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">28-03-2016</text>
+  <line
+     class="setmana_11"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="287"
+     x2="287"
+     y1="0"
+     y2="125.0"
+     id="line52" />
+  <text
+     class="setmana_11"
+     font-size="4"
+     x="-125.19531"
+     y="285.11719"
+     id="text54"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">04-04-2016</text>
+  <line
+     class="setmana_12"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="312"
+     x2="312"
+     y1="0"
+     y2="125.0"
+     id="line56" />
+  <text
+     class="setmana_12"
+     font-size="4"
+     x="-125.34375"
+     y="310.26562"
+     id="text58"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">11-04-2016</text>
+  <line
+     class="setmana_13"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="0.3 0.3"
+     stroke-width="0.3"
+     x1="337"
+     x2="337"
+     y1="0"
+     y2="125.0"
+     id="line60" />
+  <text
+     class="setmana_13"
+     font-size="4"
+     x="-125.34375"
+     y="335.26562"
+     id="text62"
+     transform="matrix(0,-1,1,0,0,0)"
+     style="font-size:4px;font-family:arial">18-04-2016</text>
+  <circle
+     class="setmana_0"
+     cx="12"
+     cy="50"
+     fill-opacity="0"
+     id="debats_0"
+     r="0.0"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_1"
+     cx="37"
+     cy="50"
+     fill-opacity="0"
+     id="debats_1"
+     r="0.0"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_2"
+     cx="62"
+     cy="50"
+     fill-opacity="0"
+     id="debats_2"
+     r="6.7467"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_3"
+     cx="87"
+     cy="50"
+     fill-opacity="0"
+     id="debats_3"
+     r="4.0467"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_4"
+     cx="112"
+     cy="50"
+     fill-opacity="0"
+     id="debats_4"
+     r="3.1867"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_5"
+     cx="137"
+     cy="50"
+     fill-opacity="0"
+     id="debats_5"
+     r="4.4733"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_6"
+     cx="162"
+     cy="50"
+     fill-opacity="0"
+     id="debats_6"
+     r="4.9267"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_7"
+     cx="187"
+     cy="50"
+     fill-opacity="0"
+     id="debats_7"
+     r="5.2667"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_8"
+     cx="212"
+     cy="50"
+     fill-opacity="0"
+     id="debats_8"
+     r="7.06"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_9"
+     cx="237"
+     cy="50"
+     fill-opacity="0"
+     id="debats_9"
+     r="3.1933"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_10"
+     cx="262"
+     cy="50"
+     fill-opacity="0"
+     id="debats_10"
+     r="6.5067"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_11"
+     cx="287"
+     cy="50"
+     fill-opacity="0"
+     id="debats_11"
+     r="30.2133"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_12"
+     cx="312"
+     cy="50"
+     fill-opacity="0"
+     id="debats_12"
+     r="36.5267"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_13"
+     cx="337"
+     cy="50"
+     fill-opacity="0"
+     id="debats_13"
+     r="0.2733"
+     stroke="rgb(0, 0, 0)"
+     stroke-width="1.5" />
+  <circle
+     class="setmana_0"
+     cx="12"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_0"
+     r="0.0"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_1"
+     cx="37"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_1"
+     r="0.0"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_2"
+     cx="62"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_2"
+     r="37.75"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_3"
+     cx="87"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_3"
+     r="14.2625"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_4"
+     cx="112"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_4"
+     r="8.525"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_5"
+     cx="137"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_5"
+     r="12.5125"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_6"
+     cx="162"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_6"
+     r="9.975"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_7"
+     cx="187"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_7"
+     r="11.9875"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_8"
+     cx="212"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_8"
+     r="12.8"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_9"
+     cx="237"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_9"
+     r="8.7375"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_10"
+     cx="262"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_10"
+     r="20.1875"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_11"
+     cx="287"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_11"
+     r="42.5625"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_12"
+     cx="312"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_12"
+     r="1.375"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_13"
+     cx="337"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0.0"
+     id="tweets_13"
+     r="0.6"
+     stroke="rgb(0,0,0)"
+     stroke-dasharray="1 1"
+     stroke-width="0.3" />
+  <circle
+     class="setmana_0"
+     cx="12"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_0"
+     r="0.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_1"
+     cx="37"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_1"
+     r="0.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_2"
+     cx="62"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_2"
+     r="4.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_3"
+     cx="87"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_3"
+     r="6.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_4"
+     cx="112"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_4"
+     r="11.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_5"
+     cx="137"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_5"
+     r="11.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_6"
+     cx="162"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_6"
+     r="26.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_7"
+     cx="187"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_7"
+     r="25.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_8"
+     cx="212"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_8"
+     r="39.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_9"
+     cx="237"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_9"
+     r="7.5"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_10"
+     cx="262"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_10"
+     r="40.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_11"
+     cx="287"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_11"
+     r="32.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_12"
+     cx="312"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_12"
+     r="1.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_13"
+     cx="337"
+     cy="50"
+     fill="rgb(0,0,0)"
+     fill-opacity="0"
+     id="cites_13"
+     r="0.0"
+     stroke="rgb(0,0,0)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_0"
+     cx="12"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_0"
+     opacity="1"
+     r="0.39" />
+  <circle
+     class="setmana_1"
+     cx="37"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_1"
+     opacity="1"
+     r="4.655" />
+  <circle
+     class="setmana_2"
+     cx="62"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_2"
+     opacity="1"
+     r="2.495" />
+  <circle
+     class="setmana_3"
+     cx="87"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_3"
+     opacity="1"
+     r="5.35" />
+  <circle
+     class="setmana_4"
+     cx="112"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_4"
+     opacity="1"
+     r="2.82" />
+  <circle
+     class="setmana_5"
+     cx="137"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_5"
+     opacity="1"
+     r="1.925" />
+  <circle
+     class="setmana_6"
+     cx="162"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_6"
+     opacity="1"
+     r="3.045" />
+  <circle
+     class="setmana_7"
+     cx="187"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_7"
+     opacity="1"
+     r="2.995" />
+  <circle
+     class="setmana_8"
+     cx="212"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_8"
+     opacity="1"
+     r="6.54" />
+  <circle
+     class="setmana_9"
+     cx="237"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_9"
+     opacity="1"
+     r="3.895" />
+  <circle
+     class="setmana_10"
+     cx="262"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_10"
+     opacity="1"
+     r="5.365" />
+  <circle
+     class="setmana_11"
+     cx="287"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_11"
+     opacity="1"
+     r="14.01" />
+  <circle
+     class="setmana_12"
+     cx="312"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_12"
+     opacity="1"
+     r="0.46" />
+  <circle
+     class="setmana_13"
+     cx="337"
+     cy="50"
+     fill="rgb(0,0,0)"
+     id="propostes_13"
+     opacity="1"
+     r="0.275" />
+  <circle
+     class="setmana_0"
+     cx="12"
+     cy="50"
+     id="id_0"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_1"
+     cx="37"
+     cy="50"
+     id="id_1"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_2"
+     cx="62"
+     cy="50"
+     id="id_2"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_3"
+     cx="87"
+     cy="50"
+     id="id_3"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_4"
+     cx="112"
+     cy="50"
+     id="id_4"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_5"
+     cx="137"
+     cy="50"
+     id="id_5"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_6"
+     cx="162"
+     cy="50"
+     id="id_6"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_7"
+     cx="187"
+     cy="50"
+     id="id_7"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_8"
+     cx="212"
+     cy="50"
+     id="id_8"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_9"
+     cx="237"
+     cy="50"
+     id="id_9"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_10"
+     cx="262"
+     cy="50"
+     id="id_10"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_11"
+     cx="287"
+     cy="50"
+     id="id_11"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_12"
+     cx="312"
+     cy="50"
+     id="id_12"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+  <circle
+     class="setmana_13"
+     cx="337"
+     cy="50"
+     id="id_13"
+     r="0.1"
+     stroke="rgb(255,255,255)"
+     stroke-width="0.5" />
+</svg>

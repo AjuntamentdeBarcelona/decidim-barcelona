@@ -1,4 +1,5 @@
 base_locale: ca
 locales: [ca,es]
 ignore_unused:
--
+- "decidim.features.dataviz.name"
+- "decidim.dataviz.*"
