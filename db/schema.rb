@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302132965) do
+ActiveRecord::Schema.define(version: 20170309085337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20170302132965) do
     t.string   "youtube_handler"
     t.string   "github_handler"
     t.string   "reference_prefix",                   null: false
+    t.string   "secondary_hosts",     default: [],                array: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true, using: :btree
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true, using: :btree
   end
