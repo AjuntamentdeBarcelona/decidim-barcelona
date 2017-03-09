@@ -7,6 +7,7 @@ gem "decidim-debates", path: "engines/decidim-debates"
 gem "decidim-dataviz", path: "engines/decidim-dataviz"
 
 gem 'uglifier', '>= 1.3.0'
+gem 'lograge'
 
 group :development, :test do
   gem 'byebug', platform: :mri
