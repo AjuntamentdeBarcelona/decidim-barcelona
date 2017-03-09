@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 5d0c7126e36b0baa98f44090c65bfe3dd65680d9
+  revision: 45a466cc9e2afb29326ef6a3c7646ff49bdd24fc
   specs:
     decidim (0.0.5)
       decidim-admin (= 0.0.5)
@@ -314,7 +314,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.4.4)
+    graphql (1.4.5)
     hashdiff (0.3.2)
     hashie (3.5.5)
     high_voltage (3.0.0)
@@ -606,7 +606,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     wisper (1.6.1)
-    wisper-rspec (0.0.2)
+    wisper-rspec (0.0.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
