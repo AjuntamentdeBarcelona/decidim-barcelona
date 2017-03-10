@@ -31,7 +31,6 @@ group :production do
   gem "newrelic_rpm"
   gem "dalli"
   gem "sentry-raven"
-  gem "rack-host-redirect"
 end
 
 group :test do

@@ -435,8 +435,6 @@ GEM
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-cors (0.4.1)
-    rack-host-redirect (1.2.1)
-      rack
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -627,7 +625,6 @@ DEPENDENCIES
   newrelic_rpm
   passenger
   progressbar
-  rack-host-redirect
   rails_12factor
   rainbow (= 2.1.0)
   rspec-rails
