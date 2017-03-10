@@ -124,5 +124,5 @@ Rails.application.configure do
       organization_id: event.payload[:organization_id],
       referer: event.payload[:referer],
     }
-  end config.active_job.queue_adapter = :sidekiq
+  end
 end
