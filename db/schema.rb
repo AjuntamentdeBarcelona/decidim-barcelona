@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309085337) do
+ActiveRecord::Schema.define(version: 20170314082130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
@@ -233,6 +232,16 @@ ActiveRecord::Schema.define(version: 20170309085337) do
     t.index ["decidim_feature_id"], name: "index_decidim_pages_pages_on_decidim_feature_id", using: :btree
   end
 
+  create_table "decidim_participatory_process_groups", force: :cascade do |t|
+    t.jsonb    "name",                    null: false
+    t.jsonb    "description",             null: false
+    t.string   "hero_image"
+    t.integer  "decidim_organization_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["decidim_organization_id"], name: "decidim_participatory_process_group_organization", using: :btree
+  end
+
   create_table "decidim_participatory_process_steps", force: :cascade do |t|
     t.jsonb    "title",                                            null: false
     t.jsonb    "description"
@@ -251,18 +260,18 @@ ActiveRecord::Schema.define(version: 20170309085337) do
   end
 
   create_table "decidim_participatory_processes", force: :cascade do |t|
-    t.string   "slug",                                    null: false
+    t.string   "slug",                                                   null: false
     t.string   "hashtag"
     t.integer  "decidim_organization_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.jsonb    "title",                                   null: false
-    t.jsonb    "subtitle",                                null: false
-    t.jsonb    "short_description",                       null: false
-    t.jsonb    "description",                             null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.jsonb    "title",                                                  null: false
+    t.jsonb    "subtitle",                                               null: false
+    t.jsonb    "short_description",                                      null: false
+    t.jsonb    "description",                                            null: false
     t.string   "hero_image"
     t.string   "banner_image"
-    t.boolean  "promoted",                default: false
+    t.boolean  "promoted",                               default: false
     t.datetime "published_at"
     t.jsonb    "developer_group"
     t.date     "end_date"
@@ -273,6 +282,7 @@ ActiveRecord::Schema.define(version: 20170309085337) do
     t.jsonb    "participatory_scope"
     t.jsonb    "participatory_structure"
     t.integer  "decidim_scope_id"
+    t.integer  "decidim_participatory_process_group_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
   end
