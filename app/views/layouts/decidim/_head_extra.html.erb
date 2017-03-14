@@ -1,4 +1,4 @@
-<% if Rails.env.production? %>
+<% if Rails.application.secrets.analytics %>
   <!-- Piwik -->
   <script type="text/javascript">
     var _paq = _paq || [];
