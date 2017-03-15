@@ -10,6 +10,6 @@
 # You can remove the 'faker' gem if you don't want Decidim seeds.
 if ENV["HEROKU_APP_NAME"].present?
   ENV["DECIDIM_HOST"] = ENV["HEROKU_APP_NAME"] + ".herokuapp.com"
-  ENV["SEED"] = true
+  ENV["SEED"] = "true"
 end
 Decidim.seed!
