@@ -10,7 +10,7 @@ Decidim.configure do |config|
   config.available_locales = %i(ca es)
 
   if ENV["HEROKU_APP_NAME"].present?
-    config.base_uploads_path = ENV["HEROKU_APPNAME"] + "/"
+    config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
   end
 
   if Rails.application.secrets.geocoder
