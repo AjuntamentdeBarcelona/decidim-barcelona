@@ -8,6 +8,7 @@ gem "decidim-dataviz", path: "engines/decidim-dataviz"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -21,7 +22,6 @@ group :development do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'faker'
 end
 
 group :production do
