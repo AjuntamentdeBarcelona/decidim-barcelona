@@ -21,7 +21,11 @@ if Rails.application.secrets.aws_access_key_id.present?
       host:                  "s3-eu-west-1.amazonaws.com",
       region:                "eu-west-1"                                     # optional, defaults to 'us-east-1'
     }
-    config.fog_directory  = "decidim-barcelona"                                 # required
+    if ENV["HEROKU_APP_NAME"]
+      config.fog_directory  = "decidim-barcelona/#{ENV["HEROKU_APP_NAME"] }"   # required
+    else
+      config.fog_directory  = "decidim-barcelona"                                 # required
+    end
     config.fog_attributes = { "Cache-Control" => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
   end
 end
