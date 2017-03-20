@@ -4,12 +4,14 @@
 
 ---
 
-Citizen Participation and Open Government Application. 
+Citizen Participation and Open Government Application.
 
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim-barcelona/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim-barcelona)
 [![codecov](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona/branch/master/graph/badge.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona)
 [![Code Climate](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona/badges/gpa.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona)
 [![Dependency Status](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona.svg)](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona)
+[![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=a11y)
+[![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=html)
 
 This is the opensource code repository for "decidim-barcelona", based on [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
