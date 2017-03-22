@@ -10,6 +10,7 @@ Citizen Participation and Open Government Application.
 [![codecov](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona/branch/master/graph/badge.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona)
 [![Code Climate](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona/badges/gpa.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona)
 [![Dependency Status](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona.svg)](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona)
+[![HTML and A11y checked with Rocket Validator](https://rocketvalidator.com/badges/checked_with_rocket_validator.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=a11y)
 [![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=a11y)
 [![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=html)
 
