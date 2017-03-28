@@ -126,7 +126,7 @@ EOS
   end
 
   def over_16
-    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_18")) unless age && age >= 16
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_16")) unless age && age >= 16
   end
 
   def age
