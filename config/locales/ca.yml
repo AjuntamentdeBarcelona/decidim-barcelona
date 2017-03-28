@@ -31,6 +31,9 @@ ca:
         dni: DNI
         nie: NIE
         passport: Passaport
+    resource_links:
+      included_proposals:
+        project_proposals: "Propostes incloses en aquest projecte:"
   pages:
     home:
       extended:

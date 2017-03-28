@@ -317,7 +317,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.5.1)
+    graphql (1.5.4)
     hashdiff (0.3.2)
     hashie (3.5.5)
     high_voltage (3.0.0)
@@ -649,4 +649,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.6
