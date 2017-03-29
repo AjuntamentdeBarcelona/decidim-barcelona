@@ -1,5 +1,6 @@
 es:
   census_authorization_handler:
+    age_under_16: Tienes que ser mayor de 16 años para validarte
     invalid_document: Número de documento incorrecto
   activemodel:
     attributes:
