@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: 53e9ed63c7fa5d716a0d4f40d420e2aa9447686d
+  revision: a1ea7f166dfab511088090f0afa4f08413f1f088
   specs:
     decidim (0.0.6)
       decidim-admin (= 0.0.6)
@@ -193,7 +193,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.0)
+    addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
@@ -261,7 +261,7 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.2)
-    devise_invitable (1.7.1)
+    devise_invitable (1.7.2)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
