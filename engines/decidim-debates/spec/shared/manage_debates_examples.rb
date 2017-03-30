@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage debates" do
   it "updates a debate" do
     within find("tr", text: translated(debate.title)) do
-      click_link "Editar"
+      page.find('.action-icon--edit').click
     end
 
     within ".edit_debate" do
@@ -17,7 +17,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("correctament")
     end
 
@@ -38,7 +38,9 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new debate" do
-    find(".actions .new").click
+    within ".card-title" do
+      page.find('.button.button--title').click
+    end
 
     within ".new_debate" do
       fill_in_i18n(
@@ -68,7 +70,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("correctament")
     end
 
@@ -86,10 +88,10 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        click_link "Esborrar"
+        page.find('.action-icon--remove').click
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("correctament")
       end
 
