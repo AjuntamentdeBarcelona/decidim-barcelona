@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class DecidimController < ActionController::Base
+class DecidimController < ApplicationController
   before_action :set_raven_context
 
   def set_raven_context

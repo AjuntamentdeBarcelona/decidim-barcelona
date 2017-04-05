@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405084212) do
+ActiveRecord::Schema.define(version: 20170405110735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,13 +146,15 @@ ActiveRecord::Schema.define(version: 20170405084212) do
   end
 
   create_table "decidim_identities", force: :cascade do |t|
-    t.string   "provider",        null: false
-    t.string   "uid",             null: false
-    t.integer  "decidim_user_id", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "provider",                null: false
+    t.string   "uid",                     null: false
+    t.integer  "decidim_user_id",         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_identities_on_decidim_organization_id", using: :btree
     t.index ["decidim_user_id"], name: "index_decidim_identities_on_decidim_user_id", using: :btree
-    t.index ["provider", "uid"], name: "index_decidim_identities_on_provider_and_uid", unique: true, using: :btree
+    t.index ["provider", "uid", "decidim_organization_id"], name: "decidim_identities_provider_uid_organization_unique", unique: true, using: :btree
   end
 
   create_table "decidim_meetings_meetings", force: :cascade do |t|
@@ -481,6 +483,7 @@ ActiveRecord::Schema.define(version: 20170405084212) do
   end
 
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
