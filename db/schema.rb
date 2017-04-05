@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315082561) do
+ActiveRecord::Schema.define(version: 20170405084212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -473,7 +473,7 @@ ActiveRecord::Schema.define(version: 20170315082561) do
     t.boolean  "newsletter_notifications", default: false, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id", using: :btree
-    t.index ["email"], name: "index_unique_user_on_email_not_erased", unique: true, where: "(imported_erased_at IS NULL)", using: :btree
+    t.index ["email", "decidim_organization_id"], name: "index_unique_user_on_email_not_erased", unique: true, where: "(imported_erased_at IS NULL)", using: :btree
     t.index ["invitation_token"], name: "index_decidim_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_decidim_users_on_invitations_count", using: :btree
     t.index ["invited_by_id"], name: "index_decidim_users_on_invited_by_id", using: :btree
