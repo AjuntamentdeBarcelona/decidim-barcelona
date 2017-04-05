@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: b6fd6d15f9b2de50ea0ce23ffe03bcd550618b2b
-  branch: fix_login_scoping
+  revision: 60afaea23491be38cc863d82e3c97645f52fdc8b
   specs:
     decidim (0.0.6)
       decidim-admin (= 0.0.6)
