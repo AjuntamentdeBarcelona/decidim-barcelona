@@ -3,7 +3,8 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   get "processes/:process_slug", to: redirect { |params, _request|
-    process = Decidim::ParticipatoryProcess.find_by_slug(params[:process_slug])
+    process = Decidim::ParticipatoryProcess.where(slug: params[:process_slug]).first
+    return "/404" unless process
     "/processes/#{process.id}"
   }, constraints: { process_slug: /[^0-9]+/ }
 
