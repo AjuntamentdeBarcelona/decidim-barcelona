@@ -57,3 +57,8 @@ es:
     features:
       debates:
         name: Debates
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados

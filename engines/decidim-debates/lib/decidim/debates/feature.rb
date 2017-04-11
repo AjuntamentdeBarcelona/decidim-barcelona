@@ -19,6 +19,10 @@ Decidim.register_feature(:debates) do |feature|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
+  feature.register_resource do |resource|
+    resource.model_class_name = "Decidim::Debates::Debate"
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
