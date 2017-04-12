@@ -57,3 +57,8 @@ ca:
     features:
       debates:
         name: Debats
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats

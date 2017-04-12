@@ -7,6 +7,7 @@ module Decidim
     class Debate < Debates::ApplicationRecord
       include Decidim::HasFeature
       include Decidim::HasCategory
+      include Decidim::Resourceable
 
       feature_manifest_name "debates"
 

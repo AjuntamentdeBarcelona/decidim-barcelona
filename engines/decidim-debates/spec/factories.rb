@@ -11,4 +11,15 @@ FactoryGirl.define do
     end_time { start_time.advance(hours: 2) }
     feature { build(:feature, manifest_name: "debates") }
   end
+
+  factory :debates_feature, parent: :feature do
+    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :debates).i18n_name }
+    manifest_name :debates
+    participatory_process { create(:participatory_process, :with_steps) }
+    settings do
+      {
+        comments_enabled: true
+      }
+    end
+  end
 end
