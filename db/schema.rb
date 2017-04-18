@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405110735) do
+ActiveRecord::Schema.define(version: 20170418143151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
@@ -77,7 +76,7 @@ ActiveRecord::Schema.define(version: 20170405110735) do
     t.integer  "decidim_category_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "reference",           null: false
+    t.string   "reference"
     t.index ["decidim_category_id"], name: "index_decidim_budgets_projects_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_budgets_projects_on_decidim_feature_id", using: :btree
     t.index ["decidim_scope_id"], name: "index_decidim_budgets_projects_on_decidim_scope_id", using: :btree
@@ -179,7 +178,7 @@ ActiveRecord::Schema.define(version: 20170405110735) do
     t.float    "latitude"
     t.float    "longitude"
     t.jsonb    "extra"
-    t.string   "reference",               null: false
+    t.string   "reference"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id", using: :btree
     t.index ["decidim_category_id"], name: "index_decidim_meetings_meetings_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_meetings_meetings_on_decidim_feature_id", using: :btree
@@ -263,8 +262,8 @@ ActiveRecord::Schema.define(version: 20170405110735) do
   create_table "decidim_participatory_process_steps", force: :cascade do |t|
     t.jsonb    "title",                                            null: false
     t.jsonb    "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "decidim_participatory_process_id"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
@@ -330,7 +329,7 @@ ActiveRecord::Schema.define(version: 20170405110735) do
     t.string   "state"
     t.datetime "answered_at"
     t.jsonb    "answer"
-    t.string   "reference",                         null: false
+    t.string   "reference"
     t.text     "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -378,7 +377,7 @@ ActiveRecord::Schema.define(version: 20170405110735) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.jsonb    "extra"
-    t.string   "reference",           null: false
+    t.string   "reference"
     t.index ["decidim_category_id"], name: "index_decidim_results_results_on_decidim_category_id", using: :btree
     t.index ["decidim_feature_id"], name: "index_decidim_results_results_on_decidim_feature_id", using: :btree
     t.index ["decidim_scope_id"], name: "index_decidim_results_results_on_decidim_scope_id", using: :btree
