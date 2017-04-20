@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: caf2f7d9c75cf4bed7237e79db054a5f26646509
+  revision: 84f3447e03172e9c1fe818341f071db5b2afc6ea
   branch: feature/embedded-widgets
   specs:
     decidim (0.0.7)
@@ -198,7 +198,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
-    autoprefixer-rails (6.7.7.1)
+    autoprefixer-rails (6.7.7.2)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -244,7 +244,7 @@ GEM
     connection_pool (2.2.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    css_parser (1.4.10)
+    css_parser (1.5.0)
       addressable
     dalli (2.7.6)
     database_cleaner (1.5.3)
@@ -315,11 +315,11 @@ GEM
       railties (>= 4.1)
       tzinfo (~> 1.2, >= 1.2.2)
     geocoder (1.4.3)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.5.5)
+    graphql (1.5.9)
     hashdiff (0.3.2)
     hashie (3.5.5)
     high_voltage (3.0.0)
@@ -348,7 +348,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
-    json (2.0.3)
+    json (2.1.0)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -434,7 +434,7 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
-    premailer (1.10.2)
+    premailer (1.10.3)
       addressable
       css_parser (>= 1.4.10)
       htmlentities (>= 4.0.0)
@@ -576,7 +576,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    term-ansicolor (1.5.0)
+    term-ansicolor (1.6.0)
       tins (~> 1.0)
     terminal-table (1.7.3)
       unicode-display_width (~> 1.1.1)
