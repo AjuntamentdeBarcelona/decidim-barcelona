@@ -61,10 +61,19 @@ RSpec.shared_examples "manage debates" do
         es: "Instrucciones más largas",
         ca: "Instruccions més llargues"
       )
+    end
 
-      fill_in :debate_start_time, with: 1.day.from_now
-      fill_in :debate_end_time, with: 1.day.from_now + 2.hours
+    page.execute_script("$('#datetime_field_debate_start_time').focus()")
+    page.find('.datepicker-dropdown .day', text: '12').click
+    page.find('.datepicker-dropdown .hour', text: '10:00').click
+    page.find('.datepicker-dropdown .minute', text: '10:50').click
 
+    page.execute_script("$('#datetime_field_debate_end_time').focus()")
+    page.find('.datepicker-dropdown .day', text: '12').click
+    page.find('.datepicker-dropdown .hour', text: '12:00').click
+    page.find('.datepicker-dropdown .minute', text: '12:50').click
+
+    within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
 
       find("*[type=submit]").click
