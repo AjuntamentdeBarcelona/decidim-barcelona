@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim.git
-  revision: c400beaf7655978ff7858fd709667bf29327ca19
+  revision: 07c8f5254a83d93822dfa0b1306d0c9e5a949c24
+  branch: fix/cross-origin-iframes
   specs:
     decidim (0.0.7)
       decidim-admin (= 0.0.7)
@@ -318,7 +319,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.5.8)
+    graphql (1.5.9)
     hashdiff (0.3.2)
     hashie (3.5.5)
     high_voltage (3.0.0)
@@ -437,7 +438,7 @@ GEM
       addressable
       css_parser (>= 1.4.10)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.9.5)
+    premailer-rails (1.9.6)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     progressbar (1.8.2)
