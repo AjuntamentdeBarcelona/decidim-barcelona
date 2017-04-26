@@ -24,7 +24,7 @@ cache:
     - $BUNDLE_PATH
     - vendor/bundle
 script:
-  - bundle exec rake
+  - bundle exec rake generate_test_app
   - cd engines/decidim-debates
   - bundle exec rake
 
