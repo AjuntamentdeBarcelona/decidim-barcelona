@@ -12,6 +12,7 @@ branches:
 
 before_script:
   - bundle exec rake db:create db:schema:load
+  - bundle exec rake decidim:generate_test_app  
 
 env:
   - RAILS_ENV=test
@@ -24,7 +25,6 @@ cache:
     - $BUNDLE_PATH
     - vendor/bundle
 script:
-  - bundle exec rake decidim:generate_test_app
   - cd decidim-debates && bundle exec rake
 
 rvm:
