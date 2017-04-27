@@ -12,12 +12,12 @@ gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"  
 end
 
 group :development do
   gem "progressbar"
   gem 'rainbow', "2.1.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
   gem 'web-console'
   gem 'listen'
   gem 'spring'
