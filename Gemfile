@@ -3,8 +3,8 @@ source "https://rubygems.org"
 ruby '2.4.1'
 
 gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
-gem "decidim-debates", path: "engines/decidim-debates"
-gem "decidim-dataviz", path: "engines/decidim-dataviz"
+gem "decidim-debates", path: "decidim-debates"
+gem "decidim-dataviz", path: "decidim-dataviz"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
