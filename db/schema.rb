@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419132649) do
+ActiveRecord::Schema.define(version: 20170505213302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "decidim_accountability_results", force: :cascade do |t|
+    t.jsonb    "title"
+    t.jsonb    "description"
+    t.string   "reference"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "progress",                         precision: 5, scale: 2
+    t.string   "external_id"
+    t.integer  "parent_id"
+    t.integer  "decidim_accountability_status_id"
+    t.integer  "decidim_feature_id"
+    t.integer  "decidim_scope_id"
+    t.integer  "decidim_category_id"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.index ["decidim_accountability_status_id"], name: "decidim_accountability_results_on_status_id", using: :btree
+    t.index ["decidim_category_id"], name: "index_decidim_accountability_results_on_decidim_category_id", using: :btree
+    t.index ["decidim_feature_id"], name: "index_decidim_accountability_results_on_decidim_feature_id", using: :btree
+    t.index ["decidim_scope_id"], name: "index_decidim_accountability_results_on_decidim_scope_id", using: :btree
+    t.index ["external_id"], name: "index_decidim_accountability_results_on_external_id", using: :btree
+    t.index ["parent_id"], name: "decidim_accountability_results_on_parent_id", using: :btree
+  end
+
+  create_table "decidim_accountability_statuses", force: :cascade do |t|
+    t.string   "key"
+    t.jsonb    "name"
+    t.integer  "decidim_feature_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["decidim_feature_id"], name: "index_decidim_accountability_statuses_on_decidim_feature_id", using: :btree
+  end
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
