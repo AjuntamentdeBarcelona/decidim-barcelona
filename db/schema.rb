@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419132649) do
+ActiveRecord::Schema.define(version: 20170509134259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,18 +103,21 @@ ActiveRecord::Schema.define(version: 20170419132649) do
   end
 
   create_table "decidim_comments_comments", force: :cascade do |t|
-    t.text     "body",                                 null: false
-    t.string   "decidim_commentable_type",             null: false
-    t.integer  "decidim_commentable_id",               null: false
-    t.integer  "decidim_author_id",                    null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "depth",                    default: 0, null: false
-    t.integer  "alignment",                default: 0, null: false
+    t.text     "body",                                      null: false
+    t.string   "decidim_commentable_type",                  null: false
+    t.integer  "decidim_commentable_id",                    null: false
+    t.integer  "decidim_author_id",                         null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "depth",                         default: 0, null: false
+    t.integer  "alignment",                     default: 0, null: false
     t.integer  "decidim_user_group_id"
+    t.string   "decidim_root_commentable_type",             null: false
+    t.integer  "decidim_root_commentable_id",               null: false
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at", using: :btree
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author", using: :btree
     t.index ["decidim_commentable_type", "decidim_commentable_id"], name: "decidim_comments_comment_commentable", using: :btree
+    t.index ["decidim_root_commentable_type", "decidim_root_commentable_id"], name: "decidim_comments_comment_root_commentable", using: :btree
   end
 
   create_table "decidim_debates_debates", force: :cascade do |t|

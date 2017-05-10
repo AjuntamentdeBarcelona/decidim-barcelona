@@ -16,7 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
-ADD ./engines/decidim-debates/decidim-debates.gemspec /tmp/engines/decidim-debates/decidim-debates.gemspec
+ADD ./decidim-debates/decidim-debates.gemspec /tmp/decidim-debates/decidim-debates.gemspec
 RUN cd /tmp && bundle install
 
 RUN mkdir -p $APP_HOME
