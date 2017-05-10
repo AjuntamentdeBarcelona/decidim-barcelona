@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 990547a02898315b6fcfda1cfadd61a10bbf2032
+  revision: 485d40b9e6c7509e3cc35172f50dbc9d33648da4
   specs:
     decidim (0.0.9.pre)
       decidim-admin (= 0.0.9.pre)
@@ -319,7 +319,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.5.11)
+    graphql (1.5.12)
     hashdiff (0.3.4)
     hashie (3.5.5)
     high_voltage (3.0.0)
@@ -388,13 +388,13 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.7.0)
     mini_portile2 (2.1.0)
-    minitest (5.10.1)
+    minitest (5.10.2)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     newrelic_rpm (3.18.0.329)
     nio4r (2.0.0)
-    nokogiri (1.7.1)
+    nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     oauth (0.5.1)
     oauth2 (1.3.1)
