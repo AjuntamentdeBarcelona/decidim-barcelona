@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509134259) do
+ActiveRecord::Schema.define(version: 20170510095158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
@@ -305,6 +306,15 @@ ActiveRecord::Schema.define(version: 20170509134259) do
     t.integer  "decidim_participatory_process_group_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true, using: :btree
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
+  end
+
+  create_table "decidim_proposal_exports", force: :cascade do |t|
+    t.integer  "decidim_proposal_id", null: false
+    t.string   "file_url"
+    t.string   "status"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["decidim_proposal_id"], name: "index_decidim_proposal_exports_on_decidim_proposal_id", using: :btree
   end
 
   create_table "decidim_proposals_proposal_votes", force: :cascade do |t|
