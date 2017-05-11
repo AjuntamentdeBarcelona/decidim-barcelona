@@ -15,9 +15,9 @@
 
             <div class="card__content">
               <ul>
-                <li><a href="#">PAM 2016-2019</a></li>
-                <li><a href="#">Planes estratégicos municipales</a></li>
-                <li><a href="#">Procesos participativos Decidim</a></li>
+                <li>PAM 2016-2019</li>
+                <li>Planes estratégicos municipales</li>
+                <li>Procesos participativos Decidim</li>
               </ul>
             </div>
           </div>
@@ -25,14 +25,15 @@
 
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <a class="card__link" href="/processes/1">
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "graph" %> Economía y presupuestos</h4>
-            </a>
+            <% end %>
+            
             <div class="card__content">
               <ul>
-                <li><a href="#">Presupuesto</a></li>
-                <li><a href="#">Resultados e informes financieros</a></li>
-                <li><a href="#">Contratación pública</a></li>
+                <li>Presupuesto</li>
+                <li>Resultados e informes financieros</li>
+                <li>Contratación pública</li>
               </ul>
             </div>
           </div>
@@ -40,14 +41,15 @@
 
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <a class="card__link" href="/processes/1">
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "servicios"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "key" %> Prestación de servicios y gestión pública</h4>
-            </a>
+            <% end %>
+            
             <div class="card__content">
               <ul>
-                <li><a href="#">Cartas de servicios</a></li>
-                <li><a href="#">Evaluación de servicios municipales</a></li>
-                <li><a href="#">Indicadores de indicidencias y comunicaciones</a></li>
+                <li>Cartas de servicios</li>
+                <li>Evaluación de servicios municipales</li>
+                <li>Indicadores de indicidencias y comunicaciones</li>
               </ul>
             </div>
           </div>
@@ -55,14 +57,15 @@
 
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <a class="card__link" href="/processes/1">
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "home" %> Gestión ética y buen gobierno</h4>
-            </a>
+            <% end %>
+            
             <div class="card__content">
               <ul>
-                <li><a href="#">Información sobre altos cargos</a></li>
-                <li><a href="#">Transparencia</a></li>
-                <li><a href="#">Prevención de la corrupción</a></li>
+                <li>Información sobre altos cargos</li>
+                <li>Transparencia</li>
+                <li>Prevención de la corrupción</li>
               </ul>
             </div>
           </div>
