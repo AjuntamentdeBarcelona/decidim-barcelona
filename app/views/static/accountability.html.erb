@@ -1,9 +1,7 @@
 <main class="wrapper global-accountability">
-  <div class="row column">
+  <div class="row column text-center">
     <h1 class="heading1 page-title">El ayuntamiento rinde cuentas</h1>
-    <p class="intro--text">Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.</p>
-
-    <%= link_to "Sections", DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path %>
+    <p class="centered--text intro--text">Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.</p>
 
     <section class="section">
       <h3 class="section-heading">Temas</h3>
@@ -11,9 +9,10 @@
       <div class="row">
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <a class="card__link" href="/processes/1">
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacion"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "book" %> Planificación y estrategia municipal</h4>
-            </a>
+            <% end %>
+
             <div class="card__content">
               <ul>
                 <li><a href="#">PAM 2016-2019</a></li>
@@ -73,7 +72,7 @@
 
     <section class="section">
       <h3 class="section-heading">El flujo de rendición de cuentas</h3>
-      <p>La rendición de cuentas es un proceso que permite explicar, justificadamente los objetivos y resultados del Ayuntamiento. El objetivo es responder a las necesidades e intereses de la ciudadanía.</p>
+      <p class="centered--text">La rendición de cuentas es un proceso que permite explicar, justificadamente los objetivos y resultados del Ayuntamiento. El objetivo es responder a las necesidades e intereses de la ciudadanía.</p>
 
       <svg xmlns="http://www.w3.org/2000/svg" width="608" height="293" viewBox="0 0 608 293">
         <g fill="none" fill-rule="evenodd" transform="translate(-19 -2)">

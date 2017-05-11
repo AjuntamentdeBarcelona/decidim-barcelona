@@ -1,7 +1,6 @@
 .global-accountability {
   .row.column {
     margin: 0 auto;
-    text-align: center;
     
     .page-title {
       margin-bottom: 1rem;
@@ -12,7 +11,7 @@
       padding-bottom: 3rem;
     }
 
-    p {
+    .centered--text {
       margin: 0 auto;
       max-width: 560px;
       padding-bottom: 2rem;
@@ -49,6 +48,16 @@
             color: lighten($dark-gray, 30);
           }
         }
+      }
+    }
+    
+    .tabbed-container {
+      .programme--section {
+        margin-bottom: 1.5rem;
+      }
+      .icon {
+        margin-right: 0.25rem;
+        fill: $secondary;
       }
     }
   }
