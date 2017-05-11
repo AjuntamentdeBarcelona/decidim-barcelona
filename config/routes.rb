@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   end
 
   get "/accountability", to: "static#accountability", as: :accountability_static
+  get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
 
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

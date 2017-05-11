@@ -2,10 +2,12 @@
   <div class="row column">
     <h1 class="heading1 page-title">El ayuntamiento rinde cuentas</h1>
     <p class="intro--text">Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.</p>
-    
+
+    <%= link_to "Sections", DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path %>
+
     <section class="section">
       <h3 class="section-heading">Temas</h3>
-      
+
       <div class="row">
         <div class="medium-6 columns">
           <div class="card card--accountability">
@@ -36,7 +38,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="medium-6 columns">
           <div class="card card--accountability">
             <a class="card__link" href="/processes/1">
@@ -51,7 +53,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="medium-6 columns">
           <div class="card card--accountability">
             <a class="card__link" href="/processes/1">
@@ -68,11 +70,11 @@
         </div>
       </div>
     </section>
-    
+
     <section class="section">
       <h3 class="section-heading">El flujo de rendición de cuentas</h3>
       <p>La rendición de cuentas es un proceso que permite explicar, justificadamente los objetivos y resultados del Ayuntamiento. El objetivo es responder a las necesidades e intereses de la ciudadanía.</p>
-      
+
       <svg xmlns="http://www.w3.org/2000/svg" width="608" height="293" viewBox="0 0 608 293">
         <g fill="none" fill-rule="evenodd" transform="translate(-19 -2)">
           <text fill="#3D393C" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="20" font-weight="500" letter-spacing=".6">
@@ -118,42 +120,42 @@
         </g>
       </svg>
     </section>
-    
+
     <section class="section">
       <h3 class="section-heading">Relación con la ciudadanía</h3>
-      
+
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="/processes/3">
             <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/1/98a2d321-e500-4a96-9d4c-b3e8a98659c5.jpg)"></div>
           </a>
-          
+
           <div class="card__content">
             <a class="card__link" href="/processes/3"><h4 class="card__title">Decidim Barcelona</h4></a>
             <span class="card--process__small">Portal de participación y rendición de cuentas.</span>
           </div>
         </article>
       </div>
-      
+
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="/processes/3">
             <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/5/c2d11276-9e87-41f2-9184-a28986ef9da1.jpg)"></div>
           </a>
-          
+
           <div class="card__content">
             <a class="card__link" href="/processes/3"><h4 class="card__title">Encuentros con la alcaldesa</h4></a>
             <span class="card--process__small">Espacios estables y puntuales de participación.</span>
           </div>
         </article>
       </div>
-      
+
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="/processes/3">
             <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/3/24629d25-56ee-47ab-bff7-64b5a132309a.jpg)"></div>
           </a>
-          
+
           <div class="card__content">
             <a class="card__link" href="/processes/3"><h4 class="card__title">Canales de comunicación</h4></a>
             <span class="card--process__small">Consultas, trámites y reclamaciones.</span>

@@ -8,6 +8,9 @@ class StaticController < ApplicationController
   def accountability
   end
 
+  def accountability_sections
+  end
+
   private
 
   def current_organization
