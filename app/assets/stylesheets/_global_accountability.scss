@@ -12,8 +12,9 @@
     }
 
     .centered--text {
+      text-align: left;
       margin: 0 auto;
-      max-width: 560px;
+      max-width: 600px;
       padding-bottom: 2rem;
     }
     
@@ -49,6 +50,10 @@
           }
         }
       }
+    }
+    
+    .card--mini .card__content{
+      padding: 1.5rem 0.5rem;
     }
     
     .tabbed-container {
