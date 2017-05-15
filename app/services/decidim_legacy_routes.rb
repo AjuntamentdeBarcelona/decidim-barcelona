@@ -1,14 +1,12 @@
 class DecidimLegacyRoutes
+  attr_reader :feature_translations
+
+  def initialize(feature_translations)
+    @feature_translations = feature_translations
+  end
+
   def call(params, request)
-
-    feature_translations = {
-      action_plans: [:results, Decidim::Results::Result],
-      meetings: [:meetings, Decidim::Meetings::Meeting],
-      proposals: [:proposals, Decidim::Proposals::Proposal],
-      debates: [:debates, Decidim::Debates::Debate]
-    }
-
-     process = Decidim::ParticipatoryProcess.find_by_slug(params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
+    process = Decidim::ParticipatoryProcess.find_by_slug(params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
 
     feature_translation = feature_translations[params[:feature_name].to_sym]
     feature_manifest_name = feature_translation[0]

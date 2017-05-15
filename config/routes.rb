@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "sidekiq/web"
-require_relative "../app/services/decidim_legacy_routes"
 
 Rails.application.routes.draw do
   get "processes/:process_slug", to: redirect { |params, _request|
@@ -17,10 +16,10 @@ Rails.application.routes.draw do
   }
 
   constraints host: "decidim.barcelona" do
-    get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new),
+    get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
     constraints: { process_id: /[^0-9]+/, step_id: /[0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
-    get "/:process_slug/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new),
+    get "/:process_slug/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
       constraints: { process_id: /[^0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
     get "/:feature_name/:resource_id", to: redirect { |params, _request|
