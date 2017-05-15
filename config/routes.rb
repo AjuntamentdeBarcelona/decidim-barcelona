@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "sidekiq/web"
+require_relative "../app/services/decidim_legacy_routes"
 
 Rails.application.routes.draw do
   get "processes/:process_slug", to: redirect { |params, _request|
@@ -15,27 +16,12 @@ Rails.application.routes.draw do
     debates: [:debates, Decidim::Debates::Debate]
   }
 
-  constraints host: "decidim.barcelona" do
-    get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect { |params, _request|
-      process = Decidim::ParticipatoryProcess.find_by_slug(params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
+  # constraints host: "decidim.barcelona" do
+    get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new),
+    constraints: { process_id: /[^0-9]+/, step_id: /[0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
-      feature_translation = feature_translations[params[:feature_name].to_sym]
-      feature_manifest_name = feature_translation[0]
-
-      feature = Decidim::Feature.find_by(
-        manifest_name: feature_manifest_name,
-        participatory_process: process
-      )
-
-      if params[:resource_id]
-        resource_class = feature_translation[1]
-        resource = resource_class.where("extra->>'slug' = ?", params[:resource_id]).first || resource_class.find(params[:resource_id])
-
-        "/processes/#{process.id}/f/#{feature.id}/#{feature_manifest_name}/#{resource.id}"
-      else
-        "/processes/#{process.id}/f/#{feature.id}"
-      end
-    }, constraints: { process_id: /[^0-9]+/, step_id: /[0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
+    get "/:process_slug/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new),
+      constraints: { process_id: /[^0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
     get "/:feature_name/:resource_id", to: redirect { |params, _request|
       feature_translation = feature_translations[params[:feature_name].to_sym]
@@ -46,7 +32,7 @@ Rails.application.routes.draw do
       feature_manifest_name = feature.manifest_name
       "/processes/#{process.id}/f/#{feature.id}/#{feature_manifest_name}/#{resource.id}"
     }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
-  end
+  # end
 
   authenticate :user, lambda { |u| u.roles.include?("admin") } do
     mount Sidekiq::Web => '/sidekiq'
