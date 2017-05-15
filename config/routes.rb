@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     debates: [:debates, Decidim::Debates::Debate]
   }
 
-  # constraints host: "decidim.barcelona" do
+  constraints host: "decidim.barcelona" do
     get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new),
     constraints: { process_id: /[^0-9]+/, step_id: /[0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       feature_manifest_name = feature.manifest_name
       "/processes/#{process.id}/f/#{feature.id}/#{feature_manifest_name}/#{resource.id}"
     }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
-  # end
+  end
 
   authenticate :user, lambda { |u| u.roles.include?("admin") } do
     mount Sidekiq::Web => '/sidekiq'
