@@ -459,6 +459,7 @@ GEM
     rack-cors (0.4.1)
     rack-protection (1.5.3)
       rack
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack_password (1.3)
@@ -651,6 +652,7 @@ DEPENDENCIES
   passenger
   progressbar
   rack_password
+  rack-ssl-enforcer
   rails_12factor
   rainbow (~> 2.2.0)
   rspec-rails
