@@ -32,6 +32,7 @@ group :production do
   gem "newrelic_rpm"
   gem "dalli"
   gem "sentry-raven"
+  gem 'rack-ssl-enforcer'
 end
 
 group :test do
