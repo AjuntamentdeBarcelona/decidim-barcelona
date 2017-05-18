@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20170510095158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "decidim_admin_participatory_process_user_roles", force: :cascade do |t|
     t.integer  "decidim_user_id"
@@ -105,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170510095158) do
 
   create_table "decidim_comments_comments", force: :cascade do |t|
     t.text     "body",                                      null: false
-    t.string   "decidim_commentable_type",                  null: false
+    t.string   "decidim_commentable_type"
     t.integer  "decidim_commentable_id",                    null: false
     t.integer  "decidim_author_id",                         null: false
     t.datetime "created_at",                                null: false
@@ -191,7 +190,7 @@ ActiveRecord::Schema.define(version: 20170510095158) do
 
   create_table "decidim_moderations", force: :cascade do |t|
     t.integer  "decidim_participatory_process_id",             null: false
-    t.string   "decidim_reportable_type",                      null: false
+    t.string   "decidim_reportable_type"
     t.integer  "decidim_reportable_id",                        null: false
     t.integer  "report_count",                     default: 0, null: false
     t.datetime "hidden_at"
@@ -308,15 +307,6 @@ ActiveRecord::Schema.define(version: 20170510095158) do
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id", using: :btree
   end
 
-  create_table "decidim_proposal_exports", force: :cascade do |t|
-    t.integer  "decidim_proposal_id", null: false
-    t.string   "file_url"
-    t.string   "status"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["decidim_proposal_id"], name: "index_decidim_proposal_exports_on_decidim_proposal_id", using: :btree
-  end
-
   create_table "decidim_proposals_proposal_votes", force: :cascade do |t|
     t.integer  "decidim_proposal_id", null: false
     t.integer  "decidim_author_id",   null: false
@@ -370,9 +360,9 @@ ActiveRecord::Schema.define(version: 20170510095158) do
   end
 
   create_table "decidim_resource_links", force: :cascade do |t|
-    t.string  "from_type", null: false
+    t.string  "from_type"
     t.integer "from_id",   null: false
-    t.string  "to_type",   null: false
+    t.string  "to_type"
     t.integer "to_id",     null: false
     t.string  "name",      null: false
     t.jsonb   "data"
