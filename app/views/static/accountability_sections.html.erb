@@ -1,26 +1,26 @@
 <main class="wrapper global-accountability">
   <div class="row column">
     <div class="text-center">
-      <h1 class="heading1 page-title">El ayuntamiento rinde cuentas</h1>
-      <p class="intro--text centered--text">Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.</p>
+      <h1 class="heading1 page-title"><%= t(".heading") %></h1>
+      <p class="intro--text centered--text"><%= t(".intro_text") %></p>
     </div>
-    
+
     <div class="main-container tabbed-container">
       <div class="row collapse main-container--side-panel">
         <div class="columns medium-4 large-3">
           <div class="side-panel">
             <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs" data-deep-link="true" data-update-history="true" data-tabs>
               <li class="tabs-title is-active">
-                <a href="#planificacion" aria-selected="true">Planificación y estrategia municipal</a>
+                <a href="#planificacion" aria-selected="true"><%= t(".tab_1") %></a>
               </li>
               <li class="tabs-title">
-                <a href="#economia">Económica y presupuestaria</a>
+                <a href="#economia"><%= t(".tab_2") %></a>
               </li>
               <li class="tabs-title">
-                <a href="#servicios">Prestación de servicios y gestión pública</a>
+                <a href="#servicios"><%= t(".tab_3") %></a>
               </li>
               <li class="tabs-title">
-                <a href="#etica">Gestión ética y buen gobierno</a>
+                <a href="#etica"><%= t(".tab_4") %></a>
               </li>
             </ul>
           </div>
@@ -30,141 +30,95 @@
             <div class="tabs-content vertical" data-tabs-content="pattern-library-tabs">
               <div class="tabs-panel is-active" id="planificacion">
                 <div class="programme--section">
-                  <h2 class="section-heading">PAM 2016-2019</h2>
+                  <h2 class="section-heading"><%= t(".tab_1_heading_1") %></h2>
                   <div class="row column">
-                    <p>El Programa de Actuación Municipal (PAM) es el documento y herramienta de gestión que define la estrategia municipal para a un mandato. En este apartado podrás acceder a los diferentes documentos e información relativa al PAM.</p>
-                    
-                    <ul>
-                      <li>Datos cuantitativos agregados por ejes, líneas, actuaciones, proyectos</li>
-                      <li>Información en cada una de las actuaciones, proyectos: repositorio de documentos sobre la ejecución (actas de reuniones en los que se aborde la ejecución, contratos, resoluciones y actos administrativos, normativa, informes, diagnósticos, noticias, indicadores de medición de la ejecución, presupuesto, etc), las aportaciones ciudadanas en los espacios de discusión y la participación de los técnicos del ayto.</li>
-                    </ul>
-                    
-                    <a href="https://www.decidim.barcelona/processes/1" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> Ir al sitio</a>
+                    <%== t(".tab_1_text_1") %>
+
+                    <a href="https://www.decidim.barcelona/processes/1" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Planes estratégicos municipales</h2>
+                  <h2 class="section-heading"><%= t(".tab_1_heading_2") %></h2>
                   <div class="row column">
-                    <p>Conjuntos de medidas políticas y económicas dirigidas a resolver problemas o situaciones determinadas, que incluyen los medios para conseguirlo, las responsabilidades y las fechas de cumplimiento.</p>
-                    
-                    <a href="https://bcnroc.ajuntament.barcelona.cat/jspui/handle/11703/83559" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> Ir al sitio</a>
+                    <%== t(".tab_1_text_2") %>
+
+                    <a href="https://bcnroc.ajuntament.barcelona.cat/jspui/handle/11703/83559" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Procesos de participación en Decidim</h2>
+                  <h2 class="section-heading"><%= t(".tab_1_heading_3") %></h2>
                   <div class="row column">
-                    <p>Cada proceso abierto no finaliza con el acuerdo sobre el plan de actuación específico de la iniciativa, sino que irá incorporando la información sobre ejecución, con el mismo formato que contienen las propuestas en los procesos participativos de decidim y la misma lógica que lo planteado para la rendición de cuentas del PAM: información agregada sobre el grado de ejecución de la actuación e información y todos los documentos a nivel de cada acción.</p>
-                    
-                    <a href="https://www.decidim.barcelona/?locale=es" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> Ir al sitio</a>
+                    <%== t(".tab_1_text_3") %>
+
+                    <a href="https://www.decidim.barcelona/?locale=es" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
                   </div>
                 </div>
               </div>
 
               <div class="tabs-panel" id="economia">
                 <div class="programme--section">
-                  <h2 class="section-heading">Presupuesto</h2>
+                  <h2 class="section-heading"><%= t(".tab_2_heading_1") %></h2>
                   <div class="row column">
-                    <p>El <a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/i-pressupost">presupuesto</a> es el reflejo financiero de la estrategia y prioridades municipales, donde los recursos se asignan a aquellos programas y actuaciones que permiten avanzar en un mayor grado hacia los objetivos definidos. En esta sección podrás consultar el estado de ejecución del presupuesto según diferentes visiones o clasificaciones, así como acceder a documentación más relevante relacionada con los presupuestos del Ayuntamiento, entre otras.</p>
-                    
-                    <ul>
-                      <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/pressupostobert/es/">Presupuesto abierto</a>: Acceded a la nueva web para saber dónde van los impuestos.</li>
-                      <li><a href="http://governobert.bcn.cat/estrategiaifinances/es/presupuesto">Ejecución presupuesto 2017</a>: En esta sección podrás consultar el estado de ejecución del presupuesto según diferentes visiones o clasificaciones, así como acceder a la documentación más relevante relacionada con los presupuestos del Ayuntamiento. </li>
-                      <li><a href="http:/ajuntament.barcelona.cat/estrategiaifinances/es/node/1312">Ejecución presupuesto años anteriores 2001-2016</a>: Aquí podrás acceder a los diferentes documentos relativos a los presupuestos liquidados de años anteriores al ejercicio actual. </li>
-                      <li><a href="http:/governobert.bcn.cat/estrategiaifinances/es/programes-pressupostaris">Presupuesto por política de gasto</a>: información de recursos presupuestarios (gastos corrientes) e indicadores de resultados de los programas de las diferentes políticas de gasto</li>
-                      <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/informes-modelo-abc-costes-basados-en-actividades">Costes basados en actividades (ABC)</a>: indicadores de costes unitarios de los diferentes equipamientos y servicios municipales</li>
-                    </ul>
+                    <%== t(".tab_2_text_1") %>
 
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Resultados e informes financieros</h2>
+                  <h2 class="section-heading"><%= t(".tab_2_heading_2") %></h2>
                   <div class="row column">
-                    <p>El Ayuntamiento se orienta a la obtención de resultados en términos del Sistema Europeo de Cuentas, con el fin de garantizar la solvencia, estabilidad y sostenibilidad de las finanzas municipales. En este apartado podrás consultar la previsión del resultado del ejercicio corriente, así como los principales informes financieros del Ayuntamiento.</p>
-                    
-                    <a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/i-compte-de-resultats" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> Ir al sitio</a>
+                    <%== t(".tab_2_text_2") %>
+
+                    <a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/i-compte-de-resultats" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Contratación pública</h2>
+                  <h2 class="section-heading"><%= t(".tab_2_heading_3") %></h2>
                   <div class="row column">
-                    <p>En esta sección se puede encontrar la información sobre los contratos que firma el Ayuntamiento, tanto concursos y licitaciones públicas como contratos con proveedores de servicios al ayuntamiento.</p>
-                    
-                    <ul>
-                      <li>Relación de contratos con proveedores del Ayto. Barcelona</li>
-                      <li><a href="https://seuelectronica.ajuntament.barcelona.cat/es/perfil-de-contratante">Perfil de contratante</a>: encontrarán, entre otras informaciones, la relativa a las licitaciones en curso, las adjudicaciones y las formalizaciones del Ayuntamiento de Barcelona, sus organismos autónomos y otros entes dependientes</li>
-                      <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/informaci%C3%B3n-sobre-el-pago-empresas-proveedoras">Información sobre el pago a empresas proveedoras</a>: El presente apartado comprende la documentación relativa a los indicadores de plazo de pagos que hace el Ayuntamiento de Barcelona a sus empresas proveedoras.</li>
-                      <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/">Contratación Pública Social</a>:  que contribuya al cambio del modelo económico y social, fomentando que los contratistas apuesten por un mayor retorno social con un modelo de negocio participativo, con preocupación por el territorio y las personas que lo habitan. Nota: no hay información de resultados de esta política.</li>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/sites/default/files/informe_externalitzacions_vresum_0.pdf">Gestiones indirectas de servicios municipales</a>: Información sobre las externalizaciones de servicios que se llevan a cabo en el ayuntamiento.</li>
-                    </ul>
+                    <%== t(".tab_2_text_3") %>
                   </div>
                 </div>
               </div>
 
               <div class="tabs-panel" id="servicios">
                 <div class="programme--section">
-                  <h2 class="section-heading">Prestación de servicios y gestión pública</h2>
-                  
-                  <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
-                
-                  <ul>
-                    <li><a href="http://ajuntament.barcelona.cat/transparencia/es/participacion-y-relacion-con-la-ciudadania">Cartas de servicios</a>.</li>
-                    <li><a href="http://w10.bcn.es/APPS/riswestudis/editEstudi.do?reqCode=inspectById&estudiid=4880">Encuesta de evaluación de los servicios municipales 2016 </a>: Resultados de la encuesta de servicios municipales, un estudio que se viene realizando, <a href="http://ajuntament.barcelona.cat/transparencia/es/participacion-y-relacion-con-la-ciudadania">con periodicidad anual</a>, desde el año 2004, y donde se recoge la percepción de la ciudadanía sobre la ciudad y su barrio (grado de satisfacción, problemas y demandas, evolución, etc.) y su opinión sobre la gestión municipal.</li>
-                    <li><a href="http://ajuntament.barcelona.cat/es/informacion-administrativa/registro-de-encuestas-y-estudios-de-opinion">Registro de encuestas y estudios de opinión</a>: resultados de encuestas y estudios de opinión sobre diversos temas como son el resultado de satisfacción de los vecinos con determinadas materias o actuaciones del Ayuntamiento.</li>
-                    <li><a href="https://w10.bcn.es/StpQueixesWEB/indicadors.do?i=e">Indicadores de incidencias y comunicaciones (IRIS)</a>: Recoge las estadísticas y datos del sistema de quejas y sugerencias del ayuntamiento como la división por áreas temáticas o el tiempo de respuesta.</li>
-                    <li><a href="http:/opendata-ajuntament.barcelona.cat/data/es/dataset/iris">Datos abiertos del sistema IRIS</a>: base de datos en abierto del sistema de quejas y sugerencias del ayuntamiento.</li>
-                  </ul>
+                  <h2 class="section-heading"><%= t(".tab_3_heading_1") %></h2>
+
+                  <%== t(".tab_3_text_1") %>
                 </div>
-                
+
               </div>
-              
+
               <div class="tabs-panel" id="etica">
                 <div class="programme--section">
-                  <h2 class="section-heading">Gestión ética y buen gobierno</h2>
-                  <p>Esta sección tiene el objetivo de rendir cuentas sobre las políticas y actividades del ayuntamiento para el buen gobierno desde la perspectiva de la integridad y la correcta prevención y gestión de conflictos y de malas prácticas.</p>
+                  <h2 class="section-heading"><%= t(".tab_4_heading_1") %></h2>
+                  <%== t(".tab_4_text_1") %>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Información sobre altos cargos</h2>
+                  <h2 class="section-heading"><%= t(".tab_4_heading_2") %></h2>
                   <div class="row column">
-                    <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
-                    
-                    <ul>
-                      <li><a href="http://ajuntament.barcelona.cat/alcaldessa/es/transparencia">Alcaldesa</a>: agenda, bienes patrimoniales, gastos.</li>
-                      <li><a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-de-las-regidoras-y-los-regidores">Registros públicos</a>: declaraciones de bienes y derechos patrimoniales de regidoras, regidores, <a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-consejeras-y-consejeros">Consejeras y Consejeros</a></li>
-                      <li><a href="http://ajuntament.barcelona.cat/es/organizacion-municipal">Agendas del equipo de gobierno</a></li>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/es/datos-de-los-cargos-municipales-y-eventuales">Retribuciones de cargos municipales y personal eventual</a></li>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/es/informacion-institucional-y-organizativa#dietas-personal">Gastos de viajes</a></li>
-                    </ul>
+                    <%== t(".tab_4_text_2") %>
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Transparencia</h2>
+                  <h2 class="section-heading"><%= t(".tab_4_heading_3") %></h2>
                   <div class="row column">
-                    <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
-                    
-                    <ul>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/es">Transparencia activa</a>: Portal que contiene la información pública del Ayto. con la que responde a sus obligaciones legales de transparencia activa. También contiene documentos de <a href="http://ajuntament.barcelona.cat/transparencia/es/evaluacion-de-la-transparencia-municipal">evaluación de la transparencia municipal</a></li>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/es/acceso-la-informacion-publica">Acceso a la información pública</a>: normativa, información sobre cómo tramitar una solicitud,  consulta de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones</li>
-                    </ul>
+                    <%== t(".tab_4_text_3") %>
                   </div>
                 </div>
-                
+
                 <div class="programme--section">
-                  <h2 class="section-heading">Prevención de la corrupción</h2>
+                  <h2 class="section-heading"><%= t(".tab_4_heading_4") %></h2>
                   <div class="row column">
-                    <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
-                    <ul>
-                      <li><a href="http://ajuntament.barcelona.cat/transparencia/es/codigo-conducta">Código de conducta</a>: El código recoge los principios éticos y los valores de buena gobernanza que deben informar toda actuación municipal. También regula las normas de conducta y de conflictos de intereses. El código determina los mecanismos y procedimientos para garantizar su efectividad, evaluación e impulso.</li>
-                      <li><a href="https://ajuntament.barcelona.cat/bustiaetica/es">Buzón Ético y de Buen Gobierno</a>: El Buzón Ético y de Buen Gobierno es un canal seguro de participación electrónica que nace de la conveniencia de ofrecer un espacio que permita tener conocimiento de cualquier acción u omisión contraria a los principios de buen gobierno, como una manera de reforzar la gestión pública.</li>
-                    </ul>
+                    <%== t(".tab_4_text_4") %>
                   </div>
                 </div>
-                
+
               </div>
 
             </div>
@@ -172,6 +126,6 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </main>

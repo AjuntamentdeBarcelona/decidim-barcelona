@@ -1,0 +1,127 @@
+es:
+  static:
+    accountability:
+      heading: El ayuntamiento rinde cuentas
+      intro_text: Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.
+      topics: Temas
+      section_1_title: Planificación y estrategia municipal
+      section_1_item_1: PAM 2016-2019
+      section_1_item_2: Planes estratégicos municipales
+      section_1_item_3: Procesos participativos Decidim
+      section_2_title: Economía y presupuestos
+      section_2_item_1: Presupuesto
+      section_2_item_2: Resultados e informes financieros
+      section_2_item_3: Contratación pública
+      section_3_title: Prestación de servicios y gestión pública
+      section_3_item_1: Cartas de servicios
+      section_3_item_2: Evaluación de servicios municipales
+      section_3_item_3: Indicadores de indicidencias y comunicaciones
+      section_4_title: Gestión ética y buen gobierno
+      section_4_item_1: Información sobre altos cargos
+      section_4_item_2: Transparencia
+      section_4_item_3: Prevención de la corrupción
+      flow_section_heading: El flujo de rendición de cuentas
+      flow_intro_text: La rendición de cuentas es un proceso que permite explicar, justificadamente los objetivos y resultados del Ayuntamiento. El objetivo es responder a las necesidades e intereses de la ciudadanía.
+      flow_item_1: INFORMACIÓN
+      flow_item_2: RETROALIMENTACIÓN
+      flow_item_3: IDENTIFICACIÓN
+      flow_item_4: COMPROMISO
+      flow_text_1_1: Identificar las necesidades y
+      flow_text_1_2: expectativas de la ciudadanía
+      flow_text_2_1: Compromiso público del
+      flow_text_2_2: Ayuntamiento
+      flow_text_3_1: Información sobre el cumplimiento
+      flow_text_3_2: de los compromisos
+      flow_text_4_1: Recoger la satisfacción
+      flow_text_4_2: con el Ayuntamiento
+      citizens_section_heading: Relación con la ciudadanía
+      citizens_section_intro_text: Esta sección recoge los principales espacios de comunicación, diálogo y participación entre el ayuntamiento y la ciudadanía que, sin ser específicamente mecanismos de rendición de cuentas, ofrecen información al ciudadano y en ellos se definen políticas, se trasladan quejas y sugerencias y se explica la actuación del ayuntamiento.
+      citizens_card_1_title: Decidim Barcelona
+      citizens_card_1_text: Portal de participación y rendición de cuentas durante todos los procesos.
+      citizens_card_2_title: Encuentros con la alcaldesa
+      citizens_card_2_text: Espacio regular de encuentro con la gente de los barrios.
+      citizens_card_3_title: Espacios de participación
+      citizens_card_3_text: Formado por espacios <a href="http://governobert.bcn.cat/es/participacion/espacios-estables-de-participaci%C3%B3n">estables</a> y <a href="http://governobert.bcn.cat/es/participacion/espacios-puntuales-de-participaci%C3%B3n">puntuales</a> de participación.
+      citizens_card_4_title: Canales de comunicación
+      citizens_card_4_text: Canales de comunicación para realizar consultas, trámites y reclamaciones.
+    accountability_sections:
+      heading: El ayuntamiento rinde cuentas
+      intro_text: Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.
+      go_to_link: Ir al sitio
+      tab_1: Planificación y estrategia municipal
+      tab_2: Económica y presupuestaria
+      tab_3: Prestación de servicios y gestión pública
+      tab_4: Gestión ética y buen gobierno
+      tab_1_heading_1: PAM 2016-2019
+      tab_1_text_1: |
+        <p>El Programa de Actuación Municipal (PAM) es el documento y herramienta de gestión que define la estrategia municipal para a un mandato. En este apartado podrás acceder a los diferentes documentos e información relativa al PAM.</p>
+        <ul>
+          <li>Datos cuantitativos agregados por ejes, líneas, actuaciones, proyectos</li>
+          <li>Información en cada una de las actuaciones, proyectos: repositorio de documentos sobre la ejecución (actas de reuniones en los que se aborde la ejecución, contratos, resoluciones y actos administrativos, normativa, informes, diagnósticos, noticias, indicadores de medición de la ejecución, presupuesto, etc), las aportaciones ciudadanas en los espacios de discusión y la participación de los técnicos del ayto.</li>
+        </ul>
+      tab_1_heading_2: Planes estratégicos municipales
+      tab_1_text_2: |
+        <p>Conjuntos de medidas políticas y económicas dirigidas a resolver problemas o situaciones determinadas, que incluyen los medios para conseguirlo, las responsabilidades y las fechas de cumplimiento.</p>
+      tab_1_heading_3: Procesos de participación en Decidim
+      tab_1_text_3: |
+        <p>Cada proceso abierto no finaliza con el acuerdo sobre el plan de actuación específico de la iniciativa, sino que irá incorporando la información sobre ejecución, con el mismo formato que contienen las propuestas en los procesos participativos de decidim y la misma lógica que lo planteado para la rendición de cuentas del PAM: información agregada sobre el grado de ejecución de la actuación e información y todos los documentos a nivel de cada acción.</p>
+      tab_2_heading_1: Presupuesto
+      tab_2_text_1: |
+        <p>El <a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/i-pressupost">presupuesto</a> es el reflejo financiero de la estrategia y prioridades municipales, donde los recursos se asignan a aquellos programas y actuaciones que permiten avanzar en un mayor grado hacia los objetivos definidos. En esta sección podrás consultar el estado de ejecución del presupuesto según diferentes visiones o clasificaciones, así como acceder a documentación más relevante relacionada con los presupuestos del Ayuntamiento, entre otras.</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/pressupostobert/es/">Presupuesto abierto</a>: Acceded a la nueva web para saber dónde van los impuestos.</li>
+          <li><a href="http://governobert.bcn.cat/estrategiaifinances/es/presupuesto">Ejecución presupuesto 2017</a>: En esta sección podrás consultar el estado de ejecución del presupuesto según diferentes visiones o clasificaciones, así como acceder a la documentación más relevante relacionada con los presupuestos del Ayuntamiento. </li>
+          <li><a href="http:/ajuntament.barcelona.cat/estrategiaifinances/es/node/1312">Ejecución presupuesto años anteriores 2001-2016</a>: Aquí podrás acceder a los diferentes documentos relativos a los presupuestos liquidados de años anteriores al ejercicio actual. </li>
+          <li><a href="http:/governobert.bcn.cat/estrategiaifinances/es/programes-pressupostaris">Presupuesto por política de gasto</a>: información de recursos presupuestarios (gastos corrientes) e indicadores de resultados de los programas de las diferentes políticas de gasto</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/informes-modelo-abc-costes-basados-en-actividades">Costes basados en actividades (ABC)</a>: indicadores de costes unitarios de los diferentes equipamientos y servicios municipales</li>
+        </ul>
+      tab_2_heading_2: Resultados e informes financieros
+      tab_2_text_2: |
+        <p>El Ayuntamiento se orienta a la obtención de resultados en términos del Sistema Europeo de Cuentas, con el fin de garantizar la solvencia, estabilidad y sostenibilidad de las finanzas municipales. En este apartado podrás consultar la previsión del resultado del ejercicio corriente, así como los principales informes financieros del Ayuntamiento.</p>
+      tab_2_heading_3: Contratación pública
+      tab_2_text_3: |
+        <p>En esta sección se puede encontrar la información sobre los contratos que firma el Ayuntamiento, tanto concursos y licitaciones públicas como contratos con proveedores de servicios al ayuntamiento.</p>
+        <ul>
+          <li>Relación de contratos con proveedores del Ayto. Barcelona</li>
+          <li><a href="https://seuelectronica.ajuntament.barcelona.cat/es/perfil-de-contratante">Perfil de contratante</a>: encontrarán, entre otras informaciones, la relativa a las licitaciones en curso, las adjudicaciones y las formalizaciones del Ayuntamiento de Barcelona, sus organismos autónomos y otros entes dependientes</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/es/informaci%C3%B3n-sobre-el-pago-empresas-proveedoras">Información sobre el pago a empresas proveedoras</a>: El presente apartado comprende la documentación relativa a los indicadores de plazo de pagos que hace el Ayuntamiento de Barcelona a sus empresas proveedoras.</li>
+          <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/">Contratación Pública Social</a>:  que contribuya al cambio del modelo económico y social, fomentando que los contratistas apuesten por un mayor retorno social con un modelo de negocio participativo, con preocupación por el territorio y las personas que lo habitan. Nota: no hay información de resultados de esta política.</li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/sites/default/files/informe_externalitzacions_vresum_0.pdf">Gestiones indirectas de servicios municipales</a>: Información sobre las externalizaciones de servicios que se llevan a cabo en el ayuntamiento.</li>
+        </ul>
+      tab_3_heading_1: Prestación de servicios y gestión pública
+      tab_3_text_1: |
+        <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/participacion-y-relacion-con-la-ciudadania">Cartas de servicios</a>.</li>
+          <li><a href="http://w10.bcn.es/APPS/riswestudis/editEstudi.do?reqCode=inspectById&estudiid=4880">Encuesta de evaluación de los servicios municipales 2016 </a>: Resultados de la encuesta de servicios municipales, un estudio que se viene realizando, <a href="http://ajuntament.barcelona.cat/transparencia/es/participacion-y-relacion-con-la-ciudadania">con periodicidad anual</a>, desde el año 2004, y donde se recoge la percepción de la ciudadanía sobre la ciudad y su barrio (grado de satisfacción, problemas y demandas, evolución, etc.) y su opinión sobre la gestión municipal.</li>
+          <li><a href="http://ajuntament.barcelona.cat/es/informacion-administrativa/registro-de-encuestas-y-estudios-de-opinion">Registro de encuestas y estudios de opinión</a>: resultados de encuestas y estudios de opinión sobre diversos temas como son el resultado de satisfacción de los vecinos con determinadas materias o actuaciones del Ayuntamiento.</li>
+          <li><a href="https://w10.bcn.es/StpQueixesWEB/indicadors.do?i=e">Indicadores de incidencias y comunicaciones (IRIS)</a>: Recoge las estadísticas y datos del sistema de quejas y sugerencias del ayuntamiento como la división por áreas temáticas o el tiempo de respuesta.</li>
+          <li><a href="http:/opendata-ajuntament.barcelona.cat/data/es/dataset/iris">Datos abiertos del sistema IRIS</a>: base de datos en abierto del sistema de quejas y sugerencias del ayuntamiento.</li>
+        </ul>
+      tab_4_heading_1: Gestión ética y buen gobierno
+      tab_4_text_1: |
+        <p>Esta sección tiene el objetivo de rendir cuentas sobre las políticas y actividades del ayuntamiento para el buen gobierno desde la perspectiva de la integridad y la correcta prevención y gestión de conflictos y de malas prácticas.</p>
+      tab_4_heading_2: Información sobre altos cargos
+      tab_4_text_2: |
+        <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/alcaldessa/es/transparencia">Alcaldesa</a>: agenda, bienes patrimoniales, gastos.</li>
+          <li><a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-de-las-regidoras-y-los-regidores">Registros públicos</a>: declaraciones de bienes y derechos patrimoniales de regidoras, regidores, <a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-consejeras-y-consejeros">Consejeras y Consejeros</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/es/organizacion-municipal">Agendas del equipo de gobierno</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/datos-de-los-cargos-municipales-y-eventuales">Retribuciones de cargos municipales y personal eventual</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/informacion-institucional-y-organizativa#dietas-personal">Gastos de viajes</a></li>
+        </ul>
+      tab_4_heading_3: Transparencia
+      tab_4_text_3: |
+        <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es">Transparencia activa</a>: Portal que contiene la información pública del Ayto. con la que responde a sus obligaciones legales de transparencia activa. También contiene documentos de <a href="http://ajuntament.barcelona.cat/transparencia/es/evaluacion-de-la-transparencia-municipal">evaluación de la transparencia municipal</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/acceso-la-informacion-publica">Acceso a la información pública</a>: normativa, información sobre cómo tramitar una solicitud,  consulta de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones</li>
+        </ul>
+      tab_4_heading_4: Prevención de la corrupción
+      tab_4_text_4: |
+        <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/codigo-conducta">Código de conducta</a>: El código recoge los principios éticos y los valores de buena gobernanza que deben informar toda actuación municipal. También regula las normas de conducta y de conflictos de intereses. El código determina los mecanismos y procedimientos para garantizar su efectividad, evaluación e impulso.</li>
+          <li><a href="https://ajuntament.barcelona.cat/bustiaetica/es">Buzón Ético y de Buen Gobierno</a>: El Buzón Ético y de Buen Gobierno es un canal seguro de participación electrónica que nace de la conveniencia de ofrecer un espacio que permita tener conocimiento de cualquier acción u omisión contraria a los principios de buen gobierno, como una manera de reforzar la gestión pública.</li>
+        </ul>
