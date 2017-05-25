@@ -1,4 +1,4 @@
-es:
+ca:
   static:
     accountability:
       html_head_title: Rendición de cuentas
@@ -23,21 +23,20 @@ es:
       section_4_item_3: Prevención de la corrupción
       flow_section_heading: El flujo de rendición de cuentas
       flow_intro_text: La rendición de cuentas es un proceso que permite explicar, justificadamente los objetivos y resultados del Ayuntamiento. El objetivo es responder a las necesidades e intereses de la ciudadanía.
-      flow_item_1: Información
-      flow_item_2: Retroalimentación
-      flow_item_3: Decisión, elección, identificación
-      flow_item_4: Compromiso y ejecución
-      flow_text_1_1: Ciudadanía, gobierno y administración
-      flow_text_1_2: pública identifican necesidades, definen
-      flow_text_1_3: objetivos y diseñan planes y servicios
-      flow_text_2_1: El Ayuntamiento asume el compromiso y
-      flow_text_2_2: ejecuta planes y servicios
-      flow_text_3_1: El Ayuntamiento publica la
-      flow_text_3_2: información sobre la ejecución de
-      flow_text_3_3: planes, decisiones y servicios
-      flow_text_4_1: Seguimiento activo ciudadano, evaluación del
-      flow_text_4_2: cumplimiento de los objetivos, nuevas
-      flow_text_4_3: propuestas, quejas, felicitaciones y sugerencias
+      flow_item_1: Informació
+      flow_item_2: Retroalimentació
+      flow_item_3: Decisió, elecció, identificació
+      flow_item_4: Compromís i execució
+      flow_text_1_1: Ciutadanía, govern i administració pública
+      flow_text_1_2: identifiquen necessitats, defineixen
+      flow_text_1_3: objectius i dissenyen plans i serveis
+      flow_text_2_1: L’Ajuntament assumeix el
+      flow_text_2_2: compromís i executa plans i serveis
+      flow_text_3_1: L’Ajuntament publica la informació sobre
+      flow_text_3_2: l’execució de plans, decisions i serveis
+      flow_text_4_1: Seguiment actiu ciutadà, avaluació del
+      flow_text_4_2: compliment dels objectius, noves propostes,
+      flow_text_4_3: queixes, felicitacions i suggeriments
       citizens_section_heading: Relación con la ciudadanía
       citizens_section_intro_text: Esta sección recoge los principales espacios de comunicación, diálogo y participación entre el ayuntamiento y la ciudadanía que, sin ser específicamente mecanismos de rendición de cuentas, ofrecen información al ciudadano y en ellos se definen políticas, se trasladan quejas y sugerencias y se explica la actuación del ayuntamiento.
       citizens_card_1_title: Decidim Barcelona

@@ -76,51 +76,8 @@
     <section class="section">
       <h3 class="section-heading"><%= t(".flow_section_heading") %></h3>
       <p class="centered--text"><%= t(".flow_intro_text") %></p>
-
-      <svg class="accountability--graphic" xmlns="http://www.w3.org/2000/svg" width="608" height="293" viewBox="0 0 608 293">
-        <g fill="none" fill-rule="evenodd" transform="translate(-19 -2)">
-          <text fill="#3D393C" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="20" font-weight="500" letter-spacing=".6">
-            <tspan x="269.35" y="243"><%= t(".flow_item_1") %></tspan>
-          </text>
-          <text fill="#3D393C" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="20" font-weight="500" letter-spacing=".6">
-            <tspan x="17.85" y="130"><%= t(".flow_item_2") %></tspan>
-          </text>
-          <text fill="#3D393C" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="20" font-weight="500" letter-spacing=".6">
-            <tspan x="256" y="20"><%= t(".flow_item_3") %></tspan>
-          </text>
-          <text fill="#3D393C" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="20" font-weight="500" letter-spacing=".6">
-            <tspan x="481.94" y="135"><%= t(".flow_item_4") %></tspan>
-          </text>
-          <text fill="#5E595D" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16">
-            <tspan x="241.456" y="45"><%= t(".flow_text_1_1") %> </tspan> <tspan x="236.888" y="67"><%= t(".flow_text_1_2") %></tspan>
-          </text>
-          <text fill="#5E595D" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16">
-            <tspan x="463.516" y="160"><%= t(".flow_text_2_1") %> </tspan> <tspan x="498.3" y="182"><%= t(".flow_text_2_2") %></tspan>
-          </text>
-          <text fill="#5E595D" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16">
-            <tspan x="212.124" y="268"><%= t(".flow_text_3_1") %> </tspan> <tspan x="262.604" y="290"><%= t(".flow_text_3_2") %></tspan>
-          </text>
-          <text fill="#5E595D" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="16">
-            <tspan x="37.996" y="155"><%= t(".flow_text_4_1") %></tspan> <tspan x="44.9" y="177"><%= t(".flow_text_4_2") %></tspan>
-          </text>
-          <g transform="translate(464 37)">
-            <path stroke="#5A9AA6" stroke-width="3" d="M.5 1.5L79.5 1.5M79.5 1.5L79.5 51.5" stroke-linecap="square"/>
-            <polygon fill="#5A9AA6" points="79.5 57 73.5 45 85.5 45"/>
-          </g>
-          <g transform="translate(108 37)">
-            <path stroke="#5A9AA6" stroke-width="3" d="M1.5 5.5L80.5 5.5M1.5 5.5L1.5 55.5" stroke-linecap="square"/>
-            <polygon fill="#5A9AA6" points="81 12 75 0 87 0" transform="rotate(-90 81 6)"/>
-          </g>
-          <g transform="rotate(90 174 371)">
-            <path stroke="#5A9AA6" stroke-width="3" d="M.5 1.5L79.5 1.5M79.5 1.5L79.5 51.5" stroke-linecap="square"/>
-            <polygon fill="#5A9AA6" points="79.5 62 73.5 50 85.5 50"/>
-          </g>
-          <g transform="rotate(-180 94.5 139)">
-            <path stroke="#5A9AA6" stroke-width="3" d="M.5 1.5L79.5 1.5M79.5 1.5L79.5 75.5067564" stroke-linecap="square"/>
-            <polygon fill="#5A9AA6" points="79 82 73 70 85 70"/>
-          </g>
-        </g>
-      </svg>
+      
+      <%= render "accountability_graph_#{I18n.locale}" %>
     </section>
 
     <section class="section">
