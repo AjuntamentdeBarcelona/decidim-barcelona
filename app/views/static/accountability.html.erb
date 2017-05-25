@@ -9,7 +9,7 @@
       <div class="row">
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacion"), class: "card__link" do %>
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "book" %> <%= t(".section_1_title") %></h4>
             <% end %>
 
@@ -38,10 +38,12 @@
             </div>
           </div>
         </div>
-
+      </div>
+      
+      <div class="row">
         <div class="medium-6 columns">
           <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "servicios"), class: "card__link" do %>
+            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %>
               <h4 class="card__title"><%= icon "key" %> <%= t(".section_3_title") %></h4>
             <% end %>
 
@@ -58,7 +60,7 @@
         <div class="medium-6 columns">
           <div class="card card--accountability">
             <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %>
-              <h4 class="card__title"><%= icon "home" %> <%= t(".section_3_title") %></h4>
+              <h4 class="card__title"><%= icon "home" %> <%= t(".section_4_title") %></h4>
             <% end %>
 
             <div class="card__content">
@@ -83,34 +85,8 @@
     <section class="section">
       <h3 class="section-heading"><%= t(".citizens_section_heading") %></h3>
       <p class="centered--text"><%= t(".citizens_section_intro_text") %></p>
-
-      <div class="medium-3 columns">
-        <article class="card card--process card--mini">
-          <a class="card__link" href="https://decidim.barcelona/">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/1/98a2d321-e500-4a96-9d4c-b3e8a98659c5.jpg)"></div>
-          </a>
-
-          <div class="card__content">
-            <a class="card__link" href="https://decidim.barcelona/"><h4 class="card__title"><%= t(".citizens_card_1_title") %></h4></a>
-            <span class="card--process__small"><%= t(".citizens_card_1_text") %></span>
-          </div>
-        </article>
-      </div>
-
-      <div class="medium-3 columns">
-        <article class="card card--process card--mini">
-          <a class="card__link" href="http://ajuntament.barcelona.cat/alcaldessa/es/encuentros-con-la-alcaldesa">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/5/c2d11276-9e87-41f2-9184-a28986ef9da1.jpg)"></div>
-          </a>
-
-          <div class="card__content">
-            <a class="card__link" href="http://ajuntament.barcelona.cat/alcaldessa/es/encuentros-con-la-alcaldesa"><h4 class="card__title"><%= t(".citizens_card_2_title") %></h4></a>
-            <span class="card--process__small"><%= t(".citizens_card_2_text") %></span>
-          </div>
-        </article>
-      </div>
-
-      <div class="medium-3 columns">
+      
+      <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="http://governobert.bcn.cat/es/participacion/espacios-de-participaci%C3%B3n">
             <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/4/eixample_portada.jpg)"></div>
@@ -123,15 +99,28 @@
         </article>
       </div>
 
-      <div class="medium-3 columns">
+      <div class="medium-4 columns">
         <article class="card card--process card--mini">
-          <a class="card__link" href="http://ajuntament.barcelona.cat/es/canales-comunicacion-ciudadana">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/3/24629d25-56ee-47ab-bff7-64b5a132309a.jpg)"></div>
+          <a class="card__link" href="https://decidim.barcelona/">
+            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/1/98a2d321-e500-4a96-9d4c-b3e8a98659c5.jpg)"></div>
           </a>
 
           <div class="card__content">
-            <a class="card__link" href="http://ajuntament.barcelona.cat/es/canales-comunicacion-ciudadana"><h4 class="card__title"><%= t(".citizens_card_4_title") %></h4></a>
-            <span class="card--process__small"><%= t(".citizens_card_4_text") %></span>
+            <a class="card__link" href="https://decidim.barcelona/"><h4 class="card__title"><%= t(".citizens_card_1_title") %></h4></a>
+            <span class="card--process__small"><%= t(".citizens_card_1_text") %></span>
+          </div>
+        </article>
+      </div>
+
+      <div class="medium-4 columns">
+        <article class="card card--process card--mini">
+          <a class="card__link" href="http://ajuntament.barcelona.cat/alcaldessa/es/encuentros-con-la-alcaldesa">
+            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/5/c2d11276-9e87-41f2-9184-a28986ef9da1.jpg)"></div>
+          </a>
+
+          <div class="card__content">
+            <a class="card__link" href="http://ajuntament.barcelona.cat/alcaldessa/es/encuentros-con-la-alcaldesa"><h4 class="card__title"><%= t(".citizens_card_2_title") %></h4></a>
+            <span class="card--process__small"><%= t(".citizens_card_2_text") %></span>
           </div>
         </article>
       </div>
