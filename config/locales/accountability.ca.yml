@@ -39,12 +39,12 @@ ca:
       flow_text_4_3: queixes, felicitacions i suggeriments
       citizens_section_heading: Canals de relació de la ciutadania amb l'ajuntament
       citizens_section_intro_text: Aquesta secció recull els principals canals de relació de la ciutadania amb l'Ajuntament que, sense ser mecanismes de rendició de comptes, específicament, faciliten informació a la ciutadania, s’hi traslladen queixes i suggeriments, s'explica l'actuació de l'Ajuntament i s'activa la participació en la definició de les polítiques i actuacions municipals.
-      citizens_card_1_title: Plataforma digital Decidim Barcelona
-      citizens_card_1_text: Portal de participació i rendició de comptes durant el procés d'execució dels plans i activitats de l'Ajuntament.
-      citizens_card_2_title: Trobades amb l’Alcaldessa
-      citizens_card_2_text: Espai de participació als diferents barris amb l'equip de govern i l'Alcaldessa.
-      citizens_card_3_title: Canals de participació
-      citizens_card_3_text: Integrats per <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">òrgans de participació</a>, espais <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">puntuals</a>, processos participatius, consultes e iniciatives ciutadanes.
+      citizens_card_1_title: Canals de participació
+      citizens_card_1_text: Integrats per <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">òrgans de participació</a>, espais <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">puntuals</a>, processos participatius, consultes e iniciatives ciutadanes.
+      citizens_card_2_title: Plataforma digital Decidim Barcelona
+      citizens_card_2_text: Portal de participació i rendició de comptes durant el procés d'execució dels plans i activitats de l'Ajuntament.
+      citizens_card_3_title: Trobades amb l’Alcaldessa
+      citizens_card_3_text: Espai de participació als diferents barris amb l'equip de govern i l'Alcaldessa.
       citizens_card_4_title: Canales de comunicación
       citizens_card_4_text: Canales de comunicación para realizar consultas, trámites y reclamaciones.
     accountability_sections:
