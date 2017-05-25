@@ -1,9 +1,10 @@
 class StaticController < ApplicationController
   include Decidim::LocaleSwitcher
+  include Decidim::NeedsOrganization
 
   layout "decidim/application"
 
-  helper_method :current_organization, :decidim_page_title
+  helper_method :decidim_page_title
 
   def accountability
   end
@@ -13,11 +14,7 @@ class StaticController < ApplicationController
 
   private
 
-  def current_organization
-    @current_organization ||= request.env["decidim.current_organization"]
-  end
-
   def decidim_page_title
-    "Accountability pages"
+    I18n.t("static.accountability.html_head_title")
   end
 end

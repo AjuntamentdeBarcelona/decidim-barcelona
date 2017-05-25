@@ -1,6 +1,7 @@
 es:
   static:
     accountability:
+      html_head_title: Rendición de cuentas
       heading: El ayuntamiento rinde cuentas
       intro_text: Este sitio web busca ser un espacio en el que el Ayuntamiento de Barcelona rinda cuentas a los ciudadanos sobre sus objetivos y resultados de forma justificada y en el que los ciudadanos puedan acceder a la información sobre el desempeño del Ayuntamiento.
       topics: Temas
