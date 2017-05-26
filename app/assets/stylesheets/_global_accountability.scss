@@ -17,6 +17,9 @@
       max-width: 600px;
       padding-bottom: 2rem;
     }
+    .centered--text.text-center {
+      text-align: center;
+    }
     
     .intro--text {
       @include breakpoint(medium) {
