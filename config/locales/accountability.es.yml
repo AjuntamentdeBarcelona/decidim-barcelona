@@ -43,10 +43,13 @@ es:
       citizens_section_heading: Canales de relación de la ciudadanía con el Ayuntamiento
       citizens_section_intro_text: Esta sección recoge los principales canales de relación de la ciudadanía con el Ayuntamiento que, sin ser específicamente mecanismos de rendición de cuentas, facilitan información a la ciudadanía, trasladan quejas y sugerencias, explican la actuación del Ajuntament y activan la participación en la definición de las políticas y actuaciones municipales.
       citizens_card_1_title: Canales de participación
+      citizens_card_1_link: http://governobert.bcn.cat/es/participacion/espacios-de-participaci%C3%B3n
       citizens_card_1_text: Integrados por <a href="http://governobert.bcn.cat/es/participacion/espacios-estables-de-participaci%C3%B3n">órganos de participación</a>, espacios <a href="http://governobert.bcn.cat/es/participacion/espacios-puntuales-de-participaci%C3%B3n%B3">puntuales</a>, procesos participativos, consultas y iniciativas ciudadanas.
       citizens_card_2_title: Plataforma digital Decidim Barcelona
+      citizens_card_2_link: https://decidim.barcelona/
       citizens_card_2_text: Portal de participación y de rendición de cuentas durante el proceso de ejecución de los planes y actividades del Ayuntamiento.
       citizens_card_3_title: Encuentros con la alcaldesa
+      citizens_card_3_link: http://ajuntament.barcelona.cat/alcaldessa/es/encuentros-con-la-alcaldesa
       citizens_card_3_text: Espacio de participación en los diferentes barrios con el equipo de gobierno y la Alcaldesa.
     accountability_sections:
       meta_tags:
