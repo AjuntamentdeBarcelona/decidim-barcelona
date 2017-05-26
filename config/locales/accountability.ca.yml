@@ -3,9 +3,9 @@ ca:
     accountability:
       meta_tags:
         title: L’Ajuntament ret comptes
-        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
-      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       topics: Sobre què ret comptes l’Ajuntament de Barcelona?
       section_1_title: Planificació i estratègia municipal
       section_1_item_1: PAM 2016-2019
@@ -57,7 +57,7 @@ ca:
         title: L’Ajuntament ret comptes
         description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
-      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       go_to_link: Anar a la pàgina
       tab_1: Planificació i estratègia municipal
       tab_2: Econòmica i pressupostària
@@ -76,9 +76,12 @@ ca:
       tab_1_heading_3: Processos de participació al Decidim
       tab_1_text_3: |
         <p>En aquest apartat podràs accedir als diferents documents i informació relativa a l'execució dels processos acordats al Decidim.</p>
-      tab_2_heading_1: Pressupost
+      tab_2_heading_1: Econòmica i pressupostària
       tab_2_text_1: |
         <p>Informació sobre com s'assignen, gasten i gestionen els recursos econòmics en relació a l'estratègia i prioritats municipals.</p>
+      tab_2_heading_2: Pressupost
+      tab_2_link_2: http://ajuntament.barcelona.cat/estrategiaifinances/ca/i-pressupost
+      tab_2_text_2: |
         <p>El pressupost és el reflex financer de l'estratègia i prioritats municipals, on els recursos s'assignen a aquells programes i actuacions que permeten avançar cap als objectius definits. En aquesta secció podràs consultar l'estat d'execució dels pressupostos així com accedir a documentació relacionada, per exemple:</p>
         <ul>
           <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/pressupostobert/ca/">Pressupost obert</a>: Accedeix a la nova web per saber d’on venen els ingressos (impostos i transferències d’altres administracions) i a quines polítiques i projectes es destinen.</li>
@@ -87,11 +90,12 @@ ca:
           <li><a href="http:/governobert.bcn.cat/estrategiaifinances/es/programes-pressupostaris">Pressupostos per política de despesa</a>: Informació de recursos pressupostaris (despeses corrents) i indicadors de resultats dels programes de les diferents polítiques de despesa.</li>
           <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/node/8">Costos basats en activitats (ABC)</a>: Indicadors de costos unitaris dels diferents equipaments i serveis municipals.</li>
         </ul>
-      tab_2_heading_2: Resultats i informes financers
-      tab_2_text_2: |
-        <p>L'Ajuntament s'orienta a l'obtenció de resultats en termes del Sistema Europeu de Comptes, per tal de garantir la solvència, estabilitat i sostenibilitat de les finances municipals. En aquest apartat podràs consultar la previsió del resultat de l'exercici corrent, així com els principals informes financers de l'Ajuntament i la Informació <a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/informaci%C3%B3-sobre-pagament-empreses-prove%C3%AFdores">sobre el pagament a empreses proveïdores</a>.</p>
-      tab_2_heading_3: Contratació pública
+      tab_2_heading_3: Resultats i informes financers
+      tab_2_link_3: http://ajuntament.barcelona.cat/estrategiaifinances/ca/i-compte-de-resultats
       tab_2_text_3: |
+        <p>L'Ajuntament s'orienta a l'obtenció de resultats en termes del Sistema Europeu de Comptes, per tal de garantir la solvència, estabilitat i sostenibilitat de les finances municipals. En aquest apartat podràs consultar la previsió del resultat de l'exercici corrent, així com els principals informes financers de l'Ajuntament i la Informació <a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/informaci%C3%B3-sobre-pagament-empreses-prove%C3%AFdores">sobre el pagament a empreses proveïdores</a>.</p>
+      tab_2_heading_4: Contratació pública
+      tab_2_text_4: |
         <p>Informació sobre els contractes que signa l'Ajuntament, tant concursos i licitacions públiques com contractes menors, entre d'altres:</p>
         <ul>
           <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/resum-de-la-contractacio-lajuntament">Resum de la contractació de l’Ajuntament 2016</a>.</li>
