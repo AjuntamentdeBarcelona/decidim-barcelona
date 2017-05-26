@@ -1,3 +1,8 @@
+<% add_decidim_meta_tags({
+  description: t(".meta_tags.description"),
+  title: t(".meta_tags.title")
+}) %>
+
 <main class="wrapper global-accountability">
   <div class="row column text-center">
     <h1 class="heading1 page-title"><%= t(".heading") %></h1>
@@ -39,7 +44,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="medium-6 columns">
           <div class="card card--accountability">
@@ -78,14 +83,14 @@
     <section class="section">
       <h3 class="section-heading"><%= t(".flow_section_heading") %></h3>
       <p class="centered--text"><%= t(".flow_intro_text") %></p>
-      
+
       <%= render "accountability_graph_#{I18n.locale}" %>
     </section>
 
     <section class="section">
       <h3 class="section-heading"><%= t(".citizens_section_heading") %></h3>
       <p class="centered--text"><%= t(".citizens_section_intro_text") %></p>
-      
+
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="http://governobert.bcn.cat/es/participacion/espacios-de-participaci%C3%B3n">

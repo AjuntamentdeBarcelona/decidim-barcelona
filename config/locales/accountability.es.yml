@@ -1,7 +1,9 @@
 es:
   static:
     accountability:
-      html_head_title: El Ayuntamiento rinde cuentas - decidim.barcelona
+      meta_tags:
+        title: El Ayuntamiento rinde cuentas
+        description: Estrenamos la Rendición de Cuentas en Decidim Barcelona. Un espacio en el que el Ayuntamiento de Barcelona rinde cuentas a sus ciudadanos, de forma justificada, sobre sus objetivos y resultados.
       heading: El Ayuntamiento rinde cuentas
       intro_text: Estrenamos la Rendición de Cuentas en Decidim Barcelona. Un espacio en el que el Ayuntamiento de Barcelona rinde cuentas a sus ciudadanos, de forma justificada, sobre sus objetivos y resultados.
       topics: ¿Sobre qué rinde cuentas el Ayuntamiento de Barcelona?
@@ -47,6 +49,9 @@ es:
       citizens_card_3_title: Encuentros con la alcaldesa
       citizens_card_3_text: Espacio de participación en los diferentes barrios con el equipo de gobierno y la Alcaldesa.
     accountability_sections:
+      meta_tags:
+        title: El Ayuntamiento rinde cuentas
+        description: Estrenamos la Rendición de Cuentas en Decidim Barcelona. Un espacio en el que el Ayuntamiento de Barcelona rinde cuentas a sus ciudadanos, de forma justificada, sobre sus objetivos y resultados.
       heading: El Ayuntamiento rinde cuentas
       intro_text: Estrenamos la Rendición de Cuentas en Decidim Barcelona. Un espacio en el que el Ayuntamiento de Barcelona rinde cuentas a sus ciudadanos, de forma justificada, sobre sus objetivos y resultados.
       go_to_link: Ir al sitio

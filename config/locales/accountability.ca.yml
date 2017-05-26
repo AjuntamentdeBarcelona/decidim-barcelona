@@ -1,7 +1,9 @@
 ca:
   static:
     accountability:
-      html_head_title: L’Ajuntament ret comptes - decidim.barcelona
+      meta_tags:
+        title: L’Ajuntament ret comptes
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
       intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       topics: Sobre què ret comptes l’Ajuntament de Barcelona?
@@ -48,6 +50,9 @@ ca:
       citizens_card_4_title: Canals de comunicació
       citizens_card_4_text: Canals de comunicació per fer consultes, tràmits i reclamacions.
     accountability_sections:
+      meta_tags:
+        title: L’Ajuntament ret comptes
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
       intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       go_to_link: Anar a la pàgina
