@@ -1,0 +1,78 @@
+.global-accountability {
+  .row.column {
+    margin: 0 auto;
+    
+    .page-title {
+      margin-bottom: 1rem;
+    }
+    
+    .section:not(:last-child) {
+      border-bottom: 1px solid rgba($medium-gray, .5);
+      padding-bottom: 3rem;
+    }
+
+    .centered--text {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 600px;
+      padding-bottom: 2rem;
+    }
+    .centered--text.text-center {
+      text-align: center;
+    }
+    
+    .intro--text {
+      @include breakpoint(medium) {
+        font-size: 1.25rem;
+      }
+    }
+    
+    .card--accountability {
+      text-align: left;
+      
+      h4 {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        border-bottom: 1px solid $medium-gray;
+        
+        .icon {
+          margin-right: 0.25rem;
+        }
+      }
+      .card__content {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        
+        ul {
+          list-style: none;
+          border-left: 1px solid $medium-gray;
+          margin-top: 1rem;
+          padding-left: 1rem;
+          margin-left: 0;
+          
+          a {
+            color: lighten($dark-gray, 30);
+          }
+        }
+      }
+    }
+    
+    .card--mini .card__content{
+      padding: 1.5rem 0.5rem;
+    }
+    
+    .accountability--graphic {
+      width: 100%;
+      height: auto;
+      max-width: 780px;
+    }
+    
+    .tabbed-container {
+      .programme--section {
+        margin-bottom: 1.5rem;
+      }
+      .icon {
+        margin-right: 0.25rem;
+        fill: $secondary;
+      }
+    }
+  }
+}

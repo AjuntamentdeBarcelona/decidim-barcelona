@@ -7,3 +7,5 @@ en:
         dni: DNI
         nie: NIE
         passport: Passport
+  menu:
+    accountability_static: Accountability
