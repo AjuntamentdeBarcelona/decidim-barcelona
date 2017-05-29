@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim-accountability.git
-  revision: 0c7c76da339928abf41b847e734ecf84978fa40c
+  revision: 5514e74865cd0df6b5ab6da39ff17de3f9c76114
   specs:
     decidim-accountability (0.0.1)
       decidim-comments
@@ -663,4 +663,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.15.0
