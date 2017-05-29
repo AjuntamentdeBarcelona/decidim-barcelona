@@ -3,15 +3,15 @@ ca:
     accountability:
       meta_tags:
         title: L’Ajuntament ret comptes
-        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
-      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       topics: Sobre què ret comptes l’Ajuntament de Barcelona?
       section_1_title: Planificació i estratègia municipal
       section_1_item_1: PAM 2016-2019
       section_1_item_2: Plans estratègics municipals
       section_1_item_3: Processos de participació al Decidim
-      section_2_title: Econòmica i pressupostària
+      section_2_title: Recursos econòmics i pressupostos
       section_2_item_1: Pressupost
       section_2_item_2: Resultats i informes financers
       section_2_item_3: Contractació pública
@@ -23,8 +23,8 @@ ca:
       section_4_item_1: Informació sobre alts càrrecs
       section_4_item_2: Transparència
       section_4_item_3: Prevenció de la corrupció
-      flow_section_heading: ¿Què és la rendició de comptes?
-      flow_intro_text: És un espai en el qual l'Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats. L’Ajuntament anirà introduint instruments, progressivament, perquè la ciutadania pugui auditar decisions, compromisos i l’actuació de l'Ajuntament.
+      flow_section_heading: Què és la rendició de comptes?
+      flow_intro_text: L’Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats. Progressivament, s’anirà introduïnt instruments perquè la ciutadania pugui auditar decisions, compromisos i l’actuació de l'Ajuntament.
       flow_item_1: Informació
       flow_item_2: Retroalimentació
       flow_item_3: Decisió, elecció, identificació
@@ -43,7 +43,7 @@ ca:
       citizens_section_intro_text: Aquesta secció recull els principals canals de relació de la ciutadania amb l'Ajuntament que, sense ser mecanismes de rendició de comptes, específicament, faciliten informació a la ciutadania, s’hi traslladen queixes i suggeriments, s'explica l'actuació de l'Ajuntament i s'activa la participació en la definició de les polítiques i actuacions municipals.
       citizens_card_1_title: Canals de participació
       citizens_card_1_link: http://governobert.bcn.cat/ca/participacio/espais-de-participaci%C3%B3
-      citizens_card_1_text: Integrats per <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">òrgans de participació</a>, espais <a href="http://governobert.bcn.cat/ca/participacio/espais-puntuals-de-participaci%C3%B3">puntuals</a>, processos participatius, consultes e iniciatives ciutadanes.
+      citizens_card_1_text: Integrats per <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">òrgans de participació</a>, espais <a href="http://governobert.bcn.cat/ca/participacio/espais-puntuals-de-participaci%C3%B3">puntuals de participació</a>, processos participatius, consultes e iniciatives ciutadanes.
       citizens_card_2_title: Plataforma digital Decidim Barcelona
       citizens_card_2_link: https://decidim.barcelona/
       citizens_card_2_text: Portal de participació i rendició de comptes durant el procés d'execució dels plans i activitats de l'Ajuntament.
@@ -55,12 +55,12 @@ ca:
     accountability_sections:
       meta_tags:
         title: L’Ajuntament ret comptes
-        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l’Ajuntament de Barcelona ret comptes als ciutadans, de forma justificada, sobre els seus objectius i resultats.
       heading: L’Ajuntament ret comptes
-      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en que l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l’Ajuntament de Barcelona ret comptes als ciutadans, sobre els seus objectius i resultats.
       go_to_link: Anar a la pàgina
       tab_1: Planificació i estratègia municipal
-      tab_2: Econòmica i pressupostària
+      tab_2: Recursos econòmics i pressupostos
       tab_3: Prestació de serveis i gestió pública
       tab_4: Gestió ètica y bon govern
       tab_1_heading_1: PAM 2016-2019
@@ -86,8 +86,8 @@ ca:
         <ul>
           <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/pressupostobert/ca/">Pressupost obert</a>: Accedeix a la nova web per saber d’on venen els ingressos (impostos i transferències d’altres administracions) i a quines polítiques i projectes es destinen.</li>
           <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/pressupost">Execució pressupostos 2017</a>: En aquesta secció podràs consultar l'estat d'execució dels pressupostos segons diferents visions o classificacions, així com accedir a la documentació més rellevant relacionada amb els pressupostos de l'Ajuntament.</li>
-          <li><a href="http:/ajuntament.barcelona.cat/estrategiaifinances/es/node/1312">Execució pressupostos anys anteriors 2001-2016</a>: Aquí podràs accedir als diferents documents relatius als pressupostos liquidats d'anys anteriors a l'exercici actual.</li>
-          <li><a href="http:/governobert.bcn.cat/estrategiaifinances/es/programes-pressupostaris">Pressupostos per política de despesa</a>: Informació de recursos pressupostaris (despeses corrents) i indicadors de resultats dels programes de les diferents polítiques de despesa.</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/node/1312 ">Execució pressupostos anys anteriors 2001-2016</a>: Aquí podràs accedir als diferents documents relatius als pressupostos liquidats d'anys anteriors a l'exercici actual.</li>
+          <li><a href="http://governobert.bcn.cat/estrategiaifinances/ca/programes-pressupostaris">Pressupostos per política de despesa</a>: Informació de recursos pressupostaris (despeses corrents) i indicadors de resultats dels programes de les diferents polítiques de despesa.</li>
           <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/node/8">Costos basats en activitats (ABC)</a>: Indicadors de costos unitaris dels diferents equipaments i serveis municipals.</li>
         </ul>
       tab_2_heading_3: Resultats i informes financers
@@ -121,7 +121,7 @@ ca:
           <li><a href="http://ajuntament.barcelona.cat/alcaldessa/ca/transparencia">Alcaldessa</a>: agenda, béns patrimonials, despeses.</li>
           <li><a href="https://seuelectronica.ajuntament.barcelona.cat/ca/registres-dinteressos-de-les-regidores-i-regidors">Registres públics</a>: declaracions de béns i drets patrimonials de regidores, regidors, <a href="https://seuelectronica.ajuntament.barcelona.cat/ca/registres-dinteressos-consellers-de-districte">Conselleres i Consellers</a></li>
           <li><a href="http://ajuntament.barcelona.cat/ca/organitzacio-municipal">Agendes de l’equip de govern</a></li>
-          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/datos-de-los-cargos-municipales-y-eventuales">Retribucions de càrrecs municipals i personal eventual</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/dades-dels-carrecs-municipals-i-eventuals">Retribucions de càrrecs municipals i personal eventual</a></li>
           <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/informacio-institucional-i-organitzativa">Despeses de viatges</a></li>
         </ul>
       tab_4_heading_3: Transparència

@@ -11,7 +11,7 @@ es:
       section_1_item_1: PAM 2016-2019
       section_1_item_2: Planes estratégicos municipales
       section_1_item_3: Procesos de participación en Decidim
-      section_2_title: Económica y presupuestaria
+      section_2_title: Recursos económicos y presupuestos
       section_2_item_1: Presupuesto
       section_2_item_2: Resultados e informes financieros
       section_2_item_3: Contratación pública
@@ -24,7 +24,7 @@ es:
       section_4_item_2: Transparencia
       section_4_item_3: Prevención de la corrupción
       flow_section_heading: ¿Qué es la rendición de cuentas?
-      flow_intro_text: Es un espacio en el que el Ajuntament de Barcelona rinde cuentas a la ciudadanía sobre sus compromisos, objetivos, actuaciones y resultados. El Ajuntament irá introduciendo progresivamente instrumentos para que la ciudadanía pueda monitorizar y auditar las decisiones, compromisos y el desempeño del Ajuntament.
+      flow_intro_text: El Ajuntament de Barcelona rinde cuentas a la ciudadanía sobre sus compromisos, objetivos, actuaciones y resultados. Progresivamente, se introducirán instrumentos para que la ciudadanía pueda monitorizar y auditar las decisiones, compromisos y el desempeño del Ajuntament.
       flow_item_1: Información
       flow_item_2: Retroalimentación
       flow_item_3: Decisión, elección, identificación
@@ -44,7 +44,7 @@ es:
       citizens_section_intro_text: Esta sección recoge los principales canales de relación de la ciudadanía con el Ajuntament que, sin ser específicamente mecanismos de rendición de cuentas, facilitan información a la ciudadanía, trasladan quejas y sugerencias, explican la actuación del Ajuntament y activan la participación en la definición de las políticas y actuaciones municipales.
       citizens_card_1_title: Canales de participación
       citizens_card_1_link: http://governobert.bcn.cat/es/participacion/espacios-de-participaci%C3%B3n
-      citizens_card_1_text: Integrados por <a href="http://governobert.bcn.cat/es/participacion/espacios-estables-de-participaci%C3%B3n">órganos de participación</a>, espacios <a href="http://governobert.bcn.cat/es/participacion/espacios-puntuales-de-participaci%C3%B3n%B3">puntuales</a>, procesos participativos, consultas y iniciativas ciudadanas.
+      citizens_card_1_text: Integrados por <a href="http://governobert.bcn.cat/es/participacion/espacios-estables-de-participaci%C3%B3n">órganos de participación</a>, espacios <a href="http://governobert.bcn.cat/es/participacion/espacios-puntuales-de-participaci%C3%B3n">puntuales de participación</a>, procesos participativos, consultas y iniciativas ciudadanas.
       citizens_card_2_title: Plataforma digital Decidim Barcelona
       citizens_card_2_link: https://decidim.barcelona/
       citizens_card_2_text: Portal de participación y de rendición de cuentas durante el proceso de ejecución de los planes y actividades del Ajuntament.
@@ -59,7 +59,7 @@ es:
       intro_text: Estrenamos la Rendición de Cuentas en Decidim Barcelona. Un espacio en que el Ajuntament de Barcelona rinde cuentas, sobre sus objetivos y resultados, a los ciudadanos.
       go_to_link: Ir al sitio
       tab_1: Planificación y estrategia municipal
-      tab_2: Económica y presupuestaria
+      tab_2: Recursos económicos y presupuestos
       tab_3: Prestación de servicios y gestión pública
       tab_4: Gestión ética y buen gobierno
       tab_1_heading_1: PAM 2016-2019
@@ -98,8 +98,8 @@ es:
       tab_2_text_4: |
         <p>Información sobre los contratos que firma el Ajuntament, tanto concursos y licitaciones públicas como contratos menores, entre otros:</p>
         <ul>
-          <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/es/">Resumen de la contratación del Ajuntament 2016</a></li>
-          <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/">Contratación Pública Social</a>: Publicaremos la información sobre la puesta en marcha y ejecución de esta política que pretende contribuir al cambio del modelo económico y social, fomentando que los contratistas apuesten por un mayor retorno social con un modelo de negocio participativo, con preocupación por el territorio y las personas que lo habitan.</li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/es/resumen-de-la-contratacion-en-el-ayuntamiento">Resumen de la contratación del Ajuntament 2016</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/es/">Contratación Pública Social</a>: Publicaremos la información sobre la puesta en marcha y ejecución de esta política que pretende contribuir al cambio del modelo económico y social, fomentando que los contratistas apuesten por un mayor retorno social con un modelo de negocio participativo, con preocupación por el territorio y las personas que lo habitan.</li>
           <li><a href="http://ajuntament.barcelona.cat/transparencia/sites/default/files/informe_externalitzacions_vresum_0.pdf">Gestiones indirectas de servicios municipales</a>: Información sobre las externalizaciones de servicios que se llevan a cabo en el Ajuntament.</li>
         </ul>
       tab_3_heading_1: Prestación de servicios y gestión pública
@@ -110,14 +110,13 @@ es:
           <li><a href="http://w10.bcn.es/APPS/riswestudis/editEstudi.do?reqCode=inspectById&estudiid=4880">Encuesta de evaluación de los servicios municipales 2016 </a>: Resultados de la encuesta de servicios municipales, un estudio que se viene realizando, <a href="http://ajuntament.barcelona.cat/transparencia/es/participacion-y-relacion-con-la-ciudadania">con periodicidad anual</a>, desde el año 2004, y donde se recoge la percepción de la ciudadanía sobre la ciudad y su barrio (grado de satisfacción, problemas y demandas, evolución, etc.) y su opinión sobre la gestión municipal.</li>
           <li><a href="http://ajuntament.barcelona.cat/es/informacion-administrativa/registro-de-encuestas-y-estudios-de-opinion">Registro de encuestas y estudios de opinión</a>: resultados de encuestas y estudios de opinión sobre diversos temas como son el resultado de satisfacción de los vecinos con determinadas materias o actuaciones del Ajuntament.</li>
           <li><a href="https://w10.bcn.es/StpQueixesWEB/indicadors.do?i=e">Indicadores de incidencias y comunicaciones (IRIS)</a>: Recoge las estadísticas y datos del sistema de quejas y sugerencias del Ajuntament como la división por áreas temáticas o el tiempo de respuesta.</li>
-          <li><a href="http:/opendata-ajuntament.barcelona.cat/data/es/dataset/iris">Datos abiertos del sistema IRIS</a>: base de datos en abierto del sistema de quejas y sugerencias del Ajuntament.</li>
+          <li><a href="http://opendata-ajuntament.barcelona.cat/data/es/dataset/iris">Datos abiertos del sistema IRIS</a>: base de datos en abierto del sistema de quejas y sugerencias del Ajuntament.</li>
         </ul>
       tab_4_heading_1: Gestión ética y buen gobierno
       tab_4_text_1: |
         <p>Información sobre las actuaciones realizadas y las medidas adoptadas para garantizar la integridad y la correcta prevención y gestión de conflictos de intereses y de malas prácticas.</p>
       tab_4_heading_2: Información sobre altos cargos
       tab_4_text_2: |
-        <p>Información sobre los servicios que presta el ayuntamiento y de los de mecanismos de rendición de cuentas de dichos servicios, tales como: cómo se gestionan las basuras, servicios sociales, trámites administrativos y sus tiempos de espera, etc.</p>
         <ul>
           <li><a href="http://ajuntament.barcelona.cat/alcaldessa/es/transparencia">Alcaldesa</a>: agenda, bienes patrimoniales, gastos.</li>
           <li><a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-de-las-regidoras-y-los-regidores">Registros públicos</a>: declaraciones de bienes y derechos patrimoniales de regidoras, regidores, <a href="https://seuelectronica.ajuntament.barcelona.cat/es/registros-de-intereses-consejeras-y-consejeros">Consejeras y Consejeros</a></li>
