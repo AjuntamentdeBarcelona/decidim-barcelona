@@ -1,0 +1,142 @@
+<% add_decidim_meta_tags({
+  description: t(".meta_tags.description"),
+  title: t(".meta_tags.title")
+}) %>
+
+<main class="wrapper global-accountability">
+  <div class="row column">
+    <div class="text-center">
+      <h1 class="heading1 page-title"><%= t(".heading") %></h1>
+      <p class="intro--text text-center centered--text"><%= t(".intro_text") %></p>
+    </div>
+
+    <div class="main-container tabbed-container">
+      <div class="row collapse main-container--side-panel">
+        <div class="columns medium-4 large-3">
+          <div class="side-panel">
+            <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs" data-deep-link="true" data-update-history="true" data-tabs>
+              <li class="tabs-title is-active">
+                <a href="#planificacio" aria-selected="true"><%= t(".tab_1") %></a>
+              </li>
+              <li class="tabs-title">
+                <a href="#economia"><%= t(".tab_2") %></a>
+              </li>
+              <li class="tabs-title">
+                <a href="#serveis"><%= t(".tab_3") %></a>
+              </li>
+              <li class="tabs-title">
+                <a href="#etica"><%= t(".tab_4") %></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="columns medium-8 large-9">
+          <div class="main-container__content">
+            <div class="tabs-content vertical" data-tabs-content="pattern-library-tabs">
+              <div class="tabs-panel is-active" id="planificacio">
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_1_heading_1") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_1_text_1") %>
+
+                    <a href="https://www.decidim.barcelona/processes/1" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_1_heading_2") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_1_text_2") %>
+
+                    <a href="https://bcnroc.ajuntament.barcelona.cat/jspui/handle/11703/83559" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_1_heading_3") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_1_text_3") %>
+
+                    <a href="https://www.decidim.barcelona/" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tabs-panel" id="economia">
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_2_heading_1") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_2_text_1") %>
+                  </div>
+                  
+                  <h2 class="section-heading"><%= t(".tab_2_heading_2") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_2_text_2") %>
+                    
+                    <a href="<%== t(".tab_2_link_2") %>" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_2_heading_3") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_2_text_3") %>
+
+                    <a href="<%== t(".tab_2_link_3") %>" class="button hollow secondary" type="button" name="button"><%= icon "link-intact" %> <%= t(".go_to_link") %></a>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_2_heading_4") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_2_text_4") %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tabs-panel" id="serveis">
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_3_heading_1") %></h2>
+
+                  <%== t(".tab_3_text_1") %>
+                </div>
+
+              </div>
+
+              <div class="tabs-panel" id="etica">
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_4_heading_1") %></h2>
+                  <%== t(".tab_4_text_1") %>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_4_heading_2") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_4_text_2") %>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_4_heading_3") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_4_text_3") %>
+                  </div>
+                </div>
+
+                <div class="programme--section">
+                  <h2 class="section-heading"><%= t(".tab_4_heading_4") %></h2>
+                  <div class="row column">
+                    <%== t(".tab_4_text_4") %>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
