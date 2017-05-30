@@ -20,9 +20,9 @@
 
             <div class="card__content">
               <ul>
-                <li><%= t(".section_1_item_1") %></li>
-                <li><%= t(".section_1_item_2") %></li>
-                <li><%= t(".section_1_item_3") %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_1") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_2") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_3") %><% end %></li>
               </ul>
             </div>
           </div>
@@ -36,9 +36,9 @@
 
             <div class="card__content">
               <ul>
-                <li><%= t(".section_2_item_1") %></li>
-                <li><%= t(".section_2_item_2") %></li>
-                <li><%= t(".section_2_item_3") %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_1") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_2") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_3") %><% end %></li>
               </ul>
             </div>
           </div>
@@ -54,9 +54,9 @@
 
             <div class="card__content">
               <ul>
-                <li><%= t(".section_3_item_1") %></li>
-                <li><%= t(".section_3_item_2") %></li>
-                <li><%= t(".section_3_item_3") %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_1") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_2") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_3") %><% end %></li>
               </ul>
             </div>
           </div>
@@ -70,9 +70,9 @@
 
             <div class="card__content">
               <ul>
-                <li><%= t(".section_4_item_1") %></li>
-                <li><%= t(".section_4_item_2") %></li>
-                <li><%= t(".section_4_item_3") %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_1") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_2") %><% end %></li>
+                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_3") %><% end %></li>
               </ul>
             </div>
           </div>
@@ -94,7 +94,7 @@
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="<%= t(".citizens_card_1_link") %>">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/4/eixample_portada.jpg)"></div>
+            <div class="card__image-top" style="background-image:url(<%= asset_path 'barcelona/canals.jpg' %>)"></div>
           </a>
 
           <div class="card__content">
@@ -107,7 +107,7 @@
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="<%= t(".citizens_card_2_link") %>">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/1/98a2d321-e500-4a96-9d4c-b3e8a98659c5.jpg)"></div>
+            <div class="card__image-top" style="background-image:url(<%= asset_path 'barcelona/logo_decidim.png' %>)"></div>
           </a>
 
           <div class="card__content">
@@ -120,7 +120,7 @@
       <div class="medium-4 columns">
         <article class="card card--process card--mini">
           <a class="card__link" href="<%= t(".citizens_card_3_link") %>">
-            <div class="card__image-top" style="background-image:url(https://decidim-barcelona.s3.amazonaws.com/uploads/decidim/participatory_process/hero_image/5/c2d11276-9e87-41f2-9184-a28986ef9da1.jpg)"></div>
+            <div class="card__image-top" style="background-image:url(<%= asset_path 'barcelona/trobades.jpg' %>)"></div>
           </a>
 
           <div class="card__content">
