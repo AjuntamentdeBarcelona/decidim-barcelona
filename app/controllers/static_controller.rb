@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StaticController < Decidim::ApplicationController
   skip_authorization_check
 
