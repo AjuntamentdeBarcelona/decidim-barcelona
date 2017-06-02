@@ -1,9 +1,5 @@
-class StaticController < ApplicationController
-  include Decidim::LocaleSwitcher
-  include Decidim::NeedsOrganization
-  include Decidim::MetaTagsHelper
-
-  layout "decidim/application"
+class StaticController < Decidim::ApplicationController
+  skip_authorization_check
 
   def accountability
   end
