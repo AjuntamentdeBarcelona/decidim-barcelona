@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510095158) do
+ActiveRecord::Schema.define(version: 20170605072914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -415,6 +415,41 @@ ActiveRecord::Schema.define(version: 20170510095158) do
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id", using: :btree
   end
 
+  create_table "decidim_surveys_survey_answers", force: :cascade do |t|
+    t.jsonb    "body",                       default: []
+    t.integer  "decidim_user_id"
+    t.integer  "decidim_survey_id"
+    t.integer  "decidim_survey_question_id"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_answers_on_decidim_survey_id", using: :btree
+    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answers_question_id", using: :btree
+    t.index ["decidim_user_id"], name: "index_decidim_surveys_survey_answers_on_decidim_user_id", using: :btree
+  end
+
+  create_table "decidim_surveys_survey_questions", force: :cascade do |t|
+    t.jsonb    "body"
+    t.integer  "decidim_survey_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "position"
+    t.boolean  "mandatory"
+    t.string   "question_type"
+    t.jsonb    "answer_options",    default: []
+    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_questions_on_decidim_survey_id", using: :btree
+  end
+
+  create_table "decidim_surveys_surveys", force: :cascade do |t|
+    t.jsonb    "title"
+    t.jsonb    "description"
+    t.jsonb    "tos"
+    t.integer  "decidim_feature_id"
+    t.datetime "published_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["decidim_feature_id"], name: "index_decidim_surveys_surveys_on_decidim_feature_id", using: :btree
+  end
+
   create_table "decidim_system_admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -448,6 +483,7 @@ ActiveRecord::Schema.define(version: 20170510095158) do
     t.datetime "updated_at",      null: false
     t.string   "avatar"
     t.datetime "verified_at"
+    t.datetime "rejected_at"
   end
 
   create_table "decidim_users", force: :cascade do |t|
