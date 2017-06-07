@@ -495,6 +495,7 @@ ActiveRecord::Schema.define(version: 20170606113833) do
     t.datetime "updated_at",      null: false
     t.string   "avatar"
     t.datetime "verified_at"
+    t.datetime "rejected_at"
   end
 
   create_table "decidim_users", force: :cascade do |t|
