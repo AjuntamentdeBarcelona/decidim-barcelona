@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim-accountability.git
-  revision: f1fe8525233dde7db13ee7699e76c933c2a6aaa3
+  revision: 55068eed4627df0956392da72a11ce84ed80fd8c
   specs:
     decidim-accountability (0.0.1)
       decidim-comments
