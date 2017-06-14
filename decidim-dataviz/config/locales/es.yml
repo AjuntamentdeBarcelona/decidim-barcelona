@@ -2,6 +2,8 @@
 es:
   decidim:
     dataviz:
+      menu:
+        accountability_static: Rendición de cuentas
       dataviz:
         open_data:
           download-action_plans: Actuaciones (.csv)

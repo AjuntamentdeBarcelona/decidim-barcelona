@@ -35,8 +35,6 @@ ca:
     resource_links:
       included_proposals:
         project_proposals: "Propostes incloses en aquest projecte:"
-  menu:
-    accountability_static: Rendició de comptes
   pages:
     home:
       extended:

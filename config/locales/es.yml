@@ -35,8 +35,6 @@ es:
     resource_links:
       included_proposals:
         project_proposals: "Propuestas incluidas en éste proyecto:"
-  menu:
-    accountability_static: Rendición de cuentas
   pages:
     home:
       extended:
