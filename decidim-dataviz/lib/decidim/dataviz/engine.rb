@@ -18,17 +18,6 @@ module Decidim
       initializer "decidim_dataviz.public" do |app|
         app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public")
       end
-
-      initializer "decidim_dataviz.menu" do |_app|
-        Decidim.menu :menu do |menu|
-          if current_organization.host == "www.decidim.barcelona"
-            menu.item I18n.t("decidim.dataviz.menu.accountability_static"),
-                      DecidimBarcelona::Application.routes.url_helpers.accountability_static_path,
-                      position: 4,
-                      active: :inclusive
-          end
-        end
-      end
     end
   end
 end
