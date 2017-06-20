@@ -9,7 +9,7 @@ RSpec.shared_examples "manage debates" do
     within ".edit_debate" do
       fill_in_i18n(
         :debate_title,
-        "#title-tabs",
+        "#debate-title-tabs",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
@@ -45,19 +45,19 @@ RSpec.shared_examples "manage debates" do
     within ".new_debate" do
       fill_in_i18n(
         :debate_title,
-        "#title-tabs",
+        "#debate-title-tabs",
         es: "Mi debate",
         ca: "El meu debat"
       )
       fill_in_i18n_editor(
         :debate_description,
-        "#description-tabs",
+        "#debate-description-tabs",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
       fill_in_i18n_editor(
         :debate_instructions,
-        "#instructions-tabs",
+        "#debate-instructions-tabs",
         es: "Instrucciones más largas",
         ca: "Instruccions més llargues"
       )
