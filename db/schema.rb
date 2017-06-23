@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616083653) do
+ActiveRecord::Schema.define(version: 20170622114050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20170616083653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_feature_id"], name: "decidim_accountability_template_texts_on_feature_id"
+  end
+
+  create_table "decidim_accountability_timeline_entries", id: :serial, force: :cascade do |t|
+    t.date "entry_date"
+    t.jsonb "description"
+    t.integer "decidim_accountability_result_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_accountability_result_id"], name: "index_decidim_accountability_timeline_entries_on_results_id"
   end
 
   create_table "decidim_admin_participatory_process_user_roles", id: :serial, force: :cascade do |t|
