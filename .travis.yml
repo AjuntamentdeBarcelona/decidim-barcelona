@@ -12,7 +12,7 @@ branches:
 
 before_script:
   - bundle exec rake db:create db:schema:load
-  - bundle install --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
+  - bundle exec rake decidim:generate_test_app  
 
 env:
   - RAILS_ENV=test
@@ -25,12 +25,10 @@ cache:
     - $BUNDLE_PATH
     - vendor/bundle
 script:
-  - bundle exec rake
-  - cd engines/decidim-debates
-  - bundle exec rake
+  - cd decidim-debates && bundle exec rake
 
 rvm:
-  - 2.4.0
+  - 2.4.1
 
 notifications:
     email: false

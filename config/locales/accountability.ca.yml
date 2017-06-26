@@ -1,0 +1,138 @@
+ca:
+  static:
+    accountability:
+      meta_tags:
+        title: L’Ajuntament ret comptes
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l'Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats.
+      heading: L’Ajuntament ret comptes
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l'Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats.
+      topics: Sobre què ret comptes l’Ajuntament de Barcelona?
+      section_1_title: Planificació i estratègia municipal
+      section_1_item_1: PAM 2016-2019
+      section_1_item_2: Plans estratègics municipals
+      section_1_item_3: Processos de participació al Decidim
+      section_2_title: Recursos econòmics i pressupostos
+      section_2_item_1: Pressupost
+      section_2_item_2: Resultats i informes financers
+      section_2_item_3: Contractació pública
+      section_3_title: Prestació de serveis i gestió pública
+      section_3_item_1: Cartes de serveis
+      section_3_item_2: Avaluació dels serveis municipals
+      section_3_item_3: Registre d’enquestes i estudis d’opinió
+      section_4_title: Gestió ètica i bon govern
+      section_4_item_1: Informació sobre alts càrrecs
+      section_4_item_2: Transparència
+      section_4_item_3: Prevenció de la corrupció
+      flow_section_heading: Què és la rendició de comptes?
+      flow_intro_text: L’Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats. Progressivament, s’anirà introduïnt instruments perquè la ciutadania pugui auditar decisions, compromisos i l’actuació de l'Ajuntament.
+      flow_item_1: Informació
+      flow_item_2: Retroalimentació
+      flow_item_3: Decisió, elecció, identificació
+      flow_item_4: Compromís i execució
+      flow_text_1_1: Ciutadanía, govern i administració pública
+      flow_text_1_2: identifiquen necessitats, defineixen
+      flow_text_1_3: objectius i dissenyen plans i serveis
+      flow_text_2_1: L’Ajuntament assumeix el
+      flow_text_2_2: compromís i executa plans i serveis
+      flow_text_3_1: L’Ajuntament publica la informació sobre
+      flow_text_3_2: l’execució de plans, decisions i serveis
+      flow_text_4_1: Seguiment actiu ciutadà, avaluació del
+      flow_text_4_2: compliment dels objectius, noves propostes,
+      flow_text_4_3: queixes, felicitacions i suggeriments
+      citizens_section_heading: Canals de relació de la ciutadania amb l'ajuntament
+      citizens_section_intro_text: Aquesta secció recull els principals canals de relació de la ciutadania amb l'Ajuntament que, sense ser mecanismes de rendició de comptes, específicament, faciliten informació a la ciutadania, s’hi traslladen queixes i suggeriments, s'explica l'actuació de l'Ajuntament i s'activa la participació en la definició de les polítiques i actuacions municipals.
+      citizens_card_1_title: Canals de participació
+      citizens_card_1_link: http://governobert.bcn.cat/ca/participacio/espais-de-participaci%C3%B3
+      citizens_card_1_text: Integrats per <a href="http://governobert.bcn.cat/ca/participacio/espais-estables-de-participaci%C3%B3">òrgans de participació</a>, espais <a href="http://governobert.bcn.cat/ca/participacio/espais-puntuals-de-participaci%C3%B3">puntuals de participació</a>, processos participatius, consultes e iniciatives ciutadanes.
+      citizens_card_2_title: Plataforma digital Decidim Barcelona
+      citizens_card_2_link: https://decidim.barcelona/
+      citizens_card_2_text: Portal de participació i rendició de comptes durant el procés d'execució dels plans i activitats de l'Ajuntament.
+      citizens_card_3_title: Trobades amb l’Alcaldessa
+      citizens_card_3_link: http://ajuntament.barcelona.cat/alcaldessa/ca/trobades-amb-lalcaldessa
+      citizens_card_3_text: Espai regular de trobada entre l'alcaldessa i els ciutadans, sense un ordre del dia preestablert per compartir reflexions sobre la ciutat i les seves prioritats.
+      citizens_card_4_title: Canals de comunicació
+      citizens_card_4_text: Canals de comunicació per fer consultes, tràmits i reclamacions.
+    accountability_sections:
+      meta_tags:
+        title: L’Ajuntament ret comptes
+        description: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l'Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats.
+      heading: L’Ajuntament ret comptes
+      intro_text: Estrenem la Rendició de Comptes al Decidim Barcelona. Un espai en què l'Ajuntament de Barcelona ret comptes a la ciutadania sobre els seus objectius i resultats.
+      go_to_link: Anar a la pàgina
+      tab_1: Planificació i estratègia municipal
+      tab_2: Recursos econòmics i pressupostos
+      tab_3: Prestació de serveis i gestió pública
+      tab_4: Gestió ètica y bon govern
+      tab_1_heading_1: PAM 2016-2019
+      tab_1_text_1: |
+        <p>El Programa d’Actuació Municipal (PAM) és el document i eina de gestió que defineix l'estratègia municipal per a un mandat. En aquest apartat podràs accedir als diferents documents i informació relativa al PAM.</p>
+        <ul>
+          <li>Dades quantitatives agregades per eixos, línies, actuacions i projectes</li>
+          <li><a href="https://www.decidim.barcelona/processes/1/f/8">Informació en cada una de las actuacions</a>, propostes i aportacions d’entitats i de la ciutadania, desglossades en projectes, amb l’estat d'execució detallat</li>
+        </ul>
+      tab_1_heading_2: Plans estratègics municipals
+      tab_1_text_2: |
+        <p>Els plans estratègics són conjunts de mesures polítiques i econòmiques dirigides a resoldre problemes o situacions determinades, que inclouen els mitjans per aconseguir-ho, les responsabilitats i les dates de compliment.</p>
+      tab_1_heading_3: Processos de participació al Decidim
+      tab_1_text_3: |
+        <p>En aquest apartat podràs accedir als diferents documents i informació relativa a l'execució dels processos acordats al Decidim.</p>
+      tab_2_heading_1: Econòmica i pressupostària
+      tab_2_text_1: |
+        <p>Informació sobre com s'assignen, gasten i gestionen els recursos econòmics en relació a l'estratègia i prioritats municipals.</p>
+      tab_2_heading_2: Pressupost
+      tab_2_link_2: http://ajuntament.barcelona.cat/estrategiaifinances/ca/i-pressupost
+      tab_2_text_2: |
+        <p>El pressupost és el reflex financer de l'estratègia i prioritats municipals, on els recursos s'assignen a aquells programes i actuacions que permeten avançar cap als objectius definits. En aquesta secció podràs consultar l'estat d'execució dels pressupostos així com accedir a documentació relacionada, per exemple:</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/pressupostobert/ca/">Pressupost obert</a>: Accedeix a la nova web per saber d’on venen els ingressos (impostos i transferències d’altres administracions) i a quines polítiques i projectes es destinen.</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/pressupost">Execució pressupostos 2017</a>: En aquesta secció podràs consultar l'estat d'execució dels pressupostos segons diferents visions o classificacions, així com accedir a la documentació més rellevant relacionada amb els pressupostos de l'Ajuntament.</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/node/1312 ">Execució pressupostos anys anteriors 2001-2016</a>: Aquí podràs accedir als diferents documents relatius als pressupostos liquidats d'anys anteriors a l'exercici actual.</li>
+          <li><a href="http://governobert.bcn.cat/estrategiaifinances/ca/programes-pressupostaris">Pressupostos per política de despesa</a>: Informació de recursos pressupostaris (despeses corrents) i indicadors de resultats dels programes de les diferents polítiques de despesa.</li>
+          <li><a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/node/8">Costos basats en activitats (ABC)</a>: Indicadors de costos unitaris dels diferents equipaments i serveis municipals.</li>
+        </ul>
+      tab_2_heading_3: Resultats i informes financers
+      tab_2_link_3: http://ajuntament.barcelona.cat/estrategiaifinances/ca/i-compte-de-resultats
+      tab_2_text_3: |
+        <p>L'Ajuntament s'orienta a l'obtenció de resultats en termes del Sistema Europeu de Comptes, per tal de garantir la solvència, estabilitat i sostenibilitat de les finances municipals. En aquest apartat podràs consultar la previsió del resultat de l'exercici corrent, així com els principals informes financers de l'Ajuntament i la Informació <a href="http://ajuntament.barcelona.cat/estrategiaifinances/ca/informaci%C3%B3-sobre-pagament-empreses-prove%C3%AFdores">sobre el pagament a empreses proveïdores</a>.</p>
+      tab_2_heading_4: Contratació pública
+      tab_2_text_4: |
+        <p>Informació sobre els contractes que signa l'Ajuntament, tant concursos i licitacions públiques com contractes menors, entre d'altres:</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/resum-de-la-contractacio-lajuntament">Resum de la contractació de l’Ajuntament 2016</a>.</li>
+          <li><a href="http://ajuntament.barcelona.cat/contractaciopublica/ca/">Contratació Pública Social</a>: informació sobre la posada en marxa i execució d'aquesta política que pretén contribuir al canvi del model econòmic i social, fomentant que els contractistes apostin per un major retorn social amb un model de negoci participatiu, amb preocupació pel territori i les persones que l'habiten.</li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/gestio-economica-i-administrativa#Gesti%C3%B3%20indirecta%20de%20serveis%20municipals">Gestions indirectes de serveis municipals</a>: Informació sobre les externalitzacions de serveis que es duen a terme a l'Ajuntament.</li>
+        </ul>
+      tab_3_heading_1: Prestació de serveis i gestió pública
+      tab_3_text_1: |
+        <p>Estem treballant per proporcionar informació sobre l'acompliment de l'Ajuntament respecte als serveis que presta per garantir els drets de la ciutadania. De moment pots accedir a:</p>
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/participacio-i-relacio-amb-la-ciutadania">Cartes de serveis</a>.</li>
+          <li><a href="http://w10.bcn.es/APPS/riswestudis/editEstudi.do?reqCode=inspectById&estudiid=4880">Enquesta d’avaluació dels serveis municipals 2016</a>: Resultats de l'enquesta de serveis municipals, un estudi que es realitza, amb periodicitat anual, des de l'any 2004, i on es recull la percepció de la ciutadania sobre la ciutat i el seu barri (grau de satisfacció, problemes i demandes, evolució, etc.) i la seva opinió sobre la gestió municipal.</li>
+          <li><a href="http://ajuntament.barcelona.cat/ca/content/registre-denquestes-i-estudis-dopinio-0">Registre d’enquestes i estudis d’opinió</a>: resultats d'enquestes i estudis d'opinió sobre diversos temes com són el resultat de satisfacció dels veïns amb determinades matèries o actuacions de l'Ajuntament.</li>
+          <li><a href="https://w10.bcn.es/StpQueixesWEB/indicadors.do?i=e">Indicadors d’incidències i comunicacions (IRIS)</a>: Recull les estadístiques i dades del sistema de queixes i suggeriments de l'Ajuntament com la divisió per àrees temàtiques o el temps de resposta.</li>
+          <li><a href="http://opendata-ajuntament.barcelona.cat/data/ca/dataset/iris">Dades obertes del sistema IRIS</a>: base de dades en obert del sistema de queixes i suggeriments de l'Ajuntament..</li>
+        </ul>
+      tab_4_heading_1: Gestió ètica i bon govern
+      tab_4_text_1: |
+        <p>Informació sobre les actuacions realitzades i les mesures adoptades per garantir la integritat i la correcta prevenció i gestió de conflictes d'interessos i de males pràctiques.</p>
+      tab_4_heading_2: Informació sobre alts càrrecs
+      tab_4_text_2: |
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/alcaldessa/ca/transparencia">Alcaldessa</a>: agenda, béns patrimonials, despeses.</li>
+          <li><a href="https://seuelectronica.ajuntament.barcelona.cat/ca/registres-dinteressos-de-les-regidores-i-regidors">Registres públics</a>: declaracions de béns i drets patrimonials de regidores, regidors, <a href="https://seuelectronica.ajuntament.barcelona.cat/ca/registres-dinteressos-consellers-de-districte">Conselleres i Consellers</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/ca/organitzacio-municipal">Agendes de l’equip de govern</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/dades-dels-carrecs-municipals-i-eventuals">Retribucions de càrrecs municipals i personal eventual</a></li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/informacio-institucional-i-organitzativa">Despeses de viatges</a></li>
+        </ul>
+      tab_4_heading_3: Transparència
+      tab_4_text_3: |
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca">Transparència activa</a>: Portal que conté la informació pública de l'Ajuntament amb la qual respon a les seves obligacions legals de transparència activa. També conté documents <a href="http://ajuntament.barcelona.cat/transparencia/ca/avaluacio-de-la-transparencia-municipal">d'avaluació de la transparència municipal</a>.</li>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/acces-la-informacio-publica">Accés a la informació pública</a>: Normativa, informació sobre com tramitar una sol·licitud, consulta d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.</li>
+        </ul>
+      tab_4_heading_4: Prevenció de la corrupció
+      tab_4_text_4: |
+        <ul>
+          <li><a href="http://ajuntament.barcelona.cat/transparencia/ca/codi-conducta">Codi de conducta</a>: El codi recull els principis ètics i els valors de bona governança que han d'informar tota actuació municipal. També regula les normes de conducta i de conflictes d'interessos. El codi determina els mecanismes i procediments per garantir la seva efectivitat, avaluació i impuls.</li>
+          <li><a href="https://ajuntament.barcelona.cat/bustiaetica/ca">Bústia Ètica i de Bon Govern</a>: és un canal segur de participació electrònica que neix de la conveniència d'oferir un espai que permeti tenir coneixement de qualsevol acció o omissió contrària als principis de bon govern, com una manera de reforçar la gestió pública.</li>
+        </ul>

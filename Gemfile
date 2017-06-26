@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-ruby '2.4.0'
+ruby '2.4.1'
 
-gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
-gem "decidim-debates", path: "engines/decidim-debates"
-gem "decidim-dataviz", path: "engines/decidim-dataviz"
+gem "decidim", "~> 0.3.2"
+gem "decidim-debates", path: "decidim-debates"
+gem "decidim-dataviz", path: "decidim-dataviz"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
@@ -12,13 +12,12 @@ gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem "decidim-dev", "~> 0.3.2"
 end
 
 group :development do
   gem "progressbar"
-  gem 'rainbow', "2.1.0"
-  gem "decidim-dev", git: "https://github.com/AjuntamentdeBarcelona/decidim.git"
-  gem 'web-console'
+  gem 'rainbow', "~>2.2.0"
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
@@ -32,6 +31,7 @@ group :production do
   gem "newrelic_rpm"
   gem "dalli"
   gem "sentry-raven"
+  gem 'rack-ssl-enforcer'
 end
 
 group :test do
