@@ -7,6 +7,7 @@
     "heroku-redis:hobby-dev",
     "sendgrid:starter"
   ],
+  "stack": "heroku-16",
   "scripts": {
     "postdeploy":"rake db:schema:load db:migrate db:seed"
   },
