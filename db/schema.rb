@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622114050) do
+ActiveRecord::Schema.define(version: 20170623150030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,10 @@ ActiveRecord::Schema.define(version: 20170622114050) do
     t.integer "decidim_accountability_status_id"
     t.integer "decidim_feature_id"
     t.integer "decidim_scope_id"
-    t.integer "decidim_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "children_count", default: 0
     t.index ["decidim_accountability_status_id"], name: "decidim_accountability_results_on_status_id"
-    t.index ["decidim_category_id"], name: "index_decidim_accountability_results_on_decidim_category_id"
     t.index ["decidim_feature_id", "external_id"], name: "decidim_accountability_results_on_external_id", unique: true
     t.index ["decidim_feature_id"], name: "index_decidim_accountability_results_on_decidim_feature_id"
     t.index ["decidim_scope_id"], name: "index_decidim_accountability_results_on_decidim_scope_id"
