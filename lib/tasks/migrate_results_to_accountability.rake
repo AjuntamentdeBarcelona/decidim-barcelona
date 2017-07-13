@@ -48,6 +48,6 @@ namespace :migrate do
       return false
     end
 
-    return true
+    true
   end
 end
