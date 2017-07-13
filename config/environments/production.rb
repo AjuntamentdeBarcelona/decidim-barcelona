@@ -127,7 +127,4 @@ Rails.application.configure do
     }
   end
 
-  if ENV['RACK_PASSWORD'].present?
-    config.middleware.use RackPassword::Block, auth_codes: [ENV['RACK_PASSWORD']]
-  end
 end
