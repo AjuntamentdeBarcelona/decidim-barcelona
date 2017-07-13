@@ -39,6 +39,16 @@ module Decidim
       def commentable_type
         self.class.name
       end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(_context)
+        false
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        []
+      end
     end
   end
 end
