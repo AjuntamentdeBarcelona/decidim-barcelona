@@ -5,17 +5,14 @@ namespace :migrate do
   task :results_to_accountability, [:process_id] => :environment do |_, args|
     process_id = args.process_id.presence || 1
 
-    unless process = Decidim::ParticipatoryProcess.find_by(id: process_id)
-      abort "Process #{process_id} not found"
-    end
+    process = Decidim::ParticipatoryProcess.find_by(id: process_id)
+    abort "Process #{process_id} not found" unless process.present?
 
-    unless results_feature = process.features.where(manifest_name: "results").first
-      abort "Results feature not found for process"
-    end
+    results_feature = process.features.where(manifest_name: "results").first
+    abort "Results feature not found for process" unless results_feature.present?
 
-    unless accountability_feature = process.features.where(manifest_name: "accountability").first
-      abort "Accountability feature not found for process"
-    end
+    accountability_feature = process.features.where(manifest_name: "accountability").first
+    abort "Accountability feature not found for process" unless accountability_feature.present?
 
     # Copy results maintaining original record id
     Decidim::Results::Result.where(feature: results_feature).find_each do |result|
