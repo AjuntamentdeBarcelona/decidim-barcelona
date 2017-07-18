@@ -6,7 +6,13 @@ namespace :migrate do
     process_id = args.process_id.presence || 1
 
     process = Decidim::ParticipatoryProcess.find_by(id: process_id)
-    next unless valid_process?(process, process_id)
+    abort "Process #{process_id} not found" unless process.present?
+
+    results_feature = process.features.where(manifest_name: "results").first
+    abort "Results feature not found for process" unless results_feature.present?
+
+    accountability_feature = process.features.where(manifest_name: "accountability").first
+    abort "Accountability feature not found for process" unless accountability_feature.present?
 
     # Copy results maintaining original record id
     Decidim::Results::Result.where(feature: results_feature).find_each do |result|
@@ -28,26 +34,5 @@ namespace :migrate do
       meetings = accountability_result.sibling_scope(:meetings).where(id: meeting_ids)
       accountability_result.link_resources(meetings, "meetings_through_proposals")
     end
-  end
-
-  def valid_process?(process, process_id)
-    unless process.present?
-      puts "Process #{process_id} not found"
-      return false
-    end
-
-    results_feature = process.features.where(manifest_name: "results").first
-    unless results_feature.present?
-      puts "Results feature not found for process"
-      return false
-    end
-
-    accountability_feature = process.features.where(manifest_name: "accountability").first
-    unless accountability_feature.present?
-      puts "Accountability feature not found for process"
-      return false
-    end
-
-    true
   end
 end
