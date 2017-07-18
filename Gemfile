@@ -5,6 +5,7 @@ ruby '2.4.1'
 gem "decidim", "~> 0.4.0"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
+gem "decidim-accountability", git: "https://github.com/decidim/decidim-accountability.git"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'

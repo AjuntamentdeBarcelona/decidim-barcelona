@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/decidim/decidim-accountability.git
+  revision: 36bf57edbad4f2192ab5edee2c96dfd1cfe6e752
+  specs:
+    decidim-accountability (0.0.1)
+      decidim-comments
+      decidim-core
+
 PATH
   remote: decidim-dataviz
   specs:
@@ -319,7 +327,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.2)
       rails
-    graphql (1.6.4)
+    graphql (1.6.6)
     hashdiff (0.3.4)
     hashie (3.5.6)
     high_voltage (3.0.0)
@@ -533,7 +541,7 @@ GEM
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.24)
-    sassc (1.11.2)
+    sassc (1.11.4)
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
@@ -617,6 +625,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim (~> 0.4.0)
+  decidim-accountability!
   decidim-dataviz!
   decidim-debates!
   decidim-dev (~> 0.4.0)
