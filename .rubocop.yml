@@ -1278,6 +1278,7 @@ Metrics/BlockLength:
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
+    - 'lib/tasks/migrate_results_to_accountability.rake'
 
 Lint/HandleExceptions:
   Exclude:
