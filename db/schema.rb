@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623150030) do
+ActiveRecord::Schema.define(version: 20170721095160) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "decidim_accountability_results", id: :serial, force: :cascade do |t|
     t.jsonb "title"
@@ -68,15 +69,6 @@ ActiveRecord::Schema.define(version: 20170623150030) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_accountability_result_id"], name: "index_decidim_accountability_timeline_entries_on_results_id"
-  end
-
-  create_table "decidim_admin_participatory_process_user_roles", id: :serial, force: :cascade do |t|
-    t.integer "decidim_user_id"
-    t.integer "decidim_participatory_process_id"
-    t.string "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_participatory_process_id", "decidim_user_id", "role"], name: "index_unique_user_and_process_role", unique: true
   end
 
   create_table "decidim_attachments", id: :serial, force: :cascade do |t|
@@ -340,6 +332,15 @@ ActiveRecord::Schema.define(version: 20170623150030) do
     t.index ["position"], name: "index_order_by_position_for_steps"
   end
 
+  create_table "decidim_participatory_process_user_roles", id: :serial, force: :cascade do |t|
+    t.integer "decidim_user_id"
+    t.integer "decidim_participatory_process_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_participatory_process_id", "decidim_user_id", "role"], name: "index_unique_user_and_process_role", unique: true
+  end
+
   create_table "decidim_participatory_processes", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.string "hashtag"
@@ -558,7 +559,6 @@ ActiveRecord::Schema.define(version: 20170623150030) do
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
     t.integer "decidim_organization_id"
-    t.string "roles", default: [], array: true
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -573,6 +573,7 @@ ActiveRecord::Schema.define(version: 20170623150030) do
     t.boolean "newsletter_notifications", default: false, null: false
     t.text "delete_reason"
     t.datetime "deleted_at"
+    t.boolean "admin", default: false, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "(deleted_at IS NULL)"
