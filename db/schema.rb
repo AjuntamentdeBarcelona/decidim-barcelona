@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721095160) do
+ActiveRecord::Schema.define(version: 20170803070317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -365,6 +365,7 @@ ActiveRecord::Schema.define(version: 20170721095160) do
     t.jsonb "participatory_structure"
     t.integer "decidim_scope_id"
     t.integer "decidim_participatory_process_group_id"
+    t.boolean "show_statistics", default: true
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
   end
