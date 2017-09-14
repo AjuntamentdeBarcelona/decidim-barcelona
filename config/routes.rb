@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
   end
 
-  authenticate :user, lambda { |u| u.roles.include?("admin") } do
+  authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
 
