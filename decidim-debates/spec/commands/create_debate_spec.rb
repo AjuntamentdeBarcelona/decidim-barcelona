@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::Admin::CreateDebate do
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
+  let(:organization) { create :organization, available_locales: %i(en ca es), default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
   let(:category) { create :category, participatory_process: participatory_process }
