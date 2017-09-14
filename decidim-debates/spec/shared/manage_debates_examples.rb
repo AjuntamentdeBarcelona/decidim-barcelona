@@ -10,6 +10,7 @@ RSpec.shared_examples "manage debates" do
       fill_in_i18n(
         :debate_title,
         "#debate-title-tabs",
+        en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
@@ -18,11 +19,11 @@ RSpec.shared_examples "manage debates" do
     end
 
     within ".callout-wrapper" do
-      expect(page).to have_content("correctament")
+      expect(page).to have_content("successfully")
     end
 
     within "table" do
-      expect(page).to have_content("El meu nou títol")
+      expect(page).to have_content("My new title")
     end
   end
 
@@ -46,18 +47,21 @@ RSpec.shared_examples "manage debates" do
       fill_in_i18n(
         :debate_title,
         "#debate-title-tabs",
+        en: "My debate",
         es: "Mi debate",
         ca: "El meu debat"
       )
       fill_in_i18n_editor(
         :debate_description,
         "#debate-description-tabs",
+        en: "Long description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
       fill_in_i18n_editor(
         :debate_instructions,
         "#debate-instructions-tabs",
+        en: "Long instructions",
         es: "Instrucciones más largas",
         ca: "Instruccions més llargues"
       )
@@ -80,11 +84,11 @@ RSpec.shared_examples "manage debates" do
     end
 
     within ".callout-wrapper" do
-      expect(page).to have_content("correctament")
+      expect(page).to have_content("successfully")
     end
 
     within "table" do
-      expect(page).to have_content("El meu debat")
+      expect(page).to have_content("My debate")
     end
   end
 
@@ -101,7 +105,7 @@ RSpec.shared_examples "manage debates" do
       end
 
       within ".callout-wrapper" do
-        expect(page).to have_content("correctament")
+        expect(page).to have_content("successfully")
       end
 
       within "table" do
