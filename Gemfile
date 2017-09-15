@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim"
+gem "decidim", "0.6.0"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-accountability", git: "https://github.com/decidim/decidim-accountability.git"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831085429) do
+ActiveRecord::Schema.define(version: 20170915120562) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,8 +131,9 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.jsonb "name", null: false
     t.jsonb "description", null: false
     t.integer "parent_id"
-    t.integer "decidim_participatory_process_id"
-    t.index ["decidim_participatory_process_id"], name: "index_decidim_categories_on_decidim_participatory_process_id"
+    t.integer "decidim_participatory_space_id"
+    t.string "decidim_participatory_space_type"
+    t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "index_decidim_categories_on_decidim_participatory_space"
     t.index ["parent_id"], name: "index_decidim_categories_on_parent_id"
   end
 
@@ -194,12 +195,23 @@ ActiveRecord::Schema.define(version: 20170831085429) do
   create_table "decidim_features", id: :serial, force: :cascade do |t|
     t.string "manifest_name"
     t.jsonb "name"
-    t.integer "decidim_participatory_process_id"
+    t.integer "participatory_space_id", null: false
     t.jsonb "settings", default: {}
     t.integer "weight", default: 0
     t.datetime "published_at"
     t.jsonb "permissions"
-    t.index ["decidim_participatory_process_id"], name: "index_decidim_features_on_decidim_participatory_process_id"
+    t.string "participatory_space_type", null: false
+    t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_features_on_decidim_participatory_space"
+  end
+
+  create_table "decidim_follows", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.string "decidim_followable_type"
+    t.bigint "decidim_followable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_user_id", "decidim_followable_id", "decidim_followable_type"], name: "index_uniq_on_follows_user_and_followable", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_follows_on_decidim_user_id"
   end
 
   create_table "decidim_identities", id: :serial, force: :cascade do |t|
@@ -248,20 +260,34 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.float "longitude"
     t.jsonb "extra"
     t.string "reference"
+    t.boolean "registrations_enabled", default: false, null: false
+    t.integer "available_slots", default: 0, null: false
+    t.jsonb "registration_terms"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_feature_id"], name: "index_decidim_meetings_meetings_on_decidim_feature_id"
     t.index ["decidim_scope_id"], name: "index_decidim_meetings_meetings_on_decidim_scope_id"
   end
 
+  create_table "decidim_meetings_registrations", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_meeting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_meeting_id"], name: "index_decidim_meetings_registrations_on_decidim_meeting_id"
+    t.index ["decidim_user_id", "decidim_meeting_id"], name: "decidim_meetings_registrations_user_meeting_unique", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_meetings_registrations_on_decidim_user_id"
+  end
+
   create_table "decidim_moderations", id: :serial, force: :cascade do |t|
-    t.integer "decidim_participatory_process_id", null: false
+    t.integer "decidim_participatory_space_id", null: false
     t.string "decidim_reportable_type", null: false
     t.integer "decidim_reportable_id", null: false
     t.integer "report_count", default: 0, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["decidim_participatory_process_id"], name: "decidim_moderations_participatory_process"
+    t.string "decidim_participatory_space_type", null: false
+    t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "decidim_moderations_participatory_space"
     t.index ["decidim_reportable_type", "decidim_reportable_id"], name: "decidim_moderations_reportable", unique: true
     t.index ["hidden_at"], name: "decidim_moderations_hidden_at"
     t.index ["report_count"], name: "decidim_moderations_report_count"
@@ -279,6 +305,18 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_decidim_newsletters_on_author_id"
     t.index ["organization_id"], name: "index_decidim_newsletters_on_organization_id"
+  end
+
+  create_table "decidim_notifications", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.string "decidim_resource_type", null: false
+    t.bigint "decidim_resource_id", null: false
+    t.string "event_name", null: false
+    t.string "event_class", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "extra"
+    t.index ["decidim_user_id"], name: "index_decidim_notifications_on_decidim_user_id"
   end
 
   create_table "decidim_organizations", id: :serial, force: :cascade do |t|
@@ -305,6 +343,7 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.string "reference_prefix", null: false
     t.string "secondary_hosts", default: [], array: true
     t.string "available_authorizations", default: [], array: true
+    t.text "header_snippets"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -380,6 +419,7 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.boolean "show_statistics", default: true
     t.jsonb "announcement"
     t.boolean "scopes_enabled", default: true, null: false
+    t.date "start_date"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
   end
@@ -597,14 +637,13 @@ ActiveRecord::Schema.define(version: 20170831085429) do
     t.string "avatar"
     t.jsonb "extra"
     t.datetime "imported_erased_at"
-    t.boolean "comments_notifications", default: false, null: false
-    t.boolean "replies_notifications", default: false, null: false
     t.boolean "newsletter_notifications", default: false, null: false
     t.text "delete_reason"
     t.datetime "deleted_at"
     t.boolean "admin", default: false, null: false
     t.boolean "managed", default: false, null: false
     t.string "roles", default: [], array: true
+    t.boolean "email_on_notification", default: false, null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false))"
