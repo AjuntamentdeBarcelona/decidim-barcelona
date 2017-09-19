@@ -131,7 +131,7 @@ GEM
       decidim-results (= 0.6.1)
       decidim-surveys (= 0.6.1)
       decidim-system (= 0.6.1)
-    decidim-accountability (0.1.0)
+    decidim-accountability (0.1.1)
       decidim-comments
       decidim-core (>= 0.6.0, <= 0.8.0)
     decidim-admin (0.6.1)
@@ -632,7 +632,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim (~> 0.6.0)
-  decidim-accountability (= 0.1.0)
+  decidim-accountability (>= 0.1.1)
   decidim-dataviz!
   decidim-debates!
   decidim-dev
