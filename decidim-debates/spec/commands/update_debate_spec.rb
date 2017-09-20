@@ -4,7 +4,7 @@ require "spec_helper"
 describe Decidim::Debates::Admin::UpdateDebate do
   let(:debate) { create :debate }
   let(:organization) { debate.feature.organization }
-  let(:category) { create :category, participatory_process: debate.feature.participatory_process }
+  let(:category) { create :category, participatory_space: debate.feature.participatory_space }
   let(:form) do
     double(
       invalid?: invalid,

@@ -32,7 +32,7 @@ RSpec.shared_examples "manage debates" do
       new_window = window_opened_by { click_link translated(debate.title) }
 
       within_window new_window do
-        expect(current_path).to eq decidim_debates.debate_path(id: debate.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
+        expect(current_path).to eq decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(debate.title))
       end
     end

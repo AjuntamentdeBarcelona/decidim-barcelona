@@ -4,7 +4,7 @@ require "spec_helper"
 describe "Explore debates", type: :feature do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "debates" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
   let(:debates_count) { 5 }
   let!(:debates) do
     create_list(
@@ -22,7 +22,7 @@ describe "Explore debates", type: :feature do
   end
 
   context "index" do
-    let(:path) { decidim_debates.debates_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
 
     it "shows all debates for the given process" do
       expect(page).to have_selector("article.card", count: debates_count)
@@ -34,7 +34,7 @@ describe "Explore debates", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_debates.debate_path(id: debate.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
     let(:debates_count) { 1 }
     let(:debate) { debates.first }
 
@@ -59,7 +59,7 @@ describe "Explore debates", type: :feature do
     context "with a category" do
       let(:debate) do
         debate = debates.first
-        debate.category = create :category, participatory_process: participatory_process
+        debate.category = create :category, participatory_space: participatory_process
         debate.save
         debate
       end
