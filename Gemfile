@@ -2,9 +2,10 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim", "~> 0.3.2"
+gem "decidim", "~> 0.6.0"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
+gem "decidim-accountability", ">= 0.1.2"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
@@ -12,7 +13,7 @@ gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", "~> 0.3.2"
+  gem "decidim-dev"
 end
 
 group :development do

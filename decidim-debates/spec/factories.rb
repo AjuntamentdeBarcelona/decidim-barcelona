@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "decidim/core/test/factories"
-require "decidim/admin/test/factories"
+require "decidim/comments/test/factories"
+require "decidim/participatory_processes/test/factories"
 
 FactoryGirl.define do
   factory :debate, class: Decidim::Debates::Debate do
@@ -13,9 +14,9 @@ FactoryGirl.define do
   end
 
   factory :debates_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :debates).i18n_name }
+    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name }
     manifest_name :debates
-    participatory_process { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
     settings do
       {
         comments_enabled: true

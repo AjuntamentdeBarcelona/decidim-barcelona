@@ -26,13 +26,13 @@ Rails.application.routes.draw do
       resource_class = feature_translation[1]
       resource = resource_class.where("extra->>'slug' = ?", params[:resource_id]).first || resource_class.find(params[:resource_id])
       feature = resource.feature
-      process = feature.participatory_process
+      process = feature.participatory_space
       feature_manifest_name = feature.manifest_name
       "/processes/#{process.id}/f/#{feature.id}/#{feature_manifest_name}/#{resource.id}"
     }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
   end
 
-  authenticate :user, lambda { |u| u.roles.include?("admin") } do
+  authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
 

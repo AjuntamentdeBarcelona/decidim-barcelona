@@ -126,4 +126,5 @@ Rails.application.configure do
       referer: event.payload[:referer],
     }
   end
+
 end

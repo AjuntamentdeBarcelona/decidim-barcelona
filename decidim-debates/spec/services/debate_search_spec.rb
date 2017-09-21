@@ -3,7 +3,7 @@ require "spec_helper"
 
 describe Decidim::Debates::DebateSearch do
   let(:current_feature) { create :feature, manifest_name: "debates" }
-  let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
+  let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:debate1) do
     create(

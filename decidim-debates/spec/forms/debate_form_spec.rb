@@ -11,7 +11,7 @@ describe Decidim::Debates::Admin::DebateForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process }
+  let(:current_feature) { create :feature, participatory_space: participatory_process }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -23,7 +23,7 @@ describe Decidim::Debates::Admin::DebateForm do
   end
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {
