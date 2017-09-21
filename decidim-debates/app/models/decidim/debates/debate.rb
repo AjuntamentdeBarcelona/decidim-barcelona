@@ -8,6 +8,9 @@ module Decidim
       include Decidim::HasFeature
       include Decidim::HasCategory
       include Decidim::Resourceable
+      include Decidim::Followable
+      include Decidim::Comments::Commentable
+      include Decidim::HasScope
 
       feature_manifest_name "debates"
 
@@ -22,7 +25,7 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        commentable? && !feature.active_step_settings.comments_blocked
+        commentable? && !feature.current_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

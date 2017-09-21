@@ -8,6 +8,7 @@ Decidim.configure do |config|
   config.maximum_attachment_size = 150.megabytes
 
   config.available_locales = %i(ca es)
+  config.default_locale = :ca
 
   if ENV["HEROKU_APP_NAME"].present?
     config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"

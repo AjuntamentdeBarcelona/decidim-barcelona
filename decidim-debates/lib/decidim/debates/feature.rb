@@ -30,7 +30,7 @@ Decidim.register_feature(:debates) do |feature|
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :debates).i18n_name,
         manifest_name: :debates,
-        participatory_process: process
+        participatory_space: process
       )
 
       3.times do

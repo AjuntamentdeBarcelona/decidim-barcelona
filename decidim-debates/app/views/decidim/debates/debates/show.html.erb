@@ -38,7 +38,7 @@
       <% end %>
       <% if debate.category %>
         <ul class="tags tags--debate">
-          <li><%= link_to translated_attribute(debate.category.name), decidim_debates.debates_path(filter: { category_id: debate.category.id }) %></li>
+          <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
         </ul>
       <% end %>
     </div>
