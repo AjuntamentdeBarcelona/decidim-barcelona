@@ -13,7 +13,7 @@ class DecidimLegacyRoutes
 
     feature = Decidim::Feature.published.find_by(
       manifest_name: feature_manifest_name,
-      participatory_process: process
+      participatory_space: process
     )
 
     if params[:resource_id]
