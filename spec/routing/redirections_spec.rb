@@ -1,6 +1,7 @@
 require "rails_helper"
 require "decidim/dev/test/spec_helper"
 require "decidim/core/test/factories"
+require "decidim/participatory_processes/test/factories"
 require "decidim/proposals/test/factories"
 
 describe "routing redirections", type: :request do
@@ -8,7 +9,7 @@ describe "routing redirections", type: :request do
 
   describe "proposals" do
     let!(:participatory_process) { create(:participatory_process, organization: organization, slug: "test-process") }
-    let!(:feature) { create(:proposal_feature, participatory_process: participatory_process) }
+    let!(:feature) { create(:proposal_feature, participatory_space: participatory_process) }
     let!(:proposal) { create(:proposal, feature: feature, extra: { slug: "test-proposal" }) }
 
     context "with the right host" do
@@ -18,6 +19,11 @@ describe "routing redirections", type: :request do
 
       it "redirects top-level proposals" do
         expect(get("/proposals/test-proposal"))
+          .to redirect_to("/processes/#{participatory_process.id}/f/#{feature.id}/proposals/#{proposal.id}")
+      end
+
+      it "redirects proposals inside the old structure without step ID" do
+        expect(get("/test-process/proposals/test-proposal"))
           .to redirect_to("/processes/#{participatory_process.id}/f/#{feature.id}/proposals/#{proposal.id}")
       end
 
