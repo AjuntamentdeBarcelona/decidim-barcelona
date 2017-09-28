@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }, constraints: { process_slug: /[^0-9]+/ }
 
   feature_translations = {
-    action_plans: [:results, Decidim::Results::Result],
+    action_plans: [:results, Decidim::Accountability::Result],
     meetings: [:meetings, Decidim::Meetings::Meeting],
     proposals: [:proposals, Decidim::Proposals::Proposal],
     debates: [:debates, Decidim::Debates::Debate]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915120562) do
+ActiveRecord::Schema.define(version: 20170928141841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170915120562) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "children_count", default: 0
+    t.integer "legacy_id"
     t.index ["decidim_accountability_status_id"], name: "decidim_accountability_results_on_status_id"
     t.index ["decidim_feature_id", "external_id"], name: "decidim_accountability_results_on_external_id", unique: true
     t.index ["decidim_feature_id"], name: "index_decidim_accountability_results_on_decidim_feature_id"
@@ -50,18 +51,6 @@ ActiveRecord::Schema.define(version: 20170915120562) do
     t.index ["decidim_feature_id"], name: "index_decidim_accountability_statuses_on_decidim_feature_id"
   end
 
-  create_table "decidim_accountability_template_texts", id: :serial, force: :cascade do |t|
-    t.jsonb "intro"
-    t.jsonb "categories_label"
-    t.jsonb "subcategories_label"
-    t.jsonb "heading_parent_level_results"
-    t.jsonb "heading_leaf_level_results"
-    t.integer "decidim_feature_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_feature_id"], name: "decidim_accountability_template_texts_on_feature_id"
-  end
-
   create_table "decidim_accountability_timeline_entries", id: :serial, force: :cascade do |t|
     t.date "entry_date"
     t.jsonb "description"
@@ -69,6 +58,33 @@ ActiveRecord::Schema.define(version: 20170915120562) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_accountability_result_id"], name: "index_decidim_accountability_timeline_entries_on_results_id"
+  end
+
+  create_table "decidim_assemblies", id: :serial, force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "hashtag"
+    t.integer "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "title", null: false
+    t.jsonb "subtitle", null: false
+    t.jsonb "short_description", null: false
+    t.jsonb "description", null: false
+    t.string "hero_image"
+    t.string "banner_image"
+    t.boolean "promoted", default: false
+    t.datetime "published_at"
+    t.jsonb "developer_group"
+    t.jsonb "meta_scope"
+    t.jsonb "local_area"
+    t.jsonb "target"
+    t.jsonb "participatory_scope"
+    t.jsonb "participatory_structure"
+    t.boolean "show_statistics", default: false
+    t.integer "decidim_scope_id"
+    t.boolean "scopes_enabled", default: true, null: false
+    t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_assemblies_on_decidim_organization_id"
   end
 
   create_table "decidim_attachments", id: :serial, force: :cascade do |t|
@@ -484,19 +500,6 @@ ActiveRecord::Schema.define(version: 20170915120562) do
     t.index ["from_type", "from_id"], name: "index_decidim_resource_links_on_from_type_and_from_id"
     t.index ["name"], name: "index_decidim_resource_links_on_name"
     t.index ["to_type", "to_id"], name: "index_decidim_resource_links_on_to_type_and_to_id"
-  end
-
-  create_table "decidim_results_results", id: :serial, force: :cascade do |t|
-    t.jsonb "title"
-    t.jsonb "description"
-    t.integer "decidim_feature_id"
-    t.integer "decidim_scope_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.jsonb "extra"
-    t.string "reference"
-    t.index ["decidim_feature_id"], name: "index_decidim_results_results_on_decidim_feature_id"
-    t.index ["decidim_scope_id"], name: "index_decidim_results_results_on_decidim_scope_id"
   end
 
   create_table "decidim_scope_types", id: :serial, force: :cascade do |t|
