@@ -18,6 +18,10 @@ ca:
         month: "Mes"
         year: "Any"
   decidim:
+    accountability:
+      shared:
+        extra:
+          csv_download: Descarregar dades en CSV
     features:
       accountability:
         name: Accountability

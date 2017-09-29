@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   get "/accountability", to: "static#accountability", as: :accountability_static
   get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
 
+  scope "/processes/:participatory_process_slug/f/:feature_id" do
+    get :export_results, to: "results#export"
+  end
+
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
