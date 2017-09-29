@@ -40,7 +40,10 @@ Rails.application.routes.draw do
   get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
 
   scope "/processes/:participatory_process_slug/f/:feature_id" do
-    get :export_results, to: "results#export"
+    get :export_results, to: "decidim/accountability/export_results#csv"
+
+    get :import_results, to: "decidim/accountability/admin/import_results#new"
+    post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
   mount Decidim::Core::Engine => "/"

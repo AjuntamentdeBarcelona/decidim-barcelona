@@ -19,22 +19,24 @@ ca:
         year: "Any"
   decidim:
     accountability:
+      admin:
+        shared:
+          extra:
+            import_csv: "Importar CSV"
+        imports:
+          create:
+            invalid: Hi ha hagut un problema en importar aquest fitxer
+            not_found: No s'ha trobat un resultat amb result_id %{result_id}
+            success: El fitxer ha estat importat correctament
+        import_results:
+          new:
+            errors: Errors
+            import: Import
+            row_number: Fila
+            title: Importar resultats des de CSV
       shared:
         extra:
           csv_download: Descarregar dades en CSV
-    features:
-      accountability:
-        name: Accountability
-        settings:
-          global:
-            comments_enabled: Comments enabled
-            intro: Intro
-            categories_label: Name for "Categories"
-            subcategories_label: Name for "Subcategories"
-            heading_parent_level_results: Name for "Results"
-            heading_leaf_level_results: Name for "Projects"
-          step:
-            comments_blocked: Comments blocked
     authorization_handlers:
       census_authorization_handler:
         fields:
