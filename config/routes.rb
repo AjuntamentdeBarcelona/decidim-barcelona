@@ -2,11 +2,6 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get "processes/:process_slug", to: redirect { |params, _request|
-    process = Decidim::ParticipatoryProcess.where(slug: params[:process_slug]).first
-    process ? "/processes/#{process.id}" : "/404"
-  }, constraints: { process_slug: /[^0-9]+/ }
-
   feature_translations = {
     action_plans: [:results, Decidim::Accountability::Result],
     meetings: [:meetings, Decidim::Meetings::Meeting],

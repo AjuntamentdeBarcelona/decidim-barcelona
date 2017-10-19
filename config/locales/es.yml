@@ -34,8 +34,8 @@ es:
             import: Importar
             row_number: Fila
             title: Importar resultados desde CSV
-      shared:
-        extra:
+      results:
+        home_header:
           csv_download: Descargar datos en CSV
     authorization_handlers:
       census_authorization_handler:
