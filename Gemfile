@@ -15,6 +15,7 @@ gem "deface"
 group :development, :test do
   gem 'byebug', platform: :mri
   gem "decidim-dev", git: "https://github.com/decidim/decidim"
+  gem "bootsnap"
 end
 
 group :development do
