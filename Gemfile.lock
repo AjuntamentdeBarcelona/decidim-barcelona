@@ -248,6 +248,11 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
+    deface (1.2.0)
+      nokogiri (~> 1.6)
+      polyglot
+      rails (>= 4.1)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.3.0)
@@ -428,6 +433,7 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
+    polyglot (0.3.5)
     powerpack (0.1.1)
     premailer (1.11.0)
       addressable
@@ -626,6 +632,7 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-debates!
   decidim-dev!
+  deface
   faker
   fog-aws
   listen

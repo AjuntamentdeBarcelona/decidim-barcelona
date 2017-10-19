@@ -10,6 +10,7 @@ gem "decidim-accountability", ">= 0.1.2"
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
 gem 'faker'
+gem "deface"
 
 group :development, :test do
   gem 'byebug', platform: :mri
