@@ -22,7 +22,7 @@ describe "Explore debates", type: :feature do
   end
 
   context "index" do
-    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
 
     it "shows all debates for the given process" do
       expect(page).to have_selector("article.card", count: debates_count)
@@ -34,7 +34,7 @@ describe "Explore debates", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
     let(:debates_count) { 1 }
     let(:debate) { debates.first }
 
