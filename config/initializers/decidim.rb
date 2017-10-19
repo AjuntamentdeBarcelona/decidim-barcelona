@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require_relative "../../app/services/census_authorization_handler"
 
 Decidim.configure do |config|
   config.application_name = "Decidim Barcelona"
