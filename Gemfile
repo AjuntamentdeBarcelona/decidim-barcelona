@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.2'
 
-gem "decidim", path: "../decidim"
+gem "decidim", git: "https://github.com/decidim/decidim"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-accountability", ">= 0.1.2"
@@ -14,7 +14,7 @@ gem "deface"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", path: "../decidim"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim"
 end
 
 group :development do
