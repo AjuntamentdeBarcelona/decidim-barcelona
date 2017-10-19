@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim", "~> 0.6.7"
+gem "decidim", git: "https://github.com/decidim/decidim"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-accountability", ">= 0.1.2"
@@ -10,10 +10,11 @@ gem "decidim-accountability", ">= 0.1.2"
 gem 'uglifier', '>= 1.3.0'
 gem 'lograge'
 gem 'faker'
+gem "deface"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim"
 end
 
 group :development do

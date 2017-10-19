@@ -18,6 +18,25 @@ es:
         month: "Mes"
         year: "Año"
   decidim:
+    accountability:
+      admin:
+        shared:
+          extra:
+            import_csv: "Importar CSV"
+        imports:
+          create:
+            invalid: Ha habido un problema en importar este fichero
+            not_found: No se han encontrados resultados con result_id %{result_id}
+            success: El fichero ha estado importado correctamente
+        import_results:
+          new:
+            errors: Errores
+            import: Importar
+            row_number: Fila
+            title: Importar resultados desde CSV
+      results:
+        home_header:
+          csv_download: Descargar datos en CSV
     authorization_handlers:
       census_authorization_handler:
         name: El padrón
