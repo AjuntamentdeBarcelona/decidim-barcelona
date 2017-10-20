@@ -2,13 +2,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get "processes/:process_slug", to: redirect { |params, _request|
-    process = Decidim::ParticipatoryProcess.where(slug: params[:process_slug]).first
-    process ? "/processes/#{process.id}" : "/404"
-  }, constraints: { process_slug: /[^0-9]+/ }
-
   feature_translations = {
-    action_plans: [:results, Decidim::Results::Result],
+    action_plans: [:results, Decidim::Accountability::Result],
     meetings: [:meetings, Decidim::Meetings::Meeting],
     proposals: [:proposals, Decidim::Proposals::Proposal],
     debates: [:debates, Decidim::Debates::Debate]
@@ -38,6 +33,13 @@ Rails.application.routes.draw do
 
   get "/accountability", to: "static#accountability", as: :accountability_static
   get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
+
+  scope "/processes/:participatory_process_slug/f/:feature_id" do
+    get :export_results, to: "decidim/accountability/export_results#csv"
+
+    get :import_results, to: "decidim/accountability/admin/import_results#new"
+    post :import_results, to: "decidim/accountability/admin/import_results#create"
+  end
 
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

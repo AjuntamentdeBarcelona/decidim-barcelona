@@ -18,6 +18,25 @@ ca:
         month: "Mes"
         year: "Any"
   decidim:
+    accountability:
+      admin:
+        shared:
+          extra:
+            import_csv: "Importar CSV"
+        imports:
+          create:
+            invalid: Hi ha hagut un problema en importar aquest fitxer
+            not_found: No s'ha trobat un resultat amb result_id %{result_id}
+            success: El fitxer ha estat importat correctament
+        import_results:
+          new:
+            errors: Errors
+            import: Import
+            row_number: Fila
+            title: Importar resultats des de CSV
+      results:
+        home_header:
+          csv_download: Descarregar dades en CSV
     authorization_handlers:
       census_authorization_handler:
         fields:
