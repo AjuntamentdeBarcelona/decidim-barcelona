@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 57519efdacbcc223ed23dbe721f907bab393ade0
+  revision: ff4c0d741db95697edcec149765a24ba98be5508
   specs:
     decidim (0.7.0.pre.pre)
       decidim-accountability (= 0.7.0.pre.pre)
@@ -35,6 +35,8 @@ GIT
       graphql (~> 1.6.0)
       rack-cors (~> 1.0.1)
       sprockets-es6 (~> 0.9.2)
+    decidim-assemblies (0.7.0.pre.pre)
+      decidim-core (= 0.7.0.pre.pre)
     decidim-budgets (0.7.0.pre.pre)
       decidim-comments (= 0.7.0.pre.pre)
       decidim-core (= 0.7.0.pre.pre)
@@ -192,7 +194,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     ast (2.3.0)
-    autoprefixer-rails (7.1.5)
+    autoprefixer-rails (7.1.6)
       execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -450,7 +452,7 @@ GEM
     public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
-    rack-cors (1.0.1)
+    rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
     rack-ssl-enforcer (0.2.9)
@@ -633,7 +635,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim!
-  decidim-accountability (>= 0.1.2)
+  decidim-assemblies!
   decidim-dataviz!
   decidim-debates!
   decidim-dev!
@@ -660,4 +662,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.3
