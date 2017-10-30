@@ -24,6 +24,6 @@ if Rails.application.secrets.aws_access_key_id.present?
     }
     config.fog_directory  = "decidim-barcelona"                                 # required
     config.fog_attributes = { "Cache-Control" => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
-    config.asset_host = "https://s3-eu-west-1.amazonaws.com/decidim-barcelona"
+    config.asset_host = "https://s3-eu-west-1.amazonaws.com"
   end
 end
