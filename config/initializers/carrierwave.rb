@@ -13,17 +13,15 @@ if Rails.application.secrets.aws_access_key_id.present?
 
   CarrierWave.configure do |config|
     config.storage = :fog
-    config.fog_provider = "fog/aws"                                             # required
+    config.fog_provider = 'fog/aws'                                             # required
     config.fog_credentials = {
-      provider:              "AWS",                                             # required
-      aws_access_key_id:     Rails.application.secrets.aws_access_key_id,       # required
-      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,   # required
-      host:                  "s3-eu-west-1.amazonaws.com",
-      endpoint:              "https://s3-eu-west-1.amazonaws.com",
-      region:                "eu-west-1"                                     # optional, defaults to 'us-east-1'
+      provider:              'AWS',                                             # required
+      aws_access_key_id:     Rails.application.secrets.aws_access_key_id,     # required
+      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key, # required
+      region:                'eu-central-1',                                       # optional, defaults to 'us-east-1'
+      host:                  's3.eu-central-1.amazonaws.com',                                  # optional, defaults to nil
     }
-    config.fog_directory  = "decidim-barcelona"                                 # required
-    config.fog_attributes = { "Cache-Control" => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
-    config.asset_host = "https://s3-eu-west-1.amazonaws.com"
+    config.fog_directory  = 'decidim-barcelona'                                 # required
+    config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
   end
 end
