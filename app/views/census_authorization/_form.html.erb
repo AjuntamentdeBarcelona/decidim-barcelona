@@ -15,7 +15,7 @@
 </div>
 
 <div class="field">
-  <%= form.collection_select :scope_id, current_organization.scopes, :id, :name, prompt: t(".scope_prompt") %>
+  <%= form.collection_select :scope_id, current_organization.scopes, :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
 </div>
 
 <%= form.hidden_field :handler_name %>
