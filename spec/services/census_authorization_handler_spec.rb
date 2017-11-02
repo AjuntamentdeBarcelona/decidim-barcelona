@@ -11,7 +11,7 @@ describe CensusAuthorizationHandler do
   let(:postal_code) { "08001" }
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_id) { 123 }
-  let(:scope) { double(name: "Ciutat Vella") }
+  let(:scope) { double(code: "1", name: { "ca" => "Ciutat Vella" }) }
   let(:params) do
     {
       document_number: document_number,

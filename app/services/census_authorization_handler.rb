@@ -30,7 +30,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # You must return a Hash that will be serialized to the authorization when
   # it's created, and available though authorization.metadata
   def metadata
-    super.merge(postal_code: postal_code, scope: scope.name)
+    super.merge(postal_code: postal_code, scope: scope.name["ca"])
   end
 
   def scope
@@ -124,6 +124,6 @@ EOS
   end
 
   def valid_postal_code
-    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.name)
+    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.code)
   end
 end
