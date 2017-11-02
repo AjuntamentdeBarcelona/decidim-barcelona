@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "Authorizations", type: :feature, perform_enqueued: true do
   let(:organization) { create :organization, available_authorizations: authorizations }
-  let!(:scope) { create :scope, organization: organization }
+  let!(:scope) { create :scope, organization: organization, code: "1" }
   let(:authorizations) { ["CensusAuthorizationHandler"] }
   let(:response) do
     Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!
@@ -17,7 +17,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     select "12", from: "authorization_handler_date_of_birth_3i"
     select "January", from: "authorization_handler_date_of_birth_2i"
     select "1979", from: "authorization_handler_date_of_birth_1i"
-    fill_in "authorization_handler_postal_code", with: "08007"
+    fill_in "authorization_handler_postal_code", with: "08001"
     select translated(scope.name), from: "authorization_handler_scope_id"
   end
 
@@ -43,8 +43,6 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       end
 
       it "redirects the user to the authorization form after the first sign in" do
-        allow(PostalCodeDistricts).to receive(:valid?).and_return(true)
-
         fill_in_authorization_form
         click_button "Send"
         expect(page).to have_content("successfully")
