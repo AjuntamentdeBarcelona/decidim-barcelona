@@ -124,6 +124,6 @@ EOS
   end
 
   def valid_postal_code
-    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.name)
+    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.code)
   end
 end
