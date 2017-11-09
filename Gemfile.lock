@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/decidim/decidim-initiatives.git
+  revision: f982fb0bc2991f4efe223b2dc39898b24306dd8c
+  specs:
+    decidim-initiatives (0.0.49)
+      decidim-admin
+      decidim-comments
+      decidim-core (>= 0.7.0, <= 0.8.0)
+      kaminari (~> 1.0.1)
+      rectify
+      social-share-button (~> 1.0.0)
+      truncato
+      wicked
+
 PATH
   remote: decidim-dataviz
   specs:
@@ -328,7 +342,7 @@ GEM
     htmlentities (4.3.4)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
-    i18n (0.9.0)
+    i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.18)
       activesupport (>= 4.0.2)
@@ -379,8 +393,8 @@ GEM
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.6.6)
-      mime-types (>= 1.16, < 4)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -445,7 +459,7 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     progressbar (1.8.2)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     puma (3.10.0)
     rack (2.0.3)
     rack-cors (1.0.2)
@@ -622,6 +636,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wicked (1.3.2)
+      railties (>= 3.0.7)
     wisper (2.0.0)
     wisper-rspec (0.0.3)
     xpath (2.1.0)
@@ -640,6 +656,7 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-debates!
   decidim-dev (= 0.7.1)
+  decidim-initiatives (~> 0.0.41)!
   deface
   faker
   fog-aws
