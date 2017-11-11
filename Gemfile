@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
+gem 'activerecord-session_store'
 gem "decidim", "0.7.1"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"

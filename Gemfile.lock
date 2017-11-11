@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/decidim/decidim-initiatives.git
-  revision: f982fb0bc2991f4efe223b2dc39898b24306dd8c
+  revision: 3490f19c82dadd4470b9494e3d25c5dd050dfb21
   specs:
-    decidim-initiatives (0.0.49)
+    decidim-initiatives (0.0.50)
       decidim-admin
       decidim-comments
       decidim-core (>= 0.7.0, <= 0.8.0)
@@ -67,6 +67,12 @@ GEM
       activemodel (= 5.1.4)
       activesupport (= 5.1.4)
       arel (~> 8.0)
+    activerecord-session_store (1.1.0)
+      actionpack (>= 4.0, < 5.2)
+      activerecord (>= 4.0, < 5.2)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 1.5.2, < 3)
+      railties (>= 4.0, < 5.2)
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -400,7 +406,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
-    mini_mime (0.1.4)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     msgpack (1.1.0)
@@ -635,7 +641,7 @@ GEM
       hashdiff
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket-extensions (0.1.3)
     wicked (1.3.2)
       railties (>= 3.0.7)
     wisper (2.0.0)
@@ -647,6 +653,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-session_store
   bootsnap
   byebug
   dalli
