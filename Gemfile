@@ -2,10 +2,10 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim", "0.7.1"
+gem "decidim", "0.7.4"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-assemblies", "0.7.1"
+gem "decidim-assemblies", "0.7.4"
 
 gem "virtus-multiparams"
 
@@ -16,7 +16,7 @@ gem "deface"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", "0.7.1"
+  gem "decidim-dev", "0.7.4"
   gem "bootsnap"
 end
 
