@@ -2,7 +2,7 @@
 module Decidim
   module Debates
     module Admin
-      # This controller allows an admin to manage debates from a Participatory Process
+      # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Admin::ApplicationController
         helper_method :debates
 
