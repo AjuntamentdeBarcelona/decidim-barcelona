@@ -7,7 +7,6 @@ defaults: &defaults
         BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
-        FAIL_FAST: true
     - image: postgres
       environment:
         POSTGRES_USER: postgres

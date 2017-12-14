@@ -69,14 +69,14 @@ describe "Authorizations", type: :feature, perform_enqueued: true, with_authoriz
     end
 
     it "allows the user to authorize against available authorizations" do
-      visit decidim.new_authorization_path(handler: "census_authorization_handler")
+      visit decidim_verifications.new_authorization_path(handler: "census_authorization_handler")
 
       fill_in_authorization_form
       click_button "Send"
 
       expect(page).to have_content("successfully")
 
-      visit decidim.authorizations_path
+      visit decidim_verifications.authorizations_path
 
       within ".authorizations-list" do
         expect(page).to have_content("El padró")
@@ -92,12 +92,12 @@ describe "Authorizations", type: :feature, perform_enqueued: true, with_authoriz
       end
 
       it "shows the authorization at their account" do
-        visit decidim.authorizations_path
+        visit decidim_verifications.authorizations_path
 
         within ".authorizations-list" do
           expect(page).to have_content("El padró")
           expect(page).not_to have_link("El padró")
-          expect(page).to have_content(I18n.localize(authorization.created_at, format: :long))
+          expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long))
         end
       end
     end
