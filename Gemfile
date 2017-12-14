@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby '2.4.1'
+ruby '2.4.2'
 
 gem "decidim", "0.7.4"
 gem "decidim-debates", path: "decidim-debates"
