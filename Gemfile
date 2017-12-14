@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.2'
 
-gem "decidim", "0.8.1"
+gem "decidim", "0.8.2"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-assemblies"

@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-describe "Authorizations", type: :feature, perform_enqueued: true do
+describe "Authorizations", type: :feature, perform_enqueued: true, with_authorization_workflows: ["census_authorization_handler"] do
   let(:organization) { create :organization, available_authorizations: authorizations }
   let!(:scope) { create :scope, organization: organization, code: "1" }
-  let(:authorizations) { ["CensusAuthorizationHandler"] }
+  let(:authorizations) { ["census_authorization_handler"] }
   let(:response) do
     Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!
   end
@@ -22,12 +22,15 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
   end
 
   before do
-    Decidim.authorization_handlers = ["CensusAuthorizationHandler"]
+    Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
+      auth.form = "CensusAuthorizationHandler"
+    end
+
     allow_any_instance_of(CensusAuthorizationHandler).to receive(:response).and_return(response)
     switch_to_host(organization.host)
   end
 
-  context "a new user" do
+  context "when a new user is created" do
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     context "when one authorization has been configured" do

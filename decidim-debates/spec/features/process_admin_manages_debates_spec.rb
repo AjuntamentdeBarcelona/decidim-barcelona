@@ -7,8 +7,9 @@ require_relative "../shared/manage_debates_examples"
 describe "Process admin manages debates", type: :feature do
   let(:manifest_name) { "debates" }
   include_context "admin"
-  include_context "feature admin"
+  include_context "when managing a feature as an admin"
   let(:user) { process_admin }
+
   it_behaves_like "manage debates"
 
   before do
