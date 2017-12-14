@@ -28,13 +28,14 @@ RSpec.shared_examples "manage debates" do
   end
 
   context "previewing debates" do
-    it "allows the user to preview the debate" do
-      new_window = window_opened_by { click_link translated(debate.title) }
+    it "links the debate correctly" do
+      link = find("a", text: translated(debate.title))
+      expect(link[:href]).to include(resource_locator(debate).path)
+    end
 
-      within_window new_window do
-        expect(current_path).to eq resource_locator(debate).path
-        expect(page).to have_content(translated(debate.title))
-      end
+    it "shows a preview of the debate" do
+      visit resource_locator(debate).path
+      expect(page).to have_content(translated(debate.title))
     end
   end
 
@@ -101,7 +102,9 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        page.find('.action-icon--remove').click
+        accept_confirm do
+          page.find('.action-icon--remove').click
+        end
       end
 
       within ".callout-wrapper" do
