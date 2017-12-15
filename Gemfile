@@ -6,6 +6,7 @@ gem "decidim", "0.8.3"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-assemblies"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
 
 gem "virtus-multiparams"
 
@@ -22,7 +23,6 @@ end
 
 group :development do
   gem "progressbar"
-  gem 'rainbow', "~>2.2.0"
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
