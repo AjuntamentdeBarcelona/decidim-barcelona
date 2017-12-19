@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212134741) do
+ActiveRecord::Schema.define(version: 20171219102211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -300,13 +300,6 @@ ActiveRecord::Schema.define(version: 20171212134741) do
     t.index ["state"], name: "index_decidim_initiatives_committee_members_on_state"
   end
 
-  create_table "decidim_initiatives_extra_data", force: :cascade do |t|
-    t.bigint "decidim_initiative_id", null: false
-    t.integer "data_type", default: 0, null: false
-    t.jsonb "data", null: false
-    t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_extra_data_on_decidim_initiative_id"
-  end
-
   create_table "decidim_initiatives_type_scopes", force: :cascade do |t|
     t.bigint "decidim_initiatives_types_id"
     t.bigint "decidim_scopes_id"
@@ -324,7 +317,6 @@ ActiveRecord::Schema.define(version: 20171212134741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "banner_image"
-    t.boolean "requires_validation", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -335,6 +327,7 @@ ActiveRecord::Schema.define(version: 20171212134741) do
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
+    t.index ["decidim_initiative_id", "decidim_author_id", "decidim_user_group_id"], name: "decidim_initiatives_voutes_author_uniqueness_index", unique: true
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
   end
 

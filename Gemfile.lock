@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/decidim/decidim-initiatives
-  revision: 47ac55f612ee21ff5ebaaf861bd1033362b74ab8
+  revision: 0c0976bbb09116343c843aac3384428c0624a16b
   specs:
-    decidim-initiatives (0.1.53)
+    decidim-initiatives (0.2.3)
       decidim-admin
       decidim-comments
-      decidim-core (>= 0.7.4, < 0.9.0)
+      decidim-core (~> 0.8.3)
+      decidim-verifications
       kaminari (~> 1.0.1)
       rails (~> 5.1.4)
       rectify
@@ -294,7 +295,7 @@ GEM
       thread_safe
     equalizer (0.0.11)
     erubi (1.7.0)
-    excon (0.59.0)
+    excon (0.60.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -447,7 +448,7 @@ GEM
     paper_trail (8.0.1)
       activerecord (>= 4.2, < 5.2)
       request_store (~> 1.1)
-    parallel (1.12.0)
+    parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     passenger (5.1.12)
