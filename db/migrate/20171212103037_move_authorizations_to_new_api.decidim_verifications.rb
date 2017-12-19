@@ -39,8 +39,13 @@ class MoveAuthorizationsToNewApi < ActiveRecord::Migration[5.1]
     Feature.find_each do |feature|
       next if feature.permissions.nil?
 
-      feature.permissions.transform_values! do |value|        
-        value["authorization_handler_name"]&.classify&.demodulize&.underscore
+      feature.permissions.transform_values! do |value|
+        next if value.nil?
+
+        {
+          "authorization_handler_name" => value["authorization_handler_name"]&.classify&.demodulize&.underscore,
+          "options" => value["options"]
+        }
       end
 
       feature.save!
