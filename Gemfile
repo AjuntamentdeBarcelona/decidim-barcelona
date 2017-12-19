@@ -2,22 +2,22 @@ source "https://rubygems.org"
 
 ruby '2.4.2'
 
-gem "decidim", "0.7.4"
+gem "decidim", "0.8.3"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-assemblies", "0.7.4"
+gem "decidim-assemblies"
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
 
 gem "virtus-multiparams"
 
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'lograge'
 gem 'faker'
 gem "deface"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", "0.7.4"
+  gem "decidim-dev"
   gem "bootsnap"
 end
 

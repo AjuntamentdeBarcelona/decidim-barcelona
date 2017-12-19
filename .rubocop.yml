@@ -1,31 +1,12 @@
+require: rubocop-rspec
+
 # Common configuration.
 AllCops:
-  # Include common Ruby source files.
-  Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
-    - '**/Fastfile'
-    - '**/*Fastfile'
   Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'vendor/**/*'
-    - 'spec/**/*'
+    - '**/vendor/**/*'
     - 'development_app/**/*'
+    - 'docker_development_app/**/*'
+    - 'spec/decidim_dummy_app/**/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -69,16 +50,16 @@ AllCops:
   # unintended files, or read malicious input. If you are certain that your
   # cache location is secure from this kind of attack, and wish to use a
   # symlinked cache location, set this value to "true".
-  AllowSymlinksInCacheRootDirectory: false
+  AllowSymlinksInCacheRootDirectory: true
   # What MRI version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
 
 # Indent private/protected/public as deep as method definitions
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   EnforcedStyle: indent
   SupportedStyles:
     - outdent
@@ -93,12 +74,8 @@ Style/Alias:
     - prefer_alias
     - prefer_alias_method
 
-Style/AccessorMethodName:
-  Exclude:
-    - "lib/generators/decidim/app_generator.rb"
-
 # Align the elements of a hash literal if they span more than one line.
-Style/AlignHash:
+Layout/AlignHash:
   # Alignment of entries using hash rocket as separator. Valid values are:
   #
   # key - left alignment of keys
@@ -161,7 +138,7 @@ Style/AlignHash:
     - ignore_implicit
     - ignore_explicit
 
-Style/AlignParameters:
+Layout/AlignParameters:
   # Alignment of parameters in multi-line method calls.
   #
   # The `with_first_parameter` style aligns the following lines along the same
@@ -191,6 +168,8 @@ Style/AndOr:
     - always
     - conditionals
 
+Style/AsciiComments:
+  Enabled: false
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
@@ -285,7 +264,7 @@ Style/BracesAroundHashParameters:
     - context_dependent
 
 # Indentation of `when`.
-Style/CaseIndentation:
+Layout/CaseIndentation:
   EnforcedStyle: case
   SupportedStyles:
     - case
@@ -401,7 +380,7 @@ Style/DocumentationMethod:
   RequireForNonPublicMethods: false
 
 # Multi-line method chaining should be done with leading dots.
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
   SupportedStyles:
     - leading
@@ -419,24 +398,24 @@ Style/EmptyElse:
     - both
 
 # Use empty lines between defs.
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   # If true, this parameter means that single line method definitions don't
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
@@ -446,22 +425,17 @@ Style/EmptyLinesAroundModuleBody:
 # AutoCorrectEncodingComment must match the regex
 # /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
 Style/Encoding:
-  EnforcedStyle: never
-  SupportedStyles:
-    - when_needed
-    - always
-    - never
-  AutoCorrectEncodingComment: '# encoding: utf-8'
+  Enabled: true
 
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
-  AllowForAlignment: true
+  AllowForAlignment: false
   # When true, forces the alignment of = in assignments on consecutive lines.
   ForceEqualSignAlignment: false
 
-Style/FileName:
+Naming/FileName:
   # File names listed in AllCops:Include are excluded by default. Add extra
   # excludes here.
   Exclude: []
@@ -480,7 +454,7 @@ Style/FileName:
   # files with a shebang in the first line).
   IgnoreExecutableScripts: true
 
-Style/FirstParameterIndentation:
+Layout/FirstParameterIndentation:
   EnforcedStyle: special_for_inner_method_call_in_parentheses
   SupportedStyles:
     # The first parameter should always be indented one step more than the
@@ -513,6 +487,9 @@ Style/FormatString:
     - sprintf
     - percent
 
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 Style/FrozenStringLiteralComment:
   EnforcedStyle: when_needed
   SupportedStyles:
@@ -532,7 +509,7 @@ Style/GlobalVars:
 # `MinBodyLength` defines the number of lines of the a body of an if / unless
 # needs to have to trigger this cop
 Style/GuardClause:
-  MinBodyLength: 1
+  MinBodyLength: 6
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
@@ -553,7 +530,7 @@ Style/HashSyntax:
 Style/IfUnlessModifier:
   MaxLineLength: 80
 
-Style/IndentationConsistency:
+Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
   # prescribes that in classes and modules the `protected` and `private`
   # modifier keywords shall be indented the same as public methods and that
@@ -565,12 +542,12 @@ Style/IndentationConsistency:
     - normal
     - rails
 
-Style/IndentationWidth:
+Layout/IndentationWidth:
   # Number of spaces for each indentation level.
   Width: 2
 
 # Checks the indentation of the first element in an array literal.
-Style/IndentArray:
+Layout/IndentArray:
   # The value `special_inside_parentheses` means that array literals with
   # brackets that have their opening bracket on the same line as a surrounding
   # opening round parenthesis, shall have their first element indented relative
@@ -592,13 +569,13 @@ Style/IndentArray:
   IndentationWidth: ~
 
 # Checks the indentation of assignment RHS, when on a different line from LHS
-Style/IndentAssignment:
+Layout/IndentAssignment:
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
 # Checks the indentation of the first key in a hash literal.
-Style/IndentHash:
+Layout/IndentHash:
   # The value `special_inside_parentheses` means that hash literals with braces
   # that have their opening brace on the same line as a surrounding opening
   # round parenthesis, shall have their first key indented relative to the
@@ -625,10 +602,6 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
-  Exclude:
-    - 'decidim-api/lib/decidim/api/schema.rb'
-    - 'decidim-api/lib/decidim/api/types/**/*'
-    - 'decidim-core/lib/decidim/query_extensions.rb'
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -662,10 +635,6 @@ Style/NumericPredicate:
   SupportedStyles:
     - predicate
     - comparison
-  # Exclude RSpec specs because assertions like `expect(1).to be > 0` cause
-  # false positives.
-  Exclude:
-    - 'spec/**/*'
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
@@ -674,7 +643,7 @@ Style/MethodDefParentheses:
     - require_no_parentheses
     - require_no_parentheses_except_multiline
 
-Style/MethodName:
+Naming/MethodName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
@@ -686,7 +655,7 @@ Style/ModuleFunction:
     - module_function
     - extend_self
 
-Style/MultilineArrayBraceLayout:
+Layout/MultilineArrayBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -696,7 +665,7 @@ Style/MultilineArrayBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineAssignmentLayout:
+Layout/MultilineAssignmentLayout:
   # The types of assignments which are subject to this rule.
   SupportedTypes:
     - block
@@ -714,7 +683,7 @@ Style/MultilineAssignmentLayout:
     # for the set of supported types.
     - new_line
 
-Style/MultilineHashBraceLayout:
+Layout/MultilineHashBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -724,7 +693,7 @@ Style/MultilineHashBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -734,7 +703,7 @@ Style/MultilineMethodCallBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -744,7 +713,7 @@ Style/MultilineMethodCallIndentation:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
-Style/MultilineMethodDefinitionBraceLayout:
+Layout/MultilineMethodDefinitionBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -754,7 +723,7 @@ Style/MultilineMethodDefinitionBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -803,7 +772,7 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
-Style/PredicateName:
+Naming/PredicateName:
   # Predicate name prefixes.
   NamePrefix:
     - is_
@@ -812,7 +781,6 @@ Style/PredicateName:
   # Predicate name prefixes that should be removed.
   NamePrefixBlacklist:
     - is_
-    - has_
     - have_
   # Predicate names which, despite having a blacklisted prefix, or no ?,
   # should still be accepted
@@ -821,12 +789,18 @@ Style/PredicateName:
   # Exclude Rspec specs because there is a strong convetion to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
+    - '**/spec/**/*'
+    - '**/test/**/*'
+
+Style/PreferredHashMethods:
+  Enabled: true
+  EnforcedStyle: verbose
+
+Style/DateTime:
+  Enabled: false
 
 Style/Documentation:
-  Exclude:
-    - '**/*/spec/**/*_spec.rb'
+  Enabled: false
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
@@ -852,6 +826,9 @@ Style/RegexpLiteral:
   # are found in the regexp string.
   AllowInnerSlashes: false
 
+Style/SafeNavigation:
+  Enabled: false
+
 Style/Semicolon:
   # Allow ; to separate several expressions on the same line.
   AllowAsExpressionSeparator: false
@@ -875,7 +852,7 @@ Style/SingleLineBlockParams:
 Style/SingleLineMethods:
   AllowIfMethodIsEmpty: true
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
@@ -918,28 +895,28 @@ Style/StringMethods:
   PreferredMethods:
     intern: to_sym
 
-Style/SpaceAroundBlockParameters:
+Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
 
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   # When true, allows most uses of extra spacing if the intent is to align
   # with an operator on the previous or next line, not counting empty lines
   # or comment lines.
   AllowForAlignment: true
 
-Style/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
@@ -949,7 +926,7 @@ Style/SpaceInsideBlockBraces:
   # Space between { and |. Overrides EnforcedStyle if there is a conflict.
   SpaceBeforeBlockParameters: true
 
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
@@ -959,14 +936,14 @@ Style/SpaceInsideHashLiteralBraces:
     # that successive left braces or right braces are collapsed together
     - compact
 
-Style/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: no_space
   SupportedStyles:
     - space
     - no_space
 
 Style/SymbolArray:
-  EnforcedStyle: percent
+  EnforcedStyle: brackets
   SupportedStyles:
     - percent
     - brackets
@@ -985,7 +962,7 @@ Style/TernaryParentheses:
     - require_no_parentheses
   AllowSafeAssignment: true
 
-Style/TrailingBlankLines:
+Layout/TrailingBlankLines:
   EnforcedStyle: final_newline
   SupportedStyles:
     - final_newline
@@ -1047,13 +1024,13 @@ Style/TrivialAccessors:
     - to_s
     - to_sym
 
-Style/VariableName:
+Naming/VariableName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
     - camelCase
 
-Style/VariableNumber:
+Naming/VariableNumber:
   EnforcedStyle: normalcase
   SupportedStyles:
     - snake_case
@@ -1101,7 +1078,7 @@ Metrics/ModuleLength:
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
-  Max: 6
+  Max: 9
 
 Metrics/LineLength:
   Max: 180
@@ -1123,9 +1100,13 @@ Metrics/ParameterLists:
   CountKeywordArgs: true
 
 Metrics/PerceivedComplexity:
-  Max: 7
+  Max: 10
 
 ##################### Lint ##################################
+
+# TODO: This cop was buggy in 0.48.1. Reenable when upgrading to 0.49.0
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
 
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
@@ -1185,13 +1166,16 @@ Performance/RedundantMerge:
 
 ##################### Rails ##################################
 
+Rails:
+  Enabled: true
+
 Rails/ActionFilter:
   EnforcedStyle: action
   SupportedStyles:
     - action
     - filter
   Include:
-    - app/controllers/**/*.rb
+    - '*/app/controllers/**/*.rb'
 
 Rails/Date:
   # The value `strict` disallows usage of `Date.today`, `Date.current`,
@@ -1206,23 +1190,21 @@ Rails/Date:
 
 Rails/Exit:
   Include:
-    - app/**/*.rb
+    - '*/app/**/*.rb'
     - config/**/*.rb
     - lib/**/*.rb
-  Exclude:
-    - lib/**/*.rake
 
 Rails/FindBy:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/FindEach:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/HasAndBelongsToMany:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/NotNullColumn:
   Include:
@@ -1230,14 +1212,17 @@ Rails/NotNullColumn:
 
 Rails/Output:
   Include:
-    - app/**/*.rb
+    - '*/app/**/*.rb'
     - config/**/*.rb
     - db/**/*.rb
     - lib/**/*.rb
 
+Rails/OutputSafety:
+  Enabled: false
+
 Rails/ReadWriteAttribute:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/RequestReferer:
   EnforcedStyle: referer
@@ -1254,7 +1239,7 @@ Rails/SafeNavigation:
 
 Rails/ScopeArgs:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/TimeZone:
   # The value `strict` means that `Time` should be used with `zone`.
@@ -1270,16 +1255,73 @@ Rails/UniqBeforePluck:
 
 Rails/Validation:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
+
+Rails/HasManyOrHasOneDependent:
+  Include:
+    - "**/*/app/models/**/*.rb"
 
 Metrics/BlockLength:
   Exclude:
+    - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
+    - 'decidim-*/lib/**/*engine.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
+    - 'decidim-core/config/initializers/devise.rb'
+    - 'decidim-core/lib/decidim/core/api/translated_field_type.rb'
+    - 'decidim-core/lib/decidim/resourceable.rb'
+    - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
+    - 'decidim-*/app/controllers/concerns/**/*'
+    - 'decidim-*/**/routes.rb'
+    - 'decidim-*/db/migrate/*.rb'
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
-    - 'lib/tasks/migrate_results_to_accountability.rake'
+    - 'decidim-*/lib/**/*/participatory_space.rb'
+    - '**/spec/**/*_spec.rb'
+    - '**/spec/**/*_examples.rb'
+    - '**/*.gemspec'
+    - '**/abilities/**/*_ability.rb'
 
-Lint/HandleExceptions:
+RSpec/BeforeAfterAll:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
+RSpec/DescribeClass:
   Exclude:
-    - "**/*/Rakefile"
+    - spec/i18n_spec.rb
+    - spec/generator_spec.rb
+    - decidim-comments/spec/bundle_spec.rb
+
+RSpec/ExampleLength:
+  Max: 49
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 17
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false

@@ -39,6 +39,7 @@ ca:
           csv_download: Descarregar dades en CSV
     authorization_handlers:
       census_authorization_handler:
+        explanation: Verifica't amb el padró
         fields:
           document_number: Número de document
           document_type: Tipus de document

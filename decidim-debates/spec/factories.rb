@@ -3,7 +3,7 @@ require "decidim/core/test/factories"
 require "decidim/comments/test/factories"
 require "decidim/participatory_processes/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :debate, class: Decidim::Debates::Debate do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }

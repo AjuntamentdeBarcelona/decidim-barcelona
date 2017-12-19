@@ -3,6 +3,7 @@ en:
     authorization_handlers:
       census_authorization_handler: Census authorization
     census_authorization_handler:
+      explanation: Get verified with the census
       document_types:
         dni: DNI
         nie: NIE
