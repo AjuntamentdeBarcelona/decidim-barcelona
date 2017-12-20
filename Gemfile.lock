@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/decidim/decidim-initiatives
-  revision: 0c0976bbb09116343c843aac3384428c0624a16b
+  revision: a2de7968bf5c64bb2fe562b967097342cb1d4901
   specs:
-    decidim-initiatives (0.2.3)
+    decidim-initiatives (0.2.5)
       decidim-admin
       decidim-comments
       decidim-core (~> 0.8.3)
@@ -343,7 +343,7 @@ GEM
       rails
     graphql (1.6.8)
     hashdiff (0.3.7)
-    hashie (3.5.6)
+    hashie (3.5.7)
     high_voltage (3.0.0)
     highline (1.7.10)
     htmlentities (4.3.4)
@@ -692,4 +692,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0.pre.3
+   1.16.0
