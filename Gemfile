@@ -37,6 +37,7 @@ group :production do
   gem "dalli"
   gem "sentry-raven"
   gem 'rack-ssl-enforcer'
+  gem 'rails_autoscale_agent'
 end
 
 group :test do
