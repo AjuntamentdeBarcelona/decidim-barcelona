@@ -6,7 +6,7 @@ gem "decidim", "0.8.3"
 gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-assemblies"
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives", branch: "fix_translation_helper"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
 
 gem "virtus-multiparams"
 

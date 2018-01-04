@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim-initiatives
-  revision: d8f4fce513c18f2e2e0b3be13ab8f144d81164d6
-  branch: fix_translation_helper
+  revision: 58d4a25397d763c7c419ff123d410ae7e180a41c
   specs:
     decidim-initiatives (0.2.6)
       decidim-admin
@@ -278,7 +277,7 @@ GEM
       rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.3.0)
+    devise (4.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.2)
@@ -410,13 +409,13 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.1)
     msgpack (1.2.0)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     newrelic_rpm (4.6.0.338)
-    nio4r (2.1.0)
+    nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
@@ -525,7 +524,8 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redis (3.3.5)
-    request_store (1.3.2)
+    request_store (1.4.0)
+      rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -632,7 +632,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
     url (0.3.2)
-    valid_email2 (2.1.1)
+    valid_email2 (2.1.2)
       activemodel (>= 3.2)
       mail (~> 2.5)
     virtus (1.0.5)
