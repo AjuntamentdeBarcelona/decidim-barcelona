@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/decidim/decidim-initiatives
-  revision: a2de7968bf5c64bb2fe562b967097342cb1d4901
+  revision: d8f4fce513c18f2e2e0b3be13ab8f144d81164d6
+  branch: fix_translation_helper
   specs:
-    decidim-initiatives (0.2.5)
+    decidim-initiatives (0.2.6)
       decidim-admin
       decidim-comments
       decidim-core (~> 0.8.3)
