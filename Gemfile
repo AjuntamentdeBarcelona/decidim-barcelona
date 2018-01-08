@@ -38,6 +38,7 @@ group :production do
   gem "sentry-raven"
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
+  gem "rack_password"
 end
 
 group :test do

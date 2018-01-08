@@ -474,6 +474,7 @@ GEM
     rack-ssl-enforcer (0.2.9)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
+    rack_password (1.3)
     rails (5.1.4)
       actioncable (= 5.1.4)
       actionmailer (= 5.1.4)
@@ -681,6 +682,7 @@ DEPENDENCIES
   passenger
   progressbar
   rack-ssl-enforcer
+  rack_password
   rails_12factor
   rails_autoscale_agent
   rspec-rails
