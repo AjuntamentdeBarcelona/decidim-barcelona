@@ -28,7 +28,7 @@ group :development do
   gem 'spring-watcher-listen'
 end
 
-group :production do
+group :production, :staging do
   gem "passenger"
   gem "sidekiq"
   gem "rails_12factor"
@@ -38,6 +38,9 @@ group :production do
   gem "sentry-raven"
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
+end
+
+group :staging do
   gem "rack_password"
 end
 
