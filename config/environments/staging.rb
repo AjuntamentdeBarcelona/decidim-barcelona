@@ -44,9 +44,6 @@ Rails.application.configure do
   config.force_ssl = false
   config.middleware.use Rack::SslEnforcer, except_hosts: ENV["EXCEPT_SSL_HOSTS"].to_s.split(",")
 
-  # Block users that do not know a given password
-  config.middleware.use RackPassword::Block, auth_codes: [ENV["STAGING_PASSWORD"]]
-
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :info
