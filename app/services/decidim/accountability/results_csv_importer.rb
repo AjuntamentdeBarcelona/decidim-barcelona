@@ -12,10 +12,10 @@ module Decidim
       # Public: Initializes the service.
       # feature       - A Decidim::Feature to import the results into.
       # csv_file_path - The path to the csv file.
-      def initialize(feature, csv_file_path)
+      def initialize(feature, csv_file_path, current_user)
         @feature = feature
         @csv_file_path = csv_file_path
-        @extra_context = { current_feature: feature, current_organization: feature.organization}
+        @extra_context = { current_feature: feature, current_organization: feature.organization, current_user: current_user}
       end
 
       def import!

@@ -12,7 +12,7 @@ module Decidim
           @csv_file = params[:csv_file]
           redirect_to new_import_path and return unless @csv_file.present?
 
-          i = ResultsCSVImporter.new(current_feature, @csv_file.path)
+          i = ResultsCSVImporter.new(current_feature, @csv_file.path, current_user)
           @errors = i.import!
           if @errors.empty?
             flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
