@@ -42,7 +42,7 @@ module Decidim
             end
 
             if row["parent_id"].blank? && row["parent_external_id"].present?
-              if parent = Decidim::Accountability::Result.find_by(external_id: row["parent_external_id"])
+              if parent = Decidim::Accountability::Result.find_by(external_id: "pm-act-#{row["parent_external_id"]}")
                 params["result"]["parent_id"] = parent.id
               end
             end
