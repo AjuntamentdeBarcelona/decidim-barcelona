@@ -22,7 +22,8 @@ module Decidim
             end_date: @form.end_date,
             progress: @form.progress,
             decidim_accountability_status_id: @form.decidim_accountability_status_id,
-            external_id: @form.external_id
+            external_id: @form.external_id,
+            weight: @form.weight
           )
         end
       end

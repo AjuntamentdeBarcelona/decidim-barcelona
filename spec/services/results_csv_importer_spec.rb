@@ -20,7 +20,7 @@ describe Decidim::Accountability::ResultsCSVImporter do
     describe "#import!" do
       context "when results are new" do
         it "should import them" do
-          expect { subject.import! }.to change { Decidim::Accountability::Result.count }.by(2)
+          expect { subject.import! }.to change { Decidim::Accountability::ResultWithWeightedProgress.count }.by(2)
         end
       end
 
@@ -36,7 +36,7 @@ describe Decidim::Accountability::ResultsCSVImporter do
         end
 
         it "shouldn't create new results" do
-          expect { subject.import! }.to_not change { Decidim::Accountability::Result.count }
+          expect { subject.import! }.to_not change { Decidim::Accountability::ResultWithWeightedProgress.count }
         end
       end
     end

@@ -29,20 +29,21 @@ module Decidim
 
             params = {}
             params["result"] = row.to_hash
+            params["result"]["weight"] = row["relative_weight"].to_f == 0 ? 1.0 : (row["relative_weight"].to_f / 100.0)
 
             if row["result_id"].present?
-              existing_result = Decidim::Accountability::Result.find_by(id: row['result_id'].to_i)
+              existing_result = Decidim::Accountability::ResultWithWeightedProgress.find_by(id: row['result_id'].to_i)
               unless existing_result.present?
                 errors << [i, [I18n.t("imports.create.not_found", scope: "decidim.accountability.admin", result_id: row["result_id"])]]
                 next
               end
             elsif row["external_id"].present?
-              existing_result = Decidim::Accountability::Result.find_by(external_id: row["external_id"])
+              existing_result = Decidim::Accountability::ResultWithWeightedProgress.find_by(external_id: row["external_id"])
               params["result"]["id"] = existing_result.id if existing_result
             end
 
             if row["parent_id"].blank? && row["parent_external_id"].present?
-              if parent = Decidim::Accountability::Result.find_by(external_id: "pm-act-#{row["parent_external_id"]}")
+              if parent = Decidim::Accountability::ResultWithWeightedProgress.find_by(external_id: "pm-act-#{row["parent_external_id"]}")
                 params["result"]["parent_id"] = parent.id
               end
             end

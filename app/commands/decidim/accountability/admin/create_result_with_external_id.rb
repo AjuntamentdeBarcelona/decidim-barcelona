@@ -11,7 +11,7 @@ module Decidim
 
         def create_result
           @result = Decidim.traceability.create!(
-            Result,
+            ResultWithWeightedProgress,
             @form.current_user,
             feature: @form.current_feature,
             scope: @form.scope,
@@ -23,7 +23,8 @@ module Decidim
             end_date: @form.end_date,
             progress: @form.progress,
             decidim_accountability_status_id: @form.decidim_accountability_status_id,
-            external_id: @form.external_id
+            external_id: @form.external_id,
+            weight: @form.weight
           )
         end
       end

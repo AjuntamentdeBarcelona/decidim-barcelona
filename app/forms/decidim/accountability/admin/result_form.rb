@@ -21,6 +21,7 @@ module Decidim
         attribute :decidim_accountability_status_id, Integer
         attribute :parent_id, Integer
         attribute :external_id, String
+        attribute :weight, Float
 
         validates :title, translatable_presence: true
 
@@ -67,7 +68,7 @@ module Decidim
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.find_by(feature: current_feature, id: parent_id)
+          @parent ||= Decidim::Accountability::ResultWithWeightedProgress.find_by(feature: current_feature, id: parent_id)
         end
 
         def status
