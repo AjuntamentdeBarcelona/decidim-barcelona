@@ -64,7 +64,7 @@ namespace :anonymize do
         identity.update_columns(uid: "anonymized-identity-#{identity.id}")
       end
 
-      user.authorizations.find_each do |authorization|
+      Decidim::Authorization.where(user: user).find_each do |authorization|
         authorization.update_columns(unique_id: authorization.id)
       end
     end
