@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 namespace :anonymize do
+  desc "Checks for the environment"
+  task :check do
+    raise "Won't run unless the env var DISABLE_PRODUCTION_CHECK=1 is set" unless ENV["DISABLE_PRODUCTION_CHECK"]
+  end
+
   desc "Anonymizes a production dump."
   task all: %i(users user_groups admins proposals)
 
@@ -33,7 +38,7 @@ namespace :anonymize do
     ActiveRecord::Base.logger.level = previous_log_level
   end
 
-  task proposals: [:environment] do
+  task proposals: [:check, :environment] do
     Decidim::Proposals::ProposalVote.delete_all
 
     with_progress(Decidim::Proposals::Proposal.all, name: "proposals") do |proposal|
@@ -42,7 +47,7 @@ namespace :anonymize do
     end
   end
 
-  task users: [:environment] do
+  task users: [:check, :environment] do
     with_progress Decidim::User.where.not(admin: true), name: "users" do |user|
       user.update_columns(
         email: "email#{user.id}@anonymized.org",
@@ -70,7 +75,7 @@ namespace :anonymize do
     end
   end
 
-  task user_groups: [:environment] do
+  task user_groups: [:check, :environment] do
     with_progress Decidim::UserGroup.all, name: "user groups" do |user_group|
       user_group.update_columns(
         name: "User Group #{user_group.id}",
@@ -81,7 +86,7 @@ namespace :anonymize do
     end
   end
 
-  task admins: [:environment] do
+  task admins: [:check, :environment] do
     with_progress Decidim::System::Admin.all, name: "admins" do |admin|
       admin.update_columns(
         email: "email#{admin.id}@anonymized.org",
