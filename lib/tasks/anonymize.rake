@@ -51,7 +51,6 @@ namespace :anonymize do
     with_progress Decidim::User.where.not(admin: true), name: "users" do |user|
       user.update_columns(
         email: "email#{user.id}@example.org",
-        nickname: "anonymized_user_#{user.id}",
         name: "Anonymized User #{user.id}",
         encrypted_password: "encryptedpassword#{user.id}",
         reset_password_token: nil,
