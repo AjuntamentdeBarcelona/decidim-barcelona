@@ -50,8 +50,9 @@ namespace :anonymize do
   task users: [:check, :environment] do
     with_progress Decidim::User.where.not(admin: true), name: "users" do |user|
       user.update_columns(
-        email: "email#{user.id}@anonymized.org",
-        name: "user#{user.id}",
+        email: "email#{user.id}@example.org",
+        nickname: "anonymized_user_#{user.id}",
+        name: "Anonymized User #{user.id}",
         encrypted_password: "encryptedpassword#{user.id}",
         reset_password_token: nil,
         current_sign_in_at: nil,
