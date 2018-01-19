@@ -5,6 +5,9 @@ module Decidim
     # The data store for a Result in the Decidim::Accountability component. It stores a
     # title, description and any other useful information to render a custom result.
     class ResultWithWeightedProgress < Decidim::Accountability::Result
+
+      belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::ResultWithWeightedProgress", inverse_of: :children, optional: true, counter_cache: :children_count
+
       def update_progress!
         if children.length > 1 && children.pluck(:weight).any? {|weight| weight == 1.0 }
           # Not using weights
