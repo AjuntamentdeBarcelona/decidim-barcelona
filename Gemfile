@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'lograge'
 gem 'faker'
 gem "deface"
+gem "progressbar"
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,7 +25,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "progressbar"
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
