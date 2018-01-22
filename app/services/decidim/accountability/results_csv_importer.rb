@@ -83,13 +83,13 @@ module Decidim
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
             if existing_result #update existing result
-              Decidim::Accountability::Admin::UpdateResultWithExternalId.call(@form, existing_result) do
+              Decidim::Accountability::Admin::UpdateResult.call(@form, existing_result) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
               end
             else #create new result
-              Decidim::Accountability::Admin::CreateResultWithExternalId.call(@form) do
+              Decidim::Accountability::Admin::CreateResult.call(@form) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
