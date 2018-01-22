@@ -14,7 +14,7 @@ Decidim::Accountability::Admin::UpdateResult.class_eval do
       end_date: @form.end_date,
       progress: @form.progress,
       decidim_accountability_status_id: @form.decidim_accountability_status_id,
-      external_id: @form.external_id,
+      external_id: @form.external_id.blank? ? nil : @form.external_id,
       weight: @form.weight
     )
   end
@@ -35,7 +35,7 @@ Decidim::Accountability::Admin::CreateResult.class_eval do
       end_date: @form.end_date,
       progress: @form.progress,
       decidim_accountability_status_id: @form.decidim_accountability_status_id,
-      external_id: @form.external_id,
+      external_id: @form.external_id.blank? ? nil : @form.external_id,
       weight: @form.weight
     )
     end
