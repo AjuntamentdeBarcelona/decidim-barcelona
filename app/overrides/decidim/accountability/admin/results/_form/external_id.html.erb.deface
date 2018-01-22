@@ -1,0 +1,7 @@
+<!-- insert_bottom ".card > .card-section" -->
+<div class="row column">
+  <%= form.text_field :external_id %>
+</div>
+<div class="row column">
+  <%= form.text_field :weight %>
+</div>
