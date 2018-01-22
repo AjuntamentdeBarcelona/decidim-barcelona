@@ -44,4 +44,9 @@ end
 Decidim::Accountability::Admin::ResultForm.class_eval do
   attribute :external_id, String
   attribute :weight, Integer
+
+    _validators[:description]
+      .find { |v| v.is_a? TranslatablePresenceValidator }
+      .attributes
+      .delete(:description)
 end
