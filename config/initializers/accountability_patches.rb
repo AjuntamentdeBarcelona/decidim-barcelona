@@ -23,7 +23,7 @@ end
 Decidim::Accountability::Admin::CreateResult.class_eval do
   def create_result
     @result = Decidim.traceability.create!(
-      ResultWithWeightedProgress,
+      Decidim::Accountability::ResultWithWeightedProgress,
       @form.current_user,
       feature: @form.current_feature,
       scope: @form.scope,
@@ -45,8 +45,8 @@ Decidim::Accountability::Admin::ResultForm.class_eval do
   attribute :external_id, String
   attribute :weight, Integer
 
-    _validators[:description]
-      .find { |v| v.is_a? TranslatablePresenceValidator }
-      .attributes
-      .delete(:description)
+  _validators[:description]
+    .find { |v| v.is_a? TranslatablePresenceValidator }
+    .attributes
+    .delete(:description)
 end
