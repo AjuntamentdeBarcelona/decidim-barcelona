@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Authorizations", type: :feature, perform_enqueued: true, with_authorization_workflows: ["census_authorization_handler"] do
+describe "Authorizations", type: :system, perform_enqueued: true, with_authorization_workflows: ["census_authorization_handler"] do
   let(:organization) do
     create(
       :organization,
@@ -12,6 +12,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true, with_authoriz
       available_authorizations: authorizations
     )
   end
+  
   let(:authorizations) { ["census_authorization_handler"] }
   let!(:scope) { create :scope, organization: organization, code: "1" }
 
