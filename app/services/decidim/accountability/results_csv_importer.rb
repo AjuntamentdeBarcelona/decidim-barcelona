@@ -98,6 +98,7 @@ module Decidim
           end
 
           raise ActiveRecord::Rollback if errors.any?
+          puts "Processed: #{i}"
         end
 
         errors
