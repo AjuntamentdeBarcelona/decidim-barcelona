@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "sidekiq/web"
 
 Rails.application.routes.draw do
@@ -11,10 +12,14 @@ Rails.application.routes.draw do
 
   constraints host: /(www\.)?decidim\.barcelona/ do
     get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
-    constraints: { process_id: /[^0-9]+/, step_id: /[0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
+                                                                constraints: {
+                                                                  process_id: /[^0-9]+/,
+                                                                  step_id: /[0-9]+/,
+                                                                  feature_name: Regexp.new(feature_translations.keys.join("|"))
+                                                                }
 
     get "/:process_slug/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
-      constraints: { process_id: /[^0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
+                                                       constraints: { process_id: /[^0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
 
     get "/:feature_name/:resource_id", to: redirect { |params, _request|
       feature_translation = feature_translations[params[:feature_name].to_sym]
@@ -27,15 +32,15 @@ Rails.application.routes.draw do
     }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
   end
 
-  authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
   end
 
   get "/accountability", to: "static#accountability", as: :accountability_static
   get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
 
   scope "/processes/:participatory_process_slug/f/:feature_id" do
-    get :export_results, to: "decidim/accountability/export_results#csv"
+    get :export_results, to: "export_results#csv"
 
     get :import_results, to: "decidim/accountability/admin/import_results#new"
     post :import_results, to: "decidim/accountability/admin/import_results#create"
