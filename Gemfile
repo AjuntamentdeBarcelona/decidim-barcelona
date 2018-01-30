@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "import_settings_in_editor" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim" }
 
 ruby '2.5.0'
 
