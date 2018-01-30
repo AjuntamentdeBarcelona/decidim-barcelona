@@ -1,39 +1,45 @@
+---
 ca:
-  census_authorization_handler:
-    age_under_16: Has de ser major de 16 anys per validar-te
-    invalid_document: Número de document incorrecte
   activemodel:
     attributes:
       census_authorization_handler:
+        date_of_birth: Data de naixement
         document_number: Número de document
         document_type: Tipus de document
         postal_code: Codi postal
-        date_of_birth: Data de naixement
         scope_id: Districte
   census_authorization:
     form:
-      scope_prompt: Si us plau, selecciona el teu districte
       date_select:
-        day: "Dia"
-        month: "Mes"
-        year: "Any"
+        day: Dia
+        month: Mes
+        year: Any
+      scope_prompt: Si us plau, selecciona el teu districte
+  census_authorization_handler:
+    age_under_16: Has de ser major de 16 anys per validar-te
+    invalid_document: Número de document incorrecte
   decidim:
     accountability:
       admin:
-        shared:
-          extra:
-            import_csv: "Importar CSV"
-        imports:
-          create:
-            invalid: Hi ha hagut un problema en importar aquest fitxer
-            not_found: No s'ha trobat un resultat amb result_id %{result_id}
-            success: El fitxer ha estat importat correctament
+        import_mailer:
+          import:
+            errors: Errors
+            errors_present: Hi ha hagut algun problem amb l'importació de resultats
+            row_number: Fila
+            subject: L'importació de resultats ha finalitzat
+            success: L'importació de resultats ha finalitzat correctament. Pots revisar
+              els resultas en l'interfície d'administració.
         import_results:
           new:
-            errors: Errors
             import: Import
-            row_number: Fila
             title: Importar resultats des de CSV
+        imports:
+          create:
+            success: El fitxer ha començat a importar-se. Rebràs un email en els pròxims
+              minuts amb el resultat de l'importació
+        shared:
+          extra:
+            import_csv: Importar CSV
       results:
         home_header:
           csv_download: Descarregar dades en CSV
@@ -41,10 +47,10 @@ ca:
       census_authorization_handler:
         explanation: Verifica't amb el padró
         fields:
+          date_of_birth: Data de naixement
           document_number: Número de document
           document_type: Tipus de document
           postal_code: Codi postal
-          date_of_birth: Data de naixement
           scope: Districte
         name: El padró
     census_authorization_handler:
@@ -54,13 +60,14 @@ ca:
         passport: Passaport
     resource_links:
       included_proposals:
-        project_proposals: "Propostes incloses en aquest projecte:"
+        project_proposals: 'Propostes incloses en aquest projecte:'
+  errors:
+    messages:
+      not_in_district: El codi postal no pertany al districte
   menu:
     accountability_static: Rendició de comptes
   pages:
     home:
       extended:
-        debates_explanation: Espais per informar-te i decidir sobre les propostes de cada procés.
-  errors:
-    messages:
-      not_in_district: El codi postal no pertany al districte
+        debates_explanation: Espais per informar-te i decidir sobre les propostes
+          de cada procés.
