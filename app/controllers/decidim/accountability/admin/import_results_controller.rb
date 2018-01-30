@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Accountability
     module Admin
@@ -10,7 +11,7 @@ module Decidim
 
         def create
           @csv_file = params[:csv_file]
-          redirect_to new_import_path and return unless @csv_file.present?
+          redirect_to(new_import_path) && return if @csv_file.blank?
 
           i = ResultsCSVImporter.new(current_feature, @csv_file.path, current_user)
           @errors = i.import!
@@ -30,7 +31,7 @@ module Decidim
         end
 
         def current_participatory_process
-          @current_participatory_process ||= ParticipatoryProcess.find_by_slug(params[:participatory_process_slug])
+          @current_participatory_process ||= ParticipatoryProcess.find_by(slug: params[:participatory_process_slug])
         end
       end
     end
