@@ -39,9 +39,6 @@ jobs:
       - run:
           name: Run main tests
           command: bundle exec rake
-      - run:
-          name: Run debates test
-          command: cd decidim-debates && bundle exec rake
       - store_artifacts:
           path: /app/tmp/capybara
 
