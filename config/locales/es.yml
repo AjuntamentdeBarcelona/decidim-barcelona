@@ -1,52 +1,58 @@
+---
 es:
-  census_authorization_handler:
-    age_under_16: Tienes que ser mayor de 16 años para validarte
-    invalid_document: Número de documento incorrecto
   activemodel:
     attributes:
       census_authorization_handler:
+        date_of_birth: Fecha de nacimiento
         document_number: Número de documento
         document_type: Tipo de documento
         postal_code: Código postal
-        date_of_birth: Fecha de nacimiento
         scope: Distrito
   census_authorization:
     form:
-      scope_prompt: Por favor, selecciona tu distrito
       date_select:
-        day: "Día"
-        month: "Mes"
-        year: "Año"
+        day: Día
+        month: Mes
+        year: Año
+      scope_prompt: Por favor, selecciona tu distrito
+  census_authorization_handler:
+    age_under_16: Tienes que ser mayor de 16 años para validarte
+    invalid_document: Número de documento incorrecto
   decidim:
     accountability:
       admin:
-        shared:
-          extra:
-            import_csv: "Importar CSV"
-        imports:
-          create:
-            invalid: Ha habido un problema en importar este fichero
-            not_found: No se han encontrados resultados con result_id %{result_id}
-            success: El fichero ha estado importado correctamente
+        import_mailer:
+          import:
+            errors: Errores
+            errors_present: Ha habido algún problema en la importación de resultados
+            row_number: Fila
+            subject: La importación de resultados ha terminado
+            success: La importación de resultados ha terminado correctamente. Puedes
+              revisar los resultados en la interfaz de administración.
         import_results:
           new:
-            errors: Errores
             import: Importar
-            row_number: Fila
             title: Importar resultados desde CSV
+        imports:
+          create:
+            success: El fichero ha empezado a importarse. Recibirás un email en los
+              próximos minutos con el resultado de la importación.
+        shared:
+          subnav:
+            import_csv: Importar CSV
       results:
         home_header:
           csv_download: Descargar datos en CSV
     authorization_handlers:
       census_authorization_handler:
         explanation: Verifícate con el padrón
-        name: El padrón
         fields:
+          date_of_birth: Fecha de nacimiento
           document_number: Número de documento
           document_type: Tipo de documento
           postal_code: Código postal
-          date_of_birth: Fecha de nacimiento
           scope_id: Distrito
+        name: El padrón
     census_authorization_handler:
       document_types:
         dni: DNI
@@ -54,13 +60,14 @@ es:
         passport: Pasaporte
     resource_links:
       included_proposals:
-        project_proposals: "Propuestas incluidas en éste proyecto:"
+        project_proposals: 'Propuestas incluidas en éste proyecto:'
+  errors:
+    messages:
+      not_in_district: El código postal no pertenece al distrito
   menu:
     accountability_static: Rendición de cuentas
   pages:
     home:
       extended:
-        debates_explanation: Espacios para informarse y decidir sobre las propuestas de cada proceso.
-  errors:
-    messages:
-      not_in_district: El código postal no pertenece al distrito
+        debates_explanation: Espacios para informarse y decidir sobre las propuestas
+          de cada proceso.

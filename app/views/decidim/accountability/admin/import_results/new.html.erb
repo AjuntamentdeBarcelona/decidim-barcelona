@@ -6,33 +6,6 @@
       </h2>
     </div>
 
-    <% unless @errors.empty? %>
-      <div class="card-section">
-        <div class="row column">
-          <table>
-            <thead>
-              <tr>
-                <th><%= t(".row_number") %></th>
-                <th><%= t(".errors") %></th>
-              </tr>
-            </thead>
-            <% @errors.each do |error| %>
-              <tr>
-                <td><%= error.first %></td>
-                <td>
-                  <ul>
-                    <% error.last.each do |error_message| %>
-                      <li><%= error_message %></li>
-                    <% end %>
-                  </ul>
-                </td>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    <% end %>
-
     <div class="card-section">
       <div class="row column">
         <%= file_field_tag :csv_file %>

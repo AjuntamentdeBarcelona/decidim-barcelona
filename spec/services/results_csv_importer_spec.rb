@@ -33,6 +33,8 @@ describe Decidim::Accountability::ResultsCSVImporter do
 
           expect(result1.reload.progress.to_f).to eq 100
           expect(result2.reload.progress.to_f).to eq 89
+          expect(result1.weight).to eq(0.5)
+          expect(result2.weight).to eq(0.45)
         end
 
         it "shouldn't create new results" do
