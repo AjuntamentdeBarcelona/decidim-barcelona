@@ -38,7 +38,7 @@ es:
             success: El fichero ha empezado a importarse. Recibirás un email en los
               próximos minutos con el resultado de la importación.
         shared:
-          extra:
+          subnav:
             import_csv: Importar CSV
       results:
         home_header:

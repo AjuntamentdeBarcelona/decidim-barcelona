@@ -38,7 +38,7 @@ ca:
             success: El fitxer ha començat a importar-se. Rebràs un email en els pròxims
               minuts amb el resultat de l'importació
         shared:
-          extra:
+          subnav:
             import_csv: Importar CSV
       results:
         home_header:
