@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8e25b5bbc28c671927e484605c2fa6ca685c2f4c
+  revision: 59421fd5b0de798fd369794da1b86f695521671b
   specs:
     decidim (0.9.0.pre)
       decidim-accountability (= 0.9.0.pre)
@@ -277,7 +277,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.5.0)
+    devise-i18n (1.5.1)
       devise (>= 3.4)
     devise_invitable (1.7.2)
       actionmailer (>= 4.1.0)
@@ -335,7 +335,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.8)
       rails
-    graphql (1.7.8)
+    graphql (1.7.9)
     hashdiff (0.3.7)
     hashie (3.5.7)
     high_voltage (3.0.0)
@@ -406,7 +406,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    newrelic_rpm (4.7.1.340)
+    newrelic_rpm (4.8.0.341)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -460,7 +460,7 @@ GEM
     progressbar (1.9.0)
     public_suffix (3.0.1)
     puma (3.11.2)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
@@ -583,9 +583,9 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-    sentry-raven (2.7.1)
+    sentry-raven (2.7.2)
       faraday (>= 0.7.6, < 1.0)
-    sidekiq (5.0.5)
+    sidekiq (5.1.0)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
@@ -624,7 +624,7 @@ GEM
     truncato (0.7.10)
       htmlentities (~> 4.3.1)
       nokogiri (~> 1.8.0, >= 1.7.0)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.5)
       execjs (>= 0.3.0, < 3)
