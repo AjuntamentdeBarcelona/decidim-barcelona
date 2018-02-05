@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130133129) do
+ActiveRecord::Schema.define(version: 20180205165420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -491,6 +491,13 @@ ActiveRecord::Schema.define(version: 20180130133129) do
     t.jsonb "omnipresent_banner_title"
     t.jsonb "omnipresent_banner_short_description"
     t.string "omnipresent_banner_url"
+    t.boolean "highlighted_content_banner_enabled", default: false, null: false
+    t.jsonb "highlighted_content_banner_title"
+    t.jsonb "highlighted_content_banner_short_description"
+    t.jsonb "highlighted_content_banner_action_title"
+    t.jsonb "highlighted_content_banner_action_subtitle"
+    t.string "highlighted_content_banner_action_url"
+    t.string "highlighted_content_banner_image"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
