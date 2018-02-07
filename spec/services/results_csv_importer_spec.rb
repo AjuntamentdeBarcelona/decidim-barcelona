@@ -10,8 +10,8 @@ describe Decidim::Accountability::ResultsCSVImporter do
   let(:current_user) { create :user, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-  let(:valid_csv) { File.open("spec/fixtures/valid_results.csv") }
-  let(:invalid_csv) { File.open("spec/fixtures/invalid_results.csv") }
+  let(:valid_csv) { File.read("spec/fixtures/valid_results.csv") }
+  let(:invalid_csv) { File.read("spec/fixtures/invalid_results.csv") }
   let!(:parent_result) { create :result, feature: current_feature, external_id: "pm-act-423" }
 
   context "with a valid CSV" do
