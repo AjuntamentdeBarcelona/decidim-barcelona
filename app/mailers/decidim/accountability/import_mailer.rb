@@ -18,7 +18,7 @@ module Decidim
         @errors = errors
 
         with_user(user) do
-          mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.accountability.admin.import_mailer.import.subject"))
+          mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.accountability.import_mailer.import.subject"))
         end
       end
     end
