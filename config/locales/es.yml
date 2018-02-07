@@ -21,14 +21,6 @@ es:
   decidim:
     accountability:
       admin:
-        import_mailer:
-          import:
-            errors: Errores
-            errors_present: Ha habido algún problema en la importación de resultados
-            row_number: Fila
-            subject: La importación de resultados ha terminado
-            success: La importación de resultados ha terminado correctamente. Puedes
-              revisar los resultados en la interfaz de administración.
         import_results:
           new:
             import: Importar
@@ -40,6 +32,14 @@ es:
         shared:
           subnav:
             import_csv: Importar CSV
+      import_mailer:
+        import:
+          errors: Errores
+          errors_present: Ha habido algún problema en la importación de resultados
+          row_number: Fila
+          subject: La importación de resultados ha terminado
+          success: La importación de resultados ha terminado correctamente. Puedes
+            revisar los resultados en la interfaz de administración.
       results:
         home_header:
           csv_download: Descargar datos en CSV

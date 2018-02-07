@@ -21,14 +21,6 @@ ca:
   decidim:
     accountability:
       admin:
-        import_mailer:
-          import:
-            errors: Errors
-            errors_present: Hi ha hagut algun problem amb l'importació de resultats
-            row_number: Fila
-            subject: L'importació de resultats ha finalitzat
-            success: L'importació de resultats ha finalitzat correctament. Pots revisar
-              els resultas en l'interfície d'administració.
         import_results:
           new:
             import: Import
@@ -40,6 +32,14 @@ ca:
         shared:
           subnav:
             import_csv: Importar CSV
+      import_mailer:
+        import:
+          errors: Errors
+          errors_present: Hi ha hagut algun problem amb l'importació de resultats
+          row_number: Fila
+          subject: L'importació de resultats ha finalitzat
+          success: L'importació de resultats ha finalitzat correctament. Pots revisar
+            els resultas en l'interfície d'administració.
       results:
         home_header:
           csv_download: Descarregar dades en CSV
