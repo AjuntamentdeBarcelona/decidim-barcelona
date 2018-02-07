@@ -13,7 +13,7 @@ module Decidim
           @csv_file = params[:csv_file]
           redirect_to(new_import_path) && return if @csv_file.blank?
 
-          Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_feature, @csv_file.path)
+          Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_feature, @csv_file.read)
 
           flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
           redirect_to Rails.application.routes.url_helpers.import_results_path(current_participatory_process, current_feature)

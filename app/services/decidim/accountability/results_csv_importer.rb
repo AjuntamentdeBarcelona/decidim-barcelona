@@ -11,10 +11,10 @@ module Decidim
 
       # Public: Initializes the service.
       # feature       - A Decidim::Feature to import the results into.
-      # csv_file_path - The path to the csv file.
-      def initialize(feature, csv_file_path, current_user)
+      # csv_file      - The contents of the CSV to read.
+      def initialize(feature, csv_file, current_user)
         @feature = feature
-        @csv_file_path = csv_file_path
+        @csv_file = csv_file
         @extra_context = { current_feature: feature, current_organization: feature.organization, current_user: current_user}
       end
 
@@ -23,7 +23,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           i = 1
-          CSV.foreach(@csv_file_path, headers: true) do |row|
+          CSV.parse(@csv_file, headers: true) do |row|
             i += 1
             next if row.empty?
 
