@@ -7,6 +7,7 @@ ruby '2.5.0'
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
+gem "decidim-sortitions", git: "https://github.com/decidim/decidim-module-sortitions"
 
 gem "virtus-multiparams"
 
