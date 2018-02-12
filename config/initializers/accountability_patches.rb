@@ -43,7 +43,7 @@ end
 
 Decidim::Accountability::Admin::ResultForm.class_eval do
   attribute :external_id, String
-  attribute :weight, Integer
+  attribute :weight, Float
 
   _validators[:description]
     .find { |v| v.is_a? TranslatablePresenceValidator }

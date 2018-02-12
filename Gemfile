@@ -1,13 +1,11 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.8.4"
+DECIDIM_VERSION = "0.9.2"
 
-ruby '2.4.2'
+ruby '2.5.0'
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-debates", path: "decidim-debates"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-assemblies", DECIDIM_VERSION
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
 
 gem "virtus-multiparams"
