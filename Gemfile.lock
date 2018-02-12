@@ -14,6 +14,17 @@ GIT
       truncato
       wicked
 
+GIT
+  remote: https://github.com/decidim/decidim-module-sortitions
+  revision: 49d4876e85e89db072feaafe2504e5dcacaaf800
+  specs:
+    decidim-sortitions (0.2.2)
+      decidim-admin (~> 0.9.0)
+      decidim-comments (~> 0.9.0)
+      decidim-core (~> 0.9.0)
+      rails (~> 5.1.4)
+      social-share-button (~> 1.0.0)
+
 PATH
   remote: decidim-dataviz
   specs:
@@ -663,6 +674,7 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-dev (= 0.9.2)
   decidim-initiatives!
+  decidim-sortitions!
   deface
   faker
   fog-aws

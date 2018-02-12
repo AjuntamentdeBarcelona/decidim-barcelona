@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205165420) do
+ActiveRecord::Schema.define(version: 20180212140633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -673,6 +673,29 @@ ActiveRecord::Schema.define(version: 20180205165420) do
     t.index ["parent_id"], name: "index_decidim_scopes_on_parent_id"
     t.index ["part_of"], name: "index_decidim_scopes_on_part_of", using: :gin
     t.index ["scope_type_id"], name: "index_decidim_scopes_on_scope_type_id"
+  end
+
+  create_table "decidim_sortitions_sortitions", force: :cascade do |t|
+    t.bigint "decidim_feature_id"
+    t.integer "decidim_proposals_feature_id"
+    t.integer "dice", null: false
+    t.integer "target_items", null: false
+    t.datetime "request_timestamp", null: false
+    t.jsonb "selected_proposals"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "witnesses"
+    t.jsonb "additional_info"
+    t.bigint "decidim_author_id"
+    t.string "reference"
+    t.jsonb "title"
+    t.jsonb "cancel_reason"
+    t.datetime "cancelled_on"
+    t.integer "cancelled_by_user_id"
+    t.jsonb "candidate_proposals"
+    t.index ["decidim_author_id"], name: "index_decidim_sortitions_sortitions_on_decidim_author_id"
+    t.index ["decidim_feature_id"], name: "index_sortitions__on_feature"
+    t.index ["decidim_proposals_feature_id"], name: "index_sortitions__on_proposals_feature"
   end
 
   create_table "decidim_static_pages", id: :serial, force: :cascade do |t|
