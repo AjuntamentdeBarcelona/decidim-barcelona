@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.9.2"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "fix_meeting_update_scopes" }
 
 ruby '2.5.0'
 

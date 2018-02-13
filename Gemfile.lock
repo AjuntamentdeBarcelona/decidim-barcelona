@@ -1,140 +1,8 @@
 GIT
-  remote: https://github.com/decidim/decidim-initiatives
-  revision: ce5ccfd017f7024e1abb8f6068a417c5aad19e1e
+  remote: https://github.com/decidim/decidim
+  revision: d601bede97cd7b29613c2668e2f2334c72f03a7c
+  branch: fix_meeting_update_scopes
   specs:
-    decidim-initiatives (0.9.0)
-      decidim-admin
-      decidim-comments
-      decidim-core (~> 0.9.0)
-      decidim-verifications
-      kaminari (~> 1.0.1)
-      rails (~> 5.1.4)
-      rectify
-      social-share-button (~> 1.0.0)
-      truncato
-      wicked
-
-GIT
-  remote: https://github.com/decidim/decidim-module-sortitions
-  revision: 49d4876e85e89db072feaafe2504e5dcacaaf800
-  specs:
-    decidim-sortitions (0.2.2)
-      decidim-admin (~> 0.9.0)
-      decidim-comments (~> 0.9.0)
-      decidim-core (~> 0.9.0)
-      rails (~> 5.1.4)
-      social-share-button (~> 1.0.0)
-
-PATH
-  remote: decidim-dataviz
-  specs:
-    decidim-dataviz (0.0.1)
-      decidim-core
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    actioncable (5.1.4)
-      actionpack (= 5.1.4)
-      nio4r (~> 2.0)
-      websocket-driver (~> 0.6.1)
-    actionmailer (5.1.4)
-      actionpack (= 5.1.4)
-      actionview (= 5.1.4)
-      activejob (= 5.1.4)
-      mail (~> 2.5, >= 2.5.4)
-      rails-dom-testing (~> 2.0)
-    actionpack (5.1.4)
-      actionview (= 5.1.4)
-      activesupport (= 5.1.4)
-      rack (~> 2.0)
-      rack-test (>= 0.6.3)
-      rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.1.4)
-      activesupport (= 5.1.4)
-      builder (~> 3.1)
-      erubi (~> 1.4)
-      rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_link_to (1.0.5)
-      actionpack
-      addressable
-    activejob (5.1.4)
-      activesupport (= 5.1.4)
-      globalid (>= 0.3.6)
-    activemodel (5.1.4)
-      activesupport (= 5.1.4)
-    activerecord (5.1.4)
-      activemodel (= 5.1.4)
-      activesupport (= 5.1.4)
-      arel (~> 8.0)
-    activesupport (5.1.4)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (~> 0.7)
-      minitest (~> 5.1)
-      tzinfo (~> 1.1)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
-    arel (8.0.0)
-    ast (2.4.0)
-    autoprefixer-rails (7.2.5)
-      execjs
-    axiom-types (0.1.1)
-      descendants_tracker (~> 0.0.4)
-      ice_nine (~> 0.11.0)
-      thread_safe (~> 0.3, >= 0.3.1)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
-    bcrypt (3.1.11)
-    bootsnap (1.1.8)
-      msgpack (~> 1.0)
-    builder (3.2.3)
-    byebug (10.0.0)
-    cancancan (2.1.3)
-    capybara (2.17.0)
-      addressable
-      mini_mime (>= 0.1.3)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (>= 2.0, < 4.0)
-    carrierwave (1.2.2)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
-    childprocess (0.8.0)
-      ffi (~> 1.0, >= 1.0.11)
-    codecov (0.1.10)
-      json
-      simplecov
-      url
-    coercible (1.0.0)
-      descendants_tracker (~> 0.0.1)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
-    connection_pool (2.2.1)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
-    crass (1.0.3)
-    css_parser (1.6.0)
-      addressable
-    dalli (2.7.6)
-    database_cleaner (1.6.2)
-    date_validator (0.9.0)
-      activemodel
-      activesupport
-    db-query-matchers (0.9.0)
-      activesupport (>= 4.0, <= 6.0)
-      rspec (~> 3.0)
     decidim (0.9.2)
       decidim-accountability (= 0.9.2)
       decidim-admin (= 0.9.2)
@@ -270,6 +138,144 @@ GEM
       sassc-rails (~> 1.3)
     decidim-verifications (0.9.2)
       decidim-core (= 0.9.2)
+
+GIT
+  remote: https://github.com/decidim/decidim-initiatives
+  revision: ce5ccfd017f7024e1abb8f6068a417c5aad19e1e
+  specs:
+    decidim-initiatives (0.9.0)
+      decidim-admin
+      decidim-comments
+      decidim-core (~> 0.9.0)
+      decidim-verifications
+      kaminari (~> 1.0.1)
+      rails (~> 5.1.4)
+      rectify
+      social-share-button (~> 1.0.0)
+      truncato
+      wicked
+
+GIT
+  remote: https://github.com/decidim/decidim-module-sortitions
+  revision: 49d4876e85e89db072feaafe2504e5dcacaaf800
+  specs:
+    decidim-sortitions (0.2.2)
+      decidim-admin (~> 0.9.0)
+      decidim-comments (~> 0.9.0)
+      decidim-core (~> 0.9.0)
+      rails (~> 5.1.4)
+      social-share-button (~> 1.0.0)
+
+PATH
+  remote: decidim-dataviz
+  specs:
+    decidim-dataviz (0.0.1)
+      decidim-core
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actioncable (5.1.4)
+      actionpack (= 5.1.4)
+      nio4r (~> 2.0)
+      websocket-driver (~> 0.6.1)
+    actionmailer (5.1.4)
+      actionpack (= 5.1.4)
+      actionview (= 5.1.4)
+      activejob (= 5.1.4)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 2.0)
+    actionpack (5.1.4)
+      actionview (= 5.1.4)
+      activesupport (= 5.1.4)
+      rack (~> 2.0)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (5.1.4)
+      activesupport (= 5.1.4)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
+    activejob (5.1.4)
+      activesupport (= 5.1.4)
+      globalid (>= 0.3.6)
+    activemodel (5.1.4)
+      activesupport (= 5.1.4)
+    activerecord (5.1.4)
+      activemodel (= 5.1.4)
+      activesupport (= 5.1.4)
+      arel (~> 8.0)
+    activesupport (5.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    arel (8.0.0)
+    ast (2.4.0)
+    autoprefixer-rails (7.2.6)
+      execjs
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
+    bcrypt (3.1.11)
+    bootsnap (1.1.8)
+      msgpack (~> 1.0)
+    builder (3.2.3)
+    byebug (10.0.0)
+    cancancan (2.1.3)
+    capybara (2.18.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (>= 2.0, < 4.0)
+    carrierwave (1.2.2)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+    childprocess (0.8.0)
+      ffi (~> 1.0, >= 1.0.11)
+    codecov (0.1.10)
+      json
+      simplecov
+      url
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    crass (1.0.3)
+    css_parser (1.6.0)
+      addressable
+    dalli (2.7.6)
+    database_cleaner (1.6.2)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
+    db-query-matchers (0.9.0)
+      activesupport (>= 4.0, <= 6.0)
+      rspec (~> 3.0)
     deface (1.3.0)
       nokogiri (~> 1.6)
       polyglot
@@ -285,7 +291,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.5.1)
       devise (>= 3.4)
-    devise_invitable (1.7.2)
+    devise_invitable (1.7.3)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
@@ -464,7 +470,7 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     progressbar (1.9.0)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
     rack-cors (1.0.2)
@@ -636,7 +642,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
     url (0.3.2)
-    valid_email2 (2.2.1)
+    valid_email2 (2.2.2)
       activemodel (>= 3.2)
       mail (~> 2.5)
     virtus (1.0.5)
@@ -670,9 +676,9 @@ DEPENDENCIES
   byebug
   dalli
   database_cleaner
-  decidim (= 0.9.2)
+  decidim!
   decidim-dataviz!
-  decidim-dev (= 0.9.2)
+  decidim-dev!
   decidim-initiatives!
   decidim-sortitions!
   deface
