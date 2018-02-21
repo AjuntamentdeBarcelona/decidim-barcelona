@@ -19,12 +19,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+            - dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install ruby dependencies
           command: bundle install --jobs=4 --retry=3
       - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+          key: dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - /usr/local/bundle/
       - run:
