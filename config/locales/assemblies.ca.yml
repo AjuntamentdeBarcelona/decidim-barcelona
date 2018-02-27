@@ -1,0 +1,84 @@
+ca:
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: S'ha produït un error en crear un nou òrgan.
+          success: Òrgan creada correctament.
+        destroy:
+          success: L'òrgan s'ha eliminat amb èxit.
+        new:
+          title: Nou òrgan
+        update:
+          error: S'ha produït un error en actualitzar aquesta assemblea.
+          success: L'assemblea s'ha actualitzat correctament.
+      assemblies_copies:
+        create:
+          error: S'ha produït un error en duplicar aquesta assemblea.
+          success: L'assemblea s'ha duplicat correctament.
+      assembly_copies:
+        new:
+          title: Òrgan duplicat
+      assembly_publications:
+        create:
+          error: S'ha produït un error en publicar aquest òrgan.
+          success: Òrgan publicat amb èxit.
+        destroy:
+          error: S'ha produït un error en despublicar aquest òrgan.
+          success: Òrgan despublicat amb èxit.
+      assembly_user_roles:
+        create:
+          error: S'ha produït un error en afegir un usuari per a aquest òrgan.
+          success: L'usuari s'ha creat correctament per a aquest òrgan.
+        destroy:
+          success: S'ha destruït l'usuari amb èxit per a aquest òrgan.
+        edit:
+          title: Actualitza l'usuari de l'òrgan.
+        index:
+          assembly_admins_title: Usuaris de l'òrgan
+        new:
+          title: Nou usuari de l'òrgan.
+        update:
+          error: S'ha produït un error en l'actualització d'un usuari per a aquest òrgan.
+          success: L'usuari s'ha actualitzat correctament per a aquest òrgan.
+      menu:
+        assemblies: Òrgans
+        assemblies_submenu:
+          assembly_admins: Usuaris de l'òrgan
+      models:
+        assembly:
+          name: Òrgan
+        assembly_user_role:
+          name: Usuari de l'òrgan
+      titles:
+        assemblies: Òrgans
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest òrgan. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest òrgan. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      index:
+        title: Òrgans
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Òrgans actius
+            see_all_assemblies: Veure tots els òrgans
+      statistics:
+        assemblies_count: Òrgans
+    menu:
+      assemblies: Òrgans
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          promoted_assemblies: Òrgans destacats
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} òrgan"
+            other: "%{count} òrgans"
+      assembly_header:
+        assembly_menu_item: L'òrgan
