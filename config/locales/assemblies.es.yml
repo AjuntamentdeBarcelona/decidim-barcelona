@@ -1,0 +1,84 @@
+es:
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Se produjo un error al crear un nuevo órgano.
+          success: Órgano creado correctamente.
+        destroy:
+          success: Órgano eliminado correctamente.
+        new:
+          title: Nuevo órgano.
+        update:
+          error: Se ha producido un error al actualizar este órgano.
+          success: El órgano se ha actualizado correctamente.
+      assemblies_copies:
+        create:
+          error: Se produjo un error al duplicar este órgano.
+          success: Órgano duplicado correctamente.
+      assembly_copies:
+        new:
+          title: Duplicar órgano.
+      assembly_publications:
+        create:
+          error: Se produjo un error al publicar este órgano.
+          success: Órgano publicado con éxito.
+        destroy:
+          error: Se produjo un error al despublicar este órgano.
+          success: Órgano eliminado con éxito.
+      assembly_user_roles:
+        create:
+          error: Se ha producido un error al crear un usuario en este órgano.
+          success: Usuario creado con éxito para este órgano.
+        destroy:
+          success: Usuario en este órgano eliminado con éxito.
+        edit:
+          title: Edita el usuario del órgano.
+        index:
+          assembly_admins_title: Usuarios del órgano.
+        new:
+          title: Nuevo usuario del órgano.
+        update:
+          error: Ha habido un error al actualizar un usuario para este órgano.
+          success: Usuario actualizado con éxito para este órgano.
+      menu:
+        assemblies: Órganos
+        assemblies_submenu:
+          assembly_admins: Usuarios de los órganos
+      models:
+        assembly:
+          name: Órgano
+        assembly_user_role:
+          name: Roles de usuario del órgano.
+      titles:
+        assemblies: Órganos
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este órgano. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este órgano. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+      index:
+        title: Órganos
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Órganos activos
+            see_all_assemblies: Ver todos los órganos
+      statistics:
+        assemblies_count: Órganos
+    menu:
+      assemblies: Órganos
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          promoted_assemblies: Órganos destacados
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} órgano"
+            other: "%{count} órganos"
+      assembly_header:
+        assembly_menu_item: Órgano
