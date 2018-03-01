@@ -6,9 +6,9 @@ es:
           error: Se produjo un error al crear un nuevo órgano.
           success: Órgano creado correctamente.
         destroy:
-          success: Órgano destruido correctamente.
+          success: Órgano eliminado correctamente.
         new:
-          title: Nuevo órgano
+          title: Nuevo órgano.
         update:
           error: Se ha producido un error al actualizar este órgano.
           success: El órgano se ha actualizado correctamente.
@@ -18,24 +18,24 @@ es:
           success: Órgano duplicado correctamente.
       assembly_copies:
         new:
-          title: Duplicar órgano
+          title: Duplicar órgano.
       assembly_publications:
         create:
           error: Se produjo un error al publicar este órgano.
           success: Órgano publicado con éxito.
         destroy:
           error: Se produjo un error al despublicar este órgano.
-          success: Órgano despublicado con éxito.
+          success: Órgano eliminado con éxito.
       assembly_user_roles:
         create:
-          error: Se ha producido un error al agregar un usuario para este órgano.
+          error: Se ha producido un error al crear un usuario en este órgano.
           success: Usuario creado con éxito para este órgano.
         destroy:
-          success: Usuario destruido con éxito para este órgano.
+          success: Usuario en este órgano eliminado con éxito.
         edit:
-          title: Actualizar el usuario del órgano.
+          title: Edita el usuario del órgano.
         index:
-          assembly_admins_title: Usuarios del Órgano
+          assembly_admins_title: Usuarios del órgano.
         new:
           title: Nuevo usuario del órgano.
         update:
@@ -49,7 +49,7 @@ es:
         assembly:
           name: Órgano
         assembly_user_role:
-          name: Usuario del órgano
+          name: Roles de usuario del órgano.
       titles:
         assemblies: Órganos
     assemblies:
@@ -81,4 +81,4 @@ es:
             one: "%{count} órgano"
             other: "%{count} órganos"
       assembly_header:
-        assembly_menu_item: El órgano
+        assembly_menu_item: Órgano

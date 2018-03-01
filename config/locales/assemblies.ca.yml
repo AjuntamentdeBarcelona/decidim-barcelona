@@ -4,21 +4,21 @@ ca:
       assemblies:
         create:
           error: S'ha produït un error en crear un nou òrgan.
-          success: Òrgan creada correctament.
+          success: Òrgan creat correctament.
         destroy:
-          success: L'òrgan s'ha eliminat amb èxit.
+          success: Òrgan eliminat correctament.
         new:
-          title: Nou òrgan
+          title: Nou òrgan.
         update:
-          error: S'ha produït un error en actualitzar aquesta assemblea.
-          success: L'assemblea s'ha actualitzat correctament.
+          error: S'ha produït un error en actualitzar aquest òrgan.
+          success: L'òrgan s'ha actualitzat correctament.
       assemblies_copies:
         create:
-          error: S'ha produït un error en duplicar aquesta assemblea.
+          error: S'ha produït un error en duplicar aquest òrgan.
           success: L'assemblea s'ha duplicat correctament.
       assembly_copies:
         new:
-          title: Òrgan duplicat
+          title: Duplicar òrgan.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquest òrgan.
@@ -28,14 +28,14 @@ ca:
           success: Òrgan despublicat amb èxit.
       assembly_user_roles:
         create:
-          error: S'ha produït un error en afegir un usuari per a aquest òrgan.
-          success: L'usuari s'ha creat correctament per a aquest òrgan.
+          error: S'ha produït un error en afegir un usuari en aquest òrgan.
+          success: L'usuari s'ha creat correctament en aquest òrgan.
         destroy:
-          success: S'ha destruït l'usuari amb èxit per a aquest òrgan.
+          success: Usuari en aquest òrgan eliminat amb èxit.
         edit:
-          title: Actualitza l'usuari de l'òrgan.
+          title: Edita l'usuari de l'òrgan.
         index:
-          assembly_admins_title: Usuaris de l'òrgan
+          assembly_admins_title: Usuaris de l'òrgan.
         new:
           title: Nou usuari de l'òrgan.
         update:
@@ -44,12 +44,12 @@ ca:
       menu:
         assemblies: Òrgans
         assemblies_submenu:
-          assembly_admins: Usuaris de l'òrgan
+          assembly_admins: Usuaris de l'òrgan.
       models:
         assembly:
           name: Òrgan
         assembly_user_role:
-          name: Usuari de l'òrgan
+          name: Rols d'usuari de l'òrgan
       titles:
         assemblies: Òrgans
     assemblies:
@@ -81,4 +81,4 @@ ca:
             one: "%{count} òrgan"
             other: "%{count} òrgans"
       assembly_header:
-        assembly_menu_item: L'òrgan
+        assembly_menu_item: Òrgan
