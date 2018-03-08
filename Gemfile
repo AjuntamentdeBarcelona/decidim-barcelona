@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "fix_meeting_update_scopes" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.9-stable" }
 
 ruby '2.5.0'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives", branch: "0.9-stable"
 gem "decidim-sortitions", git: "https://github.com/decidim/decidim-module-sortitions"
 
 gem "virtus-multiparams"
