@@ -15,7 +15,13 @@ module Decidim
       def initialize(feature, csv_file, current_user)
         @feature = feature
         @csv_file = csv_file
-        @extra_context = { current_feature: feature, current_organization: feature.organization, current_user: current_user}
+
+        @extra_context = {
+          current_feature: feature,
+          current_organization: feature.organization,
+          current_user: current_user,
+          current_participatory_space: feature.participatory_space
+        }
       end
 
       def import!

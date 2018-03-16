@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.9-with-progress" }
+DECIDIM_VERSION = "~> 0.10.0"
 
 ruby '2.5.0'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives", branch: "0.9-stable"
-gem "decidim-sortitions", git: "https://github.com/decidim/decidim-module-sortitions"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives", branch: "0.10-stable"
+gem "decidim-sortitions", git: "https://github.com/decidim/decidim-module-sortitions", branch: "0.10-stable"
 
 gem "virtus-multiparams"
 
@@ -16,6 +16,7 @@ gem 'lograge'
 gem 'faker'
 gem "deface"
 gem "progressbar"
+gem "puma"
 
 group :development, :test do
   gem 'byebug', platform: :mri

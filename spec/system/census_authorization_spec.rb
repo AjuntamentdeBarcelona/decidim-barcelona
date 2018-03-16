@@ -12,7 +12,7 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
       available_authorizations: authorizations
     )
   end
-  
+
   let(:authorizations) { ["census_authorization_handler"] }
   let!(:scope) { create :scope, organization: organization, code: "1" }
 
@@ -36,25 +36,8 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
     switch_to_host(organization.host)
   end
 
-  context "a new user" do
-    let(:user) { create(:user, :confirmed, organization: organization) }
-
-    context "when one authorization has been configured" do
-      before do
-        visit decidim.root_path
-        find(".sign-in-link").click
-
-        within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
-          find("*[type=submit]").click
-        end
-      end
-    end
-  end
-
   context "user account" do
-    let(:user) { create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
 
     before do
       login_as user, scope: :user
