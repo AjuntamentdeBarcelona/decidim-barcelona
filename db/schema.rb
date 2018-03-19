@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403122228) do
+ActiveRecord::Schema.define(version: 20180406101251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -273,6 +273,7 @@ ActiveRecord::Schema.define(version: 20180403122228) do
     t.datetime "updated_at", null: false
     t.date "end_voting_date", null: false
     t.date "results_published_at"
+    t.string "introductory_image"
     t.index ["decidim_highlighted_scope_id"], name: "index_decidim_consultations_on_decidim_highlighted_scope_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_consultation_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_consultations_on_decidim_organization_id"

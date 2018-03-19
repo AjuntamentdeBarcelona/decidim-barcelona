@@ -8,6 +8,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim-initiatives", branch: "0.10-stable"
 gem "decidim-sortitions", git: "https://github.com/decidim/decidim-module-sortitions", branch: "0.10-stable"
+gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-consultations"
 
 gem "virtus-multiparams"
 

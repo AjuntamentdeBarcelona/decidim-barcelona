@@ -16,6 +16,16 @@ GIT
       wicked
 
 GIT
+  remote: https://github.com/decidim/decidim-module-consultations
+  revision: 262ee804517453fac3c96d6c33976adbe7469920
+  specs:
+    decidim-consultations (0.10.0.pre)
+      decidim-admin
+      decidim-comments
+      decidim-core (~> 0.10.0.pre)
+      rails (~> 5.1)
+
+GIT
   remote: https://github.com/decidim/decidim-module-sortitions
   revision: 874565ae7c6f7e6bdb17363766bb31e5aa7f7abc
   branch: 0.10-stable
@@ -342,7 +352,7 @@ GEM
     graphiql-rails (1.4.10)
       railties
       sprockets-rails
-    graphql (1.7.13)
+    graphql (1.7.14)
     hashdiff (0.3.7)
     hashie (3.5.7)
     high_voltage (3.0.0)
@@ -449,7 +459,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.0.5)
       ast (~> 2.4.0)
-    passenger (5.2.2)
+    passenger (5.2.3)
       rack
       rake (>= 0.8.1)
     pg (1.0.0)
@@ -671,6 +681,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim (~> 0.10.0)
+  decidim-consultations!
   decidim-dataviz!
   decidim-dev (~> 0.10.0)
   decidim-initiatives!
