@@ -1,0 +1,16 @@
+es:
+  consultations_menu:
+    home: Multiconsulta
+    consultation: Multiconsulta 2018
+    url: /es/multiconsulta-2018
+    items:
+      - title: ¿Qué es?
+        path: /es/que-es
+      - title: Cuándo y cómo se puede votar
+        path: /es/cuando-y-como-se-puede-votar
+      - title: Preguntas
+        path: ~
+      - title: Participa en el proceso
+        path: /es/participa-en-el-proceso
+      - title: Dudas frecuentes
+        path: /es/dudas-frecuentes

@@ -1,0 +1,92 @@
+$(function() {
+  let allTranslations = <%= I18n.available_locales.inject({}) { |result, locale| result[locale] = I18n.t("consultations_menu", locale: locale); result }.to_json %>;
+  let locale = $("html").attr("lang");
+  let menuTranslations = allTranslations[locale];
+
+  let consultations = $(".main-nav li:nth-child(4)").clone();
+  $(".main-nav li:nth-child(4)").remove();
+  let template = ``;
+  let path = window.location.pathname;
+  let host = "<%= ENV["CONSULTATIONS_URL"] %>";
+
+  if (path.startsWith("/consultations") || path.startsWith("/questions")) {
+    $(".navbar").addClass("consultations");
+    $("#consultation-details").css("display", "none");
+    $(".consultations-header__container").css("display", "none");
+    template = `
+      <li class="main-nav__link main-nav__link--active _has_childs">
+        <a href="${host}${menuTranslations["url"]}" class="active">${menuTranslations["home"]}</a>
+        <nav class="_sub_nav">
+          <ul>
+              <li class="sub-nav__link sub-nav__link--active">
+                <a href="${host}${menuTranslations["url"]}" class="active">${menuTranslations["consultation"]}</a>
+              </li>
+              ${
+                menuTranslations["items"].map((item) => `
+                <li class="sub-nav__link ">
+                  <a href="${item["path"] ? host + item["path"] : '/consultations/multiconsulta-2018'}">${item["title"]}</a>
+                </li>
+                `).join("")
+              }
+          </ul>
+        </nav>
+      </li>
+    `;
+  } else {
+    template = `
+      <li class="main-nav__link _has_childs">
+        <a href="${host}${menuTranslations["url"]}" class="active">${menuTranslations["home"]}</a>
+      </li>
+    `;
+  }
+
+  $(template).insertAfter(".main-nav li:nth-child(2)");
+
+  let multiconsulta_menu = function() {
+    $("._has_childs").each(function(i, item) {
+      var _back = $(this)
+        .clone(true)
+        .off();
+      _back.find("nav").remove();
+      _back.removeClass("_has_childs");
+      _back.addClass("_back");
+      $(this)
+        .find("> ._sub_nav")
+        .find("ul")
+        .prepend(_back);
+    });
+
+    $(".main-nav__link--active")
+      .find("> ._sub_nav")
+      .addClass("_visible");
+
+    $("._has_childs").on("click", function(e) {
+      if (
+        !$(e.target)
+          .parent()
+          .hasClass("sub-nav__link")
+      ) {
+        e.preventDefault();
+      }
+      var _sub_nav = $(this).find("> ._sub_nav");
+      _sub_nav.addClass("_visible");
+    });
+
+    $("._back").on("click", function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      $(this)
+        .parent()
+        .parent()
+        .removeClass("_visible");
+    });
+  };
+
+  switch (Foundation.MediaQuery.current) {
+    case "small":
+      multiconsulta_menu();
+    case "smallmedium":
+      multiconsulta_menu();
+  }
+});
