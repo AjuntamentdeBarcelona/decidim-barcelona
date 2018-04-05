@@ -16,6 +16,17 @@ GIT
       wicked
 
 GIT
+  remote: https://github.com/decidim/decidim-module-consultations
+  revision: ada720bb3bac95b7b838cef7d802d653da1aa483
+  branch: 0.10-stable
+  specs:
+    decidim-consultations (0.10.0.pre)
+      decidim-admin
+      decidim-comments
+      decidim-core (~> 0.10.0.pre)
+      rails (~> 5.1)
+
+GIT
   remote: https://github.com/decidim/decidim-module-sortitions
   revision: 874565ae7c6f7e6bdb17363766bb31e5aa7f7abc
   branch: 0.10-stable
@@ -671,6 +682,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim (~> 0.10.0)
+  decidim-consultations!
   decidim-dataviz!
   decidim-dev (~> 0.10.0)
   decidim-initiatives!
