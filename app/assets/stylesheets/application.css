@@ -12,5 +12,6 @@
  *
  *= require decidim
  *= require multiconsulta
+ *= require multiconsulta_patch
  *= require_self
  */

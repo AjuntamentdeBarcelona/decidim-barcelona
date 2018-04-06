@@ -1,0 +1,14 @@
+@font-face {
+	font-family: "icoajuntament";
+	src: asset-url("icoajuntament.ttf") format("truetype");
+}
+
+.navbar.consultations ._sub_nav ul .sub-nav__link:first-of-type a {
+	color: #e5e5e5 !important;
+}
+
+.hide-for-medium {
+	.navbar.consultations ._sub_nav ul .sub-nav__link:first-of-type a {
+		color: transparent !important;
+	}
+}
