@@ -17,6 +17,7 @@ gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
+gem "secure_headers"
 
 group :development, :test do
   gem 'byebug', platform: :mri
