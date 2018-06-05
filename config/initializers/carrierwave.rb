@@ -22,6 +22,9 @@ if Rails.application.secrets.aws_access_key_id.present?
       host:                  's3.eu-central-1.amazonaws.com',                                  # optional, defaults to nil
     }
     config.fog_directory  = ENV.fetch("AWS_BUCKET_NAME", 'decidim-barcelona-new')              # required
-    config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" }    # optional, defaults to {}
+    config.fog_attributes = {
+      'Cache-Control' => "max-age=#{365.day.to_i}",
+      'X-Content-Type-Options' => "nosniff"
+    }
   end
 end
