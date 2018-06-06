@@ -17,7 +17,6 @@ gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
-gem "secure_headers"
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -43,6 +42,7 @@ group :production do
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
   gem "rack_password"
+  gem "secure_headers"
 end
 
 group :test do
