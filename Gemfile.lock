@@ -586,7 +586,6 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    secure_headers (6.0.0)
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -691,7 +690,6 @@ DEPENDENCIES
   rails_autoscale_agent
   rspec-rails
   rubocop
-  secure_headers
   sentry-raven
   sidekiq
   spring
