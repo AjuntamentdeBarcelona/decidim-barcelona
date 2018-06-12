@@ -4,23 +4,23 @@ require "csv"
 module Decidim
   module Accountability
     # This class handles importing results from a CSV file.
-    # Needs a `current_feature` param with a `Decidim::Feature`
-    # in order to import the results in that feature.
+    # Needs a `current_component` param with a `Decidim::component`
+    # in order to import the results in that component.
     class ResultsCSVImporter
       include Decidim::FormFactory
 
       # Public: Initializes the service.
-      # feature       - A Decidim::Feature to import the results into.
+      # component       - A Decidim::component to import the results into.
       # csv_file      - The contents of the CSV to read.
-      def initialize(feature, csv_file, current_user)
-        @feature = feature
+      def initialize(component, csv_file, current_user)
+        @component = component
         @csv_file = csv_file
 
         @extra_context = {
-          current_feature: feature,
-          current_organization: feature.organization,
+          current_component: component,
+          current_organization: component.organization,
           current_user: current_user,
-          current_participatory_space: feature.participatory_space
+          current_participatory_space: component.participatory_space
         }
       end
 
@@ -58,8 +58,8 @@ module Decidim
               params["result"]["progress"] = status.progress if status.progress.present?
             end
 
-            default_locale = @feature.participatory_space.organization.default_locale
-            available_locales = @feature.participatory_space.organization.available_locales
+            default_locale = @component.participatory_space.organization.default_locale
+            available_locales = @component.participatory_space.organization.available_locales
 
             available_locales.each do |locale|
               params["result"]["title_#{locale}"] = params["result"]["title_#{default_locale}"] if params["result"]["title_#{locale}"].blank?

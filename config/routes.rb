@@ -3,7 +3,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  feature_translations = {
+  component_translations = {
     action_plans: [:results, Decidim::Accountability::Result],
     meetings: [:meetings, Decidim::Meetings::Meeting],
     proposals: [:proposals, Decidim::Proposals::Proposal],
@@ -11,25 +11,25 @@ Rails.application.routes.draw do
   }
 
   constraints host: /(www\.)?decidim\.barcelona/ do
-    get "/:process_slug/:step_id/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
-                                                                constraints: {
-                                                                  process_id: /[^0-9]+/,
-                                                                  step_id: /[0-9]+/,
-                                                                  feature_name: Regexp.new(feature_translations.keys.join("|"))
-                                                                }
+    get "/:process_slug/:step_id/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
+                                                                  constraints: {
+                                                                    process_id: /[^0-9]+/,
+                                                                    step_id: /[0-9]+/,
+                                                                    component_name: Regexp.new(component_translations.keys.join("|"))
+                                                                  }
 
-    get "/:process_slug/:feature_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(feature_translations)),
-                                                       constraints: { process_id: /[^0-9]+/, feature_name: Regexp.new(feature_translations.keys.join("|")) }
+    get "/:process_slug/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
+                                                         constraints: { process_id: /[^0-9]+/, component_name: Regexp.new(component_translations.keys.join("|")) }
 
-    get "/:feature_name/:resource_id", to: redirect { |params, _request|
-      feature_translation = feature_translations[params[:feature_name].to_sym]
-      resource_class = feature_translation[1]
+    get "/:component_name/:resource_id", to: redirect { |params, _request|
+      component_translation = component_translations[params[:component_name].to_sym]
+      resource_class = component_translation[1]
       resource = resource_class.where("extra->>'slug' = ?", params[:resource_id]).first || resource_class.find(params[:resource_id])
-      feature = resource.feature
-      process = feature.participatory_space
-      feature_manifest_name = feature.manifest_name
-      "/processes/#{process.id}/f/#{feature.id}/#{feature_manifest_name}/#{resource.id}"
-    }, constraints: { feature_name: Regexp.new(feature_translations.keys.join("|")) }
+      component = resource.component
+      process = component.participatory_space
+      component_manifest_name = component.manifest_name
+      "/processes/#{process.id}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
+    }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")) }
   end
 
   authenticate :user, ->(u) { u.admin? } do
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/accountability", to: "static#accountability", as: :accountability_static
   get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
 
-  scope "/processes/:participatory_process_slug/f/:feature_id" do
+  scope "/processes/:participatory_process_slug/f/:component_id" do
     get :export_results, to: "export_results#csv"
 
     get :import_results, to: "decidim/accountability/admin/import_results#new"

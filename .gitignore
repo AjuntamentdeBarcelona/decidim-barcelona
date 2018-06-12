@@ -20,3 +20,5 @@
 /public/uploads/*
 .DS_Store
 /imports
+
+.rspec-failures

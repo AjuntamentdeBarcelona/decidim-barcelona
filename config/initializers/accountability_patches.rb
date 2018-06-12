@@ -25,7 +25,7 @@ Decidim::Accountability::Admin::CreateResult.class_eval do
     @result = Decidim.traceability.create!(
       Decidim::Accountability::ResultWithWeightedProgress,
       @form.current_user,
-      feature: @form.current_feature,
+      component: @form.current_component,
       scope: @form.scope,
       category: @form.category,
       parent_id: @form.parent_id,

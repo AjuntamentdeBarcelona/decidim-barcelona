@@ -9,13 +9,13 @@ describe Decidim::Accountability::ResultsCSVImporter do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:current_user) { create :user, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
+  let(:current_component) { create :accountability_component, participatory_space: participatory_process }
   let(:valid_csv) { File.read("spec/fixtures/valid_results.csv") }
   let(:invalid_csv) { File.read("spec/fixtures/invalid_results.csv") }
-  let!(:parent_result) { create :result, feature: current_feature, external_id: "pm-act-423" }
+  let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }
 
   context "with a valid CSV" do
-    subject { described_class.new(current_feature, valid_csv, current_user) }
+    subject { described_class.new(current_component, valid_csv, current_user) }
 
     describe "#import!" do
       context "when results are new" do
@@ -25,8 +25,8 @@ describe Decidim::Accountability::ResultsCSVImporter do
       end
 
       context "when results exist" do
-        let!(:result1) { create :result, feature: current_feature, external_id: "8", progress: 0 }
-        let!(:result2) { create :result, feature: current_feature, external_id: "9", progress: 0 }
+        let!(:result1) { create :result, component: current_component, external_id: "8", progress: 0 }
+        let!(:result2) { create :result, component: current_component, external_id: "9", progress: 0 }
 
         it "should update them" do
           subject.import!
@@ -45,7 +45,7 @@ describe Decidim::Accountability::ResultsCSVImporter do
   end
 
   context "with an invalid CSV" do
-    subject { described_class.new(current_feature, invalid_csv, current_user) }
+    subject { described_class.new(current_component, invalid_csv, current_user) }
 
     describe "#import!" do
       it "should return errors" do
