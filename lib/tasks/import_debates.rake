@@ -6,13 +6,13 @@ namespace :import do
 
     ActiveRecord::Base.transaction do
       Decidim::Debates::Debate.delete_all
-      Decidim::Feature.where(manifest_name: "debates").delete_all
+      Decidim::Component.where(manifest_name: "debates").delete_all
 
       progress_bar = Importer.progress_bar("Debates", data.length)
 
       data.each do |debate_data|
         process = Decidim::ParticipatoryProcess.where(id: debate_data.delete("process_id")).first
-        feature = create_debates_feature(process)
+        component = create_debates_component(process)
 
         Decidim::Debates::Debate.create!(
           id: debate_data.fetch("id"),
@@ -23,7 +23,7 @@ namespace :import do
           end_time: debate_data.fetch("end_time"),
           created_at: debate_data.fetch("created_at"),
           updated_at: debate_data.fetch("updated_at"),
-          feature: feature,
+          component: component,
           extra: debate_data.fetch("extra")
         )
 
@@ -34,23 +34,23 @@ namespace :import do
     end
   end
 
-  def create_debates_feature(process)
-    feature = Decidim::Feature.find_or_initialize_by(
+  def create_debates_component(process)
+    component = Decidim::Component.find_or_initialize_by(
       manifest_name: "debates",
       participatory_process: process
     )
 
-    feature["settings"] = {
+    component["settings"] = {
       global: {
         comments_always_enabled: true
       }
     }
 
-    unless feature.persisted?
-      feature.name = { ca: "Debats", es: "Debates"}
-      feature.save!
+    unless component.persisted?
+      component.name = { ca: "Debats", es: "Debates"}
+      component.save!
     end
 
-    feature
+    component
   end
 end

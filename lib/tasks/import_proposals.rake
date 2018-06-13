@@ -6,7 +6,7 @@ namespace :import do
 
     ActiveRecord::Base.transaction do
       Decidim::Proposals::Proposal.delete_all
-      Decidim::Feature.where(manifest_name: "proposals").delete_all
+      Decidim::Component.where(manifest_name: "proposals").delete_all
 
       progress_bar = Importer.progress_bar("Proposals", data.length)
 
@@ -14,7 +14,7 @@ namespace :import do
         process = Decidim::ParticipatoryProcess.where(id: proposal_data.fetch("process_id")).first
         next unless process
 
-        feature = create_feature(process)
+        component = create_component(process)
 
         author = Decidim::User.find(proposal_data.fetch("author_id"))
         user_group = author.user_groups.verified.first
@@ -30,7 +30,7 @@ namespace :import do
             proposal_data.fetch("subcategory_id")
           ),
           scope: scope,
-          feature: feature,
+          component: component,
           title: proposal_data.fetch("title"),
           body: proposal_data.fetch("body"),
           created_at: proposal_data.fetch("created_at"),
@@ -51,13 +51,13 @@ namespace :import do
     end
   end
 
-  def create_feature(process)
-    feature = Decidim::Feature.find_or_initialize_by(
+  def create_component(process)
+    component = Decidim::Component.find_or_initialize_by(
       manifest_name: "proposals",
       participatory_process: process
     )
 
-    return feature if feature.persisted?
+    return component if component.persisted?
 
     global_settings = {}
 
@@ -77,14 +77,14 @@ namespace :import do
       result.update(step.id.to_s => settings)
     end
 
-    feature.name = { ca: "Propostes", es: "Propuestas"}
+    component.name = { ca: "Propostes", es: "Propuestas"}
 
-    feature["settings"] = {
+    component["settings"] = {
       global: global_settings,
       steps: step_settings
     }
 
-    feature.save!
-    feature
+    component.save!
+    component
   end
 end

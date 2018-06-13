@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 namespace :migrate do
-  desc "Copy results from Decidim::Results feature to Decidim::Accountability feature for process (default 1 - PAM)"
+  desc "Copy results from Decidim::Results component to Decidim::Accountability component for process (default 1 - PAM)"
   task :results_to_accountability, [:process_id] => :environment do |_, args|
     process_id = args.process_id.presence || 1
 
     process = Decidim::ParticipatoryProcess.find_by(id: process_id)
     abort "Process #{process_id} not found" unless process.present?
 
-    results_feature = process.features.where(manifest_name: "results").first
-    abort "Results feature not found for process" unless results_feature.present?
+    results_component = process.components.where(manifest_name: "results").first
+    abort "Results component not found for process" unless results_component.present?
 
-    accountability_feature = process.features.where(manifest_name: "accountability").first
-    abort "Accountability feature not found for process" unless accountability_feature.present?
+    accountability_component = process.components.where(manifest_name: "accountability").first
+    abort "Accountability component not found for process" unless accountability_component.present?
 
     # Copy results maintaining original record id
-    Decidim::Results::Result.where(feature: results_feature).find_each do |result|
+    Decidim::Results::Result.where(component: results_component).find_each do |result|
       accountability_result = Decidim::Accountability::Result.create!(
         id: result.id,
-        feature: accountability_feature,
+        component: accountability_component,
         scope: result.scope,
         category: result.category,
         title: result.title,

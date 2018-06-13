@@ -2,13 +2,13 @@
 
 class ExportResultsController < ApplicationController
   def csv
-    send_data Decidim::Accountability::ResultsCSVExporter.new(current_feature).export, filename: "results.csv", disposition: "attachment"
+    send_data Decidim::Accountability::ResultsCSVExporter.new(current_component).export, filename: "results.csv", disposition: "attachment"
   end
 
   private
 
-  def current_feature
-    @feature ||= current_participatory_process.features.find(params[:feature_id])
+  def current_component
+    @component ||= current_participatory_process.components.find(params[:component_id])
   end
 
   def current_participatory_process

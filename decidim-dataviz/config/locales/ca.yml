@@ -57,6 +57,6 @@ ca:
                 i respostes a comentaris dins de les propostes, mostrant així la relació
                 entre usuàries a través de les propostes.
               title: Xarxa d'interaccions
-    features:
+    components:
       dataviz:
         name: Visualitzacions del PAM

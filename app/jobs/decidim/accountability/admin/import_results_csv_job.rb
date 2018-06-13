@@ -6,8 +6,8 @@ module Decidim
       class ImportResultsCSVJob < ApplicationJob
         queue_as :default
 
-        def perform(current_user, current_feature, csv_file)
-          importer = Decidim::Accountability::ResultsCSVImporter.new(current_feature, csv_file, current_user)
+        def perform(current_user, current_component, csv_file)
+          importer = Decidim::Accountability::ResultsCSVImporter.new(current_component, csv_file, current_user)
 
           errors = importer.import!
 
