@@ -37,6 +37,9 @@ jobs:
           name: Create test DB
           command: RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
+          name: Precompile assets
+          command: RAILS_ENV=test bundle exec rake assets:precompile
+      - run:
           name: Run main tests
           command: bundle exec rake
       - store_artifacts:
