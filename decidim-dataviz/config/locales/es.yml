@@ -56,6 +56,6 @@ es:
                 y respuestas a comentarios dentro de las propuestas, mostrando así la
                 relación entre usuàrias a través de las propuestas.
               title: Red de interacciones
-    features:
+    components:
       dataviz:
         name: Visualizaciones del PAM

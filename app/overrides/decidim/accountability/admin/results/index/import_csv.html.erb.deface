@@ -1,2 +1,2 @@
 <!-- insert_bottom ".button--title" -->
-<%= link_to t("decidim.accountability.admin.shared.subnav.import_csv"), Rails.application.routes.url_helpers.import_results_path(current_participatory_space, current_feature), class: 'button tiny button--simple' %>
+<%= link_to t("decidim.accountability.admin.shared.subnav.import_csv"), Rails.application.routes.url_helpers.import_results_path(current_participatory_space, current_component), class: 'button tiny button--simple' %>

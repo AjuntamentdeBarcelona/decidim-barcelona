@@ -6,13 +6,13 @@ namespace :import do
 
     ActiveRecord::Base.transaction do
       Decidim::Results::Result.delete_all
-      Decidim::Feature.where(manifest_name: "results").delete_all
+      Decidim::Component.where(manifest_name: "results").delete_all
 
       progress_bar = Importer.progress_bar("Results", data.length)
 
       data.each do |result_data|
         process = Decidim::ParticipatoryProcess.where(id: result_data.fetch("process_id")).first
-        feature = create_results_feature(process)
+        component = create_results_component(process)
         scope = Decidim::Scope.where(id: result_data.fetch("scope_id")).first
 
         mirrored_keys = [
@@ -33,7 +33,7 @@ namespace :import do
               result_data.fetch("subcategory_id")
             ),
             scope: scope,
-            feature: feature
+            component: component
           )
         )
 
@@ -55,17 +55,17 @@ namespace :import do
     end
   end
 
-  def create_results_feature(process)
-    feature = Decidim::Feature.find_or_initialize_by(
+  def create_results_component(process)
+    component = Decidim::Component.find_or_initialize_by(
       manifest_name: "results",
       participatory_process: process
     )
 
-    unless feature.persisted?
-      feature.name = { ca: "Actuacions", es: "Actuaciones"}
-      feature.save!
+    unless component.persisted?
+      component.name = { ca: "Actuacions", es: "Actuaciones"}
+      component.save!
     end
 
-    feature
+    component
   end
 end

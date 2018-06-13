@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      # This controller allows an admin to import results from a csv file for the Accountability feature
+      # This controller allows an admin to import results from a csv file for the Accountability component
       class ImportResultsController < Admin::ApplicationController
         def new
           @errors = []
@@ -13,16 +13,16 @@ module Decidim
           @csv_file = params[:csv_file]
           redirect_to(new_import_path) && return if @csv_file.blank?
 
-          Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_feature, @csv_file.read.force_encoding('utf-8').encode('utf-8'))
+          Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_component, @csv_file.read.force_encoding('utf-8').encode('utf-8'))
 
           flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
-          redirect_to Rails.application.routes.url_helpers.import_results_path(current_participatory_process, current_feature)
+          redirect_to Rails.application.routes.url_helpers.import_results_path(current_participatory_process, current_component)
         end
 
         private
 
-        def current_feature
-          @feature ||= current_participatory_process.features.find(params[:feature_id])
+        def current_component
+          @component ||= current_participatory_process.components.find(params[:component_id])
         end
 
         def current_participatory_process

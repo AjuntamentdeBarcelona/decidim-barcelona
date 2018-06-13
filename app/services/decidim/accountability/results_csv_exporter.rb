@@ -4,17 +4,17 @@ require "csv"
 module Decidim
   module Accountability
     # This class handles exporting results to a CSV file.
-    # Needs a `current_feature` param with a `Decidim::Feature`
+    # Needs a `current_component` param with a `Decidim::Component`
     class ResultsCSVExporter
       # Public: Initializes the service.
-      # feature       - A Decidim::Feature to import the results into.
-      def initialize(feature)
-        @feature = feature
+      # component       - A Decidim::component to import the results into.
+      def initialize(component)
+        @component = component
       end
 
       def export
         results = Decidim::Accountability::Result
-          .where(feature: @feature)
+          .where(component: @component)
           .includes(:category, :resource_links_from, :resource_links_to)
           .order(:id)
 
@@ -32,7 +32,7 @@ module Decidim
             "proposal_ids"
           ]
 
-          available_locales = @feature.participatory_space.organization.available_locales
+          available_locales = @component.participatory_space.organization.available_locales
           available_locales.each do |locale|
             headers << "title_#{locale}"
             headers << "description_#{locale}"
