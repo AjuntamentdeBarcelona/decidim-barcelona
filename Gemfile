@@ -4,10 +4,10 @@ DECIDIM_VERSION = "~> 0.12.0"
 
 ruby '2.5.0'
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-sortitions", DECIDIM_VERSION
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
+gem "decidim-sortitions", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
 
 gem "virtus-multiparams"
 
@@ -20,7 +20,7 @@ gem "puma"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
   gem "bootsnap"
 end
 
