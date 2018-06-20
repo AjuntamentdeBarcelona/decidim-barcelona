@@ -9,10 +9,10 @@ describe Decidim::Accountability::ResultsCSVExporter do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:current_user) { create :user, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-  let!(:parent_result) { create :result, feature: current_feature, external_id: "pm-act-423" }
+  let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+  let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }
 
-  subject { described_class.new(current_feature) }
+  subject { described_class.new(current_component) }
 
   describe "#export" do
     it "should update them" do
