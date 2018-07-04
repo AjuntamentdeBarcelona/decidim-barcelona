@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 03a10128e22504239f4d852f5b30981fa94bea1d
+  revision: 9eaaa6d22ddf0980b14aee75b741d05b467895a5
   branch: 0.12-stable
   specs:
     decidim (0.12.1)
@@ -469,7 +469,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.8)
+    mixlib-config (2.2.11)
       tomlrb
     msgpack (1.2.4)
     multi_json (1.13.1)
@@ -769,6 +769,7 @@ DEPENDENCIES
   rails_autoscale_agent
   rspec-rails
   rubocop
+  sassc (~> 1.11.0)
   sentry-raven
   sidekiq
   spring

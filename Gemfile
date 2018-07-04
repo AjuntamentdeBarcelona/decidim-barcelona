@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "~> 0.12.0"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "0.12-stable" }
 
 ruby '2.5.1'
 
@@ -8,6 +8,8 @@ gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "0.12-stab
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
 gem "decidim-sortitions", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
+
+gem "sassc", "~>1.11.0"
 
 gem "virtus-multiparams"
 
