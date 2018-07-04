@@ -9,6 +9,8 @@ gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
+gem "sassc", "~>1.11.0"
+
 gem "virtus-multiparams"
 
 gem 'uglifier'
