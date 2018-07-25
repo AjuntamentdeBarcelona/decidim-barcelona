@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "backport/order_survey_answers_by_id" }
+DECIDIM_VERSION = "~> 0.13.1"
 
 ruby '2.5.0'
 
