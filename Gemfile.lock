@@ -661,6 +661,7 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
+    scout_apm (2.4.19)
     searchlight (4.1.0)
     selenium-webdriver (3.13.1)
       childprocess (~> 0.5)
@@ -770,6 +771,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sassc (~> 1.11.0)
+  scout_apm
   sentry-raven
   sidekiq
   spring
@@ -782,4 +784,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.4

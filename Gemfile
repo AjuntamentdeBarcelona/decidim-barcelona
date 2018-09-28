@@ -44,6 +44,7 @@ group :production do
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
   gem "rack_password"
+  gem "scout_apm"
 end
 
 group :test do
