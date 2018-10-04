@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
+  get "/pages/faq", to: redirect("/pages/more-information")
+
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
