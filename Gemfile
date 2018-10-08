@@ -1,15 +1,15 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "0.12-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "0.14-stable" }
 
-ruby '2.5.1'
+ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
+gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-initiatives", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
-gem "decidim-sortitions", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
+gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-sortitions", DECIDIM_VERSION
 
-gem "sassc", "~>1.11.0"
+gem "sassc", "~>1.12.0"
 
 gem "virtus-multiparams"
 
@@ -22,7 +22,7 @@ gem "puma"
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "decidim-dev", git: "https://github.com/decidim/decidim.git", branch: "0.12-stable"
+  gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"
 end
 
