@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     get "/:component_name/:resource_id", to: redirect { |params, _request|
       component_translation = component_translations[params[:component_name].to_sym]
       resource_class = component_translation[1]
-      resource = resource_class.where("extra->>'slug' = ?", params[:resource_id]).first || resource_class.find(params[:resource_id])
+      resource = if resource_class.column_names.include?("extra")
+                   resource_class.where("extra->>'slug' = ?", params[:resource_id]).first || resource_class.find(params[:resource_id])
+                 else
+                   resource_class.find(params[:resource_id])
+                 end
       component = resource.component
       process = component.participatory_space
       component_manifest_name = component.manifest_name
