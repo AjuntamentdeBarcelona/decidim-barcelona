@@ -19,6 +19,8 @@ Decidim.configure do |config|
       here_app_code: Rails.application.secrets.geocoder[:here_app_code]
     }
   end
+
+  config.sms_gateway_service = "SmsGateway"
 end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
