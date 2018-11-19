@@ -7,7 +7,7 @@ es:
         document_number: Número de documento
         document_type: Tipo de documento
         postal_code: Código postal
-        scope: Distrito
+        scope_id: Distrito
   census_authorization:
     form:
       date_select:
@@ -61,6 +61,11 @@ es:
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en éste proyecto:'
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            census_authorization_handler: Verifícate con el padrón
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito
