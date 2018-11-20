@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "~> 0.14.2"
+DECIDIM_VERSION = "~> 0.14.4"
 
-ruby '2.5.0'
+ruby '2.5.3'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
