@@ -758,11 +758,11 @@ DEPENDENCIES
   byebug
   dalli
   database_cleaner
-  decidim (~> 0.15.0)
+  decidim (~> 0.15.1)
   decidim-dataviz!
-  decidim-dev (~> 0.15.0)
-  decidim-initiatives (~> 0.15.0)
-  decidim-sortitions (~> 0.15.0)
+  decidim-dev (~> 0.15.1)
+  decidim-initiatives (~> 0.15.1)
+  decidim-sortitions (~> 0.15.1)
   deface
   faker
   fog-aws
