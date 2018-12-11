@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "~> 0.14.4"
+DECIDIM_VERSION = "~> 0.15.1"
 
 ruby '2.5.3'
 
