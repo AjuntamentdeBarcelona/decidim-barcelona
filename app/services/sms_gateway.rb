@@ -21,7 +21,9 @@ class SmsGateway
   def response
     return @response if defined?(@response)
 
-    response ||= Faraday.post Rails.application.secrets.sms.fetch(:service_url) do |request|
+    Faraday.ignore_env_proxy = true
+    connection = Faraday.new(Rails.application.secrets.sms.fetch(:service_url), proxy: Rails.application.secrets.sms.fetch(:proxy_url))
+    response = connection.post do |request|
       request.headers["Content-Type"] = "text/xml"
       request.body = request_body
     end
