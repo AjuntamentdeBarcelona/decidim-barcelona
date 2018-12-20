@@ -42,7 +42,7 @@ class SmsGateway
 
     error = response.xpath("//faultstring").text
 
-    Raven.capture_message("Error while sending an SMS", error: error)
+    Raven.capture_message("Error while sending an SMS: #{error}")
   end
 
   def request_body
