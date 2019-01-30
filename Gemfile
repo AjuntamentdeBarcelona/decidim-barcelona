@@ -19,6 +19,7 @@ gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
+gem "origami"
 
 group :development, :test do
   gem 'byebug', platform: :mri
