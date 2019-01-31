@@ -303,6 +303,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
     crack (0.4.3)
@@ -519,6 +520,8 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    origami (2.1.0)
+      colorize (~> 0.7)
     orm_adapter (0.5.0)
     paper_trail (9.2.0)
       activerecord (>= 4.2, < 5.3)
@@ -774,6 +777,7 @@ DEPENDENCIES
   listen
   lograge
   newrelic_rpm
+  origami
   passenger
   progressbar
   puma
