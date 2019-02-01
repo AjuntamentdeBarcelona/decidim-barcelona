@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "0.16-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "master" }
 
 ruby RUBY_VERSION
 
@@ -13,6 +13,8 @@ gem "sassc", "~>1.12.0"
 
 gem "virtus-multiparams"
 
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
 gem 'uglifier'
 gem 'lograge'
 gem 'faker'

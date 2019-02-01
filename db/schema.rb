@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_111361) do
+ActiveRecord::Schema.define(version: 2019_02_01_120232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -583,6 +583,12 @@ ActiveRecord::Schema.define(version: 2019_02_01_111361) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "banner_image"
+    t.boolean "collect_user_extra_fields", default: false
+    t.boolean "online_signature_enabled", default: true, null: false
+    t.jsonb "extra_fields_legal_information"
+    t.integer "minimum_committee_members"
+    t.boolean "validate_sms_code_on_votes", default: false
+    t.string "document_number_authorization_handler"
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -592,6 +598,9 @@ ActiveRecord::Schema.define(version: 2019_02_01_111361) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "decidim_user_group_id"
+    t.text "encrypted_metadata"
+    t.string "timestamp"
+    t.string "hash_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
     t.index ["decidim_initiative_id", "decidim_author_id", "decidim_user_group_id"], name: "decidim_initiatives_voutes_author_uniqueness_index", unique: true
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
