@@ -23,6 +23,9 @@ Decidim.configure do |config|
   if Rails.application.secrets.sms.values.all?(&:present?)
     config.sms_gateway_service = "SmsGateway"
   end
+
+  config.timestamp_service = "TimestampService"
+  config.pdf_signature_service = "PdfSignatureBarcelona"
 end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
