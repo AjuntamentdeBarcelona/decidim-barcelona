@@ -49,7 +49,7 @@ class PdfSignatureBarcelona
   private
 
   def missing_configuration?
-    [pdf_certificate, der_pkcs12_path, signature_certificate_password].any?(&:blank?)
+    [pdf_certificate, certificate, private_key, signature_certificate_password].any?(&:blank?)
   end
 
   def extract_signed_pdf(parsed_pdf)
@@ -98,17 +98,29 @@ class PdfSignatureBarcelona
 
   def private_key
     @private_key ||= begin
-                       private_cert = File.binread der_pkcs12_path
                        OpenSSL::PKCS12.new private_cert, signature_certificate_password
                      end
   end
 
-  def pdf_certificate
-    Rails.application.secrets.pdf_certificate
+  def private_cert
+    @private_cert ||= OpenSSL::PKCS12.create(
+                        signature_certificate_password,
+                        'PDF signer',
+                        OpenSSL::PKey.read(private_key),
+                        OpenSSL::X509::Certificate.new(certificate)
+                      )
   end
 
-  def der_pkcs12_path
-    Rails.application.secrets.der_pkcs12_path
+  def private_key
+    ENV['PDF_SIGNER_PRIVATE_KEY']
+  end
+
+  def certificate
+    ENV['PDF_SIGNER_CERTIFICATE']
+  end
+
+  def pdf_certificate
+    Rails.application.secrets.pdf_certificate
   end
 
   def signature_certificate_password
