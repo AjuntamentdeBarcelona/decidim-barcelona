@@ -61,6 +61,8 @@ ca:
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
+    sms:
+      text: "El teu codi per verificar-te a Decidim Barcelona és: %{code}"
     verifications:
       authorizations:
         first_login:

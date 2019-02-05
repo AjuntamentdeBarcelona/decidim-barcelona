@@ -9,5 +9,7 @@ en:
         nie: NIE
         passport: Passport
       explanation: Get verified with the census
+    sms:
+      text: "Your code to be verified at Decidim Barcelona is: %{code}"
   menu:
     accountability_static: Accountability
