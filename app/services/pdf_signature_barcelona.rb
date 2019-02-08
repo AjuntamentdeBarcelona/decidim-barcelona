@@ -101,20 +101,16 @@ class PdfSignatureBarcelona
                         signature_certificate_password,
                         'PDF signer',
                         OpenSSL::PKey.read(signer_private_key),
-                        OpenSSL::X509::Certificate.new(certificate)
+                        certificate
                       )
   end
 
   def signer_private_key
-    ENV['PDF_SIGNER_PRIVATE_KEY']
-  end
-
-  def certificate
-    ENV['PDF_SIGNER_CERTIFICATE']
+    Rails.application.secrets.pdf_signer_private_key
   end
 
   def pdf_certificate
-    Rails.application.secrets.pdf_certificate
+    Rails.application.secrets.pdf_signer_certificate
   end
 
   def signature_certificate_password
