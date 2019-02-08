@@ -106,12 +106,12 @@ class PdfSignatureBarcelona
     @private_cert ||= OpenSSL::PKCS12.create(
                         signature_certificate_password,
                         'PDF signer',
-                        OpenSSL::PKey.read(private_key),
+                        OpenSSL::PKey.read(signer_private_key),
                         OpenSSL::X509::Certificate.new(certificate)
                       )
   end
 
-  def private_key
+  def signer_private_key
     ENV['PDF_SIGNER_PRIVATE_KEY']
   end
 
