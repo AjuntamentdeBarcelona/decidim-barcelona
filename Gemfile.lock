@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: f8fc67b10370a1c28f074a6c700b226cf4691366
+  revision: 7323ff85785dc2421a7be9b6171113aa82d371ad
   branch: master
   specs:
     decidim (0.17.0.dev)
@@ -348,8 +348,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.7.2)
-      devise (>= 4.5)
+    devise-i18n (1.8.0)
+      devise (>= 4.6)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
@@ -723,7 +723,7 @@ GEM
     smart_properties (1.13.1)
     social-share-button (1.2.0)
       coffee-rails
-    spreadsheet (1.1.9)
+    spreadsheet (1.2.0)
       ruby-ole (>= 1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
