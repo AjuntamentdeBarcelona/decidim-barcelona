@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_085808) do
+ActiveRecord::Schema.define(version: 2019_02_25_083852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1323,6 +1323,14 @@ ActiveRecord::Schema.define(version: 2019_02_18_085808) do
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true
   end
 
+  create_table "decidim_verifications_csv_data", force: :cascade do |t|
+    t.string "email"
+    t.bigint "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1396,6 +1404,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_085808) do
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
   add_foreign_key "decidim_users", "decidim_organizations"
+  add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
