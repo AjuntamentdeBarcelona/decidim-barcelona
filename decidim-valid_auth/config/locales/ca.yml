@@ -1,0 +1,6 @@
+ca:
+  decidim:
+    authorization_handlers:
+      valid_auth:
+        explanation: Verifica't amb el Valid
+        name: Valid
