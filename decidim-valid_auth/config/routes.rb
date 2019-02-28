@@ -1,5 +1,9 @@
 Decidim::ValidAuth::Engine.routes.draw do
-  resource :authorizations, only: [:new, :create, :edit, :update], as: :authorization
+  resource :authorizations, only: [:new], as: :authorization do
+    collection do
+      get :validate
+    end
+  end
 
   root to: "authorizations#new"
 end
