@@ -14,7 +14,7 @@ module Decidim
       def validate
         enforce_permission_to :create, :authorization, authorization: @authorization
 
-        @form = ValidAuthForm.from_params(params.merge(user: user))
+        @form = ValidAuthForm.from_params(params.merge(user: current_user))
 
         ValidateValidAuth.call(@authorization, @form) do
           on(:ok) do
@@ -23,8 +23,8 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("authorizations.create.error", scope: "decidim.valid_auth")
-            render :new
+            flash[:alert] = t("authorizations.create.error", scope: "decidim.valid_auth")
+            redirect_to decidim_verifications.authorizations_path
           end
         end
       end
