@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.summary     = "A valid_auth component for decidim's participatory processes."
   s.description = s.summary
   s.version     = "0.0.1"
-  s.authors     = ["David Morcillo Muñoz"]
-  s.email       = ["david.morcillo@gmail.com"]
+  s.authors     = ["Marc Riera Casals"]
+  s.email       = ["mrc2407@gmail.com"]
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
