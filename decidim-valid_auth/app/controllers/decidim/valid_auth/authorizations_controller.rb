@@ -11,6 +11,24 @@ module Decidim
         redirect_to valid_link
       end
 
+      def validate
+        enforce_permission_to :create, :authorization, authorization: @authorization
+
+        @form = ValidAuthForm.from_params(params)
+
+        ValidateValidAuth.call(@authorization, @form) do
+          on(:ok) do
+            flash[:notice] = t("authorizations.create.success", scope: "decidim.valid_auth")
+            redirect_to decidim_verifications.authorizations_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("authorizations.create.error", scope: "decidim.valid_auth")
+            render :new
+          end
+        end
+      end
+
       private
 
       def valid_link
@@ -20,7 +38,7 @@ module Decidim
       def load_authorization
         @authorization = Decidim::Authorization.find_or_initialize_by(
           user: current_user,
-          name: "valid"
+          name: "valid_auth"
         )
       end
     end
