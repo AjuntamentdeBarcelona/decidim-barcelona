@@ -14,7 +14,7 @@ module Decidim
       def validate
         enforce_permission_to :create, :authorization, authorization: @authorization
 
-        @form = ValidAuthForm.from_params(params)
+        @form = ValidAuthForm.from_params(params.merge(user: user))
 
         ValidateValidAuth.call(@authorization, @form) do
           on(:ok) do
