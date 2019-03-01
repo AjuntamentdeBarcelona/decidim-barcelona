@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_083852) do
+ActiveRecord::Schema.define(version: 2019_03_01_095509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -443,7 +443,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_083852) do
     t.index ["decidim_question_id"], name: "index_decidim_forms_answer_options_question_id"
   end
 
-  create_table "decidim_forms_answers", id: :integer, default: nil, force: :cascade do |t|
+  create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
     t.text "body"
     t.integer "decidim_user_id"
     t.integer "decidim_questionnaire_id"
@@ -455,7 +455,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_083852) do
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
   end
 
-  create_table "decidim_forms_questionnaires", id: :integer, default: nil, force: :cascade do |t|
+  create_table "decidim_forms_questionnaires", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
     t.jsonb "tos"
@@ -467,7 +467,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_083852) do
     t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
   end
 
-  create_table "decidim_forms_questions", id: :integer, default: nil, force: :cascade do |t|
+  create_table "decidim_forms_questions", id: :serial, force: :cascade do |t|
     t.integer "decidim_questionnaire_id"
     t.integer "position"
     t.string "question_type"
@@ -840,6 +840,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_083852) do
     t.string "id_documents_methods", default: ["online"], array: true
     t.jsonb "id_documents_explanation_text", default: {}
     t.boolean "user_groups_enabled", default: false, null: false
+    t.jsonb "colors", default: {}
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -996,7 +997,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_083852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
