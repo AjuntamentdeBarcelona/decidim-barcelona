@@ -32,7 +32,7 @@ module Decidim
       private
 
       def valid_link
-        Rails.secrets.valid_auth_url + validate_authorization_url
+        Rails.application.secrets.valid_auth_url + validate_authorization_url
       end
 
       def load_authorization
