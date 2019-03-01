@@ -1,0 +1,11 @@
+ca:
+  decidim:
+    authorization_handlers:
+      valid_auth:
+        explanation: Verifica't amb el Valid
+        name: Valid
+    valid_auth:
+      authorizations:
+        create:
+          error: S'ha produït un error en crear l'autorització
+          success: Has estat autoritzat amb èxit

@@ -204,6 +204,12 @@ PATH
     decidim-dataviz (0.0.1)
       decidim-core
 
+PATH
+  remote: decidim-valid_auth
+  specs:
+    decidim-valid_auth (0.0.1)
+      decidim-verifications
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -803,6 +809,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-valid_auth!
   deface
   faker
   fog-aws
@@ -834,4 +841,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

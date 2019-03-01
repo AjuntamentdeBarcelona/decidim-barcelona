@@ -1,0 +1,11 @@
+en:
+  decidim:
+    authorization_handlers:
+      valid_auth:
+        explanation: Verify yourself with Valid
+        name: Valid
+    valid_auth:
+      authorizations:
+        create:
+          error: There was an error creating the authorization
+          success: You have been authorized successfully
