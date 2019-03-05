@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 66597d9b49c2152079ff8f1fb7f1ac5b6e0cd75f
+  revision: 5bfca99aa5a8ff5efb1a329aa369d17b13dc9dda
   branch: master
   specs:
     decidim (0.17.0.dev)
@@ -454,7 +454,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.5.2)
+    icalendar (2.5.3)
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     ice_nine (0.11.2)
