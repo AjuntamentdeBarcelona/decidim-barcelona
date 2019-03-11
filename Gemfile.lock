@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 17f35fc4471c691710271d95356ec4b9608ad3d7
+  revision: 72edea6311d9ab7f651579c753d850a27ed34ce1
   branch: master
   specs:
     decidim (0.17.0.dev)
@@ -324,7 +324,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
