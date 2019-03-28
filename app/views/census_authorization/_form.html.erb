@@ -15,7 +15,8 @@
 </div>
 
 <div class="field">
-  <%= form.collection_select :scope_id, current_organization.scopes.where(parent_id: nil).select {|scope| scope.name["ca"] != "Ciutat" }, :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
+  <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
+  <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
 </div>
 
 <%= form.hidden_field :handler_name %>
