@@ -2,6 +2,10 @@
 ca:
   activemodel:
     attributes:
+      mobile_phone:
+        mobile_phone_number: Número de telèfon mòbil
+      confirmation:
+        verification_code: Codi de verificació
       census_authorization_handler:
         date_of_birth: Data de naixement
         document_number: Número de document
