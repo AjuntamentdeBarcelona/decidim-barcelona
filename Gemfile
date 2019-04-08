@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.15-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.17-stable" }
 
 ruby '2.5.3'
 
@@ -13,6 +13,8 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 gem "sassc", "~>1.12.0"
 
 gem "virtus-multiparams"
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
 
 gem 'uglifier'
 gem 'lograge'
