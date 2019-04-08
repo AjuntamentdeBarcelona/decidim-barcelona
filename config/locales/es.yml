@@ -58,6 +58,22 @@ es:
         dni: DNI
         nie: NIE
         passport: Pasaporte
+    admin:
+      models:
+        initiatives_votes:
+          fields:
+            initiative_title: Título
+            initiative_id: ID
+            initiative_start_date: Fecha de inicio
+            initiative_end_date: Fecha de finalización
+            initiative_signatures_count: Número de firmas
+            name_and_surname: Nombre y apellidos
+            document_number: Número de documento
+            date_of_birth: Fecha de nacimiento
+            postal_code: Código postal
+            time_and_date: Fecha y hora
+            timestamp: Sello
+            hash: Hash
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en éste proyecto:'
