@@ -93,10 +93,13 @@ class PdfSignatureBarcelona
   end
 
   def certificate
+    return unless pdf_certificate
     @certificate ||= OpenSSL::X509::Certificate.new pdf_certificate
   end
 
   def private_key
+    return [signature_certificate_password, signer_private_key, certificate].any?(&:blank?)
+
     @private_key ||= OpenSSL::PKCS12.create(
                         signature_certificate_password,
                         'PDF signer',
