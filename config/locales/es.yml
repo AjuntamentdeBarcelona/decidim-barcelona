@@ -88,6 +88,10 @@ es:
         first_login:
           actions:
             census_authorization_handler: Verifícate con el padrón
+    initiatives:
+      initiatives:
+        supports:
+          title: Listado de adhesiones
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito
