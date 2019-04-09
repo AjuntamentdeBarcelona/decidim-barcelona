@@ -88,6 +88,10 @@ ca:
         first_login:
           actions:
             census_authorization_handler: Verifica't amb el padró
+    initiatives:
+      initiatives:
+        supports:
+          title: Llistat d'adhesions
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte
