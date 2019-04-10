@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 5723d55e38860ae4b66c4673ea25b9815ff38a58
+  revision: 92798e52ec90444b02b15135d32ed387092b7993
   branch: 0.17-stable
   specs:
     decidim (0.17.0)
@@ -434,7 +434,7 @@ GEM
     graphql (1.8.10)
     hashdiff (0.3.8)
     hashie (3.6.0)
-    highline (2.0.1)
+    highline (2.0.2)
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
