@@ -98,7 +98,7 @@ class PdfSignatureBarcelona
   end
 
   def private_key
-    return [signature_certificate_password, signer_private_key, certificate].any?(&:blank?)
+    return if [signature_certificate_password, signer_private_key, certificate].any?(&:blank?)
 
     @private_key ||= OpenSSL::PKCS12.create(
                         signature_certificate_password,
