@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: af536047ed12aac2c88f50cc18b09d7a23ca9375
+  revision: e8644964b6000782d4263b3be3117363231e68b5
   branch: fix-user-input-backport
   specs:
     decidim (0.17.0)
