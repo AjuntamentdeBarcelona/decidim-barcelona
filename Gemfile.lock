@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: e8644964b6000782d4263b3be3117363231e68b5
-  branch: fix-user-input-backport
+  revision: f371e38936928797f2999300e8ac09c5537867a1
+  branch: 0.17-stable
   specs:
     decidim (0.17.0)
       decidim-accountability (= 0.17.0)
@@ -469,7 +469,7 @@ GEM
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
     json (2.2.0)
-    jwt (2.1.0)
+    jwt (2.2.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -647,7 +647,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.4.0)
     redis (4.1.1)
-    regexp_parser (1.5.0)
+    regexp_parser (1.5.1)
     request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.1)
@@ -699,7 +699,7 @@ GEM
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
-    rubyzip (1.2.2)
+    rubyzip (1.2.3)
     safe_yaml (1.0.5)
     sass (3.4.25)
     sassc (1.12.1)
@@ -791,7 +791,7 @@ GEM
     websocket-extensions (0.1.3)
     wicked (1.3.3)
       railties (>= 3.0.7)
-    wicked_pdf (1.3.0)
+    wicked_pdf (1.4.0)
       activesupport
     wisper (2.0.0)
     wisper-rspec (1.1.0)
