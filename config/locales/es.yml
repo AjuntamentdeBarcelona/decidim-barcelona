@@ -78,6 +78,13 @@ es:
             time_and_date: Fecha y hora
             timestamp: Sello
             hash: Hash
+    devise:
+      omniauth_registrations:
+        new:
+          nickname_help: Tu alias (nickname) en %{organization}
+      registrations:
+        new:
+          nickname_help: Tu alias (nickname) en %{organization}
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en éste proyecto:'

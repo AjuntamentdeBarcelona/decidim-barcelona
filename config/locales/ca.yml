@@ -78,6 +78,13 @@ ca:
             time_and_date: Data i hora
             timestamp: Segell
             hash: Hash
+    devise:
+      omniauth_registrations:
+        new:
+          nickname_help: El teu àlies (sobrenom) a %{organization}
+      registrations:
+        new:
+          nickname_help: El teu àlies (sobrenom) a %{organization}
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
