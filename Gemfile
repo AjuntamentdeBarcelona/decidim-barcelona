@@ -35,6 +35,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem "rubocop"
+  gem "letter_opener_web"
 end
 
 group :production do
