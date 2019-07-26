@@ -80,5 +80,7 @@ es:
           assemblies:
             one: "%{count} órgano"
             other: "%{count} órganos"
+      assembly_navigation:
+        assembly_menu_item: "El Órgano"
       assembly_header:
         assembly_menu_item: Órgano
