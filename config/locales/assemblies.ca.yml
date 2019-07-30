@@ -80,5 +80,7 @@ ca:
           assemblies:
             one: "%{count} òrgan"
             other: "%{count} òrgans"
+      assembly_navigation:
+        assembly_menu_item: "L'Òrgan"
       assembly_header:
         assembly_menu_item: Òrgan

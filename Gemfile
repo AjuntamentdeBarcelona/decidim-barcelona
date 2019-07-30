@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.17-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.18-stable" }
 
-ruby '2.5.3'
+ruby '2.6.3'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
@@ -39,7 +39,6 @@ group :development do
 end
 
 group :production do
-  gem "passenger"
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"

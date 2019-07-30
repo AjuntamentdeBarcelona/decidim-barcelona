@@ -55,7 +55,7 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
       fill_in_authorization_form
       click_button "Enviar"
 
-      expect(page).to have_content("amb èxit")
+      expect(page).to have_content("Has estat autoritzada")
 
       visit decidim_verifications.authorizations_path
 

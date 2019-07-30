@@ -7,7 +7,7 @@
     "heroku-redis:hobby-dev",
     "sendgrid:starter"
   ],
-  "stack": "heroku-16",
+  "stack": "heroku-18",
   "scripts": {
     "postdeploy":"DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:schema:load db:migrate db:seed"
   },
