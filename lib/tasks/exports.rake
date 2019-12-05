@@ -4,7 +4,7 @@ namespace :export do
   include Decidim::TranslatableAttributes
 
   desc "Checks for the environment"
-  task signatures, [:initiative_id] => :environment do |task, args|
+  task :signatures, [:initiative_id] => :environment do |task, args|
     initiative= Decidim::Initiative.find(args.initiative_id)
     puts "Loaded Initiative: #{translated_attribute(initiative.title)}"
 
