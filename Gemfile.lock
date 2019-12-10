@@ -396,7 +396,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.9.5)
       i18n (>= 0.7)
-    faraday (0.17.1)
+    faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     file_validators (2.3.0)
