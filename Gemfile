@@ -12,6 +12,7 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 gem "sassc", "~>1.12.0"
 
+gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
