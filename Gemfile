@@ -12,6 +12,7 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 gem "sassc", "~>1.12.0"
 
+gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
@@ -55,6 +56,3 @@ group :test do
   gem "rspec-rails"
   gem "database_cleaner"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
