@@ -7,7 +7,7 @@ require "decidim/participatory_processes/test/factories"
 
 describe Decidim::Accountability::ResultsCSVExporter do
   let(:organization) { create :organization, available_locales: [:en] }
-  let(:current_user) { create :user, organization: organization }
+  let(:current_user) { create :user, nickname: "abc", organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :accountability_component, participatory_space: participatory_process }
   let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }

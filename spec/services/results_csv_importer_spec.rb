@@ -7,8 +7,8 @@ require "decidim/participatory_processes/test/factories"
 
 describe Decidim::Accountability::ResultsCSVImporter do
   let(:organization) { create :organization, available_locales: [:en] }
-  let(:current_user) { create :user, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:current_user) { create :user, nickname: "abc", organization: organization }
+  let(:participatory_process) { create :participatory_process , slug: "abc", organization: organization }
   let(:current_component) { create :accountability_component, participatory_space: participatory_process }
   let(:valid_csv) { File.read("spec/fixtures/valid_results.csv") }
   let(:invalid_csv) { File.read("spec/fixtures/invalid_results.csv") }
