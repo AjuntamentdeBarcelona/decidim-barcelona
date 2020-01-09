@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_131848) do
+ActiveRecord::Schema.define(version: 2020_01_09_082243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -846,6 +846,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_131848) do
     t.boolean "user_groups_enabled", default: false, null: false
     t.jsonb "colors", default: {}
     t.jsonb "smtp_settings"
+    t.boolean "force_users_to_authenticate_before_access_organization", default: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -1384,6 +1385,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_131848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type"
+    t.boolean "confidential", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_oauth_applications_on_decidim_organization_id"
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
