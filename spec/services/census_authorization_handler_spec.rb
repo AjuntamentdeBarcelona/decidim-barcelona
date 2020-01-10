@@ -12,7 +12,7 @@ describe CensusAuthorizationHandler do
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_id) { 123 }
   let(:scope) { double(code: "1", name: { "ca" => "Ciutat Vella" }) }
-  let(:user) { create :user, nickname: "abc" }
+  let(:user) { create :user }
   let(:params) do
     {
       user: user,
