@@ -5,6 +5,12 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
+namespace :stats do
+  task generate: :environment do
+    p Decidim::Stats::Runner.new(minimum_count: 1).run
+  end
+end
+
 namespace :decidim_surveys_patch do
   # We need to patch this rake task so that it can work in this installation
   desc "PATCH: Migrate data from decidim_surveys tables to decidim_forms tables"
