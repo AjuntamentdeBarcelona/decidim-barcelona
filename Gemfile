@@ -10,6 +10,9 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
+# Change dependency to ruby-gems after term-customizer is compatible with decidim >= 0.20
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
+
 gem "sassc", "~>1.12.0"
 
 gem "sprockets", "~> 3.7", "< 4"
