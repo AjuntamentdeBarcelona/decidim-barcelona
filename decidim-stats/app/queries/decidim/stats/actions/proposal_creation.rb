@@ -10,7 +10,7 @@ module Decidim
         end
 
         def query
-          return unless proposals_manifest?
+          return [] unless proposals_manifest?
 
           @query ||=
             Decidim::Coauthorship
