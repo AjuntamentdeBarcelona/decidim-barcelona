@@ -10,7 +10,7 @@ ca:
         date_of_birth: Data de naixement
         document_number: Número de document
         document_type: Tipus de document
-        gender: Gènere
+        gender: Sexe
         postal_code: Codi postal
         scope_id: Districte
   census_authorization:
@@ -20,7 +20,7 @@ ca:
         month: Mes
         year: Any
       gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva de dones i homes.
-      gender_prompt: Si us plau, selecciona el gènere que t'identifiqui millor
+      gender_prompt: Si us plau, selecciona una opció
       genders:
         man: Home
         non_binary: No binari

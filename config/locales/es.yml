@@ -10,7 +10,7 @@ es:
         date_of_birth: Fecha de nacimiento
         document_number: Número de documento
         document_type: Tipo de documento
-        gender: Género
+        gender: Sexo
         postal_code: Código postal
         scope_id: Distrito
   census_authorization:
@@ -20,7 +20,7 @@ es:
         month: Mes
         year: Año
       gender_help: Estos datos son voluntarios y se piden en cumplimento de lo dispuesto en el articulo 56 de la LEY 17/2015, del 21 de julio, de igualdad efectiva de mujeres y hombres.
-      gender_prompt: Por favor, selecciona el género que te identifique mejor
+      gender_prompt: Por favor, selecciona una opción
       genders:
         man: Hombre
         non_binary: No binario
