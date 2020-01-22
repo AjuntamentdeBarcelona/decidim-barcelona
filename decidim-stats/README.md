@@ -13,13 +13,19 @@ STATS_EMAILS=foo@example.org,bar@example.org
 
 `STATS_EMAILS` is a list of the emails the stats file will be sent to. If you eed to send it to more than one email, please separate them by commas: `foo@bar.com,yaz@zez.com`
 
+Assuming you have access to the Heroku application, use this command to set the environment variables:
+
+```text
+heroku config:set STATS_MINIMUM_COUNT=5 STATS_EMAILS=foo@example.org,bar@example.org
+```
+
 The command to generate the stats file is this:
 
 ```text
 rake stats:generate
 ```
 
-This command will send an email to thre specified email addresses with the stats.
+This command will send an email to thre specified email addresses with the stats. You can use [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler#scheduling-jobs) to generate the file automatically every night.
 
 ## Contributing
 See [Decidim
