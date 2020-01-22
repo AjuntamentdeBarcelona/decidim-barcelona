@@ -10,7 +10,11 @@ namespace :stats do
     minimum_count = ENV.fetch("STATS_MINIMUM_COUNT", 5).to_i
     emails = ENV.fetch("STATS_EMAILS").split(",")
 
-    Decidim::Stats::StatsJob.perform_later(minimum_count, emails)
+    if emails.empty?
+      puts "[decidim-stats] No emails found! Please, set the `STATS_EMAILS` environment variable and try again."
+    else
+      Decidim::Stats::StatsJob.perform_later(minimum_count, emails)
+    end
   end
 end
 
