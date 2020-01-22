@@ -749,6 +749,8 @@ ActiveRecord::Schema.define(version: 2020_01_21_090839) do
     t.index ["day"], name: "index_decidim_metrics_on_day"
     t.index ["decidim_category_id"], name: "index_decidim_metrics_on_decidim_category_id"
     t.index ["decidim_organization_id"], name: "index_decidim_metrics_on_decidim_organization_id"
+    t.index ["metric_type", "decidim_organization_id", "participatory_space_type", "participatory_space_id", "day", "decidim_category_id", "related_object_type", "related_object_id"], name: "idx_metric_by_type_org_space_day_cat_obj"
+    t.index ["metric_type", "decidim_organization_id", "participatory_space_type", "participatory_space_id"], name: "idx_metric_type_by_org_space"
     t.index ["metric_type"], name: "index_decidim_metrics_on_metric_type"
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_metric_on_participatory_space_id_and_type"
     t.index ["related_object_type", "related_object_id"], name: "index_metric_on_related_object_id_and_type"
