@@ -4,14 +4,14 @@ require "rails_helper"
 require "decidim/proposals/test/factories"
 
 describe Decidim::Stats::Actions::ProposalVote do
+  subject do
+    described_class.new(component, performers_query)
+  end
+
   let(:performers_query) { Decidim::User.all }
   let!(:vote) { create :proposal_vote }
   let(:user) { vote.author }
   let(:component) { vote.proposal.component }
-
-  subject do
-    described_class.new(component, performers_query)
-  end
 
   context "when looking for proposal vote authors matching the component" do
     it "finds the user ID" do

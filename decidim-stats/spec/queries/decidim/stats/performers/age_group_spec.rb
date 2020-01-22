@@ -5,26 +5,26 @@ require "rails_helper"
 describe Decidim::Stats::Performers::AgeGroup do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:authorization_age_group) { "20-24" }
-  let(:performer_age_group) { authorization_age_group }
-  let(:user) { create :user }
-  let!(:authorization) do
-   create(
-     :authorization,
-     user: user,
-     name: "census_handler_authorization" ,
-     metadata: {
-       date_of_birth: "2000-01-01"
-     }
-   )
-  end
-
   subject do
     described_class.new(performer_age_group)
   end
 
+  let(:authorization_age_group) { "20-24" }
+  let(:performer_age_group) { authorization_age_group }
+  let(:user) { create :user }
+  let!(:authorization) do
+    create(
+      :authorization,
+      user: user,
+      name: "census_handler_authorization",
+      metadata: {
+        date_of_birth: "2000-01-01"
+      }
+    )
+  end
+
   before do
-    travel_to Time.zone.local 2020, 01, 02
+    travel_to Time.zone.local 2020, 0o1, 0o2
   end
 
   after do

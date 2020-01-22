@@ -14,10 +14,10 @@ module Decidim
 
           @query ||=
             query_base
-              .where(decidim_user_group_id: nil)
-              .where(author: performers)
-              .pluck(:decidim_author_id)
-              .uniq
+            .where(decidim_user_group_id: nil)
+            .where(author: performers)
+            .pluck(:decidim_author_id)
+            .uniq
         end
 
         private

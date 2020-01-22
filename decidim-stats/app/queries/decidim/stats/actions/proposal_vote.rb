@@ -14,11 +14,11 @@ module Decidim
 
           @query ||=
             Decidim::Proposals::ProposalVote
-              .where(author: performers)
-              .where(temporary: false)
-              .where(proposal: component_proposals)
-              .pluck(:decidim_author_id)
-              .uniq
+            .where(author: performers)
+            .where(temporary: false)
+            .where(proposal: component_proposals)
+            .pluck(:decidim_author_id)
+            .uniq
         end
 
         private

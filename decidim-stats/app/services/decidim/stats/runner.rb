@@ -32,7 +32,7 @@ module Decidim
           end
         end
 
-        stats_data.select{ |_k, v| v >= minimum_count }
+        stats_data.select { |_k, v| v >= minimum_count }
       end
 
       private
@@ -76,7 +76,7 @@ module Decidim
           component.id,
           action_klass.is_a?(Class) ? pretty_klass_name(action_klass).to_sym : action_klass,
           pretty_klass_name(performer_klass).to_sym,
-          performer_section,
+          performer_section
         ]
       end
     end

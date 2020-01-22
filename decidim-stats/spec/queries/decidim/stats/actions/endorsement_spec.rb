@@ -4,14 +4,14 @@ require "rails_helper"
 require "decidim/proposals/test/factories"
 
 describe Decidim::Stats::Actions::Endorsement do
+  subject do
+    described_class.new(component, performers_query)
+  end
+
   let(:performers_query) { Decidim::User.all }
   let!(:endorsement) { create :proposal_endorsement }
   let(:user) { endorsement.author }
   let(:component) { endorsement.proposal.component }
-
-  subject do
-    described_class.new(component, performers_query)
-  end
 
   context "when looking for endorsements matching the component" do
     it "finds the user ID" do

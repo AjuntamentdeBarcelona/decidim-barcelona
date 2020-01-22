@@ -12,15 +12,15 @@ module Decidim
         def query
           @query ||=
             component_resource_queries
-              .flat_map do |resources_query|
-                Decidim::Comments::Comment
-                  .where(author: performers)
-                  .where(root_commentable: resources_query)
-                  .pluck(:decidim_author_id)
-                  .uniq
-              end
-              .compact
-              .uniq
+            .flat_map do |resources_query|
+              Decidim::Comments::Comment
+                .where(author: performers)
+                .where(root_commentable: resources_query)
+                .pluck(:decidim_author_id)
+                .uniq
+            end
+            .compact
+            .uniq
         end
 
         private
@@ -34,8 +34,8 @@ module Decidim
         def component_resource_queries
           Decidim
             .resource_manifests
-            .select{ |manifest| manifest.component_manifest == component.manifest }
-            .map{ |manifest| manifest.model_class.where(component: component) }
+            .select { |manifest| manifest.component_manifest == component.manifest }
+            .map { |manifest| manifest.model_class.where(component: component) }
         end
       end
     end
