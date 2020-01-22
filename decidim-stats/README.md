@@ -65,7 +65,7 @@ Actions must receive a `Decidim::Component` instance and an `ActiveRecord:Relati
 
 In order for that action to be included you need to modify the `Decidim::Stats::Runner#actions` method and include the action class name.
 
-## Developing your own performersa class
+## Developing your own performer class
 
 Performers must define an `available_sections` class method that lists all the possible labels to group the users. These sections will be passed as a param to the initializer method. Performers must define a `#query` method that will return an `ActiveRecord::Relation` of `Decidim::User` records.
 
