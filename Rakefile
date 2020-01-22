@@ -10,7 +10,7 @@ namespace :stats do
     minimum_count = ENV.fetch("STATS_MINIMUM_COUNT", 5).to_i
     emails = ENV.fetch("STATS_EMAILS").split(",")
 
-    Decidim::Stats::StatsJob.perform_now(minimum_count, emails)
+    Decidim::Stats::StatsJob.perform_later(minimum_count, emails)
   end
 end
 
