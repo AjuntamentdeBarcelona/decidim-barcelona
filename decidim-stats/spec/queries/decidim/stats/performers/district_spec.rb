@@ -14,7 +14,7 @@ describe Decidim::Stats::Performers::District do
     create(
       :authorization,
       user: user,
-      name: "census_handler_authorization",
+      name: "census_authorization_handler",
       metadata: {
         scope: authorization_district
       }

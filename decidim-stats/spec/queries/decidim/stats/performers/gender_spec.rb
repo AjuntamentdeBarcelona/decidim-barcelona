@@ -14,7 +14,7 @@ describe Decidim::Stats::Performers::Gender do
     create(
       :authorization,
       user: user,
-      name: "census_handler_authorization",
+      name: "census_authorization_handler",
       metadata: {
         gender: authorization_gender
       }
