@@ -32,7 +32,7 @@ module Decidim
         def birth_limits
           {
             old: Time.zone.today - age_range[1].years,
-            young: Time.zone.today - age_range[0].years
+            young: Time.zone.today - (age_range[0] - 1).years + 1.day
           }
         end
 

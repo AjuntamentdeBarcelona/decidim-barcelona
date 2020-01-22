@@ -24,7 +24,7 @@ describe Decidim::Stats::Performers::AgeGroup do
   end
 
   before do
-    travel_to Time.zone.local 2020, 0o1, 0o2
+    travel_to Time.zone.local 2020, 1, 2
   end
 
   after do
