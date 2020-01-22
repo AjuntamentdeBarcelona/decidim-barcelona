@@ -13,8 +13,7 @@ module Decidim
           return [] unless proposals_manifest?
 
           @query ||=
-            Decidim::Proposals::ProposalEndorsement
-              .where(proposal: proposals)
+            query_base
               .where(decidim_user_group_id: nil)
               .where(author: performers)
               .pluck(:decidim_author_id)
@@ -27,6 +26,13 @@ module Decidim
 
         def component_manifest
           component.manifest
+        end
+
+        def query_base
+          Decidim::Endorsement.where(resource: proposals)
+        rescue NameError
+          Decidim::Proposals::ProposalEndorsement
+            .where(proposal: proposals)
         end
 
         def proposals
