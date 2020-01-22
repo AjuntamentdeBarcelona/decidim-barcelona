@@ -45,6 +45,7 @@ module Decidim
           Decidim::Stats::Actions::Endorsement,
           Decidim::Stats::Actions::Follow,
           Decidim::Stats::Actions::ProposalCreation,
+          Decidim::Stats::Actions::ProposalVote
         ]
       end
 
