@@ -7,7 +7,10 @@ Rails.application.load_tasks
 
 namespace :stats do
   task generate: :environment do
-    p Decidim::Stats::Runner.new(minimum_count: 1).run
+    minimum_count = ENV.fetch("STATS_MINIMUM_COUNT", 5).to_i
+    emails = ENV.fetch("STATS_EMAILS").split(",")
+
+    Decidim::Stats::StatsJob.perform_now(minimum_count, emails)
   end
 end
 

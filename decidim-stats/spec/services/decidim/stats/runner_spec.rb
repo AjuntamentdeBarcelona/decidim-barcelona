@@ -49,7 +49,7 @@ describe Decidim::Stats::Runner do
       create(
         :authorization,
         user: user,
-        name: "census_handler_authorization",
+        name: "census_authorization_handler",
         metadata: {
           scope: scope_name,
           date_of_birth: "#{2000 - index * 2}-01-01",
