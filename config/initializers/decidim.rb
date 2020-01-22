@@ -26,6 +26,10 @@ Decidim.configure do |config|
 
   config.timestamp_service = "TimestampService"
   config.pdf_signature_service = "PdfSignatureBarcelona"
+
+  if Rails.application.secrets.etherpad[:server].present?
+    config.etherpad = Rails.application.secrets.etherpad
+  end
 end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
