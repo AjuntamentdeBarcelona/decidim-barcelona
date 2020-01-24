@@ -8,11 +8,14 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
   include Virtus::Multiparams
 
+  AVAILABLE_GENDERS = %w(man woman non_binary)
+
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
   attribute :scope_id, Integer
   attribute :date_of_birth, Date
+  attribute :gender, String
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -30,7 +33,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # You must return a Hash that will be serialized to the authorization when
   # it's created, and available though authorization.metadata
   def metadata
-    super.merge(postal_code: postal_code, scope: scope.name["ca"])
+    super.merge(
+      date_of_birth: date_of_birth,
+      gender: gender,
+      postal_code: postal_code,
+      scope: scope.name["ca"],
+    )
   end
 
   def scope

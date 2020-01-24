@@ -19,4 +19,15 @@
   <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
 </div>
 
+<div class="field">
+  <%= form.collection_select(
+    :gender,
+    CensusAuthorizationHandler::AVAILABLE_GENDERS,
+    :to_s,
+    ->(gender) { t(".genders.#{gender}") },
+    prompt: t(".gender_prompt")
+  ) %>
+  <p class="help-text"><%= t ".gender_help" %></p>
+</div>
+
 <%= form.hidden_field :handler_name %>
