@@ -69,126 +69,78 @@ describe Decidim::Stats::Runner do
     data = subject.select { |(_, _, _, action, _, _), _| action == :comment }.to_a
     expect(data.count).to eq 3
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "25-29"
-    expect(data[0].last).to eq 1
+    check_data_element(data[0], :age_group, "25-29", 1)
 
-    expect(data[1].first[4]).to eq :district
-    expect(data[1].first[5]).to eq scope_name
-    expect(data[1].last).to eq 1
+    check_data_element(data[1], :district, scope_name, 1)
 
-    expect(data[2].first[4]).to eq :gender
-    expect(data[2].first[5]).to eq "non_binary"
-    expect(data[2].last).to eq 1
+    check_data_element(data[2], :gender, "non_binary", 1)
   end
 
   it "counts the endorsements" do
     data = subject.select { |(_, _, _, action, _, _), _| action == :endorsement }.to_a
     expect(data.count).to eq 3
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "25-29"
-    expect(data[0].last).to eq 1
+    check_data_element(data[0], :age_group, "25-29", 1)
 
-    expect(data[1].first[4]).to eq :district
-    expect(data[1].first[5]).to eq scope_name
-    expect(data[1].last).to eq 1
+    check_data_element(data[1], :district, scope_name, 1)
 
-    expect(data[2].first[4]).to eq :gender
-    expect(data[2].first[5]).to eq "non_binary"
-    expect(data[2].last).to eq 1
+    check_data_element(data[2], :gender, "non_binary", 1)
   end
 
   it "counts the follows" do
     data = subject.select { |(_, _, _, action, _, _), _| action == :follow }.to_a
     expect(data.count).to eq 5
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "20-24"
-    expect(data[0].last).to eq 2
+    check_data_element(data[0], :age_group, "20-24", 2)
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "25-29"
-    expect(data[0].last).to eq 1
+    check_data_element(data[1], :age_group, "25-29", 1)
 
-    expect(data[1].first[4]).to eq :district
-    expect(data[1].first[5]).to eq scope_name
-    expect(data[1].last).to eq 3
+    check_data_element(data[2], :district, scope_name, 3)
 
-    expect(data[2].first[4]).to eq :gender
-    expect(data[2].first[5]).to eq "man"
-    expect(data[2].last).to eq 1
+    check_data_element(data[3], :gender, "man", 1)
 
-    expect(data[3].first[4]).to eq :gender
-    expect(data[3].first[5]).to eq "woman"
-    expect(data[3].last).to eq 2
+    check_data_element(data[4], :gender, "woman", 2)
   end
 
   it "counts the proposal creations" do
     data = subject.select { |(_, _, _, action, _, _), _| action == :proposal_creation }.to_a
     expect(data.count).to eq 3
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "20-24"
-    expect(data[0].last).to eq 1
+    check_data_element(data[0], :age_group, "20-24", 1)
 
-    expect(data[1].first[4]).to eq :district
-    expect(data[1].first[5]).to eq scope_name
-    expect(data[1].last).to eq 1
+    check_data_element(data[1], :district, scope_name, 1)
 
-    expect(data[2].first[4]).to eq :gender
-    expect(data[2].first[5]).to eq "man"
-    expect(data[2].last).to eq 1
+    check_data_element(data[2], :gender, "man", 1)
   end
 
   it "counts the proposal votes" do
     data = subject.select { |(_, _, _, action, _, _), _| action == :proposal_vote }.to_a
     expect(data.count).to eq 3
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "30-34"
-    expect(data[0].last).to eq 1
+    check_data_element(data[0], :age_group, "30-34", 1)
 
-    expect(data[1].first[4]).to eq :district
-    expect(data[1].first[5]).to eq scope_name
-    expect(data[1].last).to eq 1
+    check_data_element(data[1], :district, scope_name, 1)
 
-    expect(data[2].first[4]).to eq :gender
-    expect(data[2].first[5]).to eq "man"
-    expect(data[2].last).to eq 1
+    check_data_element(data[2], :gender, "man", 1)
   end
 
   it "counts the interactions" do
     data = subject.select { |(_, _, _, action, _, _), _| action == :interactions }.to_a
     expect(data.count).to eq 7
 
-    expect(data[0].first[4]).to eq :age_group
-    expect(data[0].first[5]).to eq "20-24"
-    expect(data[0].last).to eq 2
+    check_data_element(data[0], :age_group, "20-24", 2)
 
-    expect(data[1].first[4]).to eq :age_group
-    expect(data[1].first[5]).to eq "25-29"
-    expect(data[1].last).to eq 2
+    check_data_element(data[1], :age_group, "25-29", 3)
 
-    expect(data[2].first[4]).to eq :age_group
-    expect(data[2].first[5]).to eq "30-34"
-    expect(data[2].last).to eq 1
+    check_data_element(data[2], :age_group, "30-34", 1)
 
-    expect(data[3].first[4]).to eq :district
-    expect(data[3].first[5]).to eq scope_name
-    expect(data[3].last).to eq 6
+    check_data_element(data[3], :district, scope_name, 6)
 
-    expect(data[4].first[4]).to eq :gender
-    expect(data[4].first[5]).to eq "man"
-    expect(data[4].last).to eq 2
+    check_data_element(data[4], :gender, "man", 2)
 
-    expect(data[5].first[4]).to eq :gender
-    expect(data[5].first[5]).to eq "woman"
-    expect(data[5].last).to eq 2
+    check_data_element(data[5], :gender, "woman", 2)
 
-    expect(data[6].first[4]).to eq :gender
-    expect(data[6].first[5]).to eq "non_binary"
-    expect(data[6].last).to eq 2
+    check_data_element(data[6], :gender, "non_binary", 2)
   end
 
   context "when the data does not reach the minimum count param" do
@@ -198,9 +150,13 @@ describe Decidim::Stats::Runner do
       expect(subject.count).to eq 1
       data = subject.to_a
 
-      expect(data[0].first[4]).to eq :district
-      expect(data[0].first[5]).to eq scope_name
-      expect(data[0].last).to eq 6
+      check_data_element(data[0], :district, scope_name, 6)
     end
+  end
+
+  def check_data_element(element, performer, section, amount)
+    expect(element.first[4]).to eq performer
+    expect(element.first[5]).to eq section
+    expect(element.last).to eq amount
   end
 end
