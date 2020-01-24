@@ -5,13 +5,13 @@ require "decidim/proposals/test/factories"
 
 describe Decidim::Stats::Actions::Endorsement do
   subject do
-    described_class.new(component, performers_query)
+    described_class.new(my_component, performers_query)
   end
 
   let(:performers_query) { Decidim::User.all }
   let!(:endorsement) { create :proposal_endorsement }
   let(:user) { endorsement.author }
-  let(:component) { endorsement.proposal.component }
+  let(:my_component) { endorsement.proposal.component }
 
   context "when looking for endorsements matching the component" do
     it "finds the user ID" do
@@ -28,7 +28,7 @@ describe Decidim::Stats::Actions::Endorsement do
   end
 
   context "when looking for endorsements but the components do not match" do
-    let(:component) { create :component }
+    let(:my_component) { create :component }
 
     it "cannot find the user" do
       expect(subject.query).to eq([])
