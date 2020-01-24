@@ -71,6 +71,11 @@ Performers must define an `available_sections` class method that lists all the p
 
 In order for that performer to be included you need to modify the `Decidim::Stats::Runner#performers` method and include the performer class name.
 
+## TODO
+
+- Add an `organization_id` parameter to the rake task so this module can be extracted from decidim-barcelona and used in multi-tenant installations.
+- This module depends, and required the modification of, the `CensusAuthorizationHandler`. The data gathered with this module uses the Census authorization to group `performers`. This part should be abstracted into some interface in order to make the module installable in other Decidims.
+
 ## Contributing
 
 See [Decidim
