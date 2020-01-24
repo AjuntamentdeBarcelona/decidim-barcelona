@@ -24,10 +24,10 @@ heroku config:set STATS_MINIMUM_COUNT=5 STATS_EMAILS=foo@example.org,bar@example
 The command to generate the stats file is this:
 
 ```text
-rake stats:generate
+bin/rake stats:generate
 ```
 
-This command will send an email to thre specified email addresses with the stats. You can use [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler#scheduling-jobs) to generate the file automatically every night.
+This command will send an email to the specified email addresses with the stats. You can use [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler#scheduling-jobs) to generate the file automatically every night.
 
 ## Stats CSV format
 
@@ -43,7 +43,7 @@ participatory_processes,2,4,comment,age_group,20-24,6
 The module has different pieces:
 
 - `Decidim::Stats::Runner`, which calculates the stats. Internally, it uses:
-  - `Decidim::Stats::Performers`, which define how to group users by different metrics. Each performer groups users by different criteria. Only users verified via the Census are considered. Current `performers` are:
+  - `Decidim::Stats::Performers`, which define how to group users by different metrics. The `Performers` select the users that have performed some action to later compute the stats from them. Each performer groups users by different criteria. Only users verified via the Census are considered. Current `performers` are:
     - `AgeGroup`, grouping by birth date
     - `District`, grouping by district
     - `Gender`, grouping by user sex/gender
