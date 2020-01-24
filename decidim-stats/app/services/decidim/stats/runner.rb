@@ -18,8 +18,8 @@ module Decidim
               actions.each do |action_klass|
                 key = build_key(component, action_klass, performer_klass, performer_section)
 
-                performer = performer_klass.new(performer_section)
-                action = action_klass.new(component, performer.query)
+                users = performer_users(performer_klass, performer_section)
+                action = action_klass.new(component, users)
                 action_performer_ids = action.query.to_a
                 performers_ids += action_performer_ids
 
@@ -55,6 +55,14 @@ module Decidim
           Decidim::Stats::Performers::District,
           Decidim::Stats::Performers::Gender
         ]
+      end
+
+      def performer_users_cache
+        @performer_users_cache ||= {}
+      end
+
+      def performer_users(klass, section)
+        performer_users_cache[[klass, section]] ||= klass.new(section).query
       end
 
       def components
