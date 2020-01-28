@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.18-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.19-stable" }
 
 ruby '2.6.3'
 
@@ -8,6 +8,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
+gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 gem "sassc", "~>1.12.0"
@@ -16,6 +17,7 @@ gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
+gem "geocoder", "~> 1.5.2"
 
 gem 'uglifier'
 gem 'lograge'
