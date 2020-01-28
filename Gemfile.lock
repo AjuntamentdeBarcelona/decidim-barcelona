@@ -209,6 +209,14 @@ PATH
       decidim-core
 
 PATH
+  remote: decidim-stats
+  specs:
+    decidim-stats (0.0.1)
+      decidim-comments
+      decidim-core
+      decidim-proposals
+
+PATH
   remote: decidim-valid_auth
   specs:
     decidim-valid_auth (0.0.1)
@@ -825,6 +833,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-stats!
   decidim-valid_auth!
   deface
   faker
