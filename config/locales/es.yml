@@ -27,7 +27,7 @@ es:
         woman: Mujer
       scope_prompt: Por favor, selecciona tu distrito
   census_authorization_handler:
-    age_under_16: Tienes que ser mayor de 16 años para validarte
+    age_under: Tienes que ser mayor de %{min_age} años para validarte
     invalid_document: Número de documento incorrecto
   decidim:
     accountability:
