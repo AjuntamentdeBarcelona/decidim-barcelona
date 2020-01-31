@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_082243) do
+ActiveRecord::Schema.define(version: 2020_01_21_090839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.integer "parent_id"
     t.integer "decidim_participatory_space_id"
     t.string "decidim_participatory_space_type"
+    t.integer "weight", default: 0, null: false
     t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "index_decidim_categories_on_decidim_participatory_space"
     t.index ["parent_id"], name: "index_decidim_categories_on_parent_id"
   end
@@ -387,15 +388,6 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.index ["organization_id"], name: "index_decidim_contextual_help_sections_on_organization_id"
   end
 
-  create_table "decidim_continuity_badge_statuses", force: :cascade do |t|
-    t.integer "current_streak", default: 0, null: false
-    t.integer "integer", default: 0, null: false
-    t.date "last_session_at", null: false
-    t.string "subject_type", null: false
-    t.bigint "subject_id", null: false
-    t.index ["subject_type", "subject_id"], name: "decidim_continuity_statuses_subject"
-  end
-
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
@@ -451,9 +443,13 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.integer "decidim_question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "session_token", default: "", null: false
+    t.string "ip_hash"
     t.index ["decidim_question_id"], name: "index_decidim_forms_answers_question_id"
     t.index ["decidim_questionnaire_id"], name: "index_decidim_forms_answers_on_decidim_questionnaire_id"
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
+    t.index ["ip_hash"], name: "index_decidim_forms_answers_on_ip_hash"
+    t.index ["session_token"], name: "index_decidim_forms_answers_on_session_token"
   end
 
   create_table "decidim_forms_questionnaires", id: :serial, force: :cascade do |t|
@@ -585,12 +581,13 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.datetime "updated_at", null: false
     t.string "banner_image"
     t.boolean "collect_user_extra_fields", default: false
-    t.boolean "online_signature_enabled", default: true, null: false
     t.jsonb "extra_fields_legal_information"
     t.integer "minimum_committee_members"
     t.boolean "validate_sms_code_on_votes", default: false
     t.string "document_number_authorization_handler"
     t.boolean "undo_online_signatures_enabled", default: true, null: false
+    t.boolean "promoting_committee_enabled", default: true, null: false
+    t.integer "signature_type", default: 0, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -1261,6 +1258,28 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
   end
 
+  create_table "decidim_term_customizer_constraints", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.string "subject_type"
+    t.bigint "subject_id"
+    t.bigint "translation_set_id", null: false
+    t.index ["decidim_organization_id"], name: "decidim_term_customizer_constraint_organization"
+    t.index ["subject_type", "subject_id"], name: "decidim_term_customizer_constraint_subject"
+    t.index ["translation_set_id"], name: "decidim_term_customizer_constraint_translation_set"
+  end
+
+  create_table "decidim_term_customizer_translation_sets", force: :cascade do |t|
+    t.jsonb "name"
+  end
+
+  create_table "decidim_term_customizer_translations", force: :cascade do |t|
+    t.string "locale"
+    t.string "key"
+    t.text "value"
+    t.bigint "translation_set_id", null: false
+    t.index ["translation_set_id"], name: "decidim_term_customizer_translation_translation_set"
+  end
+
   create_table "decidim_user_group_memberships", id: :serial, force: :cascade do |t|
     t.integer "decidim_user_id", null: false
     t.integer "decidim_user_group_id", null: false
@@ -1324,6 +1343,9 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.integer "following_count", default: 0, null: false
     t.integer "followers_count", default: 0, null: false
     t.string "notification_types", default: "all", null: false
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1335,6 +1357,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
     t.index ["nickname", "decidim_organization_id"], name: "index_decidim_users_on_nickame_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false))"
     t.index ["officialized_at"], name: "index_decidim_users_on_officialized_at"
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_decidim_users_on_unlock_token", unique: true
   end
 
   create_table "decidim_verifications_csv_data", force: :cascade do |t|
@@ -1419,6 +1442,9 @@ ActiveRecord::Schema.define(version: 2020_01_09_082243) do
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
+  add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
+  add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
