@@ -24,7 +24,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validates :scope_id, presence: true
 
   validate :document_type_valid
-  validate :over_16
+  validate :over_14
   validate :valid_postal_code
 
   # If you need to store any of the defined attributes in the authorization you
@@ -116,8 +116,8 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 EOS
   end
 
-  def over_16
-    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_16")) unless age && age >= 16
+  def over_14
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under", min_age: 14)) unless age && age >= 14
   end
 
   def age
