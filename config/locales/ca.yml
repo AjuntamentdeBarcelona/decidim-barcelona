@@ -27,7 +27,7 @@ ca:
         woman: Dona
       scope_prompt: Si us plau, selecciona el teu districte
   census_authorization_handler:
-    age_under_16: Has de ser major de 16 anys per validar-te
+    age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: Número de document incorrecte
   decidim:
     accountability:

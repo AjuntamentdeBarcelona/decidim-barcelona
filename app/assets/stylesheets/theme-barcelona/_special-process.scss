@@ -1,0 +1,54 @@
+.special-process {
+  @include breakpoint(mediumlarge) {
+    display: flex;
+    justify-content: center;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  &__element {
+    flex-grow: 1;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: $white;
+    transition: color 0.3s;
+    background-size: cover;
+    background-position: center 10%;
+    &:hover,
+    &:focus {
+      color: rgba($white, 0.8);
+    }
+
+    @include breakpoint(mediumlarge) {
+      max-width: 50%;
+    }
+  }
+
+  &__heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  &__cta {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0.5em;
+      height: 0.5em;
+      border-top: 0.2em solid;
+      border-right: 0.2em solid;
+      transform: rotate(45deg);
+      vertical-align: 0.05em;
+    }
+  }
+  &__content {
+    background-color: rgba(#22398e, 0.9);
+    padding: 1rem 2rem;
+    &--alt {
+      background-color: rgba(#e63016, 0.9);
+    }
+  }
+}
