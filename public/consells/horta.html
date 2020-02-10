@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Targetes Decidim Consells de Barri H-G</title>
+    <style>
+      @import url("https://ajuntament.barcelona.cat/eixample/sites/all/themes/bcn_bootstrap/css/style.css?q0ye9t");
+    </style>
+    <script>
+      window.addEventListener("message", (event) => {
+	if (event.data.type === "GET_HEIGHT") {
+	  const body = document.body;
+	  const html = document.documentElement;
+	  const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+	  parent.postMessage({ type: "SET_HEIGHT", height: height }, "*");
+	}
+      });
+      $(() => {
+	// Set target blank for all widget links.
+	$("a").attr("target", "_blank");
+      });
+    </script>
+  </head>
+  <body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellBaixGuinardo/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellBaixGuinardo/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellCanBaro/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellCanBaro/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellGuinardo/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellGuinardo/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellFontdenFargues/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellFontdenFargues/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellCarmel/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellCarmel/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellTeixonera/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellTeixonera/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellStGenisAgudells/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellStGenisAgudells/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellMontbau/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellMontbau/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellVallHebron/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellVallHebron/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellClota/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellClota/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+      <div class="col-sm-4">
+        <script src="https://www.decidim.barcelona/assemblies/consellHorta/embed.js"></script>
+        <noscript><iframe src="https://www.decidim.barcelona/assemblies/consellHorta/embed.html" frameborder="0" scrolling="vertical"></iframe></noscript>
+      </div>
+    </div>
+
+  </div>
+  </body>
+</html>

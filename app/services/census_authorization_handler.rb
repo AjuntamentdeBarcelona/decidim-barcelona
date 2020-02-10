@@ -8,11 +8,14 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
   include Virtus::Multiparams
 
+  AVAILABLE_GENDERS = %w(man woman non_binary)
+
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
   attribute :scope_id, Integer
   attribute :date_of_birth, Date
+  attribute :gender, String
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
@@ -21,7 +24,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   validates :scope_id, presence: true
 
   validate :document_type_valid
-  validate :over_16
+  validate :over_14
   validate :valid_postal_code
 
   # If you need to store any of the defined attributes in the authorization you
@@ -30,7 +33,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   # You must return a Hash that will be serialized to the authorization when
   # it's created, and available though authorization.metadata
   def metadata
-    super.merge(postal_code: postal_code, scope: scope.name["ca"])
+    super.merge(
+      date_of_birth: date_of_birth,
+      gender: gender,
+      postal_code: postal_code,
+      scope: scope.name["ca"],
+    )
   end
 
   def scope
@@ -108,8 +116,8 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 EOS
   end
 
-  def over_16
-    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under_16")) unless age && age >= 16
+  def over_14
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under", min_age: 14)) unless age && age >= 14
   end
 
   def age

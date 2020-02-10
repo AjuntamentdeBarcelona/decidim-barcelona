@@ -5,6 +5,24 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
+namespace :stats do
+  # Takes two parameters from the environment, but don't expect them as arguments:
+  # - STATS_MINIMUM_COUNT: optional, components with less than this minimum will not be reported. Defaults to 5.
+   # - STATS_EMAILS: mandatory, the emails to send the stats to.
+
+  desc "Sends an email with the stats for all components in the organization."
+  task generate: :environment do
+    minimum_count = ENV.fetch("STATS_MINIMUM_COUNT", 5).to_i
+    emails = ENV.fetch("STATS_EMAILS").split(",")
+
+    if emails.empty?
+      puts "[decidim-stats] No emails found! Please, set the `STATS_EMAILS` environment variable and try again."
+    else
+      Decidim::Stats::StatsJob.perform_later(minimum_count, emails)
+    end
+  end
+end
+
 namespace :decidim_surveys_patch do
   # We need to patch this rake task so that it can work in this installation
   desc "PATCH: Migrate data from decidim_surveys tables to decidim_forms tables"
