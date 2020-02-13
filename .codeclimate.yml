@@ -50,4 +50,4 @@ exclude_paths:
 - "decidim-dataviz/vendor/**/*"
 - "decidim-dataviz/public/**/*"
 - "decidim-dataviz/app/assets/documents/**/*"
-
+- "app/assets/stylesheets/decidim/email.css"
