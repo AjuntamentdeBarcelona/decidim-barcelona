@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 4f7eb00b370cc7e10ac4e65438f7fea6027913c6
+  revision: 0bc2cfc979fc600bfa7dc76fd11e617e173cd773
   branch: master
   specs:
     decidim (0.21.0.pre.dev)
@@ -552,7 +552,7 @@ GEM
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
-    oauth2 (1.4.3)
+    oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
