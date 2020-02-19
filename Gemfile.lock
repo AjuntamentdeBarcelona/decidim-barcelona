@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 0bc2cfc979fc600bfa7dc76fd11e617e173cd773
-  branch: master
+  revision: 24f9fecf432cb8db3e0bf646ed406d1dddbc4243
+  branch: develop
   specs:
     decidim (0.21.0.pre.dev)
       decidim-accountability (= 0.21.0.pre.dev)
@@ -448,7 +448,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.2)
+    graphql (1.10.3)
     hashdiff (1.0.0)
     hashie (3.6.0)
     highline (2.0.3)
@@ -720,7 +720,7 @@ GEM
     rubocop-rails (2.0.1)
       rack (>= 1.1)
       rubocop (>= 0.70.0)
-    rubocop-rspec (1.37.1)
+    rubocop-rspec (1.38.1)
       rubocop (>= 0.68.1)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
@@ -809,7 +809,7 @@ GEM
       virtus (~> 1.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    webmock (3.8.0)
+    webmock (3.8.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
