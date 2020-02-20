@@ -15,7 +15,7 @@ This is the opensource code repository for "decidim-barcelona", based on [Decidi
 
 ## Upgrade notes
 
-- `app/views/layouts/decidim/widget.html.erb`, modify the embed to match the current card view in favor of remove login organization.
+- `app/views/layouts/decidim/_wrapper.html.erb`, `app/views/layouts/decidim/mailer.html.erb`, `app/views/layouts/decidim/widget.html.erb` modify the embed to match the current card view in favor of remove login organization.
 - `app/stylesheets/decidim/email.css`, customizes the email template style of Decidim. Be careful in later updates to prevent changes in style.
 
 ## Development environment setup
