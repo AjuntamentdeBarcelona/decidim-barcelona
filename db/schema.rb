@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_114837) do
+ActiveRecord::Schema.define(version: 2020_02_11_144500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
-  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
@@ -259,6 +258,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_114837) do
     t.datetime "updated_at", null: false
     t.integer "decidim_author_id", null: false
     t.string "decidim_author_type", null: false
+    t.integer "decidim_user_group_id"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_blogs_posts_on_decidim_author"
     t.index ["decidim_component_id"], name: "index_decidim_blogs_posts_on_decidim_component_id"
   end
@@ -308,7 +308,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_114837) do
 
   create_table "decidim_categorizations", force: :cascade do |t|
     t.bigint "decidim_category_id", null: false
-    t.string "categorizable_type"
+    t.string "categorizable_type", null: false
     t.bigint "categorizable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -759,8 +759,6 @@ ActiveRecord::Schema.define(version: 2020_01_31_114837) do
     t.index ["day"], name: "index_decidim_metrics_on_day"
     t.index ["decidim_category_id"], name: "index_decidim_metrics_on_decidim_category_id"
     t.index ["decidim_organization_id"], name: "index_decidim_metrics_on_decidim_organization_id"
-    t.index ["metric_type", "decidim_organization_id", "participatory_space_type", "participatory_space_id", "day", "decidim_category_id", "related_object_type", "related_object_id"], name: "idx_metric_by_type_org_space_day_cat_obj"
-    t.index ["metric_type", "decidim_organization_id", "participatory_space_type", "participatory_space_id"], name: "idx_metric_type_by_org_space"
     t.index ["metric_type"], name: "index_decidim_metrics_on_metric_type"
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_metric_on_participatory_space_id_and_type"
     t.index ["related_object_type", "related_object_id"], name: "index_metric_on_related_object_id_and_type"
