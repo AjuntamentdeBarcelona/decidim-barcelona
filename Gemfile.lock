@@ -1,6 +1,14 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
+  revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
+  specs:
+    decidim-term_customizer (0.18.0)
+      decidim-admin (>= 0.18.0)
+      decidim-core (>= 0.18.0)
+
+GIT
   remote: https://github.com/decidim/decidim
-  revision: 7e9901a71ac5d3ab2c4569868ae95fbb70016b16
+  revision: 79a292589c9e60cbe12e12197b4398efc1e70579
   branch: release/0.21.0
   specs:
     decidim (0.21.0.rc1)
@@ -841,6 +849,7 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-sortitions!
   decidim-stats!
+  decidim-term_customizer!
   decidim-valid_auth!
   deface
   faker
