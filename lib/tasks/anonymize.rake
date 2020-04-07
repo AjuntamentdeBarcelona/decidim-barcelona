@@ -52,6 +52,7 @@ namespace :anonymize do
       user.update_columns(
         email: "email#{user.id}@example.org",
         name: "Anonymized User #{user.id}",
+        nickname: "anon-#{user.id}",
         encrypted_password: "encryptedpassword#{user.id}",
         reset_password_token: nil,
         current_sign_in_at: nil,
