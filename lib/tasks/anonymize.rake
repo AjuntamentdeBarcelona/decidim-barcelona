@@ -90,7 +90,7 @@ namespace :anonymize do
   task admins: [:check, :environment] do
     with_progress Decidim::System::Admin.all, name: "admins" do |admin|
       admin.update_columns(
-        email: "email#{admin.id}@anonymized.org",
+        email: "email-admin#{admin.id}@example.org",
         encrypted_password: "encryptedpassword#{admin.id}",
         reset_password_token: nil,
         unlock_token: nil
