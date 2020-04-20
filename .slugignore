@@ -1,0 +1,16 @@
+
+# Check what goes into the slug with `heroku run bash` and inside `du -h`
+
+# Specs in Decidim oficial modules
+./vendor/bundle/ruby/*.*.*/bundler/gems/decidim-*/decidim-*/spec
+
+# Specs in other Decidim's modules
+./vendor/bundle/ruby/*.*.*/bundler/gems/decidim-*/spec
+
+# llibreria test-unit de Ruby
+./vendor/ruby-*/lib/ruby/gems/*/gems/test-unit*
+
+# Rspec related
+./vendor/bundle/ruby/*.*.*/gems/rectify-*/lib/rectify/rspec/database_reporter
+./vendor/bundle/ruby/*.*.*/gems/rectify-*/lib/rectify/rspec
+./vendor/bundle/ruby/*.*.*/bundler/gems/decidim-*/decidim-dev/lib/decidim/dev/test/rspec_support
