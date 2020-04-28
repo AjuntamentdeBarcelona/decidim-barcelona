@@ -185,7 +185,7 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the user gender" do
-      expect(subject.metadata).to include(gender: gender)
+      expect(subject.metadata[:extras]).to include(gender: gender)
     end
 
     it "includes the date of birth" do
