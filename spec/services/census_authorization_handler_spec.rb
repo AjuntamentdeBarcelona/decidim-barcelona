@@ -189,7 +189,7 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the date of birth" do
-      expect(subject.metadata).to include(date_of_birth: date_of_birth)
+      expect(subject.metadata).to include(date_of_birth: date_of_birth&.strftime("%Y-%m-%d"))
     end
   end
 end
