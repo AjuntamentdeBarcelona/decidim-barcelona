@@ -25,13 +25,12 @@ module Decidim
         end
 
         def author_url
-byebug
           author_presenter&.profile_url.to_s
         end
 
         def author_presenter
           return unless author
-byebug
+
           @author_presenter ||= "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
         end
 
