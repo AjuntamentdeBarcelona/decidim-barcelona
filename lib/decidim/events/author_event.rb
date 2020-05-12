@@ -25,13 +25,17 @@ module Decidim
         end
 
         def author_url
-          author_presenter&.profile_url.to_s
+          author_presenter.try(:profile_url)&.to_s
         end
 
         def author_presenter
           return unless author
 
-          @author_presenter ||= "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
+          @author_presenter ||= if resource.respond_to?(:official?) && resource.official?
+            "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
+          else
+            resource.try(:user_group)&.presenter || author.presenter
+          end
         end
 
         def author
