@@ -31,11 +31,19 @@ module Decidim
         def author_presenter
           return unless author
 
-          @author_presenter ||= if resource.respond_to?(:official?) && resource.official?
-            "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
-          else
-            resource.try(:user_group)&.presenter || author.presenter
+          @author_presenter ||= if official? && (resource.is_a?(Decidim::Proposals::Proposal) || resource.is_a?(Decidim::Debates::Debate))
+                                  "#{resource.class.parent}::OfficialAuthorPresenter".constantize.new
+                                elsif resource.respond_to?(:user_group)
+                                  resource.user_group&.presenter
+                                elsif author.respond_to?(:presenter)
+                                  author.presenter
+                                else
+                                  Decidim::UserPresenter.new(author)
           end
+        end
+
+        def official?
+          resource.respond_to?(:official?) && resource.official?
         end
 
         def author
