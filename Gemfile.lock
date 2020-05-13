@@ -392,7 +392,7 @@ GEM
     docile (1.3.2)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.3.1)
+    doorkeeper (5.3.3)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     equalizer (0.0.11)
@@ -554,7 +554,6 @@ GEM
     multipart-post (2.1.1)
     mustache (1.1.1)
     netrc (0.11.0)
-    newrelic_rpm (6.8.0.360)
     nio4r (2.5.2)
     nobspw (0.6.1)
     nokogiri (1.10.9)
@@ -797,7 +796,7 @@ GEM
     truncato (0.7.11)
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.7.0, <= 2.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uglifier (4.2.0)
@@ -858,7 +857,6 @@ DEPENDENCIES
   letter_opener_web
   listen
   lograge
-  newrelic_rpm
   origami
   progressbar
   puma
