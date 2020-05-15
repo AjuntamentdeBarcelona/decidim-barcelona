@@ -555,7 +555,6 @@ GEM
     multipart-post (2.1.1)
     mustache (1.1.1)
     netrc (0.11.0)
-    newrelic_rpm (6.8.0.360)
     nio4r (2.5.2)
     nobspw (0.6.1)
     nokogiri (1.10.9)
@@ -862,7 +861,6 @@ DEPENDENCIES
   letter_opener_web
   listen
   lograge
-  newrelic_rpm
   origami
   progressbar
   puma
