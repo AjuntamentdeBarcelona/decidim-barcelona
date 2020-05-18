@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.21.0" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.21-stable" }
 
 ruby '2.6.5'
 
@@ -48,7 +48,6 @@ group :production do
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
-  gem "newrelic_rpm"
   gem "dalli"
   gem "sentry-raven"
   gem 'rack-ssl-enforcer'
