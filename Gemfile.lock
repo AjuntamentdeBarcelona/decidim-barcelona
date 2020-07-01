@@ -417,8 +417,8 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.13.0)
-      i18n (>= 1.6, < 2)
+    faker (1.9.5)
+      i18n (>= 0.7)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
@@ -854,7 +854,7 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-valid_auth!
   deface
-  faker
+  faker (= 1.9.5)
   fog-aws
   geocoder (~> 1.5.2)
   letter_opener_web

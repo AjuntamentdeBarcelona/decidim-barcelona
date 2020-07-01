@@ -24,13 +24,13 @@ gem "geocoder", "~> 1.5.2"
 
 gem 'uglifier'
 gem 'lograge'
-gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
 gem "origami"
 
 group :development, :test do
+  gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"
