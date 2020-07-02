@@ -96,18 +96,18 @@ es:
       actions:
         invalid_destroy:
           proposals_count:
-            one: "No se puede eliminar el encuentro porqué es autor de una propuesta:"
-            other: "No se puede eliminar el encuentro porqué es autor de %{count} propuestas:"
+            one: "No se puede eliminar el encuentro porque es autor de una propuesta:"
+            other: "No se puede eliminar el encuentro porque es autor de %{count} propuestas:"
       admin:
         meetings:
           destroy:
             invalid:
               proposals_count:
-                one: No se puede eliminar el encuentro porqué es autor de una propuesta
-                other: No se puede eliminar el encuentro porqué es autor de %{count} propuestas
+                one: No se puede eliminar el encuentro porque es autor de una propuesta
+                other: No se puede eliminar el encuentro porque es autor de %{count} propuestas
     resource_links:
       included_proposals:
-        project_proposals: 'Propuestas incluidas en éste proyecto:'
+        project_proposals: 'Propuestas incluidas en este proyecto:'
     sms:
       text: "Tu código para verificarte en Decidim Barcelona es: %{code}"
     verifications:
