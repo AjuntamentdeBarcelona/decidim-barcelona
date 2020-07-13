@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.21-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.21-stable" }
 
 ruby '2.6.5'
 
@@ -24,13 +24,13 @@ gem "geocoder", "~> 1.5.2"
 
 gem 'uglifier'
 gem 'lograge'
-gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
 gem "origami"
 
 group :development, :test do
+  gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"

@@ -44,7 +44,7 @@ describe TimestampService do
               "Accept" => "*/*",
               "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
               "Content-Type" => "text/xml",
-              "User-Agent" => "Faraday v0.17.3"
+              "User-Agent" => "Faraday v#{Faraday::VERSION}"
             }).
             to_return(status: 200, body: stubbed_response, headers: {})
       end
