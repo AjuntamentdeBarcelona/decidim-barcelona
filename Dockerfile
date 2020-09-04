@@ -5,7 +5,7 @@
 
 
 # Starts with a clean ruby image from Debian (slim)
-FROM ruby:2.6.5
+FROM ruby:2.6.6
 
 LABEL maintainer="hola@decidim.org"
 
