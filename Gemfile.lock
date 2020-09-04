@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 8f28e3b42bcaafffa0df0be7fb542e22c55da682
+  revision: 3e2d5416474c5fbe683ed0a6bf1fa56e4aff210b
   branch: release/0.21-stable
   specs:
     decidim (0.21.0)
@@ -882,7 +882,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3
