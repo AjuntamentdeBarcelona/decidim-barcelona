@@ -1,4 +1,6 @@
-<!-- insert_before ".main-footer" -->
+<!-- insert_before ".main-footer" 
+      original 'ac2a3b4c8ab707341efd283bf0f97333377b0571'
+-->
 <section class="footer__subhero extended subhero home-section">
   <div class="row">
     <div class="columns small-12 large-9">
