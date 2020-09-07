@@ -4,6 +4,7 @@ Decidim.configure do |config|
   config.application_name = "Decidim Barcelona"
   config.mailer_sender    = Rails.application.secrets.email
   config.maximum_attachment_size = 150.megabytes
+  config.force_ssl        = true
 
   config.available_locales = %i(ca es)
   config.default_locale = :ca
