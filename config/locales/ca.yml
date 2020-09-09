@@ -92,6 +92,19 @@ ca:
       registrations:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
+    meetings:
+      actions:
+        invalid_destroy:
+          proposals_count:
+            one: "No es pot eliminar la trobada perquè és autora d'una proposta:"
+            other: "No es pot eliminar la trobada perquè és autora de %{count} propostes:"
+      admin:
+        meetings:
+          destroy:
+            invalid:
+              proposals_count:
+                one: No es pot eliminar la trobada perquè és autora d'una proposta
+                other: No es pot eliminar la trobada perquè és autora de %{count} propostes
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'

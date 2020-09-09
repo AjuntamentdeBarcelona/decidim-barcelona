@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.21.0" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.21-stable" }
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
@@ -24,13 +24,13 @@ gem "geocoder", "~> 1.5.2"
 
 gem 'uglifier'
 gem 'lograge'
-gem 'faker'
 gem "deface"
 gem "progressbar"
 gem "puma"
 gem "origami"
 
 group :development, :test do
+  gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"
@@ -48,7 +48,6 @@ group :production do
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
-  gem "newrelic_rpm"
   gem "dalli"
   gem "sentry-raven"
   gem 'rack-ssl-enforcer'

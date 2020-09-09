@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 require "rails_helper"
 require "decidim/dev/test/authorization_shared_examples"
+require "decidim/initiatives/test/factories.rb"
 
 describe CensusAuthorizationHandler do
   let(:subject) { handler }
@@ -185,11 +186,74 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the user gender" do
-      expect(subject.metadata).to include(gender: gender)
+      expect(subject.metadata[:extras]).to include(gender: gender)
     end
 
     it "includes the date of birth" do
-      expect(subject.metadata).to include(date_of_birth: date_of_birth)
+      expect(subject.metadata).to include(date_of_birth: date_of_birth&.strftime("%Y-%m-%d"))
+    end
+  end
+
+  describe "initiative signature with extra params" do
+    context "when check authorization with variation" do
+      let(:organization) { create(:organization) }
+      let(:initiatives_type) { create(:initiatives_type, organization: organization) }
+      let(:initiative) { create(:initiative, organization: organization, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
+      let(:current_user) { create(:user, organization: initiative.organization) }
+      let(:context) { { current_organization: organization } }
+      let(:personal_data) do
+        {
+          name_and_surname: "James Morgan McGill",
+          document_number: "01234567A",
+          date_of_birth: 40.years.ago,
+          postal_code: "87111"
+        }
+      end
+      let(:vote_attributes) do
+        {
+          initiative_id: initiative.id,
+          author_id: current_user.id
+        }
+      end
+      let(:attributes) { personal_data.merge(vote_attributes) }
+      let(:form) { Decidim::Initiatives::VoteForm.from_params(attributes).with_context(context) }
+      let(:handler_name) { described_class.handler_name }
+      let(:metadata) do
+        {
+          scope: scope.name["ca"],
+          postal_code: form.postal_code,
+          date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
+          extras: {
+            gender: gender
+          }
+        }
+      end
+      let(:authorization) do
+        create(:authorization, created_at: Time.zone.today.prev_month, granted_at: Time.zone.today.prev_month, name: "name", user: current_user, metadata: metadata)
+      end
+      let(:authorization_handler) do
+        Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                 document_number: form.document_number,
+                                                 name_and_surname: form.name_and_surname,
+                                                 date_of_birth: form.date_of_birth,
+                                                 postal_code: form.postal_code,
+                                                 scope_id: form.scope&.id)
+      end
+      let(:authorization_handler_metadata_variations) do
+        form.scope.children.map do |child_scope|
+          Decidim::AuthorizationHandler.handler_for(handler_name,
+                                                    document_number: form.document_number,
+                                                    name_and_surname: form.name_and_surname,
+                                                    date_of_birth: form.date_of_birth,
+                                                    postal_code: form.postal_code,
+                                                    scope_id: child_scope&.id)
+        end.unshift(authorization_handler).map(&:metadata)
+      end
+      let(:variation) { authorization_handler_metadata_variations.first }
+
+      it "ignores extras field with all its content" do
+        expect( authorization.metadata.symbolize_keys.except(:extras) == variation.symbolize_keys.except(:extras) ).to be true
+      end
     end
   end
 end
