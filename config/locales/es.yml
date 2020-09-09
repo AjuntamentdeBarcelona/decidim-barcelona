@@ -92,19 +92,6 @@ es:
       registrations:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
-    meetings:
-      actions:
-        invalid_destroy:
-          proposals_count:
-            one: "No se puede eliminar el encuentro porque es autor de una propuesta:"
-            other: "No se puede eliminar el encuentro porque es autor de %{count} propuestas:"
-      admin:
-        meetings:
-          destroy:
-            invalid:
-              proposals_count:
-                one: No se puede eliminar el encuentro porque es autor de una propuesta
-                other: No se puede eliminar el encuentro porque es autor de %{count} propuestas
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en este proyecto:'
