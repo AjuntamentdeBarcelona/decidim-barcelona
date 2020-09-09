@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.22-stable" }
+DECIDIM_VERSION = "0.22.0"
 
 ruby '2.6.5'
 
