@@ -79,10 +79,21 @@ namespace :anonymize do
   task user_groups: [:check, :environment] do
     with_progress Decidim::UserGroup.all, name: "user groups" do |user_group|
       user_group.update_columns(
+        email: "email-ug-#{user_group.id}@example.org",
         name: "User Group #{user_group.id}",
-        document_number: "document-#{user_group.id}",
-        phone: "123456",
-        avatar: nil
+        nickname: "anon-ug-#{user_group.id}",
+        encrypted_password: "encryptedpassword#{user_group.id}",
+        reset_password_token: nil,
+        current_sign_in_at: nil,
+        last_sign_in_at: nil,
+        current_sign_in_ip: nil,
+        last_sign_in_ip: nil,
+        invitation_token: nil,
+        confirmation_token: nil,
+        unconfirmed_email: nil,
+        avatar: nil,
+        extra: {},
+        extended_data: user_group.extended_data.merge({"phone": "123456789", "document_number": "document-#{user_group.id}"})
       )
     end
   end
