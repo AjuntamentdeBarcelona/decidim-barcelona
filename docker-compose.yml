@@ -13,7 +13,7 @@ services:
       - RAILS_ENV=development
       - REDIS_URL=redis://redis:6379
     ports:
-      - 3000:9292
+      - 3000:3000
     links:
       - pg
       - redis
