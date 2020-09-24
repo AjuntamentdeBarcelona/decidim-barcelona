@@ -28,10 +28,7 @@
     "ANALYTICS": {
       "required": true
     },
-    "HERE_APP_ID": {
-      "required": true
-    },
-    "HERE_APP_CODE": {
+    "HERE_API_KEY": {
       "required": true
     },
     "HEROKU_APP_NAME": {
