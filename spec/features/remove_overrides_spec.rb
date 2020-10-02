@@ -22,7 +22,7 @@ describe "Overrides" do
     expect(Decidim.version).to be < "0.22"
   end
 
-  describe "remove consistent sorting of proposal attachments" do
+  it "remove consistent sorting of proposal attachments" do
     # remove app/overrides/cells/decidim/proposals/proposal_m_cell_decorator.rb
     expect(Decidim.version).to be < "0.24"
   end
