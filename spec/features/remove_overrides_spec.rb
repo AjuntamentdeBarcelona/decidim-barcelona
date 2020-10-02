@@ -21,4 +21,9 @@ describe "Overrides" do
     # - decidim.meetings.admin.meetings.destroy.invalid.proposals_count.other
     expect(Decidim.version).to be < "0.22"
   end
+
+  describe "remove consistent sorting of proposal attachments" do
+    # remove app/overrides/cells/decidim/proposals/proposal_m_cell_decorator.rb
+    expect(Decidim.version).to be < "0.24"
+  end
 end
