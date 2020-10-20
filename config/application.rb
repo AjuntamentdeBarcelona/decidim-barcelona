@@ -16,5 +16,12 @@ module DecidimBarcelona
     # Locales
     config.i18n.available_locales = %w(ca es)
     config.i18n.default_locale = :ca
+
+    # Make decorators available
+    config.to_prepare do
+      Dir.glob(Rails.root + 'app/overrides/**/*_decorator*.rb').each do |file|
+        require_dependency(file)
+      end
+    end
   end
 end

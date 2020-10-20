@@ -20,7 +20,7 @@ gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
-gem "geocoder", "~> 1.5.2"
+gem "geocoder", "~> 1.6.1"
 
 gem 'uglifier'
 gem 'lograge'
