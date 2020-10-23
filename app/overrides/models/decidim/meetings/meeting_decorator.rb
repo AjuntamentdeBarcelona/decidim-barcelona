@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-
-
 Decidim::Meetings::Meeting.class_eval do
   def can_register_invitation?(user)
     !closed? && registrations_enabled? &&
