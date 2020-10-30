@@ -3,6 +3,7 @@ require "decidim/dev/test/spec_helper"
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/proposals/test/factories"
+require "decidim/meetings/test/factories"
 
 describe "routing redirections", type: :request do
   let!(:organization) { create(:organization, host: "decidim.barcelona" )}
@@ -35,6 +36,11 @@ describe "routing redirections", type: :request do
       it "redirects index paths inside the old step structure" do
         expect(get("/test-process/123/proposals/"))
           .to redirect_to("/processes/#{participatory_process.id}/f/#{component.id}")
+      end
+
+      it "does not redirect when paginating the meetings directory" do
+        create(:meeting_component, organization: organization)
+        expect { get("/meetings/meetings?page=2") }.not_to raise_error
       end
     end
 
