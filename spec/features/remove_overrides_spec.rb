@@ -34,4 +34,9 @@ describe "Overrides" do
     # app/overrides/cells/decidim/meetings/highlighted_meetings_for_component_cell_decorator.rb
     expect(Decidim.version).to be < "0.22"
   end
+
+  it "remove: Fix accept invitation to private meetings" do
+    # app/overrides/cells/decidim/meetings/upcoming_events_cell_decorator.rb
+    expect(Decidim.version).to be < "0.23"
+  end
 end
