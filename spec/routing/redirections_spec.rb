@@ -1,8 +1,10 @@
 require "rails_helper"
 require "decidim/dev/test/spec_helper"
 require "decidim/core/test/factories"
+require "decidim/assemblies/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/proposals/test/factories"
+require "decidim/meetings/test/factories"
 
 describe "routing redirections", type: :request do
   let!(:organization) { create(:organization, host: "decidim.barcelona" )}
@@ -45,6 +47,37 @@ describe "routing redirections", type: :request do
 
       it "doesn't redirect" do
         expect { get("/proposals/test-proposal") }.to raise_error(ActionController::RoutingError)
+      end
+    end
+  end
+
+  describe "meetings" do
+    let(:participatory_space) { create(:assembly, organization: organization, slug: "test-assembly") }
+    let!(:component) { create(:meeting_component, participatory_space: participatory_space) }
+    let(:meeting) { create(:meeting, component: component) }
+
+    context "with the right host" do
+      before(:each) do
+        host! organization.host
+      end
+
+      it "does not redirect when paginating the meetings directory" do
+        expect { get("/meetings/meetings?page=2") }.not_to raise_error
+      end
+
+      context "when browsing the meetings of an assembly" do
+
+        it "does not try to redirect" do
+          expect { get("/assemblies/#{participatory_space.slug}/f/#{component.id}/meetings/#{meeting.id}") }.not_to raise_error
+        end
+      end
+
+      context "when browsing the meetings of a process" do
+        let!(:participatory_space) { create(:participatory_process, organization: organization, slug: "test-process") }
+
+        it "does not try to redirect" do
+          expect { get("/processes/#{participatory_space.slug}/f/#{component.id}/meetings/#{meeting.id}") }.not_to raise_error
+        end
       end
     end
   end
