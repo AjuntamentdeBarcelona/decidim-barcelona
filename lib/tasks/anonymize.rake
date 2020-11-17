@@ -43,8 +43,8 @@ namespace :anonymize do
 
     with_progress(Decidim::Proposals::Proposal.all, name: "proposals") do |proposal|
       proposal.votes.delete_all
-      Decidim::Proposals::Proposal.reset_counters(proposal.id, :proposal_votes_count)
     end
+    Decidim::Proposals::Proposal.update_all(proposal_votes_count: 0)
   end
 
   task users: [:check, :environment] do

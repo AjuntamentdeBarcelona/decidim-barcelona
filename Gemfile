@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.21-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.22-stable" }
 
 ruby '2.6.5'
 
@@ -14,7 +14,7 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer" 
 
-gem "sassc", "~>1.12.0"
+gem "sassc", "~>2.3.0"
 
 gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
