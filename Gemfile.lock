@@ -398,6 +398,10 @@ GEM
     doorkeeper (5.4.0)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     equalizer (0.0.11)
     erb_lint (0.0.37)
       activesupport
@@ -865,6 +869,7 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-valid_auth!
   deface
+  dotenv-rails
   faker (= 1.9.5)
   fog-aws
   geocoder (~> 1.6.1)

@@ -34,6 +34,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"
+  gem 'dotenv-rails'
 end
 
 group :development do
