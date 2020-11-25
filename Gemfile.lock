@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 73bd3d1547895ec444f5aabb4d4015df5da417d0
+  revision: a39c7aeb46efdd418ec401ab49f424087facd230
   branch: release/0.23-stable
   specs:
     decidim (0.23.1)
@@ -693,7 +693,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
-    redis (4.2.2)
+    redis (4.2.5)
     regexp_parser (2.0.3)
     request_store (1.5.0)
       rack (>= 1.4)
