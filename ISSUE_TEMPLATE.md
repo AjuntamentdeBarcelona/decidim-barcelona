@@ -1,5 +1,5 @@
 #### :tophat: User Story
- 
+
 
 #### :clipboard: Related documentation
 
