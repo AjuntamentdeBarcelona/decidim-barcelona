@@ -211,7 +211,7 @@ describe CensusAuthorizationHandler do
       end
       let(:vote_attributes) do
         {
-          initiative_id: initiative.id,
+          initiative: initiative,
           author_id: current_user.id
         }
       end
