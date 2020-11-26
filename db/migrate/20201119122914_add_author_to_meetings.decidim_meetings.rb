@@ -20,7 +20,7 @@ class AddAuthorToMeetings < ActiveRecord::Migration[5.2]
         meeting.decidim_author_id = meeting.organization&.id || Decidim::Organization.first.id
         meeting.decidim_author_type = "Decidim::Organization"
       end
-      meeting.save(validte: false)
+      meeting.save(validate: false)
     end
 
     remove_column :decidim_meetings_meetings, :organizer_id
