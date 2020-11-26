@@ -5,6 +5,10 @@ module Decidim
     # The data store for a Result in the Decidim::Accountability component. It stores a
     # title, description and any other useful information to render a custom result.
     class ResultWithWeightedProgress < Decidim::Accountability::Result
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description
+
 
       belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::ResultWithWeightedProgress", inverse_of: :children, optional: true, counter_cache: :children_count
 
