@@ -6,21 +6,43 @@ class FixProposalsDataToEnsureTitleAndBodyAreHashes < ActiveRecord::Migration[5.
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.find_each do |proposal|
-        next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+      ActiveRecord::Base.uncached do
 
-        author = proposal.coauthorships.first.author
+        Decidim::Proposals::Proposal.where("id <= ?", 5_000).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
 
-        locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
+        Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 5_000, 10_000).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
 
-        proposal.title = {
-          locale => proposal.title
-        }
-        proposal.body = {
-          locale => proposal.body
-        }
+        Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 10_000, 15_000).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
 
-        proposal.save!
+        Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 15_000, 17_500).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
+
+        Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 17_500, 20_000).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
+
+        Decidim::Proposals::Proposal.where("id > ?", 20_000).find_each do |proposal|
+          next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+          process_proposal(proposal)
+        end
+        GC.start
       end
     end
 
@@ -28,6 +50,21 @@ class FixProposalsDataToEnsureTitleAndBodyAreHashes < ActiveRecord::Migration[5.
   end
 
   def down; end
+
+  def process_proposal(proposal)
+    author = proposal.coauthorships.first.author
+
+    locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
+
+    proposal.title = {
+      locale => proposal.title
+    }
+    proposal.body = {
+      locale => proposal.body
+    }
+
+    proposal.save(validate: false)
+  end
 
   def reset_column_information
     Decidim::User.reset_column_information
