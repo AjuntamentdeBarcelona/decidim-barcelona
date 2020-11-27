@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 # This migration comes from decidim_proposals (originally 20200915151348)
 
-class FixProposalsDataToEnsureTitleAndBodyAreHashes < ActiveRecord::Migration[5.2]
+class FixProposalsDataToEnsureTitleAndBodyAreHashes2 < ActiveRecord::Migration[5.2]
   def up
     reset_column_information
 
     PaperTrail.request(enabled: false) do
       ActiveRecord::Base.uncached do
 
-        Decidim::Proposals::Proposal.where("id <= ?", 5_000).find_each do |proposal|
+        Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 5_000, 10_000).find_each do |proposal|
           next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
           process_proposal(proposal)
           puts "proposal: #{proposal.id}"
