@@ -8,10 +8,13 @@ class FixProposalsDataToEnsureTitleAndBodyAreHashes2 < ActiveRecord::Migration[5
     PaperTrail.request(enabled: false) do
       ActiveRecord::Base.uncached do
 
+        idx= 0
         Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 5_000, 10_000).find_each do |proposal|
           next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
           process_proposal(proposal)
-          puts "proposal: #{proposal.id}"
+          print "proposal: #{proposal.id}//"
+          idx+= 1
+          GC.start && puts("\nPROCESSED: #{idx}") if idx%500 == 0
         end
       end
     end
