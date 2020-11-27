@@ -9,7 +9,7 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.find_each do |proposal|
+      Decidim::Proposals::Proposal.where("id < ?", 5000).find_each do |proposal|
         author = proposal.coauthorships.first&.author
 
         locale = if author
@@ -31,14 +31,14 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
       end
     end
 
-    remove_indexs
+    # remove_indexs
 
-    remove_column :decidim_proposals_proposals, :title
-    rename_column :decidim_proposals_proposals, :new_title, :title
-    remove_column :decidim_proposals_proposals, :body
-    rename_column :decidim_proposals_proposals, :new_body, :body
+    # remove_column :decidim_proposals_proposals, :title
+    # rename_column :decidim_proposals_proposals, :new_title, :title
+    # remove_column :decidim_proposals_proposals, :body
+    # rename_column :decidim_proposals_proposals, :new_body, :body
 
-    create_indexs
+    # create_indexs
 
     reset_column_information
   end
