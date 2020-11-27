@@ -3,8 +3,8 @@
 
 class MoveProposalsFieldsToI18nStep5 < ActiveRecord::Migration[5.2]
   def up
-    add_column :decidim_proposals_proposals, :new_title, :jsonb
-    add_column :decidim_proposals_proposals, :new_body, :jsonb
+    # add_column :decidim_proposals_proposals, :new_title, :jsonb
+    # add_column :decidim_proposals_proposals, :new_body, :jsonb
 
     reset_column_information
 
@@ -31,21 +31,21 @@ class MoveProposalsFieldsToI18nStep5 < ActiveRecord::Migration[5.2]
       end
     end
 
-    remove_indexs
+    # remove_indexs
 
-    remove_column :decidim_proposals_proposals, :title
-    rename_column :decidim_proposals_proposals, :new_title, :title
-    remove_column :decidim_proposals_proposals, :body
-    rename_column :decidim_proposals_proposals, :new_body, :body
+    # remove_column :decidim_proposals_proposals, :title
+    # rename_column :decidim_proposals_proposals, :new_title, :title
+    # remove_column :decidim_proposals_proposals, :body
+    # rename_column :decidim_proposals_proposals, :new_body, :body
 
-    create_indexs
+    # create_indexs
 
     reset_column_information
   end
 
   def down
-    add_column :decidim_proposals_proposals, :new_title, :string
-    add_column :decidim_proposals_proposals, :new_body, :string
+    # add_column :decidim_proposals_proposals, :new_title, :string
+    # add_column :decidim_proposals_proposals, :new_body, :string
 
     reset_column_information
 
