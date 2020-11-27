@@ -3,13 +3,13 @@
 
 class MoveProposalsFieldsToI18nStep4 < ActiveRecord::Migration[5.2]
   def up
-    # add_column :decidim_proposals_proposals, :new_title, :jsonb
-    # add_column :decidim_proposals_proposals, :new_body, :jsonb
+    add_column :decidim_proposals_proposals, :new_title, :jsonb
+    add_column :decidim_proposals_proposals, :new_body, :jsonb
 
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.where("id > ?", 20_000).find_each do |proposal|
+      Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 15_000, 20_000).find_each do |proposal|
         author = proposal.coauthorships.first&.author
 
         locale = if author
@@ -49,7 +49,7 @@ class MoveProposalsFieldsToI18nStep4 < ActiveRecord::Migration[5.2]
 
     reset_column_information
 
-    Decidim::Proposals::Proposal.where("id > ?", 20_000).find_each do |proposal|
+    Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 15_000, 20_000).find_each do |proposal|
       proposal.new_title = proposal.title.values.first
       proposal.new_body = proposal.body.values.first
 
