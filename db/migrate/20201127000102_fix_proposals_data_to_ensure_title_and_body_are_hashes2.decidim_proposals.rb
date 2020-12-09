@@ -16,6 +16,7 @@ class FixProposalsDataToEnsureTitleAndBodyAreHashes2 < ActiveRecord::Migration[5
           idx+= 1
           GC.start && puts("\nPROCESSED: #{idx}") if idx%500 == 0
         end
+        puts("\nPROCESSED: #{idx}")
       end
     end
 
