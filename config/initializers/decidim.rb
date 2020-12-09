@@ -34,4 +34,7 @@ end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
   auth.form = "CensusAuthorizationHandler"
+  auth.renewable = true
+  auth.time_between_renewals = 1.day
+  auth.metadata_cell = "census_authorization_metadata"
 end

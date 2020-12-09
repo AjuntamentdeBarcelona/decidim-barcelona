@@ -61,6 +61,7 @@ ca:
           date_of_birth: Data de naixement
           document_number: Número de document
           document_type: Tipus de document
+          gender: Sexe
           postal_code: Codi postal
           scope: Districte
         name: El padró
