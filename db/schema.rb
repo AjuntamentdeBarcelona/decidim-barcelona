@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_122946) do
+ActiveRecord::Schema.define(version: 2020_11_27_000106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1169,9 +1169,9 @@ ActiveRecord::Schema.define(version: 2020_11_19_122946) do
     t.jsonb "execution_period"
     t.datetime "state_published_at"
     t.integer "endorsements_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
     t.jsonb "title"
     t.jsonb "body"
-    t.integer "comments_count", default: 0, null: false
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
