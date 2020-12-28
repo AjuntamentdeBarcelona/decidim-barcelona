@@ -11,7 +11,7 @@ end
 if Rails.application.secrets.aws_access_key_id.present?
   require "carrierwave/storage/fog"
 
-  region= 'eu-west-3'
+  region= 'eu-west-1'
   CarrierWave.configure do |config|
     config.storage = :fog
     config.fog_provider = 'fog/aws'                                             # required
