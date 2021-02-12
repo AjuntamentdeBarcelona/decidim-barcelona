@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.23-stable" }
 
-ruby '2.6.6'
+ruby '2.7.2'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
