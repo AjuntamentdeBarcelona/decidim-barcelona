@@ -37,6 +37,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       date_of_birth: date_of_birth&.strftime("%Y-%m-%d"),
       postal_code: postal_code,
       scope: scope.name["ca"],
+      scope_id: scope.id,
       extras: {
         gender: gender
       }
