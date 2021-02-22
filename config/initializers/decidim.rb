@@ -14,9 +14,10 @@ Decidim.configure do |config|
   end
 
   if Rails.application.secrets.geocoder
-    config.geocoder = {
-      static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-      here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+    config.maps = {
+      provider: :here,
+      api_key: Rails.application.secrets.geocoder[:here_api_key],
+      static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
     }
   end
 
@@ -34,4 +35,7 @@ end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
   auth.form = "CensusAuthorizationHandler"
+  auth.renewable = true
+  auth.time_between_renewals = 1.day
+  auth.metadata_cell = "census_authorization_metadata"
 end

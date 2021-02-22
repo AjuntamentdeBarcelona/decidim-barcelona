@@ -14,6 +14,8 @@ AllCops:
     - "development_app/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "db/**/*"
+
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -63,7 +65,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
 
   RSpec:
     Patterns:

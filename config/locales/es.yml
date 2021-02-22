@@ -61,6 +61,7 @@ es:
           date_of_birth: Fecha de nacimiento
           document_number: Número de documento
           document_type: Tipo de documento
+          gender: Sexo
           postal_code: Código postal
           scope_id: Distrito
         name: El padrón

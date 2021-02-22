@@ -13,7 +13,7 @@ describe CensusAuthorizationHandler do
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_id) { 123 }
   let(:gender) { "foo" }
-  let(:scope) { double(code: "1", name: { "ca" => "Ciutat Vella" }) }
+  let(:scope) { double(id: 999, code: "1", name: { "ca" => "Ciutat Vella" }) }
   let(:user) { create :user }
   let(:params) do
     {
@@ -181,8 +181,12 @@ describe CensusAuthorizationHandler do
       expect(subject.metadata).to include(postal_code: "08001")
     end
 
-    it "includes the scope" do
+    it "includes the scope name" do
       expect(subject.metadata).to include(scope: "Ciutat Vella")
+    end
+
+    it "includes the scope id" do
+      expect(subject.metadata).to include(scope_id: scope.id)
     end
 
     it "includes the user gender" do
@@ -211,7 +215,7 @@ describe CensusAuthorizationHandler do
       end
       let(:vote_attributes) do
         {
-          initiative_id: initiative.id,
+          initiative: initiative,
           author_id: current_user.id
         }
       end
@@ -221,6 +225,7 @@ describe CensusAuthorizationHandler do
       let(:metadata) do
         {
           scope: scope.name["ca"],
+          scope_id: scope.id,
           postal_code: form.postal_code,
           date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
           extras: {
