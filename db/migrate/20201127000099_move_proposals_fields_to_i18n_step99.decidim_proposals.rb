@@ -10,7 +10,6 @@ class MoveProposalsFieldsToI18nStep99 < ActiveRecord::Migration[5.2]
 
     PaperTrail.request(enabled: false) do
       Decidim::Proposals::Proposal.where("id > ?", 27_500).find_each do |proposal|
-        p proposal.id
         author = proposal.coauthorships.first&.author
 
         locale = if author
