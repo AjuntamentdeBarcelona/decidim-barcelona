@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # This migration comes from decidim_proposals (originally 20200708091228)
 
-class MoveProposalsFieldsToI18nStep6 < ActiveRecord::Migration[5.2]
+class MoveProposalsFieldsToI18nStep99 < ActiveRecord::Migration[5.2]
   def up
     # add_column :decidim_proposals_proposals, :new_title, :jsonb
     # add_column :decidim_proposals_proposals, :new_body, :jsonb
@@ -9,7 +9,8 @@ class MoveProposalsFieldsToI18nStep6 < ActiveRecord::Migration[5.2]
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 20_000, 22_500).find_each do |proposal|
+      Decidim::Proposals::Proposal.where("id > ?", 27_500).find_each do |proposal|
+        p proposal.id
         author = proposal.coauthorships.first&.author
 
         locale = if author
@@ -31,25 +32,25 @@ class MoveProposalsFieldsToI18nStep6 < ActiveRecord::Migration[5.2]
       end
     end
 
-    # remove_indexs
+    remove_indexs
 
-    # remove_column :decidim_proposals_proposals, :title
-    # rename_column :decidim_proposals_proposals, :new_title, :title
-    # remove_column :decidim_proposals_proposals, :body
-    # rename_column :decidim_proposals_proposals, :new_body, :body
+    remove_column :decidim_proposals_proposals, :title
+    rename_column :decidim_proposals_proposals, :new_title, :title
+    remove_column :decidim_proposals_proposals, :body
+    rename_column :decidim_proposals_proposals, :new_body, :body
 
-    # create_indexs
+    create_indexs
 
     reset_column_information
   end
 
   def down
-    # add_column :decidim_proposals_proposals, :new_title, :string
-    # add_column :decidim_proposals_proposals, :new_body, :string
+    add_column :decidim_proposals_proposals, :new_title, :string
+    add_column :decidim_proposals_proposals, :new_body, :string
 
     reset_column_information
 
-    Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 17_500, 20_000).find_each do |proposal|
+    Decidim::Proposals::Proposal.where("id > ?", 20_000).find_each do |proposal|
       proposal.new_title = proposal.title.values.first
       proposal.new_body = proposal.body.values.first
 

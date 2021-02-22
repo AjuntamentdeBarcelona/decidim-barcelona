@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # This migration comes from decidim_proposals (originally 20200708091228)
 
-class MoveProposalsFieldsToI18nStep6 < ActiveRecord::Migration[5.2]
+class MoveProposalsFieldsToI18nStep7 < ActiveRecord::Migration[5.2]
   def up
     # add_column :decidim_proposals_proposals, :new_title, :jsonb
     # add_column :decidim_proposals_proposals, :new_body, :jsonb
@@ -9,7 +9,7 @@ class MoveProposalsFieldsToI18nStep6 < ActiveRecord::Migration[5.2]
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 20_000, 22_500).find_each do |proposal|
+      Decidim::Proposals::Proposal.where("id > ? AND id <= ?", 22_500, 25_000).find_each do |proposal|
         author = proposal.coauthorships.first&.author
 
         locale = if author
