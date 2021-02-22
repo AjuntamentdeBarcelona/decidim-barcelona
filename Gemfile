@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.23-stable" }
 
-ruby '2.6.5'
+ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
@@ -12,7 +12,7 @@ gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer" 
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
 
 gem "sassc", "~>2.3.0"
 
