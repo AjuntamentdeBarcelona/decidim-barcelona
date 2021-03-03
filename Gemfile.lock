@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 34db13fe5e59d34da9573767b97165dfdff6f4de
+  revision: f32ca6882559d44ea133fedd660412c3374bc374
   branch: release/0.23-stable
   specs:
     decidim (0.23.3)
@@ -632,7 +632,7 @@ GEM
       premailer (~> 1.7, >= 1.7.9)
     progressbar (1.10.1)
     public_suffix (4.0.6)
-    puma (5.2.1)
+    puma (5.2.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
