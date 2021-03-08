@@ -449,8 +449,8 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (1.9.5)
-      i18n (>= 0.7)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     faraday (1.3.0)
       faraday-net_http (~> 1.0)
       multipart-post (>= 1.2, < 3)
@@ -920,7 +920,7 @@ DEPENDENCIES
   decidim-valid_auth!
   deface
   dotenv-rails
-  faker (= 1.9.5)
+  faker (= 2.14.0)
   fog-aws
   geocoder (~> 1.6.1)
   letter_opener_web

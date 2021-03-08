@@ -30,7 +30,7 @@ gem "puma"
 gem "origami"
 
 group :development, :test do
-  gem 'faker', '1.9.5'
+  gem 'faker', '2.14.0'
   gem 'byebug', platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "bootsnap"
