@@ -39,3 +39,9 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_authorization_metadata"
 end
+
+Decidim::ViewModel.class_eval do
+  def perform_caching?
+    false
+  end
+end
