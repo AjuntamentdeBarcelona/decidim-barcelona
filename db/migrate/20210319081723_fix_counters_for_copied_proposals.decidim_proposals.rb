@@ -10,8 +10,13 @@ class FixCountersForCopiedProposals < ActiveRecord::Migration[5.2]
                    to_type: "Decidim::Proposals::Proposal"
                  ).pluck(:to_id)
 
-    Decidim::Proposals::Proposal.where(id: copies_ids).find_each do |record|
-      record.update_comments_count
+    Decidim::Proposals::Proposal.where(id: copies_ids).find_in_batches do |batch|
+      p "=============="
+      p "Handling batch"
+      p "=============="
+      batch.each do |record|
+        record.update_comments_count
+      end
     end
   end
 
