@@ -39,3 +39,10 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_authorization_metadata"
 end
+
+module Decidim::Proposals::ApplicationHelper.module_eval do
+  def not_from_collaborative_draft(proposal)
+    true
+  end
+end
+
