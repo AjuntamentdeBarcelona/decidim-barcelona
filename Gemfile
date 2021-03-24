@@ -29,6 +29,9 @@ gem "progressbar"
 gem "puma"
 gem "origami"
 
+# Needed to be able to debug Puma status
+gem "barnes"
+
 group :development, :test do
   gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri
