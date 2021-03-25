@@ -32,6 +32,9 @@ gem "origami"
 # Needed to be able to debug Puma status
 gem "barnes"
 
+# Used to restart puma workers every 6h and free memory
+gem "puma_worker_killer"
+
 group :development, :test do
   gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri

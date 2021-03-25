@@ -7,3 +7,9 @@ preload_app!
 rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
+
+before_fork do
+  require "puma_worker_killer"
+
+  PumaWorkerKiller.enable_rolling_restart
+end

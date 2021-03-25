@@ -469,6 +469,8 @@ GEM
       railties (>= 4.1, < 6.0)
       tzinfo (~> 1.2, >= 1.2.2)
     geocoder (1.6.5)
+    get_process_mem (0.2.7)
+      ffi (~> 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.11)
@@ -637,6 +639,9 @@ GEM
     public_suffix (4.0.6)
     puma (5.2.1)
       nio4r (~> 2.0)
+    puma_worker_killer (0.3.1)
+      get_process_mem (~> 0.2)
+      puma (>= 2.7)
     racc (1.5.2)
     rack (2.2.3)
     rack-attack (6.5.0)
@@ -893,6 +898,7 @@ DEPENDENCIES
   origami
   progressbar
   puma
+  puma_worker_killer
   rack-ssl-enforcer
   rack_password
   rails_12factor
