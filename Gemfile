@@ -35,6 +35,10 @@ gem "barnes"
 # Used to restart puma workers every 6h and free memory
 gem "puma_worker_killer"
 
+# Let's kill long-running requests after the Heroku router has responded to.
+# https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
+gem "rack-timeout"
+
 group :development, :test do
   gem 'faker', '1.9.5'
   gem 'byebug', platform: :mri
