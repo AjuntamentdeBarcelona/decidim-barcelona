@@ -87,7 +87,7 @@ es:
           gender: Sexo
           postal_code: Código postal
           scope_id: Distrito
-        name: El padrón
+        name: El padrón (mayores de 16 años)
       census_authorization_handler:
         explanation: Verifícate con el padrón
         fields:

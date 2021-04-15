@@ -87,7 +87,7 @@ ca:
           gender: Sexe
           postal_code: Codi postal
           scope: Districte
-        name: El padró
+        name: El padró (majors de 16 anys)
       census_authorization_handler:
         explanation: Verifica't amb el padró
         fields:

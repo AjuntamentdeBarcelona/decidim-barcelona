@@ -76,7 +76,7 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
         visit decidim_verifications.authorizations_path
 
         within ".authorizations-list" do
-          expect(page).to have_content("El padró")
+          expect(page).to have_content("El padró (majors de 16 anys)")
           expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long, locale: :ca))
         end
       end
