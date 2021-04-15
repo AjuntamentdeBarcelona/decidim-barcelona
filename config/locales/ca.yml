@@ -6,6 +6,13 @@ ca:
         mobile_phone_number: Número de telèfon mòbil
       confirmation:
         verification_code: Codi de verificació
+      census16_authorization_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        postal_code: Codi postal
+        scope_id: Districte
       census_authorization_handler:
         date_of_birth: Data de naixement
         document_number: Número de document
@@ -13,6 +20,19 @@ ca:
         gender: Sexe
         postal_code: Codi postal
         scope_id: Districte
+  census16_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva de dones i homes.
+      gender_prompt: Si us plau, selecciona una opció
+      genders:
+        man: Home
+        non_binary: No binari
+        woman: Dona
+      scope_prompt: Si us plau, selecciona el teu districte
   census_authorization:
     form:
       date_select:
@@ -26,6 +46,9 @@ ca:
         non_binary: No binari
         woman: Dona
       scope_prompt: Si us plau, selecciona el teu districte
+  census16_authorization_handler:
+    age_under: Has de ser major de %{min_age} anys per validar-te
+    invalid_document: Número de document incorrecte
   census_authorization_handler:
     age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: Número de document incorrecte
@@ -55,6 +78,16 @@ ca:
         home_header:
           csv_download: Descarregar dades en CSV
     authorization_handlers:
+      census16_authorization_handler:
+        explanation: Verifica't amb el padró
+        fields:
+          date_of_birth: Data de naixement
+          document_number: Número de document
+          document_type: Tipus de document
+          gender: Sexe
+          postal_code: Codi postal
+          scope: Districte
+        name: El padró
       census_authorization_handler:
         explanation: Verifica't amb el padró
         fields:
@@ -65,6 +98,11 @@ ca:
           postal_code: Codi postal
           scope: Districte
         name: El padró
+    census16_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
     census_authorization_handler:
       document_types:
         dni: DNI

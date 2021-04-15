@@ -6,6 +6,13 @@ es:
         mobile_phone_number: Número de teléfono móvil
       confirmation:
         verification_code: Código de verificación
+      census16_authorization_handler:
+        date_of_birth: Fecha de nacimiento
+        document_number: Número de documento
+        document_type: Tipo de documento
+        gender: Sexo
+        postal_code: Código postal
+        scope_id: Distrito
       census_authorization_handler:
         date_of_birth: Fecha de nacimiento
         document_number: Número de documento
@@ -13,6 +20,19 @@ es:
         gender: Sexo
         postal_code: Código postal
         scope_id: Distrito
+  census16_authorization:
+    form:
+      date_select:
+        day: Día
+        month: Mes
+        year: Año
+      gender_help: Estos datos son voluntarios y se piden en cumplimento de lo dispuesto en el articulo 56 de la LEY 17/2015, del 21 de julio, de igualdad efectiva de mujeres y hombres.
+      gender_prompt: Por favor, selecciona una opción
+      genders:
+        man: Hombre
+        non_binary: No binario
+        woman: Mujer
+      scope_prompt: Por favor, selecciona tu distrito
   census_authorization:
     form:
       date_select:
@@ -26,6 +46,9 @@ es:
         non_binary: No binario
         woman: Mujer
       scope_prompt: Por favor, selecciona tu distrito
+  census16_authorization_handler:
+    age_under: Tienes que ser mayor de %{min_age} años para validarte
+    invalid_document: Número de documento incorrecto
   census_authorization_handler:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
     invalid_document: Número de documento incorrecto
@@ -55,6 +78,16 @@ es:
         home_header:
           csv_download: Descargar datos en CSV
     authorization_handlers:
+      census16_authorization_handler:
+        explanation: Verifícate con el padrón
+        fields:
+          date_of_birth: Fecha de nacimiento
+          document_number: Número de documento
+          document_type: Tipo de documento
+          gender: Sexo
+          postal_code: Código postal
+          scope_id: Distrito
+        name: El padrón
       census_authorization_handler:
         explanation: Verifícate con el padrón
         fields:
@@ -65,6 +98,11 @@ es:
           postal_code: Código postal
           scope_id: Distrito
         name: El padrón
+    census16_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Pasaporte
     census_authorization_handler:
       document_types:
         dni: DNI

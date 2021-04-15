@@ -4,7 +4,7 @@ require "rails_helper"
 require "decidim/dev/test/authorization_shared_examples"
 require "decidim/initiatives/test/factories.rb"
 
-describe Census16AuthorizationHandler do
+describe CensusAuthorizationHandler do
   let(:subject) { handler }
   let(:handler) { described_class.from_params(params) }
   let(:document_number) { "12345678A" }
@@ -95,8 +95,8 @@ describe Census16AuthorizationHandler do
         it { is_expected.not_to be_valid }
       end
 
-      context "when it's under 16" do
-        let(:date_of_birth) { 15.years.ago }
+      context "when it's under 14" do
+        let(:date_of_birth) { 13.years.ago }
 
         it { is_expected.not_to be_valid }
       end
