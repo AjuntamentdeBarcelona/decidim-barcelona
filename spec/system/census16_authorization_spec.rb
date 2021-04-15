@@ -50,7 +50,7 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
       end
 
       click_link "Autoritzacions"
-      click_link "El padró"
+      click_link "El padró (majors de 16 anys)"
 
       fill_in_authorization_form
       click_button "Enviar"
@@ -60,8 +60,8 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
       visit decidim_verifications.authorizations_path
 
       within ".authorizations-list" do
-        expect(page).to have_content("El padró")
-        expect(page).not_to have_link("El padró")
+        expect(page).to have_content("El padró (majors de 16 anys)")
+        expect(page).not_to have_link("El padró (majors de 16 anys)")
       end
     end
 
