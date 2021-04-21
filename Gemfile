@@ -60,7 +60,9 @@ group :production do
   gem "rails_12factor"
   gem "fog-aws"
   gem "dalli"
-  gem "sentry-raven"
+  gem "sentry-ruby"
+  gem "sentry-rails"
+  gem "sentry-sidekiq"
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
   gem "rack_password"
