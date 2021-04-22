@@ -380,6 +380,9 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
+    decidim-navigation_maps (1.2.0)
+      decidim-admin (>= 0.24, < 0.25)
+      decidim-core (>= 0.24, < 0.25)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -912,6 +915,7 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-dev!
   decidim-initiatives!
+  decidim-navigation_maps (~> 1.2.0)
   decidim-sortitions!
   decidim-stats!
   decidim-term_customizer!
