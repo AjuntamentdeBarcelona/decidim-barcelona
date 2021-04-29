@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: c051c95e3638cf415c0013d6ae812861dea6f408
+  revision: 51e4c5c385cf79bf06c62303d99e283f7f6f246a
   branch: release/0.23-stable
   specs:
     decidim (0.23.5)
@@ -346,7 +346,8 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.13.16)
+    chef-utils (17.0.242)
+      concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -386,7 +387,7 @@ GEM
       rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.7.3)
+    devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
