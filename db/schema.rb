@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_134760) do
+ActiveRecord::Schema.define(version: 2021_05_06_142235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1488,6 +1488,18 @@ ActiveRecord::Schema.define(version: 2021_04_22_134760) do
     t.index ["unlock_token"], name: "index_decidim_users_on_unlock_token", unique: true
   end
 
+  create_table "decidim_verifications_conflicts", force: :cascade do |t|
+    t.bigint "current_user_id"
+    t.bigint "managed_user_id"
+    t.integer "times", default: 0
+    t.string "unique_id"
+    t.boolean "solved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_user_id"], name: "authorization_current_user"
+    t.index ["managed_user_id"], name: "authorization_managed_user"
+  end
+
   create_table "decidim_verifications_csv_data", force: :cascade do |t|
     t.string "email"
     t.bigint "decidim_organization_id"
@@ -1583,6 +1595,8 @@ ActiveRecord::Schema.define(version: 2021_04_22_134760) do
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_users", "decidim_organizations"
+  add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "current_user_id"
+  add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "managed_user_id"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
