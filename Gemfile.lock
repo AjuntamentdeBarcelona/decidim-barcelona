@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 605c40f14664058c4fcc9182ec58dd0d04aaf321
+  revision: f94f8a5bdb6f339513190f32553fd56298b669db
   branch: release/0.23-stable
   specs:
     decidim (0.23.5)
@@ -489,7 +489,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.8)
+    graphql (1.12.9)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
