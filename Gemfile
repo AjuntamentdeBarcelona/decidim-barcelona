@@ -30,6 +30,8 @@ gem "progressbar"
 gem "puma"
 gem "origami"
 
+gem "execjs", "~> 2.7.0"
+
 # Needed to be able to debug Puma status
 gem "barnes"
 
