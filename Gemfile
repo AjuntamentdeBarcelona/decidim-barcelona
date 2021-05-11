@@ -30,6 +30,8 @@ gem "progressbar"
 gem "puma"
 gem "origami"
 
+gem "execjs", "~> 2.7.0"
+
 group :development, :test do
   gem 'faker', '2.14.0'
   gem 'byebug', platform: :mri
