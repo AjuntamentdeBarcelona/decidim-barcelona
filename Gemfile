@@ -49,6 +49,8 @@ group :development do
 end
 
 group :production do
+  # can be removed after
+  gem "letter_opener_web"
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
