@@ -25,3 +25,5 @@
 /imports
 
 .rspec-failures
+Capfile
+config/deploy*
