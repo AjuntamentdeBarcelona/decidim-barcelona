@@ -9,9 +9,9 @@ class AddAreaIdToDecidimNavigationMapsBlueprintAreas < ActiveRecord::Migration[5
   def change
     add_column :decidim_navigation_maps_blueprint_areas, :area_id, :string
 
-    Area.find_each do |area|
-      area.area_id = area.id
-      area.save!
-    end
+    # Area.find_each do |area|
+    #   area.area_id = area.id
+    #   area.save!
+    # end
   end
 end
