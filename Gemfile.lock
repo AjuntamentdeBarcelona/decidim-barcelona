@@ -1,15 +1,7 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
-  revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
-  specs:
-    decidim-term_customizer (0.18.0)
-      decidim-admin (>= 0.18.0)
-      decidim-core (>= 0.18.0)
-
-GIT
-  remote: https://github.com/decidim/decidim
-  revision: 2f1e3c8ad256dfc2616530a5049107e6335eceea
-  branch: release/0.24-stable
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
+  revision: 553b70ac2fa20a0d88d9c61543873bbf97542cc5
+  branch: feature/bcn-budget-v0.24
   specs:
     decidim (0.24.2)
       decidim-accountability (= 0.24.2)
