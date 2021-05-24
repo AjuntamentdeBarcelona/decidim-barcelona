@@ -7,11 +7,14 @@ class AddSaltToDecidimFormsQuestionnaires < ActiveRecord::Migration[5.2]
   end
 
   def change
+    begin
     add_column :decidim_forms_questionnaires, :salt, :string
 
     Questionnaire.find_each do |questionnaire|
       questionnaire.salt = Decidim::Tokenizer.random_salt
       questionnaire.save!
+    end
+    rescue ActiveRecord::StatementInvalid
     end
   end
 end
