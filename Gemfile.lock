@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 501698dfc85a7d5f6a3e7b7a35dbe882283e3780
-  branch: feature/pb05-alt
+  revision: 4231961a948ec4c97318312ef74dfaf6a4bf54c8
+  branch: feature/bcn-budget-v0.24
   specs:
     decidim (0.24.2)
       decidim-accountability (= 0.24.2)
@@ -839,7 +839,7 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.4)
       coffee-rails
-    spreadsheet (1.2.8)
+    spreadsheet (1.2.9)
       ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)

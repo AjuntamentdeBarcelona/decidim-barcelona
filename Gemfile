@@ -1,11 +1,13 @@
 source "https://rubygems.org"
 
+MAIN_BRANCH = "feature/bcn-budget-v0.24"
+
 FEATURE_BRANCHES = {
   pb04: "feature/pb04-budget-scope-list",
   pb05: "feature/pb05-alt"
 }.freeze
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: FEATURE_BRANCHES[:pb05] }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: MAIN_BRANCH }.freeze
 
 ruby '2.7.2'
 
