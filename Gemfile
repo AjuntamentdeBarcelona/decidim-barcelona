@@ -1,6 +1,11 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }
+FEATURE_BRANCHES = {
+  pb04: "feature/pb04-budget-scope-list",
+  pb05: "feature/pb05-alt"
+}.freeze
+
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: FEATURE_BRANCHES[:pb05] }.freeze
 
 ruby '2.7.2'
 

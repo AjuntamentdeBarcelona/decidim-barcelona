@@ -103,6 +103,9 @@ ca:
         progress: Finalitza la votació
         show: Veure més
         vote: Vota
+      projects:
+        budget_summary:
+          vote: Vota
     census16_authorization_handler:
       document_types:
         dni: DNI
