@@ -98,14 +98,6 @@ ca:
           postal_code: Codi postal
           scope: Districte
         name: El padró
-    budgets:
-      budgets_list:
-        progress: Finalitza la votació
-        show: Veure més
-        vote: Vota
-      projects:
-        budget_summary:
-          vote: Vota
     census16_authorization_handler:
       document_types:
         dni: DNI

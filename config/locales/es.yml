@@ -98,14 +98,6 @@ es:
           postal_code: Código postal
           scope_id: Distrito
         name: El padrón
-    budgets:
-      budgets_list:
-        progress: Finaliza la votación
-        show: Ver más
-        vote: Vota
-      projects:
-        budget_summary:
-          vote: Vota
     census16_authorization_handler:
       document_types:
         dni: DNI
