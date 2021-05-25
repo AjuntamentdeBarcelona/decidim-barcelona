@@ -1,0 +1,12 @@
+.budget-progress {
+  background-color: $red-light;
+  .progress-meter {
+    &:not(&--minimum) {
+      background-color: var(--primary);
+    }
+
+    .progress-meter-text {
+      color: white;
+    }
+  }
+}
