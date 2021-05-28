@@ -32,7 +32,7 @@ ca:
         verified_link: aquí.
       login_modal:
         button: Vull participar sense registrar-me
-        help: Fes servir aquesta opció per una particiació puntual
+        help: Fes servir aquesta opció per una participació puntual
       user_menu:
         remaining: "%{remaining} min. per la desconexió automàtica"
         sign_out: Cancel·la i desconnecta

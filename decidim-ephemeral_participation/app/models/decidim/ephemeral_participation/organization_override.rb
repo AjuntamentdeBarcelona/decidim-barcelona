@@ -9,7 +9,8 @@ module Decidim
         # altough this might introduce some confusion it maintains compatibility accross the application
         # for any code expecting to obtain an array
         def available_authorizations
-          read_attribute(:available_authorizations).keys
+          authorizations = read_attribute(:available_authorizations)
+          authorizations.is_a?(Array) ? authorizations : authorizations.keys
         end
 
         def ephemeral_participation_authorization

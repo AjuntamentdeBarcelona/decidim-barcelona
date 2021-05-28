@@ -19,6 +19,7 @@ module Decidim
 
         def new_map_model(model)
           self.available_authorizations = model.read_attribute(:available_authorizations)
+          self.available_authorizations = self.available_authorizations.map { |a| [a, {}] }.to_h if self.available_authorizations.is_a?(Array)
         end
 
         def clean_available_authorizations

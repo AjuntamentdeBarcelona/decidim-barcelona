@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class EphemeralParticipationPermissionsDictionary
+    class EphemeralActionPermissionsDictionary
       COMPONENT_PERMISSIONS_DICTIONARY = {
         "budgets" => {
           "vote" => [

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: e1a351904edab14b2b020d5c717ca6939bf707ee
+  revision: e471864fcb4011b096ed31ea312814d6299b9f3d
   branch: feature/bcn-budget-v0.24
   specs:
     decidim (0.24.2)

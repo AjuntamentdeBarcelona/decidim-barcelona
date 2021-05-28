@@ -35,7 +35,8 @@
                         label: false,
                         id: "organization_available_authorizations_#{authorization_workflow.name}_allow_ephemeral_participation",
                         checked: f.object.available_authorizations&.dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
-                        disabled: !authorization_workflow.ephemerable
+                        disabled: !authorization_workflow.ephemerable,
+                        class: ("hide" if !authorization_workflow.ephemerable)
                       } # options
                     ) %>
               </td>
