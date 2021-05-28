@@ -1,0 +1,60 @@
+<div class="fieldset">
+  <table class="stack">
+    <thead>
+      <tr>
+        <th><%= f.label :available_authorizations %></th>
+        <th><%= f.label :enabled %></th>
+        <th><%= f.label :allows_ephemeral_participation %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :available_authorizations, f.object.available_authorizations do |ff| %>
+        <%= f.error_for(:available_authorizations) %>
+        <% Decidim.authorization_workflows.each do |authorization_workflow| %>
+            <tr>
+              <td>
+                <%= ff.label authorization_workflow.description %>
+              </td>
+              <td> 
+                <%= ff.check_box(
+                      authorization_workflow.name, # attribute
+                      {
+                        label: false,
+                        id: "organization_available_authorizations_#{authorization_workflow.name}_enabled",
+                        checked: f.object.available_authorizations&.key?(authorization_workflow.name)
+                      }, # options
+                      { allow_ephemeral_participation: false }.to_json, # checked_value
+                      {}.to_json # unchecked_value
+                    ) %>
+              </td>
+              <td>
+                <%= ff.radio_button(
+                      authorization_workflow.name, # attribute
+                      { allow_ephemeral_participation: true }.to_json, # value
+                      {
+                        label: false,
+                        id: "organization_available_authorizations_#{authorization_workflow.name}_allow_ephemeral_participation",
+                        checked: f.object.available_authorizations&.dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
+                        disabled: !authorization_workflow.ephemerable
+                      } # options
+                    ) %>
+              </td>
+            </tr>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function () {
+    var $allowEphemeralParticipationInputs = $('input[id^="organization_available_authorizations_"][id$="_allow_ephemeral_participation"]')
+    
+    $allowEphemeralParticipationInputs.on('change',function(){
+      $allowEphemeralParticipationInputs.each(function(){
+        $(this).prop('checked', false);
+      });
+      $(this).prop('checked', true);
+    });
+  });
+</script>

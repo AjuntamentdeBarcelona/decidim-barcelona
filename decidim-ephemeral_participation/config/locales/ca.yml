@@ -1,0 +1,51 @@
+---
+ca:
+  activemodel:
+    attributes:
+      organization:
+        enabled: Actiu
+        allows_ephemeral_participation: Permet participació sense registre
+    errors:
+      models:
+        organization:
+          attributes:
+            available_authorizations:
+              invalid: Only one authorization method can be used to allow ephemeral participation
+        permission:
+          attributes:
+            base:
+              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
+        settings:
+          attributes:
+            ephemeral_participation_enabled:
+              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+  decidim:
+    authorization_handlers:
+      ephemerable: Permet participació directe
+    ephemeral_participation:
+      actions:
+        unauthorized: "No tens permís per realitzar aquesta acció: %{link}"
+        unauthorized_link: Completa el teu registre aquí.
+        unverified: "Per poder participar, cal que estiguis verificada: %{link}"
+        unverified_link: Completa el procés de verificació aquí.
+        verified: "Completa el teu registre %{link}"
+        verified_link: aquí.
+      login_modal:
+        button: Vull participar sense registrar-me
+        help: Fes servir aquesta opció per una particiació puntual
+      user_menu:
+        remaining: "%{remaining} min. per la desconexió automàtica"
+        sign_out: Cancel·la i desconnecta
+        complete_registration: Completa el teu registre
+      ephemeral_participants:
+        create: Per poder participar sense registre, has de completar el procés de verificació
+        destroy: S'ha cancel·lat la participació sense registre
+        submit: Envia
+        title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
+        unverifiable: unverifiable ca
+    components:
+      budgets:
+        settings:
+          global:
+            ephemeral_participation_enabled: Ephemeral participation enabled
+            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.

@@ -232,6 +232,12 @@ PATH
       decidim-core
 
 PATH
+  remote: decidim-ephemeral_participation
+  specs:
+    decidim-ephemeral_participation (0.0.1)
+      decidim-verifications
+
+PATH
   remote: decidim-stats
   specs:
     decidim-stats (0.0.1)
@@ -919,6 +925,7 @@ DEPENDENCIES
   decidim!
   decidim-dataviz!
   decidim-dev!
+  decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-navigation_maps (~> 1.2.0)
   decidim-sortitions!

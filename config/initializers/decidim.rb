@@ -38,6 +38,7 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   auth.renewable = true
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_authorization_metadata"
+  auth.ephemerable = true
 end
 
 Decidim::Verifications.register_workflow(:census16_authorization_handler) do |auth|
@@ -45,4 +46,5 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.renewable = true
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census16_authorization_metadata"
+  auth.ephemerable = true
 end
