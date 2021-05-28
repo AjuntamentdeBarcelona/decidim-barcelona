@@ -226,6 +226,12 @@ GIT
       decidim-core (>= 0.18.0)
 
 PATH
+  remote: decidim-census_sms
+  specs:
+    decidim-census_sms (0.0.1)
+      decidim-core
+
+PATH
   remote: decidim-dataviz
   specs:
     decidim-dataviz (0.0.1)
@@ -923,6 +929,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim!
+  decidim-census_sms!
   decidim-dataviz!
   decidim-dev!
   decidim-ephemeral_participation!

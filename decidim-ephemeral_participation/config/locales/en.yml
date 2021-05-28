@@ -42,7 +42,7 @@ en:
         destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
         submit: Send
         title: Complete your user profile for easily future participation
-        unverifiable: unverifiable en
+        unverifiable: The verification process has been unsuccessful. You can try it again later.
     components:
       budgets:
         settings:

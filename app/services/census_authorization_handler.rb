@@ -56,7 +56,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   def unique_id
     Digest::MD5.hexdigest(
-      "#{document_number&.upcase}-#{Rails.application.secrets.secret_key_base}"
+      "#{sanitized_document_number}-#{Rails.application.secrets.secret_key_base}"
     )
   end
 
@@ -81,6 +81,10 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     return nil if response.blank?
 
     errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
+  end
+
+  def sanitized_document_number
+    document_number&.gsub(/[^A-Za-z0-9]/, "")&.upcase
   end
 
   def response
@@ -109,7 +113,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       <sch:usuari>PAM</sch:usuari>
       <sch:Dades>
         <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
-        <sch:docId>#{sanitize document_number&.upcase}</sch:docId>
+        <sch:docId>#{sanitized_document_number}</sch:docId>
         <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
         <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
       </sch:Dades>

@@ -12,6 +12,7 @@ DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", bra
 ruby '2.7.2'
 
 gem "decidim", DECIDIM_VERSION
+gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION

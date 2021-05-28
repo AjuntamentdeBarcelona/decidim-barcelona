@@ -23,6 +23,21 @@ Decidim.configure do |config|
 
   if Rails.application.secrets.sms.values.all?(&:present?)
     config.sms_gateway_service = "SmsGateway"
+
+    Decidim::Verifications.register_workflow(:census_sms_authorization_handler) do |auth|
+      auth.engine = Decidim::CensusSms::Verification::Engine
+      auth.action_authorizer = "Decidim::CensusSms::Verification::ActionAuthorizer"
+      auth.renewable = true
+      auth.time_between_renewals = 1.day
+
+      auth.options do |options|
+        parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first
+
+        Decidim::Scope.where(parent: parent_scope).pluck(:code).each do |code|
+          options.attribute :"scope_code_#{code}", type: :boolean, required: false
+        end
+      end
+    end
   end
 
   config.timestamp_service = "TimestampService"

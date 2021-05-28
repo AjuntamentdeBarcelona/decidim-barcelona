@@ -42,7 +42,7 @@ ca:
         destroy: S'ha cancel·lat la participació sense registre
         submit: Envia
         title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
-        unverifiable: unverifiable ca
+        unverifiable: No ha estat possible completar la verificació. Pots tornar a intentar-ho en un altre moment.
     components:
       budgets:
         settings:
