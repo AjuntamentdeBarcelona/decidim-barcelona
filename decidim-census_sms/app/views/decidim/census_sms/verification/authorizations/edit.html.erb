@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="columns large-6 large-centered">
+      <h1 class="text-center page-title"><%= t(".title") %></h1>
+    </div>
+    
+    <div class="card columns large-6 large-centered">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: authorization_path(redirect_url: redirect_url), method: :put) do |form| %>
+          <%= form_required_explanation %>
+
+          <div class="field">
+            <%= form.text_field :verification_code %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="card columns large-6 large-centered">
+      <div class="card__content">
+        <%= t(".instructions") %>
+        <%= link_to t(".reset"), reset_authorization_path(id: authorization.id) %>
+      </div>
+    </div>
+  </div>
+</div>

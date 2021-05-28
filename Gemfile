@@ -1,15 +1,19 @@
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }
+DECIDIM_MAIN_BRANCH = "feature/bcn-budget-v0.24"
+
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
 
 ruby '2.7.2'
 
 gem "decidim", DECIDIM_VERSION
+gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
+gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
 gem "decidim-navigation_maps", "~> 1.2.0"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
@@ -49,6 +53,8 @@ group :development do
 end
 
 group :production do
+  # can be removed after
+  gem "letter_opener_web"
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"

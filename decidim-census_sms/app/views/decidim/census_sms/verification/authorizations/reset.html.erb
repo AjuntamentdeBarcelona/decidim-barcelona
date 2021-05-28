@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="columns large-6 large-centered">
+      <h1 class="text-center page-title"><%= t(".title") %></h1>
+    </div>
+    
+    <div class="card columns large-6 large-centered">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: reset_authorization_path(id: authorization.id), method: :post) do |form| %>
+          <%= form_required_explanation %>
+
+          <div class="field">
+            <%= form.text_field :mobile_phone_number, label: t("mobile_phone_number", scope: "activemodel.attributes.authorization") %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

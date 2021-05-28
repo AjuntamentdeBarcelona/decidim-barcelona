@@ -1,0 +1,11 @@
+.budget-progress {
+  .progress-meter {
+    &:not(&--minimum) {
+      background-color: $red-light;
+    }
+  }
+}
+
+#project .card.extra .button_to {
+  display: none;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_132738) do
+ActiveRecord::Schema.define(version: 2021_05_18_204806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -973,7 +973,6 @@ ActiveRecord::Schema.define(version: 2021_04_22_132738) do
     t.string "github_handler"
     t.string "reference_prefix", null: false
     t.string "secondary_hosts", default: [], array: true
-    t.string "available_authorizations", default: [], array: true
     t.text "header_snippets"
     t.jsonb "cta_button_text"
     t.string "cta_button_path"
@@ -1008,6 +1007,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_132738) do
     t.integer "comments_max_length", default: 1000
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
+    t.jsonb "available_authorizations", default: {}
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end

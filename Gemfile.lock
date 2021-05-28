@@ -1,15 +1,7 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
-  revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
-  specs:
-    decidim-term_customizer (0.18.0)
-      decidim-admin (>= 0.18.0)
-      decidim-core (>= 0.18.0)
-
-GIT
-  remote: https://github.com/decidim/decidim
-  revision: 2f1e3c8ad256dfc2616530a5049107e6335eceea
-  branch: release/0.24-stable
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
+  revision: e471864fcb4011b096ed31ea312814d6299b9f3d
+  branch: feature/bcn-budget-v0.24
   specs:
     decidim (0.24.2)
       decidim-accountability (= 0.24.2)
@@ -225,11 +217,31 @@ GIT
     decidim-verifications (0.24.2)
       decidim-core (= 0.24.2)
 
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
+  revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
+  specs:
+    decidim-term_customizer (0.18.0)
+      decidim-admin (>= 0.18.0)
+      decidim-core (>= 0.18.0)
+
+PATH
+  remote: decidim-census_sms
+  specs:
+    decidim-census_sms (0.0.1)
+      decidim-core
+
 PATH
   remote: decidim-dataviz
   specs:
     decidim-dataviz (0.0.1)
       decidim-core
+
+PATH
+  remote: decidim-ephemeral_participation
+  specs:
+    decidim-ephemeral_participation (0.0.1)
+      decidim-verifications
 
 PATH
   remote: decidim-stats
@@ -352,7 +364,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.0.242)
+    chef-utils (17.1.35)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -410,7 +422,7 @@ GEM
     doc2text (0.4.3)
       nokogiri (~> 1.11.1)
       rubyzip (~> 2.3.0)
-    docile (1.3.5)
+    docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     doorkeeper (5.5.1)
@@ -503,7 +515,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.9)
+    graphql (1.12.10)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -653,7 +665,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     polyglot (0.3.5)
-    premailer (1.14.3)
+    premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -839,7 +851,7 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.4)
       coffee-rails
-    spreadsheet (1.2.8)
+    spreadsheet (1.2.9)
       ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -891,7 +903,7 @@ GEM
       virtus (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webmock (3.12.2)
+    webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -917,8 +929,10 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim!
+  decidim-census_sms!
   decidim-dataviz!
   decidim-dev!
+  decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-navigation_maps (~> 1.2.0)
   decidim-sortitions!

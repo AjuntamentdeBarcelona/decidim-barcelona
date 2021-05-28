@@ -1,0 +1,40 @@
+<li>
+  <%=
+    t(
+      "remaining",
+      scope: "decidim.ephemeral_participation.user_menu",
+      remaining: (
+        Decidim::EphemeralParticipation::SessionPresenter
+        .new(current_user, self)
+        .ephemeral_participant_session_remaining_time_in_minutes
+      )
+    )
+  %>
+</li>
+<% if current_user.verifiable_ephemeral_participant? %>
+  <li>
+    <%=
+      link_to(
+        I18n.t("complete_registration", scope: "decidim.ephemeral_participation.user_menu"),
+        decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user),
+        tabindex: "-1",
+      )
+    %>
+  </li>
+<% end %>
+<li>
+  <%=
+    link_to(
+      I18n.t("sign_out", scope: "decidim.ephemeral_participation.user_menu"),
+      decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: request.path), 
+      method: :delete,
+      class: "sign-out-link",
+      tabindex: "-1"
+    )
+  %>
+</li>
+
+<%#
+  Maybe use JS to style dropdown and draw attention to it.
+  Also: would be nice to have a live countdown for the session.
+%>

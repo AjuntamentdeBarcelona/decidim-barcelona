@@ -13,7 +13,7 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
     )
   end
 
-  let(:authorizations) { ["census_authorization_handler"] }
+  let(:authorizations) { {"census_authorization_handler" => {"allow_ephemeral_participation" => true}} }
   let!(:scope) { create :scope, organization: organization, code: "1" }
 
   let(:response) do
