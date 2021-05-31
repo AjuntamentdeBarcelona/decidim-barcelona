@@ -15,7 +15,7 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
 
   let(:document_number) { "12345678A" }
   let(:authorization_name) { "El padró + SMS" }
-  let(:authorizations) { {"census_sms_authorization_handler" => {"allow_ephemeral_participation" => true}} }
+  let(:authorizations) { { "census_sms_authorization_handler" => { "allow_ephemeral_participation" => true } } }
   let(:code) { user_authorization.verification_metadata["verification_code"] }
   let(:user_authorization) { Decidim::Authorization.find_by(user: user, name: "census_sms_authorization_handler") }
 
@@ -138,27 +138,29 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
         end
       end
     end
+  end
 
-    context "when trying to authorize another user with previously used information" do
-      let!(:authorization) { create(:authorization, name: "census_sms_authorization_handler", user: user, unique_id: unique_id) }
-      let!(:other_user) { create(:other_user, :confirmed, organization: organization) }
-      let(:unique_id) do
-        Digest::MD5.hexdigest(
-          "#{document_number}-#{Rails.application.secrets.secret_key_base}"
-        )
-      end
+  context "when trying to authorize another user with previously used information" do
+    let!(:authorization) { create(:authorization, name: "census_sms_authorization_handler", unique_id: unique_id, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization: organization) }
+    let(:unique_id) do
+      Digest::MD5.hexdigest(
+        "#{document_number}-#{Rails.application.secrets.secret_key_base}"
+      )
+    end
 
-      before do
-        sign_in :other_user
-        visit decidim_verifications.authorizations_path
-      end
+    before do
+      sign_in user
+      visit decidim_verifications.authorizations_path
+    end
 
-      it "throws an error" do
-        click_link authorization_name
-        fill_in_authorization_form
-        
-        expect(page).not_to have_content("Restableix el codi de verificació")
-      end
+    it "throws an error" do
+      click_link authorization_name
+      fill_in_authorization_form
+      click_button "Verifica't"
+
+      expect(page).to have_content("Ja hi ha una participant autoritzada amb les mateixes dades")
+      expect(page).not_to have_content("Restableix el codi de verificació")
     end
   end
 end
