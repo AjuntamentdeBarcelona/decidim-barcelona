@@ -38,6 +38,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       postal_code: postal_code,
       scope: scope.name["ca"],
       scope_id: scope.id,
+      scope_code: scope.code,
       extras: {
         gender: gender
       }
