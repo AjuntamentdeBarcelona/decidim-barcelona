@@ -128,9 +128,11 @@ es:
       omniauth_registrations:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
+          tos_agreement: Al registrarte o verificarte aceptas %{link}.
       registrations:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
+          tos_agreement: Al registrarte o verificarte aceptas %{link}.
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en este proyecto:'
