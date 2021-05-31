@@ -6,6 +6,6 @@
   }
 }
 
-#project .card.extra .button_to {
+#project .card.extra .button_to[action="/follow"] {
   display: none;
 }
