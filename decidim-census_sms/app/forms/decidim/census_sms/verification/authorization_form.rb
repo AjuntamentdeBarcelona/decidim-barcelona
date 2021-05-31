@@ -42,6 +42,13 @@ module Decidim
           super.gsub(/[^+0-9]/, "")
         end
 
+        # A serialized version of the handler's name.
+        #
+        # Returns a String.
+        def self.handler_name
+          "census_sms_authorization_handler"
+        end
+
         private
 
         def sms_gateway
