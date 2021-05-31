@@ -41,8 +41,6 @@
     </div>
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
-    <% end %>
-    <% cache current_organization do %>
       <%= render "decidim/ephemeral_participation/shared/login_modal" %>
     <% end %>
   <% else %>
@@ -55,8 +53,6 @@
     </div>
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
-    <% cache current_organization do %>
       <%= render "decidim/ephemeral_participation/shared/login_modal" %>
     <% end %>
   <% end %>
