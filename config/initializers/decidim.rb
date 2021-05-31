@@ -47,15 +47,15 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   auth.metadata_cell = "census_authorization_metadata"
   auth.ephemerable = true
 
-  auth.action_authorizer = "Decidim::CensusSms::Verification::ActionAuthorizer"
+  # auth.options do |options|
+  #   parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first
 
-  auth.options do |options|
-    parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first
+  #   Decidim::Scope.where(parent: parent_scope).pluck(:code).each do |code|
+  #     options.attribute :"scope_code_#{code}", type: :boolean, required: false
+  #   end
+  # end
 
-    Decidim::Scope.where(parent: parent_scope).pluck(:code).each do |code|
-      options.attribute :"scope_code_#{code}", type: :boolean, required: false
-    end
-  end
+  # auth.action_authorizer = "Decidim::CensusSms::Verification::ActionAuthorizer"
 end
 
 Decidim::Verifications.register_workflow(:census16_authorization_handler) do |auth|
