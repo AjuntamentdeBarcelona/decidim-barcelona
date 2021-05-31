@@ -53,8 +53,7 @@ module Decidim
           return unless sms_gateway
           return @verification_code if defined?(@verification_code)
 
-          # DEBUG #TODO UNCOMMENT
-          # return unless sms_gateway.new(mobile_phone_number, generated_code).deliver_code
+          return unless sms_gateway.new(mobile_phone_number, generated_code).deliver_code
 
           @verification_code = generated_code
         end
