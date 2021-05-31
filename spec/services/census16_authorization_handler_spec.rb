@@ -12,8 +12,9 @@ describe Census16AuthorizationHandler do
   let(:postal_code) { "08001" }
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_id) { 123 }
+  let(:scope_code) { "1" }
   let(:gender) { "foo" }
-  let(:scope) { double(id: 999, code: "1", name: { "ca" => "Ciutat Vella" }) }
+  let(:scope) { double(id: 999, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
   let(:user) { create :user }
   let(:params) do
     {
@@ -22,6 +23,7 @@ describe Census16AuthorizationHandler do
       document_type: document_type,
       postal_code: postal_code,
       scope_id: scope_id,
+      scope_code: scope_code,
       gender: gender,
       date_of_birth: date_of_birth
     }
@@ -189,6 +191,10 @@ describe Census16AuthorizationHandler do
       expect(subject.metadata).to include(scope_id: scope.id)
     end
 
+    it "includes the scope id" do
+      expect(subject.metadata).to include(scope_code: scope.code)
+    end
+
     it "includes the user gender" do
       expect(subject.metadata[:extras]).to include(gender: gender)
     end
@@ -226,6 +232,7 @@ describe Census16AuthorizationHandler do
         {
           scope: scope.name["ca"],
           scope_id: scope.id,
+          scope_code: scope.code,
           postal_code: form.postal_code,
           date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
           extras: {
