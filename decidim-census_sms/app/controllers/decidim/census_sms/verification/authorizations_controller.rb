@@ -102,7 +102,7 @@ module Decidim
         def authorization
           @authorization ||= Decidim::Authorization.find_or_initialize_by(
             user: current_user,
-            name: "census_sms_authorization_handler"
+            name: AuthorizationForm.handler_name
           )
         end
 
