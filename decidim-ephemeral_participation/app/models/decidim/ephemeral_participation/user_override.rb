@@ -19,10 +19,10 @@ module Decidim
         def verified_ephemeral_participant?
           return false unless ephemeral_participant?
 
-          Decidim::Authorization.exists?(
-            user: self,
-            name: ephemeral_participation_data["authorization_name"]
-          )
+          Decidim::Authorization
+            .where(user: self, name: ephemeral_participation_data["authorization_name"])
+            .where.not(granted_at: nil)
+            .exists?
         end
 
         def verifiable_ephemeral_participant?

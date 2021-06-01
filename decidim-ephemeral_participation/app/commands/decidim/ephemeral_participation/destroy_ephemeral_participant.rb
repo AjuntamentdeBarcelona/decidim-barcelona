@@ -28,13 +28,9 @@ module Decidim
 
       def destroy_user?
         return false if @user.verified_ephemeral_participant?
-        return false if verification_conflicts.any?
+        return false if @user.unverifiable_ephemeral_participant?
 
         true
-      end
-
-      def verification_conflicts
-        Decidim::Verifications::Conflict.where(current_user: @user)
       end
 
       # Needed for Devise::Controllers::Helpers#sign_out
