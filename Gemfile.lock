@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: b24f0ad1d56ec61280de0a2e07c79ed541543cff
+  revision: e189334698e85d15f65fa64468d1ce737aac1e15
   branch: feature/bcn-budget-v0.24
   specs:
     decidim (0.24.2)
@@ -524,7 +524,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.11)
+    graphql (1.12.12)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
