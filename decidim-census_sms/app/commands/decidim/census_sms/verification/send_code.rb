@@ -29,8 +29,6 @@ module Decidim
         private
 
         def update_authorization
-          byebug
-
           metadata = @authorization.metadata
           metadata[:mobile_phone_number] = @form.mobile_phone_number_hash
 
