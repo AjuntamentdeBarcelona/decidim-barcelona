@@ -21,12 +21,31 @@ module Decidim
 
           Decidim::Verifications::PerformAuthorizationStep.call(authorization, @form) do
             on(:ok) do
-              flash[:notice] = t("authorizations.create.success", scope: "decidim.census_sms.verification")
-              authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
-              redirect_to authorization_method.resume_authorization_path(redirect_url: redirect_url)
+              byebug
+
+              @form = CodeForm.from_params(params)
+
+              SendCode.call(@form, authorization) do
+                on(:ok) do
+                  byebug
+
+                  flash[:notice] = t("authorizations.create.success", scope: "decidim.census_sms.verification")
+                  authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
+                  redirect_to authorization_method.resume_authorization_path(redirect_url: redirect_url)
+                end
+
+                on(:invalid) do
+                  byebug
+
+                  flash.now[:alert] = t("authorizations.create.error", scope: "decidim.census_sms.verification")
+                  render :reset
+                end
+              end
             end
 
             on(:invalid) do
+              byebug
+
               flash.now[:alert] = t("authorizations.create.error", scope: "decidim.census_sms.verification")
               render :new
             end
@@ -47,7 +66,7 @@ module Decidim
           Decidim::Verifications::ConfirmUserAuthorization.call(authorization, @form, session) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.census_sms.verification")
-              redirect_to decidim_verifications.authorizations_path
+              redirect_to redirect_url.presence || decidim_verifications.authorizations_path
             end
 
             on(:invalid) do
@@ -64,7 +83,7 @@ module Decidim
 
           return unless request.post?
 
-          ResetCode.call(@form, authorization) do
+          SendCode.call(@form, authorization) do
             on(:ok) do
               flash[:notice] = t("authorizations.reset.success", scope: "decidim.census_sms.verification")
               authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
