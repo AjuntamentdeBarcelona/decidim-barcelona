@@ -6,8 +6,11 @@ module Decidim
       isolate_namespace Decidim::EphemeralParticipation
 
       config.to_prepare do
+        # cells
+        Decidim::Budgets::ProjectListItemCell.include(Decidim::EphemeralParticipation::ProjectListItemCellOverride)
         # commands
         Decidim::Admin::TransferUser.include(Decidim::EphemeralParticipation::TransferUserOverride)
+        Decidim::Verifications::PerformAuthorizationStep.include(Decidim::EphemeralParticipation::PerformAuthorizationStepOverride)
         # controllers
         Decidim::ApplicationController.include(Decidim::EphemeralParticipation::ApplicationControllerOverride)
         Decidim::Admin::ConflictsController.include(Decidim::EphemeralParticipation::ConflictsControllerOverride)
@@ -23,9 +26,6 @@ module Decidim
         Decidim::User.include(Decidim::EphemeralParticipation::UserOverride)
         # permissions
         Decidim::Permissions.include(Decidim::EphemeralParticipation::PermissionsOverride)
-        # budgets states
-        Decidim::Budgets::ProjectListItemCell.include(Decidim::EphemeralParticipation::ProjectListItemCellOverride)
-
       end
 
       initializer "ephemeral_participation.component_override" do

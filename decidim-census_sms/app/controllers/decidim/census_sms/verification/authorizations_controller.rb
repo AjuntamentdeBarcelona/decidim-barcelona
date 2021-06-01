@@ -97,6 +97,8 @@ module Decidim
           year, month, day = params[:authorization].select { |k, _v| k.include?("date_of_birth") }.values.reverse.map(&:to_i)
 
           Date.new(year, month, day)
+        rescue ArgumentError
+          nil
         end
 
         def authorization
