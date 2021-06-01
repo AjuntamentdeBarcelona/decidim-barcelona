@@ -14,7 +14,7 @@ ca:
   decidim:
     authorization_handlers:
       census_sms_authorization_handler:
-        explanation: El padró + SMS #TODO
+        explanation: Verifica't amb les dades del padró i amb un codi que t'enviarem per SMS
         name: El padró + SMS #TODO
         fields:
           scope_code_1: Districte 1 #TODO
@@ -55,4 +55,4 @@ ca:
             success: T'hem enviat un nou codi de verificació
           update:
             error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, revisa l'SMS que t'hem enviat.
-            success: Felicitats. T'has verificat correctament.
+            success: Felicitats! T'has verificat correctament.
