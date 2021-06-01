@@ -21,22 +21,16 @@ module Decidim
 
           Decidim::Verifications::PerformAuthorizationStep.call(authorization, @form) do
             on(:ok) do
-              byebug
-
               @form = CodeForm.from_params(params)
 
               SendCode.call(@form, authorization) do
                 on(:ok) do
-                  byebug
-
                   flash[:notice] = t("authorizations.create.success", scope: "decidim.census_sms.verification")
                   authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
                   redirect_to authorization_method.resume_authorization_path(redirect_url: redirect_url)
                 end
 
                 on(:invalid) do
-                  byebug
-
                   flash.now[:alert] = t("authorizations.create.error", scope: "decidim.census_sms.verification")
                   render :reset
                 end
@@ -44,8 +38,6 @@ module Decidim
             end
 
             on(:invalid) do
-              byebug
-
               flash.now[:alert] = t("authorizations.create.error", scope: "decidim.census_sms.verification")
               render :new
             end
