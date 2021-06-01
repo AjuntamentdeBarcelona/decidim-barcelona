@@ -79,7 +79,7 @@ module Decidim
         def reset
           enforce_permission_to :update, :authorization, authorization: authorization
 
-          @form = ResetForm.from_params(params)
+          @form = CodeForm.from_params(params)
 
           return unless request.post?
 
