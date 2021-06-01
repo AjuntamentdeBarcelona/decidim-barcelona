@@ -128,11 +128,11 @@ ca:
       omniauth_registrations:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
-          tos_agreement: En registrar-te o verificar-te acceptes %{link}.
+          tos_agreement: En registrar-te acceptes %{link}.
       registrations:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
-          tos_agreement: En registrar-te o verificar-te acceptes %{link}.
+          tos_agreement: En registrar-te acceptes %{link}.
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'

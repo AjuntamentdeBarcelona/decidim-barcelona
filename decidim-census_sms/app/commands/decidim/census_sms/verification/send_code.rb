@@ -3,7 +3,7 @@
 module Decidim
   module CensusSms
     module Verification
-      class ResetCode < Rectify::Command
+      class SendCode < Rectify::Command
         # Public: Initializes the command.
         #
         # form          - A form object with the params.
@@ -37,7 +37,7 @@ module Decidim
 
         def verification_metadata
           {
-            verification_code: @form.generated_code,
+            verification_code: @form.verification_code,
             code_sent_at: Time.current
           }
         end

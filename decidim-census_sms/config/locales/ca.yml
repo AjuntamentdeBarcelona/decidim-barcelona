@@ -10,7 +10,7 @@ ca:
         postal_code: Codi postal
         scope_id: Districte
         tos_acceptance: Accepto els Termes i Condicions
-        tos_acceptance_label: En registrar-te acceptes els <a class="link" href="%{tos_path}" target="_blank">Termes i Condicions</a>
+        tos_acceptance_label: En verificar-te acceptes els <a class="link" href="%{tos_path}" target="_blank">Termes i Condicions</a>
   decidim:
     authorization_handlers:
       census_sms_authorization_handler:
