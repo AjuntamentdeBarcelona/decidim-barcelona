@@ -90,7 +90,7 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
 
       click_link "Restableix el codi de verificació"
 
-      fill_in "reset[mobile_phone_number]", with: "(+34) 654 321 987"
+      fill_in "code[mobile_phone_number]", with: "(+34) 654 321 987"
       click_button "Envia'm un nou codi"
 
       expect(page).to have_content("T'hem enviat un nou codi de verificació")
