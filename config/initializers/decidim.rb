@@ -46,4 +46,3 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census16_authorization_metadata"
 end
-
