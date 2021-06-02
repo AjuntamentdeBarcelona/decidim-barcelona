@@ -30,7 +30,7 @@ module Decidim
         adapter = @user.ephemeral_participation_verification_adapter
         engine  = (adapter.type == "direct") ? Decidim::Verifications::Engine : adapter.send(:main_engine)
 
-        engine.routes.recognize_path_with_request(@request, @request.path, method: @request.method)
+        engine.routes.recognize_path_with_request(@request.dup, @request.path, method: @request.method)
       rescue ActionController::RoutingError
         false
       end
