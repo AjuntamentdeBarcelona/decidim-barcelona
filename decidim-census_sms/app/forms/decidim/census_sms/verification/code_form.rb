@@ -13,7 +13,7 @@ module Decidim
         def mobile_phone_number
           return unless super
 
-          super.gsub(/[^+0-9]/, "")
+          super.gsub(/[^0-9]/, "")
         end
 
         # A mobile phone can only be verified once but it should be private.
