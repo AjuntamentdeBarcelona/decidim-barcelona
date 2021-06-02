@@ -15,6 +15,8 @@ module Decidim
           allow!    if allowed_to_update_ephemeral_participant?
         elsif destroy_ephemeral_participant?
           allow!    if allowed_to_destroy_ephemeral_participant?
+        elsif update_unverifiable_ephemeral_participant?
+          allow!    if allowed_to_destroy_ephemeral_participant?
         elsif verifying_ephemeral_participant?
           disallow! unless allowed_to_verify_ephemeral_participant?
         else
@@ -61,6 +63,16 @@ module Decidim
 
       def allowed_to_update_ephemeral_participant?
         user && user == context[:current_user] && user.verifiable_ephemeral_participant?
+      end
+
+      def update_unverifiable_ephemeral_participant?
+        permission_action.action == :update_unverifiable &&
+          permission_action.scope == :public &&
+            permission_action.subject == :ephemeral_participant
+      end
+
+      def allowed_to_update_unverifiable_ephemeral_participant?
+        user && user == context[:current_user] && user.unverifiable_ephemeral_participant?
       end
 
       def verifying_ephemeral_participant?

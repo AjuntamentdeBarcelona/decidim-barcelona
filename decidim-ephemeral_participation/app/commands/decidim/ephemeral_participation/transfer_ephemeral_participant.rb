@@ -11,9 +11,9 @@ module Decidim
 
       def call
         return broadcast(:invalid) unless valid_params?
-        
-        update_verified_user
+
         update_unverifiable_user
+        update_verified_user
 
         broadcast(:ok)
       end
@@ -24,6 +24,12 @@ module Decidim
         @verified_user.verified_ephemeral_participant?
       end
 
+      def update_unverifiable_user
+        Decidim::DestroyAccount.call(
+          @unverifiable_user,
+          Decidim::DeleteAccountForm.from_params(reason: @form.reason),
+        )
+      end
 
       def update_verified_user
         @verified_user.session_token = SecureRandom.hex
@@ -34,13 +40,6 @@ module Decidim
         @verified_user.skip_reconfirmation!
         @verified_user.save!
         @verified_user.send_reset_password_instructions
-      end
-
-      def update_unverifiable_user
-        Decidim::DestroyAccount.call(
-          @unverifiable_user,
-          Decidim::DeleteAccountForm.from_params(reason: @form.reason),
-        )
       end
     end
   end

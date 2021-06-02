@@ -42,6 +42,12 @@ module Decidim
 
           Decidim::Verifications::Adapter.from_element(ephemeral_participation_data["authorization_name"])
         end
+
+        def name
+          return I18n.t("decidim.components.comment.deleted_user") if deleted?
+
+          super || I18n.t("decidim.anonymous_user")
+        end
       end
     end
   end

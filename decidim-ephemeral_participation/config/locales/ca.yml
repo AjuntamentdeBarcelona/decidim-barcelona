@@ -21,6 +21,8 @@ ca:
               missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
   decidim:
     authorization_handlers:
+      errors:
+        unverifiable_ephemeral_participant: "Ja hi ha una participant autoritzada amb les mateixes dades. <a href='%{href}'>Clica aqui per contactar amb una administradora</a>"
       ephemerable: Permet participació directe
     ephemeral_participation:
       actions:
@@ -42,7 +44,7 @@ ca:
         destroy: S'ha cancel·lat la participació sense registre
         submit: Envia
         title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
-        unverifiable: No ha estat possible completar la verificació. Pots tornar a intentar-ho en un altre moment.
+        unverifiable: Give us an email
     components:
       budgets:
         settings:

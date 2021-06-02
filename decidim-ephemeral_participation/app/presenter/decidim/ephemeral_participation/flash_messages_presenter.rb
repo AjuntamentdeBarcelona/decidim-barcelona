@@ -45,13 +45,29 @@ module Decidim
       end
 
       def verify_ephemeral_participant_path
-        @user
-          .ephemeral_participation_verification_adapter
-          .root_path(redirect_url: @user.ephemeral_participation_data["request_path"])
+        if pending_authorization?
+          @user
+            .ephemeral_participation_verification_adapter
+            .resume_authorization_path(redirect_url: @user.ephemeral_participation_data["request_path"])
+        else
+          @user
+            .ephemeral_participation_verification_adapter
+            .root_path(redirect_url: @user.ephemeral_participation_data["request_path"])
+        end
       end
+
+      private
 
       def decidim_ephemeral_participation
         Decidim::EphemeralParticipation::Engine.routes.url_helpers
+      end
+
+      def pending_authorization?
+        Decidim::Authorization.where(
+          user: @user,
+          name: @user.ephemeral_participation_data["authorization_name"],
+          granted_at: nil,
+        ).exists?
       end
     end
   end
