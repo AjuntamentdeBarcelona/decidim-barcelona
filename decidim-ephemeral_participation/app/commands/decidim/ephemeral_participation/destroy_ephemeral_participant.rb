@@ -46,6 +46,11 @@ module Decidim
       def session
         @request.session
       end
+
+      # Needed for Devise::Controllers::Helpers#sign_out
+      def warden
+        @request.env['warden']
+      end
     end
   end
 end

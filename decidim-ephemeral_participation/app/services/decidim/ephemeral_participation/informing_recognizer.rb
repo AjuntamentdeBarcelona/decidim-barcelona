@@ -20,6 +20,7 @@ module Decidim
       def informable_ephemeral_participant?
         return false if verify_ephemeral_participant_path?
         return false if edit_ephemeral_participant_path?
+        return false if unverifiable_ephemeral_participant_path?
         return false if @request.flash.any?
 
         true
@@ -44,6 +45,12 @@ module Decidim
         Decidim::EphemeralParticipation::FlashMessagesPresenter
           .new(@user, nil)
           .edit_ephemeral_participant_path
+      end
+
+      def unverifiable_ephemeral_participant_path?
+        Decidim::EphemeralParticipation::RedirectionRecognizer
+          .new(@request, @user)
+          .unverifiable_ephemeral_participant_path?
       end
     end
   end

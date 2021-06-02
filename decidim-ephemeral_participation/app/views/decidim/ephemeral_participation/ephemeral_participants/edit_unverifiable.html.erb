@@ -1,0 +1,12 @@
+<div class="row">
+  <%= decidim_form_for(@form, url: unverifiable_ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
+    <input autocomplete="off" name="hidden" type="password" style="display:none;">
+    <div class="columns large-8 end">
+      <%= I18n.t("unverifiable", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
+
+      <%= form.email_field :email %>
+
+      <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
+    </div>
+  <% end %>
+</div>

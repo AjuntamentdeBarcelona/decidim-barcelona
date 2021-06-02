@@ -15,9 +15,9 @@ module Decidim
         Decidim::ApplicationController.include(Decidim::EphemeralParticipation::ApplicationControllerOverride)
         Decidim::Admin::ConflictsController.include(Decidim::EphemeralParticipation::ConflictsControllerOverride)
         # forms
+        Decidim::AuthorizationHandler.include(Decidim::EphemeralParticipation::AuthorizationHandlerOverride)
         Decidim::Admin::ComponentForm.include(Decidim::EphemeralParticipation::ComponentFormOverride)
         Decidim::Admin::PermissionsForm.include(Decidim::EphemeralParticipation::PermissionsFormOverride)
-        Decidim::Admin::TransferUserForm.include(Decidim::EphemeralParticipation::TransferUserFormOverride)
         Decidim::System::UpdateOrganizationForm.include(Decidim::EphemeralParticipation::UpdateOrganizationFormOverride)
         # models
         Decidim::Component.include(Decidim::EphemeralParticipation::ComponentOverride)
@@ -38,7 +38,12 @@ module Decidim
 
       routes do
         scope :ephemeral_participation do
-          resources :ephemeral_participants, only: [:create, :edit, :update, :destroy]
+          resources :ephemeral_participants, only: [:create, :edit, :update, :destroy] do
+            member do
+              get :unverifiable, controller: :ephemeral_participants, action: :edit_unverifiable
+              put :unverifiable, controller: :ephemeral_participants, action: :update_unverifiable
+            end
+          end
         end
       end
     end

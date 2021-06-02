@@ -22,8 +22,6 @@ module Decidim
       validate :unique_email
       validate :unique_nickname
 
-      alias organization current_organization
-
       private
 
       def unique_email

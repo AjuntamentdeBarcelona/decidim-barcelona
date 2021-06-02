@@ -61,6 +61,32 @@ module Decidim
         end
       end
 
+      def edit_unverifiable
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+
+        @form = form(UnverifiableEphemeralParticipantForm).instance
+      end
+
+      def update_unverifiable
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+
+        @form = form(UnverifiableEphemeralParticipantForm).from_params(params)
+
+        Decidim::EphemeralParticipation::UpdateUnverifiableEphemeralParticipant.call(request, current_user, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("destroy", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            redirect_to(decidim_root_path)
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("update.error", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            render(action: :edit_unverifiable)
+          end
+        end
+      end
+
       private
 
       def decidim_root_path
