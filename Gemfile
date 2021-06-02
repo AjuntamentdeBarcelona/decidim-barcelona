@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }
 
-ruby '2.7.2'
+ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-dataviz", path: "decidim-dataviz"
@@ -32,6 +32,16 @@ gem "origami"
 
 gem "execjs", "~> 2.7.0"
 
+# Needed to be able to debug Puma status
+gem "barnes"
+
+# Used to restart puma workers every 6h and free memory
+gem "puma_worker_killer"
+
+# Let's kill long-running requests after the Heroku router has responded to.
+# https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
+gem "rack-timeout"
+
 group :development, :test do
   gem 'faker', '2.14.0'
   gem 'byebug', platform: :mri
@@ -53,7 +63,9 @@ group :production do
   gem "rails_12factor"
   gem "fog-aws"
   gem "dalli"
-  gem "sentry-raven"
+  gem "sentry-ruby"
+  gem "sentry-rails"
+  gem "sentry-sidekiq"
   gem 'rack-ssl-enforcer'
   gem 'rails_autoscale_agent'
   gem "rack_password"
