@@ -1,15 +1,7 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
-  revision: 03ba3bc60a8416a236ab7c1f84f91649ed46b9e8
-  specs:
-    decidim-term_customizer (0.18.0)
-      decidim-admin (>= 0.18.0)
-      decidim-core (>= 0.18.0)
-
-GIT
-  remote: https://github.com/decidim/decidim
-  revision: 3593e3f1ddeb54b14c54d2dfe84dbc8f19e6d444
-  branch: release/0.24-stable
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
+  revision: debb2f04f819438761929731d45c3556e75e0670
+  branch: release/0.24-stable-bcn
   specs:
     decidim (0.24.3)
       decidim-accountability (= 0.24.3)
@@ -225,11 +217,31 @@ GIT
     decidim-verifications (0.24.3)
       decidim-core (= 0.24.3)
 
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
+  revision: 03ba3bc60a8416a236ab7c1f84f91649ed46b9e8
+  specs:
+    decidim-term_customizer (0.18.0)
+      decidim-admin (>= 0.18.0)
+      decidim-core (>= 0.18.0)
+
+PATH
+  remote: decidim-census_sms
+  specs:
+    decidim-census_sms (0.0.1)
+      decidim-core
+
 PATH
   remote: decidim-dataviz
   specs:
     decidim-dataviz (0.0.1)
       decidim-core
+
+PATH
+  remote: decidim-ephemeral_participation
+  specs:
+    decidim-ephemeral_participation (0.0.1)
+      decidim-verifications
 
 PATH
   remote: decidim-stats
@@ -524,7 +536,7 @@ GEM
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
     http-accept (1.7.0)
-    http-cookie (1.0.3)
+    http-cookie (1.0.4)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (1.8.10)
@@ -947,8 +959,10 @@ DEPENDENCIES
   dalli
   database_cleaner
   decidim!
+  decidim-census_sms!
   decidim-dataviz!
   decidim-dev!
+  decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-navigation_maps (~> 1.2.0)
   decidim-sortitions!

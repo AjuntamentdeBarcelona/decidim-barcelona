@@ -141,6 +141,9 @@ ca:
         first_login:
           actions:
             census_authorization_handler: Verifica't amb el padró
+            census16_authorization_handler: Verifica't amb el padró (16+)
+            census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
+            valid_auth: Valid auth
     initiatives:
       initiatives:
         supports:

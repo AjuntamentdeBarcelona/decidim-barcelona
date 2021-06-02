@@ -1,0 +1,51 @@
+---
+es:
+  activemodel:
+    attributes:
+      organization:
+        enabled: Activo
+        allows_ephemeral_participation: Permite la participación sin registro
+    errors:
+      models:
+        permission:
+          attributes:
+            base:
+              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
+        organization:
+          attributes:
+            available_authorizations:
+              invalid: Only one authorization method can be used to allow ephemeral participation
+        settings:
+          attributes:
+            ephemeral_participation_enabled:
+              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+  decidim:
+    authorization_handlers:
+      ephemerable: Permite participación directa
+    ephemeral_participation:
+      actions:
+        unauthorized: "No tienes permisos para realizar esta acción: %{link}"
+        unauthorized_link: Completa tu registro aquí.
+        unverified: "Para poder participar, es necesario que estés verificada: %{link}"
+        unverified_link: Completa el proceos de verificación aquí.
+        verified: "Completa tu registro %{link}"
+        verified_link: aquí.
+      login_modal:
+        button: Quiero participar sin registrarme
+        help: Utiliza esta opción para una participación puntual
+      user_menu:
+        remaining: "%{remaining} min. para desconexión automática"
+        sign_out: Cancela y desconecta
+        complete_registration: Completa tu registro
+      ephemeral_participants:
+        create: es.decidim.ephemeral_participation.ephemeral_participants.create
+        destroy: Se ha cancelado la participación sin registro
+        submit: Enviar
+        title: Completa tu perfil de usuario para simplificar tu participación en el futuro
+        unverifiable: unverifiable es
+    components:
+      budgets:
+        settings:
+          global:
+            ephemeral_participation_enabled: Ephemeral participation enabled
+            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.

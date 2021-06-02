@@ -1,0 +1,16 @@
+
+<div class="row">
+  <%= decidim_form_for(@form, url: ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
+    <input autocomplete="off" name="hidden" type="password" style="display:none;">
+    <div class="columns large-8 end">
+      <%= form.text_field :name %>
+      <%= form.text_field :nickname %>
+      <%= form.email_field :email %>
+
+      <%= form.password_field :password, value: form.object.password, autocomplete: "off", help_text: I18n.t("devise.passwords.edit.password_help", minimun_characters: NOBSPW.configuration.min_password_length) %>
+      <%= form.password_field :password_confirmation, value: form.object.password_confirmation, autocomplete: "off" %>
+
+      <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
+    </div>
+  <% end %>
+</div>

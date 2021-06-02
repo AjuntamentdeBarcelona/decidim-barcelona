@@ -52,8 +52,8 @@ class BudgetsWorkflowPam2020 < Decidim::Budgets::Workflows::Base
   def user_scope_resource
     return unless user_authorization_scope
 
-    @user_scope_resource ||= budgets.each do |resource|
-      return resource if resource.scope == user_authorization_scope
+    @user_scope_resource ||= budgets.find do |resource|
+      resource.scope == user_authorization_scope
     end
   end
 
