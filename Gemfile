@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-DECIDIM_MAIN_BRANCH = "feature/bcn-budget-v0.24"
+DECIDIM_MAIN_BRANCH = "release/0.24-stable-bcn"
 
 DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
 
