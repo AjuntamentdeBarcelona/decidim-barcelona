@@ -2,59 +2,67 @@
 es:
   activemodel:
     attributes:
-      organization:
-        enabled: Activo
-        allows_ephemeral_participation: Permite la participación sin registro
       ephemeral_participant:
         email: Tu correo electrónico
         name: Tu nombre
         nickname: Alias
         password: Contraseña
         password_confirmation: Confirma tu contraseña
+      organization:
+        allows_ephemeral_participation: Permite la participación sin registro
+        enabled: Activo
     errors:
       models:
-        permission:
-          attributes:
-            base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral participation
+              invalid: Only one authorization method can be used to allow ephemeral
+                participation
+        permission:
+          attributes:
+            base:
+              invalid_ephemeral_participation_permissions: Cannot set permissions
+                using multiple authorizations when '%{ephemeral_participation_authorization}'
+                authorization is selected and '%{ephemeral_participation_enabled}'
+                component setting is enabled.
         settings:
           attributes:
             ephemeral_participation_enabled:
-              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+              missing_ephemeral_participation_authorization: Must enable ephemeral
+                participation authorization at system level.
   decidim:
     authorization_handlers:
       ephemerable: Permite participación directa
-    ephemeral_participation:
-      actions:
-        unauthorized: "No tienes permisos para realizar esta acción: %{link}"
-        unauthorized_link: Completa tu registro aquí.
-        unverified: "Para poder participar, es necesario que estés verificada: %{link}"
-        unverified_link: Completa el proceos de verificación aquí.
-        verified: "Completa tu registro %{link}"
-        verified_link: aquí.
-      login_modal:
-        button: Quiero participar sin registrarme
-        help: Utiliza esta opción para una participación puntual
-      user_menu:
-        remaining: "%{remaining} min. para desconexión automática"
-        sign_out: Cancela y desconecta
-        complete_registration: Completa tu registro
-      ephemeral_participants:
-        edit:
-          title: Completa tu perfil para simplificar tu participación en el futuro
-        name: name es
-        create: es.decidim.ephemeral_participation.ephemeral_participants.create
-        destroy: Se ha cancelado la participación sin registro
-        submit: Enviar
     components:
       budgets:
         settings:
           global:
             ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
-            ephemeral_participation_enabled_confirm_modal: Ephemeral participation enabled alert text es
-            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation enabled alert text help es
+            ephemeral_participation_enabled_confirm_modal: Ephemeral participation
+              enabled alert text es
+            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation
+              enabled alert text help es
+            ephemeral_participation_enabled_help: Allows users to participate without
+              registration. Requires configuring permissions.
+    ephemeral_participation:
+      actions:
+        unauthorized: 'No tienes permisos para realizar esta acción: %{link}'
+        unauthorized_link: Completa tu registro aquí.
+        unverified: 'Para poder participar, es necesario que estés verificada: %{link}'
+        unverified_link: Completa el proceos de verificación aquí.
+        verified: Completa tu registro %{link}
+        verified_link: aquí.
+      ephemeral_participants:
+        create: es.decidim.ephemeral_participation.ephemeral_participants.create
+        destroy: Se ha cancelado la participación sin registro
+        edit:
+          title: Completa tu perfil para simplificar tu participación en el futuro
+        name: name es
+        submit: Enviar
+      login_modal:
+        button: Quiero participar sin registrarme
+        help: Utiliza esta opción para una participación puntual
+      user_menu:
+        complete_registration: Completa tu registro
+        remaining: "%{remaining} min. para desconexión automática"
+        sign_out: Cancela y desconecta

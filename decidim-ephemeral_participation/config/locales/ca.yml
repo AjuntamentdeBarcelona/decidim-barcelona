@@ -2,77 +2,93 @@
 ca:
   activemodel:
     attributes:
-      organization:
-        enabled: Actiu
-        allows_ephemeral_participation: Permet participació sense registre
       ephemeral_participant:
         email: El teu correu electrònic
         name: El teu nom
         nickname: Àlies (sobrenom)
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
+      organization:
+        allows_ephemeral_participation: Permet participació sense registre
+        enabled: Actiu
     errors:
       models:
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral participation
+              invalid: Only one authorization method can be used to allow ephemeral
+                participation
         permission:
           attributes:
             base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
+              invalid_ephemeral_participation_permissions: Cannot set permissions
+                using multiple authorizations when '%{ephemeral_participation_authorization}'
+                authorization is selected and '%{ephemeral_participation_enabled}'
+                component setting is enabled.
         settings:
           attributes:
             ephemeral_participation_enabled:
-              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
-              email:
+              email: 
+              missing_ephemeral_participation_authorization: Must enable ephemeral
+                participation authorization at system level.
         unverifiable_ephemeral_participant:
           attributes:
             email:
-              unverifiable_ephemeral_participant_email_taken: L'email pertany a un usuari existent
+              unverifiable_ephemeral_participant_email_taken: L'email pertany a un
+                usuari existent
   decidim:
     authorization_handlers:
+      ephemerable: Permet participació directe
       errors:
         unverifiable_ephemeral_participant:
-          already_exists: "Ja hi ha una participant autoritzada amb les mateixes dades."
-          already_participate: "Ja has participat?"
-          retrieve_user: Recupera la teva sessió anterior aqui
+          already_exists: Ja hi ha una participant autoritzada amb les mateixes dades.
+          already_participate: Ja has participat?
           close: Cancel·la el procés o torna a començar
-      ephemerable: Permet participació directe
-    ephemeral_participation:
-      actions:
-        unauthorized: "No tens permís per realitzar aquesta acció: %{link}"
-        unauthorized_link: Completa el teu registre aquí.
-        unverified: "Per poder participar, cal que estiguis verificada: %{link}"
-        unverified_link: Completa el procés de verificació aquí.
-        verified: "Completa el teu registre %{link}"
-        verified_link: aquí.
-      login_modal:
-        button: Vull participar sense registrar-me
-        help: Fes servir aquesta opció per una participació puntual
-      user_menu:
-        remaining: "%{remaining} min. per la desconexió automàtica"
-        sign_out: Cancel·la i desconnecta
-        complete_registration: Completa el teu registre
-      ephemeral_participants:
-        edit:
-          title: Completa el teu perfil per simplificar la teva participació en el futur
-        name: name ca
-        create: Per poder participar sense registre, has de completar el procés de verificació
-        destroy: S'ha cancel·lat la participació sense registre
-        submit: Envia
-        unverifiable:
-          title: Recupera la teva antiga sessió
-          text_prefix: Les dades que has fet servir conicideixen amb un usuari existent. Si vols tornar a participar has de convertir la teva sessió anònima en un usuari normal. Simplement escriu a continuació el teu email i segueix les instruccions que rebràs.
-          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut l'email de confirmació torna'l a demanar aqui.
-        update_unverifiable:
-          error: Error al recuperar l'usuari
-          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions per completar el registre
+          retrieve_user: Recupera la teva sessió anterior aqui
     components:
       budgets:
         settings:
           global:
             ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
-            ephemeral_participation_enabled_confirm_modal: Ephemeral participation enabled alert text ca
-            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation enabled alert text help ca
+            ephemeral_participation_enabled_confirm_modal: Ephemeral participation
+              enabled alert text ca
+            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation
+              enabled alert text help ca
+            ephemeral_participation_enabled_help: Allows users to participate without
+              registration. Requires configuring permissions.
+    ephemeral_participation:
+      actions:
+        unauthorized: 'No tens permís per realitzar aquesta acció: %{link}'
+        unauthorized_link: Completa el teu registre aquí.
+        unverified: 'Per poder participar, cal que estiguis verificada: %{link}'
+        unverified_link: Completa el procés de verificació aquí.
+        verified: Completa el teu registre %{link}
+        verified_link: aquí.
+      ephemeral_participants:
+        create: Per poder participar sense registre, has de completar el procés de
+          verificació
+        destroy: S'ha cancel·lat la participació sense registre
+        edit:
+          title: Completa el teu perfil per simplificar la teva participació en el
+            futur
+        name: name ca
+        submit: Envia
+        unverifiable:
+          text_prefix: Les dades que has fet servir conicideixen amb un usuari existent.
+            Si vols tornar a participar has de convertir la teva sessió anònima en
+            un usuari normal. Simplement escriu a continuació el teu email i segueix
+            les instruccions que rebràs.
+          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut l'email
+            de confirmació torna'l a demanar aqui.
+          title: Recupera la teva antiga sessió
+        update_unverifiable:
+          error: Error al recuperar l'usuari
+          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
+            per completar el registre
+      login_modal:
+        button: Vull participar sense registrar-me
+        help: Fes servir aquesta opció per una participació puntual
+      user_menu:
+        complete_registration: Completa el teu registre
+        remaining: "%{remaining} min. per la desconexió automàtica"
+        sign_out: Cancel·la i desconnecta

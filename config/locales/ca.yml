@@ -2,10 +2,6 @@
 ca:
   activemodel:
     attributes:
-      mobile_phone:
-        mobile_phone_number: Número de telèfon mòbil
-      confirmation:
-        verification_code: Codi de verificació
       census16_authorization_handler:
         date_of_birth: Data de naixement
         document_number: Número de document
@@ -20,26 +16,19 @@ ca:
         gender: Sexe
         postal_code: Codi postal
         scope_id: Districte
+      confirmation:
+        verification_code: Codi de verificació
+      mobile_phone:
+        mobile_phone_number: Número de telèfon mòbil
   census16_authorization:
     form:
       date_select:
         day: Dia
         month: Mes
         year: Any
-      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva de dones i homes.
-      gender_prompt: Si us plau, selecciona una opció
-      genders:
-        man: Home
-        non_binary: No binari
-        woman: Dona
-      scope_prompt: Si us plau, selecciona el teu districte
-  census_authorization:
-    form:
-      date_select:
-        day: Dia
-        month: Mes
-        year: Any
-      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva de dones i homes.
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+        disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+        de dones i homes.
       gender_prompt: Si us plau, selecciona una opció
       genders:
         man: Home
@@ -49,6 +38,21 @@ ca:
   census16_authorization_handler:
     age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: Número de document incorrecte
+  census_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+        disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+        de dones i homes.
+      gender_prompt: Si us plau, selecciona una opció
+      genders:
+        man: Home
+        non_binary: No binari
+        woman: Dona
+      scope_prompt: Si us plau, selecciona el teu districte
   census_authorization_handler:
     age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: Número de document incorrecte
@@ -77,6 +81,22 @@ ca:
       results:
         home_header:
           csv_download: Descarregar dades en CSV
+    admin:
+      models:
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de naixement
+            document_number: Número de document
+            hash: Hash
+            initiative_end_date: Data de finalització
+            initiative_id: ID
+            initiative_signatures_count: Nombre de signatures
+            initiative_start_date: Data d'inici
+            initiative_title: Títol
+            name_and_surname: Nom i cognoms
+            postal_code: Codi postal
+            time_and_date: Data i hora
+            timestamp: Segell
     authorization_handlers:
       census16_authorization_handler:
         explanation: Verifica't amb el padró
@@ -108,22 +128,6 @@ ca:
         dni: DNI
         nie: NIE
         passport: Passaport
-    admin:
-      models:
-        initiatives_votes:
-          fields:
-            initiative_title: Títol
-            initiative_id: ID
-            initiative_start_date: Data d'inici
-            initiative_end_date: Data de finalització
-            initiative_signatures_count: Nombre de signatures
-            name_and_surname: Nom i cognoms
-            document_number: Número de document
-            date_of_birth: Data de naixement
-            postal_code: Codi postal
-            time_and_date: Data i hora
-            timestamp: Segell
-            hash: Hash
     devise:
       omniauth_registrations:
         new:
@@ -133,23 +137,23 @@ ca:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
           tos_agreement: En registrar-te acceptes %{link}.
-    resource_links:
-      included_proposals:
-        project_proposals: 'Propostes incloses en aquest projecte:'
-    sms:
-      text: "El teu codi per verificar-te a Decidim Barcelona és: %{code}"
-    verifications:
-      authorizations:
-        first_login:
-          actions:
-            census_authorization_handler: Verifica't amb el padró
-            census16_authorization_handler: Verifica't amb el padró (16+)
-            census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
-            valid_auth: Valid auth
     initiatives:
       initiatives:
         supports:
           title: Llistat d'adhesions
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propostes incloses en aquest projecte:'
+    sms:
+      text: 'El teu codi per verificar-te a Decidim Barcelona és: %{code}'
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            census16_authorization_handler: Verifica't amb el padró (16+)
+            census_authorization_handler: Verifica't amb el padró
+            census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
+            valid_auth: Valid auth
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte

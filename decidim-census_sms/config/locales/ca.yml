@@ -10,24 +10,26 @@ ca:
         postal_code: Codi postal
         scope_id: Districte
         tos_acceptance: Accepto els Termes i Condicions
-        tos_acceptance_label: En verificar-te acceptes els <a class="link" href="%{tos_path}" target="_blank">Termes i Condicions</a>
+        tos_acceptance_label: En verificar-te acceptes els <a class="link" href="%{tos_path}"
+          target="_blank">Termes i Condicions</a>
   decidim:
     authorization_handlers:
       census_sms_authorization_handler:
-        explanation: Verifica't amb les dades del padró i amb un codi que t'enviarem per SMS
-        name: El padró + SMS #TODO
+        explanation: Verifica't amb les dades del padró i amb un codi que t'enviarem
+          per SMS
         fields:
-          scope_code_1: Districte 1 #TODO
-          scope_code_2: Districte 2 #TODO
-          scope_code_3: Districte 3 #TODO
-          scope_code_4: Districte 4 #TODO
-          scope_code_5: Districte 5 #TODO
-          scope_code_6: Districte 6 #TODO
-          scope_code_7: Districte 7 #TODO
-          scope_code_8: Districte 8 #TODO
-          scope_code_9: Districte 9 #TODO
-          scope_code_10: Districte 10 #TODO
           scope_code: Districte
+          scope_code_1: Districte 1
+          scope_code_10: Districte 10
+          scope_code_2: Districte 2
+          scope_code_3: Districte 3
+          scope_code_4: Districte 4
+          scope_code_5: Districte 5
+          scope_code_6: Districte 6
+          scope_code_7: Districte 7
+          scope_code_8: Districte 8
+          scope_code_9: Districte 9
+        name: El padró + SMS
     census_sms:
       verification:
         authorizations:
@@ -35,7 +37,7 @@ ca:
             error: S'ha produit un error en crear l'autorització
             success: Has completat el primer pas per obtenir l'autorització
           edit:
-            instructions: No has rebut el codi de verificació? 
+            instructions: No has rebut el codi de verificació?
             reset: Restableix el codi de verificació
             send: Verifica't
             title: Introdueix el codi que has rebut per SMS
@@ -44,15 +46,18 @@ ca:
               day: Dia
               month: Mes
               year: Any
-            postal_code_help: No saps quin codi postal correspon a la teva adreça del Padró? Pots consultar-ho <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">clicant aquí</a>.
+            postal_code_help: No saps quin codi postal correspon a la teva adreça
+              del Padró? Pots consultar-ho <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">clicant
+              aquí</a>.
             scope_prompt: Selecciona el teu districte
             send: Verifica't
             title: Verifica't amb el Padró
           reset:
             mobile_phone_number: Número de telèfon mòbil
             send: Envia'm un nou codi
-            title: Restableix el codi de verificació
             success: T'hem enviat un nou codi de verificació
+            title: Restableix el codi de verificació
           update:
-            error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, revisa l'SMS que t'hem enviat.
+            error: El codi de verificació que has introduït no coincideix amb el nostre.
+              Si us plau, revisa l'SMS que t'hem enviat.
             success: Felicitats! T'has verificat correctament.
