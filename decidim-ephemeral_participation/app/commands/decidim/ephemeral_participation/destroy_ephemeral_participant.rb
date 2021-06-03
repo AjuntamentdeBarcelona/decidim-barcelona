@@ -13,9 +13,8 @@ module Decidim
       def call
         return broadcast(:invalid) unless valid_params?
 
-        @user.invalidate_all_sessions!
-        delete_pending_authorizations!
-        @user.destroy! if destroy_user?
+        delete_pending_authorizations
+        destroy_user if destroy_user?
         sign_out(@user)
 
         broadcast(:ok)
@@ -27,12 +26,19 @@ module Decidim
         @request.is_a?(ActionDispatch::Request) && @user.is_a?(Decidim::User)
       end
 
-      def delete_pending_authorizations!
+      def delete_pending_authorizations
         Decidim::Authorization.where(
           user: @user,
           name: @user.ephemeral_participation_data["authorization_name"],
           granted_at: nil,
         ).delete_all
+      end
+
+      def destroy_user
+        Decidim::DestroyAccount.call(
+          @user,
+          Decidim::DeleteAccountForm.from_params(reason: self.class.name),
+        )
       end
 
       def destroy_user?

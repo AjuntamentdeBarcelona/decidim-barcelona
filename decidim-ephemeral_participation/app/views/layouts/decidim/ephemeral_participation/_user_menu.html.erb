@@ -26,7 +26,7 @@
   <%=
     link_to(
       I18n.t("sign_out", scope: "decidim.ephemeral_participation.user_menu"),
-      decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: request.path), 
+      decidim_ephemeral_participation.ephemeral_participant_path(current_user),
       method: :delete,
       class: "sign-out-link",
       tabindex: "-1"

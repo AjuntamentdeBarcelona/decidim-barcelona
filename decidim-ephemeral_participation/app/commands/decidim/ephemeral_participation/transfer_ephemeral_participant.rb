@@ -21,7 +21,7 @@ module Decidim
       private
 
       def valid_params?
-        @verified_user.verified_ephemeral_participant?
+        @verified_user.verified_ephemeral_participant? && @unverifiable_user.ephemeral_participant?
       end
 
       def update_unverifiable_user
