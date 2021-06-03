@@ -39,16 +39,16 @@ describe "Budgets", type: :system, perform_enqueued: true, available_authorizati
       before do
         visit Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
       end
-  
+
       it "correctly redirects after user verifies" do
         page.find("#project-vote-button-#{projects.first.id}").click
 
         expect(page).to have_selector("#authorizationModal")
-  
+
         click_on "Autoritzar"
-  
+
         get_verified
-  byebug
+
         expect(page).to have_content(translated(projects.first.title))
         expect(page).to have_content(translated(projects.second.title))
       end
