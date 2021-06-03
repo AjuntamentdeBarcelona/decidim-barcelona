@@ -14,8 +14,12 @@ module Decidim
       def call
         return broadcast(:invalid) unless valid_params?
 
-        update_user
-        destroy_session
+        if transfer_ephemeral_participant?
+          transfer_ephemeral_participant
+        else
+          update_user
+          destroy_session
+        end
 
         broadcast(:ok)
       end
@@ -30,7 +34,35 @@ module Decidim
         @conflict ||= Decidim::EphemeralParticipation::VerificationConflicts.for(@user).first
       end
 
-      def update_user
+      def transfer_ephemeral_participant?
+        verified_user.ephemeral_participant? &&
+          ephemeral_participation_data(verified_user) == ephemeral_participation_data(@user)
+      end
+
+      def verified_user
+        conflict.managed_user
+      end
+
+      def ephemeral_participation_data(user)
+        user.ephemeral_participation_data.values_at(
+          :authorization_name,
+          :component_id,
+          :permissions
+        )
+      end
+
+      def transfer_ephemeral_participant
+        Decidim::Admin::TransferUser.call(
+          Decidim::Admin::TransferUserForm.from_params(
+            current_user: @user,
+            conflict: conflict,
+            reason: self.class.name,
+            email: @form.email,
+          )
+        )
+      end
+
+      def update_unverifiable_user
         @user.email = @form.email
 
         @user.skip_reconfirmation!

@@ -11,12 +11,16 @@ module Decidim
 
       validate :unique_email
 
+      def email_taken?
+        errors.details == {:email=>[{:error=>:unverifiable_ephemeral_participant_email_taken}]}
+      end
+
       private
 
       def unique_email
         return if duplicates(email: email).none?
 
-        errors.add(:email, :taken)
+        errors.add(:email, :unverifiable_ephemeral_participant_email_taken)
       end
 
       def duplicates(where_clause)
