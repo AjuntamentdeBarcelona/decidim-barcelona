@@ -49,3 +49,5 @@ es:
           global:
             ephemeral_participation_enabled: Ephemeral participation enabled
             ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
+            ephemeral_participation_enabled_confirm_modal: Ephemeral participation enabled alert text es
+            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation enabled alert text help es
