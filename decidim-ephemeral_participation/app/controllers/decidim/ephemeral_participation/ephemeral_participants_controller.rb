@@ -85,6 +85,12 @@ module Decidim
         end
       end
 
+      def unverifiable_resend_email
+        sign_out(current_user)
+
+        redirect_to(new_password_path(:user))
+      end
+
       private
 
       def decidim_root_path
