@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class UpdateUnverifiableEphemeralParticipant   < Rectify::Command
+    class UpdateUnverifiableEphemeralParticipant < Rectify::Command
       include ::Devise::Controllers::Helpers
 
       def initialize(request, user, form)

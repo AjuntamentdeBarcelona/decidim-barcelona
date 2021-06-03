@@ -42,7 +42,6 @@ es:
         destroy: Se ha cancelado la participación sin registro
         submit: Enviar
         title: Completa tu perfil de usuario para simplificar tu participación en el futuro
-        unverifiable: unverifiable es
     components:
       budgets:
         settings:
