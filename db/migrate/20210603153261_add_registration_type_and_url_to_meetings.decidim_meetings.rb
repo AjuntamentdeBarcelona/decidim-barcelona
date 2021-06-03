@@ -11,10 +11,10 @@ class AddRegistrationTypeAndUrlToMeetings < ActiveRecord::Migration[5.2]
     add_column :decidim_meetings_meetings, :registration_type, :string, null: false, default: "registration_disabled"
     add_column :decidim_meetings_meetings, :registration_url, :string
 
-    # Meetings.reset_column_information
-    # Meetings.find_each do |meeting|
-    #   meeting.registration_type = "on_this_platform" if meeting.decidim_author_type == "Decidim::Organization"
-    #   meeting.save(validate: false)
-    # end
+    Meetings.reset_column_information
+    Meetings.find_each do |meeting|
+      meeting.registration_type = "on_this_platform" if meeting.decidim_author_type == "Decidim::Organization"
+      meeting.save!
+    end
   end
 end
