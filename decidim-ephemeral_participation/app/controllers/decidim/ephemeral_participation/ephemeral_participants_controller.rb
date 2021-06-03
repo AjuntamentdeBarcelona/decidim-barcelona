@@ -25,8 +25,6 @@ module Decidim
         enforce_permission_to(:update, :ephemeral_participant, current_user: current_user)
 
         @form = form(EphemeralParticipantForm).from_model(current_user)
-
-        render(layout: "layouts/decidim/ephemeral_participation/user_profile")
       end
 
       def update

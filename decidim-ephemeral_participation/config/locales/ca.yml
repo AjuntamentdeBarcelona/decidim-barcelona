@@ -5,6 +5,12 @@ ca:
       organization:
         enabled: Actiu
         allows_ephemeral_participation: Permet participació sense registre
+      ephemeral_participant:
+        email: El teu correu electrònic
+        name: El teu nom
+        nickname: Àlies (sobrenom)
+        password: Contrasenya
+        password_confirmation: Confirma la teva contrasenya
     errors:
       models:
         organization:
@@ -49,11 +55,12 @@ ca:
         sign_out: Cancel·la i desconnecta
         complete_registration: Completa el teu registre
       ephemeral_participants:
+        edit:
+          title: Completa el teu perfil per simplificar la teva participació en el futur
         name: name ca
         create: Per poder participar sense registre, has de completar el procés de verificació
         destroy: S'ha cancel·lat la participació sense registre
         submit: Envia
-        title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
         unverifiable:
           title: Recupera la teva antiga sessió
           text_prefix: Les dades que has fet servir conicideixen amb un usuari existent. Si vols tornar a participar has de convertir la teva sessió anònima en un usuari normal. Simplement escriu a continuació el teu email i segueix les instruccions que rebràs.

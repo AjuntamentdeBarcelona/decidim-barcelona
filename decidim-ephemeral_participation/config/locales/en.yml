@@ -5,6 +5,11 @@ en:
       organization:
         enabled: Enabled
         allows_ephemeral_participation: Allows participation without registering
+      ephemeral_participant:
+        email: Your email
+        name: Your name
+        nickname: Nickname
+        password: Password
     errors:
       models:
         permission:
@@ -38,11 +43,12 @@ en:
         sign_out: Cancel and sign out
         complete_registration: Finish your registration
       ephemeral_participants:
+        edit:
+          title: Complete your profile for easily future participation
         name: name en
         create: en.decidim.ephemeral_participation.ephemeral_participants.create
         destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
         submit: Send
-        title: Complete your user profile for easily future participation
         unverifiable: The verification process has been unsuccessful. You can try it again later.
     components:
       budgets:
