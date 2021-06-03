@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 824f3c481d68e694a8827a308f3f0891dc831858
+  revision: b91efac9f9d0a68660681afcc6efdad1cf0efd98
   branch: release/0.24-stable-bcn
   specs:
     decidim (0.24.3)
@@ -628,7 +628,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.6)
+    nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
