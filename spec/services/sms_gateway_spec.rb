@@ -23,7 +23,7 @@ describe SmsGateway do
 
     describe "text" do
       it "builds a meaningful text" do
-        expect(subject.text).to eq("Your code to be verified at Decidim Barcelona is: 123456")
+        expect(subject.text).to eq("El teu codi per verificar-te a Decidim Barcelona és: 123456")
       end
     end
   end
