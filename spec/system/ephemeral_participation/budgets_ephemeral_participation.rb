@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "decidim/budgets/test/factories"
-require "decidim/ephemeral_participation/test"
-require "decidim/census_sms/verification/test"
 
 describe "Authorizations", type: :system, perform_enqueued: true, with_authorization_workflows: ["census_sms_authorization_handler"] do
   include_context "with ephemerable participation" do

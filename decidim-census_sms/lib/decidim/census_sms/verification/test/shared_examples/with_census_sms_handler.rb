@@ -9,7 +9,7 @@ shared_context "with census sms handler" do
   let(:authorization_postal_code) { "08001" }
   let(:authorization_mobile_phone_number) { "(+34) 654 321 987" }
   let(:authorization_tos_acceptance) { true }
-  let(:authorization_scope) { scope.name }
+  let(:authorization_scope) { translated(scope.name) }
 
   let(:code) { Decidim::Authorization.last.verification_metadata["verification_code"] }
 
@@ -20,7 +20,7 @@ shared_context "with census sms handler" do
   # Selects a birth date that will not cause errors in the form: January 12, 1979.
   def fill_in_authorization_form
     select authorization_document_type, from: "authorization_document_type"
-    fill_in authorization_document_number, with: "12345678A"
+    fill_in "authorization_document_number", with: authorization_document_number
     select authorization_date_of_birth_day, from: "authorization_date_of_birth_3i"
     select authorization_date_of_birth_month, from: "authorization_date_of_birth_2i"
     select authorization_date_of_birth_year, from: "authorization_date_of_birth_1i"
