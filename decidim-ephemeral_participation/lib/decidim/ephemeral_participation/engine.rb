@@ -43,6 +43,7 @@ module Decidim
             member do
               get :unverifiable, controller: :ephemeral_participants, action: :edit_unverifiable
               put :unverifiable, controller: :ephemeral_participants, action: :update_unverifiable
+              put :resend_email_unverifiable, controller: :ephemeral_participants, action: :unverifiable_resend_email
             end
           end
         end
