@@ -49,6 +49,7 @@ ca:
         sign_out: Cancel·la i desconnecta
         complete_registration: Completa el teu registre
       ephemeral_participants:
+        name: name ca
         create: Per poder participar sense registre, has de completar el procés de verificació
         destroy: S'ha cancel·lat la participació sense registre
         submit: Envia

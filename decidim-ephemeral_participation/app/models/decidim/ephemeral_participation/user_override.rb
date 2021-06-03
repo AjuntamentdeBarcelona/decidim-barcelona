@@ -43,6 +43,7 @@ module Decidim
           Decidim::Verifications::Adapter.from_element(ephemeral_participation_data["authorization_name"])
         end
 
+        # TEMPORARY OVERRIDE TO DISPLAY DEFAULT NAME FOR DELETED USERS (MISSING IN DECIDIM)
         def name
           return I18n.t("decidim.components.comment.deleted_user") if deleted?
 

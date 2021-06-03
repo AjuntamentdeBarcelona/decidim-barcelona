@@ -38,6 +38,7 @@ en:
         sign_out: Cancel and sign out
         complete_registration: Finish your registration
       ephemeral_participants:
+        name: name en
         create: en.decidim.ephemeral_participation.ephemeral_participants.create
         destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
         submit: Send

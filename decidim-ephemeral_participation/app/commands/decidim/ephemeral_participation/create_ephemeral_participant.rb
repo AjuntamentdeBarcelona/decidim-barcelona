@@ -37,6 +37,8 @@ module Decidim
           organization: component.organization,
           managed: true,
           tos_agreement: true,
+          accepted_tos_version: component.organization.tos_version,
+          name: I18n.t("decidim.ephemeral_participation.ephemeral_participants.name"),
           extended_data: {
             ephemeral_participation: {
               authorization_name: authorization_name,

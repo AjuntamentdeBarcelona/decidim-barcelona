@@ -38,6 +38,7 @@ es:
         sign_out: Cancela y desconecta
         complete_registration: Completa tu registro
       ephemeral_participants:
+        name: name es
         create: es.decidim.ephemeral_participation.ephemeral_participants.create
         destroy: Se ha cancelado la participación sin registro
         submit: Enviar
