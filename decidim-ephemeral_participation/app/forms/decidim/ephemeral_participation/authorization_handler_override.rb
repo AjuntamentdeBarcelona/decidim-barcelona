@@ -20,10 +20,7 @@ module Decidim
 
         def uniqueness_error
           if user.ephemeral_participant?
-            I18n.t(
-              "decidim.authorization_handlers.errors.unverifiable_ephemeral_participant",
-              href: Decidim::EphemeralParticipation::Engine.routes.url_helpers.unverifiable_ephemeral_participant_path(user),
-            ).html_safe
+            ActionController::Base.new.render_to_string(partial: "decidim/ephemeral_participation/ephemeral_participants/existing_verification_msg", locals: {user: user})
           else
             I18n.t("decidim.authorization_handlers.errors.duplicate_authorization")
           end

@@ -32,6 +32,7 @@ module Decidim
         Decidim.component_registry.find(:budgets).tap do |component|
           component.settings(:global) do |settings|
             settings.attribute(:ephemeral_participation_enabled, type: :boolean, default: false)
+            settings.attribute(:ephemeral_participation_enabled_confirm_modal, type: :text, translated: true, editor: true)
           end
         end
       end

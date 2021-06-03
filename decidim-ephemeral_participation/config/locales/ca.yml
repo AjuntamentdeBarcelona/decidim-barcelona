@@ -19,10 +19,19 @@ ca:
           attributes:
             ephemeral_participation_enabled:
               missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+              email:
+        unverifiable_ephemeral_participant:
+          attributes:
+            email:
+              unverifiable_ephemeral_participant_email_taken: L'email pertany a un usuari existent
   decidim:
     authorization_handlers:
       errors:
-        unverifiable_ephemeral_participant: "Ja hi ha una participant autoritzada amb les mateixes dades. <a href='%{href}'>Clica aqui per contactar amb una administradora</a>"
+        unverifiable_ephemeral_participant:
+          already_exists: "Ja hi ha una participant autoritzada amb les mateixes dades."
+          already_participate: "Ja has participat?"
+          retrieve_user: Recupera la teva sessió anterior aqui
+          close: Cancel·la el procés o torna a començar
       ephemerable: Permet participació directe
     ephemeral_participation:
       actions:
@@ -40,14 +49,23 @@ ca:
         sign_out: Cancel·la i desconnecta
         complete_registration: Completa el teu registre
       ephemeral_participants:
+        name: name ca
         create: Per poder participar sense registre, has de completar el procés de verificació
         destroy: S'ha cancel·lat la participació sense registre
         submit: Envia
         title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
-        unverifiable: Give us an email
+        unverifiable:
+          title: Recupera la teva antiga sessió
+          text_prefix: Les dades que has fet servir conicideixen amb un usuari existent. Si vols tornar a participar has de convertir la teva sessió anònima en un usuari normal. Simplement escriu a continuació el teu email i segueix les instruccions que rebràs.
+          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut l'email de confirmació torna'l a demanar aqui.
+        update_unverifiable:
+          error: Error al recuperar l'usuari
+          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions per completar el registre
     components:
       budgets:
         settings:
           global:
             ephemeral_participation_enabled: Ephemeral participation enabled
             ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
+            ephemeral_participation_enabled_confirm_modal: Ephemeral participation enabled alert text ca
+            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation enabled alert text help ca

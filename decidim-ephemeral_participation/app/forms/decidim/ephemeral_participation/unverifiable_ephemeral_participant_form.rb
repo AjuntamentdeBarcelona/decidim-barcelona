@@ -3,6 +3,8 @@
 module Decidim
   module EphemeralParticipation
     class UnverifiableEphemeralParticipantForm < Decidim::Form
+      EMAIL_TAKEN_ERROR_KEY = :unverifiable_ephemeral_participant_email_taken
+
       mimic :unverifiable_ephemeral_participant
 
       attribute :email
@@ -12,7 +14,7 @@ module Decidim
       validate :unique_email
 
       def email_taken?
-        errors.details == {:email=>[{:error=>:unverifiable_ephemeral_participant_email_taken}]}
+        errors.details[:email] == [{ error: EMAIL_TAKEN_ERROR_KEY }]
       end
 
       private
@@ -20,7 +22,7 @@ module Decidim
       def unique_email
         return if duplicates(email: email).none?
 
-        errors.add(:email, :unverifiable_ephemeral_participant_email_taken)
+        errors.add(:email, EMAIL_TAKEN_ERROR_KEY)
       end
 
       def duplicates(where_clause)
