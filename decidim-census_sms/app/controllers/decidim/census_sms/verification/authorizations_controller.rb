@@ -21,7 +21,7 @@ module Decidim
 
           Decidim::Verifications::PerformAuthorizationStep.call(authorization, @form) do
             on(:ok) do
-              @form = CodeForm.from_params(params)
+              @form = CodeForm.from_params(create_params)
 
               SendCode.call(@form, authorization) do
                 on(:ok) do
