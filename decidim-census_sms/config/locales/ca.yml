@@ -44,7 +44,7 @@ ca:
               day: Dia
               month: Mes
               year: Any
-            postal_code_help: No saps quin codi postal correspon a la teva adreça del Padró? Pots consultar-ho <a target="_blank" href="https://www.correos.es/es/ca/eines/codis-postals/detall">clicant aquí</a>.
+            postal_code_help: No saps quin codi postal correspon a la teva adreça del Padró? Pots consultar-ho <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">clicant aquí</a>.
             scope_prompt: Selecciona el teu districte
             send: Verifica't
             title: Verifica't amb el Padró
