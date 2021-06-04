@@ -71,8 +71,8 @@ module Decidim
         @form = form(UnverifiableEphemeralParticipantForm).from_params(params)
 
         Decidim::EphemeralParticipation::UpdateUnverifiableEphemeralParticipant.call(request, current_user, @form) do
-          on(:ok) do
-            flash[:notice] = I18n.t("update_unverifiable.success", scope: "decidim.ephemeral_participation.ephemeral_participants")
+          on(:ok) do |notice|
+            flash[:notice] = notice
 
             redirect_to(decidim_root_path)
           end

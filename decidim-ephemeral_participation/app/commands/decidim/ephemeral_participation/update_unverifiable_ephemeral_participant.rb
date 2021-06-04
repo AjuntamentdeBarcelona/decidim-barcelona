@@ -17,15 +17,21 @@ module Decidim
         return broadcast(:invalid) unless valid_params?
 
         if @form.valid?
+          notice = nil
+
           if verified_user.ephemeral_participant?
+            notice = I18n.t("update_unverifiable.success.transfer_user", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
             discard_last_location
             transfer_ephemeral_participant
           else
+            notice = I18n.t("update_unverifiable.success.admin_contact", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
             update_user
             destroy_session
           end
 
-          broadcast(:ok)
+          broadcast(:ok, notice)
         else
           update_user if @form.email_taken?
 

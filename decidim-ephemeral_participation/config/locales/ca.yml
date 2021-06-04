@@ -76,8 +76,10 @@ ca:
           title: Recupera la teva antiga sessió
         update_unverifiable:
           error: Error al recuperar l'usuari
-          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
-            per completar el registre
+          success:
+            transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
+              per completar el registre
+            admin_contact: admin_contact ca
       login_modal:
         button: Vull participar sense registrar-me
         help: Fes servir aquesta opció per una participació puntual
