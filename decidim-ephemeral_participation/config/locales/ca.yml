@@ -42,7 +42,7 @@ ca:
           email_intro: "Hi ha hagut un conflicte de verificació amb el seguent usuari:"
           email_outro: "si es tracta d'un usuari efímer, no hauria de ser necessaria cap acció (tot i que aquest usuari encara pot decidir no acaba el procés de completar el seu compte)"
     authorization_handlers:
-      ephemerable: Permet participació directe
+      ephemerable: Permet participació efímera
       errors:
         unverifiable_ephemeral_participant:
           already_exists: Ja hi ha una participant autoritzada amb les mateixes dades.

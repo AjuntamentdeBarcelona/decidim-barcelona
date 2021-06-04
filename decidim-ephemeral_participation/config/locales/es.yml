@@ -32,7 +32,7 @@ es:
                 participation authorization at system level.
   decidim:
     authorization_handlers:
-      ephemerable: Permite participación directa
+      ephemerable: Permite participación efímera
     components:
       budgets:
         settings:
