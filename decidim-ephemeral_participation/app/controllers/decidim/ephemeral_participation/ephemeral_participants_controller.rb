@@ -54,7 +54,7 @@ module Decidim
           on(:ok) do
             flash[:notice] = I18n.t("destroy", scope: "decidim.ephemeral_participation.ephemeral_participants")
 
-            redirect_to(decidim_root_path)
+            redirect_to(redirect_url || decidim_root_path)
           end
         end
       end
@@ -83,12 +83,6 @@ module Decidim
             render(action: :edit_unverifiable)
           end
         end
-      end
-
-      def unverifiable_resend_email
-        sign_out(current_user)
-
-        redirect_to(new_password_path(:user))
       end
 
       private
