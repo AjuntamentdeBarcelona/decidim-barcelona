@@ -39,7 +39,15 @@ module Decidim
 
         @verified_user.skip_reconfirmation!
         @verified_user.save!
-        @verified_user.send_reset_password_instructions
+        send_reset_password_instructions(@verified_user)
+      end
+
+      def send_reset_password_instructions(user)
+        mailer  = user.send(:devise_mailer)
+        token   = user.send(:set_reset_password_token)
+        message = mailer.send(:reset_password_instructions, user, token)
+
+        message.deliver_now
       end
     end
   end
