@@ -2,59 +2,68 @@
 en:
   activemodel:
     attributes:
-      organization:
-        enabled: Enabled
-        allows_ephemeral_participation: Allows participation without registering
       ephemeral_participant:
         email: Your email
         name: Your name
         nickname: Nickname
         password: Password
+      organization:
+        allows_ephemeral_participation: Allows participation without registering
+        enabled: Enabled
     errors:
       models:
-        permission:
-          attributes:
-            base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral participation
+              invalid: Only one authorization method can be used to allow ephemeral
+                participation
+        permission:
+          attributes:
+            base:
+              invalid_ephemeral_participation_permissions: Cannot set permissions
+                using multiple authorizations when '%{ephemeral_participation_authorization}'
+                authorization is selected and '%{ephemeral_participation_enabled}'
+                component setting is enabled.
         settings:
           attributes:
             ephemeral_participation_enabled:
-              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+              missing_ephemeral_participation_authorization: Must enable ephemeral
+                participation authorization at system level.
   decidim:
     authorization_handlers:
       ephemerable: Allows direct participation
-    ephemeral_participation:
-      actions:
-        unauthorized: "You are not authorized to perform this action: %{link}"
-        unauthorized_link: Finish your registration here.
-        unverified: "You need to be verified in order tor participate: %{link}"
-        unverified_link: Complete the verification process here.
-        verified: "Finish your registration %{link}"
-        verified_link: here.
-      login_modal:
-        button: I want to participate without registering
-        help: Use this option for a one-time participation
-      user_menu:
-        remaining: "%{remaining} min. before automatic sign out"
-        sign_out: Cancel and sign out
-        complete_registration: Finish your registration
-      ephemeral_participants:
-        edit:
-          title: Complete your profile for easily future participation
-        name: name en
-        create: en.decidim.ephemeral_participation.ephemeral_participants.create
-        destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
-        submit: Send
-        unverifiable: The verification process has been unsuccessful. You can try it again later.
     components:
       budgets:
         settings:
           global:
             ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
-            ephemeral_participation_enabled_confirm_modal: Ephemeral participation enabled alert text en
-            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation enabled alert text help en
+            ephemeral_participation_enabled_confirm_modal: Ephemeral participation
+              enabled alert text en
+            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation
+              enabled alert text help en
+            ephemeral_participation_enabled_help: Allows users to participate without
+              registration. Requires configuring permissions.
+    ephemeral_participation:
+      actions:
+        unauthorized: 'You are not authorized to perform this action: %{link}'
+        unauthorized_link: Finish your registration here.
+        unverified: 'You need to be verified in order tor participate: %{link}'
+        unverified_link: Complete the verification process here.
+        verified: Finish your registration %{link}
+        verified_link: here.
+      ephemeral_participants:
+        create: en.decidim.ephemeral_participation.ephemeral_participants.create
+        destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
+        edit:
+          title: Complete your profile for easily future participation
+        name: name en
+        submit: Send
+        unverifiable: The verification process has been unsuccessful. You can try
+          it again later.
+      login_modal:
+        button: I want to participate without registering
+        help: Use this option for a one-time participation
+      user_menu:
+        complete_registration: Finish your registration
+        remaining: "%{remaining} min. before automatic sign out"
+        sign_out: Cancel and sign out
