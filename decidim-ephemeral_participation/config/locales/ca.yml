@@ -69,7 +69,7 @@ ca:
         name: Efímera
         submit: Envia
         unverifiable:
-          text_prefix: Per tornar a participar has de convertir la teva sessió anònima en un compte d'usuària. Sscriu a continuació el teu correu electrònic i segueix
+          text_prefix: Per tornar a participar has de convertir la teva sessió anònima en un compte d'usuària. Escriu a continuació el teu correu electrònic i segueix
             les instruccions que rebràs.
           text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el correu
             de confirmació torna'l a demanar aqui.
@@ -79,7 +79,7 @@ ca:
           success:
             transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
               per completar el registre
-            admin_contact: El correu electrònic ja està registrat a la plataforma, si us plau, contacta amb un administrador per tal de que pugui resoldre aquest conflicte.
+            admin_contact: El correu electrònic ja està registrat a la plataforma, si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya.
       login_modal:
         button: Vull participar sense registrar-me
         help: Fes servir aquesta opció per una participació puntual
