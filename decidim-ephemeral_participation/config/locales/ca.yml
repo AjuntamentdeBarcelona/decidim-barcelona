@@ -9,32 +9,30 @@ ca:
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
       organization:
-        allows_ephemeral_participation: Permet participació sense registre
+        allows_ephemeral_participation: Permet la participació sense registre
         enabled: Actiu
     errors:
       models:
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral
-                participation
+              invalid: Només es pot fer servir un mètode d'autorització per la participació efímera
         permission:
           attributes:
             base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions
-                using multiple authorizations when '%{ephemeral_participation_authorization}'
-                authorization is selected and '%{ephemeral_participation_enabled}'
-                component setting is enabled.
+              invalid_ephemeral_participation_permissions: No es poden establir permisos
+                amb multiples autoritzacions quan '%{ephemeral_participation_authorization}'
+                esta sel·leccionbada i el paràmetre '%{ephemeral_participation_enabled}'
+                del component està activada.
         settings:
           attributes:
             ephemeral_participation_enabled:
               email: 
-              missing_ephemeral_participation_authorization: Must enable ephemeral
-                participation authorization at system level.
+              missing_ephemeral_participation_authorization: La participació efímera s'ha d'activar a nivell de sistema.
         unverifiable_ephemeral_participant:
           attributes:
             email:
-              unverifiable_ephemeral_participant_email_taken: L'email pertany a un
+              unverifiable_ephemeral_participant_email_taken: El correu electrònic ja pertany a un
                 usuari existent
   decidim:
     authorization_handlers:
@@ -49,13 +47,10 @@ ca:
       budgets:
         settings:
           global:
-            ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_confirm_modal: Ephemeral participation
-              enabled alert text ca
-            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation
-              enabled alert text help ca
-            ephemeral_participation_enabled_help: Allows users to participate without
-              registration. Requires configuring permissions.
+            ephemeral_participation_enabled: Participació efímera activada
+            ephemeral_participation_enabled_confirm_modal: Missatge de confirmació a l'usuari que participa de forma efímera
+            ephemeral_participation_enabled_confirm_modal_help: Aquest missatge es mostrarà en un dialeg de confirmació a l'usuari quan apreti el botó de "participar sense registre"
+            ephemeral_participation_enabled_help: Permet als usuaris participar sense registrar-se. Requereix que es configuri a permisos.
     ephemeral_participation:
       actions:
         unauthorized: 'No tens permís per realitzar aquesta acció: %{link}'
@@ -71,14 +66,12 @@ ca:
         edit:
           title: Completa el teu perfil per simplificar la teva participació en el
             futur
-        name: name ca
+        name: Efímera
         submit: Envia
         unverifiable:
-          text_prefix: Les dades que has fet servir conicideixen amb un usuari existent.
-            Si vols tornar a participar has de convertir la teva sessió anònima en
-            un usuari normal. Simplement escriu a continuació el teu email i segueix
+          text_prefix: Per tornar a participar has de convertir la teva sessió anònima en un compte d'usuària. Sscriu a continuació el teu correu electrònic i segueix
             les instruccions que rebràs.
-          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut l'email
+          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el correu
             de confirmació torna'l a demanar aqui.
           title: Recupera la teva antiga sessió
         update_unverifiable:
