@@ -12,9 +12,8 @@ class AddRegistrationTypeAndUrlToMeetings < ActiveRecord::Migration[5.2]
     add_column :decidim_meetings_meetings, :registration_url, :string
 
     Meetings.reset_column_information
-    Meetings.find_each do |meeting|
-      meeting.registration_type = "on_this_platform" if meeting.decidim_author_type == "Decidim::Organization"
-      meeting.save!
-    end
+    # rubocop:disable Rails/SkipsModelValidations
+    Meetings.where(decidim_author_type: "Decidim::Organization").update_all(registration_type: "on_this_platform")
+    # rubocop:enable Rails/SkipsModelValidations
   end
 end

@@ -5,6 +5,8 @@ class AddFollowableCounterCacheToBlogs < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_blogs_posts, :follows_count, :integer, null: false, default: 0, index: true
 
+=begin
+    # This is too slow, it will be done after running all the migrations
     reversible do |dir|
       dir.up do
         Decidim::Blogs::Post.reset_column_information
@@ -13,5 +15,6 @@ class AddFollowableCounterCacheToBlogs < ActiveRecord::Migration[5.2]
         end
       end
     end
+=end
   end
 end

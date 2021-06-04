@@ -5,6 +5,8 @@ class AddFollowableCounterCacheToAssemblies < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_assemblies, :follows_count, :integer, null: false, default: 0, index: true
 
+=begin
+    # This is too slow, it will be done after running all the migrations
     reversible do |dir|
       dir.up do
         Decidim::Assembly.reset_column_information
@@ -13,5 +15,6 @@ class AddFollowableCounterCacheToAssemblies < ActiveRecord::Migration[5.2]
         end
       end
     end
+=end
   end
 end

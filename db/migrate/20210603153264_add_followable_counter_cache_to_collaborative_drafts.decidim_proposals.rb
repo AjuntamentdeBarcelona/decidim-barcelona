@@ -5,6 +5,8 @@ class AddFollowableCounterCacheToCollaborativeDrafts < ActiveRecord::Migration[5
   def change
     add_column :decidim_proposals_collaborative_drafts, :follows_count, :integer, null: false, default: 0, index: true
 
+=begin
+    # This is too slow, it will be done after running all the migrations
     reversible do |dir|
       dir.up do
         Decidim::Proposals::CollaborativeDraft.reset_column_information
@@ -13,5 +15,6 @@ class AddFollowableCounterCacheToCollaborativeDrafts < ActiveRecord::Migration[5
         end
       end
     end
+=end
   end
 end

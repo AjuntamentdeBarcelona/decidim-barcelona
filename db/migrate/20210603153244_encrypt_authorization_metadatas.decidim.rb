@@ -3,7 +3,9 @@
 
 class EncryptAuthorizationMetadatas < ActiveRecord::Migration[5.2]
   def up
-    Decidim::Authorization.all.each do |auth|
+=begin
+    # This is too slow, it will be done after running all the migrations
+    Decidim::Authorization.find_each.with_index do |auth, index|
       # Re-setting these values will internally convert the hash values to
       # encypted values
       auth.update!(
@@ -11,10 +13,11 @@ class EncryptAuthorizationMetadatas < ActiveRecord::Migration[5.2]
         verification_metadata: auth.verification_metadata
       )
     end
+=end
   end
 
   def down
-    Decidim::Authorization.all.each do |auth|
+    Decidim::Authorization.find_each do |auth|
       # rubocop:disable Rails/SkipsModelValidations
       auth.update_columns(
         metadata: decrypt_hash(auth.metadata),

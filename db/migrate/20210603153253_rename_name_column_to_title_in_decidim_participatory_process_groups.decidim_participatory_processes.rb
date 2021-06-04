@@ -4,7 +4,7 @@
 class RenameNameColumnToTitleInDecidimParticipatoryProcessGroups < ActiveRecord::Migration[5.2]
   def up
     rename_column :decidim_participatory_process_groups, :name, :title
-    PaperTrail::Version.where(item_type: "Decidim::ParticipatoryProcessGroup").each do |version|
+    PaperTrail::Version.where(item_type: "Decidim::ParticipatoryProcessGroup").find_each do |version|
       # rubocop:disable Rails/SkipsModelValidations
       version.update_attribute(:object_changes, version.object_changes.gsub(/^name:/, "title:")) if version.object_changes.present?
       # rubocop:enable Rails/SkipsModelValidations
