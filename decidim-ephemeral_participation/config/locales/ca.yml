@@ -79,7 +79,7 @@ ca:
           success:
             transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
               per completar el registre
-            admin_contact: admin_contact ca
+            admin_contact: El correu electrònic ja està registrat a la plataforma, si us plau, contacta amb un administrador per tal de que pugui resoldre aquest conflicte.
       login_modal:
         button: Vull participar sense registrar-me
         help: Fes servir aquesta opció per una participació puntual
