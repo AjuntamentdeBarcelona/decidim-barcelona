@@ -15,8 +15,8 @@
           <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
         <% end %>
         <ul>
-          <li><%= link_to I18n.t("unverifiable.text_suffix", scope: "decidim.ephemeral_participation.ephemeral_participants"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete %></a></li>
-          <li><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"),decidim_ephemeral_participation.ephemeral_participant_path(current_user), method: :delete %></a></li>
+          <li><%= link_to I18n.t("unverifiable.text_suffix", scope: "decidim.ephemeral_participation.ephemeral_participants"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete %></li>
+          <li><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: current_user.ephemeral_participation_data["request_path"]), method: :delete %></li>
         </ul>
       </div>
     </div>
