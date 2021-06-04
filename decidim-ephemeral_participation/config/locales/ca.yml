@@ -35,6 +35,11 @@ ca:
               unverifiable_ephemeral_participant_email_taken: El correu electrònic ja pertany a un
                 usuari existent
   decidim:
+    events:
+      verifications:
+         verify_with_managed_user:
+          email_intro: "Hi ha hagut un conflicte de verificació amb el seguent usuari:"
+          email_outro: "si es tracta d'un usuari efímer, no hauria de ser necessaria cap acció (tot i que aquest usuari encara pot decidir no acaba el procés de completar el seu compte)"
     authorization_handlers:
       ephemerable: Permet participació directe
       errors:
