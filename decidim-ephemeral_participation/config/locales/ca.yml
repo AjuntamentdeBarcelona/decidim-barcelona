@@ -80,6 +80,9 @@ ca:
           text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el correu
             de confirmació torna'l a demanar aqui.
           title: Recupera la teva antiga sessió
+        update:
+          success: El teu registre s'ha completat correctament!
+          error: Ha ocorregut un error al intentar completar el teu registre
         update_unverifiable:
           error: Error al recuperar l'usuari. Es possible que aquest email ja estigui registrat.
           success:
