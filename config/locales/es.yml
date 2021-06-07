@@ -144,6 +144,9 @@ es:
         nie: NIE
         passport: Pasaporte
     devise:
+      mailer:
+        confirmation_instructions:
+          instruction: 'Para participar en decidim.barcelona, tienes que confirmar el correo electrónico de tu cuenta a través del siguiente enlace:'
       omniauth_registrations:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
