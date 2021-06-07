@@ -82,7 +82,7 @@ ca:
             correu de confirmació torna'l a demanar aqui.
           title: Recupera la teva antiga sessió
         update:
-          error: Ha ocorregut un error al intentar completar el teu registre
+          error: Hi ha hagut un error al intentar completar el teu registre
           success: El teu registre s'ha completat correctament!
         update_unverifiable:
           error: Error al recuperar l'usuari. Es possible que aquest email ja estigui
