@@ -37,7 +37,7 @@ es:
       scope_prompt: Por favor, selecciona tu distrito
   census16_authorization_handler:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
-    invalid_document: Número de documento incorrecto
+    invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento o el código postal son incorrectos. Por favor, revisa estos datos.
   census_authorization:
     form:
       date_select:
@@ -55,7 +55,7 @@ es:
       scope_prompt: Por favor, selecciona tu distrito
   census_authorization_handler:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
-    invalid_document: Número de documento incorrecto
+    invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento o el código postal son incorrectos. Por favor, revisa estos datos.
   decidim:
     accountability:
       admin:
