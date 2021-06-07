@@ -29,7 +29,7 @@ ca:
           scope_code_7: Districte 7
           scope_code_8: Districte 8
           scope_code_9: Districte 9
-        name: El padró + SMS
+        name: Verificació Pressupostos Participatius
     census_sms:
       verification:
         authorizations:

@@ -29,7 +29,7 @@ es:
           scope_code_7: Distrito 7
           scope_code_8: Distrito 8
           scope_code_9: Distrito 9
-        name: El padrón + SMS
+        name: Verificación Presupuestos Participativos
     census_sms:
       verification:
         authorizations:
