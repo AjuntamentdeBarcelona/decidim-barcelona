@@ -57,7 +57,7 @@ es:
         destroy: Se ha cancelado la participación sin registro
         edit:
           title: Completa tu perfil para simplificar tu participación en el futuro
-        name: Participante
+        name: Participante %{number}
         submit: Enviar
       login_modal:
         button: Quiero participar sin registrarme
