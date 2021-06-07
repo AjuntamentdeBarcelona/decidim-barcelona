@@ -16,7 +16,8 @@ ca:
         organization:
           attributes:
             available_authorizations:
-              invalid: Només es pot fer servir un mètode d'autorització per la participació efímera
+              invalid: Només es pot fer servir un mètode d'autorització per la participació
+                efímera
         permission:
           attributes:
             base:
@@ -28,19 +29,14 @@ ca:
           attributes:
             ephemeral_participation_enabled:
               email: 
-              missing_ephemeral_participation_authorization: La participació efímera s'ha d'activar a nivell de sistema.
+              missing_ephemeral_participation_authorization: La participació efímera
+                s'ha d'activar a nivell de sistema.
         unverifiable_ephemeral_participant:
           attributes:
             email:
-              unverifiable_ephemeral_participant_email_taken: El correu electrònic ja pertany a un
-                usuari existent
+              unverifiable_ephemeral_participant_email_taken: El correu electrònic
+                ja pertany a un usuari existent
   decidim:
-    events:
-      verifications:
-         verify_with_managed_user:
-          email_subject: Conflicte de verificació amb usuari gestionat
-          email_intro: "Hi ha hagut un conflicte de verificació amb el seguent usuari:"
-          email_outro: "si es tracta d'un usuari efímer, no hauria de ser necessaria cap acció (tot i que aquest usuari encara pot decidir no acaba el procés de completar el seu compte)"
     authorization_handlers:
       ephemerable: Permet participació efímera
       errors:
@@ -54,9 +50,13 @@ ca:
         settings:
           global:
             ephemeral_participation_enabled: Participació efímera activada
-            ephemeral_participation_enabled_confirm_modal: Missatge de confirmació a l'usuari que participa de forma efímera
-            ephemeral_participation_enabled_confirm_modal_help: Aquest missatge es mostrarà en un dialeg de confirmació a l'usuari quan apreti el botó de "participar sense registre"
-            ephemeral_participation_enabled_help: Permet als usuaris participar sense registrar-se. Requereix que es configuri a permisos.
+            ephemeral_participation_enabled_confirm_modal: Missatge de confirmació
+              a l'usuari que participa de forma efímera
+            ephemeral_participation_enabled_confirm_modal_help: Aquest missatge es
+              mostrarà en un dialeg de confirmació a l'usuari quan apreti el botó
+              de "participar sense registre"
+            ephemeral_participation_enabled_help: Permet als usuaris participar sense
+              registrar-se. Requereix que es configuri a permisos.
     ephemeral_participation:
       actions:
         unauthorized: 'No tens permís per realitzar aquesta acció: %{link}'
@@ -75,20 +75,24 @@ ca:
         name: Participant
         submit: Envia
         unverifiable:
-          text_prefix: Per tornar a participar has de convertir la teva sessió anònima en un compte d'usuària. Escriu a continuació el teu correu electrònic i segueix
-            les instruccions que rebràs.
-          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el correu
-            de confirmació torna'l a demanar aqui.
+          text_prefix: Per tornar a participar has de convertir la teva sessió anònima
+            en un compte d'usuària. Escriu a continuació el teu correu electrònic
+            i segueix les instruccions que rebràs.
+          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el
+            correu de confirmació torna'l a demanar aqui.
           title: Recupera la teva antiga sessió
         update:
-          success: El teu registre s'ha completat correctament!
           error: Ha ocorregut un error al intentar completar el teu registre
+          success: El teu registre s'ha completat correctament!
         update_unverifiable:
-          error: Error al recuperar l'usuari. Es possible que aquest email ja estigui registrat.
+          error: Error al recuperar l'usuari. Es possible que aquest email ja estigui
+            registrat.
           success:
-            transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
-              per completar el registre
-            admin_contact: El correu electrònic ja està registrat a la plataforma, si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya.
+            admin_contact: El correu electrònic ja està registrat a la plataforma,
+              si us plau, entra a la plataforma amb el teu correu electrònic i la
+              teva contrasenya.
+            transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix
+              les instruccions per completar el registre
       login_modal:
         button: Vull participar sense registrar-me
         help: Fes servir aquesta opció per una participació puntual
@@ -96,3 +100,11 @@ ca:
         complete_registration: Completa el teu registre
         remaining: "%{remaining} min. per la desconexió automàtica"
         sign_out: Cancel·la i desconnecta
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: 'Hi ha hagut un conflicte de verificació amb el seguent usuari:'
+          email_outro: si es tracta d'un usuari efímer, no hauria de ser necessaria
+            cap acció (tot i que aquest usuari encara pot decidir no acaba el procés
+            de completar el seu compte)
+          email_subject: Conflicte de verificació amb usuari gestionat
