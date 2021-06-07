@@ -16,15 +16,15 @@ ca:
         organization:
           attributes:
             available_authorizations:
-              invalid: Només es pot fer servir un mètode d'autorització per la participació
+              invalid: Només es pot fer servir un mètode d'autorització per a la participació
                 efímera
         permission:
           attributes:
             base:
               invalid_ephemeral_participation_permissions: No es poden establir permisos
                 amb multiples autoritzacions quan '%{ephemeral_participation_authorization}'
-                esta sel·leccionbada i el paràmetre '%{ephemeral_participation_enabled}'
-                del component està activada.
+                està sel·leccionada i el paràmetre '%{ephemeral_participation_enabled}'
+                del component està activat.
         settings:
           attributes:
             ephemeral_participation_enabled:
@@ -34,8 +34,8 @@ ca:
         unverifiable_ephemeral_participant:
           attributes:
             email:
-              unverifiable_ephemeral_participant_email_taken: El correu electrònic
-                ja pertany a un usuari existent
+              unverifiable_ephemeral_participant_email_taken: Aquest correu electrònic
+                ja està vinculat a una altra usuària
   decidim:
     authorization_handlers:
       ephemerable: Permet participació efímera
@@ -51,49 +51,49 @@ ca:
           global:
             ephemeral_participation_enabled: Participació efímera activada
             ephemeral_participation_enabled_confirm_modal: Missatge de confirmació
-              a l'usuari que participa de forma efímera
+              per a la usuària que participa de forma efímera
             ephemeral_participation_enabled_confirm_modal_help: Aquest missatge es
-              mostrarà en un dialeg de confirmació a l'usuari quan apreti el botó
+              mostrarà en una finestreta de confirmació a la usuària quan apreti el botó
               de "participar sense registre"
-            ephemeral_participation_enabled_help: Permet als usuaris participar sense
-              registrar-se. Requereix que es configuri a permisos.
+            ephemeral_participation_enabled_help: Permet a les usuàries participar sense
+              registrar-se. Cal configurar-ho als permisos del component.
     ephemeral_participation:
       actions:
-        unauthorized: 'No tens permís per realitzar aquesta acció: %{link}'
-        unauthorized_link: Completa el teu registre aquí.
-        unverified: 'Per poder participar, cal que estiguis verificada: %{link}'
-        unverified_link: Completa el procés de verificació aquí.
+        unauthorized: 'No tens permís per a realitzar aquesta acció: %{link}'
+        unauthorized_link: Completa el teu registre clicant aquí.
+        unverified: 'Per tal de poder participar, cal que estiguis verificada: %{link}'
+        unverified_link: Completa el procés de verificació clicant aquí.
         verified: Completa el teu registre %{link}
-        verified_link: aquí.
+        verified_link: clicant aquí.
       ephemeral_participants:
-        create: Per poder participar sense registre, has de completar el procés de
+        create: Per tal de poder participar sense registre, has de completar el procés de
           verificació
         destroy: S'ha cancel·lat la participació sense registre
         edit:
-          title: Completa el teu perfil per simplificar la teva participació en el
+          title: Completa el teu perfil per tal de simplificar la teva participació en el
             futur
         name: Participant %{number}
         submit: Envia
         unverifiable:
-          text_prefix: Per tornar a participar has de convertir la teva sessió anònima
+          text_prefix: Per a tornar a participar has de convertir la teva sessió anònima
             en un compte d'usuària. Escriu a continuació el teu correu electrònic
             i segueix les instruccions que rebràs.
           text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el
-            correu de confirmació torna'l a demanar aqui.
+            correu de confirmació, torna'l a demanar clicant aquí.
           title: Recupera la teva antiga sessió
         update:
           error: Hi ha hagut un error al intentar completar el teu registre
           success: El teu registre s'ha completat correctament!
         update_unverifiable:
           flagged_name:
-            conflict_with_ephemeral_participant: "Participant efimer - CONFLICTE DE VERIFICACIO AMB EFIMER"
-            conflict_with_regular_user: "Participant efimer - CONFLICTE DE VERIFICACIO AMB USUARI"
+            conflict_with_ephemeral_participant: "Participant efímera - CONFLICTE DE VERIFICACIO AMB UNA ALTRA PARTICIPANT EFÍMERA"
+            conflict_with_regular_user: "Participant efímera - CONFLICTE DE VERIFICACIO AMB USUÀRIA"
           flagged_email:
-            registered: "Correu introduit a l'intent de recuperacio de sessio: %{email} - REGISTRAT"
-            unregistered: "Correu introduit a l'intent de recuperacio de sessio: %{email} - NO REGISTRAT"
+            registered: "Correu electrònic introduit a l'intent de recuperació de sessió: %{email} - REGISTRAT"
+            unregistered: "Correu electrònic introduit a l'intent de recuperació de sessió: %{email} - NO REGISTRAT"
           error:
-            admin_contact: Aquesta verificacio ja s'ha fet servir per una altra usuaria amb un altre correu electrònic. Una administradora es posara en contacte amb tu
-            email_taken: El correu electrònic ja està registrat a la plataforma, si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya
+            admin_contact: Aquesta verificació ja s'ha fet servir per a una altra usuària amb un altre correu electrònic. Una administradora es posarà en contacte amb tu.
+            email_taken: Aquest correu electrònic ja està registrat a la plataforma. Si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya.
           success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
               per completar el registre
       login_modal:
@@ -106,8 +106,8 @@ ca:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: 'Hi ha hagut un conflicte de verificació amb el seguent usuari:'
-          email_outro: si es tracta d'un usuari efímer, no hauria de ser necessaria
-            cap acció (tot i que aquest usuari encara pot decidir no acaba el procés
+          email_intro: 'Hi ha hagut un conflicte de verificació amb la següent usuària:'
+          email_outro: si es tracta d'una participant efímera, no hauria de ser necessària
+            cap acció (tot i que aquesta participant podria abandonar el procés
             de completar el seu compte)
-          email_subject: Conflicte de verificació amb usuari gestionat
+          email_subject: Conflicte de verificació amb una usuària gestionada
