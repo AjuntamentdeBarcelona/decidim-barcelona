@@ -47,8 +47,8 @@ es:
               month: Mes
               year: Año
             postal_code_help: No sabes qué código postal corresponde a tu dirección
-              del Padrón? Puedes consultarlo <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">haciendo
-              click aquí</a>.
+              del Padrón? Puedes consultarlo <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">clicando
+              aquí</a>.
             scope_prompt: Selecciona tu distrito
             send: Verifícate
             title: Verifícate con el Padrón
