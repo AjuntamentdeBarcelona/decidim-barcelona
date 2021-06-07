@@ -16,47 +16,43 @@ module Decidim
       def call
         return broadcast(:invalid) unless valid_params?
 
-        if @form.valid?
-          notice = nil
+        if transfer_ephemeral_participant?
+          set_last_location
+          transfer_ephemeral_participant
 
-          if verified_user.ephemeral_participant?
-            notice = I18n.t("update_unverifiable.success.transfer_user", scope: "decidim.ephemeral_participation.ephemeral_participants")
-
-            discard_last_location
-            transfer_ephemeral_participant
-          else
-            notice = I18n.t("update_unverifiable.success.admin_contact", scope: "decidim.ephemeral_participation.ephemeral_participants")
-
-            update_user
-            destroy_session
-          end
-
-          broadcast(:ok, notice)
+          broadcast(:ok)
         else
-          update_user if @form.email_taken?
+          update_user
+          destroy_session
 
-          broadcast(:invalid)
+          if @form.email_taken?
+            broadcast(:email_taken)
+          else
+            broadcast(:admin_contact)
+          end
         end
       end
 
       private
 
       def valid_params?
-        @request.is_a?(ActionDispatch::Request) && @user.is_a?(Decidim::User) && conflict.present?
+        @request.is_a?(ActionDispatch::Request) && @user.is_a?(Decidim::User) && @form.valid? && conflict.present?
       end
 
       def conflict
         @conflict ||= Decidim::EphemeralParticipation::VerificationConflicts.for(@user).first
       end
 
+      def transfer_ephemeral_participant?
+        verified_user.ephemeral_participant? && (not @form.email_taken?)
+      end
+
       def verified_user
         conflict.managed_user
       end
 
-      def discard_last_location
-        session_key = stored_location_key_for(:user)
-
-        session.delete(session_key)
+      def set_last_location
+        store_location_for(:user, decidim.account_path)
       end
 
       def transfer_ephemeral_participant
@@ -71,14 +67,27 @@ module Decidim
       end
 
       def update_user
-        @user.email = email
+        @user.name  = flagged_name
+        @user.email = flagged_email
 
         @user.skip_reconfirmation!
         @user.save(validate: false)
       end
 
-      def email
-        @form.email_taken? ? "#{EMAIL_TAKEN_FLAG}#{@form.email}" : @form.email
+      def flagged_name
+        if verified_user.ephemeral_participant?
+          I18n.t("flagged_name.conflict_with_ephemeral_participant", scope: "decidim.ephemeral_participation.ephemeral_participants.update_unverifiable")
+        else
+          I18n.t("flagged_name.conflict_with_regular_user", scope: "decidim.ephemeral_participation.ephemeral_participants.update_unverifiable")
+        end
+      end
+
+      def flagged_email
+        if @form.email_taken?
+          I18n.t("flagged_email.registered", email: @form.email, scope: "decidim.ephemeral_participation.ephemeral_participants.update_unverifiable")
+        else
+          I18n.t("flagged_email.unregistered", email: @form.email, scope: "decidim.ephemeral_participation.ephemeral_participants.update_unverifiable")
+        end
       end
 
       def destroy_session
