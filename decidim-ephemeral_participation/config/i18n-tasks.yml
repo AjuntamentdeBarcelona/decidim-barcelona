@@ -1,0 +1,20 @@
+# base_locale: ca
+# locales: [ca,es]
+ignore_unused:
+- "decidim.authorization_handlers.ephemerable"
+- "decidim.components.budgets.settings.global.*"
+- "decidim.events.verifications.verify_with_managed_user.*"
+- "decidim.devise.sessions.*"
+- "decidim.devise.shared.*"
+- "decidim.shared.login_modal.*"
+- "decidim.system.actions.*"
+- "decidim.system.models.*"
+- "decidim.system.organizations.*"
+- "devise.passwords.*"
+- "devise.sessions.*"
+- "devise.shared.*"
+- "layouts.decidim.user_menu.*"
+- "activemodel.attributes.ephemeral_participant.*"
+- "activemodel.attributes.organization.allows_ephemeral_participation"
+- "activemodel.attributes.organization.enabled"
+- "activemodel.errors.*"
