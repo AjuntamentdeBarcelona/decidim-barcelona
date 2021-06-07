@@ -157,7 +157,7 @@ ca:
           tos_agreement: En registrar-te acceptes %{link}.
     ephemeral_participation:
       actions:
-        unauthorized_link: Si vols continuar participant al decidim.barcelona en futurs processos, completa el teu registre aquí.
+        verified: Si vols continuar participant al decidim.barcelona en futurs processos, completa el teu registre %{link}
     initiatives:
       initiatives:
         supports:
