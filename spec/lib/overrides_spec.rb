@@ -33,7 +33,7 @@ checksums = [
     package: "decidim-budgets",
     files: {
       "/app/cells/decidim/budgets/project_list_item_cell.rb" => "50a85154d1ca348fae42c85d888e856b",
-      "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "2eee3b0e05c5c39bc12c9c63d8e69b00"
+      "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "996793f2c00f29d18a6f9cda2ea1b5ed"
     }
   },
   {

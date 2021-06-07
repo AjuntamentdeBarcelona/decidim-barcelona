@@ -37,7 +37,7 @@ es:
       scope_prompt: Por favor, selecciona tu distrito
   census16_authorization_handler:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
-    invalid_document: Número de documento incorrecto
+    invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento o el código postal son incorrectos. Por favor, revisa estos datos.
   census_authorization:
     form:
       date_select:
@@ -55,7 +55,7 @@ es:
       scope_prompt: Por favor, selecciona tu distrito
   census_authorization_handler:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
-    invalid_document: Número de documento incorrecto
+    invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento o el código postal son incorrectos. Por favor, revisa estos datos.
   decidim:
     accountability:
       admin:
@@ -118,6 +118,21 @@ es:
           postal_code: Código postal
           scope_id: Distrito
         name: El padrón
+    budgets:
+      projects:
+        budget_confirm:
+          description: Estos son los proyectos que has elegido y que estás a punto de votar.
+        budget_excess:
+          budget_excess:
+            description: Este proyecto sobrepasa el presupuesto máximo asignado al distrito y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado del distrito para añadir este.
+        budget_summary:
+          cancel_order: eliminar tu voto y empezar a votar de nuevo
+          checked_out:
+            description: Ya has votado en este distrito. Si has cambiado de idea, puedes %{cancel_link}.
+          minimum_projects_rule:
+            instruction: "Selecciona <strong>al menos %{minimum_number} proyectos</strong> del distrito y vota de acuerdo a tus preferencias para definir el presupuesto."
+        budgets_list:
+          voted_on: Has votado los proyectos del Distrito %{links}
     census16_authorization_handler:
       document_types:
         dni: DNI
@@ -129,6 +144,9 @@ es:
         nie: NIE
         passport: Pasaporte
     devise:
+      mailer:
+        confirmation_instructions:
+          instruction: 'Para participar en decidim.barcelona, tienes que confirmar el correo electrónico de tu cuenta a través del siguiente enlace:'
       omniauth_registrations:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
@@ -137,6 +155,9 @@ es:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
           tos_agreement: Al registrarte aceptas %{link}.
+    ephemeral_participation:
+      actions:
+        unauthorized_link: Si quieres continuar participando en decidim.barcelona en futuros procesos, completa tu registro aquí.
     initiatives:
       initiatives:
         supports:
