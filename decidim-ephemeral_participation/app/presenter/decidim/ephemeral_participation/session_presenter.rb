@@ -19,7 +19,7 @@ module Decidim
       private
 
       def ephemeral_participant_session_remaining_time
-        (@user.created_at + Devise.timeout_in) - Time.current
+        (@user.created_at + ::Devise.timeout_in) - Time.current
       end
     end
   end
