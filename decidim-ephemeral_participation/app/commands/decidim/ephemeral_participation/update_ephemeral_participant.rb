@@ -27,8 +27,8 @@ module Decidim
       end
 
       def update_user
+        @user.confirmed_at = Time.now.utc
         @user.managed  = false
-        @user.accepted_tos_version = @user.organization.tos_version
 
         @user.name     = @form.name
         @user.nickname = @form.nickname

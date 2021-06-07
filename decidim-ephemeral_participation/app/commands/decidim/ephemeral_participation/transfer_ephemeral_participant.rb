@@ -32,6 +32,7 @@ module Decidim
       end
 
       def update_verified_user
+        @verified_user.confirmed_at  = Time.now.utc
         @verified_user.session_token = SecureRandom.hex
         @verified_user.managed = false
         
@@ -43,11 +44,10 @@ module Decidim
       end
 
       def send_reset_password_instructions(user)
-        mailer  = user.send(:devise_mailer)
-        token   = user.send(:set_reset_password_token)
-        message = mailer.send(:reset_password_instructions, user, token)
+        mailer = user.send(:devise_mailer)
+        token  = user.send(:set_reset_password_token)
 
-        message.deliver_now
+        mailer.reset_password_instructions(user, token).deliver_now
       end
     end
   end
