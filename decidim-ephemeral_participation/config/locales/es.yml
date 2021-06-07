@@ -16,53 +16,103 @@ es:
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral
-                participation
+              invalid: Sólo se puede usar un método de autorización para la participación sin registro
         permission:
           attributes:
             base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions
-                using multiple authorizations when '%{ephemeral_participation_authorization}'
-                authorization is selected and '%{ephemeral_participation_enabled}'
-                component setting is enabled.
+              invalid_ephemeral_participation_permissions: No se pueden establecer permisos
+                con múltiples autorizaciones cuando la autorización '%{ephemeral_participation_authorization}'
+                está seleccionada y el parámetro '%{ephemeral_participation_enabled}'
+                del componente está activado.
         settings:
           attributes:
             ephemeral_participation_enabled:
-              missing_ephemeral_participation_authorization: Must enable ephemeral
-                participation authorization at system level.
+              email: Correo electrónico
+              missing_ephemeral_participation_authorization: Debes activar la participación sin registro a nivel de sistema.
+        unverifiable_ephemeral_participant:
+          attributes:
+            email:
+              unverifiable_ephemeral_participant_email_taken: Este correo electrónico
+                ya está vinculado a otra usuaria
   decidim:
+    admin:
+      conflicts:
+        transfer:
+          error: Ha habido un error al transferir la usuaria
+          success: La usuaria ha sido transferida con éxito
     authorization_handlers:
-      ephemerable: Permite participación efímera
+      ephemerable: Permite la participación sin registro
+      errors:
+        unverifiable_ephemeral_participant:
+          already_exists: Ya hay una participante autorizada con los mismos datos.
+          already_participate: ¿Ya has participado?
+          close: Cancela el proceso o vuelve a empezar
+          retrieve_user: Recupera tu sesión anterior clicando aquí
     components:
       budgets:
         settings:
           global:
-            ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_confirm_modal: Ephemeral participation
-              enabled alert text es
-            ephemeral_participation_enabled_confirm_modal_help: Ephemeral participation
-              enabled alert text help es
-            ephemeral_participation_enabled_help: Allows users to participate without
-              registration. Requires configuring permissions.
+            ephemeral_participation_enabled: Participación sin registro activada
+            ephemeral_participation_enabled_confirm_modal: Título para la ventana de confirmación para la participación sin registro
+            ephemeral_participation_enabled_confirm_modal_help: Texto de ayuda para la ventana de confirmación para la participación sin registro
+            ephemeral_participation_enabled_help: Permitir que las usuarias puedan participar sin registro. Requiere configurar  configuring permissions.
     ephemeral_participation:
       actions:
         unauthorized: 'No tienes permisos para realizar esta acción: %{link}'
-        unauthorized_link: Completa tu registro aquí.
+        unauthorized_link: Completa tu registro clicando aquí.
         unverified: 'Para poder participar, es necesario que estés verificada: %{link}'
-        unverified_link: Completa el proceso de verificación aquí.
+        unverified_link: Completa el proceso de verificación clicando aquí.
         verified: Completa tu registro %{link}
-        verified_link: aquí.
+        verified_link: clicando aquí.
       ephemeral_participants:
-        create: es.decidim.ephemeral_participation.ephemeral_participants.create
+        create: Para poder participar sin registro, debes completar el proceso
+          de verificación
         destroy: Se ha cancelado la participación sin registro
         edit:
           title: Completa tu perfil para simplificar tu participación en el futuro
         name: Participante %{number}
         submit: Enviar
+        title: Participació sense registre
+        unverifiable:
+          text_prefix: Para volver a participar debes convertir tu anterior sesión anónima
+            en una cuenta de usuaria. Escribe a continuación tu correo electrónico
+            y sigue las instrucciones que recibirás.
+          text_suffix: Si ya has hecho este proceso anteriormente y no has recibido el
+            correo de confirmación, vuelve a pedirlo clicando aquí.
+          title: Recupera tu sesión anterior
+        update:
+          error: Ha habido un error al intentar completar tu registro
+          success: ¡Tu registro se ha completado correctamente!
+        update_unverifiable:
+          error:
+            admin_contact: Esta verificación ya se ha usado para otra
+              usuaria con otro correo electrónico. Una administradora se pondrá
+              en contacto contigo.
+            email_taken: Este correo electrónico ya está registrado. Por favor, entra a la plataforma con tu correo electrónico y tu contraseña.
+          flagged_email:
+            registered: 'Correo electrónico introducido en el intento de recuperación de
+              sessió: %{email} - REGISTRAT'
+            unregistered: 'Correo electrónico introducido en el intento de recuperación
+              de sessió: %{email} - NO REGISTRAT'
+          flagged_name:
+            conflict_with_ephemeral_participant: Participante sin registro - CONFLICTO DE
+              VERIFICACIÓN CON OTRA PARTICIPANTE SIN REGISTRO
+            conflict_with_regular_user: Participant sin registro - CONFLICTO DE VERIFICACIÓN
+              CON USUARIA
+          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
+            per completar el registre
       login_modal:
         button: Quiero participar sin registrarme
         help: Utiliza esta opción para una participación puntual
       user_menu:
         complete_registration: Completa tu registro
-        remaining: "%{remaining} min. para desconexión automática"
+        remaining: "%{remaining} min. para la desconexión automática"
         sign_out: Cancela y desconecta
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: 'Ha habido un conflicto de verificación con la siguiente usuaria:'
+          email_outro: si se trata de una participante sin registro, no debería ser necesaria
+            ninguna acción (aunque esta participante podría abandonar el proceso de
+            completar su cuenta)
+          email_subject: Conflicto de verificación con una usuaria gestionada
