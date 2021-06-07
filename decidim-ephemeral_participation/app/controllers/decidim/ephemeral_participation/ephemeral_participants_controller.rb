@@ -71,16 +71,22 @@ module Decidim
         @form = form(UnverifiableEphemeralParticipantForm).from_params(params)
 
         Decidim::EphemeralParticipation::UpdateUnverifiableEphemeralParticipant.call(request, current_user, @form) do
-          on(:ok) do |notice|
-            flash[:notice] = notice
+          on(:ok) do
+            flash[:notice] = I18n.t("update_unverifiable.success", scope: "decidim.ephemeral_participation.ephemeral_participants")
 
             redirect_to(decidim_root_path)
           end
 
-          on(:invalid) do
-            flash[:alert] = I18n.t("update_unverifiable.error", scope: "decidim.ephemeral_participation.ephemeral_participants")
+          on(:email_taken) do
+            flash[:alert] = I18n.t("update_unverifiable.error.email_taken", scope: "decidim.ephemeral_participation.ephemeral_participants")
 
-            render(action: :edit_unverifiable)
+            redirect_to(decidim_root_path)
+          end
+
+          on(:admin_contact) do
+            flash[:alert] = I18n.t("update_unverifiable.error.admin_contact", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            redirect_to(decidim_root_path)
           end
         end
       end

@@ -84,11 +84,17 @@ ca:
           success: El teu registre s'ha completat correctament!
           error: Ha ocorregut un error al intentar completar el teu registre
         update_unverifiable:
-          error: Error al recuperar l'usuari. Es possible que aquest email ja estigui registrat.
-          success:
-            transfer_user: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
+          flagged_name:
+            conflict_with_ephemeral_participant: "Participant efimer - CONFLICTE DE VERIFICACIO AMB EFIMER"
+            conflict_with_regular_user: "Participant efimer - CONFLICTE DE VERIFICACIO AMB USUARI"
+          flagged_email:
+            registered: "Correu introduit a l'intent de recuperacio de sessio: %{email} - REGISTRAT"
+            unregistered: "Correu introduit a l'intent de recuperacio de sessio: %{email} - NO REGISTRAT"
+          error:
+            admin_contact: Aquesta verificacio ja s'ha fet servir per una altra usuaria amb un altre correu electrònic. Una administradora es posara en contacte amb tu
+            email_taken: El correu electrònic ja està registrat a la plataforma, si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya
+          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
               per completar el registre
-            admin_contact: El correu electrònic ja està registrat a la plataforma, si us plau, entra a la plataforma amb el teu correu electrònic i la teva contrasenya.
       login_modal:
         button: Vull participar sense registrar-me
         help: Fes servir aquesta opció per una participació puntual
