@@ -49,7 +49,7 @@ es:
         unauthorized: 'No tienes permisos para realizar esta acción: %{link}'
         unauthorized_link: Completa tu registro aquí.
         unverified: 'Para poder participar, es necesario que estés verificada: %{link}'
-        unverified_link: Completa el proceos de verificación aquí.
+        unverified_link: Completa el proceso de verificación aquí.
         verified: Completa tu registro %{link}
         verified_link: aquí.
       ephemeral_participants:
@@ -57,7 +57,7 @@ es:
         destroy: Se ha cancelado la participación sin registro
         edit:
           title: Completa tu perfil para simplificar tu participación en el futuro
-        name: name es
+        name: Participante
         submit: Enviar
       login_modal:
         button: Quiero participar sin registrarme

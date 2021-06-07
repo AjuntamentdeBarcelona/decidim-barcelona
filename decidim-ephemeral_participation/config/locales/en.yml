@@ -56,7 +56,7 @@ en:
         destroy: en.decidim.ephemeral_participation.ephemeral_participants.destroy
         edit:
           title: Complete your profile for easily future participation
-        name: name en
+        name: Participant
         submit: Send
         unverifiable: The verification process has been unsuccessful. You can try
           it again later.

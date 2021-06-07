@@ -48,7 +48,7 @@ ca:
           already_exists: Ja hi ha una participant autoritzada amb les mateixes dades.
           already_participate: Ja has participat?
           close: Cancel·la el procés o torna a començar
-          retrieve_user: Recupera la teva sessió anterior aqui
+          retrieve_user: Recupera la teva sessió anterior aquí
     components:
       budgets:
         settings:
@@ -72,7 +72,7 @@ ca:
         edit:
           title: Completa el teu perfil per simplificar la teva participació en el
             futur
-        name: Efímera
+        name: Participant
         submit: Envia
         unverifiable:
           text_prefix: Per tornar a participar has de convertir la teva sessió anònima en un compte d'usuària. Escriu a continuació el teu correu electrònic i segueix
