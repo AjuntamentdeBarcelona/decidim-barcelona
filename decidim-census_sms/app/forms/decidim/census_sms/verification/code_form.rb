@@ -3,8 +3,8 @@
 module Decidim
   module CensusSms
     module Verification
-      # A form object to reset verification code and send it again.
-      class ResetForm < Form
+      # A form object to reset verification code and send it.
+      class CodeForm < Form
         attribute :mobile_phone_number, String
 
         validates :mobile_phone_number, :verification_code, :sms_gateway, presence: true
@@ -13,7 +13,7 @@ module Decidim
         def mobile_phone_number
           return unless super
 
-          super.gsub(/[^+0-9]/, "")
+          super.gsub(/[^0-9]/, "")
         end
 
         # A mobile phone can only be verified once but it should be private.
@@ -23,12 +23,6 @@ module Decidim
           )
         end
 
-        def generated_code
-          @generated_code ||= SecureRandom.random_number(1_000_000).to_s
-        end
-
-        private
-
         def verification_code
           return unless sms_gateway
           return @verification_code if defined?(@verification_code)
@@ -36,6 +30,12 @@ module Decidim
           return unless sms_gateway.new(mobile_phone_number, generated_code).deliver_code
 
           @verification_code = generated_code
+        end
+
+        private
+
+        def generated_code
+          @generated_code ||= SecureRandom.random_number(1_000_000).to_s
         end
 
         def sms_gateway

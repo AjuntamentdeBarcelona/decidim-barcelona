@@ -19,7 +19,8 @@
                 component_id: current_component.id,
                 ephemeral_participation_path: request.path,
               ),
-              class: "button expanded"
+              class: "button expanded",
+              data: { disable: true, confirm: current_component.settings.ephemeral_participation_enabled_confirm_modal[current_locale] }
             )
           %>
           <%= I18n.t("help", scope: "decidim.ephemeral_participation.login_modal") %>

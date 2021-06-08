@@ -38,6 +38,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       postal_code: postal_code,
       scope: scope.name["ca"],
       scope_id: scope.id,
+      scope_code: scope.code,
       extras: {
         gender: gender
       }
@@ -56,8 +57,22 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   def unique_id
     Digest::MD5.hexdigest(
-      "#{sanitized_document_number}-#{Rails.application.secrets.secret_key_base}"
+      "#{document_number}-#{Rails.application.secrets.secret_key_base}"
     )
+  end
+
+  # When there's a postal code, sanitize it allowing only numbers.
+  def postal_code
+    return unless super
+
+    super.gsub(/[^0-9]/, "")
+  end
+
+  # When there's a document number, sanitize it allowing only numbers.
+  def document_number
+    return unless super
+
+    super.gsub(/[^A-Za-z0-9]/, "").upcase
   end
 
   private
@@ -81,10 +96,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     return nil if response.blank?
 
     errors.add(:document_number, I18n.t("census_authorization_handler.invalid_document")) unless response.xpath("//codiRetorn").text == "01"
-  end
-
-  def sanitized_document_number
-    document_number&.gsub(/[^A-Za-z0-9]/, "")&.upcase
   end
 
   def response
@@ -113,7 +124,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       <sch:usuari>PAM</sch:usuari>
       <sch:Dades>
         <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
-        <sch:docId>#{sanitized_document_number}</sch:docId>
+        <sch:docId>#{sanitize document_number}</sch:docId>
         <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
         <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
       </sch:Dades>

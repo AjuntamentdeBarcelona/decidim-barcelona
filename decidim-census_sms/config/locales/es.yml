@@ -1,5 +1,63 @@
 ---
 es:
+  activemodel:
+    attributes:
+      authorization:
+        date_of_birth: Fecha de nacimiento
+        document_number: Número de documento
+        document_type: Tipo de documento
+        mobile_phone_number: Número de teléfono móvil
+        postal_code: Código postal
+        scope_id: Distrito
+        tos_acceptance: Acepto los Términos y Condiciones
+        tos_acceptance_label: Al verificarte aceptas los <a class="link" href="%{tos_path}"
+          target="_blank">Términos y Condiciones</a>
   decidim:
+    authorization_handlers:
+      census_sms_authorization_handler:
+        explanation: Verifícate con los datos del padrón y con un código que te enviaremos
+          por SMS
+        fields:
+          scope_code: Distrito
+          scope_code_1: Distrito 1
+          scope_code_10: Distrito 10
+          scope_code_2: Distrito 2
+          scope_code_3: Distrito 3
+          scope_code_4: Distrito 4
+          scope_code_5: Distrito 5
+          scope_code_6: Distrito 6
+          scope_code_7: Distrito 7
+          scope_code_8: Distrito 8
+          scope_code_9: Distrito 9
+        name: Verificación Presupuestos Participativos
     census_sms:
       verification:
+        authorizations:
+          create:
+            error: Ha habido un error al crear la autorización
+            success: Has completado el primer paso para obtener la autorización
+          edit:
+            instructions: "¿No has recibido el código de verificación?"
+            reset: Restablece el código de verificación
+            send: Verifícate
+            title: Introduce el código que has recibido por SMS
+          new:
+            date_select:
+              day: Día
+              month: Mes
+              year: Año
+            postal_code_help: No sabes qué código postal corresponde a tu dirección
+              del Padrón? Puedes consultarlo <a target="_blank" href="https://w33.bcn.cat/planolBCN/ca/">clicando
+              aquí</a>.
+            scope_prompt: Selecciona tu distrito
+            send: Verifícate
+            title: Verifícate con el Padrón
+          reset:
+            mobile_phone_number: Número de teléfono móvil
+            send: Envíame un nuevo código
+            success: Te hemos enviado un nuevo código de verificación
+            title: Restablece el código de verificación
+          update:
+            error: El código de verificación que has introducido no coincide con el
+              nuestro. Por favor, revisa el SMS que te hemos enviado.
+            success: "¡Felicidades! Te has verificado correctamente."

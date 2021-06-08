@@ -4,7 +4,6 @@ ca:
       budgets:
         settings:
           global:
-            ephemerous_census_data_verification: Ephemerous Census Data Verification
             workflow_choices:
               pam2020: "PAM 2020: allows to Vote in the participant's district and in another of free choice."
               pam2021: "PAM 2021: allows to Vote in the participant's district and in another of free choice."

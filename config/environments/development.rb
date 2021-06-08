@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'sidekiq/testing/inline'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

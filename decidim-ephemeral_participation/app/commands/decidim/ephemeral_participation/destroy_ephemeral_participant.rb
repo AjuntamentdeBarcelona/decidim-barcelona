@@ -13,8 +13,8 @@ module Decidim
       def call
         return broadcast(:invalid) unless valid_params?
 
-        @user.invalidate_all_sessions!
-        @user.destroy! if destroy_user?
+        delete_pending_authorizations
+        destroy_user if destroy_user?
         sign_out(@user)
 
         broadcast(:ok)
@@ -26,20 +26,36 @@ module Decidim
         @request.is_a?(ActionDispatch::Request) && @user.is_a?(Decidim::User)
       end
 
-      def destroy_user?
-        return false if @user.verified_ephemeral_participant?
-        return false if verification_conflicts.any?
-
-        true
+      def delete_pending_authorizations
+        Decidim::Authorization.where(
+          user: @user,
+          name: @user.ephemeral_participation_data["authorization_name"],
+          granted_at: nil,
+        ).delete_all
       end
 
-      def verification_conflicts
-        Decidim::Verifications::Conflict.where(current_user: @user)
+      def destroy_user
+        Decidim::DestroyAccount.call(
+          @user,
+          Decidim::DeleteAccountForm.from_params(reason: self.class.name),
+        )
+      end
+
+      def destroy_user?
+        return false if @user.verified_ephemeral_participant?
+        return false if @user.unverifiable_ephemeral_participant?
+
+        true
       end
 
       # Needed for Devise::Controllers::Helpers#sign_out
       def session
         @request.session
+      end
+
+      # Needed for Devise::Controllers::Helpers#sign_out
+      def warden
+        @request.env['warden']
       end
     end
   end

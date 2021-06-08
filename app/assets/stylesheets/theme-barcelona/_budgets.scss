@@ -6,6 +6,11 @@
   }
 }
 
-#project .card.extra .button_to {
+#project .card.extra .button_to[action="/follow"] {
   display: none;
+}
+
+/* for budgets callouts to not hide text */ 
+.card__content .callout.flash{
+  margin-bottom: 1rem;
 }

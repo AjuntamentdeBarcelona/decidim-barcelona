@@ -19,10 +19,10 @@ module Decidim
         def verified_ephemeral_participant?
           return false unless ephemeral_participant?
 
-          Decidim::Authorization.exists?(
-            user: self,
-            name: ephemeral_participation_data["authorization_name"]
-          )
+          Decidim::Authorization
+            .where(user: self, name: ephemeral_participation_data["authorization_name"])
+            .where.not(granted_at: nil)
+            .exists?
         end
 
         def verifiable_ephemeral_participant?
@@ -41,6 +41,13 @@ module Decidim
           return nil unless ephemeral_participant?
 
           Decidim::Verifications::Adapter.from_element(ephemeral_participation_data["authorization_name"])
+        end
+
+        # TEMPORARY OVERRIDE TO DISPLAY DEFAULT NAME FOR DELETED USERS (MISSING IN DECIDIM)
+        def name
+          return I18n.t("decidim.components.comment.deleted_user") if deleted?
+
+          super || I18n.t("decidim.anonymous_user")
         end
       end
     end

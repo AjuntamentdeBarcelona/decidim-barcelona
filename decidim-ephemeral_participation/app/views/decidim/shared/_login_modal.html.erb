@@ -39,12 +39,8 @@
           </p>
       </div>
     </div>
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
-    <% end %>
-    <% cache current_organization do %>
-      <%= render "decidim/ephemeral_participation/shared/login_modal" %>
-    <% end %>
+    <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
+    <%= render "decidim/ephemeral_participation/shared/login_modal" %>
   <% else %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
@@ -56,8 +52,6 @@
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
-    <% cache current_organization do %>
-      <%= render "decidim/ephemeral_participation/shared/login_modal" %>
-    <% end %>
+    <%= render "decidim/ephemeral_participation/shared/login_modal" %>
   <% end %>
 </div>

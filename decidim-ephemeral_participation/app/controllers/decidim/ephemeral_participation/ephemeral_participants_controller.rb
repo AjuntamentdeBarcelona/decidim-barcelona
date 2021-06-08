@@ -25,8 +25,6 @@ module Decidim
         enforce_permission_to(:update, :ephemeral_participant, current_user: current_user)
 
         @form = form(EphemeralParticipantForm).from_model(current_user)
-
-        render(layout: "layouts/decidim/ephemeral_participation/user_profile")
       end
 
       def update
@@ -55,6 +53,38 @@ module Decidim
         Decidim::EphemeralParticipation::DestroyEphemeralParticipant.call(request, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("destroy", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            redirect_to(redirect_url || decidim_root_path)
+          end
+        end
+      end
+
+      def edit_unverifiable
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+
+        @form = form(UnverifiableEphemeralParticipantForm).instance
+      end
+
+      def update_unverifiable
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+
+        @form = form(UnverifiableEphemeralParticipantForm).from_params(params)
+
+        Decidim::EphemeralParticipation::UpdateUnverifiableEphemeralParticipant.call(request, current_user, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("update_unverifiable.success", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            redirect_to(decidim_root_path)
+          end
+
+          on(:email_taken) do
+            flash[:alert] = I18n.t("update_unverifiable.error.email_taken", scope: "decidim.ephemeral_participation.ephemeral_participants")
+
+            redirect_to(decidim_root_path)
+          end
+
+          on(:admin_contact) do
+            flash[:alert] = I18n.t("update_unverifiable.error.admin_contact", scope: "decidim.ephemeral_participation.ephemeral_participants")
 
             redirect_to(decidim_root_path)
           end

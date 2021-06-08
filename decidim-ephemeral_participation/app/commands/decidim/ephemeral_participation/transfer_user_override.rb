@@ -11,8 +11,10 @@ module Decidim
         private
 
         def update_managed_user
-          if managed_user.verified_ephemeral_participant?
-            Decidim::EphemeralParticipation::TransferEphemeralParticipant.call(managed_user, new_user, form)
+          if [new_user, managed_user].any?(&:ephemeral_participant?)
+            Decidim::EphemeralParticipation::TransferEphemeralParticipant.call(form).tap do |events|
+              raise(ActiveRecord::Rollback) if events.key?(:invalid)
+            end
           else
             update_regular_managed_user
           end

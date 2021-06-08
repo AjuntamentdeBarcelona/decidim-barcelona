@@ -2,50 +2,125 @@
 ca:
   activemodel:
     attributes:
+      ephemeral_participant:
+        email: El teu correu electrònic
+        name: El teu nom
+        nickname: Àlies (sobrenom)
+        password: Contrasenya
+        password_confirmation: Confirma la teva contrasenya
       organization:
+        allows_ephemeral_participation: Permet la participació sense registre
         enabled: Actiu
-        allows_ephemeral_participation: Permet participació sense registre
     errors:
       models:
         organization:
           attributes:
             available_authorizations:
-              invalid: Only one authorization method can be used to allow ephemeral participation
+              invalid: Només es pot fer servir un mètode d'autorització per a la participació
+                sense registre
         permission:
           attributes:
             base:
-              invalid_ephemeral_participation_permissions: Cannot set permissions using multiple authorizations when '%{ephemeral_participation_authorization}' authorization is selected and '%{ephemeral_participation_enabled}' component setting is enabled.
+              invalid_ephemeral_participation_permissions: No es poden establir permisos
+                amb multiples autoritzacions quan '%{ephemeral_participation_authorization}'
+                està sel·leccionada i el paràmetre '%{ephemeral_participation_enabled}'
+                del component està activat.
         settings:
           attributes:
             ephemeral_participation_enabled:
-              missing_ephemeral_participation_authorization: Must enable ephemeral participation authorization at system level.
+              email: Correu electrònic
+              missing_ephemeral_participation_authorization: La participació sense
+                registre s'ha d'activar a nivell de sistema.
+        unverifiable_ephemeral_participant:
+          attributes:
+            email:
+              unverifiable_ephemeral_participant_email_taken: Aquest correu electrònic
+                ja està vinculat a una altra usuària
   decidim:
+    admin:
+      conflicts:
+        transfer:
+          error: Hi ha hagut un error transferint la usuària
+          success: La usuària ha estat transferida amb èxit
     authorization_handlers:
-      ephemerable: Permet participació directe
-    ephemeral_participation:
-      actions:
-        unauthorized: "No tens permís per realitzar aquesta acció: %{link}"
-        unauthorized_link: Completa el teu registre aquí.
-        unverified: "Per poder participar, cal que estiguis verificada: %{link}"
-        unverified_link: Completa el procés de verificació aquí.
-        verified: "Completa el teu registre %{link}"
-        verified_link: aquí.
-      login_modal:
-        button: Vull participar sense registrar-me
-        help: Fes servir aquesta opció per una participació puntual
-      user_menu:
-        remaining: "%{remaining} min. per la desconexió automàtica"
-        sign_out: Cancel·la i desconnecta
-        complete_registration: Completa el teu registre
-      ephemeral_participants:
-        create: Per poder participar sense registre, has de completar el procés de verificació
-        destroy: S'ha cancel·lat la participació sense registre
-        submit: Envia
-        title: Completa el teu perfil d'usuari per simplificar la teva participació en el futur
-        unverifiable: No ha estat possible completar la verificació. Pots tornar a intentar-ho en un altre moment.
+      ephemerable: Permet la participació sense registre
+      errors:
+        unverifiable_ephemeral_participant:
+          already_exists: Ja hi ha una participant autoritzada amb les mateixes dades.
+          already_participate: Ja has participat?
+          close: Cancel·la el procés o torna a començar
+          retrieve_user: Recupera la teva sessió anterior clicant aquí
     components:
       budgets:
         settings:
           global:
-            ephemeral_participation_enabled: Ephemeral participation enabled
-            ephemeral_participation_enabled_help: Allows users to participate without registration. Requires configuring permissions.
+            ephemeral_participation_enabled: Participació sense registre activada
+            ephemeral_participation_enabled_confirm_modal: Missatge de confirmació
+              per a la usuària que participa sense registre
+            ephemeral_participation_enabled_confirm_modal_help: Aquest missatge es
+              mostrarà en una finestreta de confirmació a la usuària quan apreti el
+              botó de "participar sense registre"
+            ephemeral_participation_enabled_help: Permet a les usuàries participar
+              sense registrar-se. Cal configurar-ho als permisos del component.
+    ephemeral_participation:
+      actions:
+        unauthorized: 'No tens permís per a realitzar aquesta acció: %{link}'
+        unauthorized_link: Completa el teu registre clicant aquí.
+        unverified: 'Per tal de poder participar, cal que estiguis verificada: %{link}'
+        unverified_link: Completa el procés de verificació clicant aquí.
+        verified: Completa el teu registre %{link}
+        verified_link: clicant aquí.
+      ephemeral_participants:
+        create: Per tal de poder participar sense registre, has de completar el procés
+          de verificació
+        destroy: S'ha cancel·lat la participació sense registre
+        edit:
+          title: Completa el teu perfil per tal de simplificar la teva participació
+            en el futur
+        name: Participant %{number}
+        submit: Envia
+        title: Participació sense registre
+        unverifiable:
+          help: Per a tornar a participar has de convertir la teva anterior
+            sessió anònima en un compte d'usuària. Escriu a continuació el teu correu
+            electrònic i segueix les instruccions que rebràs.
+          reset_password: Si ja has fet aquest procés anteriorment i no has rebut el
+            correu de confirmació, torna'l a demanar clicant aquí.
+          title: Recupera la teva sessió anterior
+        update:
+          error: Hi ha hagut un error al intentar completar el teu registre
+          success: El teu registre s'ha completat correctament!
+        update_unverifiable:
+          error:
+            admin_contact: Aquesta verificació ja s'ha fet servir per a una altra
+              usuària amb un altre correu electrònic. Una administradora es posarà
+              en contacte amb tu.
+            email_taken: Aquest correu electrònic ja està registrat. Si us plau, entra
+              a la plataforma amb el teu correu electrònic i la teva contrasenya.
+          flagged_email:
+            registered: 'Correu electrònic introduit a l''intent de recuperació de
+              sessió: %{email} - REGISTRAT'
+            unregistered: 'Correu electrònic introduit a l''intent de recuperació
+              de sessió: %{email} - NO REGISTRAT'
+          flagged_name:
+            conflict_with_ephemeral_participant: Participant sense registre - CONFLICTE
+              DE VERIFICACIÓ AMB UNA ALTRA PARTICIPANT SENSE REGISTRE
+            conflict_with_regular_user: Participant sense registre - CONFLICTE DE
+              VERIFICACIÓ AMB USUÀRIA
+          success: Si us plau, comprova la teva bústia d'entrada i segueix les instruccions
+            per completar el registre
+      login_modal:
+        button: Vull participar sense registrar-me
+        help: Fes servir aquesta opció per una participació puntual
+      user_menu:
+        complete_registration: Completa el teu registre
+        remaining: "%{remaining} min. per la desconexió automàtica"
+        sign_out: Cancel·la i desconnecta
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: 'Hi ha hagut un conflicte de verificació amb la següent usuària:'
+          email_outro: si es tracta d'una participant sense registre, no hauria de
+            ser necessària cap acció (tot i que aquesta participant podria abandonar
+            el procés de completar el seu compte)
+          email_subject: Conflicte de verificació amb una usuària gestionada

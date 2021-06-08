@@ -21,7 +21,11 @@ module Decidim
       private
 
       def valid_params?
-        @request.is_a?(ActionDispatch::Request) && component_id.present? && ephemeral_participation_path.present?
+        @request.is_a?(ActionDispatch::Request) && component.try(:ephemeral_participation_enabled?) && ephemeral_participation_path.present?
+      end
+
+      def component
+        @component ||= Decidim::Component.find_by(id: component_id)
       end
 
       def component_id
@@ -37,6 +41,8 @@ module Decidim
           organization: component.organization,
           managed: true,
           tos_agreement: true,
+          accepted_tos_version: component.organization.tos_version,
+          name: I18n.t("decidim.ephemeral_participation.ephemeral_participants.name", number: Decidim::Tokenizer.new(length: 2).int_digest(Time.current.to_s)),
           extended_data: {
             ephemeral_participation: {
               authorization_name: authorization_name,
@@ -66,10 +72,6 @@ module Decidim
 
       def authorization_name
         component.organization.ephemeral_participation_authorization
-      end
-
-      def component
-        @component ||= Decidim::Component.find(component_id)
       end
 
       # Needed for Devise::Controllers::Helpers#sign_in

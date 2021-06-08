@@ -13,8 +13,9 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
     )
   end
 
-  let(:authorization_name) { "El padró + SMS" }
-  let(:authorizations) { {"census_sms_authorization_handler" => {"allow_ephemeral_participation" => true}} }
+  let(:document_number) { "12345678A" }
+  let(:authorization_name) { "Verificació Pressupostos Participatius" }
+  let(:authorizations) { { "census_sms_authorization_handler" => { "allow_ephemeral_participation" => true } } }
   let(:code) { user_authorization.verification_metadata["verification_code"] }
   let(:user_authorization) { Decidim::Authorization.find_by(user: user, name: "census_sms_authorization_handler") }
 
@@ -27,7 +28,7 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
   # Selects a birth date that will not cause errors in the form: January 12, 1979.
   def fill_in_authorization_form
     select "DNI", from: "authorization_document_type"
-    fill_in "authorization_document_number", with: "12345678A"
+    fill_in "authorization_document_number", with: document_number
     select "12", from: "authorization_date_of_birth_3i"
     select "Gener", from: "authorization_date_of_birth_2i"
     select "1979", from: "authorization_date_of_birth_1i"
@@ -89,7 +90,7 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
 
       click_link "Restableix el codi de verificació"
 
-      fill_in "reset[mobile_phone_number]", with: "(+34) 654 321 987"
+      fill_in "code[mobile_phone_number]", with: "(+34) 654 321 987"
       click_button "Envia'm un nou codi"
 
       expect(page).to have_content("T'hem enviat un nou codi de verificació")
@@ -136,6 +137,30 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
           expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long, locale: :ca))
         end
       end
+    end
+  end
+
+  context "when trying to authorize another user with previously used information" do
+    let!(:authorization) { create(:authorization, name: "census_sms_authorization_handler", unique_id: unique_id, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization: organization) }
+    let(:unique_id) do
+      Digest::MD5.hexdigest(
+        "#{document_number}-#{Rails.application.secrets.secret_key_base}"
+      )
+    end
+
+    before do
+      sign_in user
+      visit decidim_verifications.authorizations_path
+    end
+
+    it "throws an error" do
+      click_link authorization_name
+      fill_in_authorization_form
+      click_button "Verifica't"
+
+      expect(page).to have_content("Ja hi ha una participant autoritzada amb les mateixes dades")
+      expect(page).not_to have_content("Restableix el codi de verificació")
     end
   end
 end
