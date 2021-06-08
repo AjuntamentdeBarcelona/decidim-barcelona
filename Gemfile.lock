@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: ad779368b0bfaab8a5ce30142b7f0d47ae0a11de
+  revision: debb2f04f819438761929731d45c3556e75e0670
   branch: release/0.24-stable-bcn
   specs:
     decidim (0.24.3)
@@ -377,7 +377,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     cookiejar (0.3.3)
     crack (0.4.5)
@@ -531,7 +531,7 @@ GEM
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
     http-accept (1.7.0)
-    http-cookie (1.0.3)
+    http-cookie (1.0.4)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (1.8.10)
