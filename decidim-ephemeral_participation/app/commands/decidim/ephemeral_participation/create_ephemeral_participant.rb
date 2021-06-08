@@ -21,7 +21,11 @@ module Decidim
       private
 
       def valid_params?
-        @request.is_a?(ActionDispatch::Request) && component_id.present? && ephemeral_participation_path.present?
+        @request.is_a?(ActionDispatch::Request) && component.try(:ephemeral_participation_enabled?) && ephemeral_participation_path.present?
+      end
+
+      def component
+        @component ||= Decidim::Component.find_by(id: component_id)
       end
 
       def component_id
@@ -68,10 +72,6 @@ module Decidim
 
       def authorization_name
         component.organization.ephemeral_participation_authorization
-      end
-
-      def component
-        @component ||= Decidim::Component.find(component_id)
       end
 
       # Needed for Devise::Controllers::Helpers#sign_in

@@ -7,7 +7,7 @@ module Decidim
 
       included do
         def ephemeral_participation_enabled?
-          settings.try(:ephemeral_participation_enabled) == true
+          organization.try(:ephemeral_participation_authorization) && settings.try(:ephemeral_participation_enabled) == true
         end
         
         # Given organization.ephemeral_participation_authorization == "valid_auth"

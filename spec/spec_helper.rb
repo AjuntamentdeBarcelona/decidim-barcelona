@@ -105,4 +105,8 @@ RSpec.configure do |config|
     Decidim.available_locales = %i(en ca es)
     Decidim.default_locale = :ca
   end
+
+  config.before(:each) do
+    Rails.cache.clear
+  end
 end

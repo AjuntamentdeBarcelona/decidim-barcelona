@@ -7,7 +7,7 @@
 
     <div class="card columns large-6 large-centered">
       <div class="card__content">
-        <p><%= I18n.t("unverifiable.text_prefix", scope: "decidim.ephemeral_participation.ephemeral_participants") %></p>
+        <p><%= I18n.t("unverifiable.help", scope: "decidim.ephemeral_participation.ephemeral_participants") %></p>
         <%= decidim_form_for(@form, url: unverifiable_ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
           <input autocomplete="off" name="hidden" type="password" style="display:none;">
           <%= form.email_field :email %>
@@ -15,7 +15,7 @@
           <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
         <% end %>
         <ul>
-          <li><%= link_to I18n.t("unverifiable.text_suffix", scope: "decidim.ephemeral_participation.ephemeral_participants"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete %></li>
+          <li><%= link_to I18n.t("unverifiable.reset_password", scope: "decidim.ephemeral_participation.ephemeral_participants"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete %></li>
           <li><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: current_user.ephemeral_participation_data["request_path"]), method: :delete %></li>
         </ul>
       </div>

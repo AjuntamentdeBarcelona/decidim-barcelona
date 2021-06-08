@@ -3,8 +3,6 @@
 module Decidim
   module EphemeralParticipation
     class UpdateUnverifiableEphemeralParticipant < Rectify::Command
-      EMAIL_TAKEN_FLAG = "DUPLICATED - "
-
       include ::Devise::Controllers::Helpers
 
       def initialize(request, user, form)

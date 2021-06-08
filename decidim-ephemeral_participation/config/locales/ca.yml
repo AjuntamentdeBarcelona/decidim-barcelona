@@ -81,10 +81,10 @@ ca:
         submit: Envia
         title: Participació sense registre
         unverifiable:
-          text_prefix: Per a tornar a participar has de convertir la teva anterior
+          help: Per a tornar a participar has de convertir la teva anterior
             sessió anònima en un compte d'usuària. Escriu a continuació el teu correu
             electrònic i segueix les instruccions que rebràs.
-          text_suffix: Si ja has fet aquest procés anteriorment i no has rebut el
+          reset_password: Si ja has fet aquest procés anteriorment i no has rebut el
             correu de confirmació, torna'l a demanar clicant aquí.
           title: Recupera la teva sessió anterior
         update:

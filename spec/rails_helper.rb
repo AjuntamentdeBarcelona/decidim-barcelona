@@ -5,17 +5,29 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+# Add additional requires below this line. Rails is not loaded until this point!
 
 require "decidim/dev"
 
 Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, ".."))
 
 require "decidim/dev/test/base_spec_helper"
-require "decidim/budgets/test/factories"
+
+module CapybaraTestHelpersPatch
+  def switch_to_host(_host)
+    Decidim::Organization.update_all(host: "localhost")
+
+    switch_to_secure_context_host
+  end
+end
+
+Decidim::CapybaraTestHelpers.prepend(CapybaraTestHelpersPatch)
+
+# decidim-ephemeral_participation
 require "decidim/ephemeral_participation/test"
 require "decidim/census_sms/verification/test"
-
-# Add additional requires below this line. Rails is not loaded until this point!
+require "decidim/budgets/test/factories"
+require "decidim/system/test/factories"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

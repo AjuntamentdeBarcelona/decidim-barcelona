@@ -48,6 +48,7 @@ group :development do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'spring-commands-rspec'
   gem "rubocop", "~> 0.92.0"
   gem "letter_opener_web"
 end

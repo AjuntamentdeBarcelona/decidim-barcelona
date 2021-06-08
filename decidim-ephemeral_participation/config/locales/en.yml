@@ -32,6 +32,12 @@ en:
   decidim:
     authorization_handlers:
       ephemerable: Allows direct participation
+      errors:
+        unverifiable_ephemeral_participant:
+          already_exists: en.decidim.authorization_handlers.errors.already_exists
+          already_participate: en.decidim.authorization_handlers.errors.already_participate
+          close: en.decidim.authorization_handlers.errors.close
+          retrieve_user: en.decidim.authorization_handlers.errors.retrieve_user
     components:
       budgets:
         settings:
@@ -58,8 +64,15 @@ en:
           title: Complete your profile for easily future participation
         name: Participant %{number}
         submit: Send
-        unverifiable: The verification process has been unsuccessful. You can try
-          it again later.
+        unverifiable:
+          help: en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.help
+          reset_password: en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.reset_password
+          title: en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.title
+        update_unverifiable:
+          error:
+            admin_contact: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.error.admin_contact
+            email_taken: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.error.email_taken
+          success: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.success
       login_modal:
         button: I want to participate without registering
         help: Use this option for a one-time participation
