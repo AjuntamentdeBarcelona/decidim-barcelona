@@ -10,6 +10,7 @@ module Decidim
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
+        return permission_action if context[:current_settings].allow_unregistered? # answer survey by unregistered user
 
         if create_ephemeral_participant?
           allow!    if allowed_to_create_ephemeral_participant?
@@ -96,6 +97,14 @@ module Decidim
         verify_ephemeral_participant_path? && (not user.verified_ephemeral_participant?)
       end
 
+      def verify_ephemeral_participant_path?
+        Decidim::EphemeralParticipation::InformingRecognizer.new(context[:request], user).verify_ephemeral_participant_path?
+      end
+
+      def decidim_verifiations
+        Decidim::Verifications::Engine.routes.url_helpers
+      end
+
       def allowed_ephemeral_participation?
         return true if browsing_public_pages?
         return true if changing_locales?
@@ -115,20 +124,12 @@ module Decidim
       end
 
       def ephemeral_participation_permission_action?
-        Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
+        Decidim::EphemeralParticipation::EphemeralActionPermissionsDictionary.for(component)
           .any? do |_, permission_action_attributes|
             permission_action_attributes.any? do |action:, scope:, subject:|
               permission_action.matches?(scope, action, subject)
             end
           end
-      end
-
-      def request
-        context[:request]
-      end
-
-      def current_user
-        user
       end
     end
   end
