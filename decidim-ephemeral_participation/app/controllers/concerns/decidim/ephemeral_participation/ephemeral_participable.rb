@@ -6,9 +6,13 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
+
         before_action :destroy_ephemeral_participant,  if: :ephemeral_participant_session?
         before_action :redirect_ephemeral_participant, if: :ephemeral_participant_session?
         before_action :inform_ephemeral_participant,   if: :ephemeral_participant_session?
+
+        helper_method :verify_ephemeral_participant_path
 
         private
 
@@ -17,7 +21,7 @@ module Decidim
         end
 
         def destroy_ephemeral_participant
-          return unless Decidim::EphemeralParticipation::SessionPresenter.new(current_user, helpers).ephemeral_participant_session_expired?
+          return unless Decidim::EphemeralParticipation::SessionPresenter.new(current_user).ephemeral_participant_session_expired?
 
           Decidim::EphemeralParticipation::DestroyEphemeralParticipant.call(request, current_user) do
             on(:ok) do
@@ -34,28 +38,18 @@ module Decidim
           return redirect_to(edit_ephemeral_participant_path(current_user))         if redirect_to_edit_ephemeral_participant_path?
         end
 
-        def unverifiable_ephemeral_participant_path(current_user)
-          Decidim::EphemeralParticipation::Engine.routes.url_helpers.unverifiable_ephemeral_participant_path(current_user)
-        end
-
         def redirect_to_unverifiable_ephemeral_participant_path?
-          Decidim::EphemeralParticipation::RedirectionRecognizer.new(request, current_user).redirect_to_unverifiable_ephemeral_participant_path?
-        end
-
-        def ephemeral_participation_path
-          current_user.ephemeral_participation_data["request_path"]
+          current_user.unverifiable_ephemeral_participant? &&
+            (not destroy_ephemeral_participant_path?) &&
+              (not unverifiable_ephemeral_participant_path?)
         end
 
         def redirect_to_ephemeral_participation_path?
-          Decidim::EphemeralParticipation::RedirectionRecognizer.new(request, current_user).redirect_to_ephemeral_participation_path?
-        end
-
-        def edit_ephemeral_participant_path(current_user)
-          Decidim::EphemeralParticipation::Engine.routes.url_helpers.edit_ephemeral_participant_path(current_user)
+          current_user.verified_ephemeral_participant? && request.method == "GET" && authorizations_path?
         end
 
         def redirect_to_edit_ephemeral_participant_path?
-          Decidim::EphemeralParticipation::RedirectionRecognizer.new(request, current_user).redirect_to_edit_ephemeral_participant_path?
+          user_account_related_path?
         end
 
         def inform_ephemeral_participant
@@ -68,7 +62,7 @@ module Decidim
         end
 
         def inform_unverified_ephemeral_participant?
-          Decidim::EphemeralParticipation::InformingRecognizer.new(request, current_user).inform_unverified_ephemeral_participant?
+          informable_ephemeral_participant? && (not current_user.verified_ephemeral_participant?)
         end
 
         def verified_ephemeral_participant_message
@@ -76,7 +70,17 @@ module Decidim
         end
 
         def inform_verified_ephemeral_participant?
-          Decidim::EphemeralParticipation::InformingRecognizer.new(request, current_user).inform_verified_ephemeral_participant?
+          informable_ephemeral_participant? && current_user.verified_ephemeral_participant?
+        end
+
+        def informable_ephemeral_participant?
+          return false if verify_ephemeral_participant_path?
+          return false if edit_ephemeral_participant_path?
+          return false if update_ephemeral_participant_path?
+          return false if unverifiable_ephemeral_participant_path?
+          return false if request.flash.any?
+
+          true
         end
       end
     end

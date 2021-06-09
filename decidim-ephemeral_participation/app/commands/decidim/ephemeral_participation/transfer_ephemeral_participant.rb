@@ -22,7 +22,14 @@ module Decidim
       private
 
       def valid_params?
-        @verified_user.verified_ephemeral_participant? && @unverifiable_user.ephemeral_participant?
+        @verified_user.verified_ephemeral_participant? && @unverifiable_user.ephemeral_participant? && unique_email?
+      end
+
+      def unique_email?
+        Decidim::EphemeralParticipation::DuplicatedUsers.new(
+          organization: @form.current_user.organization,
+          where_clause: { email: @form.email },
+        ).query.none?
       end
 
       def update_unverifiable_user

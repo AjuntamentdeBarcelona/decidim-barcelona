@@ -1,16 +1,6 @@
 <% if current_user.ephemeral_participant? %>
   <%= render partial: "layouts/decidim/ephemeral_participation/user_menu" %>
 <% else %>
-
-  <%# The code BELOW raises: Cannot use t(".profile") shortcut because path is not available %>
-  <%# 
-    decidim_gem_dir = Gem::Specification.find_by_name("decidim").gem_dir
-    view_path = "decidim-core/app/views/layouts/decidim/_user_menu.html.erb"
-    decidim_core_user_menu_partial = "#{decidim_gem_dir}/#{view_path}"
-  %>
-  <%#= render file: decidim_core_user_menu_partial %>
-  <%# The code ABOVE raises: Cannot use t(".profile") shortcut because path is not available %>
-
   <li><%= link_to I18n.t("profile", scope: "layouts.decidim.user_menu"), decidim.account_path, tabindex: "-1" %></li>
   <% if current_user.nickname.present? && !current_user.managed? %>
     <li><%= link_to I18n.t("public_profile", scope: "layouts.decidim.user_menu"), decidim.profile_path(current_user.nickname), tabindex: "-1" %></li>

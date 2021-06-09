@@ -2,14 +2,16 @@
 
 shared_context "with ephemerable participation" do
   let(:regular_user) { create(:user, :confirmed, organization: organization) }
-  let(:ephemeral_participant) do
+  let(:ephemeral_participant) { create_ephemeral_participant }
+
+  def create_ephemeral_participant
     # decidim-ephemeral_participation/app/commands/decidim/ephemeral_participation/create_ephemeral_participant.rb
     Decidim::User.new(
       organization: component.organization,
       managed: true,
       tos_agreement: true,
       accepted_tos_version: component.organization.tos_version,
-      name: I18n.t("decidim.ephemeral_participation.ephemeral_participants.name"),
+      name: I18n.t("decidim.ephemeral_participation.ephemeral_participants.name", number: Decidim::Tokenizer.new(length: 2).int_digest(Time.current.to_s)),
       extended_data: {
         ephemeral_participation: {
           authorization_name: ephemeral_participable_authorization,
@@ -66,9 +68,13 @@ shared_context "with ephemerable participation" do
 
   let(:document_number) { "123456789X" }
 
-  def click_ephemeral_participation_button
-    page.find(ephemeral_participation_button_selector).click
+  def click_ephemeral_participation_button(selector = ephemeral_participation_action_button_selector)
+    click_ephemeral_parcipation_action_button(selector)
     accept_confirm { click_button("I want to participate without registering") }
+  end
+
+  def click_ephemeral_parcipation_action_button(selector = ephemeral_participation_action_button_selector)
+    page.find(ephemeral_participation_action_button_selector).click
   end
 
   def submit_authorization_form
@@ -123,10 +129,10 @@ shared_context "with ephemerable participation" do
   end
 end
 
-shared_context "when managing a component's ephemerable permissions" do
+shared_context "when managing a component with ephemerable participation" do
   include_context "with ephemerable participation"
 
-  let(:current_component) { component }
+  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   def visit_component_admin
     visit manage_component_path(component)
@@ -138,20 +144,5 @@ shared_context "when managing a component's ephemerable permissions" do
 
   def edit_component_permissions_path(component)
     Decidim::EngineRouter.admin_proxy(component.participatory_space).edit_component_permissions_path(component.id)
-  end
-end
-
-shared_context "when managing a component's ephemerable permissions as an admin" do
-  include_context "when managing a component's ephemerable permissions" do
-    let(:component_organization_traits) { admin_component_organization_traits }
-  end
-
-  let(:admin_component_organization_traits) { [] }
-
-  let(:user) do
-    create :user,
-           :admin,
-           :confirmed,
-           organization: organization
   end
 end

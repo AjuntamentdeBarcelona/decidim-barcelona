@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe "Succesful verification", type: :system do
+  include ActiveSupport::Testing::TimeHelpers
+
   include_context "with ephemerable participation"
 
   let!(:project) { create(:project, budget: budget) }
@@ -18,21 +20,24 @@ describe "Succesful verification", type: :system do
     visit_component
   end
 
-  context "when the user clicks the ephemeral participation button and submits the authorization form" do
-    let(:ephemeral_participation_path) { page.current_path }
+  context "when the user clicks the ephemeral participation button" do
+    let(:session_duration) { 5.minutes }
 
     before do
-      ephemeral_participation_path
+      stub_const("#{Decidim::EphemeralParticipation::SessionPresenter}::EPHEMERAL_PARTICIPANT_SESSION_DURATION", session_duration)
       click_ephemeral_participation_button
-      submit_authorization_form
     end
 
-    it "authorizes the user and redirects back to where ephemeral participation button was clicked" do
-      within_flash_messages do
-        expect(page).to have_content("You've been successfully authorized")
-      end
+    it "closes the session and redirects to root_path when the ephemeral session expires" do
+      travel(session_duration) do
+        visit(decidim.root_path)
 
-      expect(page).to have_current_path(ephemeral_participation_path)
+        within_flash_messages do
+          expect(page).to have_content("en.decidim.ephemeral_participation.ephemeral_participants.destroy")
+        end
+
+        expect(page).to have_current_path(decidim.root_path)
+      end
     end
   end
 end

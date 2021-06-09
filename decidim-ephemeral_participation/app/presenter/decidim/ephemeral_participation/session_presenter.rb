@@ -3,9 +3,10 @@
 module Decidim
   module EphemeralParticipation
     class SessionPresenter
-      def initialize(user, view_helpers)
+      EPHEMERAL_PARTICIPANT_SESSION_DURATION = ::Devise.timeout_in
+
+      def initialize(user)
         @user = user
-        @view_helpers = view_helpers
       end
 
       def ephemeral_participant_session_remaining_time_in_minutes
@@ -19,7 +20,7 @@ module Decidim
       private
 
       def ephemeral_participant_session_remaining_time
-        (@user.created_at + ::Devise.timeout_in) - Time.current
+        (@user.created_at + EPHEMERAL_PARTICIPANT_SESSION_DURATION) - Time.current
       end
     end
   end
