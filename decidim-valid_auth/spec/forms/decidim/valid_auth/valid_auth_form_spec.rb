@@ -29,7 +29,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
       create(:authorization, name: subject.handler_name, user: other_user, unique_id: subject.unique_id)
 
       expect(subject).to be_invalid
-      expect(subject.errors[:base]).to eq(["A user is already authorized with the same data."])
+      expect(subject.errors[:base]).to eq(["A participant is already authorized with the same data. An administrator will contact you to verify your details."])
     end
   end
 

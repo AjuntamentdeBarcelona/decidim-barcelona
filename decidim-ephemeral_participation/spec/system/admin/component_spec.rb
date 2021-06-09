@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Component", type: :system do
-  include_context "when managing a component's ephemerable permissions as an admin"
+  include_context "when managing a component with ephemerable participation"
 
   let(:organization) do
     create(
@@ -21,10 +21,7 @@ describe "Component", type: :system do
       component.save!
     end
   end
-
-  let(:settings) do
-    {}
-  end
+  let(:settings) { {} }
 
   before do
     switch_to_host(organization.host)

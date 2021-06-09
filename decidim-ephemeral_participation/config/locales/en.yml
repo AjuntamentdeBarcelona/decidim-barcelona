@@ -73,6 +73,9 @@ en:
             admin_contact: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.error.admin_contact
             email_taken: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.error.email_taken
           success: en.decidim.ephemeral_participation.ephemeral_participants.update_unverifiable.success
+        update:
+          error: en.decidim.ephemeral_participation.ephemeral_participants.update.error
+          success: en.decidim.ephemeral_participation.ephemeral_participants.update.success
       login_modal:
         button: I want to participate without registering
         help: Use this option for a one-time participation

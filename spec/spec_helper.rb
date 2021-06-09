@@ -100,13 +100,9 @@ RSpec.configure do |config|
 
   config.before(:each) do
     I18n.available_locales = %i(en ca es)
-    I18n.default_locale = :ca
-    I18n.locale = :ca
+    I18n.default_locale = :en
+    I18n.locale = :en
     Decidim.available_locales = %i(en ca es)
-    Decidim.default_locale = :ca
-  end
-
-  config.before(:each) do
-    Rails.cache.clear
+    Decidim.default_locale = :en
   end
 end

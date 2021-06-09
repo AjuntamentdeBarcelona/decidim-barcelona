@@ -58,9 +58,9 @@ module Decidim
           presenter = Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers)
 
           if current_user.verified_ephemeral_participant?
-            presenter.unverified_ephemeral_participant_message
-          else
             presenter.unauthorized_ephemeral_participant_message
+          else
+            presenter.unverified_ephemeral_participant_message
           end
         end
       end

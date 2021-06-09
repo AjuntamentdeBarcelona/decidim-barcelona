@@ -10,7 +10,7 @@ describe "Verification conflicts", type: :system do
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
-  let(:ephemeral_participation_button_selector) { "#project-vote-button-#{project.id}" }
+  let(:ephemeral_participation_action_button_selector) { "#project-vote-button-#{project.id}" }
 
   before do
     register_workflows

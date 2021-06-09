@@ -11,9 +11,9 @@ describe "Organization", type: :system do
     register_workflows
   end
 
-  context "when authenticated as admin" do
+  context "when authenticated as a system admin" do
     before do
-      login_as admin, scope: :admin
+      login_as(admin, scope: :admin)
     end
 
     describe "when editing an organization" do
@@ -21,7 +21,7 @@ describe "Organization", type: :system do
 
       before do
         visit decidim_system.root_path
-        click_link "Organitzacions"
+        click_link "Organizations"
         within "table tbody" do
           first("tr").click_link("Edit")
         end
