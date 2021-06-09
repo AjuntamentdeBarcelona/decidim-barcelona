@@ -3,11 +3,7 @@
     t(
       "remaining",
       scope: "decidim.ephemeral_participation.user_menu",
-      remaining: (
-        Decidim::EphemeralParticipation::SessionPresenter
-        .new(current_user, self)
-        .ephemeral_participant_session_remaining_time_in_minutes
-      )
+      remaining: Decidim::EphemeralParticipation::SessionPresenter.new(current_user).ephemeral_participant_session_remaining_time_in_minutes,
     )
   %>
 </li>
@@ -33,8 +29,3 @@
     )
   %>
 </li>
-
-<%#
-  Maybe use JS to style dropdown and draw attention to it.
-  Also: would be nice to have a live countdown for the session.
-%>

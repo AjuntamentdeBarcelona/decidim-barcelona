@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-require_relative "ephemeral_action_permissions_dictionary"
+require_relative "ephemeral_permission_actions_dictionary"
 
 module Decidim
   module EphemeralParticipation
     class EphemeralParticipationPermissions < DefaultPermissions
+      include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
+
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
@@ -94,14 +96,6 @@ module Decidim
         verify_ephemeral_participant_path? && (not user.verified_ephemeral_participant?)
       end
 
-      def verify_ephemeral_participant_path?
-        Decidim::EphemeralParticipation::InformingRecognizer.new(context[:request], user).verify_ephemeral_participant_path?
-      end
-
-      def decidim_verifiations
-        Decidim::Verifications::Engine.routes.url_helpers
-      end
-
       def allowed_ephemeral_participation?
         return true if browsing_public_pages?
         return true if changing_locales?
@@ -121,12 +115,20 @@ module Decidim
       end
 
       def ephemeral_participation_permission_action?
-        Decidim::EphemeralParticipation::EphemeralActionPermissionsDictionary.for(component)
+        Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
           .any? do |_, permission_action_attributes|
             permission_action_attributes.any? do |action:, scope:, subject:|
               permission_action.matches?(scope, action, subject)
             end
           end
+      end
+
+      def request
+        context[:request]
+      end
+
+      def current_user
+        user
       end
     end
   end

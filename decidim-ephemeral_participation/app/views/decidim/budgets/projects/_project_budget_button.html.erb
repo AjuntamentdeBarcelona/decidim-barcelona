@@ -9,7 +9,7 @@
 <% elsif current_user.present? && (current_user.ephemeral_participant? && !current_user.verified_ephemeral_participant?) %>
   <div id="project-<%= project.id %>-budget-button">
     <%= link_to t("add", scope: "decidim.budgets.projects.project_budget_button"),
-                Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, self).verify_ephemeral_participant_path,
+                verify_ephemeral_participant_path,
                 class: "button expanded primary button--sc",
                 "aria-label": t("add_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button")
             %>
