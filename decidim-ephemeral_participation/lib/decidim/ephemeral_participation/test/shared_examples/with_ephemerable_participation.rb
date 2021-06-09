@@ -44,7 +44,7 @@ shared_context "with ephemerable participation" do
     end
   end
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let(:permissions) do
     { ephemeral_participable_action => { "authorization_handlers" => { ephemeral_participable_authorization => {} } } }
   end

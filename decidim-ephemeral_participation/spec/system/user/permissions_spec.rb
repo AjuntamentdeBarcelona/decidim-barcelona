@@ -121,6 +121,42 @@ describe "Permissions", type: :system do
 
         expect(page).to have_current_path(%r{#{ephemeral_participation_path}.*})
       end
+
+      context "when there are public surveys" do
+        let!(:surveys_component) do
+          create(:component, manifest_name: :surveys, participatory_space: participatory_space, step_settings: step_settings)
+        end
+        let(:step_settings) do
+          {
+            participatory_space.active_step.id => {
+              allow_answers: true,
+              allow_unregistered: true,
+            }
+          }
+        end
+        let!(:questionnaire) { create(:questionnaire) }
+        let!(:survey) { create(:survey, component: surveys_component, questionnaire: questionnaire) }
+        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+
+        it "allows answering the questionnaire" do
+          visit main_component_path(surveys_component)
+
+          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.description)
+
+          fill_in(question.body["en"], with: "My first answer")
+
+          check("questionnaire_tos_agreement")
+
+          accept_confirm { click_button "Submit" }
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+
+          expect(page).to have_content("You have already answered this form.")
+        end
+      end
     end
   end
 end
