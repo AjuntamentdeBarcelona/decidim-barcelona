@@ -10,7 +10,6 @@ module Decidim
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
-        return permission_action if context[:current_settings].allow_unregistered? # answer survey by unregistered user
 
         if create_ephemeral_participant?
           allow!    if allowed_to_create_ephemeral_participant?
