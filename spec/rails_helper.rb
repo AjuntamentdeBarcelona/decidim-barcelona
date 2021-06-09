@@ -27,6 +27,7 @@ Decidim::CapybaraTestHelpers.prepend(CapybaraTestHelpersPatch)
 require "decidim/ephemeral_participation/test"
 require "decidim/census_sms/verification/test"
 require "decidim/budgets/test/factories"
+require "decidim/surveys/test/factories"
 require "decidim/system/test/factories"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

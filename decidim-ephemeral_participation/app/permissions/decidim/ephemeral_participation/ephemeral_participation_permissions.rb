@@ -99,6 +99,7 @@ module Decidim
       def allowed_ephemeral_participation?
         return true if browsing_public_pages?
         return true if changing_locales?
+        return true if answering_public_survey?
         return true if user && user.verified_ephemeral_participant? && ephemeral_participation_permission_action?
 
         false
@@ -112,6 +113,13 @@ module Decidim
         permission_action.action == :create &&
           permission_action.scope == :public &&
             permission_action.subject == :locales
+      end
+
+      def answering_public_survey?
+        permission_action.action == :answer &&
+          permission_action.scope == :public &&
+            permission_action.subject == :questionnaire &&
+             context[:current_settings].allow_unregistered?
       end
 
       def ephemeral_participation_permission_action?
