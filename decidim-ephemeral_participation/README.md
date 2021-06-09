@@ -30,9 +30,8 @@ end
 
 **IMPORANT**
 The following assumptions are made:
-- The verification workflow is responsible for making users accept the TOS.
-- The verification workflow is redirecting to `authorizations_path` or `redirect_url` after creating the authorization.
-- If the verification workflow has multiple steps, it responds to `resume_authorization_path`.
+- The verification worflow is responsible for making users accept the TOS.
+- The verification worflow is redirecting to `decidim_verification.authorizations_path` after granting the authorization.
 
 ## Contributing
 

@@ -19,21 +19,23 @@ describe "User menu", type: :system do
   end
 
   context "when the user clicks the ephemeral participation button and toggles the user menu" do
+    let(:current_user)     { Decidim::User.last }
+    let(:session_duration) { 5.minutes }
     let(:toggle_user_menu) do
       within(".topbar__user__logged") do
         click_link(current_user.name)
       end
     end
-    let(:current_user) { Decidim::User.last }
 
     before do
+      stub_const("#{Decidim::EphemeralParticipation::SessionPresenter}::EPHEMERAL_PARTICIPANT_SESSION_DURATION", session_duration)
       click_ephemeral_participation_button
       toggle_user_menu
     end
 
     it "shows alternative user menu" do
       within(".topbar__user__logged") do
-        expect(page).to have_content("#{(Devise.timeout_in / 1.minute).round} min. before automatic sign out")
+        expect(page).to have_content("#{(session_duration / 1.minute).round} min. before automatic sign out")
         expect(page).to have_link("Finish your registration")
         expect(page).to have_link("Cancel and sign out")
       end
@@ -72,6 +74,10 @@ describe "User menu", type: :system do
         expect(page).to have_field("ephemeral_participant_password_confirmation")
 
         expect(page).to have_current_path(%r{#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*})
+
+        # flash message
+        expect(page).not_to have_content("You need to be verified in order tor participate:")
+        expect(page).not_to have_link("Complete the verification process here")
       end
     end
   end

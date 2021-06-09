@@ -8,6 +8,7 @@ describe "Organization", type: :system do
   let(:admin) { create(:admin) }
 
   before do
+    Decidim::Verifications.clear_workflows
     register_workflows
   end
 

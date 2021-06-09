@@ -59,7 +59,7 @@ shared_context "with ephemerable participation" do
     create(
       :authorization,
       :granted,
-      name: "dummy_authorization_handler",
+      name: ephemeral_participable_authorization,
       user: authorized_user,
       unique_id: document_number,
       metadata: { document_number: document_number }
@@ -98,8 +98,6 @@ shared_context "with ephemerable participation" do
       "decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb",
       "decidim-generators/lib/decidim/generators/app_templates/another_dummy_authorization_handler.rb",
     ].each { |file_path| require "#{Gem::Specification.find_by_name("decidim").gem_dir}/#{file_path}" }
-
-    Decidim::Verifications.clear_workflows
 
     Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|
       workflow.form = "DummyAuthorizationHandler"
