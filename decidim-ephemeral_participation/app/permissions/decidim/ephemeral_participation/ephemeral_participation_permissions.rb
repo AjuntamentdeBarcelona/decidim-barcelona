@@ -97,7 +97,6 @@ module Decidim
         verify_ephemeral_participant_path? && (not user.verified_ephemeral_participant?)
       end
 
-
       def allowed_ephemeral_participation?
         return true if browsing_public_pages?
         return true if changing_locales?
