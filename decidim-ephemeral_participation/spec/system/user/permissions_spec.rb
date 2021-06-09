@@ -43,6 +43,25 @@ describe "Permissions", type: :system do
       end
     end
 
+    context "when the user performs an authorized action WITHOUT submitting the authorization form" do
+      let(:perform_authorized_action_supposed_to_redirect) do
+        click_link(project.title["en"])
+
+        within("#project") do
+          click_link("Add to your vote")
+        end
+      end
+
+      before do
+        visit_component
+        perform_authorized_action_supposed_to_redirect
+      end
+
+      it "redirects to the authorization form" do
+        expect(page).to have_current_path(%r{#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*})
+      end
+    end
+
     context "when the user performs a non authorized action WITHOUT submitting the authorization form" do
       before do
         visit_component

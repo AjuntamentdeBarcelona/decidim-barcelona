@@ -91,7 +91,12 @@ describe "Verification conflicts", type: :system do
           expect(page).to have_link("en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.reset_password")
           expect(page).to have_link("en.decidim.authorization_handlers.errors.close")
           expect(page).to have_field("unverifiable_ephemeral_participant_email")
+
           expect(page).to have_current_path(%r{/ephemeral_participation/ephemeral_participants/\d+/unverifiable})
+
+          # flash message
+          expect(page).not_to have_content("You need to be verified in order tor participate:")
+          expect(page).not_to have_link("Complete the verification process here")
         end
 
         context "when the user submits the unverifiable form" do

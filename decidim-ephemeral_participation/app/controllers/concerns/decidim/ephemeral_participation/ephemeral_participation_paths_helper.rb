@@ -62,12 +62,18 @@ module Decidim
       end
 
       def verify_ephemeral_participant_path?
+        return false if homepage?
+
         adapter = ephemeral_participation_verification_adapter
         engine  = (adapter.type == "direct") ? Decidim::Verifications::Engine : adapter.send(:main_engine)
 
         engine.routes.recognize_path_with_request(request.dup, request.path, method: request.method)
       rescue ActionController::RoutingError
         false
+      end
+
+      def homepage?
+        request.path == "/"
       end
 
       def verify_ephemeral_participant_path

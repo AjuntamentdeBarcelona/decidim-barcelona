@@ -53,20 +53,14 @@ module Decidim
         end
 
         def inform_ephemeral_participant
-          return (flash.now[:warning] = unverified_ephemeral_participant_message) if inform_unverified_ephemeral_participant?
-          return (flash.now[:warning] = verified_ephemeral_participant_message)   if inform_verified_ephemeral_participant?
-        end
+          presenter = Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers)
 
-        def unverified_ephemeral_participant_message
-          Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers).unverified_ephemeral_participant_message
+          return (flash.now[:warning] = presenter.unverified_ephemeral_participant_message) if inform_unverified_ephemeral_participant?
+          return (flash.now[:warning] = presenter.verified_ephemeral_participant_message)   if inform_verified_ephemeral_participant?
         end
 
         def inform_unverified_ephemeral_participant?
           informable_ephemeral_participant? && (not current_user.verified_ephemeral_participant?)
-        end
-
-        def verified_ephemeral_participant_message
-          Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers).verified_ephemeral_participant_message
         end
 
         def inform_verified_ephemeral_participant?
