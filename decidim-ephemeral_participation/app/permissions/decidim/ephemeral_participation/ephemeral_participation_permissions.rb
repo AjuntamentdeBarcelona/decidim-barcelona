@@ -97,13 +97,6 @@ module Decidim
         verify_ephemeral_participant_path? && (not user.verified_ephemeral_participant?)
       end
 
-      def verify_ephemeral_participant_path?
-        Decidim::EphemeralParticipation::InformingRecognizer.new(context[:request], user).verify_ephemeral_participant_path?
-      end
-
-      def decidim_verifiations
-        Decidim::Verifications::Engine.routes.url_helpers
-      end
 
       def allowed_ephemeral_participation?
         return true if browsing_public_pages?
@@ -124,12 +117,20 @@ module Decidim
       end
 
       def ephemeral_participation_permission_action?
-        Decidim::EphemeralParticipation::EphemeralActionPermissionsDictionary.for(component)
+        Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
           .any? do |_, permission_action_attributes|
             permission_action_attributes.any? do |action:, scope:, subject:|
               permission_action.matches?(scope, action, subject)
             end
           end
+      end
+
+      def request
+        context[:request]
+      end
+
+      def current_user
+        user
       end
     end
   end
