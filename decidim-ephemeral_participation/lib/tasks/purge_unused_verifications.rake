@@ -23,8 +23,8 @@ namespace :decidim do
     end
 
     def conflicts_for(user)
-      Decidim::Conflict.where(managed_user: user, solved: false).or(
-        Decidim::Conflict.where(current_user: user, solved: false)
+      Decidim::Verifications::Conflict.where(managed_user: user, solved: false).or(
+        Decidim::Verifications::Conflict.where(current_user: user, solved: false)
       )
     end
   end
