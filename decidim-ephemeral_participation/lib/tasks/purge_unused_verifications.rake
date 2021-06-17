@@ -24,7 +24,7 @@ namespace :decidim do
 
     def conflicts_for(user)
       Decidim::Conflict.where(managed_user: user, solved: false).or(
-        Decidim::Conflict.where(user: user, solved: false)
+        Decidim::Conflict.where(current_user: user, solved: false)
       )
     end
   end
