@@ -11,7 +11,11 @@ namespace :decidim do
     end
 
     def unused_autorizations
-      Decidim::Authorization
+      Decidim::Authorization.where(user: lost_ephemeral_users)
+    end
+
+    def lost_ephemeral_users
+      Decidim::User.ephemeral_participant.where("updated_at < ?", 12.hours.ago).where("id NOT IN (SELECT decidim_user_id FROM decidim_budgets_orders)")
     end
 
     def conflicts_for(user)
