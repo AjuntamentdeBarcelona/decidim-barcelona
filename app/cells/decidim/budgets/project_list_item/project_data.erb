@@ -1,10 +1,12 @@
 <div class="budget-list__data <%= data_class %>">
   <% if voting_finished? %>
     <div class="budget-list__data__votes">
-      <%= budget_to_currency(model.budget_amount) %>
+      <div class="m-bottom">
+        <span class="definition-data__title"><%= t("decidim.budgets.projects.show.budget") %></span>
+        <span class="definition-data__number"><%= budget_to_currency project.budget_amount %></span>
+      </div>
 
       <%= cell("decidim/budgets/project_votes_count", model) %>
-
       <%= cell("decidim/budgets/project_voted_hint", model, class: "display-block margin-top-1") %>
     </div>
   <% else %>
