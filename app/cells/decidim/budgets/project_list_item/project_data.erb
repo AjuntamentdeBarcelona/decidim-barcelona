@@ -3,7 +3,7 @@
     <div class="budget-list__data__votes">
       <div class="m-bottom">
         <span class="definition-data__title"><%= t("decidim.budgets.projects.show.budget") %></span>
-        <span class="definition-data__number"><%= budget_to_currency project.budget_amount %></span>
+        <span class="definition-data__number"><%= budget_to_currency model.budget_amount %></span>
       </div>
 
       <%= cell("decidim/budgets/project_votes_count", model) %>
