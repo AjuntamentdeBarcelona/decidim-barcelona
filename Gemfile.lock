@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: debb2f04f819438761929731d45c3556e75e0670
+  revision: e9ee358ca11b4d75a86bb16d430c6a14e148b63b
   branch: release/0.24-stable-bcn
   specs:
     decidim (0.24.3)
@@ -367,7 +367,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.1.35)
+    chef-utils (17.2.29)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -433,7 +433,7 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.5.1)
+    doorkeeper (5.5.2)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dotenv (2.7.6)
