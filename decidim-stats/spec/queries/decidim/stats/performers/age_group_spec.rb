@@ -16,7 +16,7 @@ describe Decidim::Stats::Performers::AgeGroup do
     create(
       :authorization,
       user: user,
-      name: "census_authorization_handler",
+      name: "census_sms_authorization_handler",
       metadata: {
         date_of_birth: "2000-01-01"
       }

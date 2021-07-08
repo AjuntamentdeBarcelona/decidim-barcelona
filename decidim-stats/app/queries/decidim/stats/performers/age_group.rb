@@ -23,7 +23,7 @@ module Decidim
 
         def user_ids
           Decidim::Authorization
-            .where(name: "census_authorization_handler")
+            .where(name: "census_sms_authorization_handler")
             .where("metadata ->> 'date_of_birth' >= ?", birth_limits[:old])
             .where("metadata ->> 'date_of_birth' < ?", birth_limits[:young])
             .pluck(:decidim_user_id)

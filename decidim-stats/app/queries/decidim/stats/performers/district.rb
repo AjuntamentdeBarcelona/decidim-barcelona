@@ -23,7 +23,7 @@ module Decidim
 
         def user_ids
           Decidim::Authorization
-            .where(name: "census_authorization_handler")
+            .where(name: "census_sms_authorization_handler")
             .where("metadata @> ?", { scope: district }.to_json)
             .pluck(:decidim_user_id)
         end
