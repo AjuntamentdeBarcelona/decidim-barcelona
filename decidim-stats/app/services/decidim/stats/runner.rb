@@ -3,8 +3,9 @@
 module Decidim
   module Stats
     class Runner
-      def initialize(minimum_count:)
+      def initialize(minimum_count:, component_ids:)
         @minimum_count = minimum_count
+        @component_ids = component_ids
       end
 
       def run
@@ -37,7 +38,7 @@ module Decidim
 
       private
 
-      attr_reader :minimum_count
+      attr_reader :minimum_count, :component_ids
 
       def actions
         [
@@ -66,7 +67,8 @@ module Decidim
       end
 
       def components
-        @components ||= Decidim::Component.unscoped.order(id: :asc).all
+        @components ||= Decidim::Component.unscoped.order(id: :asc)
+        component_ids.any? ? @components.where(id: component_ids) : @components
       end
 
       def pretty_klass_name(klass)

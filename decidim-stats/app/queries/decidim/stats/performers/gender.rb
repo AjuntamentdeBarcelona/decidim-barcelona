@@ -23,9 +23,9 @@ module Decidim
 
         def user_ids
           Decidim::Authorization
-            .where(name: "census_sms_authorization_handler")
-            .where("metadata @> ?", { extras:{gender:gender} }.to_json)
-            .pluck(:decidim_user_id)
+            .where(name: "census_sms_authorization_handler").find_each.map do |authorization|
+              authorization.decidim_user_id if authorization.metadata.dig("extras", "gender").to_s == gender
+            end.compact
         end
       end
     end

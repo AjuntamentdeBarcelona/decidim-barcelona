@@ -23,10 +23,11 @@ module Decidim
 
         def user_ids
           Decidim::Authorization
-            .where(name: "census_sms_authorization_handler")
-            .where("metadata ->> 'date_of_birth' >= ?", birth_limits[:old])
-            .where("metadata ->> 'date_of_birth' < ?", birth_limits[:young])
-            .pluck(:decidim_user_id)
+            .where(name: "census_sms_authorization_handler").find_each.map do |authorization|
+              date_of_birth = Date.parse(authorization.metadata["date_of_birth"]) rescue nil
+              next unless date_of_birth
+              authorization.decidim_user_id if date_of_birth.between?(birth_limits[:old], birth_limits[:young])
+            end.compact
         end
 
         def birth_limits
