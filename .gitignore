@@ -27,3 +27,6 @@
 .rspec-failures
 Capfile
 config/deploy*
+
+node_modules
+public/decidim_packs

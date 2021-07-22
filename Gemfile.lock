@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: e9ee358ca11b4d75a86bb16d430c6a14e148b63b
+  revision: e5764086487247c1447bbb48e95710e8c904752f
   branch: release/0.24-stable-bcn
   specs:
     decidim (0.24.3)
@@ -306,7 +306,7 @@ GEM
       tzinfo (~> 1.1)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     anchored (1.1.0)
     arel (9.0.0)
@@ -367,7 +367,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.2.29)
+    chef-utils (17.3.48)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -420,8 +420,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
@@ -505,7 +505,7 @@ GEM
     fog-json (1.2.0)
       fog-core
       multi_json (~> 1.10)
-    fog-local (0.6.0)
+    fog-local (0.7.0)
       fog-core (>= 1.27, < 3.0)
     fog-xml (0.1.3)
       fog-core
@@ -529,7 +529,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.12)
+    graphql (1.12.13)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -833,7 +833,7 @@ GEM
     ruby-vips (2.1.2)
       ffi (~> 1.12)
     ruby2_keywords (0.0.4)
-    rubyzip (2.3.0)
+    rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
