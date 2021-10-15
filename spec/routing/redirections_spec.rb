@@ -7,7 +7,13 @@ require "decidim/proposals/test/factories"
 require "decidim/meetings/test/factories"
 
 describe "routing redirections", type: :request do
-  let!(:organization) { create(:organization, host: "decidim.barcelona" )}
+  let!(:organization) { create(:organization, host: "decidim.barcelona", available_authorizations: authorizations )}
+  let(:authorizations) do
+    {
+      "dummy_authorization_handler" => { "allow_ephemeral_participation" => true },
+      "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false },
+    }
+  end
 
   describe "proposals" do
     let!(:participatory_process) { create(:participatory_process, organization: organization, slug: "test-process") }
@@ -66,7 +72,6 @@ describe "routing redirections", type: :request do
       end
 
       context "when browsing the meetings of an assembly" do
-
         it "does not try to redirect" do
           expect { get("/assemblies/#{participatory_space.slug}/f/#{component.id}/meetings/#{meeting.id}") }.not_to raise_error
         end
