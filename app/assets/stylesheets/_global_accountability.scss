@@ -82,3 +82,39 @@
     }
   }
 }
+.accountability .categories .categories--group .card__link .category--scope--line {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 9rem;
+  padding: 0;
+  margin-bottom: 1.875rem;
+  position: relative;
+
+  strong {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    display: block;
+  }
+}
+
+.accountability .categories .categories--group .card__link .category--without--children {
+  height: 13rem;
+}
+
+.accountability .categories .categories--group .card__link .category--scope--line .scope--inner {
+  padding: 1rem;
+}
+
+.accountability .categories a.block--scope:hover {
+  background: inherit;
+  text-decoration: inherit;
+}
+
+.accountability .categories .categories--group .card__link:hover .category--count {
+  color: inherit;
+}
+
+.accountability .categories .categories--group .card__link .category--line strong {
+  color: white;
+}
