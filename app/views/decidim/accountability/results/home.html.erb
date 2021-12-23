@@ -1,7 +1,9 @@
 <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "home_header" %>
-    <%= render partial: "home_scopes" %>
+    <% if current_participatory_space.slug.to_s == "PressupostosParticipatius" %>
+      <%= render partial: "home_scopes" %>
+    <% end %>
     <%= render partial: "home_categories" %>
   </div>
 </div>
