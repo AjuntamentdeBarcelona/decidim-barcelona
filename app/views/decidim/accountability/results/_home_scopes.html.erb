@@ -14,21 +14,20 @@
                     <div class="scope--inner">
                       <strong><%= translated_attribute(scope.name) %></strong>
 
-                        <div class="progress">
-                          <div class="progress-meter" style="width:<%= progress %>%"></div>
-                        </div>
-
-                        <% if component_settings.display_progress_enabled? && progress.present? %>
-                          <div class="progress-info">
-                            <div class="progress-figure heading3">
-                              <%= display_percentage progress %>
-                            </div>
-                          </div>
-                        <% end %>
-
-                      <div class="category--count">
-                        <%= display_count scope_results_count %>
+                      <div class="progress">
+                        <div class="progress-meter" style="width:<%= progress %>%"></div>
                       </div>
+
+                      <% if component_settings.display_progress_enabled? && progress.present? %>
+                        <div class="progress-info">
+                          <div class="progress-figure heading3">
+                            <%= display_percentage progress %>
+                          </div>
+                          <div class="category--count">
+                            <%= display_count scope_results_count %>
+                          </div>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 <% end %>

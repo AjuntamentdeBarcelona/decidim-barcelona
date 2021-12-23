@@ -96,10 +96,20 @@
     padding-bottom: 0.5rem;
     display: block;
   }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 }
 
 .accountability .categories .categories--group .card__link .category--without--children {
-  height: 13rem;
+  height: 11rem;
+
+  strong {
+    min-height: 5rem;
+  }
 }
 
 .accountability .categories .categories--group .card__link .category--scope--line .scope--inner {
