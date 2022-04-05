@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
-DECIDIM_MAIN_BRANCH = "release/0.24-stable-bcn"
+# DECIDIM_MAIN_BRANCH = "release/0.24-stable-bcn"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
+# DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
 
+DECIDIM_VERSION = "~> 0.26.1"
 ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
@@ -14,18 +15,14 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
-gem "decidim-navigation_maps", "~> 1.2.0"
+gem "decidim-navigation_maps", "~> 1.3.0"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
 
-gem "sassc", "~> 2.4.0"
-
-gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
-gem "wicked_pdf", "~> 1.4"
+gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
-gem "geocoder", "~> 1.6.1"
 
 gem 'uglifier'
 gem 'lograge'
@@ -33,8 +30,6 @@ gem "deface"
 gem "progressbar"
 gem "puma"
 gem "origami"
-
-gem "execjs", "~> 2.7.0"
 
 # Needed to be able to debug Puma status
 gem "barnes"
@@ -78,6 +73,6 @@ group :production do
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.7"
+  gem "rspec"
   gem "database_cleaner"
 end

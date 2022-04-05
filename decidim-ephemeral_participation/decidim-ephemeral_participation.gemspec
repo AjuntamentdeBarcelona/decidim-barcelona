@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "decidim-ephemeral_participation"
   s.summary     = "A decidim module that allows users to participate without registration."
   s.description = s.summary
-  s.version     = "0.0.1"
+  s.version     = "0.0.2"
   s.authors     = ["Ivan Vergés"]
   s.email       = ["ivan@platoniq.net"]
 

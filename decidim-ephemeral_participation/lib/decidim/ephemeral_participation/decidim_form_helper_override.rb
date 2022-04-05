@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-gem_dir   = Gem::Specification.find_by_name("decidim").gem_dir
-file_path = "decidim-core/app/helpers/decidim/decidim_form_helper"
+gem_dir   = Gem::Specification.find_by_name("decidim-core").gem_dir
+file_path = "app/helpers/decidim/decidim_form_helper"
 
 require "#{gem_dir}/#{file_path}"
 
