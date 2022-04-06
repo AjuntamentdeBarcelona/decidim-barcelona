@@ -9,7 +9,7 @@ ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-census_sms", path: "decidim-census_sms"
-# gem "decidim-dataviz", path: "decidim-dataviz"
+gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-stats", path: "decidim-stats"

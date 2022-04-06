@@ -1,6 +1,5 @@
-// = require jquery.browser
-// = require jquery-iframe-auto-height
-// = require_self
+import "src/vendor/jquery.browser";
+import "src/vendor/jquery-iframe-auto-height";
 
 $(() => {
   $("iframe.autoheight").iframeAutoHeight({

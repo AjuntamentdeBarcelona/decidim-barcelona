@@ -14,6 +14,10 @@ module Decidim
       initializer "decidim_dataviz.public" do |app|
         app.middleware.insert_before(::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public")
       end
+
+      initializer "decidim_dataviz.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end
