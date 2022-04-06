@@ -8,7 +8,7 @@ DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/
 ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-census_sms", path: "decidim-census_sms"
+gem "decidim-census_sms", path: "decidim-census_sms"
 # gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION

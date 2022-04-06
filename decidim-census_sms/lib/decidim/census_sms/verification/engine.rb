@@ -18,6 +18,10 @@ module Decidim
           end
           root to: "authorizations#new"
         end
+
+        initializer "decidim_census_sms.webpacker.assets_path" do
+          Decidim.register_assets_path File.expand_path("app/packs", root)
+        end
       end
     end
   end

@@ -1,0 +1,24 @@
+.new_authorization {
+  .field.date {
+    label {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+
+    select {
+      grid-row: 2;
+    }
+
+    .label-required {
+      width: 0.5rem;
+      grid-column: 3;
+      justify-self: flex-end;
+    }
+
+    .form-error {
+      grid-row: 3;
+      grid-column: span 3;
+    }
+  }
+}
