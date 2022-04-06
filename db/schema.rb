@@ -1280,18 +1280,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_114645) do
     t.index ["decidim_component_id"], name: "idx_participatory_texts_on_decidim_component_id"
   end
 
-  create_table "decidim_proposals_proposal_endorsements", force: :cascade do |t|
-    t.bigint "decidim_proposal_id", null: false
-    t.bigint "decidim_author_id", null: false
-    t.bigint "decidim_user_group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
-    t.index ["decidim_author_id"], name: "decidim_proposals_proposal_endorsement_author"
-    t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
-    t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
-  end
-
   create_table "decidim_proposals_proposal_notes", force: :cascade do |t|
     t.bigint "decidim_proposal_id", null: false
     t.bigint "decidim_author_id", null: false
@@ -1506,48 +1494,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_114645) do
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
 
-  create_table "decidim_surveys_survey_answer_choices", force: :cascade do |t|
-    t.bigint "decidim_survey_answer_id"
-    t.bigint "decidim_survey_answer_option_id"
-    t.jsonb "body"
-    t.text "custom_body"
-    t.integer "position"
-    t.index ["decidim_survey_answer_id"], name: "index_decidim_surveys_answer_choices_answer_id"
-    t.index ["decidim_survey_answer_option_id"], name: "index_decidim_surveys_answer_choices_answer_option_id"
-  end
-
-  create_table "decidim_surveys_survey_answer_options", force: :cascade do |t|
-    t.bigint "decidim_survey_question_id"
-    t.jsonb "body"
-    t.boolean "free_text"
-    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answer_options_question_id"
-  end
-
-  create_table "decidim_surveys_survey_answers", id: :serial, force: :cascade do |t|
-    t.integer "decidim_user_id"
-    t.integer "decidim_survey_id"
-    t.integer "decidim_survey_question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "body"
-    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_answers_on_decidim_survey_id"
-    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answers_question_id"
-    t.index ["decidim_user_id"], name: "index_decidim_surveys_survey_answers_on_decidim_user_id"
-  end
-
-  create_table "decidim_surveys_survey_questions", id: :serial, force: :cascade do |t|
-    t.jsonb "body"
-    t.integer "decidim_survey_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "position"
-    t.boolean "mandatory"
-    t.string "question_type"
-    t.integer "max_choices"
-    t.jsonb "description"
-    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_questions_on_decidim_survey_id"
-  end
-
   create_table "decidim_surveys_surveys", id: :serial, force: :cascade do |t|
     t.integer "decidim_component_id"
     t.datetime "created_at", null: false
@@ -1612,20 +1558,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_114645) do
     t.index ["decidim_user_id", "decidim_user_group_id"], name: "decidim_user_group_memberships_unique_user_and_group_ids", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_user_group_memberships_on_decidim_user_id"
     t.index ["role", "decidim_user_group_id"], name: "decidim_group_membership_one_creator_per_group", unique: true, where: "((role)::text = 'creator'::text)"
-  end
-
-  create_table "decidim_user_groups", id: :serial, force: :cascade do |t|
-    t.string "name", null: false
-    t.string "document_number"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "avatar"
-    t.datetime "verified_at"
-    t.datetime "rejected_at"
-    t.integer "decidim_organization_id", null: false
-    t.index ["decidim_organization_id", "document_number"], name: "index_decidim_user_groups_document_number_on_organization_id", unique: true
-    t.index ["decidim_organization_id", "name"], name: "index_decidim_user_groups_names_on_organization_id", unique: true
   end
 
   create_table "decidim_user_moderations", force: :cascade do |t|

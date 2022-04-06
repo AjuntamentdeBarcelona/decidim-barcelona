@@ -4,7 +4,6 @@ Decidim.configure do |config|
   config.application_name = "Decidim Barcelona"
   config.mailer_sender    = Rails.application.secrets.email
   config.maximum_attachment_size = 150.megabytes
-  config.force_ssl        = true
 
   config.available_locales = %i(ca es)
   config.default_locale = :ca
@@ -65,3 +64,6 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.metadata_cell = "census16_authorization_metadata"
   auth.ephemerable = true
 end
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)

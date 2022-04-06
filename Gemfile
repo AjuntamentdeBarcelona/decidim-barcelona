@@ -4,18 +4,18 @@ source "https://rubygems.org"
 
 # DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
 
-DECIDIM_VERSION = "~> 0.26.1"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.26-stable" }.freeze
 ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-census_sms", path: "decidim-census_sms"
-gem "decidim-dataviz", path: "decidim-dataviz"
+# gem "decidim-census_sms", path: "decidim-census_sms"
+# gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
-gem "decidim-navigation_maps", "~> 1.3.0"
+gem "decidim-navigation_maps", "~> 1.3.3"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"

@@ -1,0 +1,37 @@
+{
+  "name": "app",
+  "private": true,
+  "dependencies": {
+    "@decidim/browserslist-config": "^0.26.1",
+    "@decidim/core": "^0.26.1",
+    "@decidim/elections": "^0.26.1",
+    "@decidim/webpacker": "^0.26.1",
+    "@geoman-io/leaflet-geoman-free": "^2.11.4",
+    "@rails/webpacker": "^6.0.0-rc.6",
+    "jquery-form": "^4.3.0",
+    "jsviews": "^1.0.11",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "version": "0.1.0",
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "extends @decidim/browserslist-config"
+  ],
+  "devDependencies": {
+    "@decidim/dev": "^0.26.1",
+    "@decidim/eslint-config": "^0.26.1",
+    "@decidim/stylelint-config": "^0.26.1",
+    "@webpack-cli/serve": "^1.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "stylelint": "^13.11.0",
+    "webpack-dev-server": "^4.8.0"
+  }
+}

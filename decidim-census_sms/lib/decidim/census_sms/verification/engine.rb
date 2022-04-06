@@ -18,11 +18,6 @@ module Decidim
           end
           root to: "authorizations#new"
         end
-
-        initializer "decidim_census_sms.assets" do |app|
-          app.config.assets.precompile += %w(decidim_census_sms_manifest.css
-                                             decidim/census_sms/verification.scss)
-        end
       end
     end
   end

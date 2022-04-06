@@ -59,6 +59,11 @@ ca:
     invalid_document: El número de document, el tipus de document, la data de naixement
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   decidim:
+    accessibility:
+      external_link: Link extern
+      front_page_link: Ves a la pàgina principal
+      logo: "Logo oficial de %{organization}"
+      skip_button: Salta i ves al contingut principal
     accountability:
       admin:
         import_results:

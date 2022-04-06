@@ -59,6 +59,11 @@ es:
     invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento
       o el código postal son incorrectos. Por favor, revisa estos datos.
   decidim:
+    accessibility:
+      external_link: Link externo
+      front_page_link: Ir a la página principal
+      logo: "Logo oficial de %{organization}"
+      skip_button: Salta e ir al contenido principal
     accountability:
       admin:
         import_results:
