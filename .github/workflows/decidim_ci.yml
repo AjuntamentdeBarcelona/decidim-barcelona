@@ -26,6 +26,7 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      RAILS_ENV: test
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -38,11 +39,9 @@ jobs:
         name: Lint Ruby files
       - run: bundle exec rake db:test:prepare
         name: Setup database
-      - run: bundle exec rspec
-        name: Run specs
       - name: Precompile assets
         run: |
           yarn install
           bundle exec rake assets:precompile
-        env:
-          RAILS_ENV: test
+      - run: bundle exec rspec
+        name: Run specs
