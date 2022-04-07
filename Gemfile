@@ -59,9 +59,9 @@ group :production do
   gem "puma_worker_killer"
   # Let's kill long-running requests after the Heroku router has responded to.
   # https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
+  gem "aws-sdk-s3", require: false
   gem "dalli"
   gem "fog-aws" # to remove once image migration is complete
-  gem "aws-sdk-s3", require: false
   gem "rack_password"
   gem "rack-ssl-enforcer"
   gem "rack-timeout"
