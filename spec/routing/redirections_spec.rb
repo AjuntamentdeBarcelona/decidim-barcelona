@@ -9,7 +9,7 @@ require "decidim/proposals/test/factories"
 require "decidim/meetings/test/factories"
 
 describe "routing redirections", type: :request do
-  let!(:organization) { create(:organization, host: "decidim.barcelona", available_authorizations: authorizations) }
+  let(:organization) { create(:organization, host: "decidim.barcelona", available_authorizations: authorizations) }
   let(:authorizations) do
     {
       "dummy_authorization_handler" => { "allow_ephemeral_participation" => true },
@@ -18,8 +18,8 @@ describe "routing redirections", type: :request do
   end
 
   describe "proposals" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization, slug: "test-process") }
-    let!(:component) { create(:proposal_component, participatory_space: participatory_process) }
+    let(:participatory_process) { create(:participatory_process, organization: organization, slug: "test-process") }
+    let(:component) { create(:proposal_component, participatory_space: participatory_process) }
     let!(:proposal) { create(:proposal, component: component, extra: { slug: "test-proposal" }) }
 
     context "with the right host" do
