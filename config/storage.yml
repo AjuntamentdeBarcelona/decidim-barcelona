@@ -1,0 +1,8 @@
+root: <%= Rails.root.join("storage") %>
+
+amazon:
+  service: S3
+  access_key_id: <%= Rails.application.secrets.aws_access_key_id %>
+  secret_access_key: <%= Rails.application.secrets.aws_secret_access_key %>
+  region: eu-west-1
+  bucket: <%= ENV.fetch("AWS_BUCKET_NAME", "decidim-barcelona-new") %>
