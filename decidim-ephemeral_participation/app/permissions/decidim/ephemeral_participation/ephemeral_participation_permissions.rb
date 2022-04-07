@@ -7,18 +7,20 @@ module Decidim
     class EphemeralParticipationPermissions < DefaultPermissions
       include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
 
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity:
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
 
         if create_ephemeral_participant?
-          allow!    if allowed_to_create_ephemeral_participant?
+          allow! if allowed_to_create_ephemeral_participant?
         elsif update_ephemeral_participant?
-          allow!    if allowed_to_update_ephemeral_participant?
+          allow! if allowed_to_update_ephemeral_participant?
         elsif destroy_ephemeral_participant?
-          allow!    if allowed_to_destroy_ephemeral_participant?
+          allow! if allowed_to_destroy_ephemeral_participant?
         elsif update_unverifiable_ephemeral_participant?
-          allow!    if allowed_to_destroy_ephemeral_participant?
+          allow! if allowed_to_destroy_ephemeral_participant?
         elsif verifying_ephemeral_participant?
           disallow! unless allowed_to_verify_ephemeral_participant?
         else
@@ -27,29 +29,31 @@ module Decidim
 
         permission_action
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity:
 
       private
 
       def regular_user?
-        user && (not user.ephemeral_participant?)
+        user && !user.ephemeral_participant?
       end
 
       def create_ephemeral_participant?
         permission_action.action == :create &&
           permission_action.scope == :public &&
-            permission_action.subject == :ephemeral_participant
+          permission_action.subject == :ephemeral_participant
       end
 
       def allowed_to_create_ephemeral_participant?
         return true if user.nil?
-        return true if (not user.verified_ephemeral_participant?)
-        
+        return true unless user.verified_ephemeral_participant?
+
         false
       end
 
       def destroy_ephemeral_participant?
         permission_action.action == :destroy &&
-        permission_action.scope == :public &&
+          permission_action.scope == :public &&
           permission_action.subject == :ephemeral_participant
       end
 
@@ -59,7 +63,7 @@ module Decidim
 
       def update_ephemeral_participant?
         permission_action.action == :update &&
-        permission_action.scope == :public &&
+          permission_action.scope == :public &&
           permission_action.subject == :ephemeral_participant
       end
 
@@ -70,7 +74,7 @@ module Decidim
       def update_unverifiable_ephemeral_participant?
         permission_action.action == :update_unverifiable &&
           permission_action.scope == :public &&
-            permission_action.subject == :ephemeral_participant
+          permission_action.subject == :ephemeral_participant
       end
 
       def allowed_to_update_unverifiable_ephemeral_participant?
@@ -79,9 +83,9 @@ module Decidim
 
       def verifying_ephemeral_participant?
         update_profile? ||
-        [:create, :update].include?(permission_action.action) &&
+          [:create, :update].include?(permission_action.action) &&
             permission_action.scope == :public &&
-              permission_action.subject == :authorization
+            permission_action.subject == :authorization
       end
 
       # Decidim::Verifications::AuthorizationsController (direct verification worflows)
@@ -89,11 +93,11 @@ module Decidim
       def update_profile?
         permission_action.action == :update_profile &&
           permission_action.scope == :public &&
-            permission_action.subject == :user
+          permission_action.subject == :user
       end
 
       def allowed_to_verify_ephemeral_participant?
-        verify_ephemeral_participant_path? && (not user.verified_ephemeral_participant?)
+        verify_ephemeral_participant_path? && !user.verified_ephemeral_participant?
       end
 
       def allowed_ephemeral_participation?
@@ -112,23 +116,23 @@ module Decidim
       def changing_locales?
         permission_action.action == :create &&
           permission_action.scope == :public &&
-            permission_action.subject == :locales
+          permission_action.subject == :locales
       end
 
       def answering_public_survey?
         permission_action.action == :answer &&
           permission_action.scope == :public &&
-            permission_action.subject == :questionnaire &&
-             context[:current_settings].allow_unregistered?
+          permission_action.subject == :questionnaire &&
+          context[:current_settings].allow_unregistered?
       end
 
       def ephemeral_participation_permission_action?
         Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
-          .any? do |_, permission_action_attributes|
-            permission_action_attributes.any? do |action:, scope:, subject:|
-              permission_action.matches?(scope, action, subject)
-            end
+                                                                             .any? do |_, permission_action_attributes|
+          permission_action_attributes.any? do |action:, scope:, subject:|
+            permission_action.matches?(scope, action, subject)
           end
+        end
       end
 
       def request

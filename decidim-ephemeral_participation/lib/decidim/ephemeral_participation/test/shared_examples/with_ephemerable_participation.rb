@@ -16,7 +16,7 @@ shared_context "with ephemerable participation" do
         ephemeral_participation: {
           authorization_name: ephemeral_participable_authorization,
           component_id: component.id,
-          permissions:  component.ephemeral_participation_permissions,
+          permissions: component.ephemeral_participation_permissions,
           request_path: ephemeral_participation_path
         }
       }
@@ -51,7 +51,7 @@ shared_context "with ephemerable participation" do
   let(:settings) do
     {
       ephemeral_participation_enabled: true,
-      ephemeral_participation_enabled_confirm_modal: { "en"=>"<p>Are you sure?</p>" }
+      ephemeral_participation_enabled_confirm_modal: { "en" => "<p>Are you sure?</p>" }
     }
   end
 
@@ -73,7 +73,7 @@ shared_context "with ephemerable participation" do
     accept_confirm { click_button("I want to participate without registering") }
   end
 
-  def click_ephemeral_parcipation_action_button(selector = ephemeral_participation_action_button_selector)
+  def click_ephemeral_parcipation_action_button(_selector = ephemeral_participation_action_button_selector)
     page.find(ephemeral_participation_action_button_selector).click
   end
 
@@ -96,7 +96,7 @@ shared_context "with ephemerable participation" do
   def register_workflows
     [
       "decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb",
-      "decidim-generators/lib/decidim/generators/app_templates/another_dummy_authorization_handler.rb",
+      "decidim-generators/lib/decidim/generators/app_templates/another_dummy_authorization_handler.rb"
     ].each { |file_path| require "#{Gem::Specification.find_by_name("decidim").gem_dir}/#{file_path}" }
 
     Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|

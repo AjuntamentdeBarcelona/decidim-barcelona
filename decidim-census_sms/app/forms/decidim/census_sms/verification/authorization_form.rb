@@ -22,7 +22,7 @@ module Decidim
         # it's created, and available though authorization.metadata
         def metadata
           super.merge(
-            tos_accepted_at: Time.now
+            tos_accepted_at: Time.zone.now
           )
         end
 

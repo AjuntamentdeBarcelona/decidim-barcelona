@@ -19,7 +19,7 @@ describe "User menu", type: :system do
   end
 
   context "when the user clicks the ephemeral participation button and toggles the user menu" do
-    let(:current_user)     { Decidim::User.last }
+    let(:current_user) { Decidim::User.last }
     let(:session_duration) { 5.minutes }
     let(:toggle_user_menu) do
       within(".topbar__user__logged") do
@@ -73,7 +73,7 @@ describe "User menu", type: :system do
         expect(page).to have_field("ephemeral_participant_password")
         expect(page).to have_field("ephemeral_participant_password_confirmation")
 
-        expect(page).to have_current_path(%r{#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*})
+        expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
         # flash message
         expect(page).not_to have_content("You need to be verified in order tor participate:")

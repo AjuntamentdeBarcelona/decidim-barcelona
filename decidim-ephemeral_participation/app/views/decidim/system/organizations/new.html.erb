@@ -67,9 +67,8 @@
   </div>
 
   <%= render partial: "authorizations_settings", locals: { f: f } %>
-  <%= render partial: "smtp_settings", locals: { f: f } %>
-  <%= render partial: "omniauth_settings", locals: { f: f } %>
-  <%= render partial: "file_upload_settings", locals: { f: f } %>
+
+  <%= render partial: "advanced_settings", locals: { f: f } %>
 
   <div class="actions">
     <%= f.submit I18n.t("decidim.system.models.organization.actions.save_and_invite") %>

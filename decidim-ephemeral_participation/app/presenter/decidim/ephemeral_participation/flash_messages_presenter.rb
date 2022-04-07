@@ -13,12 +13,11 @@ module Decidim
       def unauthorized_ephemeral_participant_message
         I18n.t(
           "decidim.ephemeral_participation.actions.unauthorized",
-          link: (
+          link:
             @view_helpers.link_to(
               I18n.t("decidim.ephemeral_participation.actions.unauthorized_link"),
-              edit_ephemeral_participant_path(current_user),
+              edit_ephemeral_participant_path(current_user)
             )
-          )
         ).html_safe
       end
 
@@ -27,7 +26,7 @@ module Decidim
           "decidim.ephemeral_participation.actions.verified",
           link: @view_helpers.link_to(
             I18n.t("decidim.ephemeral_participation.actions.verified_link"),
-              edit_ephemeral_participant_path(current_user),
+            edit_ephemeral_participant_path(current_user)
           )
         ).html_safe
       end
@@ -37,7 +36,7 @@ module Decidim
           "decidim.ephemeral_participation.actions.unverified",
           link: @view_helpers.link_to(
             I18n.t("decidim.ephemeral_participation.actions.unverified_link"),
-            verify_ephemeral_participant_path,
+            verify_ephemeral_participant_path
           )
         ).html_safe
       end

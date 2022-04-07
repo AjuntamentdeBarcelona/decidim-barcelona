@@ -4,10 +4,10 @@ module Decidim
   module EphemeralParticipation
     class TransferEphemeralParticipant < Rectify::Command
       def initialize(form)
-        @current_user      = form.current_user
-        @verified_user     = form.conflict.managed_user
+        @current_user = form.current_user
+        @verified_user = form.conflict.managed_user
         @unverifiable_user = form.conflict.current_user
-        @form              = form
+        @form = form
       end
 
       def call
@@ -28,22 +28,22 @@ module Decidim
       def unique_email?
         Decidim::EphemeralParticipation::DuplicatedUsers.new(
           organization: @form.current_user.organization,
-          where_clause: { email: @form.email },
+          where_clause: { email: @form.email }
         ).query.none?
       end
 
       def update_unverifiable_user
         Decidim::DestroyAccount.call(
           @unverifiable_user,
-          Decidim::DeleteAccountForm.from_params(reason: @form.reason),
+          Decidim::DeleteAccountForm.from_params(reason: @form.reason)
         )
       end
 
       def update_verified_user
-        @verified_user.confirmed_at  = Time.now.utc
+        @verified_user.confirmed_at = Time.now.utc
         @verified_user.session_token = SecureRandom.hex
         @verified_user.managed = false
-        
+
         @verified_user.email = @form.email
 
         @verified_user.skip_reconfirmation!
@@ -53,7 +53,7 @@ module Decidim
 
       def send_reset_password_instructions(user)
         mailer = user.send(:devise_mailer)
-        token  = user.send(:set_reset_password_token)
+        token = user.send(:set_reset_password_token)
 
         mailer.reset_password_instructions(user, token).deliver_now
       end

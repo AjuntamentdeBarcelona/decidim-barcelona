@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        validate  :validate_ephemeral_participation_enabled
+        validate :validate_ephemeral_participation_enabled
 
         private
 

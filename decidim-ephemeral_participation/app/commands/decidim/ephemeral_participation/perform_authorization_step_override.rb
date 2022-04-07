@@ -8,7 +8,7 @@ module Decidim
       included do
         # TEMPORARY OVERRIDE TO HANDLE VERIFICATION CONFLICTS WITH WORKFLOW AUTHORIZATIONS (MISSING IN DECIDIM)
         # https://github.com/decidim/decidim/pull/6748
-        alias :old_call :call
+        alias_method :old_call, :call
 
         def call
           if handler.invalid?

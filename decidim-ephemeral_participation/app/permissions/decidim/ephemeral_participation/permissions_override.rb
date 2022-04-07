@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        alias :old_permissions :permissions
+        alias_method :old_permissions, :permissions
 
         def permissions
           old_permissions

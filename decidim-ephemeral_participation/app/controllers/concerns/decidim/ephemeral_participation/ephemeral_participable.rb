@@ -8,9 +8,9 @@ module Decidim
       included do
         include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
 
-        before_action :destroy_ephemeral_participant,  if: :ephemeral_participant_session?
+        before_action :destroy_ephemeral_participant, if: :ephemeral_participant_session?
         before_action :redirect_ephemeral_participant, if: :ephemeral_participant_session?
-        before_action :inform_ephemeral_participant,   if: :ephemeral_participant_session?
+        before_action :inform_ephemeral_participant, if: :ephemeral_participant_session?
 
         helper_method :verify_ephemeral_participant_path
 
@@ -34,14 +34,14 @@ module Decidim
 
         def redirect_ephemeral_participant
           return redirect_to(unverifiable_ephemeral_participant_path(current_user)) if redirect_to_unverifiable_ephemeral_participant_path?
-          return redirect_to(ephemeral_participation_path)                          if redirect_to_ephemeral_participation_path?
-          return redirect_to(edit_ephemeral_participant_path(current_user))         if redirect_to_edit_ephemeral_participant_path?
+          return redirect_to(ephemeral_participation_path) if redirect_to_ephemeral_participation_path?
+          return redirect_to(edit_ephemeral_participant_path(current_user)) if redirect_to_edit_ephemeral_participant_path?
         end
 
         def redirect_to_unverifiable_ephemeral_participant_path?
           current_user.unverifiable_ephemeral_participant? &&
-            (not destroy_ephemeral_participant_path?) &&
-              (not unverifiable_ephemeral_participant_path?)
+            !destroy_ephemeral_participant_path? &&
+            !unverifiable_ephemeral_participant_path?
         end
 
         def redirect_to_ephemeral_participation_path?
@@ -56,11 +56,11 @@ module Decidim
           presenter = Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers)
 
           return (flash.now[:warning] = presenter.unverified_ephemeral_participant_message) if inform_unverified_ephemeral_participant?
-          return (flash.now[:warning] = presenter.verified_ephemeral_participant_message)   if inform_verified_ephemeral_participant?
+          return (flash.now[:warning] = presenter.verified_ephemeral_participant_message) if inform_verified_ephemeral_participant?
         end
 
         def inform_unverified_ephemeral_participant?
-          informable_ephemeral_participant? && (not current_user.verified_ephemeral_participant?)
+          informable_ephemeral_participant? && !current_user.verified_ephemeral_participant?
         end
 
         def inform_verified_ephemeral_participant?

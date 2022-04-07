@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "csv"
 
 module Decidim
@@ -9,7 +10,7 @@ module Decidim
       end
 
       def export
-        Tempfile.open(["stats", ".csv"], "#{Rails.root}/tmp/") do |tempfile|
+        Tempfile.open(["stats", ".csv"], Rails.root.join("tmp/")) do |tempfile|
           csv = CSV.new(tempfile)
           csv << %w(participatory_space_type participatory_space_id component_id action metric_type metric_name total)
           data.each do |line|

@@ -1,12 +1,14 @@
-<div class="reveal" id="loginModal" data-reveal>
+<div class="reveal" id="loginModal" data-reveal role="dialog" aria-modal="true" aria-labelledby="loginModal-label">
   <div class="reveal__header">
-    <h2 class="reveal__title"><%= I18n.t("please_sign_in", scope: "decidim.shared.login_modal") %></h2>
+    <h2 id="loginModal-label" class="reveal__title"><%= I18n.t("please_sign_in", scope: "decidim.shared.login_modal") %></h2>
     <button class="close-button" data-close aria-label="<%= I18n.t("close_modal", scope: "decidim.shared.login_modal") %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <% if current_organization.sign_in_enabled? %>
+    <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
+    <%= render "decidim/ephemeral_participation/shared/ephemeral_participation_button" %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
           <%
@@ -39,8 +41,6 @@
           </p>
       </div>
     </div>
-    <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
-    <%= render "decidim/ephemeral_participation/shared/ephemeral_participation_button" %>
   <% else %>
     <div class="row">
       <div class="columns medium-8 medium-centered">

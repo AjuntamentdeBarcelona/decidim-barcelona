@@ -13,7 +13,7 @@ module Decidim
 
       def call
         return broadcast(:invalid) unless valid_params?
-        
+
         update_user
         bypass_sign_in(@user)
 
@@ -28,11 +28,11 @@ module Decidim
 
       def update_user
         @user.confirmed_at = Time.now.utc
-        @user.managed  = false
+        @user.managed = false
 
-        @user.name     = @form.name
+        @user.name = @form.name
         @user.nickname = @form.nickname
-        @user.email    = @form.email
+        @user.email = @form.email
         @user.password = @form.password
         @user.password_confirmation = @form.password_confirmation
         @user.password_confirmation = @form.password_confirmation

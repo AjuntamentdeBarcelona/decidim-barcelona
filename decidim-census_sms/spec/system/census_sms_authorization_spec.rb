@@ -39,7 +39,9 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
   end
 
   before do
+    # rubocop:disable RSpec/AnyInstance:
     allow_any_instance_of(Decidim::CensusSms::Verification::AuthorizationForm).to receive(:response).and_return(response)
+    # rubocop:enable RSpec/AnyInstance:
     switch_to_host(organization.host)
   end
 
@@ -134,7 +136,7 @@ describe "Census + SMS authorization", type: :system, perform_enqueued: true, wi
 
         within ".authorizations-list" do
           expect(page).to have_content(authorization_name)
-          expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long, locale: :ca))
+          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
         end
       end
     end

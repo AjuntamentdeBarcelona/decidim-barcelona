@@ -40,7 +40,7 @@ module Decidim
         Decidim::EphemeralParticipation::DuplicatedUsers.new(
           organization: current_organization,
           excluding: current_user,
-          where_clause: where_clause,
+          where_clause: where_clause
         ).query
       end
     end

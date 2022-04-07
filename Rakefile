@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require_relative 'config/application'
+require_relative "config/application"
 
 Rails.application.load_tasks
 
 namespace :stats do
   # Takes two parameters from the environment, but don't expect them as arguments:
   # - STATS_MINIMUM_COUNT: optional, components with less than this minimum will not be reported. Defaults to 5.
-   # - STATS_EMAILS: mandatory, the emails to send the stats to.
+  # - STATS_EMAILS: mandatory, the emails to send the stats to.
 
   desc "Sends an email with the stats for all components in the organization."
   task generate: :environment do

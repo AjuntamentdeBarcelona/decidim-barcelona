@@ -72,7 +72,7 @@ describe "User menu", type: :system do
           expect(current_user.ephemeral_participant?).to eq(false)
           expect(current_user.confirmed?).to eq(true)
 
-          expect(page).to have_current_path(%r{#{decidim.account_path}.*})
+          expect(page).to have_current_path(/#{decidim.account_path}.*/)
         end
       end
     end

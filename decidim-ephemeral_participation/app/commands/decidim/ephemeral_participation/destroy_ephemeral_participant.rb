@@ -30,14 +30,14 @@ module Decidim
         Decidim::Authorization.where(
           user: @user,
           name: @user.ephemeral_participation_data["authorization_name"],
-          granted_at: nil,
+          granted_at: nil
         ).delete_all
       end
 
       def destroy_user
         Decidim::DestroyAccount.call(
           @user,
-          Decidim::DeleteAccountForm.from_params(reason: self.class.name),
+          Decidim::DeleteAccountForm.from_params(reason: self.class.name)
         )
       end
 
@@ -55,7 +55,7 @@ module Decidim
 
       # Needed for Devise::Controllers::Helpers#sign_out
       def warden
-        @request.env['warden']
+        @request.env["warden"]
       end
     end
   end

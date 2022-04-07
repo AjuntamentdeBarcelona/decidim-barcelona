@@ -1,1 +1,3 @@
-require "../../spec/rails_helper.rb"
+# frozen_string_literal: true
+
+require "../../spec/rails_helper"

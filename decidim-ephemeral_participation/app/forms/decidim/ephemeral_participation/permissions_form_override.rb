@@ -6,15 +6,15 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        attribute :component_id,  String
-        attribute :resource_id,   String
+        attribute :component_id, String
+        attribute :resource_id, String
 
-        validate  :validate_ephemeral_participation_permissions_settings
+        validate :validate_ephemeral_participation_permissions_settings
 
         private
 
         def validate_ephemeral_participation_permissions_settings
-          return if     resource_permissions?
+          return if resource_permissions?
           return unless ephemeral_participation_enabled?
 
           permissions.values.each do |permission_form|
@@ -45,7 +45,7 @@ module Decidim
         def i18n_options
           {
             ephemeral_participation_authorization: I18n.t("decidim.authorization_handlers.#{component.organization.ephemeral_participation_authorization}.name"),
-            ephemeral_participation_enabled: I18n.t("decidim.components.#{component.manifest_name}.settings.global.ephemeral_participation_enabled"),
+            ephemeral_participation_enabled: I18n.t("decidim.components.#{component.manifest_name}.settings.global.ephemeral_participation_enabled")
           }
         end
       end

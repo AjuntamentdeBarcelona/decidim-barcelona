@@ -33,6 +33,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
     end
   end
 
+  # rubocop:disable RSpec/SubjectStub
   describe "validations" do
     context "without the correct sub" do
       before do
@@ -66,4 +67,5 @@ describe Decidim::ValidAuth::ValidAuthForm do
       it { is_expected.to be_invalid }
     end
   end
+  # rubocop:enable RSpec/SubjectStub
 end

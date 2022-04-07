@@ -19,7 +19,7 @@ Decidim::Webpacker.register_path("#{base_path}/app/packs")
 # SCSS files within the entrypoints, they become available for inclusion using
 # `stylesheet_pack_tag`.
 Decidim::Webpacker.register_entrypoints(
-  decidim_census_sms: "#{base_path}/app/packs/entrypoints/decidim_census_sms.scss",
+  decidim_census_sms: "#{base_path}/app/packs/entrypoints/decidim_census_sms.scss"
 )
 
 # If you want to import some extra SCSS files in the Decidim main SCSS file

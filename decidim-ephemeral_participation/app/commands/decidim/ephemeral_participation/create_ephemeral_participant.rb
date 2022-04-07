@@ -47,7 +47,7 @@ module Decidim
             ephemeral_participation: {
               authorization_name: authorization_name,
               component_id: component.id,
-              permissions:  component.ephemeral_participation_permissions,
+              permissions: component.ephemeral_participation_permissions,
               request_path: ephemeral_participation_path
             }
           }

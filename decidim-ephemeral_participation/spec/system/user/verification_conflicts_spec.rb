@@ -167,7 +167,8 @@ describe "Verification conflicts", type: :system do
                 expect(reset_password_instructions.body.encoded).to include(decidim.edit_user_password_path)
               end
 
-              context "when following reset password instructions email link and updating the password" do
+              # rubocop:disable RSpec/NestedGroups:
+              context "when following instructions email link and updating the password" do
                 let(:submit_password_form) do
                   within("form#password_new_user") do
                     fill_in(:password_user_password, with: "decidim123456")
@@ -176,8 +177,8 @@ describe "Verification conflicts", type: :system do
                   end
                 end
                 let(:reset_password_token) do
-                  text  = ActionMailer::Base.deliveries.last.text_part.decoded
-                  regex = /.*http:\/\/localhost\/users\/password\/edit\?reset_password_token=/
+                  text = ActionMailer::Base.deliveries.last.text_part.decoded
+                  regex = %r{.*http://localhost/users/password/edit\?reset_password_token=}
                   match = text.match(regex)
 
                   match.post_match.split.first
@@ -193,9 +194,10 @@ describe "Verification conflicts", type: :system do
                     expect(page).to have_content("Your password has been successfully changed. You are now signed in.")
                   end
 
-                  expect(page).to have_current_path(%r{#{decidim.account_path}.*})
+                  expect(page).to have_current_path(/#{decidim.account_path}.*/)
                 end
               end
+              # rubocop:enable RSpec/NestedGroups:
             end
           end
 
@@ -284,7 +286,7 @@ describe "Verification conflicts", type: :system do
               expect(page).to have_content("en.decidim.ephemeral_participation.ephemeral_participants.destroy")
             end
 
-            expect(page).to have_current_path(%r{#{decidim.new_user_password_path}.*})
+            expect(page).to have_current_path(/#{decidim.new_user_password_path}.*/)
           end
         end
       end

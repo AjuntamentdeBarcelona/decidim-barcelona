@@ -19,7 +19,7 @@ describe "Flash messages", type: :system do
   end
 
   context "when the user clicks the ephemeral participation button" do
-    let(:current_user)    { Decidim::User.last }
+    let(:current_user) { Decidim::User.last }
     let(:authorized_user) { current_user }
 
     before do
@@ -46,7 +46,7 @@ describe "Flash messages", type: :system do
             click_link("Complete the verification process here")
           end
 
-          expect(page).to have_current_path(%r{#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*})
+          expect(page).to have_current_path(/#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*/)
 
           expect(page).not_to have_content("You need to be verified in order tor participate:")
           expect(page).not_to have_link("Complete the verification process here")
@@ -71,7 +71,7 @@ describe "Flash messages", type: :system do
             click_link("here")
           end
 
-          expect(page).to have_current_path(%r{#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*})
+          expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
           expect(page).not_to have_content("Finish your registration")
           expect(page).not_to have_link("here")
@@ -99,7 +99,7 @@ describe "Flash messages", type: :system do
             click_link("Complete the verification process here")
           end
 
-          expect(page).to have_current_path(%r{#{decidim_id_documents.new_authorization_path}.*})
+          expect(page).to have_current_path(/#{decidim_id_documents.new_authorization_path}.*/)
 
           expect(page).not_to have_content("You need to be verified in order tor participate:")
           expect(page).not_to have_link("Complete the verification process here")
@@ -112,7 +112,7 @@ describe "Flash messages", type: :system do
             :authorization,
             :pending,
             name: ephemeral_participable_authorization,
-            user: current_user,
+            user: current_user
           )
         end
 
@@ -133,7 +133,7 @@ describe "Flash messages", type: :system do
             click_link("Complete the verification process here")
           end
 
-          expect(page).to have_current_path(%r{#{decidim_id_documents.edit_authorization_path}.*})
+          expect(page).to have_current_path(/#{decidim_id_documents.edit_authorization_path}.*/)
 
           expect(page).not_to have_content("You need to be verified in order tor participate:")
           expect(page).not_to have_link("Complete the verification process here")
@@ -141,7 +141,6 @@ describe "Flash messages", type: :system do
       end
 
       context "when the user visits another page WITH a granted authorization" do
-
         before do
           authorization
           visit(decidim.root_path)
@@ -159,7 +158,7 @@ describe "Flash messages", type: :system do
             click_link("here")
           end
 
-          expect(page).to have_current_path(%r{#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*})
+          expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
           expect(page).not_to have_content("Finish your registration")
           expect(page).not_to have_link("here")
