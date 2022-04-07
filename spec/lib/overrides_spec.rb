@@ -17,6 +17,7 @@ checksums = [
       "/app/models/decidim/user.rb" => "83af6296e9aab00d3bfcb5f85fff9ed4",
       "/app/permissions/decidim/permissions.rb" => "c65979f3e51b5756c298617ae5590bf7",
       "/app/views/decidim/shared/_login_modal.html.erb" => "03836c23b2e46863caa183b52a14aa4c",
+      "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
       "/app/views/layouts/decidim/_user_menu.html.erb" => "3eaf7667acc1603e7f590b674a7dbe89"
     }
   },
