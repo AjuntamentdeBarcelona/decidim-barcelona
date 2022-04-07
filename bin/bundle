@@ -8,6 +8,7 @@
 # this file is here to facilitate running it.
 #
 
+# rubocop:disable Rails/Present
 require "rubygems"
 
 m = Module.new do
@@ -105,3 +106,5 @@ end
 m.load_bundler!
 
 load Gem.bin_path("bundler", "bundle") if m.invoked_as_script?
+
+# rubocop:enable Rails/Present
