@@ -908,7 +908,7 @@ DEPENDENCIES
   decidim!
   decidim-census_sms!
   decidim-dataviz!
-  decidim-decidim_awesome
+  decidim-decidim_awesome (~> 0.8.2)
   decidim-dev!
   decidim-ephemeral_participation!
   decidim-initiatives!
