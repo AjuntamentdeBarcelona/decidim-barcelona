@@ -21,6 +21,7 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
+gem "decidim-decidim_awesome"
 
 gem "virtus-multiparams"
 gem "wicked_pdf"
