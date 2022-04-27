@@ -15,6 +15,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+!/tmp/2022-04-26-tracabilitat-pressupostos.csv
 
 # Ignore Byebug command history file.
 .byebug_history
