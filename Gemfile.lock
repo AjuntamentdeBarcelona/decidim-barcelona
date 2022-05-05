@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: f920e99dc728fa9637926f3028e62a8e61193458
-  branch: release/0.26-stable
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
+  revision: ed847db8804ea274f7aa920b38863548c339e53c
+  branch: custom/0.26
   specs:
     decidim (0.26.1)
       decidim-accountability (= 0.26.1)
@@ -396,7 +396,7 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-decidim_awesome (0.8.2)
+    decidim-decidim_awesome (0.8.3)
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
@@ -463,7 +463,7 @@ GEM
     faraday (2.2.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.1)
+    faraday-net_http (2.0.2)
     ffi (1.15.5)
     file_validators (2.3.0)
       activemodel (>= 3.2)
@@ -538,7 +538,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kramdown (2.3.2)
+    kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -593,16 +593,16 @@ GEM
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    oauth (0.5.8)
+    oauth (0.5.10)
     oauth2 (1.4.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    omniauth (2.0.4)
+    omniauth (2.1.0)
       hashie (>= 3.4.6)
-      rack (>= 1.6.2, < 3)
+      rack (>= 2.2.3)
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
@@ -637,7 +637,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     polyglot (0.3.5)
-    premailer (1.15.0)
+    premailer (1.16.0)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -653,7 +653,7 @@ GEM
       puma (>= 2.7)
     racc (1.6.0)
     rack (2.2.3)
-    rack-attack (6.6.0)
+    rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -784,7 +784,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
-    rubyXL (3.4.22)
+    rubyXL (3.4.23)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
@@ -908,7 +908,7 @@ DEPENDENCIES
   decidim!
   decidim-census_sms!
   decidim-dataviz!
-  decidim-decidim_awesome (~> 0.8.2)
+  decidim-decidim_awesome (~> 0.8.3)
   decidim-dev!
   decidim-ephemeral_participation!
   decidim-initiatives!
