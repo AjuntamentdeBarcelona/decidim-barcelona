@@ -24,11 +24,12 @@ gem "sassc", "~> 2.4.0"
 # bug in version 1.9
 gem "i18n", "~> 1.8.1"
 
-gem "sprockets", "~> 3.7", "< 4"
+# bug in version 1.9
+gem "doc2text", "0.4.3"
+
 gem "virtus-multiparams"
 gem "wicked_pdf", "~> 1.4"
 gem "wkhtmltopdf-binary"
-gem "geocoder", "~> 1.6.1"
 
 gem 'uglifier'
 gem 'lograge'
@@ -37,17 +38,12 @@ gem "progressbar"
 gem "puma"
 gem "origami"
 
-gem "execjs", "~> 2.7.0"
-
 # Needed to be able to debug Puma status
 gem "barnes"
 
 # Used to restart puma workers every 6h and free memory
 gem "puma_worker_killer"
 
-# Let's kill long-running requests after the Heroku router has responded to.
-# https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
-gem "rack-timeout"
 
 group :development, :test do
   gem 'faker', '2.14.0'
@@ -67,6 +63,10 @@ group :development do
 end
 
 group :production do
+  # Let's kill long-running requests after the Heroku router has responded to.
+  # https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
+  gem "rack-timeout"
+
   gem "sidekiq"
   gem "rails_12factor"
   gem "fog-aws"
