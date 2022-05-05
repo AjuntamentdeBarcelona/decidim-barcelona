@@ -1,0 +1,52 @@
+.home-section .navigation_maps {
+  margin: 1em 0;
+}
+.home-section .navigation_maps .tabs {
+  background-color: #f4f4f4;
+}
+.home-section .navigation_maps .tabs-title a {
+  font-size: 1.2em;
+  color: var(--secondary);
+}
+.home-section .navigation_maps .tabs-content {
+  border-color: #f4f4f4;
+}
+.home-section .navigation_maps .map {
+  height: 475px;
+}
+@media (max-width: 480px) {
+  .home-section .navigation_maps .map {
+    height: 240px;
+  }
+}
+.home-section .navigation_maps .map-info__content {
+  padding-top: 0;
+  padding-left: 0;
+}
+.home-section .navigation_maps .leaflet-container {
+  background-color: #fafafa;
+  border-color: #f4f4f4;
+}
+.home-section .navigation_maps .leaflet-container .navigation_map-info {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px;
+}
+.home-section .navigation_maps .leaflet-container .navigation_map-info .leaflet-popup-content-wrapper {
+  border-radius: 10px;
+}
+.home-section .navigation_maps .leaflet-container .navigation_map-info .leaflet-popup-tip {
+  border-width: 3px;
+}
+.home-section .navigation_maps .leaflet-interactive {
+  fill: "rgba(34, 98, 204, 1)";
+  color: "rgba(34, 98, 204, 1)";
+  weight: 3;
+  opacity: 0.6;
+  fill-opacity: 0.5;
+}
+.home-section .navigation_maps .leaflet-interactive.selected {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=decidim_navigation_maps.css.map*/

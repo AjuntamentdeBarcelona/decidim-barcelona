@@ -1,0 +1,47 @@
+.dataviz {
+  margin-top: -2rem;
+}
+.dataviz .menu {
+  margin-bottom: 2rem;
+}
+.dataviz iframe {
+  overflow-x: hidden;
+  overflow-Y: hidden;
+}
+.dataviz .dataviz-embedded {
+  width: 100%;
+  border: 0;
+}
+.dataviz .dataviz-embedded:not(.autoheight) {
+  height: 15.625rem;
+}
+@media print, screen and (min-width: 40em) {
+  .dataviz .dataviz-embedded:not(.autoheight) {
+    height: 28.125rem;
+  }
+}
+@media print, screen and (min-width: 64em) {
+  .dataviz .dataviz-embedded:not(.autoheight) {
+    height: 50rem;
+  }
+}
+.dataviz .dataviz-embedded.total_interactions {
+  height: 37.5rem;
+}
+@media print, screen and (min-width: 40em) {
+  .dataviz .dataviz-embedded.total_interactions {
+    height: 50rem;
+  }
+}
+@media print, screen and (min-width: 64em) {
+  .dataviz .dataviz-embedded.total_interactions {
+    height: 50rem;
+  }
+}
+@media print, screen and (min-width: 64em) {
+  .dataviz .mobile-devices-alert {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=decidim_dataviz.css.map*/
