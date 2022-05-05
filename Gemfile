@@ -21,9 +21,6 @@ gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-m
 
 gem "sassc", "~> 2.4.0"
 
-# bug in version 1.9
-gem "i18n", "~> 1.8.1"
-
 gem "sprockets", "~> 3.7", "< 4"
 gem "virtus-multiparams"
 gem "wicked_pdf", "~> 1.4"
