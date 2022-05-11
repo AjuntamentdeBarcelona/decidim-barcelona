@@ -5,7 +5,7 @@
         <div class="categories--group row">
           <div class="category--elements medium-12 columns">
             <div class="row">
-              <% current_participatory_space.subscopes.order(Arel.sql("name->'#{I18n.locale}' ASC")).each do |scope| %>
+              <% current_participatory_space.subscopes.order(Arel.sql("code::INTEGER ASC")).each do |scope| %>
                 <% scope_results_count = count_calculator(scope.id, 'all') %>
                 <% progress = progress_calculator(scope.id, 'all') %>
                 <%= link_to results_path(filter: { scope_id: scope.id }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
