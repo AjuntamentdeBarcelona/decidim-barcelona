@@ -1,0 +1,20 @@
+.new_authorization .field.date label {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  gap: 5px;
+}
+.new_authorization .field.date select {
+  grid-row: 2;
+}
+.new_authorization .field.date .label-required {
+  width: 0.5rem;
+  grid-column: 3;
+  justify-self: flex-end;
+}
+.new_authorization .field.date .form-error {
+  grid-row: 3;
+  grid-column: span 3;
+}
+
+/*# sourceMappingURL=decidim_census_sms.css.map*/
