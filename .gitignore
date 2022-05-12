@@ -31,3 +31,4 @@ config/deploy*
 
 node_modules
 public/decidim_packs
+.rbenv-vars
