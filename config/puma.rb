@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-workers Integer(ENV["WEB_CONCURRENCY"] || 2)
+# avoid workers for development so console and byebug are working
+workers Integer(ENV["WEB_CONCURRENCY"] || 2) if ENV["WEB_CONCURRENCY"]
 threads_count = Integer(ENV["RAILS_MAX_THREADS"] || 5)
 threads threads_count, threads_count
 

@@ -29,6 +29,8 @@ module Decidim
         end
 
         def ephemeral_participation_enabled?
+          return unless component
+
           component.ephemeral_participation_enabled?
         end
 
@@ -39,7 +41,7 @@ module Decidim
         end
 
         def component
-          @component ||= Decidim::Component.find(component_id)
+          @component ||= Decidim::Component.find_by(id: component_id)
         end
 
         def i18n_options

@@ -51,6 +51,7 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "spring-watcher-listen"
+  gem "web-console"
 end
 
 group :production do
