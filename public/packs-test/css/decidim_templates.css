@@ -1,0 +1,15 @@
+.questionnaire-template-preview {
+  margin: 2rem;
+  padding: 1rem;
+}
+.questionnaire-template-preview .card {
+  width: 75%;
+  margin: auto;
+  border: none;
+}
+
+.choose-template-preview {
+  min-height: 10rem;
+}
+
+/*# sourceMappingURL=decidim_templates.css.map*/

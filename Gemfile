@@ -2,11 +2,9 @@
 
 source "https://rubygems.org"
 
-# DECIDIM_MAIN_BRANCH = "release/0.24-stable-bcn"
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "custom/0.26" }.freeze
 
-# DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: DECIDIM_MAIN_BRANCH }.freeze
-
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.26-stable" }.freeze
+# DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.26-stable" }.freeze
 ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
@@ -20,6 +18,7 @@ gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
+gem "decidim-decidim_awesome", "~> 0.8.3"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
 
 gem "virtus-multiparams"
@@ -52,6 +51,7 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "spring-watcher-listen"
+  gem "web-console"
 end
 
 group :production do

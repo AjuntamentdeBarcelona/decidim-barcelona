@@ -15,6 +15,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+!/tmp/2022-04-26-tracabilitat-pressupostos.csv
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -33,6 +34,8 @@ node_modules
 /public/packs
 /public/packs-test
 /node_modules
+/storage/*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.rbenv-vars
