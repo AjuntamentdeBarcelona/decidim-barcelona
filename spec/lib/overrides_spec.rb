@@ -26,7 +26,7 @@ checksums = [
     package: "decidim-admin",
     files: {
       "/app/commands/decidim/admin/transfer_user.rb" => "b4c4808c0ffd4215cd2bddeefd87201a", # ephemeral participation overrides
-      "/app/controllers/decidim/admin/conflicts_controller.rb" => "9238771a6342acddc2f046fc957434e7", # ephemeral participation overrides
+      "/app/controllers/decidim/admin/conflicts_controller.rb" => "dfe4daf8dcb7b4963e37651b0fe8df3c", # ephemeral participation overrides
       "/app/forms/decidim/admin/component_form.rb" => "c44e97d9f4a18a8692079e9ab993c418", # ephemeral participation overrides
       "/app/forms/decidim/admin/permissions_form.rb" => "716cf7f4bffc06d03a462c77932999fd" # ephemeral participation overrides
     }
