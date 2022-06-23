@@ -59,6 +59,12 @@ checksums = [
     files: {
       "/app/views/decidim/accountability/results/home.html.erb" => "8b8b5073f77299f1f594ca7229874963"
     }
+  },
+  {
+    package: "decidim-initiatives",
+    files: {
+      "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0"
+    }
   }
 ]
 
