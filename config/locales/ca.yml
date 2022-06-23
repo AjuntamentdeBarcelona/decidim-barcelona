@@ -195,6 +195,10 @@ ca:
             census_authorization_handler: Verifica't amb el padró
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
             valid_auth: Valid auth
+  layouts:
+    decidim:
+      initiative_header_steps:
+        signature_collection_period: Recollida de signatures
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte
