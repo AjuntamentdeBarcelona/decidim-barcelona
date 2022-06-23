@@ -186,6 +186,10 @@ es:
         first_login:
           actions:
             census_authorization_handler: Verifícate con el padrón
+  layouts:
+    decidim:
+      initiative_header_steps:
+        signature_collection_period: Recogida de firmas
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito
