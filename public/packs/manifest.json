@@ -1,0 +1,19 @@
+{
+  "application.js": "/packs/js/application.js",
+  "entrypoints": {
+    "application": {
+      "assets": {
+        "js": [
+          "/packs/js/runtime.js",
+          "/packs/js/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-54b5bb.js",
+          "/packs/js/application.js"
+        ]
+      }
+    }
+  },
+  "js/application.js.map": "/packs/js/application.js.map",
+  "js/runtime.js.map": "/packs/js/runtime.js.map",
+  "js/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-54b5bb.js": "/packs/js/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-54b5bb.js",
+  "js/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-54b5bb.js.map": "/packs/js/vendors-node_modules_webpack-dev-server_client_index_js_protocol_ws_3A_hostname_localhost_por-54b5bb.js.map",
+  "runtime.js": "/packs/js/runtime.js"
+}
