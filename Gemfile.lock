@@ -922,7 +922,6 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-valid_auth!
   deface
-  doc2text (= 0.4.3)
   dotenv-rails
   faker (~> 2.14)
   fog-aws
@@ -956,7 +955,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.3.5
