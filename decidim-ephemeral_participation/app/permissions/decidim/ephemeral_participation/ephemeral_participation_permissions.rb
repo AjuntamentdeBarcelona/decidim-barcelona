@@ -110,7 +110,7 @@ module Decidim
       end
 
       def browsing_public_pages?
-        permission_action.scope == :public && [:read, :list].include?(permission_action.action)
+        permission_action.scope == :public && [:read, :list, :pick].include?(permission_action.action)
       end
 
       def changing_locales?

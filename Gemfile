@@ -21,6 +21,12 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 gem "decidim-decidim_awesome", "~> 0.8.3"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
 
+# bug in version 1.9
+gem "i18n", "~> 1.8.1"
+
+# bug in version 1.9
+gem "doc2text", "0.4.3"
+
 gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
@@ -59,6 +65,7 @@ group :production do
   gem "puma_worker_killer"
   # Let's kill long-running requests after the Heroku router has responded to.
   # https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
+
   gem "aws-sdk-s3", require: false
   gem "dalli"
   gem "fog-aws" # to remove once image migration is complete

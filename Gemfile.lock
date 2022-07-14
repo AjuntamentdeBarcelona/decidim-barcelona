@@ -922,6 +922,7 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-valid_auth!
   deface
+  doc2text (= 0.4.3)
   dotenv-rails
   faker (~> 2.14)
   fog-aws
