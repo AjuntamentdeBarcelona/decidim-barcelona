@@ -47,7 +47,12 @@ exclude_paths:
 - "db/**/*"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
+- .rubocop_ruby.yml
+- .rubocop_rails.yml
 - "decidim-dataviz/vendor/**/*"
 - "decidim-dataviz/public/**/*"
 - "decidim-dataviz/app/assets/documents/**/*"
+- "decidim-dataviz/app/packs/src/vendor/**/*"
+- "packages/eslint-config/index.js"
+- "packages/webpacker/src/override-config.js"
 - "app/assets/stylesheets/decidim/email.css"
