@@ -36,7 +36,7 @@ namespace :budgets do
 
   def orders_for(budget)
     orders = Decidim::Budgets::Order.where(budget: budget)
-    { 
+    {
       orders: orders,
       finished_orders: orders.finished,
       pending_orders: orders.pending,
