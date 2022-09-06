@@ -70,7 +70,7 @@ checksums = [
   {
     package: "decidim-term_customizer",
     files: {
-      "/lib/decidim/term_customizer/context/controller_context.rb" => "10ecddc42e5ac73b136c687b8ba3d90e"
+      "/lib/decidim/term_customizer/context/controller_context.rb" => "8cb312927aa94dac899ecb7bfcf2a9d2"
     }
   }
 ]
