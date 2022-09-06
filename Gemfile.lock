@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 4e1df15802d72b71124fab0d8e77913d6e1c8450
-  branch: custom/0.26
+  revision: f6152a09d4efa6d9550dfbad230b2587ce1745a9
+  branch: chore/update-custom-0.26
   specs:
     decidim (0.26.2)
       decidim-accountability (= 0.26.2)
@@ -305,7 +305,7 @@ GEM
       aws-sigv4 (~> 1.4)
     aws-sigv4 (1.5.0)
       aws-eventstream (~> 1, >= 1.0.2)
-    axe-core-api (4.4.0)
+    axe-core-api (4.4.1)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -515,7 +515,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.7.1)
+    icalendar (2.8.0)
       ice_cube (~> 0.16)
     ice_cube (0.16.4)
     ice_nine (0.11.2)
@@ -590,6 +590,8 @@ GEM
     multi_xml (0.6.0)
     mustache (1.1.1)
     nio4r (2.5.8)
+    nokogiri (1.13.6-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.10)
@@ -876,7 +878,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.14.0)
+    webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -900,6 +902,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
