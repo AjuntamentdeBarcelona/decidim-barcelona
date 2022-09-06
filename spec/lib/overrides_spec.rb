@@ -34,7 +34,7 @@ checksums = [
   {
     package: "decidim-budgets",
     files: {
-      "/app/cells/decidim/budgets/project_list_item_cell.rb" => "243491a60ea522981884bb0b57a52bc9", # ephemeral participation overrides
+      "/app/cells/decidim/budgets/project_list_item_cell.rb" => "dfcda04b9fe17de547a0bf25c6bbf823", # ephemeral participation overrides
       "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "61b9a76dec62adb19ba36d2c2eb67e0c" # ephemeral participation overrides
     }
   },
@@ -65,6 +65,12 @@ checksums = [
     files: {
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
       "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc"
+    }
+  },
+  {
+    package: "decidim-term_customizer",
+    files: {
+      "/lib/decidim/term_customizer/context/controller_context.rb" => "10ecddc42e5ac73b136c687b8ba3d90e"
     }
   }
 ]
