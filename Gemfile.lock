@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: f6152a09d4efa6d9550dfbad230b2587ce1745a9
-  branch: chore/update-custom-0.26
+  revision: 715fc315fc090712ac3152ef5f95749f3176b289
+  branch: release/0.26-stable-bcn
   specs:
     decidim (0.26.2)
       decidim-accountability (= 0.26.2)
