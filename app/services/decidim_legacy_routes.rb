@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DecidimLegacyRoutes
   attr_reader :component_translations
 
@@ -5,8 +7,9 @@ class DecidimLegacyRoutes
     @component_translations = component_translations
   end
 
-  def call(params, request)
-    process = Decidim::ParticipatoryProcess.find_by_slug(params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
+  # rubocop:disable Rails/FindBy
+  def call(params, _request)
+    process = Decidim::ParticipatoryProcess.find_by(slug: params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
 
     component_translation = component_translations[params[:component_name].to_sym]
     component_manifest_name = component_translation[0]
@@ -25,4 +28,5 @@ class DecidimLegacyRoutes
       "/processes/#{process.id}/f/#{component.id}"
     end
   end
+  # rubocop:enable Rails/FindBy
 end

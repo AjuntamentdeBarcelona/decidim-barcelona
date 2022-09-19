@@ -13,7 +13,7 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
     )
   end
 
-  let(:authorizations) { {"census16_authorization_handler" => {"allow_ephemeral_participation" => true}} }
+  let(:authorizations) { { "census16_authorization_handler" => { "allow_ephemeral_participation" => true } } }
   let!(:scope) { create :scope, organization: organization, code: "1" }
 
   let(:response) do
@@ -32,11 +32,13 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
   end
 
   before do
+    # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(Census16AuthorizationHandler).to receive(:response).and_return(response)
+    # rubocop:enable RSpec/AnyInstance
     switch_to_host(organization.host)
   end
 
-  context "user account" do
+  context "when user account" do
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     before do
@@ -77,7 +79,7 @@ describe "Authorizations with census16", type: :system, perform_enqueued: true, 
 
         within ".authorizations-list" do
           expect(page).to have_content("El padró (majors de 16 anys)")
-          expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long, locale: :ca))
+          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
         end
       end
     end

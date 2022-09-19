@@ -14,7 +14,7 @@ module Decidim
           decidim.user_interests_path,
           decidim.notifications_path,
           decidim.conversations_path,
-          decidim.profile_path(current_user.nickname),
+          decidim.profile_path(current_user.nickname)
         ].any? { |path| request.path.include?(path) }
       end
 
@@ -24,9 +24,9 @@ module Decidim
 
       def destroy_ephemeral_participant_path?
         delete_params = [
-          ["_method", "delete"],
+          %w(_method delete),
           ["controller", "decidim/ephemeral_participation/ephemeral_participants"],
-          ["action", "destroy"],
+          %w(action destroy),
           ["id", current_user.id.to_s]
         ]
 
@@ -65,7 +65,7 @@ module Decidim
         return false if homepage?
 
         adapter = ephemeral_participation_verification_adapter
-        engine  = (adapter.type == "direct") ? Decidim::Verifications::Engine : adapter.send(:main_engine)
+        engine = adapter.type == "direct" ? Decidim::Verifications::Engine : adapter.send(:main_engine)
 
         engine.routes.recognize_path_with_request(request.dup, request.path, method: request.method)
       rescue ActionController::RoutingError
@@ -91,11 +91,9 @@ module Decidim
       end
 
       def pending_authorization?
-        Decidim::Authorization.where(
-          user: current_user,
-          name: current_user.ephemeral_participation_data["authorization_name"],
-          granted_at: nil,
-        ).exists?
+        Decidim::Authorization.exists?(user: current_user,
+                                       name: current_user.ephemeral_participation_data["authorization_name"],
+                                       granted_at: nil)
       end
 
       def decidim

@@ -42,7 +42,7 @@ module Decidim
       end
 
       def transfer_ephemeral_participant?
-        verified_user.ephemeral_participant? && (not @form.email_taken?)
+        verified_user.ephemeral_participant? && !@form.email_taken?
       end
 
       def verified_user
@@ -59,13 +59,13 @@ module Decidim
             current_user: @user,
             conflict: conflict,
             reason: self.class.name,
-            email: @form.email,
+            email: @form.email
           )
         )
       end
 
       def update_user
-        @user.name  = flagged_name
+        @user.name = flagged_name
         @user.email = flagged_email
 
         @user.skip_reconfirmation!

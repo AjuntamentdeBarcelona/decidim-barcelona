@@ -1,8 +1,8 @@
-# coding: utf-8
 # frozen_string_literal: true
+
 require "rails_helper"
 require "decidim/dev/test/authorization_shared_examples"
-require "decidim/initiatives/test/factories.rb"
+require "decidim/initiatives/test/factories"
 
 describe Census16AuthorizationHandler do
   let(:subject) { handler }
@@ -127,7 +127,7 @@ describe Census16AuthorizationHandler do
     end
   end
 
-  context "unique_id" do
+  context "when unique_id" do
     it "generates a different ID for a different document number" do
       handler.document_number = "ABC123"
       unique_id1 = handler.unique_id
@@ -135,7 +135,7 @@ describe Census16AuthorizationHandler do
       handler.document_number = "XYZ456"
       unique_id2 = handler.unique_id
 
-      expect(unique_id1).to_not eq(unique_id2)
+      expect(unique_id1).not_to eq(unique_id2)
     end
 
     it "generates the same ID for the same document number" do
@@ -152,7 +152,7 @@ describe Census16AuthorizationHandler do
       handler.document_number = "ABC123"
       unique_id = handler.unique_id
 
-      expect(unique_id).to_not include(handler.document_number)
+      expect(unique_id).not_to include(handler.document_number)
     end
   end
 
@@ -164,7 +164,7 @@ describe Census16AuthorizationHandler do
           .and_return(Nokogiri::XML("Messed up response!").remove_namespaces!)
       end
 
-      it { is_expected.to_not be_valid }
+      it { is_expected.not_to be_valid }
     end
 
     context "with an invalid response code" do
@@ -174,7 +174,7 @@ describe Census16AuthorizationHandler do
           .and_return(Nokogiri::XML("<codiRetorn>02</codiRetorn>").remove_namespaces!)
       end
 
-      it { is_expected.to_not be_valid }
+      it { is_expected.not_to be_valid }
     end
   end
 
@@ -191,7 +191,7 @@ describe Census16AuthorizationHandler do
       expect(subject.metadata).to include(scope_id: scope.id)
     end
 
-    it "includes the scope id" do
+    it "includes the scope code" do
       expect(subject.metadata).to include(scope_code: scope.code)
     end
 
@@ -245,11 +245,11 @@ describe Census16AuthorizationHandler do
       end
       let(:authorization_handler) do
         Decidim::AuthorizationHandler.handler_for(handler_name,
-                                                 document_number: form.document_number,
-                                                 name_and_surname: form.name_and_surname,
-                                                 date_of_birth: form.date_of_birth,
-                                                 postal_code: form.postal_code,
-                                                 scope_id: form.scope&.id)
+                                                  document_number: form.document_number,
+                                                  name_and_surname: form.name_and_surname,
+                                                  date_of_birth: form.date_of_birth,
+                                                  postal_code: form.postal_code,
+                                                  scope_id: form.scope&.id)
       end
       let(:authorization_handler_metadata_variations) do
         form.scope.children.map do |child_scope|
@@ -264,7 +264,7 @@ describe Census16AuthorizationHandler do
       let(:variation) { authorization_handler_metadata_variations.first }
 
       it "ignores extras field with all its content" do
-        expect( authorization.metadata.symbolize_keys.except(:extras) == variation.symbolize_keys.except(:extras) ).to be true
+        expect(authorization.metadata.symbolize_keys.except(:extras) == variation.symbolize_keys.except(:extras)).to be true
       end
     end
   end

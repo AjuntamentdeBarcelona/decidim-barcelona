@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "csv"
 
 module Decidim
@@ -14,24 +15,24 @@ module Decidim
 
       def export
         results = Decidim::Accountability::Result
-          .where(component: @component)
-          .includes(:category, :resource_links_from, :resource_links_to)
-          .order(:id)
+                  .where(component: @component)
+                  .includes(:category, :resource_links_from, :resource_links_to)
+                  .order(:id)
 
-        generated_csv = CSV.generate(headers: true) do |csv|
-          headers = [
-            "result_id",
-            "decidim_category_id",
-            "decidim_scope_id",
-            "parent_id",
-            "external_id",
-            "start_date",
-            "end_date",
-            "decidim_accountability_status_id",
-            "progress",
-            "proposal_ids",
-            "relative_weight"
-          ]
+        CSV.generate(headers: true) do |csv|
+          headers = %w(
+            result_id
+            decidim_category_id
+            decidim_scope_id
+            parent_id
+            external_id
+            start_date
+            end_date
+            decidim_accountability_status_id
+            progress
+            proposal_ids
+            relative_weight
+          )
 
           available_locales = @component.participatory_space.organization.available_locales
           available_locales.each do |locale|
@@ -49,8 +50,6 @@ module Decidim
             csv << row
           end
         end
-
-        generated_csv
       end
 
       private
@@ -66,8 +65,8 @@ module Decidim
           result.end_date,
           result.decidim_accountability_status_id,
           result.progress,
-          result.resource_links_from.select { |link|  link.to_type == "Decidim::Proposals::Proposal" }.map(&:to_id).sort.join(";"),
-          result.weight * 100.0,
+          result.resource_links_from.select { |link| link.to_type == "Decidim::Proposals::Proposal" }.map(&:to_id).sort.join(";"),
+          result.weight * 100.0
         ]
         available_locales.each do |locale|
           row << result.title[locale]

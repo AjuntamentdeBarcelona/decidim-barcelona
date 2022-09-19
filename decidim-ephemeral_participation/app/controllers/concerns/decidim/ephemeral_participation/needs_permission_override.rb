@@ -6,8 +6,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        alias :old_user_has_no_permission  :user_has_no_permission
-        alias :old_permissions_context     :permissions_context
+        alias_method :old_user_has_no_permission, :user_has_no_permission
+        alias_method :old_permissions_context, :permissions_context
 
         def user_has_no_permission
           if request.xhr?
@@ -47,7 +47,7 @@ module Decidim
         end
 
         def unauthorized_message
-          if (current_user && current_user.ephemeral_participant?)
+          if current_user && current_user.ephemeral_participant?
             unauthorized_ephemeral_participant_message
           else
             I18n.t("actions.unauthorized", scope: "decidim.core")

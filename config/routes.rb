@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     debates: [:debates, Decidim::Debates::Debate]
   }
 
+  # rubocop:disable Rails/FindBy
+  # rubocop:disable Layout/LineLength
   constraints host: /(www\.)?decidim\.barcelona/ do
     get "/:process_slug/:step_id/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
                                                                   constraints: {
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
                                                                   }
 
     get "/:process_slug/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
-                                                         constraints: { process_slug: /(?!meetings)[^\/]*/, process_id: /[^0-9]+/, component_name: Regexp.new(component_translations.keys.join("|")) }
+                                                         constraints: { process_slug: %r{(?!meetings)[^/]*}, process_id: /[^0-9]+/, component_name: Regexp.new(component_translations.keys.join("|")) }
 
     get "/:component_name/:resource_id", to: redirect { |params, _request|
       component_translation = component_translations[params[:component_name].to_sym]
@@ -33,8 +35,10 @@ Rails.application.routes.draw do
       process = component.participatory_space
       component_manifest_name = component.manifest_name
       "/processes/#{process.id}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
-    }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")), resource_id: /(?!meetings)[^\/]*/ }
+    }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")), resource_id: %r{(?!meetings)[^/]*} }
   end
+  # rubocop:enable Rails/FindBy
+  # rubocop:enable Layout/LineLength
 
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => "/sidekiq"

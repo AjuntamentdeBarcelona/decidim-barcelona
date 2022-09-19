@@ -27,23 +27,23 @@ class PdfSignatureBarcelona
     return pdf if missing_configuration?
 
     @signed_pdf ||= begin
-                      StringIO.open(pdf) do |stream|
-                        parsed_pdf = Origami::PDF.read(stream)
-                        parsed_pdf.append_page do |page|
-                          page.add_annotation(signature_annotation)
-                          parsed_pdf.sign(
-                            certificate,
-                            private_key.key,
-                            method: "adbe.pkcs7.detached",
-                            annotation: signature_annotation,
-                            location: location,
-                            contact: contact,
-                            issuer: issuer
-                          )
-                        end
-                        extract_signed_pdf(parsed_pdf)
-                      end
-                    end
+      StringIO.open(pdf) do |stream|
+        parsed_pdf = Origami::PDF.read(stream)
+        parsed_pdf.append_page do |page|
+          page.add_annotation(signature_annotation)
+          parsed_pdf.sign(
+            certificate,
+            private_key.key,
+            method: "adbe.pkcs7.detached",
+            annotation: signature_annotation,
+            location: location,
+            contact: contact,
+            issuer: issuer
+          )
+        end
+        extract_signed_pdf(parsed_pdf)
+      end
+    end
   end
 
   private
@@ -81,19 +81,20 @@ class PdfSignatureBarcelona
 
   def signature_annotation(options = {})
     @signature_annotation ||= begin
-                                width = options.fetch(:width, 200.0)
-                                height = options.fetch(:height, 50.0)
+      width = options.fetch(:width, 200.0)
+      height = options.fetch(:height, 50.0)
 
-                                Origami::Annotation::Widget::Signature.new.tap do |annotation|
-                                  annotation.set_indirect(true)
-                                  annotation.Rect = Origami::Rectangle[llx: height, lly: width + height, urx: width + height, ury: width]
-                                  annotation.set_normal_appearance(text_annotation(width: width, height: height))
-                                end
-                              end
+      Origami::Annotation::Widget::Signature.new.tap do |annotation|
+        annotation.set_indirect(true)
+        annotation.Rect = Origami::Rectangle[llx: height, lly: width + height, urx: width + height, ury: width]
+        annotation.set_normal_appearance(text_annotation(width: width, height: height))
+      end
+    end
   end
 
   def certificate
     return unless pdf_certificate
+
     @certificate ||= OpenSSL::X509::Certificate.new pdf_certificate
   end
 
@@ -101,11 +102,11 @@ class PdfSignatureBarcelona
     return if [signature_certificate_password, signer_private_key, certificate].any?(&:blank?)
 
     @private_key ||= OpenSSL::PKCS12.create(
-                        signature_certificate_password,
-                        'PDF signer',
-                        OpenSSL::PKey.read(signer_private_key),
-                        certificate
-                      )
+      signature_certificate_password,
+      "PDF signer",
+      OpenSSL::PKey.read(signer_private_key),
+      certificate
+    )
   end
 
   def signer_private_key

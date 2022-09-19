@@ -6,11 +6,11 @@ module Decidim
       COMPONENT_PERMISSIONS_DICTIONARY = {
         "budgets" => {
           "vote" => [
-            { action: :vote,   scope: :public, subject: :project },
-            { action: :create, scope: :public, subject: :order },
+            { action: :vote, scope: :public, subject: :project },
+            { action: :create, scope: :public, subject: :order }
           ]
         }
-      }
+      }.freeze
 
       def self.for(component)
         new(component).fetch

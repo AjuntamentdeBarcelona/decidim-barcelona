@@ -1,0 +1,4 @@
+spec/
+*/spec/
+*.md
+.github

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Checks the authorization against the census for Barcelona.
 require "digest/md5"
 
@@ -8,7 +9,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
   include Virtus::Multiparams
 
-  AVAILABLE_GENDERS = %w(man woman non_binary)
+  AVAILABLE_GENDERS = %w(man woman non_binary).freeze
 
   attribute :document_number, String
   attribute :document_type, Symbol
@@ -18,7 +19,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :gender, String
 
   validates :date_of_birth, presence: true
-  validates :document_type, inclusion: { in: %i(dni nie passport) }, presence: true
+  validates :document_type, inclusion: { in: [:dni, :nie, :passport] }, presence: true
   validates :document_number, format: { with: /\A[A-z0-9]*\z/ }, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]*\z/ }
   validates :scope_id, presence: true
@@ -50,7 +51,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def census_document_types
-    %i(dni nie passport).map do |type|
+    [:dni, :nie, :passport].map do |type|
       [I18n.t(type, scope: "decidim.census_authorization_handler.document_types"), type]
     end
   end
@@ -114,24 +115,23 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     @response ||= Nokogiri::XML(response.body).remove_namespaces!
   end
 
-
   def request_body
-    @request_body ||= <<EOS
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://es.bcn.mci.ws/cr/schemas">
-  <soapenv:Header/>
-  <soapenv:Body>
-    <sch:GetPersonaLocalitzaAdrecaRequest>
-      <sch:usuari>PAM</sch:usuari>
-      <sch:Dades>
-        <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
-        <sch:docId>#{sanitize document_number}</sch:docId>
-        <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
-        <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
-      </sch:Dades>
-    </sch:GetPersonaLocalitzaAdrecaRequest>
-  </soapenv:Body>
-</soapenv:Envelope>
-EOS
+    @request_body ||= <<~SOAP
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://es.bcn.mci.ws/cr/schemas">
+        <soapenv:Header/>
+        <soapenv:Body>
+          <sch:GetPersonaLocalitzaAdrecaRequest>
+            <sch:usuari>PAM</sch:usuari>
+            <sch:Dades>
+              <sch:tipDocument>#{sanitized_document_type}</sch:tipDocument>
+              <sch:docId>#{sanitize document_number}</sch:docId>
+              <sch:codiPostal>#{sanitize postal_code}</sch:codiPostal>
+              <sch:dataNaixConst>#{sanitized_date_of_birth}</sch:dataNaixConst>
+            </sch:Dades>
+          </sch:GetPersonaLocalitzaAdrecaRequest>
+        </soapenv:Body>
+      </soapenv:Envelope>
+    SOAP
   end
 
   def age_limit

@@ -28,7 +28,7 @@ describe PdfSignatureBarcelona do
           cert.not_before = Time.current
           cert.not_after = 10.years.from_now
           cert.public_key = key.public_key
-          cert.sign(key, OpenSSL::Digest::SHA256.new)
+          cert.sign(key, OpenSSL::Digest.new("SHA256"))
         end
       end
       let(:private_key) { double("private_key", key: key) }
@@ -53,7 +53,7 @@ describe PdfSignatureBarcelona do
       context "with an invalid pdf" do
         let(:params) { { pdf: "wadus" } }
 
-        it { expect { subject }.to raise_error }
+        it { expect { subject }.to raise_error(StandardError) }
       end
     end
   end

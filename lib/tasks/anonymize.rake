@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/SkipsModelValidations
 namespace :anonymize do
   desc "Checks for the environment"
   task :check do
@@ -7,7 +8,7 @@ namespace :anonymize do
   end
 
   desc "Anonymizes a production dump."
-  task all: %i(users user_groups admins proposals)
+  task all: [:users, :user_groups, :admins, :proposals]
 
   def with_progress(collection, name:)
     total = collection.count
@@ -24,7 +25,7 @@ namespace :anonymize do
 
   def create_progress_bar(total:)
     ProgressBar.create(
-      progress_mark:  " ",
+      progress_mark: " ",
       remainder_mark: "\u{FF65}",
       total: total,
       format: "%a %e %b\u{15E7}%i %p%% %t"
@@ -93,7 +94,7 @@ namespace :anonymize do
         unconfirmed_email: nil,
         avatar: nil,
         extra: {},
-        extended_data: user_group.extended_data.merge({"phone": "123456789", "document_number": "document-#{user_group.id}"})
+        extended_data: user_group.extended_data.merge({ "phone": "123456789", "document_number": "document-#{user_group.id}" })
       )
     end
   end
@@ -109,3 +110,4 @@ namespace :anonymize do
     end
   end
 end
+# rubocop:enable Rails/SkipsModelValidations

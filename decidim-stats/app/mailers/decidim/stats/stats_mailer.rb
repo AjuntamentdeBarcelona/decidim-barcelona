@@ -9,7 +9,7 @@ module Decidim
 
         mail(
           to: emails,
-          subject: "[Decidim Barcelona] Stats #{Time.zone.today.to_s}"
+          subject: "[Decidim Barcelona] Stats #{Time.zone.today}"
         )
       end
     end

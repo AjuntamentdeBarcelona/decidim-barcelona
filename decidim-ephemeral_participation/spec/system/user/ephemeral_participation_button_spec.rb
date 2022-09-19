@@ -31,7 +31,7 @@ describe "Ephemeral participation button", type: :system do
       let(:settings) do
         {
           ephemeral_participation_enabled: true,
-          ephemeral_participation_enabled_confirm_modal: { "en"=>"<p>Are you sure?</p>" }
+          ephemeral_participation_enabled_confirm_modal: { "en" => "<p>Are you sure?</p>" }
         }
       end
 

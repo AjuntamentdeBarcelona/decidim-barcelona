@@ -120,7 +120,7 @@ module Decidim
         end
 
         def tos_path
-          @terms_and_conditions_page_path ||= decidim.page_path(Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization))
+          @tos_path ||= decidim.page_path(Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization))
         end
       end
     end

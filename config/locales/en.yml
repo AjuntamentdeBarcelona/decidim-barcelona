@@ -11,5 +11,9 @@ en:
       explanation: Get verified with the census
     sms:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
+  layouts:
+    decidim:
+      initiative_header_steps:
+        signature_collection_period: Recollida de signatures
   menu:
     accountability_static: Accountability

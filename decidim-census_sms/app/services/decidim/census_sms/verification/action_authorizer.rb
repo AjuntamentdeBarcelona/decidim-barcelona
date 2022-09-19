@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Decidim
   module CensusSms
     module Verification
       class ActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
-        BASE_OPTION_KEY = "scope_code".freeze
+        BASE_OPTION_KEY = "scope_code"
 
         protected
 

@@ -2,16 +2,13 @@
 
 Decidim.configure do |config|
   config.application_name = "Decidim Barcelona"
-  config.mailer_sender    = Rails.application.secrets.email
+  config.mailer_sender = Rails.application.secrets.email
   config.maximum_attachment_size = 150.megabytes
-  config.force_ssl        = true
 
-  config.available_locales = %i(ca es)
+  config.available_locales = [:ca, :es]
   config.default_locale = :ca
 
-  if ENV["HEROKU_APP_NAME"].present?
-    config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
-  end
+  config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
 
   if Rails.application.secrets.geocoder
     config.maps = {
@@ -35,9 +32,7 @@ Decidim.configure do |config|
   config.timestamp_service = "TimestampService"
   config.pdf_signature_service = "PdfSignatureBarcelona"
 
-  if Rails.application.secrets.etherpad[:server].present?
-    config.etherpad = Rails.application.secrets.etherpad
-  end
+  config.etherpad = Rails.application.secrets.etherpad if Rails.application.secrets.etherpad[:server].present?
 end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
@@ -65,3 +60,6 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.metadata_cell = "census16_authorization_metadata"
   auth.ephemerable = true
 end
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)

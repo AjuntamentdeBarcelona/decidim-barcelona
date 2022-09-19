@@ -37,21 +37,22 @@ describe TimestampService do
 
     context "when document is a string" do
       before do
-        stub_request(:post, endpoint).
-          with(
+        stub_request(:post, endpoint)
+          .with(
             body: service.send(:request_message),
             headers: {
               "Accept" => "*/*",
               "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
               "Content-Type" => "text/xml",
               "User-Agent" => "Faraday v#{Faraday::VERSION}"
-            }).
-            to_return(status: 200, body: stubbed_response, headers: {})
+            }
+          )
+          .to_return(status: 200, body: stubbed_response, headers: {})
       end
 
       context "without signature_type param" do
         context "when document is a string" do
-          it { is_expected.to_not be_blank }
+          it { is_expected.not_to be_blank }
         end
       end
 
@@ -59,7 +60,7 @@ describe TimestampService do
         let(:params) { { document: document, signature_type: :xml } }
 
         context "when document is a string" do
-          it { is_expected.to_not be_blank }
+          it { is_expected.not_to be_blank }
         end
       end
 
@@ -67,7 +68,7 @@ describe TimestampService do
         let(:params) { { document: document, signature_type: :unknown } }
 
         context "when document is a string" do
-          it { is_expected.to_not be_blank }
+          it { is_expected.not_to be_blank }
         end
       end
     end

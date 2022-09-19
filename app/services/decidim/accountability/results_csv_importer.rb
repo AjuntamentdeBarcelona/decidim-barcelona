@@ -1,6 +1,13 @@
 # frozen_string_literal: true
+
 require "csv"
 
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Style/SoleNestedConditional
+# rubocop:disable Lint/AssignmentInCondition
+# rubocop:disable Lint/UselessAssignment
+# rubocop:disable Rails/Output
 module Decidim
   module Accountability
     # This class handles importing results from a CSV file.
@@ -35,11 +42,11 @@ module Decidim
 
             params = {}
             params["result"] = row.to_hash
-            params["result"]["weight"] = row["relative_weight"].to_f == 0 ? 1.0 : (row["relative_weight"].to_f / 100.0)
+            params["result"]["weight"] = row["relative_weight"].to_f.zero? ? 1.0 : (row["relative_weight"].to_f / 100.0)
 
             if row["result_id"].present?
-              existing_result = Decidim::Accountability::ResultWithWeightedProgress.find_by(id: row['result_id'].to_i)
-              unless existing_result.present?
+              existing_result = Decidim::Accountability::ResultWithWeightedProgress.find_by(id: row["result_id"].to_i)
+              if existing_result.blank?
                 errors << [i, [I18n.t("imports.create.not_found", scope: "decidim.accountability.admin", result_id: row["result_id"])]]
                 next
               end
@@ -88,13 +95,13 @@ module Decidim
             # add form errors now because when calling valid on the form in UpdateResult/CreateResult will clear the errors
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
-            if existing_result #update existing result
+            if existing_result # update existing result
               Decidim::Accountability::Admin::UpdateResult.call(@form, existing_result) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
               end
-            else #create new result
+            else # create new result
               Decidim::Accountability::Admin::CreateResult.call(@form) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
@@ -104,6 +111,7 @@ module Decidim
           end
 
           raise ActiveRecord::Rollback if errors.any?
+
           puts "Processed: #{i}"
         end
 
@@ -112,3 +120,9 @@ module Decidim
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Style/SoleNestedConditional
+# rubocop:enable Lint/AssignmentInCondition
+# rubocop:enable Lint/UselessAssignment
+# rubocop:enable Rails/Output

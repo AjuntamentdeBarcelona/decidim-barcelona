@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-
 # This cell is to render the census authorization metadata in the renew modal
 class CensusAuthorizationMetadataCell < Decidim::Verifications::AuthorizationMetadataCell
-
   private
 
   def metadata_key(data)
@@ -13,9 +11,9 @@ class CensusAuthorizationMetadataCell < Decidim::Verifications::AuthorizationMet
 
   def metadata_value(data)
     value = data.second
-    value = l(value.to_date, format: :decidim_short) if "date_of_birth" == data.first
+    value = l(value.to_date, format: :decidim_short) if data.first == "date_of_birth"
 
-    if ["man", "non_binary", "woman"].include?(value)
+    if %w(man non_binary woman).include?(value)
       t(value, scope: "#{authorization_name}.form.genders")
     else
       value
@@ -23,6 +21,6 @@ class CensusAuthorizationMetadataCell < Decidim::Verifications::AuthorizationMet
   end
 
   def authorization_name
-    @authorization_name ||= model.name.chomp('_handler')
+    @authorization_name ||= model.name.chomp("_handler")
   end
 end

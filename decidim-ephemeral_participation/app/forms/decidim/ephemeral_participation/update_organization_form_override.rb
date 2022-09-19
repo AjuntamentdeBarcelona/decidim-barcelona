@@ -6,11 +6,11 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        alias :old_map_model :map_model
+        alias_method :old_map_model, :map_model
 
         attribute :available_authorizations, Object
 
-        validate  :validate_available_authorizations
+        validate :validate_available_authorizations
 
         def map_model(model)
           old_map_model(model)
@@ -19,7 +19,7 @@ module Decidim
 
         def new_map_model(model)
           self.available_authorizations = model.read_attribute(:available_authorizations)
-          self.available_authorizations = self.available_authorizations.map { |a| [a, {}] }.to_h if self.available_authorizations.is_a?(Array)
+          self.available_authorizations = available_authorizations.index_with { |_a| {} } if available_authorizations.is_a?(Array)
         end
 
         def clean_available_authorizations

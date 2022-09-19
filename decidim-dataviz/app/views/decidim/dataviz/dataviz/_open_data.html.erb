@@ -5,7 +5,7 @@
         <% %w{proposals meetings action_plans}.each do |item| %>
           <li>
             <span>
-              <%= link_to asset_url("decidim/dataviz/#{item}.csv"), download: "#{item}.csv" do %>
+              <%= link_to asset_url("/dataviz/documents/#{item}.csv"), download: "#{item}.csv" do %>
                 <%=t ".download-#{item}" %>
               <% end %>
             </span>

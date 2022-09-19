@@ -59,6 +59,11 @@ ca:
     invalid_document: El número de document, el tipus de document, la data de naixement
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   decidim:
+    accessibility:
+      external_link: Link extern
+      front_page_link: Ves a la pàgina principal
+      logo: "Logo oficial de %{organization}"
+      skip_button: Salta i ves al contingut principal
     accountability:
       admin:
         import_results:
@@ -169,6 +174,11 @@ ca:
         verified: Si vols continuar participant al decidim.barcelona en futurs processos,
           completa el teu registre %{link}
     initiatives:
+      admin:
+        initiatives_types:
+          form:
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
       initiatives:
         supports:
           title: Llistat d'adhesions
@@ -185,6 +195,10 @@ ca:
             census_authorization_handler: Verifica't amb el padró
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
             valid_auth: Valid auth
+  layouts:
+    decidim:
+      initiative_header_steps:
+        signature_collection_period: Recollida de signatures
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte

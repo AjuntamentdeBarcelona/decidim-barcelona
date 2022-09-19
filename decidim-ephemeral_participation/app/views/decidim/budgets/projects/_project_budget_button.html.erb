@@ -1,5 +1,7 @@
 <% if current_user.present? && (!current_user.ephemeral_participant? || current_user.verified_ephemeral_participant?) %>
-  <div id="project-<%= project.id %>-budget-button" class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data">
+  <div id="project-<%= project.id %>-budget-button" 
+       class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
+       aria-label="<%= t("#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>">
     <span>
       <%= t(voted_for?(project) ? "added" : "add", scope: "decidim.budgets.projects.project_budget_button") %>
     </span>
@@ -16,8 +18,10 @@
   </div>
 <% else %>
   <div id="project-<%= project.id %>-budget-button">
-    <button class="button expanded primary button--sc" data-toggle="loginModal">
+    <button class="button expanded primary button--sc"
+      data-toggle="loginModal"
+      aria-label="<%= t("added_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>">
       <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
     </button>
-  </div> 
+  </div>
 <% end %>

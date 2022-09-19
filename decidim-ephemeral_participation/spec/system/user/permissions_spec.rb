@@ -12,7 +12,7 @@ describe "Permissions", type: :system do
     {
       vote_threshold_percent: 50,
       ephemeral_participation_enabled: true,
-      ephemeral_participation_enabled_confirm_modal: { "en"=>"<p>Are you sure?</p>" }
+      ephemeral_participation_enabled_confirm_modal: { "en" => "<p>Are you sure?</p>" }
     }
   end
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
@@ -58,7 +58,7 @@ describe "Permissions", type: :system do
       end
 
       it "redirects to the authorization form" do
-        expect(page).to have_current_path(%r{#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*})
+        expect(page).to have_current_path(/#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*/)
       end
     end
 
@@ -108,18 +108,18 @@ describe "Permissions", type: :system do
           decidim.user_interests_path,
           decidim.notifications_path,
           decidim.conversations_path,
-          decidim.profile_path(current_user.nickname),
+          decidim.profile_path(current_user.nickname)
         ].each do |user_account_related_path|
           visit(user_account_related_path)
 
-          expect(page).to have_current_path(%r{#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*})
+          expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
         end
       end
 
       it "redirects back to where ephemeral participation button was clicked when visiting authorizations path" do
         visit(decidim_verifications.authorizations_path)
 
-        expect(page).to have_current_path(%r{#{ephemeral_participation_path}.*})
+        expect(page).to have_current_path(/#{ephemeral_participation_path}.*/)
       end
 
       context "when there are public surveys" do
@@ -130,7 +130,7 @@ describe "Permissions", type: :system do
           {
             participatory_space.active_step.id => {
               allow_answers: true,
-              allow_unregistered: true,
+              allow_unregistered: true
             }
           }
         end

@@ -3,7 +3,7 @@
 namespace :budgets do
   desc "Get stats for budgets in a component"
   task :stats, [:component_id] => :environment do |_task, args|
-    # Handlers where to find gender and 
+    # Handlers where to find gender and
 
     component = Decidim::Component.find_by(id: args.component_id)
     abort("Please specify a component id") unless component
@@ -19,15 +19,24 @@ namespace :budgets do
 
       pending = stats_for(orders[:finished_users])
       puts "Gender stats:"
-      puts "   #{pending[:gender]}"
+      pending[:gender].sort_by { |k, _v| k.to_s }.each do |key, val|
+        puts "   #{if key.nil?
+                     "unknown"
+                   else
+                     (key.presence || :empty)
+                   end}: #{val}"
+      end
       puts "Age stats:"
-      puts "   #{pending[:age]}"
+      pending[:age].sort_by { |k, _v| k.to_i }.each do |key, val|
+        num = "#{key}-#{key.to_i + 4}"
+        puts "   #{key.blank? ? "unknown" : num}: #{val}"
+      end
     end
   end
 
   def orders_for(budget)
     orders = Decidim::Budgets::Order.where(budget: budget)
-    { 
+    {
       orders: orders,
       finished_orders: orders.finished,
       pending_orders: orders.pending,
@@ -44,19 +53,23 @@ namespace :budgets do
     total = users.count
     begin
       users.find_each.with_index do |user, index|
-        print "\rDecoding user #{index + 1} of #{total} - #{(100 * index.to_f / total.to_f).round(2)}%"
-        authorizations = Decidim::Authorization.where(name: handlers, user: user).to_a
-        gender = authorizations.find {|m| m.metadata.dig("extras","gender") }
-        gender_stats[gender] += 1 
-        age = authorizations.find {|m| m.metadata.dig("date_of_birth") }.try(:metadata)
-        age = begin
-          5 * ((Date.today.year - Date.parse(age["date_of_birth"]).year)/5).round
-        rescue
-          0
-        end
-        age_stats[age] += 1 
+        print "\rDecoding user #{index + 1} of #{total} - #{(100 * (1 + index.to_f) / total.to_f).round(2)}%"
+        gender = nil
+        age = nil
+        handlers.each do |handler|
+          metadata = Decidim::Authorization.find_by(name: handler, user: user).try(:metadata)
+          next unless metadata
 
-        # break if index > 10
+          gender = metadata.dig("extras", "gender") if gender.nil?
+          age = metadata["date_of_birth"] if age.nil?
+        end
+        gender_stats[gender] += 1
+        age = begin
+          5 * ((Time.zone.today.year - Date.parse(age).year) / 5).round
+        rescue StandardError
+          nil
+        end
+        age_stats[age] += 1
       end
       print "\n"
     rescue Interrupt

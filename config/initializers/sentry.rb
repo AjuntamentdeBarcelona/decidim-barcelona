@@ -1,11 +1,9 @@
+# frozen_string_literal: true
+
 if Rails.application.secrets.sentry_enabled
   Sentry.init do |config|
     config.dsn = ENV["SENTRY_DSN"]
-    config.environment = if ENV["HEROKU_APP_NAME"].present?
-                           ENV["HEROKU_APP_NAME"]
-                         else
-                           "production"
-                         end
+    config.environment = ENV["HEROKU_APP_NAME"].presence || "production"
 
     config.breadcrumbs_logger = [:active_support_logger]
 

@@ -24,8 +24,13 @@ module Decidim
         def user_ids
           Decidim::Authorization
             .where(name: "census_sms_authorization_handler").find_each.map do |authorization|
-              date_of_birth = Date.parse(authorization.metadata["date_of_birth"]) rescue nil
+              date_of_birth = begin
+                Date.parse(authorization.metadata["date_of_birth"])
+              rescue StandardError
+                nil
+              end
               next unless date_of_birth
+
               authorization.decidim_user_id if date_of_birth.between?(birth_limits[:old], birth_limits[:young])
             end.compact
         end

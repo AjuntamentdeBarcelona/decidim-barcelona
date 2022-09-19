@@ -2,7 +2,7 @@
 
 # Specific Workflow for Barcelona's 2021 PAM
 class BudgetsWorkflowPam2021 < Decidim::Budgets::Workflows::Base
-  PAM2021AUTHORIZATIONHANDLER = 'census_sms_authorization_handler'
+  PAM2021AUTHORIZATIONHANDLER = "census_sms_authorization_handler"
 
   # The budget resource in the user's scope is highlighted.
   def highlighted?(resource)
@@ -13,6 +13,7 @@ class BudgetsWorkflowPam2021 < Decidim::Budgets::Workflows::Base
 
   # Can vote in the budget resource in the user's scope
   # and in an extra budget resource out of its scope
+  # rubocop:disable Style/OptionalBooleanParameter
   def vote_allowed?(resource, consider_progress = true)
     return true if resource == user_scope_resource
 
@@ -21,6 +22,7 @@ class BudgetsWorkflowPam2021 < Decidim::Budgets::Workflows::Base
 
     (resources_with_order - [user_scope_resource, resource]).empty?
   end
+  # rubocop:enable Style/OptionalBooleanParameter
 
   # The user can change of mind and change the vote on these budget resources
   #
@@ -64,7 +66,7 @@ class BudgetsWorkflowPam2021 < Decidim::Budgets::Workflows::Base
     return unless user_authorization
 
     @user_authorization_scope ||= Decidim::Scope.find_by(
-      "name->>'ca' = '#{user_authorization.metadata['scope']}'"
+      "name->>'ca' = '#{user_authorization.metadata["scope"]}'"
     )
   end
 end

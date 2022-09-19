@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        alias :update_regular_managed_user :update_managed_user
+        alias_method :update_regular_managed_user, :update_managed_user
 
         def call
           return broadcast(:invalid) unless form.valid?
@@ -29,7 +29,7 @@ module Decidim
         def update_managed_user
           if [new_user, managed_user].any?(&:ephemeral_participant?)
             Decidim::EphemeralParticipation::TransferEphemeralParticipant.call(form).tap do |events|
-              raise(ActiveRecord::Rollback) if events.key?(:invalid)
+              raise(ActiveRecord::Rollback) if events.has_key?(:invalid)
             end
           else
             update_regular_managed_user

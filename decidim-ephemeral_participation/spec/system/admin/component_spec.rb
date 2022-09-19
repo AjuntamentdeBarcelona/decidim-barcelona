@@ -49,7 +49,7 @@ describe "Component", type: :system do
             "component_settings_ephemeral_participation_enabled_confirm_modal",
             "#global-settings-ephemeral_participation_enabled_confirm_modal-tabs",
             ca: "Alerta!",
-            es: "Alerta!",
+            es: "Alerta!"
           )
 
           find("*[type=submit]").click
@@ -70,7 +70,7 @@ describe "Component", type: :system do
             "component_settings_ephemeral_participation_enabled_confirm_modal",
             "#global-settings-ephemeral_participation_enabled_confirm_modal-tabs",
             ca: "Alerta!",
-            es: "Alerta!",
+            es: "Alerta!"
           )
 
           find("*[type=submit]").click
@@ -90,7 +90,7 @@ describe "Component", type: :system do
         let(:authorizations) do
           {
             "dummy_authorization_handler" => { "allow_ephemeral_participation" => true },
-            "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false },
+            "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false }
           }
         end
 
@@ -161,7 +161,7 @@ describe "Component", type: :system do
         let(:authorizations) do
           {
             "dummy_authorization_handler" => { "allow_ephemeral_participation" => false },
-            "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false },
+            "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false }
           }
         end
 

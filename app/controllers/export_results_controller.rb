@@ -8,7 +8,7 @@ class ExportResultsController < ApplicationController
   private
 
   def current_component
-    @component ||= current_participatory_process.components.find(params[:component_id])
+    @current_component ||= current_participatory_process.components.find(params[:component_id])
   end
 
   def current_participatory_process
