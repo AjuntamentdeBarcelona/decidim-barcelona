@@ -63,6 +63,8 @@ checksums = [
   {
     package: "decidim-initiatives",
     files: {
+      "/app/cells/decidim/initiatives_votes/vote/show.erb" => "e7b749bf6d3d95dee2615b9b911e6b6e",
+      "/app/views/decidim/initiatives/admin/initiatives/export_pdf_signatures.pdf.erb" => "5234cf40c6281602b0c53555cea18b57",
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
       "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc"
     }
