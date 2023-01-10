@@ -34,8 +34,11 @@
                 <% next if category_results_count == 0 %>
                 <% progress = progress_calculator(current_scope, category) %>
                 <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
-                  <div class="category--scope--line category--without--children">
+                  <div class="category--scope--line <%= show_category_image ? '' : 'category--without--children' %>">
                     <div class="scope--inner">
+                      <% if show_category_image %>
+                        <%= image_pack_tag("media/images/category-#{category.id}.jpg")  %>
+                      <% end %>
                       <strong><%= translated_attribute(category.name) %></strong>
 
                       <div class="progress">
