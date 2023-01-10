@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 4a3fb9e582878b882d635795cec010b222ecfd1f
+  revision: 073a850a51f0a8110a9ffdfd5402beeaa868f606
   branch: release/0.26-stable-bcn
   specs:
     decidim (0.26.2)
@@ -579,6 +579,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.16.1)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
@@ -590,6 +591,9 @@ GEM
     multi_xml (0.6.0)
     mustache (1.1.1)
     nio4r (2.5.8)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.6-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
@@ -903,6 +907,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  ruby
   x86_64-linux
 
 DEPENDENCIES
