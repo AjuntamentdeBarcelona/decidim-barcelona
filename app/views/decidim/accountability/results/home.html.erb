@@ -3,6 +3,17 @@
     <%= render partial: "home_header" %>
     <% if current_participatory_space.slug.to_s == "PressupostosParticipatius" %>
       <%= render partial: "home_scopes" %>
+    <% elsif current_participatory_space.slug.to_s == "graciazeroespaisfoscos" %>
+      <div class="small-12 columns">
+        <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
+      </div>
+      <div class="small-12 columns end">
+        <% if results.any?{|r| r.children_count > 0 } %>
+          <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
+        <% else %>
+          <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
+        <% end %>
+      </div>
     <% end %>
     <%= render partial: "home_categories", locals: { show_category_image: current_participatory_space.slug.to_s == "forumjoveBCN" } %>
   </div>
