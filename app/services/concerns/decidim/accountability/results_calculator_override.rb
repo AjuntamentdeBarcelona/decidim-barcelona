@@ -6,10 +6,12 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        alias_method :progress_override, :progress
+
         def progress
           return filtered_results.average("COALESCE(progress, 0)") if component.participatory_space.slug == "PressupostosParticipatius"
 
-          super
+          progress_override
         end
 
         def filtered_results
