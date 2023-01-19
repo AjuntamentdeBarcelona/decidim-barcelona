@@ -57,14 +57,19 @@ checksums = [
   {
     package: "decidim-accountability",
     files: {
-      "/app/views/decidim/accountability/results/home.html.erb" => "8b8b5073f77299f1f594ca7229874963"
+      "/app/views/decidim/accountability/results/home.html.erb" => "8b8b5073f77299f1f594ca7229874963",
+      "/app/models/decidim/accountability/result.rb" => "1d2429c8a7186153e8e53afeadfc8363",
+      "/app/services/decidim/accountability/results_calculator.rb" => "2a8e80a63bdc35fad9e4c4cc52cb9e28",
+      "/app/views/decidim/accountability/results/_results_leaf.html.erb" => "37bec8d75287a59f7cb16140ec2678db",
+      "/app/views/decidim/accountability/results/_show_leaf.html.erb" => "7c99f542c9cb2ef72dbe2f86e285bd26"
     }
   },
   {
     package: "decidim-initiatives",
     files: {
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
-      "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc"
+      "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc",
+      "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "2c3068724ed2986f62bd13994960f39e"
     }
   }
 ]
