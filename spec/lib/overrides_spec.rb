@@ -15,7 +15,7 @@ checksums = [
       "/app/models/decidim/organization.rb" => "4d1f1e1881dbde53e8252b0b9b321fa7", # ephemeral participation overrides
       "/app/models/decidim/permission_action.rb" => "bbcc850ba2287bbcecee54ddc8357202", # ephemeral participation overrides
       "/app/models/decidim/user.rb" => "4aff1b94255db5ffa8868a0f2876c14f", # ephemeral participation overrides
-      "/app/permissions/decidim/permissions.rb" => "77d2e82aa18e393ea8a7490a44ed9ebf", # ephemeral participation overrides
+      "/app/permissions/decidim/permissions.rb" => "e8665c6e26a8b6661e84eb1ca804e399", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
       "/app/views/layouts/decidim/_user_menu.html.erb" => "de17337bd45f6e6d5aa455267f70430f", # ephemeral participation overrides
@@ -49,7 +49,7 @@ checksums = [
   {
     package: "decidim-system",
     files: {
-      "/app/forms/decidim/system/update_organization_form.rb" => "a3238f4108c8be5cf0dc3e9dad711ad6", # ephemeral participation overrides
+      "/app/forms/decidim/system/update_organization_form.rb" => "b28ece5dbf3e227bc5b510886af567e2", # ephemeral participation overrides
       "/app/views/decidim/system/organizations/edit.html.erb" => "a5fbf0df2106009878cbca6e36472cae", # ephemeral participation overrides
       "/app/views/decidim/system/organizations/new.html.erb" => "ef9277c31e87f864e911a05d7ad0a333" # ephemeral participation overrides
     }
@@ -70,12 +70,6 @@ checksums = [
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
       "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "2c3068724ed2986f62bd13994960f39e"
-    }
-  },
-  {
-    package: "decidim-term_customizer",
-    files: {
-      "/lib/decidim/term_customizer/context/controller_context.rb" => "8cb312927aa94dac899ecb7bfcf2a9d2"
     }
   }
 ]
