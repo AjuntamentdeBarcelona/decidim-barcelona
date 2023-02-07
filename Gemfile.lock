@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 5884ea4b63b94dd4d96447964f9bca8ec3cab405
-  branch: chore/update-custom-0.26.4
+  revision: d8d945ff4a7a6630ae6bf6e5d5a216f3c3122f3f
+  branch: release/0.26-stable-bcn
   specs:
     decidim (0.26.4)
       decidim-accountability (= 0.26.4)
@@ -305,7 +305,7 @@ GEM
       aws-sigv4 (~> 1.4)
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
-    axe-core-api (4.5.0)
+    axe-core-api (4.6.0)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -364,7 +364,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (18.0.185)
+    chef-utils (18.1.0)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -500,7 +500,7 @@ GEM
     graphql (1.12.24)
     hashdiff (1.0.1)
     hashie (5.0.0)
-    highline (2.0.3)
+    highline (2.1.0)
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
     i18n (1.12.0)
@@ -525,7 +525,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     jmespath (1.6.1)
-    json (2.6.2)
+    json (2.6.3)
     jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
