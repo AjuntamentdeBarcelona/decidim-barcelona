@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class DuplicatedUsers < Rectify::Query
+    class DuplicatedUsers < Decidim::Query
       def initialize(organization:, where_clause:, excluding: nil)
         @organization = organization
         @excluding = Array.wrap(excluding).compact.map(&:id)

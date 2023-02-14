@@ -7,7 +7,6 @@ require "digest/md5"
 # to verify the citizen's residence.
 class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
-  include Virtus::Multiparams
 
   AVAILABLE_GENDERS = %w(man woman non_binary).freeze
 

@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class VerificationConflicts < Rectify::Query
+    class VerificationConflicts < Decidim::Query
       def self.for(user)
         new(user).query
       end

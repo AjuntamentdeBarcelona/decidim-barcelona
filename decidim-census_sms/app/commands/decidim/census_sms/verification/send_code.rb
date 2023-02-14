@@ -3,7 +3,7 @@
 module Decidim
   module CensusSms
     module Verification
-      class SendCode < Rectify::Command
+      class SendCode < Decidim::Command
         # Public: Initializes the command.
         #
         # form          - A form object with the params.

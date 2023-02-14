@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class DestroyEphemeralParticipant < Rectify::Command
+    class DestroyEphemeralParticipant < Decidim::Command
       include ::Devise::Controllers::Helpers
 
       def initialize(request, user)
