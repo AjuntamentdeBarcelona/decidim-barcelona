@@ -2,13 +2,13 @@ name: "[CI] Decidim"
 on: [push]
 
 env:
-  RUBY_VERSION: 2.7.5
+  RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
 
 jobs:
   tests:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     services:
       postgres:
         image: postgres:11
