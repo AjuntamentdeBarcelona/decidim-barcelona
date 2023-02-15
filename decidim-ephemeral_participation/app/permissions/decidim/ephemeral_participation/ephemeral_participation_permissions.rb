@@ -8,7 +8,7 @@ module Decidim
       include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
 
       # rubocop:disable Metrics/PerceivedComplexity
-      # rubocop:disable Metrics/CyclomaticComplexity:
+      # rubocop:disable Metrics/CyclomaticComplexity
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
@@ -28,7 +28,7 @@ module Decidim
         permission_action
       end
       # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/CyclomaticComplexity:
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
