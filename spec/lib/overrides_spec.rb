@@ -41,9 +41,9 @@ checksums = [
   {
     package: "decidim-verifications",
     files: {
-      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "0c5a5800019a4c159c70175ce8ed17c1", # ephemeral participation overrides
-      "/app/services/decidim/authorization_handler.rb" => "36c5cf48c9163677373439f6d2617afa", # ephemeral participation overrides
-      "/lib/decidim/verifications/workflow_manifest.rb" => "eb40ba8ed4b282ffe22158521dcf0499" # ephemeral participation overrides
+      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "689191217a3d28850a06559b98f7d16c", # ephemeral participation overrides
+      "/app/services/decidim/authorization_handler.rb" => "7d3b241e2a224c2c6aa7861372a1b2de", # ephemeral participation overrides
+      "/lib/decidim/verifications/workflow_manifest.rb" => "3c943ad22d8d504df399fcc1227cd6c2" # ephemeral participation overrides
     }
   },
   {
