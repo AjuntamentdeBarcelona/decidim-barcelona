@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name = "decidim-dataviz"
   s.summary = "A dataviz component for decidim's participatory processes."
   s.description = s.summary
-  s.required_ruby_version = ">= 2.7"
-  s.version = "0.0.1"
+  s.required_ruby_version = ">= 3.0"
+  s.version = "0.0.2"
   s.authors = ["David Morcillo Muñoz"]
   s.email = ["david.morcillo@gmail.com"]
 
@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core"
 
   s.add_development_dependency "decidim-dev"
+  s.metadata["rubygems_mfa_required"] = "true"
 end

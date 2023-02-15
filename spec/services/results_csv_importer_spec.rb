@@ -21,7 +21,7 @@ module Decidim::Accountability
       describe "#import!" do
         context "when results are new" do
           it "imports them" do
-            expect { subject.import! }.to change { Decidim::Accountability::ResultWithWeightedProgress.count }.by(2)
+            expect { subject.import! }.to change(Decidim::Accountability::ResultWithWeightedProgress, :count).by(2)
           end
         end
 
@@ -39,7 +39,7 @@ module Decidim::Accountability
           end
 
           it "does not create new results" do
-            expect { subject.import! }.not_to(change { Decidim::Accountability::ResultWithWeightedProgress.count })
+            expect { subject.import! }.not_to(change(Decidim::Accountability::ResultWithWeightedProgress, :count))
           end
         end
       end

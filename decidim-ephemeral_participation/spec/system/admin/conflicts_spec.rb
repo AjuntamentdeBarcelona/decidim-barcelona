@@ -31,8 +31,8 @@ describe "Conflicts", type: :system do
         previous_email = authorized_user.email
 
         expect(authorized_user.reload.email).to eq(previous_email)
-        expect(ephemeral_participant.reload.deleted?).to eq(false)
-        expect(conflict.reload.solved?).to eq(false)
+        expect(ephemeral_participant.reload.deleted?).to be false
+        expect(conflict.reload.solved?).to be false
       end
     end
 
@@ -106,8 +106,8 @@ describe "Conflicts", type: :system do
               end
 
               expect(authorized_user.reload.email).to eq(email)
-              expect(ephemeral_participant.reload.deleted?).to eq(true)
-              expect(conflict.reload.solved?).to eq(true)
+              expect(ephemeral_participant.reload.deleted?).to be true
+              expect(conflict.reload.solved?).to be true
             end
           end
         end

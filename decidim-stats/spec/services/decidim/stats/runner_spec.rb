@@ -52,7 +52,7 @@ describe Decidim::Stats::Runner do
         name: "census_sms_authorization_handler",
         metadata: {
           scope: scope_name,
-          date_of_birth: "#{2000 - index * 2}-01-01",
+          date_of_birth: "#{2000 - (index * 2)}-01-01",
           gender: %w(man woman woman non_binary non_binary man)[index]
         }
       )

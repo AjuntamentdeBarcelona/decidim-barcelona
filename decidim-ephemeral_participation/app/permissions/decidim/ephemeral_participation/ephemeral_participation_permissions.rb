@@ -17,9 +17,7 @@ module Decidim
           allow! if allowed_to_create_ephemeral_participant?
         elsif update_ephemeral_participant?
           allow! if allowed_to_update_ephemeral_participant?
-        elsif destroy_ephemeral_participant?
-          allow! if allowed_to_destroy_ephemeral_participant?
-        elsif update_unverifiable_ephemeral_participant?
+        elsif destroy_ephemeral_participant? || update_unverifiable_ephemeral_participant?
           allow! if allowed_to_destroy_ephemeral_participant?
         elsif verifying_ephemeral_participant?
           disallow! unless allowed_to_verify_ephemeral_participant?
@@ -83,9 +81,9 @@ module Decidim
 
       def verifying_ephemeral_participant?
         update_profile? ||
-          [:create, :update].include?(permission_action.action) &&
+          ([:create, :update].include?(permission_action.action) &&
             permission_action.scope == :public &&
-            permission_action.subject == :authorization
+            permission_action.subject == :authorization)
       end
 
       # Decidim::Verifications::AuthorizationsController (direct verification worflows)

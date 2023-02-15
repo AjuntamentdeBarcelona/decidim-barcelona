@@ -56,5 +56,7 @@ namespace :move_proposals_from_component_to_component do
 end
 
 class SourceTargetArgumentError < StandardError; end
+
 class SourceProposalComponentError < StandardError; end
+
 class TargetProposalComponentError < StandardError; end

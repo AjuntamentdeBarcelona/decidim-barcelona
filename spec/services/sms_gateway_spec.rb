@@ -3,7 +3,8 @@
 require "rails_helper"
 
 describe SmsGateway do
-  let(:subject) { gateway }
+  subject { gateway }
+
   let(:gateway) { described_class.new(mobile_phone_number, code) }
   let(:mobile_phone_number) { "600102030" }
   let(:code) { "123456" }

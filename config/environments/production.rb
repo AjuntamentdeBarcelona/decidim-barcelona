@@ -41,7 +41,7 @@ Rails.application.configure do
 
   if ENV["STAGING_PASSWORD"].present?
     # Block users that do not know a given password
-    config.middleware.use RackPassword::Block, auth_codes: [ENV["STAGING_PASSWORD"]]
+    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
   end
 
   # Use the lowest log level to ensure availability of diagnostic information
@@ -97,7 +97,7 @@ Rails.application.configure do
 
   if ENV["MEMCACHEDCLOUD_SERVERS"]
     config.cache_store = :mem_cache_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(","), {
-      username: ENV["MEMCACHEDCLOUD_USERNAME"], password: ENV["MEMCACHEDCLOUD_PASSWORD"]
+      username: ENV.fetch("MEMCACHEDCLOUD_USERNAME", nil), password: ENV.fetch("MEMCACHEDCLOUD_PASSWORD", nil)
     }
   end
 

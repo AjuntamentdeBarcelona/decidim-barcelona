@@ -3,7 +3,8 @@
 require "rails_helper"
 
 describe TimestampService do
-  let(:subject) { service }
+  subject { service }
+
   let(:service) { described_class.new(params) }
   let(:document) { "This is a test" }
   let(:params) { { document: document } }

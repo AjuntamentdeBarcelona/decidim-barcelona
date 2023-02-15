@@ -212,25 +212,25 @@ GIT
 PATH
   remote: decidim-census_sms
   specs:
-    decidim-census_sms (0.0.1)
+    decidim-census_sms (0.0.2)
       decidim-core
 
 PATH
   remote: decidim-dataviz
   specs:
-    decidim-dataviz (0.0.1)
+    decidim-dataviz (0.0.2)
       decidim-core
 
 PATH
   remote: decidim-ephemeral_participation
   specs:
-    decidim-ephemeral_participation (0.0.2)
+    decidim-ephemeral_participation (0.0.3)
       decidim-verifications
 
 PATH
   remote: decidim-stats
   specs:
-    decidim-stats (0.0.1)
+    decidim-stats (0.0.2)
       decidim-comments
       decidim-core
       decidim-proposals
@@ -238,7 +238,7 @@ PATH
 PATH
   remote: decidim-valid_auth
   specs:
-    decidim-valid_auth (0.0.1)
+    decidim-valid_auth (0.0.2)
       decidim-verifications
 
 GEM

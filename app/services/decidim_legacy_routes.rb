@@ -7,7 +7,6 @@ class DecidimLegacyRoutes
     @component_translations = component_translations
   end
 
-  # rubocop:disable Rails/FindBy
   def call(params, _request)
     process = Decidim::ParticipatoryProcess.find_by(slug: params[:process_slug]) || Decidim::ParticipatoryProcess.find(params[:process_slug])
 
@@ -28,5 +27,4 @@ class DecidimLegacyRoutes
       "/processes/#{process.id}/f/#{component.id}"
     end
   end
-  # rubocop:enable Rails/FindBy
 end

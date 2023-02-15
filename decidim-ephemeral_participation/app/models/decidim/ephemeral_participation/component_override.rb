@@ -14,16 +14,15 @@ module Decidim
         # permissions => {"vote"=>{"authorization_handlers"=>{"valid_auth"=>{}}}}
         # ephemeral_participation_permissions => ["vote"]
         def ephemeral_participation_permissions
-          @ephemeral_participation_permissions ||= begin
-            return [] unless ephemeral_participation_enabled?
-            return [] if permissions.blank?
+          @ephemeral_participation_permissions ||= if !ephemeral_participation_enabled? || permissions.blank?
+                                                     []
+                                                   else
+                                                     permissions.map do |action, authorization_handlers|
+                                                       handler_names = authorization_handlers.values.flat_map(&:keys)
 
-            permissions.map do |action, authorization_handlers|
-              handler_names = authorization_handlers.values.flat_map(&:keys)
-
-              action if handler_names.include?(organization.ephemeral_participation_authorization)
-            end.compact
-          end
+                                                       action if handler_names.include?(organization.ephemeral_participation_authorization)
+                                                     end.compact
+                                                   end
         end
       end
     end

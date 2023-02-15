@@ -5,7 +5,8 @@ require "decidim/dev/test/authorization_shared_examples"
 require "decidim/initiatives/test/factories"
 
 describe CensusAuthorizationHandler do
-  let(:subject) { handler }
+  subject { handler }
+
   let(:handler) { described_class.from_params(params) }
   let(:document_number) { "12345678A" }
   let(:document_type) { :nie }

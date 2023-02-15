@@ -8,7 +8,7 @@ Decidim.configure do |config|
   config.available_locales = [:ca, :es]
   config.default_locale = :ca
 
-  config.base_uploads_path = "#{ENV["HEROKU_APP_NAME"]}/" if ENV["HEROKU_APP_NAME"].present?
+  config.base_uploads_path = "#{ENV.fetch("HEROKU_APP_NAME", nil)}/" if ENV["HEROKU_APP_NAME"].present?
 
   if Rails.application.secrets.geocoder
     config.maps = {

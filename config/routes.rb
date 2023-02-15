@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     debates: [:debates, Decidim::Debates::Debate]
   }
 
-  # rubocop:disable Rails/FindBy
   # rubocop:disable Layout/LineLength
   constraints host: /(www\.)?decidim\.barcelona/ do
     get "/:process_slug/:step_id/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
@@ -37,7 +36,6 @@ Rails.application.routes.draw do
       "/processes/#{process.id}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
     }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")), resource_id: %r{(?!meetings)[^/]*} }
   end
-  # rubocop:enable Rails/FindBy
   # rubocop:enable Layout/LineLength
 
   authenticate :user, ->(u) { u.admin? } do
