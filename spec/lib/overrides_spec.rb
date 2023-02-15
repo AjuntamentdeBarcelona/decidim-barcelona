@@ -9,17 +9,17 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/controllers/decidim/application_controller.rb" => "29be8e89dac380b4b60afd593e15ad77", # ephemeral participation overrides
-      "/app/helpers/decidim/decidim_form_helper.rb" => "19fcf923fdb56346b21c151f68f7cce7", # ephemeral participation overrides
+      "/app/controllers/decidim/application_controller.rb" => "b9816a58ec4c5b45f747c27460f17018", # ephemeral participation overrides
+      "/app/helpers/decidim/decidim_form_helper.rb" => "0c6b26cee8e54a5c2bc93256286b6f26", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "32e241f1d88313e487cd28daac09aee0", # ephemeral participation overrides
-      "/app/models/decidim/organization.rb" => "4d1f1e1881dbde53e8252b0b9b321fa7", # ephemeral participation overrides
-      "/app/models/decidim/permission_action.rb" => "bbcc850ba2287bbcecee54ddc8357202", # ephemeral participation overrides
-      "/app/models/decidim/user.rb" => "4aff1b94255db5ffa8868a0f2876c14f", # ephemeral participation overrides
-      "/app/permissions/decidim/permissions.rb" => "e8665c6e26a8b6661e84eb1ca804e399", # ephemeral participation overrides
+      "/app/models/decidim/organization.rb" => "e0b67b906f0ad3db84226914f07a05e7", # ephemeral participation overrides
+      "/app/models/decidim/permission_action.rb" => "00da630bf229dc8d482dc0e0b2d6a95c", # ephemeral participation overrides
+      "/app/models/decidim/user.rb" => "2b0e4abef9f8ac3bc3b7bba735420cee", # ephemeral participation overrides
+      "/app/permissions/decidim/permissions.rb" => "ace85e448814ed71bbea5e7515b95d5d", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
       "/app/views/layouts/decidim/_user_menu.html.erb" => "de17337bd45f6e6d5aa455267f70430f", # ephemeral participation overrides
-      "/app/views/layouts/decidim/widget.html.erb" => "c1597f7a98b4f5a2fecca26022529339"
+      "/app/views/layouts/decidim/widget.html.erb" => "b9fb503118ee33d298cbc585995e216c"
     }
   },
   {
