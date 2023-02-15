@@ -58,3 +58,4 @@ exclude_paths:
 - "packages/webpacker/src/loaders/decidim-sass-loader.js"
 - "app/assets/stylesheets/decidim/email.css"
 - "app/views/static/api/docs/assets/style.css"
+- "config/initializers/origami_date.rb"
