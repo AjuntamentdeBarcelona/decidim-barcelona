@@ -25,6 +25,10 @@
     "webpack-cli": "^4.8.0"
   },
   "version": "0.1.0",
+  "engines": {
+    "node": "16.9.1",
+    "npm": "7.21.1"
+  },
   "babel": {
     "presets": [
       "./node_modules/@rails/webpacker/package/babel/preset.js"
