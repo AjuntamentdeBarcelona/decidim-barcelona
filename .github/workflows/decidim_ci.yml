@@ -41,6 +41,8 @@ jobs:
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - name: Precompile assets
-        run: bundle exec rails assets:precompile
+        run: |
+          npm install
+          bundle exec rake assets:precompile
       - run: bundle exec rspec
         name: Run specs
