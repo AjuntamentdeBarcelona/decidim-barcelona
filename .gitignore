@@ -39,3 +39,6 @@ node_modules
 yarn-debug.log*
 .yarn-integrity
 .rbenv-vars
+
+public/sw.js
+public/sw.js.map
