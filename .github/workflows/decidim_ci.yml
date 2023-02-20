@@ -42,7 +42,7 @@ jobs:
         name: Setup database
       - name: Precompile assets
         run: |
-          yarn install
+          npm install
           bundle exec rake assets:precompile
       - run: bundle exec rspec
         name: Run specs
