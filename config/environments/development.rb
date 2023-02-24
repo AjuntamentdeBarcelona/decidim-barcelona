@@ -63,9 +63,7 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
 
-
   # Suppress logger output for asset requests.
-
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

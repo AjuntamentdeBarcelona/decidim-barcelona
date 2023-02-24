@@ -27,10 +27,8 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress CSS using a preprocessor.
-  #
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.asset_host = ENV.fetch("RAILS_ASSET_HOST", nil) if ENV["RAILS_ASSET_HOST"].present?
