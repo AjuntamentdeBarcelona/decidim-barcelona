@@ -16,6 +16,13 @@ es:
         gender: Sexo
         postal_code: Código postal
         scope_id: Distrito
+      census_kids_authorization_handler:
+        date_of_birth: Fecha de nacimiento
+        document_number: Número de documento
+        document_type: Tipo de documento
+        gender: Sexo
+        postal_code: Código postal
+        scope_id: Distrito
       confirmation:
         verification_code: Código de verificación
       mobile_phone:
@@ -58,6 +65,25 @@ es:
     age_under: Tienes que ser mayor de %{min_age} años para validarte
     invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento
       o el código postal son incorrectos. Por favor, revisa estos datos.
+  census_kids_authorization_handler:
+    age_under: Tienes que ser mayor de %{min_age} años para validarte
+    invalid_document: El número de documento, el tipo de documento, la fecha de nacimiento
+      o el código postal son incorrectos. Por favor, revisa estos datos.
+  census_kids_authorization:
+    form:
+      date_select:
+        day: Día
+        month: Mes
+        year: Año
+      gender_help: Estos datos son voluntarios y se piden en cumplimento de lo dispuesto
+        en el articulo 56 de la LEY 17/2015, del 21 de julio, de igualdad efectiva
+        de mujeres y hombres.
+      gender_prompt: Por favor, selecciona una opción
+      genders:
+        man: Hombre
+        non_binary: No binario
+        woman: Mujer
+      scope_prompt: Por favor, selecciona tu distrito
   decidim:
     accessibility:
       external_link: Link externo
@@ -125,6 +151,16 @@ es:
           postal_code: Código postal
           scope_id: Distrito
         name: El padrón
+      census_kids_authorization_handler:
+        explanation: Verifícate con el padrón
+        fields:
+          date_of_birth: Fecha de nacimiento
+          document_number: Número de documento
+          document_type: Tipo de documento
+          gender: Sexo
+          postal_code: Código postal
+          scope_id: Distrito
+        name: El padrón (mayores de 10 años)
     budgets:
       projects:
         budget_confirm:
@@ -151,6 +187,11 @@ es:
         nie: NIE
         passport: Pasaporte
     census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Pasaporte
+    census_kids_authorization_handler:
       document_types:
         dni: DNI
         nie: NIE
@@ -188,7 +229,9 @@ es:
       authorizations:
         first_login:
           actions:
+            census16_authorization_handler: Verifícate con el padrón (16+)
             census_authorization_handler: Verifícate con el padrón
+            census_kids_authorization_handler: Verifícate con el padrón (10+)
   layouts:
     decidim:
       initiative_header_steps:

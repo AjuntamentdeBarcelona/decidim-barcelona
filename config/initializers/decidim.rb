@@ -517,3 +517,10 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.metadata_cell = "census16_authorization_metadata"
   auth.ephemerable = true
 end
+
+Decidim::Verifications.register_workflow(:census_kids_authorization_handler) do |auth|
+  auth.form = "CensusKidsAuthorizationHandler"
+  auth.renewable = true
+  auth.time_between_renewals = 1.day
+  auth.metadata_cell = "census_kids_authorization_metadata"
+end
