@@ -71,7 +71,13 @@ checksums = [
       "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "2c3068724ed2986f62bd13994960f39e"
     }
-  }
+  },
+  {
+    package: "decidim-meetings",
+    files: {
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "7d85622f4dd6c7a262ab59c53a6aaedf"
+    }
+  },
 ]
 
 describe "Overriden files", type: :view do
