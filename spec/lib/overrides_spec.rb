@@ -77,7 +77,7 @@ checksums = [
     files: {
       "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "7d85622f4dd6c7a262ab59c53a6aaedf"
     }
-  },
+  }
 ]
 
 describe "Overriden files", type: :view do
