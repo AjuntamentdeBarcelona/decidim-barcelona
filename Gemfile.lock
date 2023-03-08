@@ -182,6 +182,17 @@ GIT
       decidim-core (= 0.27.2)
 
 GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
+  revision: eb968b93c9e2f93153d081691249d2460f09c8d0
+  branch: main
+  specs:
+    decidim-kids (0.1.0)
+      decidim-core (>= 0.27, < 0.28)
+      decidim-system (>= 0.27, < 0.28)
+      decidim-verifications (>= 0.27, < 0.28)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps
   revision: 5715adccf4c6f940e8429f409f17ce89fc36ef47
   branch: upgrade-0.27
@@ -979,6 +990,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-ephemeral_participation!
   decidim-initiatives!
+  decidim-kids!
   decidim-navigation_maps!
   decidim-sortitions!
   decidim-stats!
