@@ -15,7 +15,7 @@
         <% end %>
 
         <% if show_embed? && live? %>
-          <div class="<%= "margin-top-3" if live? %> absolutes" style="<%= "height: 1100px" if live? %>">
+          <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9" style="<%= "height: 1100px" if bcn_iframe? %>">
             <%== embed_code(request.host) %>
           </div>
         <% elsif live? || future? %>
