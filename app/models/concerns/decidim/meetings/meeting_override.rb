@@ -15,8 +15,7 @@ module Decidim
 
           query = "SELECT decidim_user_id FROM #{roles_table} WHERE decidim_user_id = #{user.id}
                    AND #{table_name.singularize}_id = #{component.participatory_space.id} AND role = 'admin'"
-          result = ActiveRecord::Base.connection.execute(query)
-          result.first
+          ActiveRecord::Base.connection.select_one(query)
         end
       end
     end
