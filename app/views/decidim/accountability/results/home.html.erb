@@ -1,7 +1,7 @@
 <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "home_header" %>
-    <% if %w[graciazeroespaisfoscos barribarceloneta].include?(current_participatory_space.slug.to_s) %>
+    <% if (ENV["PARTICIPATORY_SPACES_WITH_ACCOUNTABILITY_RESULTS"] || "").split(',').include?(current_participatory_space.slug.to_s) %>
       <div class="small-12 medium-4 margin-bottom-2">
         <%= render partial: "search" %>
       </div>
