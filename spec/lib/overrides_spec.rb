@@ -73,6 +73,18 @@ checksums = [
     }
   },
   {
+    package: "decidim-meetings",
+    files: {
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "7d85622f4dd6c7a262ab59c53a6aaedf",
+      "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c",
+      "/app/cells/decidim/meetings/online_meeting_cell.rb" => "20564c5da2200ed0c9fe42c457af26cb",
+      "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97",
+      "/app/controllers/decidim/meetings/meetings_controller.rb" => "46b8e8b70a0ef9ec71bfa85c12e00b2c",
+      "/app/helpers/decidim/meetings/meetings_helper.rb" => "38ce368638f4ac344faea5f0307f09de",
+      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "2c5628f8d02af54ad857508e33e212a3"
+    }
+  },
+  {
     # Fix origami date compatibility with Ruby 3.0 monkey-patching it on origami_date.rb
     package: "origami",
     files: {

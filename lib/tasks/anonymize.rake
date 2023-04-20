@@ -109,5 +109,9 @@ namespace :anonymize do
       )
     end
   end
+
+  task paper_trail: [:check, :environment] do
+    PaperTrail::Version.where(item_type: %w(Decidim::Authorization Decidim::UserBaseEntity Decidim::UserGroup)).delete_all
+  end
 end
 # rubocop:enable Rails/SkipsModelValidations
