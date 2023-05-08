@@ -29,6 +29,8 @@ describe "Organization", type: :system do
       end
 
       it "updates available authorizations to allow ephemeral participation" do
+        expect(page).to have_field("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation", checked: false)
+
         check("organization_available_authorizations_dummy_authorization_handler_enabled")
 
         choose("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation")
@@ -36,6 +38,12 @@ describe "Organization", type: :system do
         find("*[type=submit]").click
 
         expect(page).to have_css("div.flash.success")
+
+        within "table tbody" do
+          first("tr").click_link("Edit")
+        end
+
+        expect(page).to have_field("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation", checked: true)
       end
     end
   end
