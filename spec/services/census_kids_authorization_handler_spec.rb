@@ -31,7 +31,7 @@ describe CensusKidsAuthorizationHandler do
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find).and_return(scope)
+    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
   end
 
   it_behaves_like "an authorization handler"
