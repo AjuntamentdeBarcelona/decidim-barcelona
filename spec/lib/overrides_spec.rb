@@ -19,7 +19,9 @@ checksums = [
       "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
       "/app/views/layouts/decidim/_user_menu.html.erb" => "de17337bd45f6e6d5aa455267f70430f", # ephemeral participation overrides
-      "/app/views/layouts/decidim/widget.html.erb" => "c1597f7a98b4f5a2fecca26022529339"
+      "/app/views/layouts/decidim/widget.html.erb" => "c1597f7a98b4f5a2fecca26022529339",
+      "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "557af851b39a19cac22d76f4214f96d2",
+      "/app/cells/decidim/activities_cell.rb" => "f083b17ad0673308ffaef0eb2b1add16"
     }
   },
   {
