@@ -7,7 +7,7 @@ module Decidim
     included do
       def activities
         @activities ||= last_activities.select do |activity|
-          activity.visible_for?(current_user) && activity.component&.published?
+          activity.visible_for?(current_user) && (!activity.respond_to?(:component) || activity.component.published?)
         end
       end
     end
