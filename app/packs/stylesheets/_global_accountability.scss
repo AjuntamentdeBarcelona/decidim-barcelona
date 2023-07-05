@@ -112,6 +112,14 @@
   }
 }
 
+.accountability .categories .categories--group .card__link .category--with--children {
+  height: 11rem;
+
+  strong {
+    min-height: 5rem;
+  }
+}
+
 .accountability .categories .categories--group .card__link .category--scope--line .scope--inner {
   padding: 1rem;
 }
@@ -125,6 +133,6 @@
   color: inherit;
 }
 
-.accountability .categories .categories--group .card__link .category--line strong {
-  color: white;
-}
+//.accountability .categories .categories--group .card__link .category--line strong {
+//  color: white;
+//}

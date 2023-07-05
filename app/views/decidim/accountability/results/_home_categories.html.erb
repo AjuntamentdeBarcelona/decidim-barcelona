@@ -18,7 +18,6 @@
         <div class="float-right">
           <%= render partial: "search" %>
         </div>
-
       </div>
     </div>
   </div>
@@ -33,7 +32,7 @@
                 <% category_results_count = count_calculator(current_scope, category) %>
                 <% next if category_results_count == 0 %>
                 <% progress = progress_calculator(current_scope, category) %>
-                <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
+                <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "row medium-4 columns end card__link card__link--block block--scope" do %>
                   <div class="category--scope--line <%= show_category_image ? '' : 'category--without--children' %>">
                     <div class="scope--inner">
                       <% if show_category_image %>
@@ -62,59 +61,65 @@
             </div>
           </div>
         </div>
-        <% categories_with_children.each do |category| %>
-          <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 %>
-          <div class="categories--group row">
-            <div class="category--section small-12 medium-4 columns">
-              <div class="category--title">
-                <p class="heading3">
-                <%= link_to translated_attribute(category.name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
 
-                <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
-                  <div class="progress">
-                    <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
+        <div class="categories--group row">
+          <div class="category--elements medium-12 columns">
+            <div class="row">
+              <% categories_with_children.each do |category| %>
+                <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 %>
+
+                <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope padding-0" do %>
+                  <div class="category--scope--line category--with--children">
+                    <div class="scope--inner">
+                      <strong><%= translated_attribute(category.name) %></strong>
+
+                      <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
+                        <div class="progress">
+                          <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
+                        </div>
+                      <% end %>
+
+                      <div class="progress-info">
+                        <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
+                          <div class="progress-figure heading3">
+                            <%= display_percentage progress_calculator(current_scope, category.id) %>
+                          </div>
+                        <% end %>
+                        <div class="category--count">
+                          <%= display_count(category_results_count) if category_results_count && category_results_count > 0 %>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
 
-                <div class="progress-info">
-                  <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, category.id).present? %>
-                    <div class="progress-figure heading3">
-                      <%= display_percentage progress_calculator(current_scope, category.id) %>
-                    </div>
-                  <% end %>
-                  <div class="category--count">
-                    <%= display_count(category_results_count) if category_results_count && category_results_count > 0 %>
+                <div class="category--elements show-for-medium medium-8 columns">
+                  <div class="row">
+                    <% category.subcategories.each do |subcategory| %>
+                      <% if (subcategory_results_count = count_calculator(current_scope, subcategory.id)) > 0 %>
+                        <%= link_to results_path(filter: { category_id: subcategory, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
+                          <div class="category--line">
+                            <strong><%= translated_attribute(subcategory.name) %></strong>
+
+                            <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, subcategory.id).present? %>
+                              <div class="progress-figure heading3">
+                                <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
+                              </div>
+                            <% end %>
+
+                            <div class="category--count">
+                              <%= display_count subcategory_results_count %>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="category--elements show-for-medium medium-8 columns">
-              <div class="row">
-                <% category.subcategories.each do |subcategory| %>
-                  <% if (subcategory_results_count = count_calculator(current_scope, subcategory.id)) > 0 %>
-                    <%= link_to results_path(filter: { category_id: subcategory, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block" do %>
-                      <div class="category--line">
-                        <strong><%= translated_attribute(subcategory.name) %></strong>
-
-                        <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, subcategory.id).present? %>
-                          <div class="progress-figure heading3">
-                            <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
-                          </div>
-                        <% end %>
-
-                        <div class="category--count">
-                          <%= display_count subcategory_results_count %>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                <% end %>
-
-              </div>
-            </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
