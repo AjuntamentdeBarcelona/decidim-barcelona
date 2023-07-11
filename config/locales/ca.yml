@@ -185,6 +185,10 @@ ca:
       initiative_signatures:
         fill_personal_data:
           document_hint: '* El número de document correspon al document utilizat en la verificació amb el padró (DNI, Passport o NIE).'
+    meetings:
+      meetings:
+        show:
+          register: Registrar-se a la trobada
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
