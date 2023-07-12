@@ -9,6 +9,10 @@ en:
         nie: NIE
         passport: Passport
       explanation: Get verified with the census
+    meetings:
+      meetings:
+        show:
+          register: Register to the meeting
     sms:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
   layouts:
