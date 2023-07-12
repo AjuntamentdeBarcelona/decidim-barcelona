@@ -220,6 +220,10 @@ es:
       initiatives:
         supports:
           title: Listado de adhesiones
+    meetings:
+      meetings:
+        show:
+          register: Registrarse al encuentro
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en este proyecto:'

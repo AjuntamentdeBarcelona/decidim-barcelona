@@ -26,42 +26,78 @@
   <div class="categories--list">
     <div class="row">
       <div class="small-12 columns">
-        <div class="categories--group row">
-          <div class="category--elements medium-12 columns">
-            <div class="row">
-              <% categories_without_children.each do |category| %>
-                <% category_results_count = count_calculator(current_scope, category) %>
-                <% next if category_results_count == 0 %>
+        <% if categories_with_children.any? %>
+          <div class="category--section medium-12">
+            <% categories_without_children.each do |category| %>
+              <% category_results_count = count_calculator(current_scope, category) %>
+              <% next if category_results_count == 0 %>
+              <div class="categories--group row">
                 <% progress = progress_calculator(current_scope, category) %>
                 <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
-                  <div class="category--scope--line <%= show_category_image ? '' : 'category--without--children' %>">
-                    <div class="scope--inner">
-                      <% if show_category_image %>
-                        <%= image_pack_tag("media/images/category-#{category.id}.jpg")  %>
-                      <% end %>
-                      <strong><%= translated_attribute(category.name) %></strong>
+                  <div class="category--title">
+                    <% if show_category_image %>
+                      <%= image_pack_tag("media/images/category-#{category.id}.jpg")  %>
+                    <% end %>
+                    <p class="heading3"><%= translated_attribute(category.name) %></p>
 
-                      <div class="progress">
-                        <div class="progress-meter" style="width:<%= progress %>%"></div>
-                      </div>
-
-                      <% if component_settings.display_progress_enabled? && progress.present? %>
-                        <div class="progress-info">
-                          <div class="progress-figure heading3">
-                            <%= display_percentage progress %>
-                          </div>
-                          <div class="category--count">
-                            <%= display_count category_results_count %>
-                          </div>
-                        </div>
-                      <% end %>
+                    <div class="progress">
+                      <div class="progress-meter" style="width:<%= progress %>%"></div>
                     </div>
+
+                    <% if component_settings.display_progress_enabled? && progress.present? %>
+                      <div class="progress-info">
+                        <div class="progress-figure heading3">
+                          <%= display_percentage progress %>
+                        </div>
+                        <div class="category--count">
+                          <%= display_count category_results_count %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
                   </div>
                 <% end %>
-              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="categories--group row">
+            <div class="category--elements medium-12 columns">
+              <div class="row">
+                <% categories_without_children.each do |category| %>
+                  <% category_results_count = count_calculator(current_scope, category) %>
+                  <% next if category_results_count == 0 %>
+                  <% progress = progress_calculator(current_scope, category) %>
+                  <%= link_to results_path(filter: { category_id: category, scope_id: current_scope }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
+                    <div class="category--scope--line <%= show_category_image ? '' : 'category--without--children' %>">
+                      <div class="scope--inner">
+                        <% if show_category_image %>
+                          <%= image_pack_tag("media/images/category-#{category.id}.jpg")  %>
+                        <% end %>
+                        <strong><%= translated_attribute(category.name) %></strong>
+
+                        <div class="progress">
+                          <div class="progress-meter" style="width:<%= progress %>%"></div>
+                        </div>
+
+                        <% if component_settings.display_progress_enabled? && progress.present? %>
+                          <div class="progress-info">
+                            <div class="progress-figure heading3">
+                              <%= display_percentage progress %>
+                            </div>
+                            <div class="category--count">
+                              <%= display_count category_results_count %>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
+
         <% categories_with_children.each do |category| %>
           <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 %>
           <div class="categories--group row">

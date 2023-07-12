@@ -1,11 +1,11 @@
 .global-accountability {
   .row.column {
     margin: 0 auto;
-    
+
     .page-title {
       margin-bottom: 1rem;
     }
-    
+
     .section:not(:last-child) {
       border-bottom: 1px solid rgba($medium-gray, .5);
       padding-bottom: 3rem;
@@ -20,37 +20,37 @@
     .centered--text.text-center {
       text-align: center;
     }
-    
+
     .intro--text {
       @include breakpoint(medium) {
         font-size: 1.25rem;
       }
     }
-    
+
     .card--accountability {
       text-align: left;
-      
+
       h4 {
         padding: 1.5rem 1.5rem 1rem 1.5rem;
         border-bottom: 1px solid $medium-gray;
-        
+
         .icon {
           margin-right: 0.25rem;
         }
       }
       .card__content {
         padding: 0 1.5rem 1.5rem 1.5rem;
-        
+
         ul {
           list-style: none;
           border-left: 1px solid $medium-gray;
           margin-top: 1rem;
           padding-left: 1rem;
           margin-left: 0;
-          
+
           a {
             color: $secondary;
-            
+
             &:hover,
             &:focus,
             &:active {
@@ -60,17 +60,17 @@
         }
       }
     }
-    
+
     .card--mini .card__content{
       padding: 1.5rem 0.5rem;
     }
-    
+
     .accountability--graphic {
       width: 100%;
       height: auto;
       max-width: 780px;
     }
-    
+
     .tabbed-container {
       .programme--section {
         margin-bottom: 1.5rem;
@@ -125,6 +125,14 @@
   color: inherit;
 }
 
+.accountability .categories .categories--group .card__link .category--line .category--count {
+  color: #ABA5B3;
+}
+
 .accountability .categories .categories--group .card__link .category--line strong {
-  color: white;
+  color: #182B71;
+}
+
+.accountability .categories .categories--group .category--title p.heading3 {
+  font-weight: normal;
 }
