@@ -14,7 +14,7 @@ module Decidim
           activities.includes([:user]).each do |activity|
             break if valid_activities_count == activities_to_show
 
-            if activity.visible_for?(current_user) && (!activity.respond_to?(:component) || activity.component.published?)
+            if activity.visible_for?(current_user) && (!activity.respond_to?(:component) || activity.component&.published?)
               @valid_activities << activity
               valid_activities_count += 1
             end
