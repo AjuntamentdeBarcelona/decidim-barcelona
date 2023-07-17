@@ -7,7 +7,7 @@ module Decidim
     included do
       def activities
         @activities ||= last_activities.select do |activity|
-          !activity.respond_to?(:component) || activity.component.published?
+          !activity.respond_to?(:component) || activity.component&.published?
         end
       end
 
