@@ -15,9 +15,10 @@ describe "Initiatives", type: :system, perform_enqueued: true, available_authori
     )
   end
 
-  let(:base_initiative) do
+  let!(:base_initiative) do
     create(:initiative, organization: organization)
   end
+  let!(:initiatives_type) { create(:initiatives_type, organization: organization) }
 
   let(:authorizations) { ["census_sms_authorization_handler"] }
 
