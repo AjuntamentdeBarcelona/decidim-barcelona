@@ -7,7 +7,17 @@ module Decidim
     included do
       def activities
         @activities ||= last_activities.select do |activity|
-          activity.visible_for?(current_user) && (!activity.respond_to?(:component) || activity.component.published?)
+          !activity.respond_to?(:component) || activity.component.published?
+        end
+      end
+
+      def last_activities
+        @last_activities ||= model.map do |activity|
+          activity.organization_lazy
+          activity.resource_lazy
+          activity.participatory_space_lazy
+          activity.component_lazy
+          activity
         end
       end
     end
