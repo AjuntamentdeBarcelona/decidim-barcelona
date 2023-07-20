@@ -1105,6 +1105,7 @@ Metrics/CyclomaticComplexity:
     - "bin/bundle"
     - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
+    - "**/*/permissions.rb"
     - "**/*/permissions_override.rb"
 
 Metrics/MethodLength:
@@ -1123,6 +1124,7 @@ Metrics/PerceivedComplexity:
   Exclude:
     - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
+    - "**/*/permissions.rb"
     - "**/*/permissions_override.rb"
 
 ##################### Lint ##################################
