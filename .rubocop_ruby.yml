@@ -1106,6 +1106,7 @@ Metrics/CyclomaticComplexity:
     - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
+    - "**/*/permissions_override.rb"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1124,6 +1125,7 @@ Metrics/PerceivedComplexity:
     - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
+    - "**/*/permissions_override.rb"
 
 ##################### Lint ##################################
 
