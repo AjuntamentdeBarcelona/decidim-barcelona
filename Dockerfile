@@ -5,7 +5,7 @@
 
 
 # Starts with a clean ruby image from Debian (slim)
-FROM ruby:2.6.6
+FROM ruby:3.0.2
 
 LABEL maintainer="hola@decidim.org"
 
@@ -35,10 +35,12 @@ ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 # Copy Gemfile and install bundler dependencies
 ADD Gemfile Gemfile.lock /app/
+ADD ./decidim-census_sms/decidim-census_sms.gemspec /app/decidim-census_sms/decidim-census_sms.gemspec
 ADD ./decidim-dataviz/decidim-dataviz.gemspec /app/decidim-dataviz/decidim-dataviz.gemspec
+ADD ./decidim-ephemeral_participation/decidim-ephemeral_participation.gemspec /app/decidim-ephemeral_participation/decidim-ephemeral_participation.gemspec
 ADD ./decidim-stats/decidim-stats.gemspec /app/decidim-stats/decidim-stats.gemspec
 ADD ./decidim-valid_auth/decidim-valid_auth.gemspec /app/decidim-valid_auth/decidim-valid_auth.gemspec
-RUN gem install bundler:2.0.1
+RUN gem install bundler:2.3.26
 RUN bundle install
 
 # Copy all the code to /app
