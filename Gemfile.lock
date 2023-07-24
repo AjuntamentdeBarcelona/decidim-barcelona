@@ -400,6 +400,8 @@ GEM
     chef-utils (18.2.7)
       concurrent-ruby
     childprocess (4.1.0)
+    codecov (0.6.0)
+      simplecov (>= 0.15, < 0.22)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (5.0.0)
@@ -980,6 +982,7 @@ DEPENDENCIES
   barnes
   bootsnap
   byebug
+  codecov
   dalli
   database_cleaner
   decidim!

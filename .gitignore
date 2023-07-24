@@ -46,3 +46,5 @@ public/sw.js.br
 public/sw.js.map.br
 public/sw.js.gz
 public/sw.js.map.gz
+
+coverage/
