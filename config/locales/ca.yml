@@ -16,6 +16,13 @@ ca:
         gender: Sexe
         postal_code: Codi postal
         scope_id: Districte
+      census_kids_authorization_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        postal_code: Codi postal
+        scope_id: Districte
       confirmation:
         verification_code: Codi de verificació
       mobile_phone:
@@ -58,6 +65,25 @@ ca:
     age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: El número de document, el tipus de document, la data de naixement
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
+  census_kids_authorization_handler:
+    age_under: Has de ser major de %{min_age} anys per validar-te
+    invalid_document: El número de document, el tipus de document, la data de naixement
+      o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
+  census_kids_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+        disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+        de dones i homes.
+      gender_prompt: Si us plau, selecciona una opció
+      genders:
+        man: Home
+        non_binary: No binari
+        woman: Dona
+      scope_prompt: Si us plau, selecciona el teu districte
   decidim:
     accessibility:
       external_link: Link extern
@@ -125,6 +151,16 @@ ca:
           postal_code: Codi postal
           scope: Districte
         name: El padró
+      census_kids_authorization_handler:
+        explanation: Verifica't amb el padró
+        fields:
+          date_of_birth: Data de naixement
+          document_number: Número de document
+          document_type: Tipus de document
+          gender: Sexe
+          postal_code: Codi postal
+          scope: Districte
+        name: El padró (majors de 10 anys)
     budgets:
       projects:
         budget_confirm:
@@ -152,6 +188,11 @@ ca:
         nie: NIE
         passport: Passaport
     census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
+    census_kids_authorization_handler:
       document_types:
         dni: DNI
         nie: NIE
@@ -200,6 +241,7 @@ ca:
           actions:
             census16_authorization_handler: Verifica't amb el padró (16+)
             census_authorization_handler: Verifica't amb el padró
+            census_kids_authorization_handler: Verifica't amb el padró (10+)
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
             valid_auth: Valid auth
   layouts:
