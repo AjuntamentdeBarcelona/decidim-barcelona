@@ -59,3 +59,5 @@ exclude_paths:
 - "app/assets/stylesheets/decidim/email.css"
 - "app/views/static/api/docs/assets/style.css"
 - "config/initializers/origami_date.rb"
+- "config/initializers/decidim.rb"
+- "decidim-ephemeral_participation/app/permissions/decidim/ephemeral_participation/ephemeral_participation_permissions.rb"
