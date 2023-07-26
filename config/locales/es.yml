@@ -173,9 +173,16 @@ es:
         verified: Si quieres continuar participando en decidim.barcelona en futuros
           procesos, completa tu registro %{link}
     initiatives:
+      initiative_signatures:
+        fill_personal_data:
+          document_hint: '* El número del documento corresponde al documento utilizado en la verificación contra el padrón (DNI, Pasaporte o NIE).'
       initiatives:
         supports:
           title: Listado de adhesiones
+    meetings:
+      meetings:
+        show:
+          register: Registrarse al encuentro
     resource_links:
       included_proposals:
         project_proposals: 'Propuestas incluidas en este proyecto:'
