@@ -1,0 +1,33 @@
+<div class="field">
+  <%= form.select :document_type, handler.census_document_types, prompt: true %>
+</div>
+
+<div class="field">
+  <%= form.text_field :document_number %>
+</div>
+
+<div class="field date">
+  <%= form.date_select :date_of_birth, start_year: 20.years.ago.year, end_year: 10.years.ago.year, default: 12.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
+</div>
+
+<div class="field">
+  <%= form.text_field :postal_code %>
+</div>
+
+<div class="field">
+  <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
+  <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
+</div>
+
+<div class="field">
+  <%= form.collection_select(
+    :gender,
+    CensusKidsAuthorizationHandler::AVAILABLE_GENDERS,
+    :to_s,
+    ->(gender) { t(".genders.#{gender}") },
+    prompt: t(".gender_prompt")
+  ) %>
+  <p class="help-text"><%= t ".gender_help" %></p>
+</div>
+
+<%= form.hidden_field :handler_name %>

@@ -124,12 +124,12 @@ describe "Verification conflicts", type: :system do
                 ephemeral_participant.reload
 
                 expect(ephemeral_participant.email).to eq("")
-                expect(ephemeral_participant.ephemeral_participant?).to eq(true)
-                expect(ephemeral_participant.confirmed?).to eq(false)
+                expect(ephemeral_participant.ephemeral_participant?).to be true
+                expect(ephemeral_participant.confirmed?).to be false
               end
 
               it "does NOT delete the unverifiable ephemeral participant" do
-                expect(unverifiable_ephemeral_participant.deleted?).to eq(false)
+                expect(unverifiable_ephemeral_participant.deleted?).to be false
               end
 
               it "does NOT send reset password instructions email" do
@@ -152,12 +152,12 @@ describe "Verification conflicts", type: :system do
                 ephemeral_participant.reload
 
                 expect(ephemeral_participant.email).to eq(email)
-                expect(ephemeral_participant.ephemeral_participant?).to eq(false)
-                expect(ephemeral_participant.confirmed?).to eq(true)
+                expect(ephemeral_participant.ephemeral_participant?).to be false
+                expect(ephemeral_participant.confirmed?).to be true
               end
 
               it "deletes the unverifiable ephemeral participant" do
-                expect(unverifiable_ephemeral_participant.deleted?).to eq(true)
+                expect(unverifiable_ephemeral_participant.deleted?).to be true
               end
 
               it "sends reset password instructions email" do
@@ -219,12 +219,12 @@ describe "Verification conflicts", type: :system do
                 ephemeral_participant.reload
 
                 expect(ephemeral_participant.email).to eq("")
-                expect(ephemeral_participant.ephemeral_participant?).to eq(true)
-                expect(ephemeral_participant.confirmed?).to eq(false)
+                expect(ephemeral_participant.ephemeral_participant?).to be true
+                expect(ephemeral_participant.confirmed?).to be false
               end
 
               it "does NOT delete the unverifiable ephemeral participant" do
-                expect(unverifiable_ephemeral_participant.deleted?).to eq(false)
+                expect(unverifiable_ephemeral_participant.deleted?).to be false
               end
 
               it "does NOT send reset password instructions email" do
@@ -247,12 +247,12 @@ describe "Verification conflicts", type: :system do
                 ephemeral_participant.reload
 
                 expect(ephemeral_participant.email).to eq("")
-                expect(ephemeral_participant.ephemeral_participant?).to eq(true)
-                expect(ephemeral_participant.confirmed?).to eq(false)
+                expect(ephemeral_participant.ephemeral_participant?).to be true
+                expect(ephemeral_participant.confirmed?).to be false
               end
 
               it "does NOT delete the unverifiable ephemeral participant" do
-                expect(unverifiable_ephemeral_participant.deleted?).to eq(false)
+                expect(unverifiable_ephemeral_participant.deleted?).to be false
               end
 
               it "does NOT send reset password instructions email" do

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/spring"
+
 %w(
   .ruby-version
   .rbenv-vars

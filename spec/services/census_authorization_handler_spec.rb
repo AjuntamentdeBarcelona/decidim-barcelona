@@ -5,7 +5,8 @@ require "decidim/dev/test/authorization_shared_examples"
 require "decidim/initiatives/test/factories"
 
 describe CensusAuthorizationHandler do
-  let(:subject) { handler }
+  subject { handler }
+
   let(:handler) { described_class.from_params(params) }
   let(:document_number) { "12345678A" }
   let(:document_type) { :nie }
@@ -29,7 +30,7 @@ describe CensusAuthorizationHandler do
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find).and_return(scope)
+    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
   end
 
   it_behaves_like "an authorization handler"

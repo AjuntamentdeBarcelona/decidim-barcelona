@@ -9,28 +9,28 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/controllers/decidim/application_controller.rb" => "29be8e89dac380b4b60afd593e15ad77", # ephemeral participation overrides
-      "/app/helpers/decidim/decidim_form_helper.rb" => "19fcf923fdb56346b21c151f68f7cce7", # ephemeral participation overrides
+      "/app/controllers/decidim/application_controller.rb" => "b9816a58ec4c5b45f747c27460f17018", # ephemeral participation overrides
+      "/app/helpers/decidim/decidim_form_helper.rb" => "0c6b26cee8e54a5c2bc93256286b6f26", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "32e241f1d88313e487cd28daac09aee0", # ephemeral participation overrides
-      "/app/models/decidim/organization.rb" => "4d1f1e1881dbde53e8252b0b9b321fa7", # ephemeral participation overrides
-      "/app/models/decidim/permission_action.rb" => "bbcc850ba2287bbcecee54ddc8357202", # ephemeral participation overrides
-      "/app/models/decidim/user.rb" => "98dd124572635aaf6e347407946b4cb1", # ephemeral participation overrides
-      "/app/permissions/decidim/permissions.rb" => "e8665c6e26a8b6661e84eb1ca804e399", # ephemeral participation overrides
+      "/app/models/decidim/organization.rb" => "e3d474ed92c0b8bb8911e6947a569845", # ephemeral participation overrides
+      "/app/models/decidim/permission_action.rb" => "00da630bf229dc8d482dc0e0b2d6a95c", # ephemeral participation overrides
+      "/app/models/decidim/user.rb" => "3d57a7c9130a91d44e1acd7475877b87", # ephemeral participation overrides
+      "/app/permissions/decidim/permissions.rb" => "ace85e448814ed71bbea5e7515b95d5d", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
       "/app/views/layouts/decidim/_user_menu.html.erb" => "de17337bd45f6e6d5aa455267f70430f", # ephemeral participation overrides
-      "/app/views/layouts/decidim/widget.html.erb" => "c1597f7a98b4f5a2fecca26022529339",
-      "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "03cdae8f31147f0270edf8f0cd9ff181",
-      "/app/cells/decidim/activities_cell.rb" => "f083b17ad0673308ffaef0eb2b1add16"
+      "/app/views/layouts/decidim/widget.html.erb" => "b9fb503118ee33d298cbc585995e216c",
+      "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "2ddcb8ba5070f7cdb231283185f2c213",
+      "/app/cells/decidim/activities_cell.rb" => "af9e9e2b6e4134fa90b6699bbf7da428"
     }
   },
   {
     package: "decidim-admin",
     files: {
-      "/app/commands/decidim/admin/transfer_user.rb" => "b4c4808c0ffd4215cd2bddeefd87201a", # ephemeral participation overrides
+      "/app/commands/decidim/admin/transfer_user.rb" => "7cf11abc98c3a0c4a656ab96c220dd6a", # ephemeral participation overrides
       "/app/controllers/decidim/admin/conflicts_controller.rb" => "dfe4daf8dcb7b4963e37651b0fe8df3c", # ephemeral participation overrides
-      "/app/forms/decidim/admin/component_form.rb" => "c44e97d9f4a18a8692079e9ab993c418", # ephemeral participation overrides
-      "/app/forms/decidim/admin/permissions_form.rb" => "716cf7f4bffc06d03a462c77932999fd" # ephemeral participation overrides
+      "/app/forms/decidim/admin/component_form.rb" => "0455dd26580817470fd7096ef6b08315", # ephemeral participation overrides
+      "/app/forms/decidim/admin/permissions_form.rb" => "f68d00a490e84524ce3aebe6f71d829a" # ephemeral participation overrides
     }
   },
   {
@@ -43,9 +43,9 @@ checksums = [
   {
     package: "decidim-verifications",
     files: {
-      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "0c5a5800019a4c159c70175ce8ed17c1", # ephemeral participation overrides
-      "/app/services/decidim/authorization_handler.rb" => "36c5cf48c9163677373439f6d2617afa", # ephemeral participation overrides
-      "/lib/decidim/verifications/workflow_manifest.rb" => "eb40ba8ed4b282ffe22158521dcf0499" # ephemeral participation overrides
+      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "689191217a3d28850a06559b98f7d16c", # ephemeral participation overrides
+      "/app/services/decidim/authorization_handler.rb" => "7d3b241e2a224c2c6aa7861372a1b2de", # ephemeral participation overrides
+      "/lib/decidim/verifications/workflow_manifest.rb" => "3c943ad22d8d504df399fcc1227cd6c2" # ephemeral participation overrides
     }
   },
   {
@@ -59,10 +59,10 @@ checksums = [
   {
     package: "decidim-accountability",
     files: {
-      "/app/views/decidim/accountability/results/home.html.erb" => "8b8b5073f77299f1f594ca7229874963",
-      "/app/models/decidim/accountability/result.rb" => "1d2429c8a7186153e8e53afeadfc8363",
-      "/app/services/decidim/accountability/results_calculator.rb" => "2a8e80a63bdc35fad9e4c4cc52cb9e28",
-      "/app/views/decidim/accountability/results/_results_leaf.html.erb" => "37bec8d75287a59f7cb16140ec2678db",
+      "/app/views/decidim/accountability/results/home.html.erb" => "79a3df85ac336eb449fbf4d545c5ee03",
+      "/app/models/decidim/accountability/result.rb" => "aa9e2c5394152e22ad5d0c3547637230",
+      "/app/services/decidim/accountability/results_calculator.rb" => "59df612241e5ed2b33ee2ab32af87621",
+      "/app/views/decidim/accountability/results/_results_leaf.html.erb" => "4c9493268b778c6c2c356616d7a8886a",
       "/app/views/decidim/accountability/results/_show_leaf.html.erb" => "7c99f542c9cb2ef72dbe2f86e285bd26"
     }
   },
@@ -71,9 +71,9 @@ checksums = [
     files: {
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
       "/app/cells/decidim/initiatives/initiative_m/footer.erb" => "3f4017aa1dd1cb30b26843ab92b32031",
-      "/app/models/decidim/initiative.rb" => "8f044f78c387b2da69280bc0c3b62179",
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "4c62fd2c128b794ebd154384dca693ef",
-      "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "f1bcd3e7c406a2263d49d0f341930bfc",
+      "/app/models/decidim/initiative.rb" => "c1e3e78f74607c4995a71cac81effefa",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320",
+      "/app/views/layouts/decidim/_initiative_header_steps.html.erb" => "b82f930fafd65df4170f8a6ffc7595bd",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "ecb8b4c7e417c3dc979e7f64c19f96a5",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "2c3068724ed2986f62bd13994960f39e"
     }
@@ -85,10 +85,17 @@ checksums = [
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "20564c5da2200ed0c9fe42c457af26cb",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "678306ecfe31b67a1d4f13a10d189c74",
-      "/app/models/decidim/meetings/meeting.rb" => "1386073a688896f7ab5b579c3080cae0",
-      "/app/controllers/decidim/meetings/meetings_controller.rb" => "d0bdba675f1e3df524ac7e834e3a5f37",
-      "/app/helpers/decidim/meetings/meetings_helper.rb" => "4137d363bfb0d60de112fb765102b72c",
+      "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97",
+      "/app/controllers/decidim/meetings/meetings_controller.rb" => "c4b88c68ea8b5653c6f1e35cd2646011",
+      "/app/helpers/decidim/meetings/meetings_helper.rb" => "38ce368638f4ac344faea5f0307f09de",
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "2c5628f8d02af54ad857508e33e212a3"
+    }
+  },
+  {
+    # Fix origami date compatibility with Ruby 3.0 monkey-patching it on origami_date.rb
+    package: "origami",
+    files: {
+      "/lib/origami/string.rb" => "1a8d718ef6a044183298eb92b650be75"
     }
   }
 ]

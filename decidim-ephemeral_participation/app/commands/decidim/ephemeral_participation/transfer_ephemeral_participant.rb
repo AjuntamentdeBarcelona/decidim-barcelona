@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class TransferEphemeralParticipant < Rectify::Command
+    class TransferEphemeralParticipant < Decidim::Command
       def initialize(form)
         @current_user = form.current_user
         @verified_user = form.conflict.managed_user

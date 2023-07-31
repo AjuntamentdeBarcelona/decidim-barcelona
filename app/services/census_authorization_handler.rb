@@ -7,7 +7,6 @@ require "digest/md5"
 # to verify the citizen's residence.
 class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
-  include Virtus::Multiparams
 
   AVAILABLE_GENDERS = %w(man woman non_binary).freeze
 
@@ -37,9 +36,9 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
     super.merge(
       date_of_birth: date_of_birth&.strftime("%Y-%m-%d"),
       postal_code: postal_code,
-      scope: scope.name["ca"],
-      scope_id: scope.id,
-      scope_code: scope.code,
+      scope: scope_name,
+      scope_id: scope&.id,
+      scope_code: scope&.code,
       extras: {
         gender: gender
       }
@@ -47,7 +46,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def scope
-    Decidim::Scope.find(scope_id)
+    @scope ||= Decidim::Scope.find_by(id: scope_id)
   end
 
   def census_document_types
@@ -77,6 +76,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   private
+
+  def scope_name
+    return nil unless scope
+
+    scope.name["ca"]
+  end
 
   def sanitized_document_type
     case document_type&.to_sym

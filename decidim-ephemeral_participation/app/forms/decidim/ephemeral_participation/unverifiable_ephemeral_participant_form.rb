@@ -7,7 +7,7 @@ module Decidim
 
       attribute :email
 
-      validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+      validates :email, presence: true, "valid_email_2/email": { disposable: true }
 
       def email_taken?
         users_with_same_email.any?

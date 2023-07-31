@@ -7,7 +7,7 @@ module Decidim
 
       included do
         # Allows to be configured (in /system) for ephermeral participation (where available)
-        attribute :ephemerable, Virtus::Attribute::Boolean, default: false
+        attribute :ephemerable, Decidim::AttributeObject::TypeMap::Boolean, default: false
 
         def description
           ephemerable_text = ", #{I18n.t("ephemerable", scope: "decidim.authorization_handlers")}" if ephemerable

@@ -6,6 +6,10 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        include ActiveModel::Validations::Callbacks
+
+        before_validation :transform_values
+
         alias_method :old_map_model, :map_model
 
         attribute :available_authorizations, Object
@@ -26,7 +30,7 @@ module Decidim
           available_authorizations
         end
 
-        def before_validation
+        def transform_values
           available_authorizations.transform_values! { |string| JSON.parse(string).presence }.compact!
         end
 

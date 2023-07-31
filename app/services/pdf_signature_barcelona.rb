@@ -26,23 +26,21 @@ class PdfSignatureBarcelona
   def signed_pdf
     return pdf if missing_configuration?
 
-    @signed_pdf ||= begin
-      StringIO.open(pdf) do |stream|
-        parsed_pdf = Origami::PDF.read(stream)
-        parsed_pdf.append_page do |page|
-          page.add_annotation(signature_annotation)
-          parsed_pdf.sign(
-            certificate,
-            private_key.key,
-            method: "adbe.pkcs7.detached",
-            annotation: signature_annotation,
-            location: location,
-            contact: contact,
-            issuer: issuer
-          )
-        end
-        extract_signed_pdf(parsed_pdf)
+    @signed_pdf ||= StringIO.open(pdf) do |stream|
+      parsed_pdf = Origami::PDF.read(stream)
+      parsed_pdf.append_page do |page|
+        page.add_annotation(signature_annotation)
+        parsed_pdf.sign(
+          certificate,
+          private_key.key,
+          method: "adbe.pkcs7.detached",
+          annotation: signature_annotation,
+          location: location,
+          contact: contact,
+          issuer: issuer
+        )
       end
+      extract_signed_pdf(parsed_pdf)
     end
   end
 

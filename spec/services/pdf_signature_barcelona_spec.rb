@@ -3,13 +3,14 @@
 require "rails_helper"
 
 describe PdfSignatureBarcelona do
-  let(:subject) { service }
+  subject { service }
+
   let(:service) { described_class.new(params) }
   let(:params) { { pdf: valid_pdf } }
   let(:valid_pdf) { File.read("spec/fixtures/example_pdf.pdf") }
 
   describe "#signed_pdf" do
-    let(:subject) { service.signed_pdf }
+    subject { service.signed_pdf }
 
     context "when a configuration variable is missing" do
       before do

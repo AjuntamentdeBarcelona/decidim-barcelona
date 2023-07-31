@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.26-stable-bcn" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.27-stable-bcn" }.freeze
 
 ruby RUBY_VERSION
 
@@ -11,16 +11,16 @@ gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
 gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-navigation_maps", "~> 1.3.3"
+gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "upgrade-0.27"
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-decidim_awesome", "~> 0.8.3"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
 
-gem "virtus-multiparams"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
@@ -46,7 +46,7 @@ end
 group :development do
   gem "letter_opener_web"
   gem "listen"
-  gem "rubocop", "~> 0.92.0"
+  gem "rubocop"
   gem "spring"
   gem "spring-commands-rspec"
   gem "spring-watcher-listen"
@@ -74,6 +74,7 @@ group :production do
 end
 
 group :test do
+  gem "codecov", require: false
   gem "database_cleaner"
   gem "rspec"
 end

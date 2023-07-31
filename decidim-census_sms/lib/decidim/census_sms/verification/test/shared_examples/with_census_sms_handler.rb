@@ -41,8 +41,6 @@ shared_context "with census sms handler" do
   # rubocop:enable Naming/AccessorMethodName:
 
   before do
-    # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(Decidim::CensusSms::Verification::AuthorizationForm).to receive(:response).and_return(response)
-    # rubocop:enable RSpec/AnyInstance
   end
 end

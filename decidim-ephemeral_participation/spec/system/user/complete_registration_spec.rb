@@ -68,9 +68,9 @@ describe "User menu", type: :system do
           expect(current_user.name).to eq(name)
           expect(current_user.nickname).to eq(nickname)
           expect(current_user.email).to eq(email)
-          expect(current_user.valid_password?(password)).to eq(true)
-          expect(current_user.ephemeral_participant?).to eq(false)
-          expect(current_user.confirmed?).to eq(true)
+          expect(current_user.valid_password?(password)).to be true
+          expect(current_user.ephemeral_participant?).to be false
+          expect(current_user.confirmed?).to be true
 
           expect(page).to have_current_path(/#{decidim.account_path}.*/)
         end
