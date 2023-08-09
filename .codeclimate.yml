@@ -61,3 +61,4 @@ exclude_paths:
 - "config/initializers/origami_date.rb"
 - "config/initializers/decidim.rb"
 - "decidim-ephemeral_participation/app/permissions/decidim/ephemeral_participation/ephemeral_participation_permissions.rb"
+- "app/services/decidim_legacy_routes.rb"
