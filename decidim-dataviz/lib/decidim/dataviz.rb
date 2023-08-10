@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/dataviz/admin"
+require "decidim/dataviz/admin_engine"
 require "decidim/dataviz/engine"
 require "decidim/dataviz/component"
 
