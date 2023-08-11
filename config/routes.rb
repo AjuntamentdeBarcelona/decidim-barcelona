@@ -32,8 +32,8 @@ Rails.application.routes.draw do
                  end
       component = resource.component
       process = component.participatory_space
-      component_manifest_name = component.manifest_name
-      "/processes/#{process.id}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
+      component_manifest_name = component.manifest_name == "accountability" ? "results" : component.manifest_name
+      "/processes/#{process.slug}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
     }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")), resource_id: %r{(?!meetings)[^/]*} }
   end
   # rubocop:enable Layout/LineLength
