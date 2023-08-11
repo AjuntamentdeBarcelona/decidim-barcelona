@@ -16,16 +16,27 @@ module Decidim::Accountability
     let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }
 
     describe "#export" do
-      it "updates them" do
+      before do
         csv_export = subject.export
 
         csv = CSV.parse(csv_export, headers: true)
 
         expect(csv.count).to eq 1
-        first_row = csv[0]
-        expect(first_row["external_id"]).to eq(parent_result.external_id)
-        expect(first_row["relative_weight"].to_f).to eq(parent_result.weight * 100.0)
-        expect(first_row["result_id"].to_i).to eq(parent_result.id)
+        @first_row = csv[0]
+      end
+
+      it "updates them" do
+        expect(@first_row["external_id"]).to eq(parent_result.external_id)
+        expect(@first_row["relative_weight"].to_f).to eq(parent_result.weight * 100.0)
+        expect(@first_row["result_id"].to_i).to eq(parent_result.id)
+      end
+
+      context "when result is nil" do
+        let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423", weight: nil }
+
+        it "exports weight as 0" do
+          expect(@first_row["relative_weight"].to_f).to eq(0.0)
+        end
       end
     end
   end
