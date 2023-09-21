@@ -8,7 +8,7 @@
               <% current_participatory_space.subscopes.order(Arel.sql("code::INTEGER ASC")).each do |scope| %>
                 <% scope_results_count = count_calculator(scope.id, 'all') %>
                 <% progress = progress_calculator(scope.id, 'all') %>
-                <%= link_to results_path(filter: { scope_id: scope.id }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
+                <%= link_to results_path(filter: { with_scope: scope.id }), class: "medium-4 columns end card__link card__link--block block--scope" do %>
                   <div class="category--scope--line">
                     <%= image_pack_tag("media/images/districte-#{scope.id}.jpg")  %>
                     <div class="scope--inner">
