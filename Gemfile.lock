@@ -203,10 +203,10 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: f1cb90bdd938f2f4a65a5760880397dc3a754327
+  revision: 05ab8848b0aad43edba8af35e3e081ac577c02e2
   branch: main
   specs:
-    decidim-decidim_awesome (0.9.0)
+    decidim-decidim_awesome (0.9.3)
       decidim-admin (>= 0.26.0, < 0.28)
       decidim-core (>= 0.26.0, < 0.28)
       sassc (~> 2.3)
