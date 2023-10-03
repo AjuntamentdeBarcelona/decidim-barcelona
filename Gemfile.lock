@@ -194,7 +194,8 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps
-  revision: 13cb66458bf64fa5e8297c83a748b5799f555c28
+  revision: 886e7247ec2256458470a0699810d8c297362505
+  branch: fix/add-missing-images
   specs:
     decidim-navigation_maps (1.4.0)
       decidim-admin (>= 0.27, < 0.28)
