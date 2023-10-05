@@ -46,7 +46,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "stylelint": "^13.11.0",
+    "stylelint": "^15.10.3",
     "webpack-dev-server": "^4.8.0"
   }
 }
