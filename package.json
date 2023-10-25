@@ -2,10 +2,10 @@
   "name": "app",
   "private": true,
   "dependencies": {
-    "@decidim/browserslist-config": "file:packages/browserslist-config",
-    "@decidim/core": "file:packages/core",
-    "@decidim/elections": "file:packages/elections",
-    "@decidim/webpacker": "file:packages/webpacker",
+    "@decidim/browserslist-config": "0.27.4",
+    "@decidim/core": "0.27.4",
+    "@decidim/elections": "0.27.4",
+    "@decidim/webpacker": "0.27.4",
     "@geoman-io/leaflet-geoman-free": "^2.11.4",
     "@rails/webpacker": "^6.0.0-rc.6",
     "codemirror": "^5.65.3",
@@ -38,9 +38,9 @@
     "extends @decidim/browserslist-config"
   ],
   "devDependencies": {
-    "@decidim/dev": "file:packages/dev",
-    "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config",
+    "@decidim/dev": "0.27.4",
+    "@decidim/eslint-config": "0.27.4",
+    "@decidim/stylelint-config": "0.27.4",
     "@webpack-cli/serve": "^1.6.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
