@@ -10,7 +10,7 @@ checksums = [
     package: "decidim-core",
     files: {
       "/app/controllers/decidim/application_controller.rb" => "b9816a58ec4c5b45f747c27460f17018", # ephemeral participation overrides
-      "/app/helpers/decidim/decidim_form_helper.rb" => "0c6b26cee8e54a5c2bc93256286b6f26", # ephemeral participation overrides
+      "/app/helpers/decidim/decidim_form_helper.rb" => "8f52583ee11664dbffcb9c6b53818436", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "32e241f1d88313e487cd28daac09aee0", # ephemeral participation overrides
       "/app/models/decidim/organization.rb" => "e3d474ed92c0b8bb8911e6947a569845", # ephemeral participation overrides
       "/app/models/decidim/permission_action.rb" => "00da630bf229dc8d482dc0e0b2d6a95c", # ephemeral participation overrides
