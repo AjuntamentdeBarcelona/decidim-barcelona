@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-standard": "^3.1.0",
     "sass-embedded": "~1.57.1",
-    "stylelint": "^13.11.0",
+    "stylelint": "^15.11.0",
     "webpack-dev-server": "^4.8.0"
   }
 }
