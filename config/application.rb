@@ -19,7 +19,7 @@ module DecidimBarcelona
     # -- all .rb files in that directory are automatically loaded.
 
     # Locales
-    config.i18n.available_locales = %i(ca es)
+    config.i18n.available_locales = [:ca, :es]
     config.i18n.default_locale = :ca
   end
 end
