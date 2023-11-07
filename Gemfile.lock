@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: dd0d1ca0352426d8b5b5610f81b9200b934e6d47
+  revision: 08d350186b7afce1e6d1ccbbece93fddb61ba735
   branch: release/0.27-stable-bcn
   specs:
     decidim (0.27.4)
@@ -560,7 +560,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.9.0)
+    icalendar (2.10.0)
       ice_cube (~> 0.16)
     ice_cube (0.16.4)
     ice_nine (0.11.2)
