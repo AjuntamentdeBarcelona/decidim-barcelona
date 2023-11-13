@@ -14,4 +14,5 @@ Rails.application.config.to_prepare do
   Decidim::ContentBlocks::LastActivityCell.include(Decidim::ContentBlocks::LastActivityCellOverride)
   Decidim::ActivitiesCell.include(Decidim::ActivitiesCellOverride)
   Decidim::UserProfileCell.include(Decidim::UserProfileCellOverride)
+  Decidim::Proposals::ProposalPresenter.include(Decidim::Proposals::ProposalPresenterOverride)
 end
