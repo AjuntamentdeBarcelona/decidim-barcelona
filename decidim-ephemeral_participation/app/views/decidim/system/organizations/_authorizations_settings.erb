@@ -21,7 +21,7 @@
                       {
                         label: false,
                         id: "organization_available_authorizations_#{authorization_workflow.name}_enabled",
-                        checked: f.object.available_authorizations&.key?(authorization_workflow.name)
+                        checked: (f.object.available_authorizations.presence || {}).key?(authorization_workflow.name)
                       }, # options
                       { allow_ephemeral_participation: false }.to_json, # checked_value
                       {}.to_json # unchecked_value
@@ -34,7 +34,7 @@
                       {
                         label: false,
                         id: "organization_available_authorizations_#{authorization_workflow.name}_allow_ephemeral_participation",
-                        checked: f.object.available_authorizations&.dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
+                        checked: (f.object.available_authorizations.presence || {}).dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
                         disabled: !authorization_workflow.ephemerable,
                         class: ("hide" if !authorization_workflow.ephemerable)
                       } # options

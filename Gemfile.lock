@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 08d350186b7afce1e6d1ccbbece93fddb61ba735
+  revision: 959bacc10db7a31ca84acbeb047d15301123f504
   branch: release/0.27-stable-bcn
   specs:
     decidim (0.27.4)
@@ -32,7 +32,7 @@ GIT
       decidim-core (= 0.27.4)
       devise (~> 4.7)
       devise-i18n (~> 1.2)
-      devise_invitable (~> 2.0)
+      devise_invitable (~> 2.0, >= 2.0.9)
     decidim-api (0.27.4)
       graphql (~> 1.12, < 1.13)
       graphql-docs (~> 2.1.0)
@@ -174,7 +174,7 @@ GIT
       decidim-core (= 0.27.4)
       devise (~> 4.7)
       devise-i18n (~> 1.2)
-      devise_invitable (~> 2.0)
+      devise_invitable (~> 2.0, >= 2.0.9)
     decidim-templates (0.27.4)
       decidim-core (= 0.27.4)
       decidim-forms (= 0.27.4)
@@ -453,7 +453,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
-    devise_invitable (2.0.8)
+    devise_invitable (2.0.9)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.5.0)
