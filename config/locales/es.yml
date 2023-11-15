@@ -229,6 +229,14 @@ es:
         project_proposals: 'Propuestas incluidas en este proyecto:'
     sms:
       text: 'Tu código para verificarte en Decidim Barcelona es: %{code}'
+    system:
+      organizations:
+        edit:
+          title: Editar organización
+        new:
+          default: ¿Por defecto?
+          enabled: Habilitado
+          locale: Idioma
     verifications:
       authorizations:
         first_login:
@@ -240,6 +248,9 @@ es:
     decidim:
       initiative_header_steps:
         signature_collection_period: Recogida de firmas
+      system:
+        login_items:
+          logout: Cerrar sesión
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito
