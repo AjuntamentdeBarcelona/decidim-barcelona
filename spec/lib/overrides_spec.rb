@@ -94,6 +94,12 @@ checksums = [
     }
   },
   {
+    package: "decidim-proposals",
+    files: {
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "105b7266bcdd8b947ababbb7ebb78789"
+    }
+  },
+  {
     # Fix origami date compatibility with Ruby 3.0 monkey-patching it on origami_date.rb
     package: "origami",
     files: {
