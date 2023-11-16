@@ -15,6 +15,7 @@ checksums = [
       "/app/models/decidim/organization.rb" => "e3d474ed92c0b8bb8911e6947a569845", # ephemeral participation overrides
       "/app/models/decidim/permission_action.rb" => "00da630bf229dc8d482dc0e0b2d6a95c", # ephemeral participation overrides
       "/app/models/decidim/user.rb" => "cf6431b9ac57510d189df46ca3da9a04", # ephemeral participation overrides
+      "/app/packs/stylesheets/decidim/email.scss" => "7e6a7b5d0327696b8a9d481fdb8d8d70",
       "/app/permissions/decidim/permissions.rb" => "ace85e448814ed71bbea5e7515b95d5d", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",

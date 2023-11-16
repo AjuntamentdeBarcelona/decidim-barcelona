@@ -11,11 +11,6 @@ Citizen Participation and Open Government Application.
 
 This is the opensource code repository for "decidim-barcelona", based on [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
-## Upgrade notes
-
-- `app/views/layouts/decidim/widget.html.erb` modify the embed to remove organization's logo.
-- `app/stylesheets/decidim/email.css`, customizes the email template style of Decidim. Be careful in later updates to prevent changes in style.
-
 ## Development environment setup
 
 You can setup everything with Docker & Docker compose, run:
