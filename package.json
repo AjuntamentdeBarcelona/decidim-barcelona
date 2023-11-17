@@ -38,6 +38,18 @@
   "browserslist": [
     "extends @decidim/browserslist-config"
   ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/src decidim-dataviz/app/packs/src",
+    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/src decidim-dataviz/app/packs/src --fix",
+    "stylelint": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\"",
+    "stylelint-fix": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\" --fix"
+  },
+  "stylelint": {
+    "extends": "@decidim/stylelint-config",
+    "rules": {
+      "block-opening-brace-space-before": "always"
+    }
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-proposal-class-properties": "^7.18.6",

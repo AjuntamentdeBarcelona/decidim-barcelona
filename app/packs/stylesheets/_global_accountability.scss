@@ -17,6 +17,7 @@
       max-width: 600px;
       padding-bottom: 2rem;
     }
+
     .centered--text.text-center {
       text-align: center;
     }
@@ -31,15 +32,16 @@
       text-align: left;
 
       h4 {
-        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        padding: 1.5rem 1.5rem 1rem;
         border-bottom: 1px solid $medium-gray;
 
         .icon {
-          margin-right: 0.25rem;
+          margin-right: .25rem;
         }
       }
+
       .card__content {
-        padding: 0 1.5rem 1.5rem 1.5rem;
+        padding: 0 1.5rem 1.5rem;
 
         ul {
           list-style: none;
@@ -61,8 +63,8 @@
       }
     }
 
-    .card--mini .card__content{
-      padding: 1.5rem 0.5rem;
+    .card--mini .card__content {
+      padding: 1.5rem .5rem;
     }
 
     .accountability--graphic {
@@ -75,13 +77,15 @@
       .programme--section {
         margin-bottom: 1.5rem;
       }
+
       .icon {
-        margin-right: 0.25rem;
+        margin-right: .25rem;
         fill: $secondary;
       }
     }
   }
 }
+
 .accountability .categories .categories--group .card__link .category--scope--line {
   background-color: white;
   border: 1px solid #ddd;
@@ -93,7 +97,7 @@
 
   strong {
     font-size: 1.5rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: .5rem;
     display: block;
   }
 
@@ -126,11 +130,11 @@
 }
 
 .accountability .categories .categories--group .card__link .category--line .category--count {
-  color: #ABA5B3;
+  color: #aba5b3;
 }
 
 .accountability .categories .categories--group .card__link .category--line strong {
-  color: #182B71;
+  color: #182b71;
 }
 
 .accountability .categories .categories--group .category--title p.heading3 {

@@ -13,12 +13,13 @@
     flex-direction: column;
     justify-content: flex-end;
     color: $white;
-    transition: color 0.3s;
+    transition: color .3s;
     background-size: cover;
     background-position: center 10%;
+
     &:hover,
     &:focus {
-      color: rgba($white, 0.8);
+      color: rgba($white, .8);
     }
 
     @include breakpoint(mediumlarge) {
@@ -36,19 +37,21 @@
     &::after {
       content: "";
       display: inline-block;
-      width: 0.5em;
-      height: 0.5em;
-      border-top: 0.2em solid;
-      border-right: 0.2em solid;
+      width: .5em;
+      height: .5em;
+      border-top: .2em solid;
+      border-right: .2em solid;
       transform: rotate(45deg);
-      vertical-align: 0.05em;
+      vertical-align: .05em;
     }
   }
+
   &__content {
-    background-color: rgba(#22398e, 0.9);
+    background-color: rgba(#22398e, .9);
     padding: 1rem 2rem;
+
     &--alt {
-      background-color: rgba(#e63016, 0.9);
+      background-color: rgba(#e63016, .9);
     }
   }
 }

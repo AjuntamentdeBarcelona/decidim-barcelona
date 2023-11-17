@@ -1,5 +1,5 @@
 <% if current_user.present? && (!current_user.ephemeral_participant? || current_user.verified_ephemeral_participant?) %>
-  <div id="project-<%= project.id %>-budget-button" 
+  <div id="project-<%= project.id %>-budget-button"
        class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
        aria-label="<%= t("#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>">
     <span>
@@ -13,8 +13,7 @@
     <%= link_to t("add", scope: "decidim.budgets.projects.project_budget_button"),
                 verify_ephemeral_participant_path,
                 class: "button expanded primary button--sc",
-                "aria-label": t("add_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button")
-            %>
+                "aria-label": t("add_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>
   </div>
 <% else %>
   <div id="project-<%= project.id %>-budget-button">

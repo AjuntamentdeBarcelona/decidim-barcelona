@@ -4,7 +4,7 @@
 
 ---
 
-Citizen Participation and Open Government Application. 
+Citizen Participation and Open Government Application.
 
 [![Build Status](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/decidim_ci.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/decidim_ci.yml)
 [![Code Climate](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona/badges/gpa.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona)
@@ -20,7 +20,7 @@ This is the opensource code repository for "decidim-barcelona", based on [Decidi
 
 You can setup everything with Docker & Docker compose, run:
 
-```
+```bash
 docker-compose build
 docker-compose run --rm app bundle exec rake db:create db:schema:load db:seed
 docker-compose up

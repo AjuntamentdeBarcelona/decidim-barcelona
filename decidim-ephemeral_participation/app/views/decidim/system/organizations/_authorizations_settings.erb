@@ -15,7 +15,7 @@
               <td>
                 <%= ff.label authorization_workflow.description %>
               </td>
-              <td> 
+              <td>
                 <%= ff.check_box(
                       authorization_workflow.name, # attribute
                       {
@@ -50,7 +50,7 @@
 <script>
   $(document).ready(function () {
     var $allowEphemeralParticipationInputs = $('input[id^="organization_available_authorizations_"][id$="_allow_ephemeral_participation"]')
-    
+
     $allowEphemeralParticipationInputs.on('change',function(){
       $allowEphemeralParticipationInputs.each(function(){
         $(this).prop('checked', false);

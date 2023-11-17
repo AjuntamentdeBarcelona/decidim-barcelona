@@ -1,0 +1,13 @@
+**/*{.,-}min.js
+decidim-*/vendor/**/*.js
+**/node_modules/**
+bundle.js
+karma.conf.js
+webpack.config.js
+webpack.config.babel.js
+entry.test.js
+entry.js
+*_manifest.js
+coverage
+vendor/bundle
+**/vendor/**/*.js

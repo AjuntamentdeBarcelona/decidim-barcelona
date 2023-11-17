@@ -3,7 +3,7 @@
     <div class="columns large-6 large-centered">
       <h1 class="text-center page-title"><%= t(".title") %></h1>
     </div>
-    
+
     <div class="card columns large-6 large-centered">
       <div class="card__content">
         <%= decidim_form_for(@form, url: reset_authorization_path(id: authorization.id, redirect_url: redirect_url), method: :post) do |form| %>

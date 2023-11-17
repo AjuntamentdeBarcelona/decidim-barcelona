@@ -1,4 +1,4 @@
-name: "[CI] Decidim"
+name: Test
 on: [push]
 
 env:
@@ -6,8 +6,8 @@ env:
   NODE_VERSION: 16.9.1
 
 jobs:
-  tests:
-    name: Tests
+  test:
+    name: Test
     runs-on: ubuntu-20.04
     services:
       postgres:
@@ -36,8 +36,6 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - run: bundle exec rubocop -P
-        name: Lint Ruby files
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - name: Precompile assets

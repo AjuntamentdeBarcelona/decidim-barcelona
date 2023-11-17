@@ -3,7 +3,7 @@
     <div class="small-12 column">
       <ul class="vertical large-horizontal menu">
         <% available_dataviz.each do |dataviz| %>
-          <li class="<%= 'active' if dataviz == @id %>">
+          <li class="<%= "active" if dataviz == @id %>">
             <%= link_to({ id: dataviz }) do %><%= t ".dataviz.#{dataviz}.title" %><% end %>
           </li>
         <% end %>
@@ -24,5 +24,5 @@
   </div>
 </div>
 
-<%= javascript_pack_tag 'decidim_dataviz' %>
-<%= stylesheet_pack_tag 'decidim_dataviz' %>
+<%= javascript_pack_tag "decidim_dataviz" %>
+<%= stylesheet_pack_tag "decidim_dataviz" %>
