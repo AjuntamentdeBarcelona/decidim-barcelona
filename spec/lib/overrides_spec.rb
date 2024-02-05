@@ -100,6 +100,13 @@ checksums = [
     }
   },
   {
+    package: "decidim-forms",
+    files: {
+      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d",
+      "/app/views/decidim/forms/admin/questionnaires/answers/show.html.erb" => "49e39b6688f3109b87ec74890bc566fb"
+    }
+  },
+  {
     # Fix origami date compatibility with Ruby 3.0 monkey-patching it on origami_date.rb
     package: "origami",
     files: {
