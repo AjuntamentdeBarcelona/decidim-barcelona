@@ -36,6 +36,9 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+      - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
       - run: bundle exec rubocop -P
         name: Lint Ruby files
       - run: bundle exec rake db:test:prepare
