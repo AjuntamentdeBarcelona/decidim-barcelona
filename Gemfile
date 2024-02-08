@@ -17,7 +17,7 @@ gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-decidim_awesome", "~> 0.10.2"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
 
