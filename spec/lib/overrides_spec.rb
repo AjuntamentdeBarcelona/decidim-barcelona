@@ -83,7 +83,7 @@ checksums = [
   {
     package: "decidim-meetings",
     files: {
-      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "7d85622f4dd6c7a262ab59c53a6aaedf",
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "66ee99695217f75939deed77f6f88159",
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "20564c5da2200ed0c9fe42c457af26cb",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "678306ecfe31b67a1d4f13a10d189c74",
@@ -97,6 +97,13 @@ checksums = [
     package: "decidim-proposals",
     files: {
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "105b7266bcdd8b947ababbb7ebb78789"
+    }
+  },
+  {
+    package: "decidim-forms",
+    files: {
+      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d",
+      "/app/views/decidim/forms/admin/questionnaires/answers/show.html.erb" => "49e39b6688f3109b87ec74890bc566fb"
     }
   },
   {
