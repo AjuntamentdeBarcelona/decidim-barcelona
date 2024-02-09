@@ -4,10 +4,6 @@ $mini-footer-bg: $dark-gray;
 
 //Common
 
-.main-footer,
-.mini-footer {
-}
-
 //Main footer
 .main-footer {
   background-color: $main-footer-bg;
@@ -31,7 +27,7 @@ $mini-footer-bg: $dark-gray;
 
   @include breakpoint(large) {
     position: absolute;
-    margin-top: -0.25rem;
+    margin-top: -.25rem;
   }
 }
 
@@ -49,7 +45,7 @@ $mini-footer-bg: $dark-gray;
 
 .footer-nav {
   list-style: none;
-  padding-top: 0.5rem;
+  padding-top: .5rem;
   margin: 0 0 0 -1rem;
 
   li {
@@ -72,7 +68,7 @@ $mini-footer-bg: $dark-gray;
 
 .footer-social {
   list-style: none;
-  padding-top: 0.5rem;
+  padding-top: .5rem;
   margin: 0;
 
   li {
@@ -95,8 +91,10 @@ $mini-footer-bg: $dark-gray;
   padding: 2rem 0 1.5rem;
   background-color: $mini-footer-bg;
   color: $medium-gray;
+
   a {
     color: darken($medium-gray, 40%);
+
     &:hover {
       color: darken($medium-gray, 20%);
     }
@@ -104,7 +102,7 @@ $mini-footer-bg: $dark-gray;
 }
 
 .cc-badge {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
 }
 
 .decidim-logo {
@@ -112,6 +110,7 @@ $mini-footer-bg: $dark-gray;
   width: 140px;
   margin-right: auto;
   margin-left: auto;
+
   @include breakpoint(medium) {
     margin-top: -9px;
     margin-right: 0;

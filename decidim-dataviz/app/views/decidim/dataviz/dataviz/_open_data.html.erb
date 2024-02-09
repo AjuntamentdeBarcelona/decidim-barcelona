@@ -6,7 +6,7 @@
           <li>
             <span>
               <%= link_to asset_url("/dataviz/documents/#{item}.csv"), download: "#{item}.csv" do %>
-                <%=t ".download-#{item}" %>
+                <%= t ".download-#{item}" %>
               <% end %>
             </span>
           </li>

@@ -3,7 +3,7 @@
     <div class="columns large-8 large-centered">
       <h1 class="text-center page-title"><%= t(".title") %></h1>
     </div>
-    
+
     <div class="card columns large-6 large-centered">
       <div class="card__content">
         <%= decidim_form_for(@form, url: ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
@@ -16,12 +16,12 @@
           <div class="field">
             <%= form.text_field :nickname %>
           </div>
-          
+
           <div class="field">
             <%= form.email_field :email %>
           </div>
 
-          <input autocomplete="off" name="hidden" type="password" style="display:none;"/>
+          <input autocomplete="off" name="hidden" type="password" style="display:none;">
 
           <div class="field">
             <%= form.password_field :password, value: form.object.password, autocomplete: "off", help_text: I18n.t("devise.passwords.edit.password_help", minimun_characters: NOBSPW.configuration.min_password_length) %>
@@ -30,7 +30,7 @@
           <div class="field">
             <%= form.password_field :password_confirmation, value: form.object.password_confirmation, autocomplete: "off" %>
           </div>
-        
+
           <div class="actions text-center">
             <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants"), class: "button expanded" %>
           </div>

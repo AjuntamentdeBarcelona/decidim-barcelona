@@ -1,6 +1,6 @@
 //Process cards - home and processes
 .card--full__image {
-  &:after {
+  &::after {
     content: "";
     display: block;
     width: 100%;
@@ -11,12 +11,15 @@
     background: url("images/pattern-big.svg") no-repeat left top;
     z-index: 0;
     background-size: 32px;
+
     @include breakpoint(medium) {
       background-size: 90px;
     }
+
     @include breakpoint(mediumlarge) {
       background-size: 160px;
     }
+
     @include breakpoint(large) {
       background-size: 120px;
     }
@@ -25,7 +28,8 @@
 
 .card--process .card__image-top {
   position: relative;
-  &:after {
+
+  &::after {
     content: "";
     display: block;
     width: 100%;
@@ -39,6 +43,6 @@
   }
 }
 
-.card--process.card--mini .card__image-top:after {
+.card--process.card--mini .card__image-top::after {
   background-size: 32px;
 }
