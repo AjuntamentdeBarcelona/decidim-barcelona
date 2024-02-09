@@ -202,6 +202,17 @@ GIT
       decidim-core (>= 0.27, < 0.28)
 
 GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
+  revision: 3b43ffd743e78a822b412ff57612e280dcc616d6
+  branch: main
+  specs:
+    decidim-decidim_awesome (0.10.2)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 5a8d4c67972ef10cd52e774d64a3c7cff9bc9325
   branch: master
@@ -424,11 +435,6 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-decidim_awesome (0.10.2)
-      decidim-admin (>= 0.26.0, < 0.28)
-      decidim-core (>= 0.26.0, < 0.28)
-      deface (>= 1.5)
-      sassc (~> 2.3)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -983,7 +989,7 @@ DEPENDENCIES
   decidim!
   decidim-census_sms!
   decidim-dataviz!
-  decidim-decidim_awesome (~> 0.10.2)
+  decidim-decidim_awesome!
   decidim-dev!
   decidim-ephemeral_participation!
   decidim-initiatives!
