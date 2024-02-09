@@ -26,9 +26,9 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 
-  &.preview{
+  &.preview {
     .see-on-website,
-    .unsubscribe{
+    .unsubscribe {
       cursor: not-allowed;
     }
   }
@@ -1789,8 +1789,8 @@ td {
   box-sizing: border-box;
 }
 
-.email-notifications-digest{
-  .email-header{
+.email-notifications-digest {
+  .email-header {
     margin-bottom: 32px;
     font-size: 16px;
     font-weight: bold;
@@ -1798,17 +1798,17 @@ td {
     display: inline-block;
     width: 49%;
 
-    &--right{
+    &--right {
       text-align: right;
     }
   }
 
-  .email-intro{
+  .email-intro {
     font-size: 16px;
     line-height: 21px;
   }
 
-  .email-content-notifications{
+  .email-content-notifications {
     background-color: #f4f4f4;
     border-radius: 5px;
     border: 1px #e5e5e5;
@@ -1816,15 +1816,15 @@ td {
     margin: 32px 0;
   }
 
-  .email-content-notification{
-    p a{
+  .email-content-notification {
+    p a {
       color: #327f9b;
       font-weight: bold;
       text-decoration: underline;
     }
   }
 
-  .email-element-separator{
+  .email-element-separator {
     margin: 24px 0;
     color: #e5e5e5;
     border-color: #e5e5e5;
@@ -1833,17 +1833,17 @@ td {
     border-width: 1px;
   }
 
-  .email-notification-date{
+  .email-notification-date {
     color: #666d7a;
     display: block;
     margin-bottom: 10px;
   }
 
-  .email-closing{
+  .email-closing {
     font-size: 14px;
   }
 
-  .email-btn{
+  .email-btn {
     border: solid 1px;
     margin: 0 33% 30px;
     width: 33%;
