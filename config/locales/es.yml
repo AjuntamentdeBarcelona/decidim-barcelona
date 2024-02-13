@@ -160,7 +160,7 @@ es:
           gender: Sexo
           postal_code: Código postal
           scope_id: Distrito
-        name: El padrón (mayores de 10 años)
+        name: El padrón (mayores de 8 años)
     budgets:
       projects:
         budget_confirm:
@@ -243,7 +243,7 @@ es:
           actions:
             census16_authorization_handler: Verifícate con el padrón (16+)
             census_authorization_handler: Verifícate con el padrón
-            census_kids_authorization_handler: Verifícate con el padrón (10+)
+            census_kids_authorization_handler: Verifícate con el padrón (8+)
   layouts:
     decidim:
       initiative_header_steps:

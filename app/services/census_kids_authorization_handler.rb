@@ -7,6 +7,6 @@ require "digest/md5"
 # to verify the citizen's residence.
 class CensusKidsAuthorizationHandler < CensusAuthorizationHandler
   def age_limit
-    errors.add(:date_of_birth, I18n.t("census_kids_authorization_handler.age_under", min_age: 10)) unless age && age >= 10
+    errors.add(:date_of_birth, I18n.t("census_kids_authorization_handler.age_under", min_age: 8)) unless age && age >= 8
   end
 end

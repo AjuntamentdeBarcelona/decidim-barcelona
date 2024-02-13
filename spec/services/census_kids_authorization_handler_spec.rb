@@ -98,8 +98,8 @@ describe CensusKidsAuthorizationHandler do
         it { is_expected.not_to be_valid }
       end
 
-      context "when it's under 10" do
-        let(:date_of_birth) { 9.years.ago }
+      context "when it's under 8" do
+        let(:date_of_birth) { 7.years.ago }
 
         it { is_expected.not_to be_valid }
       end
