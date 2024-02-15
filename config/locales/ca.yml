@@ -160,7 +160,7 @@ ca:
           gender: Sexe
           postal_code: Codi postal
           scope: Districte
-        name: El padró (majors de 10 anys)
+        name: El padró (majors de 8 anys)
     budgets:
       projects:
         budget_confirm:
@@ -249,7 +249,7 @@ ca:
           actions:
             census16_authorization_handler: Verifica't amb el padró (16+)
             census_authorization_handler: Verifica't amb el padró
-            census_kids_authorization_handler: Verifica't amb el padró (10+)
+            census_kids_authorization_handler: Verifica't amb el padró (8+)
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
             valid_auth: Valid auth
   layouts:

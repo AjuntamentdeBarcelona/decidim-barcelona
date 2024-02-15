@@ -52,7 +52,7 @@ describe "Authorizations with census kids", type: :system, perform_enqueued: tru
       end
 
       click_link "Autoritzacions"
-      click_link "El padró (majors de 10 anys)"
+      click_link "El padró (majors de 8 anys)"
 
       fill_in_authorization_form
       click_button "Enviar"
@@ -62,8 +62,8 @@ describe "Authorizations with census kids", type: :system, perform_enqueued: tru
       visit decidim_verifications.authorizations_path
 
       within ".authorizations-list" do
-        expect(page).to have_content("El padró (majors de 10 anys)")
-        expect(page).not_to have_link("El padró (majors de 10 anys)")
+        expect(page).to have_content("El padró (majors de 8 anys)")
+        expect(page).not_to have_link("El padró (majors de 8 anys)")
       end
     end
 
@@ -78,7 +78,7 @@ describe "Authorizations with census kids", type: :system, perform_enqueued: tru
         visit decidim_verifications.authorizations_path
 
         within ".authorizations-list" do
-          expect(page).to have_content("El padró (majors de 10 anys)")
+          expect(page).to have_content("El padró (majors de 8 anys)")
           expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
         end
       end
