@@ -183,7 +183,7 @@ GIT
 
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: 50c71a55c3f0079f6084aec7caa9c5bca58a10d0
+  revision: 072d60aa31091f07d02cbafa30c755cd49f09f23
   branch: main
   specs:
     decidim-kids (0.1.0)
