@@ -910,6 +910,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.1.1)
+    stackprof (0.2.25)
     statsd-ruby (1.5.0)
     temple (0.10.2)
     terminal-table (3.0.2)
@@ -1026,6 +1027,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen
+  stackprof
   uglifier
   web-console
   wicked_pdf
