@@ -6,3 +6,27 @@
 
 User-agent: AhrefsBot
 Disallow: /
+
+User-agent: *
+Disallow: /processes/pam/f/1/proposals
+
+User-agent: *
+Disallow: /processes/PAM2020/f/3733/proposals
+
+User-agent: *
+Disallow: /processes/PressupostosParticipatius/f/3768/proposals
+
+User-agent: *
+Disallow: /processes/PressupostosParticipatius/f/4422/proposals
+
+User-agent: *
+Disallow: /processes/canviempelclima/f/4568/proposals
+
+User-agent: *
+Disallow: /processes/documentacio/f/5649/proposals
+
+User-agent: *
+Disallow: /assemblies/sectorempresarial/f/5426/proposals
+
+User-agent: *
+Disallow: /assemblies/consell-esport/f/5789/proposals
