@@ -19,7 +19,7 @@
       <% if current_participatory_space.slug.to_s == "PressupostosParticipatius" %>
         <%= render partial: "home_scopes" %>
       <% end %>
-      <%= render partial: "home_categories", locals: { show_category_image: current_participatory_space.slug.to_s == "forumjoveBCN" } %>
+      <%= render partial: "home_categories", locals: { show_category_image: (ENV["PARTICIPATORY_SPACES_WITH_CATEGORY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
     <% end %>
   </div>
 </div>
