@@ -1,4 +1,5 @@
-<div class="content"><h2>
+<div class="content"><!-- markdownlint-disable-file link-fragments -->
+<h2>
 <a id="about-the-graphql-api" class="anchor" href="#about-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the GraphQL API</h2>
 <p><a href="https://github.com/decidim/decidim">Decidim</a> comes with an API that follows the <a href="https://graphql.org/">GraphQL</a> specification. It has a comprehensive coverage of all the public content that can be found on the website.</p>
 <p>Currently, it is read-only (except for posting comments) but intends to cover anything that is published on the regular website.</p>
@@ -15,13 +16,13 @@
 <a id="using-the-graphql-api" class="anchor" href="#using-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the GraphQL APi</h3>
 <p>The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official <a href="https://graphql.org/learn/">GraphQL site</a>.</p>
 <p>For instance, you can check the version of a Decidim installation by using <code>curl</code> in the terminal:</p>
-<pre><code>curl -sSH "Content-Type: application/json" \
+<pre lang="bash"><code>curl -sSH "Content-Type: application/json" \
 -d '{"query": "{ decidim { version } }"}' \
 https://www.decidim.barcelona/api/
 </code></pre>
 <p>Note that <code>Content-Type</code> needs to be specified.</p>
 <p>The query can also be used in GraphiQL, in that case you can skip the <code>"query"</code> text:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   decidim {
     version
   }
@@ -48,7 +49,7 @@ https://www.decidim.barcelona/api/
 <p>These objects can be grouped in a single, complex query. Also, objects may accept parameters, which are "Types" as well.</p>
 <p>Each "Type" is just a pre-defined structure with fields, or just an Scalar (Strings, Integers, Booleans, ...).</p>
 <p>For instance, to obtain <em>all the participatory processes in a Decidim installation published since January 2018</em> and order them by published date, we could execute the next query:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
     slug
     title {
@@ -58,7 +59,7 @@ https://www.decidim.barcelona/api/
 }
 </code></pre>
 <p>Response should look like:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "participatoryProcesses": [
       {
@@ -87,7 +88,7 @@ https://www.decidim.barcelona/api/
 <li>
 <code>filter</code> is a <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>* input type, it has several properties that allows us to refine our search. One of them is the <code>publishedSince</code> property with the initial date from which to list entries.</li>
 <li>
-<code>order </code> is a <a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a> type, works the same way as the filter but with the goal of ordering the results.</li>
+<code>order</code> is a <a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a> type, works the same way as the filter but with the goal of ordering the results.</li>
 <li>
 <code>title</code> is a <a href="#TranslatedField">TranslatedField</a> type, which allows us to deal with multi-language fields.</li>
 </ul>
@@ -95,21 +96,21 @@ https://www.decidim.barcelona/api/
 <blockquote>
 <p>*<strong>About how filters and sorting are organized</strong></p>
 <p>There are two types of objects to filter and ordering collections in Decidim, they all work in a similar fashion. The type involved in filtering always have the suffix "Filter", for ordering it has the suffix "Sort".</p>
-<p>The types used to filter participatory spaces are: <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>, <a href="#AssemblyFilter">AssemblyFilter</a>, <a href="#ConsultationFilter">ConsultationFilter</a> and so on.</p>
+<p>The types used to filter participatory spaces are: <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>, <a href="#AssemblyFilter">AssemblyFilter</a>, and so on.</p>
 <p>Other collections (or connections) may have their own filters (i.e. <a href="#ComponentFilter">ComponentFilter</a>).</p>
 <p>Each filter has its own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:</p>
-<p>Let's say we have some searchable object with a multi-language field called <em>title</em>, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?</p>
-<p>In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
+<p>We can say we have some searchable object with a multi-language field called <em>title</em>, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?</p>
+<p>In our case, we have decided to search only one particular language of a multi-language field but we let you choose which language to search.
 If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is <code>locale</code>, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).</p>
 <p>Example (this is not a real Decidim query):</p>
-<pre><code> some_collection(filter: { locale: "en", title: "ideas"}) {
+<pre lang="graphql"><code> some_collection(filter: { locale: "en", title: "ideas"}) {
    id
  }
 </code></pre>
 <p>The same applies to sorting (<a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a>, <a href="#AssemblySort">AssemblySort</a>, etc.)</p>
 <p>In this case, the content of the field (<em>title</em>) only allows 2 values: <em>ASC</em> and <em>DESC</em>.</p>
 <p>Example of ordering alphabetically by the title content in French language:</p>
-<pre><code>some_collection(order: { locale: "en", title: "asc"}) {
+<pre lang="graphql"><code>some_collection(order: { locale: "en", title: "asc"}) {
   id
 }
 </code></pre>
@@ -118,10 +119,10 @@ If no language is specified, the configured as default in the organization will 
 <h4>
 <a id="decidim-main-types" class="anchor" href="#decidim-main-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decidim main types</h4>
 <p>Decidim has 2 main types of objects through which content is provided. These are Participatory Spaces and Components.</p>
-<p>A participatory space is the first level, currently there are 5 officially supported: <em>Participatory Processes</em>, <em>Assemblies</em>, <em>Consultations</em>, <em>Conferences</em> and <em>Initiatives</em>. For each participatory process there will correspond a collection type and a "single item" type.</p>
-<p>The previous example uses the collection type for participatory processes. You can try <code>assemblies</code>, <code>conferences</code>, <code>consultations</code> or <code>initiatives</code> for the others. Note that each collection can implement their own filter and order types with different properties.</p>
+<p>A participatory space is the first level, currently there are 5 officially supported: <em>Participatory Processes</em>, <em>Assemblies</em>, <em>Conferences</em> and <em>Initiatives</em>. For each participatory process there will correspond a collection type and a "single item" type.</p>
+<p>The previous example uses the collection type for participatory processes. You can try <code>assemblies</code>, <code>conferences</code>, or <code>initiatives</code> for the others. Note that each collection can implement their own filter and order types with different properties.</p>
 <p>As an example for a single item query, you can run:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   participatoryProcess(slug: "consectetur-at") {
     slug
     title {
@@ -131,7 +132,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>And the response will be:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "participatoryProcess": {
       "slug": "consectetur-at",
@@ -143,7 +144,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <h4>
-<a id="whats-different" class="anchor" href="#whats-different" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's different?</h4>
+<a id="what-is-different" class="anchor" href="#what-is-different" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is different?</h4>
 <p>First, note that we are querying, in singular, the type <code>participatoryProcess</code>, with a different parameter, <code>slug</code>*, (a String). We can use the <code>id</code> instead if we know it.</p>
 <p>Second, the response is not an Array, it is just the object we requested. We can expect to return <code>null</code> if the object is not found.</p>
 <blockquote>
@@ -156,7 +157,7 @@ If no language is specified, the configured as default in the organization will 
 <a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h4>
 <p>Every participatory space may (and should) have some components. There are 9 official components, these are <code>Proposals</code>, <code>Page</code>, <code>Meetings</code>, <code>Budgets</code>, <code>Surveys</code>, <code>Accountability</code>, <code>Debates</code>, <code>Sortitions</code> and <code>Blog</code>. Plugins may add their own components.</p>
 <p>If you know the <code>id</code>* of a specific component you can obtain it by querying it directly:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   component(id:2) {
     id
     name {
@@ -171,7 +172,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>Response:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "component": {
       "id": "2",
@@ -193,11 +194,11 @@ If no language is specified, the configured as default in the organization will 
 <p><a href="https://www.decidim.barcelona/processes/patrimonigracia/f/3257/">https://www.decidim.barcelona/processes/patrimonigracia/f/3257/</a></p>
 <p>In this case, 3257.</p>
 </blockquote>
-<h4>
-<a id="what-about-components-collections" class="anchor" href="#what-about-components-collections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about component's collections?</h4>
+<h5>
+<a id="what-about-components-collections" class="anchor" href="#what-about-components-collections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about component's collections?</h5>
 <p>Glad you asked, component's collections cannot be retrieved directly, the are available <em>in the context</em> of a participatory space.</p>
 <p>For instance, we can query all the components in an particular Assembly as follows:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   assembly(id: 3) {
     components {
       id
@@ -210,7 +211,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>The response will be similar to:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "assembly": {
       "components": [
@@ -248,7 +249,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>We can also apply some filters by using the <a href="#ComponentFilter">ComponentFilter</a> type. In the next query we would like to <em>find all the components with geolocation enabled in the assembly with id=2</em>:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   assembly(id: 2) {
     components(filter: {withGeolocationEnabled: true}) {
       id
@@ -261,7 +262,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>The response:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "assembly": {
       "components": [
@@ -283,11 +284,10 @@ If no language is specified, the configured as default in the organization will 
 <p>Many relationships between tables in Decidim are polymorphic, this means that the related object can belong to different classes and share just a few properties in common.</p>
 <p>For instance, components in a participatory space are polymorphic, while the concept of component is generic and all of them share properties like <em>published date</em>, <em>name</em> or <em>weight</em>, they differ in the rest. <em>Proposals</em> have the <em>status</em> field while <em>Meetings</em> have an <em>agenda</em>.</p>
 <p>Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.</p>
-<p>In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator <code>... on</code>. You'll know when a field is polymorphic because the property <code>__typename</code>, which tells you the type of that particular object, will change accordingly.</p>
-<p>In the previous examples we've queried for this property:</p>
+<p>In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator <code>... on</code>. You will know when a field is polymorphic because the property <code>__typename</code>, which tells you the type of that particular object, will change accordingly.</p>
+<p>In the previous examples we have queried for this property:</p>
 <p>Response fragment:</p>
-<pre><code>...
-      "components": [
+<pre lang="json"><code>      "components": [
         {
           "id": "38",
           "name": {
@@ -295,10 +295,9 @@ If no language is specified, the configured as default in the organization will 
           },
           "__typename": "Meetings"
         }
-...
 </code></pre>
 <p>So, if we want to access the rest of the properties in a polymorphic object, we should do it through the <code>... on</code> operator as follows:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   assembly(id: 2) {
     components {
       id
@@ -310,7 +309,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>Consider this query:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
       id
@@ -334,7 +333,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>The response:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "assembly": {
       "components": [
@@ -404,8 +403,8 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <h4>
-<a id="whats-going-on" class="anchor" href="#whats-going-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's going on?</h4>
-<p>Until the <code>... on Proposals</code> line, there's nothing new. We are requesting the <em>Assembly</em> participatory space identified by the <code>id=3</code>, then listing all its components with the type "Proposals". All the components share the <em>id</em> and <em>name</em> properties, so we can just add them at the query.</p>
+<a id="what-is-going-on" class="anchor" href="#what-is-going-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is going on?</h4>
+<p>Until the <code>... on Proposals</code> line, there is nothing new. We are requesting the <em>Assembly</em> participatory space identified by the <code>id=3</code>, then listing all its components with the type "Proposals". All the components share the <em>id</em> and <em>name</em> properties, so we can just add them at the query.</p>
 <p>After that, we want content specific from the <em>Proposals</em> type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches <em>Proposals</em>. We do that by wrapping the rest of the query in the <code>... on Proposals</code> clause.</p>
 <p>The next line is just a property of the type <em>Proposals</em> which is a type of collection called a "connection". A connection works similar as normal collection (such as <em>components</em>) but it can handle more complex cases.</p>
 <p>Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list <em>edges</em> in several <em>node</em> results. Also there are more arguments available in order to navigate between pages. This are the arguments:</p>
@@ -422,7 +421,7 @@ If no language is specified, the configured as default in the organization will 
 </li>
 </ul>
 <p>Example:</p>
-<pre><code>{
+<pre lang="graphql"><code>{
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
       id
@@ -452,7 +451,7 @@ If no language is specified, the configured as default in the organization will 
 }
 </code></pre>
 <p>Being the response:</p>
-<pre><code>{
+<pre lang="json"><code>{
   "data": {
     "assembly": {
       "components": [
@@ -657,13 +656,6 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
           CommentableMutation
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/component/" class="sidebar-link">
-          Component
         </a>
       </li>
       
@@ -900,6 +892,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -951,6 +950,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -1518,6 +1524,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       

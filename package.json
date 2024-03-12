@@ -2,10 +2,10 @@
   "name": "app",
   "private": true,
   "dependencies": {
-    "@decidim/browserslist-config": "0.27.4",
-    "@decidim/core": "0.27.4",
-    "@decidim/elections": "0.27.4",
-    "@decidim/webpacker": "0.27.4",
+    "@decidim/browserslist-config": "^0.28.0",
+    "@decidim/core": "^0.28.0",
+    "@decidim/elections": "^0.28.0",
+    "@decidim/webpacker": "^0.28.0",
     "@geoman-io/leaflet-geoman-free": "^2.11.4",
     "@rails/webpacker": "^6.0.0-rc.6",
     "codemirror": "^5.65.15",
@@ -27,13 +27,8 @@
   },
   "version": "0.1.0",
   "engines": {
-    "node": "16.9.1",
-    "npm": "7.21.1"
-  },
-  "babel": {
-    "presets": [
-      "./node_modules/@rails/webpacker/package/babel/preset.js"
-    ]
+    "node": "18.17.1",
+    "npm": ">=9.6.7"
   },
   "browserslist": [
     "extends @decidim/browserslist-config"
@@ -60,17 +55,15 @@
     "@babel/plugin-transform-runtime": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "@decidim/dev": "^0.27.4",
-    "@decidim/eslint-config": "^0.27.4",
-    "@decidim/stylelint-config": "^0.27.4",
+    "@decidim/dev": "^0.28.0",
+    "@decidim/eslint-config": "^0.28.0",
+    "@decidim/prettier-config": "^0.28.0",
+    "@decidim/stylelint-config": "^0.28.0",
     "@webpack-cli/serve": "^1.6.1",
-    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.10.0",
-    "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-standard": "^3.1.0",
     "sass-embedded": "~1.57.1",
-    "stylelint": "^13.11.0",
     "webpack-dev-server": "^4.8.0"
   }
 }

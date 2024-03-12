@@ -2,24 +2,24 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.27-stable-bcn" }.freeze
+DECIDIM_VERSION = "~> 0.28.0"
 
 ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-census_sms", path: "decidim-census_sms"
-gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
 gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
 gem "decidim-sortitions", DECIDIM_VERSION
-gem "decidim-stats", path: "decidim-stats"
-gem "decidim-valid_auth", path: "decidim-valid_auth"
 
-# Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
-gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
+# gem "decidim-census_sms", path: "decidim-census_sms"
+# gem "decidim-dataviz", path: "decidim-dataviz"
+# gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
+# gem "decidim-stats", path: "decidim-stats"
+# gem "decidim-valid_auth", path: "decidim-valid_auth"
+
+# gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
+# gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+# gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
+# gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
 
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
@@ -39,7 +39,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "dotenv-rails"
-  gem "faker", "~> 2.14"
+  gem "faker"
   gem "rubocop-faker"
 end
 

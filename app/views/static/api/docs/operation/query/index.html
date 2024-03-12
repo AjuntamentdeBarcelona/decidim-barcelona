@@ -4,58 +4,6 @@
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="commentable" class="field-name anchored">commentable (<code><a href="/api/docs/object/commentable">Commentable!</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's ID</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">type</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">locale</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The locale for which to get the comments text</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">toggleTranslations</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/boolean">Boolean!</a></code>
-  </td>
-  <td>
-    <p>Whether the user asked to toggle the machine translations or not.</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
   <span id="participatoryprocesses" class="field-name anchored">participatoryProcesses (<code><a href="/api/docs/object/participatoryprocess">[ParticipatoryProcess!]</a></code>)</span>
   <div class="description-wrapper">
    <p>Lists all participatory_processes</p>
@@ -74,7 +22,7 @@
     <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
   </td>
   <td>
-    <p>This argument let's you filter the results</p>
+    <p>This argument lets you filter the results</p>
    </td>
   </tr>
   <tr>
@@ -83,7 +31,7 @@
     <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
   </td>
   <td>
-    <p>This argument let's you order the results</p>
+    <p>This argument lets you order the results</p>
    </td>
   </tr>
   </tbody>
@@ -423,7 +371,7 @@
     <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
   </td>
   <td>
-    <p>This argument let's you filter the results</p>
+    <p>This argument lets you filter the results</p>
    </td>
   </tr>
   <tr>
@@ -432,7 +380,7 @@
     <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
   </td>
   <td>
-    <p>This argument let's you order the results</p>
+    <p>This argument lets you order the results</p>
    </td>
   </tr>
   </tbody>
@@ -442,7 +390,7 @@
 <div class="field-entry ">
   <span id="assembly" class="field-name anchored">assembly (<code><a href="/api/docs/object/assembly">Assembly</a></code>)</span>
   <div class="description-wrapper">
-   <p>Finds a assembly</p>
+   <p>Finds an assembly</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -466,6 +414,58 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="commentable" class="field-name anchored">commentable (<code><a href="/api/docs/object/commentable">Commentable!</a></code>)</span>
+  <div class="description-wrapper">
+     <table class="arguments">
+  <thead>
+  <tr>
+    <th>Argument</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code class="anchored">id</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The commentable's ID</p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">type</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">locale</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The locale for which to get the comments text</p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">toggleTranslations</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/boolean">Boolean!</a></code>
+  </td>
+  <td>
+    <p>Whether the user asked to toggle the machine translations or not.</p>
+   </td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="initiativestypes" class="field-name anchored">initiativesTypes (<code><a href="/api/docs/object/initiativetype">[InitiativeType!]!</a></code>)</span>
   <div class="description-wrapper">
    <p>Lists all initiative types</p>
@@ -474,7 +474,7 @@
 <div class="field-entry ">
   <span id="initiativestype" class="field-name anchored">initiativesType (<code><a href="/api/docs/object/initiativetype">InitiativeType</a></code>)</span>
   <div class="description-wrapper">
-   <p>Finds a initiative type</p>
+   <p>Finds an initiative type</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -535,7 +535,7 @@
 <div class="field-entry ">
   <span id="initiative" class="field-name anchored">initiative (<code><a href="/api/docs/object/initiative">Initiative</a></code>)</span>
   <div class="description-wrapper">
-   <p>Finds a initiative</p>
+   <p>Finds an initiative</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -716,13 +716,6 @@
       <li>
         <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
           CommentableMutation
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/component/" class="sidebar-link">
-          Component
         </a>
       </li>
       
@@ -959,6 +952,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -1010,6 +1010,13 @@
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -1577,6 +1584,13 @@
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       
