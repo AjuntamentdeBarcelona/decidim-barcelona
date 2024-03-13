@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    module ProjectListItemCellOverride
+    module ProjectVoteButtonCellOverride
       def vote_button_disabled?
         return unless current_user
         return if current_user.ephemeral_participant?

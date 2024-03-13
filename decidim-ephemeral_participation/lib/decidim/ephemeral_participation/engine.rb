@@ -7,7 +7,7 @@ module Decidim
 
       config.to_prepare do
         # cells
-        Decidim::Budgets::ProjectListItemCell.include(Decidim::EphemeralParticipation::ProjectListItemCellOverride)
+        Decidim::Budgets::ProjectVoteButtonCell.include(Decidim::EphemeralParticipation::ProjectVoteButtonCellOverride)
         # commands
         Decidim::Admin::TransferUser.include(Decidim::EphemeralParticipation::TransferUserOverride)
         Decidim::Verifications::PerformAuthorizationStep.include(Decidim::EphemeralParticipation::PerformAuthorizationStepOverride)

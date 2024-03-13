@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name = "decidim-stats"
   s.summary = "A module to gather statistics based on user behaviour"
   s.description = s.summary
-  s.required_ruby_version = ">= 3.0"
-  s.version = "0.0.2"
+  s.required_ruby_version = ">= 3.1"
+  s.version = "0.0.3"
   s.authors = ["Marc Riera Casals"]
   s.email = ["mrc2407@gmail.com"]
 

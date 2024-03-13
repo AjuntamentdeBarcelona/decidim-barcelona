@@ -11,7 +11,7 @@ module Decidim
         private
 
         def uniqueness
-          return true if unique_id.nil? || duplicates.none?
+          return true if unique?
 
           errors.add(:base, uniqueness_error)
 

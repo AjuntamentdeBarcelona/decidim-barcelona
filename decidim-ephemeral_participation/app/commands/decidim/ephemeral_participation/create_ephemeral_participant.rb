@@ -53,6 +53,7 @@ module Decidim
           }
         ).tap do |user|
           user.nickname = nicknamize(user)
+          user.confirm
           user.save!
         end
       end

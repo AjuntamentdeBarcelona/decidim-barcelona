@@ -9,17 +9,18 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/controllers/decidim/application_controller.rb" => "b9816a58ec4c5b45f747c27460f17018", # ephemeral participation overrides
-      "/app/helpers/decidim/decidim_form_helper.rb" => "8f52583ee11664dbffcb9c6b53818436", # ephemeral participation overrides
-      "/app/models/decidim/component.rb" => "32e241f1d88313e487cd28daac09aee0", # ephemeral participation overrides
-      "/app/models/decidim/organization.rb" => "e3d474ed92c0b8bb8911e6947a569845", # ephemeral participation overrides
-      "/app/models/decidim/permission_action.rb" => "00da630bf229dc8d482dc0e0b2d6a95c", # ephemeral participation overrides
-      "/app/models/decidim/user.rb" => "cf6431b9ac57510d189df46ca3da9a04", # ephemeral participation overrides
+      "/app/controllers/decidim/application_controller.rb" => "3fa179cac8605b5bf472ea276d3f788a", # ephemeral participation overrides
+      "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
+      "/app/models/decidim/component.rb" => "7fdd302396760cdccd5fab8adc6a0976", # ephemeral participation overrides
+      "/app/models/decidim/organization.rb" => "04eaf4467a1e0d891251c5cedf71f5e4", # ephemeral participation overrides
+      "/app/models/decidim/permission_action.rb" => "3ad166f375e32d3cbb19fd6ca97fa659", # ephemeral participation overrides
+      "/app/models/decidim/user.rb" => "81da9f2f82f6336a92b948d827bd0fb3", # ephemeral participation overrides
       "/app/packs/stylesheets/decidim/email.scss" => "7e6a7b5d0327696b8a9d481fdb8d8d70",
-      "/app/permissions/decidim/permissions.rb" => "ace85e448814ed71bbea5e7515b95d5d", # ephemeral participation overrides
-      "/app/views/decidim/shared/_login_modal.html.erb" => "bf583a391dc1cc50fc8261dd850dfcc1", # ephemeral participation overrides
+      "/app/permissions/decidim/permissions.rb" => "36a9c31bbf17685e80acff49f6e9b0ca", # ephemeral participation overrides
+      "/app/views/decidim/shared/_login_modal.html.erb" => "a29d4fcebe8c689044e3c15f6144f3d1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
-      "/app/views/layouts/decidim/_user_menu.html.erb" => "de17337bd45f6e6d5aa455267f70430f", # ephemeral participation overrides
+      "/app/views/layouts/decidim/footer/_main_links.html.erb" => "60a25ee1b5c6c3702a3d158ac9e23013", # ephemeral participation overrides
+      "/app/views/layouts/decidim/header/_main_links_dropdown.html.erb" => "a369664c2bb36cbd2b10d90d9a7469cf", # ephemeral participation overrides
       "/app/views/layouts/decidim/widget.html.erb" => "b9fb503118ee33d298cbc585995e216c",
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "2ddcb8ba5070f7cdb231283185f2c213",
       "/app/cells/decidim/activities_cell.rb" => "af9e9e2b6e4134fa90b6699bbf7da428",
@@ -32,7 +33,7 @@ checksums = [
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "48b73691b2aea10191ed427702a74359", # revert https://github.com/decidim/decidim/pull/10690
       "/app/commands/decidim/admin/transfer_user.rb" => "7cf11abc98c3a0c4a656ab96c220dd6a", # ephemeral participation overrides
-      "/app/controllers/decidim/admin/conflicts_controller.rb" => "8f05066b21f6dd6e3e6511e3f1b45f02", # ephemeral participation overrides
+      "/app/controllers/decidim/admin/conflicts_controller.rb" => "302e429f37690acac4499e7f9fb2ea18", # ephemeral participation overrides
       "/app/forms/decidim/admin/component_form.rb" => "0455dd26580817470fd7096ef6b08315", # ephemeral participation overrides
       "/app/forms/decidim/admin/permissions_form.rb" => "f68d00a490e84524ce3aebe6f71d829a" # ephemeral participation overrides
     }
@@ -40,24 +41,24 @@ checksums = [
   {
     package: "decidim-budgets",
     files: {
-      "/app/cells/decidim/budgets/project_list_item_cell.rb" => "dfcda04b9fe17de547a0bf25c6bbf823", # ephemeral participation overrides
-      "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "61b9a76dec62adb19ba36d2c2eb67e0c" # ephemeral participation overrides
+      "/app/cells/decidim/budgets/project_vote_button_cell.rb" => "449d31680f5f9044dc1ed7adcd915874", # ephemeral participation overrides
+      "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "c81c840fd8487e48ce9f7a985cb88604" # ephemeral participation overrides
     }
   },
   {
     package: "decidim-verifications",
     files: {
-      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "689191217a3d28850a06559b98f7d16c", # ephemeral participation overrides
-      "/app/services/decidim/authorization_handler.rb" => "7d3b241e2a224c2c6aa7861372a1b2de", # ephemeral participation overrides
-      "/lib/decidim/verifications/workflow_manifest.rb" => "3c943ad22d8d504df399fcc1227cd6c2" # ephemeral participation overrides
+      "/app/commands/decidim/verifications/perform_authorization_step.rb" => "aaa4529daa08669a5039b786b97d7d47", # ephemeral participation overrides
+      "/app/services/decidim/authorization_handler.rb" => "2a905e81dfc8586abe9eddba36653b35", # ephemeral participation overrides
+      "/lib/decidim/verifications/workflow_manifest.rb" => "fa679770a0df3381298e4bc19f6d4e89" # ephemeral participation overrides
     }
   },
   {
     package: "decidim-system",
     files: {
-      "/app/forms/decidim/system/update_organization_form.rb" => "b28ece5dbf3e227bc5b510886af567e2", # ephemeral participation overrides
-      "/app/views/decidim/system/organizations/edit.html.erb" => "5f0e1ccf97251f25f83c7d5f007520f6", # ephemeral participation overrides
-      "/app/views/decidim/system/organizations/new.html.erb" => "67eecebfa38b8721a6318b1e2d41192d" # ephemeral participation overrides
+      "/app/forms/decidim/system/update_organization_form.rb" => "a1059e5a8745a2637703b6805deda53c", # ephemeral participation overrides
+      "/app/views/decidim/system/organizations/edit.html.erb" => "b3ca773290213f267c5d6f0083aca539", # ephemeral participation overrides
+      "/app/views/decidim/system/organizations/new.html.erb" => "4916cdb428d89de5afe60e279d64112f" # ephemeral participation overrides
     }
   },
   {

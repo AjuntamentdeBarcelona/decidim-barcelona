@@ -10,11 +10,11 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
-# gem "decidim-census_sms", path: "decidim-census_sms"
-# gem "decidim-dataviz", path: "decidim-dataviz"
-# gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
-# gem "decidim-stats", path: "decidim-stats"
-# gem "decidim-valid_auth", path: "decidim-valid_auth"
+gem "decidim-census_sms", path: "decidim-census_sms"
+gem "decidim-dataviz", path: "decidim-dataviz"
+gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
+gem "decidim-stats", path: "decidim-stats"
+gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 # gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
 # gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
