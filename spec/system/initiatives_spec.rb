@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Initiatives", type: :system, perform_enqueued: true, available_authorizations: ["census_sms_authorization_handler"] do
+describe "Initiatives", :perform_enqueued, available_authorizations: ["census_sms_authorization_handler"] do
   include_context "with census sms handler"
 
   let!(:organization) do
@@ -16,14 +16,14 @@ describe "Initiatives", type: :system, perform_enqueued: true, available_authori
   end
 
   let!(:base_initiative) do
-    create(:initiative, organization: organization)
+    create(:initiative, organization:)
   end
-  let!(:initiatives_type) { create(:initiatives_type, organization: organization) }
+  let!(:initiatives_type) { create(:initiatives_type, organization:) }
 
   let(:authorizations) { ["census_sms_authorization_handler"] }
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:authorization) { create(:authorization, user: user) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:authorization) { create(:authorization, user:) }
 
   context "when user is authorized" do
     before do
@@ -33,7 +33,7 @@ describe "Initiatives", type: :system, perform_enqueued: true, available_authori
     end
 
     it "can create a new initiative" do
-      click_link "Nova iniciativa"
+      click_on "Nova iniciativa"
       expect(page).to have_content("Quina iniciativa vols iniciar?")
     end
   end
@@ -45,7 +45,7 @@ describe "Initiatives", type: :system, perform_enqueued: true, available_authori
     end
 
     it "cannot create a new initiative" do
-      click_button "Nova iniciativa"
+      click_on "Nova iniciativa"
       expect(page).to have_content("Si us plau, inicia sessió")
     end
   end

@@ -9,11 +9,11 @@ describe Decidim::Stats::Performers::District do
 
   let(:authorization_district) { "My district" }
   let(:performer_district) { authorization_district }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let!(:authorization) do
     create(
       :authorization,
-      user: user,
+      user:,
       name: "census_sms_authorization_handler",
       metadata: {
         scope: authorization_district

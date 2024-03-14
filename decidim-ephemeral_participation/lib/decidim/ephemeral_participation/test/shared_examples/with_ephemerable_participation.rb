@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_context "with ephemerable participation" do
-  let(:regular_user) { create(:user, :confirmed, organization: organization) }
+  let(:regular_user) { create(:user, :confirmed, organization:) }
   let(:ephemeral_participant) { create_ephemeral_participant }
 
   def create_ephemeral_participant
@@ -26,7 +26,7 @@ shared_context "with ephemerable participation" do
     end
   end
 
-  let(:organization) { create(:organization, *organization_traits, available_authorizations: available_authorizations) }
+  let(:organization) { create(:organization, *organization_traits, available_authorizations:) }
   let(:organization_traits) { [] }
   let(:available_authorizations) do
     { ephemeral_participable_authorization => { "allow_ephemeral_participation" => true } }
@@ -36,15 +36,15 @@ shared_context "with ephemerable participation" do
 
   let(:component) do
     create(:component,
-           manifest: manifest,
-           participatory_space: participatory_space,
-           permissions: permissions).tap do |component|
+           manifest:,
+           participatory_space:,
+           permissions:).tap do |component|
       component.settings = settings
       component.save!
     end
   end
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:permissions) do
     { ephemeral_participable_action => { "authorization_handlers" => { ephemeral_participable_authorization => {} } } }
   end
@@ -62,7 +62,7 @@ shared_context "with ephemerable participation" do
       name: ephemeral_participable_authorization,
       user: authorized_user,
       unique_id: document_number,
-      metadata: { document_number: document_number }
+      metadata: { document_number: }
     )
   end
 
@@ -70,7 +70,7 @@ shared_context "with ephemerable participation" do
 
   def click_ephemeral_participation_button(selector = ephemeral_participation_action_button_selector)
     click_ephemeral_parcipation_action_button(selector)
-    accept_confirm { click_button("I want to participate without registering") }
+    accept_confirm { click_on("I want to participate without registering") }
   end
 
   def click_ephemeral_parcipation_action_button(_selector = ephemeral_participation_action_button_selector)
@@ -116,7 +116,7 @@ shared_context "with ephemerable participation" do
 
   def expect_user_not_logged
     within(".topbar") do
-      expect(page).not_to have_css(".topbar__user__logged")
+      expect(page).to have_no_css(".topbar__user__logged")
     end
   end
 
@@ -130,7 +130,7 @@ end
 shared_context "when managing a component with ephemerable participation" do
   include_context "with ephemerable participation"
 
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   def visit_component_admin
     visit manage_component_path(component)

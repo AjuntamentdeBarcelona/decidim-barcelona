@@ -9,11 +9,11 @@ describe Decidim::Stats::Performers::Gender do
 
   let(:authorization_gender) { "foo" }
   let(:performer_gender) { authorization_gender }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let!(:authorization) do
     create(
       :authorization,
-      user: user,
+      user:,
       name: "census_sms_authorization_handler",
       metadata: {
         gender: authorization_gender

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Component", type: :system do
+describe "Component" do
   include_context "when managing a component with ephemerable participation"
 
   let(:organization) do
@@ -16,7 +16,7 @@ describe "Component", type: :system do
   end
 
   let(:component) do
-    create(:component, manifest_name: :budgets, participatory_space: participatory_space).tap do |component|
+    create(:component, manifest_name: :budgets, participatory_space:).tap do |component|
       component.settings = settings
       component.save!
     end

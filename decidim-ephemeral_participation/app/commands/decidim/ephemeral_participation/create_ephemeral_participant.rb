@@ -45,7 +45,7 @@ module Decidim
           name: I18n.t("decidim.ephemeral_participation.ephemeral_participants.name", number: Decidim::Tokenizer.new(length: 2).int_digest(Time.current.to_s)),
           extended_data: {
             ephemeral_participation: {
-              authorization_name: authorization_name,
+              authorization_name:,
               component_id: component.id,
               permissions: component.ephemeral_participation_permissions,
               request_path: ephemeral_participation_path

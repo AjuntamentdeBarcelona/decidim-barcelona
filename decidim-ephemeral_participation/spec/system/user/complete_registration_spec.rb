@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "User menu", type: :system do
+describe "User menu" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -21,7 +21,7 @@ describe "User menu", type: :system do
   context "when the user clicks the ephemeral participation button and toggles the user menu" do
     let(:toggle_user_menu) do
       within(".topbar__user__logged") do
-        click_link(current_user.name)
+        click_on(current_user.name)
       end
     end
     let(:current_user) { Decidim::User.last }
@@ -34,7 +34,7 @@ describe "User menu", type: :system do
     context "when the user clicks the complete registration link" do
       before do
         within(".topbar__user__logged") do
-          click_link("Finish your registration")
+          click_on("Finish your registration")
         end
       end
 

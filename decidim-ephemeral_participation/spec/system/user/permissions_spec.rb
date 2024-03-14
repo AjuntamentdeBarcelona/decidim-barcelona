@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "Permissions", type: :system do
+describe "Permissions" do
   include_context "with ephemerable participation"
 
-  let(:budget) { create(:budget, component: component, total_budget: 50_000_000) }
-  let!(:project) { create(:project, budget: budget, budget_amount: 25_000_000) }
+  let(:budget) { create(:budget, component:, total_budget: 50_000_000) }
+  let!(:project) { create(:project, budget:, budget_amount: 25_000_000) }
   let(:manifest_name) { "budgets" }
   let(:settings) do
     {
@@ -35,7 +35,7 @@ describe "Permissions", type: :system do
     end
 
     def perform_non_authorized_action
-      click_link(project.title["en"])
+      click_on(project.title["en"])
 
       within("form.new_comment") do
         fill_in("Comment", with: "New comment")
@@ -45,10 +45,10 @@ describe "Permissions", type: :system do
 
     context "when the user performs an authorized action WITHOUT submitting the authorization form" do
       let(:perform_authorized_action_supposed_to_redirect) do
-        click_link(project.title["en"])
+        click_on(project.title["en"])
 
         within("#project") do
-          click_link("Add to your vote")
+          click_on("Add to your vote")
         end
       end
 
@@ -84,8 +84,8 @@ describe "Permissions", type: :system do
       it "allows to perfom authorized action" do
         click_ephemeral_parcipation_action_button
 
-        click_button("Vote")
-        click_button("Confirm")
+        click_on("Vote")
+        click_on("Confirm")
 
         expect(page).to have_content("You've already voted for the budget.")
       end
@@ -124,7 +124,7 @@ describe "Permissions", type: :system do
 
       context "when there are public surveys" do
         let!(:surveys_component) do
-          create(:component, manifest_name: :surveys, participatory_space: participatory_space, step_settings: step_settings)
+          create(:component, manifest_name: :surveys, participatory_space:, step_settings:)
         end
         let(:step_settings) do
           {
@@ -135,8 +135,8 @@ describe "Permissions", type: :system do
           }
         end
         let!(:questionnaire) { create(:questionnaire) }
-        let!(:survey) { create(:survey, component: surveys_component, questionnaire: questionnaire) }
-        let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+        let!(:survey) { create(:survey, component: surveys_component, questionnaire:) }
+        let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
         it "allows answering the questionnaire" do
           visit main_component_path(surveys_component)
@@ -148,7 +148,7 @@ describe "Permissions", type: :system do
 
           check("questionnaire_tos_agreement")
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           within_flash_messages do
             expect(page).to have_content("successfully")

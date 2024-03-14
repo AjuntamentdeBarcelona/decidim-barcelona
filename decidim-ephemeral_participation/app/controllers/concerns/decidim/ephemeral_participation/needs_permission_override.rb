@@ -18,7 +18,7 @@ module Decidim
         end
 
         def permissions_context
-          old_permissions_context.merge(request: request)
+          old_permissions_context.merge(request:)
         end
 
         private

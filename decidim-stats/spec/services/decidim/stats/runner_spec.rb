@@ -8,28 +8,28 @@ describe Decidim::Stats::Runner do
 
   subject do
     described_class.new(
-      minimum_count: minimum_count
+      minimum_count:
     ).run
   end
 
   let(:performers_query) { Decidim::User.all }
-  let!(:proposal) { create :proposal }
+  let!(:proposal) { create(:proposal) }
   let(:proposal_author) { proposal.authors.first }
   let(:component) { proposal.component }
-  let!(:proposal_follow) { create :follow, followable: proposal }
+  let!(:proposal_follow) { create(:follow, followable: proposal) }
   let!(:proposal_follower) { proposal_follow.user }
-  let!(:draft) { create :collaborative_draft, component: component }
-  let!(:draft_follow) { create :follow, followable: draft }
+  let!(:draft) { create(:collaborative_draft, component:) }
+  let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
-  let!(:endorsement) { create :proposal_endorsement, proposal: proposal }
+  let!(:endorsement) { create(:proposal_endorsement, proposal:) }
   let(:proposal_endorser) { endorsement.author }
-  let!(:comment) { create :comment, root_commentable: proposal }
+  let!(:comment) { create(:comment, root_commentable: proposal) }
   let(:proposal_comment_author) { comment.author }
-  let!(:vote) { create :proposal_vote, proposal: proposal }
+  let!(:vote) { create(:proposal_vote, proposal:) }
   let(:proposal_vote_author) { vote.author }
 
   let(:scope_name) { "My scope" }
-  let!(:scope) { create :scope, name: { ca: scope_name } }
+  let!(:scope) { create(:scope, name: { ca: scope_name }) }
 
   let(:minimum_count) { 1 }
 
@@ -48,7 +48,7 @@ describe Decidim::Stats::Runner do
     users.each_with_index do |user, index|
       create(
         :authorization,
-        user: user,
+        user:,
         name: "census_sms_authorization_handler",
         metadata: {
           scope: scope_name,

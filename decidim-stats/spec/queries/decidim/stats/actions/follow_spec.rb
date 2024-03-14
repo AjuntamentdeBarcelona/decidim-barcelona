@@ -9,12 +9,12 @@ describe Decidim::Stats::Actions::Follow do
   end
 
   let(:performers_query) { Decidim::User.all }
-  let!(:proposal) { create :proposal }
+  let!(:proposal) { create(:proposal) }
   let(:component) { proposal.component }
-  let!(:proposal_follow) { create :follow, followable: proposal }
+  let!(:proposal_follow) { create(:follow, followable: proposal) }
   let!(:proposal_follower) { proposal_follow.user }
-  let!(:draft) { create :collaborative_draft, component: component }
-  let!(:draft_follow) { create :follow, followable: draft }
+  let!(:draft) { create(:collaborative_draft, component:) }
+  let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
 
   context "when looking for follow authors matching the component" do
@@ -32,7 +32,7 @@ describe Decidim::Stats::Actions::Follow do
   end
 
   context "when looking for follow authors but the components do not match" do
-    let(:component) { create :component }
+    let(:component) { create(:component) }
 
     it "cannot find the user" do
       expect(subject.query).to eq([])

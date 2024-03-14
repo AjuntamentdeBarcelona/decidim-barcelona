@@ -2,7 +2,7 @@ $nav-border-width: 3px;
 
 .process-nav {
   background-color: $white;
-  padding: .75rem $container-padding-y;
+  padding: 0.75rem $container-padding-y;
   box-shadow: none;
 
   ul {
@@ -40,7 +40,7 @@ $nav-border-width: 3px;
 
     li {
       display: inline-block;
-      padding: .75rem;
+      padding: 0.75rem;
     }
 
     .about-link {
@@ -60,8 +60,8 @@ $nav-border-width: 3px;
 
 .process-nav__trigger__icon {
   position: absolute;
-  right: .5rem;
-  top: .55rem;
+  right: 0.5rem;
+  top: 0.55rem;
 }
 
 .process-nav__content {
@@ -95,7 +95,7 @@ $nav-border-width: 3px;
 .process-nav__more {
   margin: 0;
   color: var(--primary);
-  background-color: rgba(var(--primary-rgb), .1);
+  background-color: rgba(var(--primary-rgb), 0.1);
   text-transform: uppercase;
   font-weight: $global-weight-bold;
   font-size: rem-calc(14);
@@ -107,26 +107,26 @@ $nav-border-width: 3px;
     background-color: var(--primary);
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: .1rem;
+    margin-bottom: 0.1rem;
 
     &:not(:last-child) {
-      margin-right: .1rem;
+      margin-right: 0.1rem;
     }
   }
 }
 
 .process-nav__hidden-content {
   background-color: $white;
-  box-shadow: 0 0 4px 0 rgba($black, .08);
+  box-shadow: 0 0 4px 0 rgba($black, 0.08);
   padding: 0;
 
   ul {
-    padding: $global-padding * .5 0;
+    padding: $global-padding * 0.5 0;
   }
 
   li {
     width: 100%;
-    padding: $global-padding * .5 $global-padding;
+    padding: $global-padding * 0.5 $global-padding;
   }
 }
 
@@ -136,7 +136,7 @@ $nav-border-width: 3px;
   background-color: transparent;
   text-align: right;
   border-bottom: $border;
-  padding: $global-padding * .5 $global-padding;
+  padding: $global-padding * 0.5 $global-padding;
 }
 
 .process-nav__link {
@@ -147,7 +147,7 @@ $nav-border-width: 3px;
   align-items: center;
 
   svg {
-    margin-right: .4em;
+    margin-right: 0.4em;
     width: 25px;
     height: 25px;
     fill: $muted;

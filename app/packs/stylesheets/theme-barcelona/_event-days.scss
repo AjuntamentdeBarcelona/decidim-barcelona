@@ -57,12 +57,12 @@
   }
 
   &__number-month {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   &__number {
     font-size: 3rem;
-    line-height: .6;
+    line-height: 0.6;
   }
 
   &__month {
@@ -70,19 +70,19 @@
     border-bottom: 0 !important;
     display: block;
     font-size: 1rem;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     line-height: 1;
     font-weight: 600;
     cursor: default !important;
-    opacity: .6;
+    opacity: 0.6;
   }
 
   &__separator {
     font-size: 1rem;
     line-height: 1;
     font-weight: 600;
-    margin-right: .4rem;
-    opacity: .6;
-    margin-top: .5em;
+    margin-right: 0.4rem;
+    opacity: 0.6;
+    margin-top: 0.5em;
   }
 }

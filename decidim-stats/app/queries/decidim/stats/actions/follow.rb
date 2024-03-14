@@ -35,7 +35,7 @@ module Decidim
           Decidim
             .resource_manifests
             .select { |manifest| manifest.component_manifest == component.manifest }
-            .map { |manifest| manifest.model_class.where(component: component) }
+            .map { |manifest| manifest.model_class.where(component:) }
         end
       end
     end

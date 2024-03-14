@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "Verification conflicts", type: :system do
+describe "Verification conflicts" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -58,7 +58,7 @@ describe "Verification conflicts", type: :system do
 
       context "when the user clicks the close link" do
         before do
-          click_link("en.decidim.authorization_handlers.errors.close")
+          click_on("en.decidim.authorization_handlers.errors.close")
         end
 
         it "closes the session and redirects back to where ephemeral participation button was clicked" do
@@ -82,7 +82,7 @@ describe "Verification conflicts", type: :system do
 
       context "when the user clicks the retrieve_user link" do
         before do
-          click_link("en.decidim.authorization_handlers.errors.retrieve_user")
+          click_on("en.decidim.authorization_handlers.errors.retrieve_user")
         end
 
         it "shows the unverifiable form" do
@@ -95,8 +95,8 @@ describe "Verification conflicts", type: :system do
           expect(page).to have_current_path(%r{/ephemeral_participation/ephemeral_participants/\d+/unverifiable})
 
           # flash message
-          expect(page).not_to have_content("You need to be verified in order tor participate:")
-          expect(page).not_to have_link("Complete the verification process here")
+          expect(page).to have_no_content("You need to be verified in order tor participate:")
+          expect(page).to have_no_link("Complete the verification process here")
         end
 
         context "when the user submits the unverifiable form" do
@@ -185,7 +185,7 @@ describe "Verification conflicts", type: :system do
                 end
 
                 before do
-                  visit(decidim.edit_user_password_path(reset_password_token: reset_password_token))
+                  visit(decidim.edit_user_password_path(reset_password_token:))
                   submit_password_form
                 end
 
@@ -264,7 +264,7 @@ describe "Verification conflicts", type: :system do
 
         context "when the user clicks the close link" do
           before do
-            click_link("en.decidim.authorization_handlers.errors.close")
+            click_on("en.decidim.authorization_handlers.errors.close")
           end
 
           it "closes the session and redirects back to where ephemeral participation button was clicked" do
@@ -278,7 +278,7 @@ describe "Verification conflicts", type: :system do
 
         context "when the user clicks the reset_password link" do
           before do
-            click_link("en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.reset_password")
+            click_on("en.decidim.ephemeral_participation.ephemeral_participants.unverifiable.reset_password")
           end
 
           it "closes the session and redirects to the reset password form" do

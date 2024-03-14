@@ -9,7 +9,7 @@ describe Decidim::Stats::Actions::Endorsement do
   end
 
   let(:performers_query) { Decidim::User.all }
-  let!(:endorsement) { create :proposal_endorsement }
+  let!(:endorsement) { create(:proposal_endorsement) }
   let(:user) { endorsement.author }
   let(:my_component) { endorsement.proposal.component }
 
@@ -28,7 +28,7 @@ describe Decidim::Stats::Actions::Endorsement do
   end
 
   context "when looking for endorsements but the components do not match" do
-    let(:my_component) { create :component }
+    let(:my_component) { create(:component) }
 
     it "cannot find the user" do
       expect(subject.query).to eq([])

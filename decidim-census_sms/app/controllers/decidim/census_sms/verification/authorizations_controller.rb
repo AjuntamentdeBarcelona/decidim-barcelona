@@ -9,13 +9,13 @@ module Decidim
         helper_method :authorization, :tos_path
 
         def new
-          enforce_permission_to :create, :authorization, authorization: authorization
+          enforce_permission_to(:create, :authorization, authorization:)
 
           @form = AuthorizationForm.new
         end
 
         def create
-          enforce_permission_to :create, :authorization, authorization: authorization
+          enforce_permission_to(:create, :authorization, authorization:)
 
           @form = AuthorizationForm.from_params(create_params)
 
@@ -27,7 +27,7 @@ module Decidim
                 on(:ok) do
                   flash[:notice] = t("authorizations.create.success", scope: "decidim.census_sms.verification")
                   authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
-                  redirect_to authorization_method.resume_authorization_path(redirect_url: redirect_url)
+                  redirect_to authorization_method.resume_authorization_path(redirect_url:)
                 end
 
                 on(:invalid) do
@@ -45,13 +45,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :authorization, authorization: authorization
+          enforce_permission_to(:update, :authorization, authorization:)
 
           @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
         end
 
         def update
-          enforce_permission_to :update, :authorization, authorization: authorization
+          enforce_permission_to(:update, :authorization, authorization:)
 
           @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
 
@@ -69,7 +69,7 @@ module Decidim
         end
 
         def reset
-          enforce_permission_to :update, :authorization, authorization: authorization
+          enforce_permission_to(:update, :authorization, authorization:)
 
           @form = CodeForm.from_params(params)
 
@@ -79,7 +79,7 @@ module Decidim
             on(:ok) do
               flash[:notice] = t("authorizations.reset.success", scope: "decidim.census_sms.verification")
               authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name)
-              redirect_to authorization_method.resume_authorization_path(redirect_url: redirect_url)
+              redirect_to authorization_method.resume_authorization_path(redirect_url:)
             end
 
             on(:invalid) do
@@ -90,7 +90,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :authorization, authorization: authorization
+          enforce_permission_to(:destroy, :authorization, authorization:)
 
           authorization.destroy!
           flash[:notice] = t("authorizations.destroy.success", scope: "decidim.census_sms.verification")
@@ -101,7 +101,7 @@ module Decidim
         private
 
         def create_params
-          params[:authorization].merge(user: current_user, date_of_birth: date_of_birth)
+          params[:authorization].merge(user: current_user, date_of_birth:)
         end
 
         def date_of_birth

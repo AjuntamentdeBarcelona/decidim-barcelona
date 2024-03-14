@@ -57,7 +57,7 @@ module Decidim
         Decidim::Admin::TransferUser.call(
           Decidim::Admin::TransferUserForm.from_params(
             current_user: @user,
-            conflict: conflict,
+            conflict:,
             reason: self.class.name,
             email: @form.email
           )

@@ -40,6 +40,7 @@ group :development, :test do
   gem "decidim-dev", DECIDIM_VERSION
   gem "dotenv-rails"
   gem "faker"
+  gem "mdl"
   gem "rubocop-faker"
 end
 

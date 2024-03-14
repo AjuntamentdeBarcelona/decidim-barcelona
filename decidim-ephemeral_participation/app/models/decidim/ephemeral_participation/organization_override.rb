@@ -14,7 +14,7 @@ module Decidim
         end
 
         def ephemeral_participation_authorization
-          read_attribute(:available_authorizations).key("allow_ephemeral_participation" => true)
+          self[:available_authorizations].key("allow_ephemeral_participation" => true)
         end
       end
     end

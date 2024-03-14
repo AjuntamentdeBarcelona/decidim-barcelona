@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Conflicts", type: :system do
+describe "Conflicts" do
   include_context "when managing a component with ephemerable participation"
 
   let!(:conflict) { Decidim::Verifications::Conflict.create(current_user: ephemeral_participant, managed_user: authorized_user) }
@@ -46,7 +46,7 @@ describe "Conflicts", type: :system do
 
         context "when transfering the user" do
           before do
-            click_link(href: "/admin/conflicts/#{conflict.id}/edit")
+            click_on(href: "/admin/conflicts/#{conflict.id}/edit")
           end
 
           context "and submitting a registered email" do
@@ -54,7 +54,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -65,7 +65,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -78,7 +78,7 @@ describe "Conflicts", type: :system do
 
         context "when transfering the user" do
           before do
-            click_link(href: "/admin/conflicts/#{conflict.id}/edit")
+            click_on(href: "/admin/conflicts/#{conflict.id}/edit")
           end
 
           context "and submitting a registered email" do
@@ -86,7 +86,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -97,7 +97,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             it "transfers the users successfuly" do

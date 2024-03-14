@@ -37,7 +37,7 @@ module Decidim
 
         def proposals
           Decidim::Proposals::Proposal
-            .where(component: component)
+            .where(component:)
         end
 
         def proposals_manifest?

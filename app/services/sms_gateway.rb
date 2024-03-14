@@ -32,7 +32,7 @@ class SmsGateway
   end
 
   def text
-    I18n.t("decidim.sms.text", code: code)
+    I18n.t("decidim.sms.text", code:)
   end
 
   private

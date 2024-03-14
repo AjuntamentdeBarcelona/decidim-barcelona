@@ -9,7 +9,7 @@ describe Decidim::Stats::Actions::ProposalVote do
   end
 
   let(:performers_query) { Decidim::User.all }
-  let!(:vote) { create :proposal_vote }
+  let!(:vote) { create(:proposal_vote) }
   let(:user) { vote.author }
   let(:component) { vote.proposal.component }
 
@@ -28,7 +28,7 @@ describe Decidim::Stats::Actions::ProposalVote do
   end
 
   context "when looking for proposal vote authors but the components do not match" do
-    let(:component) { create :component }
+    let(:component) { create(:component) }
 
     it "cannot find the user" do
       expect(subject.query).to eq([])

@@ -20,7 +20,7 @@ if Rails.application.secrets.dig(:storage, :s3, :access_key_id).present?
       provider: "AWS", # required
       aws_access_key_id: Rails.application.secrets.dig(:storage, :s3, :access_key_id), # required
       aws_secret_access_key: Rails.application.secrets.dig(:storage, :s3, :secret_access_key), # required
-      region: region, # optional, defaults to 'us-east-1'
+      region:, # optional, defaults to 'us-east-1'
       host: "s3.#{region}.amazonaws.com" # optional, defaults to nil
     }
     config.fog_directory = Rails.application.secrets.dig(:storage, :s3, :bucket) # required

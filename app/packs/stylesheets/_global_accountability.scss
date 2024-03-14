@@ -7,7 +7,7 @@
     }
 
     .section:not(:last-child) {
-      border-bottom: 1px solid rgba($medium-gray, .5);
+      border-bottom: 1px solid rgba($medium-gray, 0.5);
       padding-bottom: 3rem;
     }
 
@@ -36,7 +36,7 @@
         border-bottom: 1px solid $medium-gray;
 
         .icon {
-          margin-right: .25rem;
+          margin-right: 0.25rem;
         }
       }
 
@@ -64,7 +64,7 @@
     }
 
     .card--mini .card__content {
-      padding: 1.5rem .5rem;
+      padding: 1.5rem 0.5rem;
     }
 
     .accountability--graphic {
@@ -79,14 +79,18 @@
       }
 
       .icon {
-        margin-right: .25rem;
+        margin-right: 0.25rem;
         fill: $secondary;
       }
     }
   }
 }
 
-.accountability .categories .categories--group .card__link .category--scope--line {
+.accountability
+  .categories
+  .categories--group
+  .card__link
+  .category--scope--line {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -97,7 +101,7 @@
 
   strong {
     font-size: 1.5rem;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     display: block;
   }
 
@@ -108,7 +112,11 @@
   }
 }
 
-.accountability .categories .categories--group .card__link .category--without--children {
+.accountability
+  .categories
+  .categories--group
+  .card__link
+  .category--without--children {
   height: 11rem;
 
   strong {
@@ -116,7 +124,12 @@
   }
 }
 
-.accountability .categories .categories--group .card__link .category--scope--line .scope--inner {
+.accountability
+  .categories
+  .categories--group
+  .card__link
+  .category--scope--line
+  .scope--inner {
   padding: 1rem;
 }
 
@@ -125,15 +138,29 @@
   text-decoration: inherit;
 }
 
-.accountability .categories .categories--group .card__link:hover .category--count {
+.accountability
+  .categories
+  .categories--group
+  .card__link:hover
+  .category--count {
   color: inherit;
 }
 
-.accountability .categories .categories--group .card__link .category--line .category--count {
+.accountability
+  .categories
+  .categories--group
+  .card__link
+  .category--line
+  .category--count {
   color: #aba5b3;
 }
 
-.accountability .categories .categories--group .card__link .category--line strong {
+.accountability
+  .categories
+  .categories--group
+  .card__link
+  .category--line
+  strong {
   color: #182b71;
 }
 
