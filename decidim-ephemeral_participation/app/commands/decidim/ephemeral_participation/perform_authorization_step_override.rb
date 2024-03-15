@@ -12,7 +12,7 @@ module Decidim
 
         def call
           if handler.invalid?
-            Decidim::Verifications::AuthorizeUser.call(handler)
+            Decidim::Verifications::AuthorizeUser.call(handler, current_organization)
 
             broadcast(:invalid)
           else

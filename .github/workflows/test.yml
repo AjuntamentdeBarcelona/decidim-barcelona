@@ -45,5 +45,6 @@ jobs:
           bundle exec rake assets:precompile
       - run: |
           bundle exec rspec
+          bundle exec rspec decidim-census_sms/spec/**/*.rb
           bundle exec rspec decidim-ephemeral_participation/spec/**/*.rb
         name: Run specs
