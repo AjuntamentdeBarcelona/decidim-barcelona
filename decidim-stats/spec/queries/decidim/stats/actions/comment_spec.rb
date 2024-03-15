@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+require "decidim/dev/test/rspec_support/component"
 require "decidim/proposals/test/factories"
 require "decidim/comments/test/factories"
 

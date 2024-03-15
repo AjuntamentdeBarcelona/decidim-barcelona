@@ -9,9 +9,10 @@ describe Decidim::Stats::Actions::Endorsement do
   end
 
   let(:performers_query) { Decidim::User.all }
-  let!(:endorsement) { create(:proposal_endorsement) }
+  let(:proposal) { create(:proposal) }
+  let!(:endorsement) { create(:endorsement, resource: proposal, author: build(:user, organization: proposal.organization)) }
   let(:user) { endorsement.author }
-  let(:my_component) { endorsement.proposal.component }
+  let(:my_component) { endorsement.resource.component }
 
   context "when looking for endorsements matching the component" do
     it "finds the user ID" do

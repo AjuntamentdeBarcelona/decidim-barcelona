@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+require "decidim/dev/test/rspec_support/component"
 require "decidim/proposals/test/factories"
 
 describe Decidim::Stats::Runner do
@@ -21,7 +22,7 @@ describe Decidim::Stats::Runner do
   let!(:draft) { create(:collaborative_draft, component:) }
   let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
-  let!(:endorsement) { create(:proposal_endorsement, proposal:) }
+  let!(:endorsement) { create(:endorsement, resource: proposal, author: create(:user, organization: proposal.organization)) }
   let(:proposal_endorser) { endorsement.author }
   let!(:comment) { create(:comment, root_commentable: proposal) }
   let(:proposal_comment_author) { comment.author }
@@ -53,7 +54,9 @@ describe Decidim::Stats::Runner do
         metadata: {
           scope: scope_name,
           date_of_birth: "#{2000 - (index * 2)}-01-01",
-          gender: %w(man woman woman non_binary non_binary man)[index]
+          extras: {
+            gender: %w(man woman woman non_binary non_binary man)[index]
+          }
         }
       )
     end

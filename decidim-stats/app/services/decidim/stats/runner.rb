@@ -3,7 +3,7 @@
 module Decidim
   module Stats
     class Runner
-      def initialize(minimum_count:, component_ids:)
+      def initialize(minimum_count:, component_ids: [])
         @minimum_count = minimum_count
         @component_ids = component_ids
       end

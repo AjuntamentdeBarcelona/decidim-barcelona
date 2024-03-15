@@ -16,7 +16,9 @@ describe Decidim::Stats::Performers::Gender do
       user:,
       name: "census_sms_authorization_handler",
       metadata: {
-        gender: authorization_gender
+        extras: {
+          gender: authorization_gender
+        }
       }
     )
   end

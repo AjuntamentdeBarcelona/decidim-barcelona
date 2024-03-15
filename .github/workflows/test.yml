@@ -47,5 +47,6 @@ jobs:
           bundle exec rspec
           bundle exec rspec decidim-census_sms/spec/**/*.rb
           bundle exec rspec decidim-ephemeral_participation/spec/**/*.rb
+          bundle exec rspec decidim-stats/spec/**/*.rb
           bundle exec rspec decidim-valid_auth/spec/**/*.rb
         name: Run specs
