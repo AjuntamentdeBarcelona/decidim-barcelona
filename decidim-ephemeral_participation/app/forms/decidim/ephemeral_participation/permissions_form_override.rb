@@ -20,7 +20,7 @@ module Decidim
           permissions.values.each do |permission_form|
             next if valid_permission_form?(permission_form)
 
-            permission_form.errors.add(:base, :invalid_ephemeral_participation_permissions, i18n_options)
+            permission_form.errors.add(:base, I18n.t("activemodel.errors.models.permission.attributes.base.invalid_ephemeral_participation_permissions", **i18n_options))
           end
         end
 

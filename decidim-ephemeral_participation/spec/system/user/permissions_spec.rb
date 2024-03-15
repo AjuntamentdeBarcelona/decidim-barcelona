@@ -47,8 +47,8 @@ describe "Permissions" do
       let(:perform_authorized_action_supposed_to_redirect) do
         click_on(project.title["en"])
 
-        within("#project") do
-          click_on("Add to your vote")
+        within("#project-item") do
+          click_on("Add")
         end
       end
 
@@ -81,21 +81,23 @@ describe "Permissions" do
         submit_authorization_form
       end
 
-      it "allows to perfom authorized action" do
-        click_ephemeral_parcipation_action_button
+      it "allows to perform authorized action" do
+        click_ephemeral_participation_action_button
 
         click_on("Vote")
         click_on("Confirm")
 
-        expect(page).to have_content("You've already voted for the budget.")
+        expect(page).to have_content("You have already voted for the budget.")
       end
 
-      it "disallows to perfom non authorized action" do
+      it "disallows to perform non authorized action" do
         perform_non_authorized_action
 
-        within_flash_messages do
-          expect(page).to have_content("You are not authorized to perform this action")
-          expect(page).to have_link("Finish your registration here")
+        within "#content" do
+          within_flash_messages do
+            expect(page).to have_content("You are not authorized to perform this action")
+            expect(page).to have_link("Finish your registration here")
+          end
         end
       end
 
@@ -103,7 +105,7 @@ describe "Permissions" do
         [
           decidim.account_path,
           decidim.notifications_settings_path,
-          decidim.data_portability_path,
+          decidim.download_your_data_path,
           decidim.own_user_groups_path,
           decidim.user_interests_path,
           decidim.notifications_path,
@@ -141,7 +143,7 @@ describe "Permissions" do
         it "allows answering the questionnaire" do
           visit main_component_path(surveys_component)
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           fill_in(question.body["en"], with: "My first answer")

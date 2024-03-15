@@ -36,9 +36,9 @@ describe "Ephemeral participation button" do
       end
 
       it "renders the confirmation modal" do
-        click_on("I want to participate without registering")
+        click_ephemeral_participation_login_button
 
-        within(".confirm-modal-content") do
+        within("#confirm-modal-content") do
           expect(page).to have_content("Are you sure?")
         end
       end
@@ -50,7 +50,7 @@ describe "Ephemeral participation button" do
       end
 
       it "renders the verification form directly" do
-        click_on("I want to participate without registering")
+        click_ephemeral_participation_login_button
 
         within_flash_messages do
           expect(page).to have_content("en.decidim.ephemeral_participation.ephemeral_participants.create")

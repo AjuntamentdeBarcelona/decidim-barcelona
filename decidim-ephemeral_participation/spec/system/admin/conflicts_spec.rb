@@ -24,7 +24,7 @@ describe "Conflicts" do
 
     shared_examples "fails to transfer the users" do
       it "fails to transfer the users" do
-        within(".callout") do
+        within(".callout-wrapper") do
           expect(page).to have_content("There was a problem transfering the current participant to managed participant.")
         end
 
@@ -46,7 +46,7 @@ describe "Conflicts" do
 
         context "when transfering the user" do
           before do
-            click_on(href: "/admin/conflicts/#{conflict.id}/edit")
+            find(:xpath, "//a[@href='/admin/conflicts/#{conflict.id}/edit']").click
           end
 
           context "and submitting a registered email" do
@@ -78,7 +78,7 @@ describe "Conflicts" do
 
         context "when transfering the user" do
           before do
-            click_on(href: "/admin/conflicts/#{conflict.id}/edit")
+            find(:xpath, "//a[@href='/admin/conflicts/#{conflict.id}/edit']").click
           end
 
           context "and submitting a registered email" do
@@ -101,7 +101,7 @@ describe "Conflicts" do
             end
 
             it "transfers the users successfuly" do
-              within(".callout") do
+              within(".callout-wrapper") do
                 expect(page).to have_content("The current transfer has been successfully completed.")
               end
 

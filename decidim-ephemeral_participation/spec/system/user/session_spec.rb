@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Succesful verification" do
+describe "Session" do
   include ActiveSupport::Testing::TimeHelpers
 
   include_context "with ephemerable participation"

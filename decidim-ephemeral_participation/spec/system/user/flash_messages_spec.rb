@@ -73,7 +73,6 @@ describe "Flash messages" do
 
           expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
-          expect(page).to have_no_content("Finish your registration")
           expect(page).to have_no_link("here")
         end
       end
@@ -160,7 +159,6 @@ describe "Flash messages" do
 
           expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
-          expect(page).to have_no_content("Finish your registration")
           expect(page).to have_no_link("here")
         end
       end

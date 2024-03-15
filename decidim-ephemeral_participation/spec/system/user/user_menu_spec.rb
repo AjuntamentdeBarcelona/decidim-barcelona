@@ -22,8 +22,8 @@ describe "User menu" do
     let(:current_user) { Decidim::User.last }
     let(:session_duration) { 5.minutes }
     let(:toggle_user_menu) do
-      within(".topbar__user__logged") do
-        click_on(current_user.name)
+      within(".main-bar__dropdown-container") do
+        click_on("Account")
       end
     end
 
@@ -34,7 +34,7 @@ describe "User menu" do
     end
 
     it "shows alternative user menu" do
-      within(".topbar__user__logged") do
+      within(".main-bar__dropdown-container") do
         expect(page).to have_content("#{(session_duration / 1.minute).round} min. before automatic sign out")
         expect(page).to have_link("Finish your registration")
         expect(page).to have_link("Cancel and sign out")
@@ -43,7 +43,7 @@ describe "User menu" do
 
     context "when the user clicks the sign out link" do
       before do
-        within(".topbar__user__logged") do
+        within(".main-bar__dropdown-container") do
           click_on("Cancel and sign out")
         end
       end
@@ -59,7 +59,7 @@ describe "User menu" do
 
     context "when the user clicks the complete registration link" do
       before do
-        within(".topbar__user__logged") do
+        within(".main-bar__dropdown-container") do
           click_on("Finish your registration")
         end
       end

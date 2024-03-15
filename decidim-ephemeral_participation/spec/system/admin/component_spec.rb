@@ -52,9 +52,9 @@ describe "Component" do
             es: "Alerta!"
           )
 
-          find("*[type=submit]").click
+          find("*[type=submit][name=commit]").click
 
-          expect(page).to have_css("div.callout.success")
+          expect(page).to have_css("div.callout-wrapper .flash.success")
         end
       end
 
@@ -73,9 +73,9 @@ describe "Component" do
             es: "Alerta!"
           )
 
-          find("*[type=submit]").click
+          find("*[type=submit][name=commit]").click
 
-          expect(page).to have_css("div.callout.alert")
+          expect(page).to have_css("div.callout-wrapper .flash.alert")
         end
       end
     end
@@ -102,26 +102,26 @@ describe "Component" do
           it "updates permissions when selecting ephemeral authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting regular authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "fails to update permissions when selecting more than one authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.alert")
+            expect(page).to have_css("div.callout-wrapper .flash.alert")
           end
         end
 
@@ -133,26 +133,26 @@ describe "Component" do
           it "updates permissions when selecting ephemeral authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting regular authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting more than one authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
         end
       end
@@ -173,26 +173,26 @@ describe "Component" do
           it "updates permissions when selecting ephemeral authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting regular authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting more than one authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
         end
 
@@ -204,26 +204,26 @@ describe "Component" do
           it "updates permissions when selecting ephemeral authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting regular authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
 
           it "updates permissions when selecting more than one authorization for a given action" do
             check("component_permissions_permissions_vote_authorization_handlers_dummy_authorization_handler")
             check("component_permissions_permissions_vote_authorization_handlers_another_dummy_authorization_handler")
 
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
 
-            expect(page).to have_css("div.callout.success")
+            expect(page).to have_css("div.callout-wrapper .flash.success")
           end
         end
       end

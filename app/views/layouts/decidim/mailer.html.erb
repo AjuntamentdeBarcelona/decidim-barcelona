@@ -47,9 +47,9 @@
                         <table>
                           <tr>
                             <th>
-                              <% if @organization.official_img_header.attached? %>
+                              <% if @organization.official_img_footer.attached? %>
                                 <%= link_to @organization.official_url do %>
-                                  <%= image_tag @organization.attached_uploader(:official_img_header).url(host: @organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
+                                  <%= image_tag @organization.attached_uploader(:official_img_footer).url(host: @organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
                                 <% end %>
                               <% end %>
                             </th>

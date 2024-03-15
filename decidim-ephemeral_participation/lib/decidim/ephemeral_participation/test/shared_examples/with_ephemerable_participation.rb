@@ -69,11 +69,18 @@ shared_context "with ephemerable participation" do
   let(:document_number) { "123456789X" }
 
   def click_ephemeral_participation_button(selector = ephemeral_participation_action_button_selector)
-    click_ephemeral_parcipation_action_button(selector)
-    accept_confirm { click_on("I want to participate without registering") }
+    click_ephemeral_participation_action_button(selector)
+    accept_confirm { click_ephemeral_participation_login_button }
   end
 
-  def click_ephemeral_parcipation_action_button(_selector = ephemeral_participation_action_button_selector)
+  def click_ephemeral_participation_login_button
+    # Modals takes too long rendering. We wait for the buttons to be visible and enabled.
+    sleep(0.2)
+    click_on("I want to participate without registering")
+    sleep(0.2)
+  end
+
+  def click_ephemeral_participation_action_button(_selector = ephemeral_participation_action_button_selector)
     page.find(ephemeral_participation_action_button_selector).click
   end
 
@@ -94,10 +101,10 @@ shared_context "with ephemerable participation" do
   let(:email) { "unique@email.example" }
 
   def register_workflows
-    [
-      "decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb",
-      "decidim-generators/lib/decidim/generators/app_templates/another_dummy_authorization_handler.rb"
-    ].each { |file_path| require "#{Gem::Specification.find_by_name("decidim").gem_dir}/#{file_path}" }
+    %w(lib/decidim/generators/app_templates/dummy_authorization_handler.rb
+       lib/decidim/generators/app_templates/another_dummy_authorization_handler.rb).each do |file_path|
+      require "#{Gem::Specification.find_by_name("decidim-generators").gem_dir}/#{file_path}"
+    end
 
     Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workflow|
       workflow.form = "DummyAuthorizationHandler"

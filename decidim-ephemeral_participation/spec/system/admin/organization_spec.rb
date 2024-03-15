@@ -35,7 +35,7 @@ describe "Organization" do
 
         choose("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation")
 
-        find("*[type=submit]").click
+        find("*[type=submit][name=commit]").click
 
         expect(page).to have_css("div.flash.success")
 

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "User menu" do
+describe "Complete registration" do
   include_context "with ephemerable participation"
 
   let!(:project) { create(:project, budget:) }
@@ -19,21 +19,15 @@ describe "User menu" do
   end
 
   context "when the user clicks the ephemeral participation button and toggles the user menu" do
-    let(:toggle_user_menu) do
-      within(".topbar__user__logged") do
-        click_on(current_user.name)
-      end
-    end
     let(:current_user) { Decidim::User.last }
 
     before do
       click_ephemeral_participation_button
-      toggle_user_menu
     end
 
     context "when the user clicks the complete registration link" do
       before do
-        within(".topbar__user__logged") do
+        within(".main-footer__top") do
           click_on("Finish your registration")
         end
       end
@@ -46,7 +40,7 @@ describe "User menu" do
             fill_in("ephemeral_participant_email", with: email)
             fill_in("ephemeral_participant_password", with: password)
             fill_in("ephemeral_participant_password_confirmation", with: password)
-            find("*[type=submit]").click
+            find("*[type=submit][name=commit]").click
           end
         end
         let(:name) { "New name" }

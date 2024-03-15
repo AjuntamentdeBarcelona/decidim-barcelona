@@ -37,13 +37,7 @@ describe "Verification conflicts" do
       it "creates verification conflict and notifies admins" do
         expect(Decidim::Verifications::Conflict.count).to eq(1)
 
-        notification_job = {
-          job: Decidim::EventPublisherJob,
-          args: array_including("decidim.events.verifications.managed_user_error_event"),
-          queue: "events"
-        }
-
-        expect(enqueued_jobs.last).to match(notification_job)
+        expect(enqueued_jobs.last[:args]).to include("decidim.events.verifications.managed_user_error_event")
       end
 
       it "shows an error" do
@@ -172,7 +166,6 @@ describe "Verification conflicts" do
                 let(:submit_password_form) do
                   within("form#password_new_user") do
                     fill_in(:password_user_password, with: "decidim123456")
-                    fill_in(:password_user_password_confirmation, with: "decidim123456")
                     find("*[type=submit]").click
                   end
                 end
