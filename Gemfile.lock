@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 03e6c98e85a00fe47f8db2726f1a1a98e808efda
+  specs:
+    decidim-term_customizer (0.28.0)
+      decidim-admin (~> 0.28.0)
+      decidim-core (~> 0.28.0)
+
 PATH
   remote: decidim-census_sms
   specs:
@@ -943,6 +951,7 @@ DEPENDENCIES
   decidim-initiatives (~> 0.28.0)
   decidim-sortitions (~> 0.28.0)
   decidim-stats!
+  decidim-term_customizer!
   decidim-valid_auth!
   deface
   dotenv-rails
