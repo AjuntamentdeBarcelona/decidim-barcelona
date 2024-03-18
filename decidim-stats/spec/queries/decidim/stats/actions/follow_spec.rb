@@ -16,14 +16,12 @@ describe Decidim::Stats::Actions::Follow do
   let!(:draft) { create(:collaborative_draft, component:) }
   let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
+  let(:followers) { (proposal.authors.pluck(:id) | draft.authors.pluck(:id) | [proposal_follower.id, draft_follower.id]).sort }
 
   context "when looking for follow authors matching the component" do
-    # rubocop:disable RSpec/NoExpectationExample
     it "finds the user IDs following any resource in the component" do
-      # @todo Fix problem with nested resources and uncomment the following line
-      # expect(subject.query).to eq([proposal_follower.id, draft_follower.id])
+      expect(subject.query).to eq(followers)
     end
-    # rubocop:enable RSpec/NoExpectationExample
   end
 
   context "when looking for follow authors but the performers do not match" do
