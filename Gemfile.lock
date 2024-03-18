@@ -461,6 +461,7 @@ GEM
     fog-xml (0.1.4)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    foreman (0.87.2)
     formatador (1.1.0)
     foundation_rails_helper (4.0.1)
       actionpack (>= 4.1, < 7.1)
@@ -597,6 +598,8 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.0)
+    nokogiri (1.16.2-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
@@ -932,6 +935,7 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-21
   x86_64-linux
 
@@ -957,6 +961,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   fog-aws
+  foreman
   letter_opener_web
   listen
   lograge
