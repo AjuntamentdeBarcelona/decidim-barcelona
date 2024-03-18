@@ -1,4 +1,4 @@
-name: Test
+name: Test Ephemeral Participation
 on: [push]
 
 env:
