@@ -7,7 +7,7 @@ env:
 
 jobs:
   test:
-    name: Test
+    name: Test Census SMS
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -43,5 +43,5 @@ jobs:
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: bundle exec rspec
+      - run: bundle exec rspec decidim-census_sms
         name: Run specs

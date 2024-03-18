@@ -7,7 +7,7 @@ env:
 
 jobs:
   test:
-    name: Test
+    name: Test Valid Auth
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -43,5 +43,5 @@ jobs:
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: bundle exec rspec
+      - run: bundle exec rspec decidim-valid_auth
         name: Run specs
