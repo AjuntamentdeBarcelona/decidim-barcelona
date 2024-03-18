@@ -16,7 +16,7 @@ describe Decidim::Stats::Actions::Endorsement do
 
   context "when looking for endorsements matching the component" do
     it "finds the user ID" do
-      expect(subject.query).to eq([user.id])
+      expect(subject.query).to contain_exactly(user.id)
     end
   end
 
@@ -24,7 +24,7 @@ describe Decidim::Stats::Actions::Endorsement do
     let(:performers_query) { Decidim::User.none }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 
@@ -32,7 +32,7 @@ describe Decidim::Stats::Actions::Endorsement do
     let(:my_component) { create(:component) }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

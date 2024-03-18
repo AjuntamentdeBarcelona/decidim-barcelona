@@ -33,7 +33,7 @@ describe Decidim::Stats::Performers::AgeGroup do
 
   context "when looking for authorizations matching the age group" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -41,7 +41,7 @@ describe Decidim::Stats::Performers::AgeGroup do
     let(:performer_age_group) { "50-54" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

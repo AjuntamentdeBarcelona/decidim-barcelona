@@ -23,7 +23,7 @@ describe Decidim::Stats::Performers::District do
 
   context "when looking for authorizations matching the scope" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -31,7 +31,7 @@ describe Decidim::Stats::Performers::District do
     let(:performer_district) { "Another district" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

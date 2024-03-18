@@ -25,7 +25,7 @@ describe Decidim::Stats::Performers::Gender do
 
   context "when looking for authorizations matching the gender" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -33,7 +33,7 @@ describe Decidim::Stats::Performers::Gender do
     let(:performer_gender) { "bar" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

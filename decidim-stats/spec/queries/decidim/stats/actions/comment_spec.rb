@@ -21,7 +21,7 @@ describe Decidim::Stats::Actions::Comment do
 
   context "when looking for comments authors matching the component" do
     it "finds the author IDs of comments on any commentable resource in the component" do
-      expect(subject.query).to eq([proposal_comment_author.id, draft_comment_author.id])
+      expect(subject.query).to contain_exactly(proposal_comment_author.id, draft_comment_author.id)
     end
   end
 
@@ -29,7 +29,7 @@ describe Decidim::Stats::Actions::Comment do
     let(:performers_query) { Decidim::User.none }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 
@@ -37,7 +37,7 @@ describe Decidim::Stats::Actions::Comment do
     let(:component) { create(:component) }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

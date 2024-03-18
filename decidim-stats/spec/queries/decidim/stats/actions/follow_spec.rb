@@ -16,11 +16,11 @@ describe Decidim::Stats::Actions::Follow do
   let!(:draft) { create(:collaborative_draft, component:) }
   let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
-  let(:followers) { (proposal.authors.pluck(:id) | draft.authors.pluck(:id) | [proposal_follower.id, draft_follower.id]).sort }
+  let(:followers) { proposal.authors.pluck(:id) | draft.authors.pluck(:id) | [proposal_follower.id, draft_follower.id] }
 
   context "when looking for follow authors matching the component" do
     it "finds the user IDs following any resource in the component" do
-      expect(subject.query).to eq(followers)
+      expect(subject.query).to match_array(followers)
     end
   end
 
@@ -28,7 +28,7 @@ describe Decidim::Stats::Actions::Follow do
     let(:performers_query) { Decidim::User.none }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 
@@ -36,7 +36,7 @@ describe Decidim::Stats::Actions::Follow do
     let(:component) { create(:component) }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end
