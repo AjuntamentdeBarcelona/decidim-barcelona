@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   end
 
   get "/accountability", to: "static#accountability", as: :accountability_static
-  get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
+  get "/accountability/sections/:section", to: "static#accountability_sections", as: :accountability_sections
 
   scope "/processes/:participatory_process_slug/f/:component_id" do
     get :export_results, to: "export_results#csv"
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
-  get "/pages/faq", to: redirect("/pages/more-information")
+  get "/pages/faq", to: redirect("/pages/decidim")
 
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
