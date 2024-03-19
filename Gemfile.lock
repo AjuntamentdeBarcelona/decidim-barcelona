@@ -968,6 +968,7 @@ DEPENDENCIES
   rack_password
   rails_12factor
   rails_autoscale_agent
+  rexml
   rspec
   rubocop
   rubocop-faker
