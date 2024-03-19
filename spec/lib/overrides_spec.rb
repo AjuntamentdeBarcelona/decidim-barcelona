@@ -76,7 +76,7 @@ checksums = [
       # "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0", # @todo
       # "/app/cells/decidim/initiatives/initiative_m/footer.erb" => "3f4017aa1dd1cb30b26843ab92b32031", # @todo
       # "/app/models/decidim/initiative.rb" => "7d88ac2fb9827c2c6cdbe39c2f1df908", # @todo
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320"
       # "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "ecb8b4c7e417c3dc979e7f64c19f96a5", # @todo
       # "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "2c3068724ed2986f62bd13994960f39e" # @todo
     }
@@ -103,7 +103,7 @@ checksums = [
   {
     package: "decidim-forms",
     files: {
-      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d",
+      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d"
       # "/app/views/decidim/forms/admin/questionnaires/answers/show.html.erb" => "49e39b6688f3109b87ec74890bc566fb" # @todo
     }
   },
