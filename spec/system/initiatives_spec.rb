@@ -46,7 +46,7 @@ describe "Initiatives", :perform_enqueued, available_authorizations: ["census_sm
 
     it "cannot create a new initiative" do
       click_on "Nova iniciativa"
-      expect(page).to have_content("Si us plau, inicia sessió")
+      expect(page).to have_content("Si us plau, inicia la sessió")
     end
   end
 end

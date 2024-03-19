@@ -57,7 +57,7 @@ describe "Authorizations with census kids", :perform_enqueued, with_authorizatio
       fill_in_authorization_form
       click_on "Enviar"
 
-      expect(page).to have_content("Has estat autoritzada")
+      expect(page).to have_content("Se t'ha autoritzat correctament")
 
       visit decidim_verifications.authorizations_path
 
@@ -79,7 +79,7 @@ describe "Authorizations with census kids", :perform_enqueued, with_authorizatio
 
         within ".authorizations-list" do
           expect(page).to have_content("El padró (majors de 8 anys)")
-          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
+          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles, locale: :ca))
         end
       end
     end

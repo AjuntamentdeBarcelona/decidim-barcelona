@@ -57,7 +57,7 @@ describe "Authorizations", :perform_enqueued, with_authorization_workflows: ["ce
       fill_in_authorization_form
       click_on "Enviar"
 
-      expect(page).to have_content("Has estat autoritzada")
+      expect(page).to have_content("Se t'ha autoritzat correctament")
 
       visit decidim_verifications.authorizations_path
 
@@ -79,7 +79,7 @@ describe "Authorizations", :perform_enqueued, with_authorization_workflows: ["ce
 
         within ".authorizations-list" do
           expect(page).to have_content("El padró")
-          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
+          expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles, locale: :ca))
         end
       end
     end
