@@ -21,8 +21,8 @@ checksums = [
       # "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9", # @todo
       "/app/views/layouts/decidim/footer/_main_links.html.erb" => "60a25ee1b5c6c3702a3d158ac9e23013", # ephemeral participation overrides
       "/app/views/layouts/decidim/header/_main_links_dropdown.html.erb" => "a369664c2bb36cbd2b10d90d9a7469cf", # ephemeral participation overrides
-      # "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "2ddcb8ba5070f7cdb231283185f2c213", # @todo
-      # "/app/cells/decidim/activities_cell.rb" => "af9e9e2b6e4134fa90b6699bbf7da428", # @todo
+      "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "22355fa93da7c8776e7e7f56a5b207f7",
+      "/app/cells/decidim/activities_cell.rb" => "dd17416a8d1efe7f26b1e759613e4db4",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa"
     }
