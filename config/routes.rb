@@ -38,12 +38,10 @@ Rails.application.routes.draw do
   end
   # rubocop:enable Layout/LineLength
 
-  authenticate :user, ->(u) { u.admin? } do
-    mount Sidekiq::Web => "/sidekiq"
-  end
-
   get "/accountability", to: "static#accountability", as: :accountability_static
   get "/accountability/sections/:section", to: "static#accountability_sections", as: :accountability_sections
+
+  get "/pages/faq", to: redirect("/pages/decidim")
 
   scope "/processes/:participatory_process_slug/f/:component_id" do
     get :export_results, to: "export_results#csv"
@@ -52,11 +50,12 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
-  get "/pages/faq", to: redirect("/pages/decidim")
-
   mount Decidim::Core::Engine => "/"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-
   mount Decidim::EphemeralParticipation::Engine, at: "/", as: "decidim_ephemeral_participation"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
