@@ -13,12 +13,6 @@ PATH
       decidim-core
 
 PATH
-  remote: decidim-dataviz
-  specs:
-    decidim-dataviz (0.0.3)
-      decidim-core
-
-PATH
   remote: decidim-ephemeral_participation
   specs:
     decidim-ephemeral_participation (0.0.4)
@@ -949,7 +943,6 @@ DEPENDENCIES
   database_cleaner
   decidim (~> 0.28.0)
   decidim-census_sms!
-  decidim-dataviz!
   decidim-dev (~> 0.28.0)
   decidim-ephemeral_participation!
   decidim-initiatives (~> 0.28.0)
