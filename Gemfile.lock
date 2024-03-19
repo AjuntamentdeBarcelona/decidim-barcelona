@@ -958,6 +958,7 @@ DEPENDENCIES
   letter_opener_web
   listen
   lograge
+  matrix
   mdl
   origami
   progressbar

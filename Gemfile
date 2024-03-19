@@ -62,6 +62,7 @@ group :production do
   gem "aws-sdk-s3", require: false
   gem "dalli"
   gem "fog-aws" # to remove once image migration is complete
+  gem "matrix"
   gem "rack_password"
   gem "rack-ssl-enforcer"
   gem "rack-timeout"
