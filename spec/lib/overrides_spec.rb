@@ -97,7 +97,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      # "/app/presenters/decidim/proposals/proposal_presenter.rb" => "105b7266bcdd8b947ababbb7ebb78789" # @todo
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "72910541010305f25baf297f4a58497b"
     }
   },
   {
