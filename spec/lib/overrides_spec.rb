@@ -85,8 +85,8 @@ checksums = [
     package: "decidim-meetings",
     files: {
       # "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "66ee99695217f75939deed77f6f88159", # @todo
-      # "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c", # @todo
-      # "/app/cells/decidim/meetings/online_meeting_cell.rb" => "20564c5da2200ed0c9fe42c457af26cb", # @todo
+      "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "ea7e1dab09b0c39b670dbfd05046572b",
+      "/app/cells/decidim/meetings/online_meeting_cell.rb" => "726b1c957fdadd355171364b3327564a",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "b7bba47ba0a6466a14dbd3798c2e620b",
       # "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97", # @todo
       # "/app/controllers/decidim/meetings/meetings_controller.rb" => "c4b88c68ea8b5653c6f1e35cd2646011", # @todo
