@@ -88,8 +88,8 @@ checksums = [
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "ea7e1dab09b0c39b670dbfd05046572b",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "726b1c957fdadd355171364b3327564a",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "b7bba47ba0a6466a14dbd3798c2e620b",
-      # "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97", # @todo
-      # "/app/controllers/decidim/meetings/meetings_controller.rb" => "c4b88c68ea8b5653c6f1e35cd2646011", # @todo
+      "/app/models/decidim/meetings/meeting.rb" => "2998095d4eb8fcacd83700098de6c285",
+      "/app/controllers/decidim/meetings/meetings_controller.rb" => "b5cb5d2f044b30d348f891f56f851a02",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "8be62c6b0cc2f13d4be68eb5e06217de",
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "7e24a3e70c213dcbc046275cb438744d"
     }
