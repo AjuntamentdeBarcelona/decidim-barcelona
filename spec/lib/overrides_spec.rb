@@ -108,8 +108,8 @@ checksums = [
   {
     package: "decidim-forms",
     files: {
-      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d"
-      # "/app/views/decidim/forms/admin/questionnaires/answers/show.html.erb" => "49e39b6688f3109b87ec74890bc566fb" # @todo
+      "/app/queries/decidim/forms/questionnaire_user_answers.rb" => "fb14ed5f570c6d18e5d0d83808d03b5d",
+      "/app/views/decidim/forms/admin/questionnaires/answers/show.html.erb" => "ab1f126851dddc3b70c970c5825ca1fa"
     }
   },
   {
