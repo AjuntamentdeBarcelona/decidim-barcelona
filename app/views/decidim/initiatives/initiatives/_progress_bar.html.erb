@@ -1,0 +1,20 @@
+<div id="initiative-<%= current_initiative.id %>-progress-bar">
+  <% current_initiative.votable_initiative_type_scopes.each_with_index do |type_scope, index| %>
+    <% if index == 0 %>
+      <%= cell(
+        "decidim/progress_bar",
+        current_initiative.supports_count_for(type_scope.scope),
+        total: current_initiative.supports_required_for(type_scope.scope),
+        units_name: "decidim.initiatives.initiatives.votes_count.count",
+        element_id: "initiative-#{current_initiative.id}-votes-count"
+        ) %>
+    <% else %>
+      <%= cell(
+        "decidim/progress_bar",
+        current_initiative.supports_count_for(type_scope.scope),
+        total: current_initiative.supports_required_for(type_scope.scope),
+        element_id: "initiative-scope-#{type_scope.id}-#{current_initiative.id}-votes-count"
+        ) %>
+    <% end %>
+  <% end %>
+</div>
