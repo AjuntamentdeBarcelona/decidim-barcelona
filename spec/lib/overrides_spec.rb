@@ -87,11 +87,11 @@ checksums = [
       # "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "66ee99695217f75939deed77f6f88159", # @todo
       # "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c", # @todo
       # "/app/cells/decidim/meetings/online_meeting_cell.rb" => "20564c5da2200ed0c9fe42c457af26cb", # @todo
-      "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "b7bba47ba0a6466a14dbd3798c2e620b"
+      "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "b7bba47ba0a6466a14dbd3798c2e620b",
       # "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97", # @todo
       # "/app/controllers/decidim/meetings/meetings_controller.rb" => "c4b88c68ea8b5653c6f1e35cd2646011", # @todo
-      # "/app/helpers/decidim/meetings/meetings_helper.rb" => "38ce368638f4ac344faea5f0307f09de", # @todo
-      # "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "2c5628f8d02af54ad857508e33e212a3" # @todo
+      "/app/helpers/decidim/meetings/meetings_helper.rb" => "8be62c6b0cc2f13d4be68eb5e06217de",
+      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "7e24a3e70c213dcbc046275cb438744d"
     }
   },
   {
