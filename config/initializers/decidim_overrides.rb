@@ -3,7 +3,6 @@
 Rails.application.config.to_prepare do
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
-  # Decidim::Initiatives::InitiativeMCell.prepend Decidim::Overrides::Initiatives::InitiativeMCell
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   # Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)

@@ -73,7 +73,6 @@ checksums = [
   {
     package: "decidim-initiatives",
     files: {
-      # "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0", # @todo
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/models/decidim/initiative.rb" => "77c9775fcff404b16e5a382915116fe1",
       "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320",
