@@ -89,7 +89,7 @@ checksums = [
   {
     package: "decidim-meetings",
     files: {
-      # "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "66ee99695217f75939deed77f6f88159", # @todo
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "f885f36957b27f20535c8d5b985ecee5",
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "ea7e1dab09b0c39b670dbfd05046572b",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "726b1c957fdadd355171364b3327564a",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "b7bba47ba0a6466a14dbd3798c2e620b",
