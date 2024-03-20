@@ -9,6 +9,7 @@ checksums = [
   {
     package: "decidim-core",
     files: {
+      "/app/helpers/decidim/paginate_helper.rb" => "6cd2b5699bce845d76e9e76f239783cc",
       "/app/controllers/decidim/application_controller.rb" => "3fa179cac8605b5bf472ea276d3f788a", # ephemeral participation overrides
       "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "7fdd302396760cdccd5fab8adc6a0976", # ephemeral participation overrides
@@ -63,11 +64,16 @@ checksums = [
   {
     package: "decidim-accountability",
     files: {
-      # "/app/views/decidim/accountability/results/home.html.erb" => "79a3df85ac336eb449fbf4d545c5ee03", # @todo
-      # "/app/models/decidim/accountability/result.rb" => "aa9e2c5394152e22ad5d0c3547637230", # @todo
-      # "/app/services/decidim/accountability/results_calculator.rb" => "59df612241e5ed2b33ee2ab32af87621", # @todo
-      # "/app/views/decidim/accountability/results/_results_leaf.html.erb" => "4c9493268b778c6c2c356616d7a8886a", # @todo
-      # "/app/views/decidim/accountability/results/_show_leaf.html.erb" => "7c99f542c9cb2ef72dbe2f86e285bd26" # @todo
+      "/app/views/decidim/participatory_spaces/_result.html.erb" => "36add6a46776f600922fa04099a20909",
+      "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
+      "/app/cells/decidim/accountability/status/status.erb" => "d6e3d97dcc7cf8613047a6d2549e0e27",
+      "/app/views/decidim/accountability/results/home.html.erb" => "eefb76bf9388e4cea81b56ccd5d161a9",
+      "/app/views/decidim/accountability/results/index.html.erb" => "e85be11b2d5dad3e6ed97b6f719287d4",
+      "/app/views/decidim/accountability/results/_home_categories.html.erb" => "00721e6e14f5ad718a3d80ecd905999e",
+      "/app/views/decidim/accountability/results/_scope_filters.html.erb" => "02f6546d773cab4a8c006ffaf86e625e",
+      "/app/views/decidim/accountability/results/_stats_box.html.erb" => "2ce34e1ee1a824dc4fbe36940c97f3e8",
+      "/app/models/decidim/accountability/result.rb" => "e1c063ba7c39ca8996daa740c7ff6bc6",
+      "/app/services/decidim/accountability/results_calculator.rb" => "4cc5ed480220f0bfe7561ad887e59576"
     }
   },
   {

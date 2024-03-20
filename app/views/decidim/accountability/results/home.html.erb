@@ -1,0 +1,50 @@
+<% add_decidim_page_title component_name %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
+<%= append_stylesheet_pack_tag "decidim_accountability" %>
+
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+
+  <% if component_settings.display_progress_enabled? %>
+    <%= cell(
+          "decidim/accountability/status",
+          nil,
+          title: t("decidim.accountability.results.home_header.global_status"),
+          progress: progress_calculator(current_scope, nil).presence,
+          extra_classes: "accountability__status__home"
+        ) %>
+  <% end %>
+
+  <%= render partial: "scope_filters", locals: { hide_subscopes: current_participatory_space.slug.to_s == "PressupostosParticipatius" } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <section class="layout-main__section">
+    <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+  </section>
+
+  <section class="layout-main__section">
+    <% if (ENV["PARTICIPATORY_SPACES_WITH_ACCOUNTABILITY_RESULTS"] || "").split(',').include?(current_participatory_space.slug.to_s) %>
+      <%= cell "decidim/accountability/results", results %>
+      <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope), hide_results_per_page_selector: true %>
+    <% else %>
+
+      <% if first_class_categories.empty? %>
+        <%= cell("decidim/announcement",
+                 params[:filter].present? ?
+                   t("empty_filters", scope: "decidim.accountability.results.home") :
+                   t("empty", scope: "decidim.accountability.results.home")) %>
+      <% end %>
+
+      <% if current_participatory_space.slug.to_s == "PressupostosParticipatius" %>
+        <%= render partial: "home_scopes" %>
+      <% end %>
+
+      <%= render partial: "home_categories",
+                 locals: { children: first_class_categories.select { |category| category.subcategories.any? }.any?,
+                           show_category_image: (ENV["PARTICIPATORY_SPACES_WITH_CATEGORY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
+    <% end %>
+  </section>
+
+<% end %>
