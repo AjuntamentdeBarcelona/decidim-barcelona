@@ -8,6 +8,7 @@ Rails.application.config.to_prepare do
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
+  Decidim::Accountability::StatusCell.include(Decidim::Accountability::StatusCellOverride)
   Decidim::Meetings::Meeting.include(Decidim::Meetings::MeetingOverride)
   Decidim::Meetings::MeetingsController.include(Decidim::Meetings::MeetingsControllerOverride)
   Decidim::Meetings::OnlineMeetingCell.include(Decidim::Meetings::OnlineMeetingCellOverride)
