@@ -10,27 +10,27 @@ PATH
   remote: decidim-census_sms
   specs:
     decidim-census_sms (0.0.3)
-      decidim-core
+      decidim-core (~> 0.28.0)
 
 PATH
   remote: decidim-ephemeral_participation
   specs:
     decidim-ephemeral_participation (0.0.4)
-      decidim-verifications
+      decidim-verifications (~> 0.28.0)
 
 PATH
   remote: decidim-stats
   specs:
     decidim-stats (0.0.3)
-      decidim-comments
-      decidim-core
-      decidim-proposals
+      decidim-comments (~> 0.28.0)
+      decidim-core (~> 0.28.0)
+      decidim-proposals (~> 0.28.0)
 
 PATH
   remote: decidim-valid_auth
   specs:
     decidim-valid_auth (0.0.3)
-      decidim-verifications
+      decidim-verifications (~> 0.28.0)
 
 GEM
   remote: https://rubygems.org/
