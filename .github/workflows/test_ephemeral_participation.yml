@@ -1,5 +1,8 @@
 name: Test Ephemeral Participation
-on: [push]
+on:
+  push:
+    paths:
+      - "decidim-ephemeral_participation/**"
 
 env:
   RUBY_VERSION: 3.1.1
