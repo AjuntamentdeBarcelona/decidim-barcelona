@@ -64,6 +64,8 @@ checksums = [
   {
     package: "decidim-accountability",
     files: {
+      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "980e3f623300704e209f860e1859b507",
+      "/app/views/decidim/accountability/admin/results/index.html.erb" => "099fff7b57c5cff04fcf6495816f9cc4",
       "/app/views/decidim/participatory_spaces/_result.html.erb" => "36add6a46776f600922fa04099a20909",
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
       "/app/cells/decidim/accountability/status_cell.rb" => "896af2a2fa587dd3d1b890c239a23f0e",

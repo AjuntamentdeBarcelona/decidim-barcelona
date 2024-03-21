@@ -384,12 +384,6 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
-    deface (1.9.0)
-      actionview (>= 5.2)
-      nokogiri (>= 1.6)
-      polyglot
-      railties (>= 5.2)
-      rainbow (>= 2.1.0)
     devise (4.9.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -426,7 +420,6 @@ GEM
     erubi (1.12.0)
     escape_utils (1.2.2)
     excon (0.109.0)
-    execjs (2.9.1)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
     factory_bot (6.4.6)
@@ -444,23 +437,13 @@ GEM
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
-    fog-aws (3.21.0)
-      fog-core (~> 2.1)
-      fog-json (~> 1.1)
-      fog-xml (~> 0.1)
     fog-core (2.4.0)
       builder
       excon (~> 0.71)
       formatador (>= 0.2, < 2.0)
       mime-types
-    fog-json (1.2.0)
-      fog-core
-      multi_json (~> 1.10)
     fog-local (0.8.0)
       fog-core (>= 1.27, < 3.0)
-    fog-xml (0.1.4)
-      fog-core
-      nokogiri (>= 1.5.11, < 2.0.0)
     foreman (0.87.2)
     formatador (1.1.0)
     foundation_rails_helper (4.0.1)
@@ -657,7 +640,6 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    polyglot (0.3.5)
     premailer (1.23.0)
       addressable
       css_parser (>= 1.12.0)
@@ -890,8 +872,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
     uniform_notifier (1.16.0)
     uri (0.13.0)
@@ -957,10 +937,8 @@ DEPENDENCIES
   decidim-stats!
   decidim-term_customizer!
   decidim-valid_auth!
-  deface
   dotenv-rails
   faker
-  fog-aws
   foreman
   letter_opener_web
   listen
@@ -989,7 +967,6 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen
   stackprof
-  uglifier
   web-console
   wicked_pdf
   wkhtmltopdf-binary

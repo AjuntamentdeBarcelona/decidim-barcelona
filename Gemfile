@@ -21,18 +21,12 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 # gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
 
+gem "origami"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem "deface"
-gem "lograge"
-gem "origami"
 gem "progressbar"
 gem "puma"
-gem "uglifier"
-
-# Needed to be able to debug Puma status
-gem "barnes"
 
 group :development, :test do
   gem "bootsnap"
@@ -56,17 +50,15 @@ group :development do
 end
 
 group :production do
-  # Used to restart puma workers every 6h and free memory
-  gem "puma_worker_killer"
-  # Let's kill long-running requests after the Heroku router has responded to.
-  # https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
   gem "aws-sdk-s3", require: false
+  gem "barnes" # Needed to be able to debug Puma status
   gem "dalli"
-  gem "fog-aws" # to remove once image migration is complete
+  gem "lograge"
   gem "matrix"
+  gem "puma_worker_killer" # Used to restart puma workers every 6h and free memory
   gem "rack_password"
   gem "rack-ssl-enforcer"
-  gem "rack-timeout"
+  gem "rack-timeout" # Let's kill long-running requests after the Heroku router has responded to
   gem "rails_12factor"
   gem "rails_autoscale_agent"
   gem "rexml"

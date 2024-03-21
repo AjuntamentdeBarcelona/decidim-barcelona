@@ -1,6 +1,0 @@
-<!-- insert_bottom ".intro.section > .row" -->
-<div class="small-12 medium-5 columns">
-  <div class="progress-level">
-    <%= link_to t(".csv_download"), Rails.application.routes.url_helpers.export_results_path(current_participatory_space, current_component) %>
-  </div>
-</div>

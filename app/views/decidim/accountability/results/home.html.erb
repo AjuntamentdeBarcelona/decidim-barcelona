@@ -16,6 +16,8 @@
   <% end %>
 
   <%= render partial: "scope_filters", locals: { hide_subscopes: current_participatory_space.slug.to_s == "PressupostosParticipatius" } %>
+
+  <%= link_to t("decidim.accountability.results.home_header.csv_download"), Rails.application.routes.url_helpers.export_results_path(current_participatory_space, current_component), class: "button button__sm button__secondary" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
