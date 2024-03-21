@@ -22,7 +22,7 @@ gem "decidim-valid_auth", path: "decidim-valid_auth"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
 
 gem "origami"
-gem "wicked_pdf"
+gem "wicked_pdf", "< 2.8"
 gem "wkhtmltopdf-binary"
 
 gem "progressbar"

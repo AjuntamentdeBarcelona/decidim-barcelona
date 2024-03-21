@@ -559,7 +559,7 @@ GEM
     mime-types-data (3.2024.0305)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    minitest (5.22.2)
+    minitest (5.22.3)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
@@ -905,7 +905,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wicked_pdf (2.8.0)
+    wicked_pdf (2.7.0)
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
@@ -968,7 +968,7 @@ DEPENDENCIES
   spring-watcher-listen
   stackprof
   web-console
-  wicked_pdf
+  wicked_pdf (< 2.8)
   wkhtmltopdf-binary
 
 RUBY VERSION
