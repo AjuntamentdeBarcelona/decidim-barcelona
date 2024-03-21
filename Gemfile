@@ -11,6 +11,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-census_sms", path: "decidim-census_sms"
+gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"

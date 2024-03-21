@@ -35,8 +35,8 @@
     "extends @decidim/browserslist-config"
   ],
   "scripts": {
-    "lint": "eslint -c .eslintrc.json --ext .js app/packs/src decidim-dataviz/app/packs/src",
-    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/src decidim-dataviz/app/packs/src --fix",
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/src",
+    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/src --fix",
     "stylelint": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\"",
     "stylelint-fix": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\" --fix"
   },
