@@ -9,6 +9,17 @@ GIT
       deface (>= 1.5)
 
 GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
+  revision: 1e0f5ac5c80b68a3527f5b23f8520f4484ec6b6a
+  branch: develop
+  specs:
+    decidim-decidim_awesome (0.11.0)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 03e6c98e85a00fe47f8db2726f1a1a98e808efda
   specs:
@@ -822,6 +833,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     scout_apm (5.3.7)
       parser
     selenium-webdriver (4.18.1)
@@ -947,6 +960,7 @@ DEPENDENCIES
   decidim (~> 0.28.0)
   decidim-census_sms!
   decidim-dataviz!
+  decidim-decidim_awesome!
   decidim-dev (~> 0.28.0)
   decidim-ephemeral_participation!
   decidim-initiatives (~> 0.28.0)
