@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
+  revision: df16cf4de13c306348761d850d19815c8221874e
+  specs:
+    decidim-kids (0.2.0)
+      decidim-core (>= 0.28, < 0.29)
+      decidim-system (>= 0.28, < 0.29)
+      decidim-verifications (>= 0.28, < 0.29)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 03e6c98e85a00fe47f8db2726f1a1a98e808efda
   specs:
@@ -384,6 +394,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     devise (4.9.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -640,6 +656,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.23.0)
       addressable
       css_parser (>= 1.12.0)
@@ -933,6 +950,7 @@ DEPENDENCIES
   decidim-dev (~> 0.28.0)
   decidim-ephemeral_participation!
   decidim-initiatives (~> 0.28.0)
+  decidim-kids!
   decidim-sortitions (~> 0.28.0)
   decidim-stats!
   decidim-term_customizer!
