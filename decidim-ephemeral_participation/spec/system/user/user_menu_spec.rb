@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "User menu", type: :system do
+describe "User menu" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -22,8 +22,8 @@ describe "User menu", type: :system do
     let(:current_user) { Decidim::User.last }
     let(:session_duration) { 5.minutes }
     let(:toggle_user_menu) do
-      within(".topbar__user__logged") do
-        click_link(current_user.name)
+      within(".main-bar__dropdown-container") do
+        click_on("Account")
       end
     end
 
@@ -34,7 +34,7 @@ describe "User menu", type: :system do
     end
 
     it "shows alternative user menu" do
-      within(".topbar__user__logged") do
+      within(".main-bar__dropdown-container") do
         expect(page).to have_content("#{(session_duration / 1.minute).round} min. before automatic sign out")
         expect(page).to have_link("Finish your registration")
         expect(page).to have_link("Cancel and sign out")
@@ -43,8 +43,8 @@ describe "User menu", type: :system do
 
     context "when the user clicks the sign out link" do
       before do
-        within(".topbar__user__logged") do
-          click_link("Cancel and sign out")
+        within(".main-bar__dropdown-container") do
+          click_on("Cancel and sign out")
         end
       end
 
@@ -59,8 +59,8 @@ describe "User menu", type: :system do
 
     context "when the user clicks the complete registration link" do
       before do
-        within(".topbar__user__logged") do
-          click_link("Finish your registration")
+        within(".main-bar__dropdown-container") do
+          click_on("Finish your registration")
         end
       end
 
@@ -76,8 +76,8 @@ describe "User menu", type: :system do
         expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
         # flash message
-        expect(page).not_to have_content("You need to be verified in order tor participate:")
-        expect(page).not_to have_link("Complete the verification process here")
+        expect(page).to have_no_content("You need to be verified in order tor participate:")
+        expect(page).to have_no_link("Complete the verification process here")
       end
     end
   end

@@ -13,94 +13,6 @@
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space's unique ID</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The graphql_name of this participatory space.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="components" class="field-name anchored">components (<code><a href="/api/docs/interface/componentinterface">[ComponentInterface!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists the components this space contains.</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/componentfilter">ComponentFilter</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to filter the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/componentsort">ComponentSort</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to order the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="stats" class="field-name anchored">stats (<code><a href="/api/docs/object/statistic">[Statistic]</a></code>)</span>
-  <div class="description-wrapper">
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="scope" class="field-name anchored">scope (<code><a href="/api/docs/object/scope">Scope</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The object's scope</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>This object's attachments</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="initiativetype" class="field-name anchored">initiativeType (<code><a href="/api/docs/object/initiativetype">InitiativeType</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The object's initiative type</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this object was created</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this object was updated</p>
-  </div>
-</div>
-<div class="field-entry ">
   <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
    <p>The description of this initiative.</p>
@@ -193,6 +105,100 @@
 </div>
 <div class="field-entry ">
   <span id="committeemembers" class="field-name anchored">committeeMembers (<code><a href="/api/docs/object/initiativecommitteemembertype">[InitiativeCommitteeMemberType]</a></code>)</span>
+  <div class="description-wrapper">
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was created</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was updated</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="initiativetype" class="field-name anchored">initiativeType (<code><a href="/api/docs/object/initiativetype">InitiativeType</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The object's initiative type</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>This object's attachments</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="scope" class="field-name anchored">scope (<code><a href="/api/docs/object/scope">Scope</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The object's scope</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space's unique ID</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The graphql_name of this participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The manifest information for the participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="components" class="field-name anchored">components (<code><a href="/api/docs/interface/componentinterface">[ComponentInterface!]</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Lists the components this space contains.</p>
+     <table class="arguments">
+  <thead>
+  <tr>
+    <th>Argument</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code class="anchored">filter</code></td>
+  <td>
+    <code><a href="/api/docs/input_object/componentfilter">ComponentFilter</a></code>
+  </td>
+  <td>
+    <p>Provides several methods to filter the results</p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">order</code></td>
+  <td>
+    <code><a href="/api/docs/input_object/componentsort">ComponentSort</a></code>
+  </td>
+  <td>
+    <p>Provides several methods to order the results</p>
+   </td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="stats" class="field-name anchored">stats (<code><a href="/api/docs/object/statistic">[Statistic]</a></code>)</span>
   <div class="description-wrapper">
   </div>
 </div></div>
@@ -354,13 +360,6 @@
       <li>
         <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
           CommentableMutation
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/component/" class="sidebar-link">
-          Component
         </a>
       </li>
       
@@ -597,6 +596,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -648,6 +654,13 @@
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -1215,6 +1228,13 @@
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       

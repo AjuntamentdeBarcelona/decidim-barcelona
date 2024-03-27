@@ -524,3 +524,9 @@ Decidim::Verifications.register_workflow(:census_kids_authorization_handler) do 
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_kids_authorization_metadata"
 end
+
+Decidim.icons.register(name: "arrow-bottom", icon: "arrow-bottom", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "audio", icon: "audio", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "fingerprint-2-line", icon: "fingerprint-2-line", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "link-intact", icon: "link-intact", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "route-line", icon: "route-line", category: "system", description: "", engine: :core)

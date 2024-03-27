@@ -2,13 +2,13 @@ name: Lint
 on: [push]
 
 env:
-  RUBY_VERSION: 3.0.2
-  NODE_VERSION: 16.9.1
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 18.17.1
 
 jobs:
   lint:
     name: Lint code
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres

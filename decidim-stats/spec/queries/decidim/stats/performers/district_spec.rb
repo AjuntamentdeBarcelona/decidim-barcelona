@@ -9,11 +9,11 @@ describe Decidim::Stats::Performers::District do
 
   let(:authorization_district) { "My district" }
   let(:performer_district) { authorization_district }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let!(:authorization) do
     create(
       :authorization,
-      user: user,
+      user:,
       name: "census_sms_authorization_handler",
       metadata: {
         scope: authorization_district
@@ -23,7 +23,7 @@ describe Decidim::Stats::Performers::District do
 
   context "when looking for authorizations matching the scope" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -31,7 +31,7 @@ describe Decidim::Stats::Performers::District do
     let(:performer_district) { "Another district" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

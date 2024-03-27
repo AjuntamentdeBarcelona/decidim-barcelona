@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Authorizations", type: :system, perform_enqueued: true, with_authorization_workflows: ["census_sms_authorization_handler"] do
+describe "Authorizations", :perform_enqueued, with_authorization_workflows: ["census_sms_authorization_handler"] do
   include_context "with ephemerable participation"
   include_context "with census sms handler"
 
@@ -20,10 +20,10 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
   let(:ephemerable_authorization) { "census_sms_authorization_handler" }
   let(:ephemerable_action) { "vote" }
 
-  let(:budget) { create :budget, component: component, total_budget: 50_000_000 }
-  let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 25_000_000) }
+  let(:budget) { create(:budget, component:, total_budget: 50_000_000) }
+  let!(:projects) { create_list(:project, 3, budget:, budget_amount: 25_000_000) }
 
-  let!(:scope) { create :scope, organization: organization, code: "1" }
+  let!(:scope) { create(:scope, organization:, code: "1") }
 
   before do
     switch_to_host(organization.host)
@@ -41,7 +41,7 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
       end
 
       xit "renders the right links and messages" do
-        click_button "Vull participar"
+        click_on "Vull participar"
 
         expect(page).to have_content("Per poder participar sense registre, has de completar el procés de verificació")
 
@@ -58,7 +58,7 @@ describe "Authorizations", type: :system, perform_enqueued: true, with_authoriza
       #   end
 
       #   xit "shows an error message" do
-      #     click_button "Vull participar"
+      #     click_on "Vull participar"
 
       #     get_verified
 

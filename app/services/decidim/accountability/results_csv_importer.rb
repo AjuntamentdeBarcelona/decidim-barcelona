@@ -26,7 +26,7 @@ module Decidim
         @extra_context = {
           current_component: component,
           current_organization: component.organization,
-          current_user: current_user,
+          current_user:,
           current_participatory_space: component.participatory_space
         }
       end

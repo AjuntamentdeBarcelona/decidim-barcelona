@@ -20,6 +20,72 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The title for this post</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="body" class="field-name anchored">body (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The body of this post</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The time this page was published</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was created</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was updated</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="endorsements" class="field-name anchored">endorsements (<code><a href="/api/docs/interface/author">[Author]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The endorsements of this object.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="endorsementscount" class="field-name anchored">endorsementsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The total amount of endorsements the object has received</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="versionscount" class="field-name anchored">versionsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Total number of versions</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="versions" class="field-name anchored">versions (<code><a href="/api/docs/object/traceversion">[TraceVersion]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>This object's versions</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The resource author</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>This object's attachments</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
   <div class="description-wrapper">
    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
@@ -93,66 +159,6 @@
   <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
    <p>Check if the current user can comment</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>This object's attachments</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The resource author</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="versionscount" class="field-name anchored">versionsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Total number of versions</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="versions" class="field-name anchored">versions (<code><a href="/api/docs/object/traceversion">[TraceVersion]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>This object's versions</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="endorsements" class="field-name anchored">endorsements (<code><a href="/api/docs/interface/author">[Author]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The endorsements of this object.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="endorsementscount" class="field-name anchored">endorsementsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The total amount of endorsements the object has received</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this object was created</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this object was updated</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The title for this post</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="body" class="field-name anchored">body (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The body of this post</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">
@@ -313,13 +319,6 @@
       <li>
         <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
           CommentableMutation
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/component/" class="sidebar-link">
-          Component
         </a>
       </li>
       
@@ -556,6 +555,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -607,6 +613,13 @@
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -1174,6 +1187,13 @@
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       

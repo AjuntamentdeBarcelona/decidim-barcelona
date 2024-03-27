@@ -17,7 +17,7 @@ module Decidim
         private
 
         def ephemeral_participant_session?
-          current_user && current_user.ephemeral_participant?
+          current_user&.ephemeral_participant?
         end
 
         def destroy_ephemeral_participant

@@ -47,3 +47,6 @@ public/sw.js.gz
 public/sw.js.map.gz
 
 coverage/
+
+.nvmrc
+tailwind.config.js

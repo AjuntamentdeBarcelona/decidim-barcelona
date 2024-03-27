@@ -126,9 +126,9 @@ module Decidim
 
       def ephemeral_participation_permission_action?
         Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
-                                                                             .any? do |_, permission_action_attributes|
-          permission_action_attributes.any? do |action:, scope:, subject:|
-            permission_action.matches?(scope, action, subject)
+                                                                             .any? do |_, ephemeral_permission_actions|
+          ephemeral_permission_actions.any? do |ephemeral_permission_action|
+            permission_action.matches?(ephemeral_permission_action[:scope], ephemeral_permission_action[:action], ephemeral_permission_action[:subject])
           end
         end
       end

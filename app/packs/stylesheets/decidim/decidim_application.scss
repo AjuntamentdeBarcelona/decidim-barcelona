@@ -6,5 +6,26 @@
 //
 // By default this is empty.
 
-@import "stylesheets/barcelona";
-@import "stylesheets/global_accountability";
+// Fix for the confirm modal showing behind the modal who generates it
+#confirm-modal {
+  z-index: 100;
+}
+
+.accountability_without_children {
+  &__grid {
+    @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
+
+    /* display the titles only for the first row in desktop */
+    & > :nth-child(1) &-title {
+      @apply md:block;
+    }
+
+    &-title {
+      @apply block md:hidden mb-8 text-gray-2 uppercase font-semibold;
+    }
+
+    .flash {
+      @apply m-0;
+    }
+  }
+}

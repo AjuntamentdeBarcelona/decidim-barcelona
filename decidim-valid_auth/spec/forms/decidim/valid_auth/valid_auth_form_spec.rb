@@ -5,8 +5,8 @@ require "rails_helper"
 describe Decidim::ValidAuth::ValidAuthForm do
   subject do
     described_class.new(
-      token: token,
-      user: user
+      token:,
+      user:
     )
   end
 
@@ -28,7 +28,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
       other_user = create(:user, organization: user.organization)
       create(:authorization, name: subject.handler_name, user: other_user, unique_id: subject.unique_id)
 
-      expect(subject).to be_invalid
+      expect(subject).not_to be_valid
       expect(subject.errors[:base]).to eq(["A participant is already authorized with the same data. An administrator will contact you to verify your details."])
     end
   end
@@ -40,7 +40,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
         allow(subject).to receive(:token_sub).and_return("foo")
       end
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
     end
 
     context "without the correct iss" do
@@ -48,7 +48,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
         allow(subject).to receive(:token_iss).and_return("foo")
       end
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
     end
 
     context "without the correct aud" do
@@ -56,7 +56,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
         allow(subject).to receive(:token_aud).and_return("foo")
       end
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
     end
 
     context "without the correct status" do
@@ -64,7 +64,7 @@ describe Decidim::ValidAuth::ValidAuthForm do
         allow(subject).to receive(:token_status).and_return("foo")
       end
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
     end
   end
   # rubocop:enable RSpec/SubjectStub
