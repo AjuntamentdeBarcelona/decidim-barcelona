@@ -9,6 +9,15 @@ GIT
       deface (>= 1.5)
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-navigation_maps
+  revision: b3ce73f283079b28d78b744a6d3025107b53e981
+  branch: upgrade-0.28
+  specs:
+    decidim-navigation_maps (1.5.0)
+      decidim-admin (>= 0.28, < 0.29)
+      decidim-core (>= 0.28, < 0.29)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: 1e0f5ac5c80b68a3527f5b23f8520f4484ec6b6a
   branch: develop
@@ -965,6 +974,7 @@ DEPENDENCIES
   decidim-ephemeral_participation!
   decidim-initiatives (~> 0.28.0)
   decidim-kids!
+  decidim-navigation_maps!
   decidim-sortitions (~> 0.28.0)
   decidim-stats!
   decidim-term_customizer!
