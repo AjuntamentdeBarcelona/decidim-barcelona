@@ -6,6 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        # rubocop:disable Rails/HelperInstanceVariable
         def safe_content_admin?
           ((@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)) || safe_content_allowed_user?
         end
@@ -19,6 +20,7 @@ module Decidim
         def safe_content_allowed_users
           @safe_content_allowed_users ||= Decidim::User.where(id: ENV.fetch("PROPOSAL_SAFE_CONTENT_ALLOWED_USERS", "").split(","))
         end
+        # rubocop:enable Rails/HelperInstanceVariable
       end
     end
   end
