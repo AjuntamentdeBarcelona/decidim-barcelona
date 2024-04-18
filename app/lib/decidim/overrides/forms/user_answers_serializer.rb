@@ -4,7 +4,6 @@ module Decidim
   module Overrides
     module Forms
       module UserAnswersSerializer
-
         private
 
         def hash_for(answer)
