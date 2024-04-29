@@ -4,6 +4,7 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::Initiatives::InitiativeMCell.prepend Decidim::Overrides::Initiatives::InitiativeMCell
   Decidim::SearchResourceFieldsMapper.prepend Decidim::Overrides::SearchResourceFieldsMapper
+  Decidim::Forms::UserAnswersSerializer.prepend Decidim::Overrides::Forms::UserAnswersSerializer
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
