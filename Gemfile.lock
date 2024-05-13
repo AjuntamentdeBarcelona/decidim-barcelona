@@ -203,7 +203,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 3b43ffd743e78a822b412ff57612e280dcc616d6
+  revision: 161e41933910cd7e14b60e3acb2f704305863d30
   branch: main
   specs:
     decidim-decidim_awesome (0.10.2)
@@ -213,9 +213,9 @@ GIT
       sassc (~> 2.3)
 
 GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer
-  revision: 5a8d4c67972ef10cd52e774d64a3c7cff9bc9325
-  branch: master
+  remote: https://github.com/Quentinchampenois/decidim-module-term_customizer
+  revision: c0ccbdcf16d9d9d02ae507388e852f2a04b03a69
+  branch: fix/multi-threading-compliant
   specs:
     decidim-term_customizer (0.27.0)
       decidim-admin (~> 0.27.0)
@@ -979,6 +979,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -1036,7 +1037,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.6p216
 
 BUNDLED WITH
    2.3.26
