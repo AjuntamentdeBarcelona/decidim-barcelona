@@ -532,4 +532,3 @@ Decidim::Verifications.register_workflow(:census_sarria_sant_gervasi_authorizati
   auth.metadata_cell = "census_sarria_sant_gervasi_authorization_metadata"
   auth.ephemerable = true
 end
-
