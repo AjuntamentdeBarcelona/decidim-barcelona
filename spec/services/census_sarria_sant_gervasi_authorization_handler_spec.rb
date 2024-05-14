@@ -256,7 +256,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
                                                   postal_code: form.postal_code)
       end
       let(:authorization_handler_metadata_variations) do
-        form.scope.children.map do |child_scope|
+        form.scope.children.map do |_child_scope|
           Decidim::AuthorizationHandler.handler_for(handler_name,
                                                     document_number: form.document_number,
                                                     name_and_surname: form.name_and_surname,
