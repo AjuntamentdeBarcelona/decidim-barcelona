@@ -14,7 +14,8 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
   end
 
   let(:authorizations) { { "census_sarria_sant_gervasi_authorization_handler" => { "allow_ephemeral_participation" => true } } }
-  let!(:scope) { create :scope, organization: organization, code: "1" }
+  let(:scope_code) { "1" }
+  let(:scope) { double(id: 5, code: scope_code, name: { "ca" => "Sarrià-Sant Gervasi" }) }
 
   let(:response) do
     Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!
@@ -26,11 +27,12 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
     fill_in "authorization_handler_document_number", with: "12345678A"
     select "12", from: "authorization_handler_date_of_birth_3i"
     select "Gener", from: "authorization_handler_date_of_birth_2i"
-    select (Time.zone.today - 12.years).year, from: "authorization_handler_date_of_birth_1i"
+    select "1979", from: "authorization_handler_date_of_birth_1i"
     fill_in "authorization_handler_postal_code", with: "08001"
   end
 
   before do
+    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(CensusSarriaSantGervasiAuthorizationHandler).to receive(:response).and_return(response)
     # rubocop:enable RSpec/AnyInstance
@@ -51,7 +53,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
       end
 
       click_link "Autoritzacions"
-      click_link "El padró (Sarría-Sant Gervasi)"
+      click_link "El padró (Sarrià-Sant Gervasi)"
 
       fill_in_authorization_form
       click_button "Enviar"
@@ -61,8 +63,8 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
       visit decidim_verifications.authorizations_path
 
       within ".authorizations-list" do
-        expect(page).to have_content("El padró (Sarría-Sant Gervasi)")
-        expect(page).not_to have_link("El padró (Sarría-Sant Gervasi)")
+        expect(page).to have_content("El padró (Sarrià-Sant Gervasi)")
+        expect(page).not_to have_link("El padró (Sarrià-Sant Gervasi)")
       end
     end
 
@@ -77,7 +79,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
         visit decidim_verifications.authorizations_path
 
         within ".authorizations-list" do
-          expect(page).to have_content("El padró (mSarría-Sant Gervasi)")
+          expect(page).to have_content("El padró (Sarrià-Sant Gervasi)")
           expect(page).to have_content(I18n.l(authorization.granted_at, format: :long, locale: :ca))
         end
       end
