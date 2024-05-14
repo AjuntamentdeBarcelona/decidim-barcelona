@@ -11,8 +11,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
   let(:document_number) { "12345678A" }
   let(:document_type) { :nie }
   let(:postal_code) { "08001" }
-  let(:date_of_birth) { Time.zone.today - 12.years }
-  let(:scope_id) { 123 }
+  let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_code) { "1" }
   let(:gender) { "foo" }
   let(:scope) { double(id: 5, code: scope_code, name: { "ca" => "Sarrià-Sant Gervasi" }) }
@@ -23,7 +22,6 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
       document_number: document_number,
       document_type: document_type,
       postal_code: postal_code,
-      scope_id: scope_id,
       scope_code: scope_code,
       gender: gender,
       date_of_birth: date_of_birth
@@ -119,6 +117,12 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
 
     context "when the scope is not from sarria sant gervasi" do
       let(:scope) { double(id: 6, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
+
+      before do
+        allow(handler)
+          .to receive(:response)
+          .and_return(Nokogiri::XML("<codiRetorn>02</codiRetorn>").remove_namespaces!)
+      end
 
       it { is_expected.not_to be_valid }
     end
@@ -249,8 +253,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
                                                   document_number: form.document_number,
                                                   name_and_surname: form.name_and_surname,
                                                   date_of_birth: form.date_of_birth,
-                                                  postal_code: form.postal_code,
-                                                  scope_id: form.scope&.id)
+                                                  postal_code: form.postal_code)
       end
       let(:authorization_handler_metadata_variations) do
         form.scope.children.map do |child_scope|
@@ -258,8 +261,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
                                                     document_number: form.document_number,
                                                     name_and_surname: form.name_and_surname,
                                                     date_of_birth: form.date_of_birth,
-                                                    postal_code: form.postal_code,
-                                                    scope_id: child_scope&.id)
+                                                    postal_code: form.postal_code)
         end.unshift(authorization_handler).map(&:metadata)
       end
       let(:variation) { authorization_handler_metadata_variations.first }
