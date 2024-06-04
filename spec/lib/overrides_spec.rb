@@ -23,7 +23,7 @@ checksums = [
       "/app/views/layouts/decidim/widget.html.erb" => "b9fb503118ee33d298cbc585995e216c",
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "2ddcb8ba5070f7cdb231283185f2c213",
       "/app/cells/decidim/activities_cell.rb" => "af9e9e2b6e4134fa90b6699bbf7da428",
-      "/app/cells/decidim/user_profile_cell.rb" => "30627556740555814f5cf279491aee94",
+      "/app/cells/decidim/user_profile_cell.rb" => "64723fd7e69039de3012ec4615dd5a11",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa"
     }
   },
@@ -40,7 +40,7 @@ checksums = [
   {
     package: "decidim-budgets",
     files: {
-      "/app/cells/decidim/budgets/project_list_item_cell.rb" => "dfcda04b9fe17de547a0bf25c6bbf823", # ephemeral participation overrides
+      "/app/cells/decidim/budgets/project_list_item_cell.rb" => "31c4e47f3d111c1b86e51e53effb08b5", # ephemeral participation overrides
       "/app/views/decidim/budgets/projects/_project_budget_button.html.erb" => "61b9a76dec62adb19ba36d2c2eb67e0c" # ephemeral participation overrides
     }
   },
@@ -67,7 +67,7 @@ checksums = [
       "/app/models/decidim/accountability/result.rb" => "aa9e2c5394152e22ad5d0c3547637230",
       "/app/services/decidim/accountability/results_calculator.rb" => "59df612241e5ed2b33ee2ab32af87621",
       "/app/views/decidim/accountability/results/_results_leaf.html.erb" => "4c9493268b778c6c2c356616d7a8886a",
-      "/app/views/decidim/accountability/results/_show_leaf.html.erb" => "7c99f542c9cb2ef72dbe2f86e285bd26"
+      "/app/views/decidim/accountability/results/_show_leaf.html.erb" => "95920c6459001e4d81d45cbfc1920751"
     }
   },
   {
@@ -92,7 +92,7 @@ checksums = [
       "/app/models/decidim/meetings/meeting.rb" => "21a6908ff3e9d080fbf0235ba924fc97",
       "/app/controllers/decidim/meetings/meetings_controller.rb" => "c4b88c68ea8b5653c6f1e35cd2646011",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "38ce368638f4ac344faea5f0307f09de",
-      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "2c5628f8d02af54ad857508e33e212a3"
+      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "1b058051c36d9a849e0a919df00a9bf9"
     }
   },
   {
