@@ -11,6 +11,7 @@ checksums = [
     files: {
       "/app/helpers/decidim/paginate_helper.rb" => "6cd2b5699bce845d76e9e76f239783cc",
       "/app/controllers/decidim/application_controller.rb" => "3fa179cac8605b5bf472ea276d3f788a", # ephemeral participation overrides
+      "/app/controllers/concerns/decidim/paginable.rb" => "2dfc961841b49c4511f68b929d86d491", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "7fdd302396760cdccd5fab8adc6a0976", # ephemeral participation overrides
       "/app/models/decidim/organization.rb" => "04eaf4467a1e0d891251c5cedf71f5e4", # ephemeral participation overrides
@@ -26,6 +27,12 @@ checksums = [
       "/app/cells/decidim/activities_cell.rb" => "dd17416a8d1efe7f26b1e759613e4db4",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa"
+    }
+  },
+  {
+    package: "decidim-assemblies",
+    files: {
+      "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "162a10fa6803b53e462091c9a63d97ed"
     }
   },
   {
