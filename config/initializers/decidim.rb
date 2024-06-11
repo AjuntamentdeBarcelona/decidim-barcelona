@@ -525,6 +525,14 @@ Decidim::Verifications.register_workflow(:census_kids_authorization_handler) do 
   auth.metadata_cell = "census_kids_authorization_metadata"
 end
 
+Decidim::Verifications.register_workflow(:census_sarria_sant_gervasi_authorization_handler) do |auth|
+  auth.form = "CensusSarriaSantGervasiAuthorizationHandler"
+  auth.renewable = true
+  auth.time_between_renewals = 1.day
+  auth.metadata_cell = "census_sarria_sant_gervasi_authorization_metadata"
+  auth.ephemerable = true
+end
+
 Decidim.icons.register(name: "arrow-bottom", icon: "arrow-bottom", category: "system", description: "", engine: :core)
 Decidim.icons.register(name: "audio", icon: "audio", category: "system", description: "", engine: :core)
 Decidim.icons.register(name: "fingerprint-2-line", icon: "fingerprint-2-line", category: "system", description: "", engine: :core)

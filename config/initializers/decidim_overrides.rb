@@ -5,6 +5,7 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
+  Decidim::Forms::UserAnswersSerializer.prepend(Decidim::Overrides::Forms::UserAnswersSerializer)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
@@ -19,5 +20,6 @@ Rails.application.config.to_prepare do
   Decidim::UserProfileCell.include(Decidim::UserProfileCellOverride)
   Decidim::Proposals::ProposalPresenter.include(Decidim::Proposals::ProposalPresenterOverride)
   Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
+  Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
 end
