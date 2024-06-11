@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perform_enqueued: true, with_authorization_workflows: ["census_sarria_sant_gervasi_authorization_handler"] do
+describe "Authorizations with census Sarria-Sant Gervasi", :perform_enqueued, with_authorization_workflows: ["census_sarria_sant_gervasi_authorization_handler"] do
   let(:organization) do
     create(
       :organization,
@@ -40,7 +40,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
   end
 
   context "when user account" do
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
@@ -49,14 +49,14 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
 
     it "allows the user to authorize against available authorizations" do
       within_user_menu do
-        click_link "El meu compte"
+        click_on "El meu compte"
       end
 
-      click_link "Autoritzacions"
-      click_link "El padró (Sarrià-Sant Gervasi)"
+      click_on "Autoritzacions"
+      click_on "El padró (Sarrià-Sant Gervasi)"
 
       fill_in_authorization_form
-      click_button "Enviar"
+      click_on "Enviar"
 
       expect(page).to have_content("Has estat autoritzada")
 
@@ -64,7 +64,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
 
       within ".authorizations-list" do
         expect(page).to have_content("El padró (Sarrià-Sant Gervasi)")
-        expect(page).not_to have_link("El padró (Sarrià-Sant Gervasi)")
+        expect(page).to have_no_link("El padró (Sarrià-Sant Gervasi)")
       end
     end
 
@@ -72,7 +72,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", type: :system, perfor
       let!(:authorization) do
         create(:authorization,
                name: CensusSarriaSantGervasiAuthorizationHandler.handler_name,
-               user: user)
+               user:)
       end
 
       it "shows the authorization at their account" do
