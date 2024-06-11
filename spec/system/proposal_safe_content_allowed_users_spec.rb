@@ -31,8 +31,8 @@ describe "Proposal safe content allowed users", :perform_enqueued do
 
   context "without allowed user" do
     it "doesn't render the image neither the iframe embed" do
-      expect(page).to have_no_css(".ql-editor-display img[src='/path/to/image.jpg']")
-      expect(page).to have_no_css(".editor-content-videoEmbed .disabled-iframe")
+      expect(page).to have_no_css(".rich-text-display img[src='/path/to/image.jpg']")
+      expect(page).to have_no_css(".editor-content-videoEmbed iframe[src='https://example.org/video/xyz']")
     end
   end
 
@@ -40,7 +40,7 @@ describe "Proposal safe content allowed users", :perform_enqueued do
     let(:allowed_users) { proposal.authors.first.id.to_s }
 
     it "renders the image and iframe embed" do
-      expect(page).to have_css(".ql-editor-display img[src='/path/to/image.jpg']")
+      expect(page).to have_css(".rich-text-display img[src='/path/to/image.jpg']")
       expect(page).to have_css(".editor-content-videoEmbed iframe[src='https://example.org/video/xyz']")
     end
   end
