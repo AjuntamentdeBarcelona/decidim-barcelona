@@ -43,5 +43,7 @@ jobs:
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: bundle exec rspec
+      - run: |
+          mkdir node_modules
+          bundle exec rspec
         name: Run specs

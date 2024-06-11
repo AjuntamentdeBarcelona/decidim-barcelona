@@ -39,12 +39,7 @@ yarn-debug.log*
 .yarn-integrity
 .rbenv-vars
 
-public/sw.js
-public/sw.js.map
-public/sw.js.br
-public/sw.js.map.br
-public/sw.js.gz
-public/sw.js.map.gz
+public/sw.js*
 
 coverage/
 

@@ -9,6 +9,8 @@ module Decidim
         # TEMPORARY OVERRIDE TO RENDER FORM ON ERROR (BUG IN DECIDIM)
         # https://github.com/decidim/decidim/blob/00bad01ccfa95473fd2d7b2f2cb1919623295ba3/decidim-admin/app/controllers/decidim/admin/conflicts_controller.rb#L40
         def update
+          enforce_permission_to :index, :impersonatable_user
+
           conflict = Decidim::Verifications::Conflict.find(params[:id])
 
           @form = form(Decidim::Admin::TransferUserForm).from_params(

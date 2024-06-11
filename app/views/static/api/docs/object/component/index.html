@@ -1,71 +1,35 @@
 <div class="content"><h1>
-<a id="usergroup" class="anchor" href="#usergroup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UserGroup</h1>
-<p>A user group</p>
+<a id="component" class="anchor" href="#component" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Component</h1>
+<p>A base component with no particular specificities.</p>
 <h2>
 <a id="implements" class="anchor" href="#implements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implements</h2>
 <ul>
-   <li><code><a href="/api/docs/interface/author">Author</a></code></li>
+   <li><code><a href="/api/docs/interface/componentinterface">ComponentInterface</a></code></li>
 </ul>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The user group's id</p>
+   <p>The Component's unique ID</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="name" class="field-name anchored">name (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="name" class="field-name anchored">name (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The user group's name</p>
+   <p>The name of this component.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="nickname" class="field-name anchored">nickname (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="weight" class="field-name anchored">weight (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The user group nickname</p>
+   <p>The weight of the component</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="avatarurl" class="field-name anchored">avatarUrl (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="participatoryspace" class="field-name anchored">participatorySpace (<code><a href="/api/docs/object/participatoryspace">ParticipatorySpace!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The user's avatar url</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="profilepath" class="field-name anchored">profilePath (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The user group's profile url</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="organizationname" class="field-name anchored">organizationName (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The user group's organization name</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="deleted" class="field-name anchored">deleted (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether the user group's has been deleted or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="badge" class="field-name anchored">badge (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>A badge for the user group</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="members" class="field-name anchored">members (<code><a href="/api/docs/object/user">[User]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Members of this group</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="memberscount" class="field-name anchored">membersCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Number of members in this group</p>
+   <p>The participatory space in which this component belongs to.</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">

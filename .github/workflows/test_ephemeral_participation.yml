@@ -46,5 +46,7 @@ jobs:
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: bundle exec rspec decidim-ephemeral_participation
+      - run: |
+          mkdir node_modules
+          bundle exec rspec decidim-ephemeral_participation
         name: Run specs

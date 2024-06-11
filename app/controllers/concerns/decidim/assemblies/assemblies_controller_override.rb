@@ -8,7 +8,7 @@ module Decidim
       included do
         def per_page
           if Decidim::Paginable::OPTIONS.include?(params[:per_page])
-            params[:per_page]
+            params[:per_page].to_i
           elsif params[:per_page]
             sorted = Decidim::Paginable::OPTIONS.sort
             params[:per_page].to_i.clamp(sorted.first, sorted.last)
