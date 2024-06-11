@@ -10,8 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps
-  revision: b3ce73f283079b28d78b744a6d3025107b53e981
-  branch: upgrade-0.28
+  revision: 7fd50e1368bae4c7955c0ba8ec5ee395273a5329
   specs:
     decidim-navigation_maps (1.5.0)
       decidim-admin (>= 0.28, < 0.29)
