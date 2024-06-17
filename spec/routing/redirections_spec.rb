@@ -20,9 +20,9 @@ describe "routing redirections", type: :request do
   end
 
   describe "debates" do
-    let(:participatory_space) { create(:participatory_process, organization: organization, slug: "test-process") }
-    let(:component) { create(:debates_component, participatory_space: participatory_space) }
-    let!(:debate) { create(:debate, component: component, extra: { slug: "test-debate" }) }
+    let(:participatory_space) { create(:participatory_process, organization:, slug: "test-process") }
+    let(:component) { create(:debates_component, participatory_space:) }
+    let!(:debate) { create(:debate, component:, extra: { slug: "test-debate" }) }
 
     context "with the right host" do
       before do
@@ -72,9 +72,9 @@ describe "routing redirections", type: :request do
   end
 
   describe "accountability" do
-    let(:participatory_space) { create(:participatory_process, organization: organization, slug: "test-process") }
-    let(:component) { create(:accountability_component, participatory_space: participatory_space) }
-    let!(:result) { create(:result, component: component) }
+    let(:participatory_space) { create(:participatory_process, organization:, slug: "test-process") }
+    let(:component) { create(:accountability_component, participatory_space:) }
+    let!(:result) { create(:result, component:) }
 
     context "with the right host" do
       before do
@@ -114,9 +114,9 @@ describe "routing redirections", type: :request do
   end
 
   describe "proposals" do
-    let(:participatory_process) { create(:participatory_process, organization: organization, slug: "test-process") }
+    let(:participatory_process) { create(:participatory_process, organization:, slug: "test-process") }
     let(:component) { create(:proposal_component, participatory_space: participatory_process) }
-    let!(:proposal) { create(:proposal, component: component, extra: { slug: "test-proposal" }) }
+    let!(:proposal) { create(:proposal, component:, extra: { slug: "test-proposal" }) }
 
     context "with the right host" do
       before do
@@ -156,9 +156,9 @@ describe "routing redirections", type: :request do
   end
 
   describe "meetings" do
-    let(:participatory_space) { create(:assembly, organization: organization, slug: "test-assembly") }
-    let!(:component) { create(:meeting_component, participatory_space: participatory_space) }
-    let(:meeting) { create(:meeting, component: component) }
+    let(:participatory_space) { create(:assembly, organization:, slug: "test-assembly") }
+    let!(:component) { create(:meeting_component, participatory_space:) }
+    let(:meeting) { create(:meeting, component:) }
 
     context "with the right host" do
       before do
@@ -176,7 +176,7 @@ describe "routing redirections", type: :request do
       end
 
       context "when browsing the meetings of a process" do
-        let!(:participatory_space) { create(:participatory_process, organization: organization, slug: "test-process") }
+        let!(:participatory_space) { create(:participatory_process, organization:, slug: "test-process") }
 
         it "does not try to redirect" do
           expect { get("/processes/#{participatory_space.slug}/f/#{component.id}/meetings/#{meeting.id}") }.not_to raise_error

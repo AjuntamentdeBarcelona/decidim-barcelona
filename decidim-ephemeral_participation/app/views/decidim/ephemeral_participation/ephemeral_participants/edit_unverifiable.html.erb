@@ -1,24 +1,25 @@
-<div class="wrapper">
-  <div class="row">
+<main class="layout-1col cols-6">
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t("decidim.ephemeral_participation.ephemeral_participants.unverifiable.title") %></h1>
+  </div>
 
-    <div class="columns large-6 large-centered">
-      <h1 class="text-center page-title"><%= I18n.t("unverifiable.title", scope: "decidim.ephemeral_participation.ephemeral_participants") %></h1>
-    </div>
+  <div>
+    <p><%= t("decidim.ephemeral_participation.ephemeral_participants.unverifiable.help") %></p>
+  </div>
 
-    <div class="card columns large-6 large-centered">
-      <div class="card__content">
-        <p><%= I18n.t("unverifiable.help", scope: "decidim.ephemeral_participation.ephemeral_participants") %></p>
-        <%= decidim_form_for(@form, url: unverifiable_ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
-          <input autocomplete="off" name="hidden" type="password" style="display:none;">
-          <%= form.email_field :email %>
+  <%= decidim_form_for(@form, url: unverifiable_ephemeral_participant_path, method: :put, html: { autocomplete: "off" }) do |form| %>
+    <div class="form__wrapper">
+      <input autocomplete="off" name="hidden" type="password" style="display:none;">
+      <%= form.email_field :email %>
 
-          <%= form.submit I18n.t("submit", scope: "decidim.ephemeral_participation.ephemeral_participants") %>
-        <% end %>
-        <ul>
-          <li><%= link_to I18n.t("unverifiable.reset_password", scope: "decidim.ephemeral_participation.ephemeral_participants"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete %></li>
-          <li><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"),decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: current_user.ephemeral_participation_data["request_path"]), method: :delete %></li>
-        </ul>
+      <div class="form__wrapper-block">
+        <%= form.submit t("decidim.ephemeral_participation.ephemeral_participants.submit"), class: "button button__lg button__secondary" %>
       </div>
     </div>
+  <% end %>
+
+  <div class="form__wrapper-block">
+    <%= link_to t("decidim.ephemeral_participation.ephemeral_participants.unverifiable.reset_password"), decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: new_password_path(:user)), method: :delete, class: "button button__lg button__transparent-secondary" %>
+    <%= link_to t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"), decidim_ephemeral_participation.ephemeral_participant_path(current_user, redirect_url: current_user.ephemeral_participation_data["request_path"]), method: :delete, class: "button button__lg button__transparent-secondary" %>
   </div>
-</div>
+</main>

@@ -44,7 +44,7 @@ class BudgetsWorkflowPam2020 < Decidim::Budgets::Workflows::Base
   def user_authorization
     @user_authorization ||= Decidim::Authorization.find_by(
       name: PAM2020AUTHORIZATIONHANDLER,
-      user: user
+      user:
     )
   end
 

@@ -1,4 +1,4 @@
-<p><%= I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.already_exists") %></p>
-<p><h5><%= I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.already_participate") %></h5></p>
-<p><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.retrieve_user"), Decidim::EphemeralParticipation::Engine.routes.url_helpers.unverifiable_ephemeral_participant_path(user), class: "button primary" %></p>
-<p><%= link_to I18n.t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"), Decidim::EphemeralParticipation::Engine.routes.url_helpers.ephemeral_participant_path(user, redirect_url: user.ephemeral_participation_data["request_path"]), method: :delete %></p>
+<p><%= t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.already_exists") %></p>
+<p><h5><%= t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.already_participate") %></h5></p>
+<p><%= link_to t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.retrieve_user"), Decidim::EphemeralParticipation::Engine.routes.url_helpers.unverifiable_ephemeral_participant_path(user), class: "button primary" %></p>
+<p><%= link_to t("decidim.authorization_handlers.errors.unverifiable_ephemeral_participant.close"), Decidim::EphemeralParticipation::Engine.routes.url_helpers.ephemeral_participant_path(user, redirect_url: user.ephemeral_participation_data["request_path"]), method: :delete %></p>

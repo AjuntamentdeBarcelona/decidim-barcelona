@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "Succesful verification", type: :system do
+describe "Successful verification" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -29,7 +29,7 @@ describe "Succesful verification", type: :system do
 
     it "authorizes the user and redirects back to where ephemeral participation button was clicked" do
       within_flash_messages do
-        expect(page).to have_content("You've been successfully authorized")
+        expect(page).to have_content("You have been successfully authorized")
       end
 
       expect(page).to have_current_path(ephemeral_participation_path)

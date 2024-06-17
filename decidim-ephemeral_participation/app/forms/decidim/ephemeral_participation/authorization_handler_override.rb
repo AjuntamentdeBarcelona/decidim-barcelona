@@ -11,7 +11,7 @@ module Decidim
         private
 
         def uniqueness
-          return true if unique_id.nil? || duplicates.none?
+          return true if unique?
 
           errors.add(:base, uniqueness_error)
 
@@ -20,7 +20,7 @@ module Decidim
 
         def uniqueness_error
           if user.ephemeral_participant?
-            ActionController::Base.new.render_to_string(partial: "decidim/ephemeral_participation/ephemeral_participants/existing_verification_msg", locals: { user: user })
+            ActionController::Base.new.render_to_string(partial: "decidim/ephemeral_participation/ephemeral_participants/existing_verification_msg", locals: { user: })
           else
             I18n.t("decidim.authorization_handlers.errors.duplicate_authorization")
           end
