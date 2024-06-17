@@ -1,8 +1,5 @@
 name: Test Stats
-on:
-  push:
-    paths:
-      - "decidim-stats/**"
+on: [push]
 
 env:
   RUBY_VERSION: 3.1.1

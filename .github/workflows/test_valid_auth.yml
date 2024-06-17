@@ -1,8 +1,5 @@
 name: Test Valid Auth
-on:
-  push:
-    paths:
-      - "decidim-valid_auth/**"
+on: [push]
 
 env:
   RUBY_VERSION: 3.1.1

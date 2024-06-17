@@ -1,8 +1,5 @@
 name: Test Census SMS
-on:
-  push:
-    paths:
-      - "decidim-census_sms/**"
+on: [push]
 
 env:
   RUBY_VERSION: 3.1.1
