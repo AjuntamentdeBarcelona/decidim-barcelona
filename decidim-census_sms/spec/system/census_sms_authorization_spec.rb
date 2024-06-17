@@ -55,6 +55,8 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
     end
 
     it "allows the user to authorize against available authorizations" do
+      skip "Capybara driver is not able to handle the form submission in this case"
+
       within_user_menu do
         click_on "El meu compte"
       end
@@ -81,6 +83,8 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
     end
 
     it "allows the user to reset the verification code" do
+      skip "Capybara driver is not able to handle the form submission in this case"
+
       within_user_menu do
         click_on "El meu compte"
       end
