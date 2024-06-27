@@ -32,7 +32,7 @@ checksums = [
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "48b73691b2aea10191ed427702a74359", # revert https://github.com/decidim/decidim/pull/10690
       "/app/commands/decidim/admin/transfer_user.rb" => "7cf11abc98c3a0c4a656ab96c220dd6a", # ephemeral participation overrides
-      "/app/controllers/decidim/admin/conflicts_controller.rb" => "8f05066b21f6dd6e3e6511e3f1b45f02", # ephemeral participation overrides
+      "/app/controllers/decidim/admin/conflicts_controller.rb" => "8f05066b21f6dd6e3e6511e3f1b45f02", # ephemeral participation overrides and ignore deleted users on index
       "/app/forms/decidim/admin/component_form.rb" => "0455dd26580817470fd7096ef6b08315", # ephemeral participation overrides
       "/app/forms/decidim/admin/permissions_form.rb" => "f68d00a490e84524ce3aebe6f71d829a" # ephemeral participation overrides
     }
