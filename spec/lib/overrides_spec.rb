@@ -73,6 +73,8 @@ checksums = [
   {
     package: "decidim-initiatives",
     files: {
+      "/app/cells/decidim/initiatives_votes/vote/show.erb" => "e7b749bf6d3d95dee2615b9b911e6b6e",
+      "/app/views/decidim/initiatives/admin/initiatives/export_pdf_signatures.pdf.erb" => "5234cf40c6281602b0c53555cea18b57",
       "/app/cells/decidim/initiatives/initiative_m_cell.rb" => "a20b707d0533dd8883b0bdbf8bc0b2c0",
       "/app/cells/decidim/initiatives/initiative_m/footer.erb" => "3f4017aa1dd1cb30b26843ab92b32031",
       "/app/models/decidim/initiative.rb" => "7d88ac2fb9827c2c6cdbe39c2f1df908",
