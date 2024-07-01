@@ -2,7 +2,7 @@ name: Lint
 on: [push]
 
 env:
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.0.6
   NODE_VERSION: 16.9.1
 
 jobs:
