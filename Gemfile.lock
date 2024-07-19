@@ -1006,7 +1006,6 @@ DEPENDENCIES
   rexml
   rspec
   rubocop
-  rubocop-factory_bot (= 2.25.1)
   rubocop-faker
   scout_apm
   sentry-rails
