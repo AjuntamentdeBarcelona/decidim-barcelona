@@ -1,9 +1,22 @@
 User-agent: *
 Disallow: /profiles/
 Disallow: /search
+Disallow: /processes/1/f/1/proposals
 Disallow: /processes/pam/f/1/proposals
+Disallow: /processes/78/f/3733/proposals
 Disallow: /processes/PAM2020/f/3733/proposals
+Disallow: /processes/79/f/3768/proposals
 Disallow: /processes/PressupostosParticipatius/f/3768/proposals
+Disallow: /processes/79/f/4422/proposals
+Disallow: /processes/PressupostosParticipatius/f/4422/proposals
+Disallow: /processes/143/f/4568/proposals
+Disallow: /processes/canviempelclima/f/4568/proposals
+Disallow: /processes/245/f/5649/proposals
+Disallow: /processes/documentacio/f/5649/proposals
+Disallow: /assemblies/476/f/5426/proposals
+Disallow: /assemblies/sectorempresarial/f/5426/proposals
+Disallow: /assemblies/481/f/5789/proposals
+Disallow: /assemblies/consell-esport/f/5789/proposals
 
 User-agent: AhrefsBot
 Disallow: /
