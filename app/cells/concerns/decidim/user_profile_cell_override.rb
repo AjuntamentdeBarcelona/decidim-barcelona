@@ -8,7 +8,7 @@ module Decidim
       def resource_path
         return "#" if user.nickname.blank?
 
-        decidim.profile_path(user.nickname)
+        user.try(:profile_url) || decidim.profile_path(user.nickname)
       end
     end
   end

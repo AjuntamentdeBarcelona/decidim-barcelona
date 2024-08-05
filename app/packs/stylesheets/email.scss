@@ -1,4 +1,4 @@
-@import "stylesheets/decidim/variables";
+@import "stylesheets/decidim/legacy/variables";
 
 /* Index:
   1 - Foundation settings
@@ -217,7 +217,7 @@ th.large-1.last {
 
 td.large-1 center,
 th.large-1 center {
-  min-width: .33333px;
+  min-width: 0.33333px;
 }
 
 .body .columns td.large-1,
@@ -1426,7 +1426,7 @@ th.callout-inner.alert {
 
 .thumbnail {
   border: solid 4px #fefefe;
-  box-shadow: 0 0 0 1px rgba(10, 10, 10, .2);
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
   display: inline-block;
   line-height: 0;
   max-width: 100%;
@@ -1437,7 +1437,7 @@ th.callout-inner.alert {
 
 .thumbnail:hover,
 .thumbnail:focus {
-  box-shadow: 0 0 6px 1px rgba(33, 153, 232, .5);
+  box-shadow: 0 0 6px 1px rgba(33, 153, 232, 0.5);
 }
 
 table.menu {
@@ -1766,12 +1766,12 @@ table.container.main {
   text-align: center;
   border-radius: 4px;
   line-height: 1;
-  padding: .58em 1em;
+  padding: 0.58em 1em;
   background: red;
 }
 
 .button--sc {
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   font-weight: 600;
   text-transform: uppercase;
 

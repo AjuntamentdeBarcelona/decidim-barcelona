@@ -13,7 +13,7 @@ module Decidim
     # This class handles importing results from a CSV file.
     # Needs a `current_component` param with a `Decidim::component`
     # in order to import the results in that component.
-    class ResultsCSVImporter
+    class ResultsCsvImporter
       include Decidim::FormFactory
 
       # Public: Initializes the service.
@@ -26,7 +26,7 @@ module Decidim
         @extra_context = {
           current_component: component,
           current_organization: component.organization,
-          current_user: current_user,
+          current_user:,
           current_participatory_space: component.participatory_space
         }
       end

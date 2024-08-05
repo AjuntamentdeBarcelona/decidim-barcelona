@@ -6,14 +6,14 @@ require "decidim/accountability/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 module Decidim::Accountability
-  describe ResultsCSVExporter do
+  describe ResultsCsvExporter do
     subject { described_class.new(current_component) }
 
-    let(:organization) { create :organization, available_locales: [:ca, :en] }
-    let(:current_user) { create :user, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }
+    let(:organization) { create(:organization, available_locales: [:ca, :en]) }
+    let(:current_user) { create(:user, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let!(:parent_result) { create(:result, component: current_component, external_id: "pm-act-423") }
 
     describe "#export" do
       before do
@@ -32,7 +32,7 @@ module Decidim::Accountability
       end
 
       context "when result is nil" do
-        let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423", weight: nil }
+        let!(:parent_result) { create(:result, component: current_component, external_id: "pm-act-423", weight: nil) }
 
         it "exports weight as 0" do
           expect(@first_row["relative_weight"].to_f).to eq(0.0)

@@ -1,58 +1,54 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="columns large-6 large-centered">
-      <h1 class="text-center page-title"><%= t(".title") %></h1>
-    </div>
+<main class="layout-1col cols-6">
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t(".title") %></h1>
+  </div>
 
-    <div class="card columns large-6 large-centered">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: authorization_path(redirect_url: redirect_url)) do |form| %>
-          <%= form_required_explanation %>
+  <%= decidim_form_for(@form, url: authorization_path(redirect_url: redirect_url)) do |form| %>
+    <%= form_required_explanation %>
 
-          <div class="field">
-            <%= form.select :document_type, form.object.census_document_types, prompt: true %>
-          </div>
+    <div class="form__wrapper">
+      <div class="field">
+        <%= form.select :document_type, form.object.census_document_types, prompt: true %>
+      </div>
 
-          <div class="field">
-            <%= form.text_field :document_number %>
-          </div>
+      <div class="field">
+        <%= form.text_field :document_number %>
+      </div>
 
-          <div class="field date">
-            <%= form.date_select :date_of_birth, start_year: 1900, end_year: 14.years.ago.year, default: 35.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
-          </div>
+      <div class="field date">
+        <%= form.date_select :date_of_birth, start_year: 1900, end_year: 14.years.ago.year, default: 35.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
+      </div>
 
-          <div class="field">
-            <%= form.text_field :postal_code %>
-            <p class="help-text">
-              <%== t(".postal_code_help") %>
-            </p>
-          </div>
+      <div class="field">
+        <%= form.text_field :postal_code %>
+        <p class="help-text">
+          <%== t(".postal_code_help") %>
+        </p>
+      </div>
 
-          <div class="field">
-            <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
-            <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
-          </div>
+      <div class="field">
+        <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
+        <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
+      </div>
 
-          <div class="field">
-            <%= form.phone_field :mobile_phone_number %>
-          </div>
+      <div class="field">
+        <%= form.phone_field :mobile_phone_number %>
+      </div>
 
-          <div class="field">
-            <%= form.label :tos_acceptance do %>
-              <%= form.check_box :tos_acceptance, label: false %>
-              <%== t("activemodel.attributes.authorization.tos_acceptance_label", tos_path: tos_path) %>
-            <% end %>
-          </div>
-
-          <%= form.hidden_field :handler_name %>
-
-          <div class="actions mt-s">
-            <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
-          </div>
+      <div class="field">
+        <%= form.label :tos_acceptance do %>
+          <%= form.check_box :tos_acceptance, label: false %>
+          <%== t("activemodel.attributes.authorization.tos_acceptance_label", tos_path: tos_path) %>
         <% end %>
       </div>
-    </div>
-  </div>
-</div>
 
-<%= stylesheet_pack_tag "decidim_census_sms" %>
+      <%= form.hidden_field :handler_name %>
+    </div>
+
+    <div class="form__wrapper-block">
+      <%= form.submit t(".send"), class: "button button__lg button__secondary", "data-disable-with" => "#{t('.send')}..." %>
+    </div>
+  <% end %>
+</main>
+
+<%= append_stylesheet_pack_tag "decidim_census_sms" %>

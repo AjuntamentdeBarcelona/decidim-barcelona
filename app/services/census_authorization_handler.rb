@@ -35,12 +35,12 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   def metadata
     super.merge(
       date_of_birth: date_of_birth&.strftime("%Y-%m-%d"),
-      postal_code: postal_code,
+      postal_code:,
       scope: scope_name,
       scope_id: scope&.id,
       scope_code: scope&.code,
       extras: {
-        gender: gender
+        gender:
       }
     )
   end

@@ -1,26 +1,16 @@
-<% if current_user.present? && (!current_user.ephemeral_participant? || current_user.verified_ephemeral_participant?) %>
-  <div id="project-<%= project.id %>-budget-button"
-       class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
-       aria-label="<%= t("#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>">
-    <span>
-      <%= t(voted_for?(project) ? "added" : "add", scope: "decidim.budgets.projects.project_budget_button") %>
-    </span>
-
-    <%= cell("decidim/budgets/project_vote_button", project) %>
-  </div>
-<% elsif current_user.present? && (current_user.ephemeral_participant? && !current_user.verified_ephemeral_participant?) %>
-  <div id="project-<%= project.id %>-budget-button">
+<div id="project-<%= project.id %>-budget-button">
+  <% if current_user.present? && (!current_user.ephemeral_participant? || current_user.verified_ephemeral_participant?) %>
+    <%= cell("decidim/budgets/project_vote_button", project, project_item: true) %>
+  <% elsif current_user.present? && (current_user.ephemeral_participant? && !current_user.verified_ephemeral_participant?) %>
     <%= link_to t("add", scope: "decidim.budgets.projects.project_budget_button"),
                 verify_ephemeral_participant_path,
-                class: "button expanded primary button--sc",
+                class: "button button__lg w-full button__secondary",
                 "aria-label": t("add_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>
-  </div>
-<% else %>
-  <div id="project-<%= project.id %>-budget-button">
-    <button class="button expanded primary button--sc"
-      data-toggle="loginModal"
+  <% else %>
+    <button class="button button__lg w-full button__secondary"
+      data-dialog-open="loginModal"
       aria-label="<%= t("added_descriptive", resource_name: translated_attribute(project.title), scope: "decidim.budgets.projects.project_budget_button") %>">
       <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
     </button>
-  </div>
-<% end %>
+  <% end %>
+</div>

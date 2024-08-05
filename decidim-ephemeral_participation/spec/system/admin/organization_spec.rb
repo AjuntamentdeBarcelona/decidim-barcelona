@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Organization", type: :system do
+describe "Organization" do
   include_context "with ephemerable participation"
 
   let(:admin) { create(:admin) }
@@ -22,9 +22,9 @@ describe "Organization", type: :system do
 
       before do
         visit decidim_system.root_path
-        click_link "Organizations"
+        click_on "Organizations"
         within "table tbody" do
-          first("tr").click_link("Edit")
+          first("tr").click_on("Edit")
         end
       end
 
@@ -35,12 +35,12 @@ describe "Organization", type: :system do
 
         choose("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation")
 
-        find("*[type=submit]").click
+        find("*[type=submit][name=commit]").click
 
         expect(page).to have_css("div.flash.success")
 
         within "table tbody" do
-          first("tr").click_link("Edit")
+          first("tr").click_on("Edit")
         end
 
         expect(page).to have_field("organization_available_authorizations_dummy_authorization_handler_allow_ephemeral_participation", checked: true)

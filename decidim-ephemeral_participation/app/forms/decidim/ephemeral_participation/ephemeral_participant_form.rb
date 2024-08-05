@@ -25,13 +25,13 @@ module Decidim
       private
 
       def unique_email
-        return if duplicates(email: email).none?
+        return if duplicates(email:).none?
 
         errors.add(:email, :taken)
       end
 
       def unique_nickname
-        return if duplicates(nickname: nickname).none?
+        return if duplicates(nickname:).none?
 
         errors.add(:nickname, :taken)
       end
@@ -40,7 +40,7 @@ module Decidim
         Decidim::EphemeralParticipation::DuplicatedUsers.new(
           organization: current_organization,
           excluding: current_user,
-          where_clause: where_clause
+          where_clause:
         ).query
       end
     end

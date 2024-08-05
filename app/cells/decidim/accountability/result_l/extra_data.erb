@@ -1,0 +1,3 @@
+<% if component_settings.try(:display_progress_enabled?) && result.progress.present? && !Decidim::Accountability::Result.not_computable_results.include?(result.id) %>
+  <div class="accountability__progress"><%= display_percentage result.progress %></div>
+<% end %>

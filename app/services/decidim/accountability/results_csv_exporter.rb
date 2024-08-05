@@ -6,7 +6,7 @@ module Decidim
   module Accountability
     # This class handles exporting results to a CSV file.
     # Needs a `current_component` param with a `Decidim::Component`
-    class ResultsCSVExporter
+    class ResultsCsvExporter
       # Public: Initializes the service.
       # component       - A Decidim::component to import the results into.
       def initialize(component)

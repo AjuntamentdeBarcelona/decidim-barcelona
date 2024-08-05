@@ -13,7 +13,7 @@ FactoryBot.define do
     extended_data do
       {
         ephemeral_participation: {
-          authorization_name: authorization_name
+          authorization_name:
         }
       }
     end
