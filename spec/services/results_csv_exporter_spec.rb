@@ -6,7 +6,7 @@ require "decidim/accountability/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 module Decidim::Accountability
-  describe ResultsCSVExporter do
+  describe ResultsCsvExporter do
     subject { described_class.new(current_component) }
 
     let(:organization) { create(:organization, available_locales: [:ca, :en]) }
