@@ -16,7 +16,7 @@ gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" #
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "develop"
+gem "decidim-decidim_awesome"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
 gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
