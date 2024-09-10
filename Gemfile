@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.28.2"
+DECIDIM_VERSION = "0.28.3"
 
 ruby RUBY_VERSION
 
@@ -43,9 +43,6 @@ group :development do
   gem "letter_opener_web"
   gem "listen"
   gem "rubocop"
-  gem "spring"
-  gem "spring-commands-rspec"
-  gem "spring-watcher-listen"
   gem "web-console"
 end
 
