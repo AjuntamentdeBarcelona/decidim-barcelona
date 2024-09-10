@@ -9,14 +9,14 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/helpers/decidim/paginate_helper.rb" => "2cfcf887ca0896b329cda980095971a1",
-      "/app/controllers/decidim/application_controller.rb" => "3fa179cac8605b5bf472ea276d3f788a", # ephemeral participation overrides
-      "/app/controllers/concerns/decidim/paginable.rb" => "eb847be701a1a05e9070c99e210741a5", # update per_page method in assemblies_controller_override.rb
+      "/app/helpers/decidim/paginate_helper.rb" => "6fd69359386319d678c7a17cf64de4d9",
+      "/app/controllers/decidim/application_controller.rb" => "e86fe37834b061828536f9417fe56cd1", # ephemeral participation overrides
+      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
-      "/app/models/decidim/component.rb" => "7fdd302396760cdccd5fab8adc6a0976", # ephemeral participation overrides
+      "/app/models/decidim/component.rb" => "ec2a03817027336392f1e9e0893309ab", # ephemeral participation overrides
       "/app/models/decidim/organization.rb" => "04eaf4467a1e0d891251c5cedf71f5e4", # ephemeral participation overrides
       "/app/models/decidim/permission_action.rb" => "3ad166f375e32d3cbb19fd6ca97fa659", # ephemeral participation overrides
-      "/app/models/decidim/user.rb" => "81da9f2f82f6336a92b948d827bd0fb3", # ephemeral participation overrides
+      "/app/models/decidim/user.rb" => "288624d037fa5f38bd6c00a785bf5a58", # ephemeral participation overrides
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "be1d2c978a80cca492954666677cd4bd",
       "/app/permissions/decidim/permissions.rb" => "36a9c31bbf17685e80acff49f6e9b0ca", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "a29d4fcebe8c689044e3c15f6144f3d1", # ephemeral participation overrides
@@ -40,7 +40,7 @@ checksums = [
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "48b73691b2aea10191ed427702a74359", # revert https://github.com/decidim/decidim/pull/10690
       "/app/commands/decidim/admin/transfer_user.rb" => "7cf11abc98c3a0c4a656ab96c220dd6a", # ephemeral participation overrides
-      "/app/controllers/decidim/admin/conflicts_controller.rb" => "12574de367c1bf989cfaad43d1ced6d9", # ephemeral participation overrides and ignore deleted users on index
+      "/app/controllers/decidim/admin/conflicts_controller.rb" => "98cda49632d3e1ec6ab8d509ad1c2e93", # ephemeral participation overrides and ignore deleted users on index
       "/app/forms/decidim/admin/component_form.rb" => "0455dd26580817470fd7096ef6b08315", # ephemeral participation overrides
       "/app/forms/decidim/admin/permissions_form.rb" => "f68d00a490e84524ce3aebe6f71d829a" # ephemeral participation overrides
     }
@@ -72,7 +72,7 @@ checksums = [
     package: "decidim-accountability",
     files: {
       "/app/views/decidim/accountability/admin/results/_form.html.erb" => "980e3f623300704e209f860e1859b507",
-      "/app/views/decidim/accountability/admin/results/index.html.erb" => "633d8dd325d917ba4cfd8500052a3dcf",
+      "/app/views/decidim/accountability/admin/results/index.html.erb" => "aefffeaa8594ba9072e28eeabffc5845",
       "/app/views/decidim/participatory_spaces/_result.html.erb" => "36add6a46776f600922fa04099a20909",
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
       "/app/cells/decidim/accountability/status_cell.rb" => "6ca4eca3af487284dcb6caae19200596",
@@ -133,7 +133,7 @@ checksums = [
   }
 ]
 
-describe "Overriden files", type: :view do
+describe "Overridden files", type: :view do
   checksums.each do |item|
     spec = Gem::Specification.find_by_name(item[:package])
 

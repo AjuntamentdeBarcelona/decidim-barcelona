@@ -4,7 +4,7 @@
   </span>
 <% end %>
 
-<div class="accountability<%= '_without_children' unless children %>__grid">
+<div class="accountability<%= "_without_children" unless children %>__grid">
   <% first_class_categories.each do |category| %>
     <% category_results_count = count_calculator(current_scope, category) %>
     <% next if category_results_count == 0 %>

@@ -10,7 +10,7 @@ describe "Assemblies" do
   end
 
   context "when there are some published assemblies" do
-    let(:number_of_assemblies) { 25 }
+    let(:number_of_assemblies) { 30 }
     let!(:assemblies) { create_list(:assembly, number_of_assemblies, organization:) }
 
     context "and requesting the assemblies path" do
@@ -18,10 +18,10 @@ describe "Assemblies" do
         visit decidim_assemblies.assemblies_path
       end
 
-      it "lists 20 assemblies per page" do
+      it "lists 25 assemblies per page" do
         within "#assemblies-grid" do
-          expect(page).to have_content("Results per page:\n20")
-          expect(page).to have_css("[id^=assembly_]", count: 20)
+          expect(page).to have_content("Results per page:\n25")
+          expect(page).to have_css("[id^=assembly_]", count: 25)
         end
       end
     end

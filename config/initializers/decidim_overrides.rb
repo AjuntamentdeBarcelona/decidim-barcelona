@@ -22,5 +22,4 @@ Rails.application.config.to_prepare do
   Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
-  Decidim::Admin::ConflictsController.include(Decidim::Admin::ConflictsControllerOverride)
 end

@@ -13,7 +13,7 @@ module Decidim
             sorted = Decidim::Paginable::OPTIONS.sort
             params[:per_page].to_i.clamp(sorted.first, sorted.last)
           else
-            20
+            25
           end
         end
       end
