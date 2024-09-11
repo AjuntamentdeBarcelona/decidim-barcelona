@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_13_060359) do
+ActiveRecord::Schema.define(version: 2024_09_10_155531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1532,6 +1532,17 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
     t.index ["decidim_user_id"], name: "index_decidim_reminders_on_decidim_user_id"
   end
 
+  create_table "decidim_reporting_proposals_category_valuators", force: :cascade do |t|
+    t.bigint "decidim_category_id", null: false
+    t.string "valuator_role_type", null: false
+    t.bigint "valuator_role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_category_id", "valuator_role_id", "valuator_role_type"], name: "decidim_reporting_proposals_category_valuator_unique", unique: true
+    t.index ["decidim_category_id"], name: "decidim_reporting_proposals_category_category_id"
+    t.index ["valuator_role_type", "valuator_role_id"], name: "decidim_reporting_proposals_category_valuator_role"
+  end
+
   create_table "decidim_reports", id: :serial, force: :cascade do |t|
     t.integer "decidim_moderation_id", null: false
     t.integer "decidim_user_id", null: false
@@ -1990,6 +2001,7 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
   add_foreign_key "decidim_reminder_records", "decidim_reminders"
   add_foreign_key "decidim_reminders", "decidim_components"
   add_foreign_key "decidim_reminders", "decidim_users"
+  add_foreign_key "decidim_reporting_proposals_category_valuators", "decidim_categories"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"

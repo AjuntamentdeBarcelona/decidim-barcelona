@@ -34,6 +34,17 @@ GIT
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
 
+GIT
+  remote: https://github.com/openpoke/decidim-module-reporting_proposals
+  revision: b0b5ad677df4b160f3e06ca3db53b7f49ffcdee4
+  specs:
+    decidim-reporting_proposals (0.6.1)
+      decidim-admin (>= 0.28.1, < 0.29)
+      decidim-core (>= 0.28.1, < 0.29)
+      decidim-participatory_processes (>= 0.28.1, < 0.29)
+      decidim-proposals (>= 0.28.1, < 0.29)
+      deface (>= 1.9)
+
 PATH
   remote: decidim-census_sms
   specs:
@@ -965,6 +976,7 @@ DEPENDENCIES
   decidim-initiatives (= 0.28.3)
   decidim-kids!
   decidim-navigation_maps!
+  decidim-reporting_proposals!
   decidim-sortitions (= 0.28.3)
   decidim-stats!
   decidim-term_customizer!
