@@ -25,7 +25,7 @@ Rails.application.config.to_prepare do
   # This last one will be removed once https://github.com/decidim/decidim/pull/13402 is used
   Decidim::ViewModel.class_eval do
     def cache_expiry_time
-      10.minutes
+      5.minutes
     end
   end
 end
