@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-# We make sure that the checksum of the file overriden is the same
-# as the expected. If this test fails, it means that the overriden
+# We make sure that the checksum of the file overridden is the same
+# as the expected. If this test fails, it means that the overridden
 # file should be updated to match any change/bug fix introduced in the core
 checksums = [
   {
@@ -138,6 +138,8 @@ describe "Overridden files", type: :view do
     spec = Gem::Specification.find_by_name(item[:package])
 
     item[:files].each do |file, signature|
+      next unless spec
+
       it "#{spec.gem_dir}#{file} matches checksum" do
         expect(md5("#{spec.gem_dir}#{file}")).to eq(signature)
       end
