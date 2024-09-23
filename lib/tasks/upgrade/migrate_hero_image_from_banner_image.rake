@@ -7,6 +7,7 @@ namespace :decidim do
       task migrate_hero_image_from_banner_image: :environment do
         logger = Logger.new($stdout)
         content_blocks = Decidim::ContentBlock.where(manifest_name: "hero", scope_name: %w(participatory_process_homepage assembly_homepage))
+        logger.info("[INFO] Processing #{content_blocks.count} content blocks...")
         content_blocks.each do |content_block|
           content_block_attachment = content_block.attachments.find_by(name: "background_image")
           resource_class = case content_block.scope_name
@@ -31,6 +32,8 @@ namespace :decidim do
 
           logger.info("[INFO] Attaching image to content block #{content_block.id} from the banner image of the scoped resource #{resource_class} #{resource.id}")
           content_block_attachment.file.attach(resource.banner_image.blob)
+        rescue StandardError => e
+          logger.error("[ERROR] Could not migrate content block #{content_block.id}: #{e.message}")
         end
       end
     end
