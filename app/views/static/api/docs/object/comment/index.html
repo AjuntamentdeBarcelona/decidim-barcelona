@@ -9,9 +9,93 @@
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
+  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The resource author</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
    <p>The Comment's unique ID</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="sgid" class="field-name anchored">sgid (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The Comment's signed global id</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="body" class="field-name anchored">body (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The comment message</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="formattedbody" class="field-name anchored">formattedBody (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The comment message ready to display (it is expected to include HTML)</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The creation date of the comment</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="formattedcreatedat" class="field-name anchored">formattedCreatedAt (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The creation date of the comment in relative format</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="alignment" class="field-name anchored">alignment (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="upvotes" class="field-name anchored">upVotes (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The number of comment's upVotes</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="upvoted" class="field-name anchored">upVoted (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Check if the current user has upvoted the comment</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="downvotes" class="field-name anchored">downVotes (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The number of comment's downVotes</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="downvoted" class="field-name anchored">downVoted (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Check if the current user has downvoted the comment</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="hascomments" class="field-name anchored">hasComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Check if the commentable has comments</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="alreadyreported" class="field-name anchored">alreadyReported (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Check if the current user has reported the comment</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Check if the current user can comment</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -76,90 +160,6 @@
   <span id="totalcommentscount" class="field-name anchored">totalCommentsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
   <div class="description-wrapper">
    <p>The number of comments in all levels this resource holds</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="hascomments" class="field-name anchored">hasComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the commentable has comments</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user can comment</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The resource author</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="sgid" class="field-name anchored">sgid (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The Comment's signed global id</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="body" class="field-name anchored">body (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The comment message</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="formattedbody" class="field-name anchored">formattedBody (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The comment message ready to display (it is expected to include HTML)</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The creation date of the comment</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="formattedcreatedat" class="field-name anchored">formattedCreatedAt (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The creation date of the comment in relative format</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="alignment" class="field-name anchored">alignment (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="upvotes" class="field-name anchored">upVotes (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The number of comment's upVotes</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="upvoted" class="field-name anchored">upVoted (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user has upvoted the comment</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="downvotes" class="field-name anchored">downVotes (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The number of comment's downVotes</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="downvoted" class="field-name anchored">downVoted (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user has downvoted the comment</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="alreadyreported" class="field-name anchored">alreadyReported (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user has reported the comment</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">
@@ -409,6 +409,13 @@
       
         
       <li>
+        <a href="/api/docs/object/localizedcustomfields/" class="sidebar-link">
+          LocalizedCustomFields
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/localizedstring/" class="sidebar-link">
           LocalizedString
         </a>
@@ -563,6 +570,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -614,6 +628,13 @@
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -747,6 +768,13 @@
       <li>
         <a href="/api/docs/object/traceversion/" class="sidebar-link">
           TraceVersion
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/translatedcustomfields/" class="sidebar-link">
+          TranslatedCustomFields
         </a>
       </li>
       
@@ -1181,6 +1209,13 @@
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       

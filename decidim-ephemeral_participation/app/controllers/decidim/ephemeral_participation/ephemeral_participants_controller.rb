@@ -22,13 +22,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to(:update, :ephemeral_participant, current_user: current_user)
+        enforce_permission_to(:update, :ephemeral_participant, current_user:)
 
         @form = form(EphemeralParticipantForm).from_model(current_user)
       end
 
       def update
-        enforce_permission_to(:update, :ephemeral_participant, current_user: current_user)
+        enforce_permission_to(:update, :ephemeral_participant, current_user:)
 
         @form = form(EphemeralParticipantForm).from_params(params)
 
@@ -48,7 +48,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to(:destroy, :ephemeral_participant, current_user: current_user)
+        enforce_permission_to(:destroy, :ephemeral_participant, current_user:)
 
         Decidim::EphemeralParticipation::DestroyEphemeralParticipant.call(request, current_user) do
           on(:ok) do
@@ -60,13 +60,13 @@ module Decidim
       end
 
       def edit_unverifiable
-        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user:)
 
         @form = form(UnverifiableEphemeralParticipantForm).instance
       end
 
       def update_unverifiable
-        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user: current_user)
+        enforce_permission_to(:update_unverifiable, :ephemeral_participant, current_user:)
 
         @form = form(UnverifiableEphemeralParticipantForm).from_params(params)
 

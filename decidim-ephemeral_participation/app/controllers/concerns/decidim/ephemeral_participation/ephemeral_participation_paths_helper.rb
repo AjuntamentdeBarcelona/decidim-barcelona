@@ -9,7 +9,7 @@ module Decidim
         [
           decidim.account_path,
           decidim.notifications_settings_path,
-          decidim.data_portability_path,
+          decidim.download_your_data_path,
           decidim.own_user_groups_path,
           decidim.user_interests_path,
           decidim.notifications_path,
@@ -67,7 +67,7 @@ module Decidim
         adapter = ephemeral_participation_verification_adapter
         engine = adapter.type == "direct" ? Decidim::Verifications::Engine : adapter.send(:main_engine)
 
-        engine.routes.recognize_path_with_request(request.dup, request.path, method: request.method)
+        engine.routes.recognize_path_with_request(request.dup, request.path, { method: request.method })
       rescue ActionController::RoutingError
         false
       end

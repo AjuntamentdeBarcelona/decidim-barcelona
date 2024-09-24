@@ -1,1 +1,0 @@
-bundle update --source decidim decidim-initiatives decidim-sortitions decidim-dev decidim-term_customizer && bundle exec rake decidim:upgrade && bundle exec rake db:migrate

@@ -1,30 +1,20 @@
-<%
-  if(
-    controller.respond_to?(:current_component) &&
-      current_component.ephemeral_participation_enabled? &&
-        current_component.ephemeral_participation_permissions.any?
-  )
-%>
-  <div class="row">
-    <div class="columns medium-8 medium-centered">
-      <span class="register__separator">
-        <span class="register__separator__text"><%= I18n.t("or", scope: "decidim.devise.shared.omniauth_buttons") %></span>
-      </span>
-      <div class="text-center">
-        <span class="register__separator">
+<% if controller.respond_to?(:current_component) && current_component.ephemeral_participation_enabled? && current_component.ephemeral_participation_permissions.any? %>
+  <div class="form__wrapper" id="ephemeral-participation-login-form">
+    <div class="row">
+      <div class="columns medium-8 medium-centered">
+        <div class="text-center">
           <%=
             button_to(
-              I18n.t("button", scope: "decidim.ephemeral_participation.login_modal"),
-              decidim_ephemeral_participation.ephemeral_participants_path(
-                component_id: current_component.id,
-                ephemeral_participation_path: request.path,
-              ),
-              class: "button expanded",
+              t("decidim.ephemeral_participation.login_modal.button"),
+              decidim_ephemeral_participation.ephemeral_participants_path(component_id: current_component.id, ephemeral_participation_path: request.path),
+              class: "button button__lg button__transparent-secondary",
               data: { disable: true, confirm: current_component.settings.ephemeral_participation_enabled_confirm_modal[current_locale] }
             )
           %>
-          <%= I18n.t("help", scope: "decidim.ephemeral_participation.login_modal") %>
-        </span>
+          <div class="pt-6">
+            <%= t("decidim.ephemeral_participation.login_modal.help") %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

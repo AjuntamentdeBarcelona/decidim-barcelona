@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "Ephemeral participation button", type: :system do
+describe "Ephemeral participation button" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -36,9 +36,9 @@ describe "Ephemeral participation button", type: :system do
       end
 
       it "renders the confirmation modal" do
-        click_button("I want to participate without registering")
+        click_ephemeral_participation_login_button
 
-        within(".confirm-modal-content") do
+        within("#confirm-modal-content") do
           expect(page).to have_content("Are you sure?")
         end
       end
@@ -50,7 +50,7 @@ describe "Ephemeral participation button", type: :system do
       end
 
       it "renders the verification form directly" do
-        click_button("I want to participate without registering")
+        click_ephemeral_participation_login_button
 
         within_flash_messages do
           expect(page).to have_content("en.decidim.ephemeral_participation.ephemeral_participants.create")

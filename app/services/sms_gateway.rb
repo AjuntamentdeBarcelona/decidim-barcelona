@@ -2,11 +2,12 @@
 
 # A Service to send SMS to Barcelona's provider so users can be verified by SMS.
 class SmsGateway
-  attr_reader :mobile_phone_number, :code
+  attr_reader :mobile_phone_number, :code, :context
 
-  def initialize(mobile_phone_number, code)
+  def initialize(mobile_phone_number, code, context = {})
     @mobile_phone_number = mobile_phone_number
     @code = code
+    @context = context
   end
 
   def deliver_code
@@ -32,7 +33,7 @@ class SmsGateway
   end
 
   def text
-    I18n.t("decidim.sms.text", code: code)
+    I18n.t("decidim.sms.text", code:)
   end
 
   private

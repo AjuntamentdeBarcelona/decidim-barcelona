@@ -11,11 +11,11 @@ describe Decidim::Stats::Performers::AgeGroup do
 
   let(:authorization_age_group) { "20-24" }
   let(:performer_age_group) { authorization_age_group }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let!(:authorization) do
     create(
       :authorization,
-      user: user,
+      user:,
       name: "census_sms_authorization_handler",
       metadata: {
         date_of_birth: "2000-01-01"
@@ -33,7 +33,7 @@ describe Decidim::Stats::Performers::AgeGroup do
 
   context "when looking for authorizations matching the age group" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -41,7 +41,7 @@ describe Decidim::Stats::Performers::AgeGroup do
     let(:performer_age_group) { "50-54" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

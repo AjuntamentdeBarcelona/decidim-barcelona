@@ -18,7 +18,7 @@ module Decidim
         end
 
         def permissions_context
-          old_permissions_context.merge(request: request)
+          old_permissions_context.merge(request:)
         end
 
         private
@@ -47,7 +47,7 @@ module Decidim
         end
 
         def unauthorized_message
-          if current_user && current_user.ephemeral_participant?
+          if current_user&.ephemeral_participant?
             unauthorized_ephemeral_participant_message
           else
             I18n.t("actions.unauthorized", scope: "decidim.core")

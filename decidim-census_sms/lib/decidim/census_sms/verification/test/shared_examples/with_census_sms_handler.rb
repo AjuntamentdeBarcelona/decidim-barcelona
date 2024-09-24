@@ -33,10 +33,10 @@ shared_context "with census sms handler" do
   # rubocop:disable Naming/AccessorMethodName:
   def get_verified
     fill_in_authorization_form
-    click_button "Verifica't"
+    click_on "Verifica't"
 
     fill_in "confirmation_verification_code", with: code
-    click_button "Verifica't"
+    click_on "Verifica't"
   end
   # rubocop:enable Naming/AccessorMethodName:
 

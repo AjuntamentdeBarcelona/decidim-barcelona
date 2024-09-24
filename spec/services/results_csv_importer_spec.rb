@@ -6,14 +6,14 @@ require "decidim/accountability/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 module Decidim::Accountability
-  describe ResultsCSVImporter do
-    let(:organization) { create :organization, available_locales: [:ca, :en] }
-    let(:current_user) { create :user, organization: organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+  describe ResultsCsvImporter do
+    let(:organization) { create(:organization, available_locales: [:ca, :en]) }
+    let(:current_user) { create(:user, organization:) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:valid_csv) { File.read("spec/fixtures/valid_results.csv") }
     let(:invalid_csv) { File.read("spec/fixtures/invalid_results.csv") }
-    let!(:parent_result) { create :result, component: current_component, external_id: "pm-act-423" }
+    let!(:parent_result) { create(:result, component: current_component, external_id: "pm-act-423") }
 
     context "with a valid CSV" do
       subject { described_class.new(current_component, valid_csv, current_user) }
@@ -26,16 +26,16 @@ module Decidim::Accountability
         end
 
         context "when results exist" do
-          let!(:result1) { create :result, component: current_component, external_id: "8", progress: 0 }
-          let!(:result2) { create :result, component: current_component, external_id: "9", progress: 0 }
+          let!(:result) { create(:result, component: current_component, external_id: "8", progress: 0) }
+          let!(:other_result) { create(:result, component: current_component, external_id: "9", progress: 0) }
 
           it "updates them" do
             subject.import!
 
-            expect(result1.reload.progress.to_f).to eq 100
-            expect(result2.reload.progress.to_f).to eq 89
-            expect(result1.weight).to eq(0.5)
-            expect(result2.weight).to eq(0.45)
+            expect(result.reload.progress.to_f).to eq 100
+            expect(other_result.reload.progress.to_f).to eq 89
+            expect(result.weight).to eq(0.5)
+            expect(other_result.weight).to eq(0.45)
           end
 
           it "does not create new results" do

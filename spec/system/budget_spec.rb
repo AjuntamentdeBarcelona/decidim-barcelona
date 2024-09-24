@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Budgets", type: :system, perform_enqueued: true, available_authorizations: ["census_sms_authorization_handler"] do
+describe "Budgets", :perform_enqueued, available_authorizations: ["census_sms_authorization_handler"] do
   include_context "with ephemerable participation" do
     include_context "with census sms handler"
 
@@ -22,12 +22,12 @@ describe "Budgets", type: :system, perform_enqueued: true, available_authorizati
     let(:ephemerable_authorization) { "census_sms_authorization_handler" }
     let(:ephemerable_action) { "vote" }
 
-    let(:budget) { create :budget, component: component, total_budget: 50_000_000 }
-    let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 25_000_000) }
+    let(:budget) { create(:budget, component:, total_budget: 50_000_000) }
+    let!(:projects) { create_list(:project, 3, budget:, budget_amount: 25_000_000) }
 
-    let!(:scope) { create :scope, organization: organization, code: "1" }
+    let!(:scope) { create(:scope, organization:, code: "1") }
 
-    let!(:user) { create(:user, :confirmed, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       switch_to_host(organization.host)
@@ -43,7 +43,7 @@ describe "Budgets", type: :system, perform_enqueued: true, available_authorizati
       xit "correctly redirects after user verifies" do
         page.find("#project-vote-button-#{projects.first.id}").click
 
-        expect(page).to have_selector("#authorizationModal")
+        expect(page).to have_css("#authorizationModal")
 
         click_on "Autoritzar"
 

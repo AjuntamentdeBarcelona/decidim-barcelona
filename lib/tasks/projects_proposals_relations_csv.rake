@@ -25,7 +25,7 @@ namespace :import_projects_proposals_relations_csv do
         raise ProjectError unless project
         raise ProposalError unless proposal
 
-        create_link(project: project, proposal: proposal, link_name: args.link_name)
+        create_link(project:, proposal:, link_name: args.link_name)
       end
 
       log_info "[import_projects_proposals_relations_csv:link_resources] Done linking resources"

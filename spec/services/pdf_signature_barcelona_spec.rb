@@ -32,12 +32,10 @@ describe PdfSignatureBarcelona do
           cert.sign(key, OpenSSL::Digest.new("SHA256"))
         end
       end
-      let(:private_key) { double("private_key", key: key) }
+      let(:private_key) { double("private_key", key:) }
 
       before do
-        allow(service).to receive(:certificate).and_return(certificate)
-        allow(service).to receive(:private_key).and_return(private_key)
-        allow(service).to receive(:missing_configuration?).and_return(false)
+        allow(service).to receive_messages(certificate:, private_key:, missing_configuration?: false)
       end
 
       context "with a valid pdf" do

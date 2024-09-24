@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        # altough this might introduce some confusion it maintains compatibility accross the application
+        # although this might introduce some confusion it maintains compatibility across the application
         # for any code expecting to obtain an array
         def available_authorizations
           authorizations = read_attribute(:available_authorizations)
@@ -14,7 +14,7 @@ module Decidim
         end
 
         def ephemeral_participation_authorization
-          read_attribute(:available_authorizations).key("allow_ephemeral_participation" => true)
+          self[:available_authorizations].key("allow_ephemeral_participation" => true)
         end
       end
     end

@@ -489,6 +489,12 @@ if Decidim.module_installed? :elections
   end
 end
 
+if Decidim.module_installed? :verifications
+  Decidim::Verifications.configure do |config|
+    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+  end
+end
+
 # Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
 
@@ -532,3 +538,9 @@ Decidim::Verifications.register_workflow(:census_sarria_sant_gervasi_authorizati
   auth.metadata_cell = "census_sarria_sant_gervasi_authorization_metadata"
   auth.ephemerable = true
 end
+
+Decidim.icons.register(name: "arrow-bottom", icon: "arrow-bottom", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "audio", icon: "audio", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "fingerprint-2-line", icon: "fingerprint-2-line", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "link-intact", icon: "link-intact", category: "system", description: "", engine: :core)
+Decidim.icons.register(name: "route-line", icon: "route-line", category: "system", description: "", engine: :core)

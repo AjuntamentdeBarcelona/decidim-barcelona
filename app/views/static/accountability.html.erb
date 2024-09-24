@@ -3,132 +3,118 @@
   title: t(".meta_tags.title")
 }) %>
 
-<main class="wrapper global-accountability">
-  <div class="row column text-center">
-    <h1 class="heading1 page-title"><%= t(".heading") %></h1>
-    <p class="centered--text text-center intro--text"><%= t(".intro_text") %></p>
-
-    <section class="section">
-      <h3 class="section-heading"><%= t(".topics") %></h3>
-
-      <div class="row">
-        <div class="medium-6 columns">
-          <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %>
-              <h4 class="card__title"><%= icon "book" %> <%= t(".section_1_title") %></h4>
-            <% end %>
-
-            <div class="card__content">
-              <ul>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_1") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_2") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "planificacio"), class: "card__link" do %><%= t(".section_1_item_3") %><% end %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="medium-6 columns">
-          <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %>
-              <h4 class="card__title"><%= icon "graph" %> <%= t(".section_2_title") %></h4>
-            <% end %>
-
-            <div class="card__content">
-              <ul>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_1") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_2") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "economia"), class: "card__link" do %><%= t(".section_2_item_3") %><% end %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="medium-6 columns">
-          <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %>
-              <h4 class="card__title"><%= icon "key" %> <%= t(".section_3_title") %></h4>
-            <% end %>
-
-            <div class="card__content">
-              <ul>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_1") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_2") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "serveis"), class: "card__link" do %><%= t(".section_3_item_3") %><% end %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="medium-6 columns">
-          <div class="card card--accountability">
-            <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %>
-              <h4 class="card__title"><%= icon "home" %> <%= t(".section_4_title") %></h4>
-            <% end %>
-
-            <div class="card__content">
-              <ul>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_1") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_2") %><% end %></li>
-                <li><%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path(anchor: "etica"), class: "card__link" do %><%= t(".section_4_item_3") %><% end %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3 class="section-heading"><%= t(".flow_section_heading") %></h3>
-      <p class="centered--text"><%= t(".flow_intro_text") %></p>
-
-      <%= render "accountability_graph_#{I18n.locale}" %>
-    </section>
-
-    <section class="section">
-      <h3 class="section-heading"><%= t(".citizens_section_heading") %></h3>
-      <p class="centered--text"><%= t(".citizens_section_intro_text") %></p>
-
-      <div class="medium-4 columns">
-        <article class="card card--process card--mini">
-          <a class="card__link" href="<%= t(".citizens_card_1_link") %>">
-            <div class="card__image-top" style="background-image:url(<%= image_pack_tag 'media/images/canals.jpg' %>)"></div>
-          </a>
-
-          <div class="card__content">
-            <a class="card__link" href="<%= t(".citizens_card_1_link") %>"><h4 class="card__title"><%= t(".citizens_card_1_title") %></h4></a>
-            <span class="card--process__small"><%== t(".citizens_card_1_text") %></span>
-          </div>
-        </article>
-      </div>
-
-      <div class="medium-4 columns">
-        <article class="card card--process card--mini">
-          <a class="card__link" href="<%= t(".citizens_card_2_link") %>">
-            <div class="card__image-top" style="background-image:url(<%= image_pack_tag 'media/images/logo_decidim.png' %>)"></div>
-          </a>
-
-          <div class="card__content">
-            <a class="card__link" href="<%= t(".citizens_card_2_link") %>"><h4 class="card__title"><%= t(".citizens_card_2_title") %></h4></a>
-            <span class="card--process__small"><%= t(".citizens_card_2_text") %></span>
-          </div>
-        </article>
-      </div>
-
-      <div class="medium-4 columns">
-        <article class="card card--process card--mini">
-          <a class="card__link" href="<%= t(".citizens_card_3_link") %>">
-            <div class="card__image-top" style="background-image:url(<%= image_pack_tag 'media/images/trobades.jpg' %>)"></div>
-          </a>
-
-          <div class="card__content">
-            <a class="card__link" href="<%= t(".citizens_card_3_link") %>"><h4 class="card__title"><%= t(".citizens_card_3_title") %></h4></a>
-            <span class="card--process__small"><%= t(".citizens_card_3_text") %></span>
-          </div>
-        </article>
-      </div>
-    </section>
+<main class="layout-1col cols-8">
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12"><%= t(".heading") %></h1>
+    <p class="text-lg text-gray-2"><%= t(".intro_text") %></p>
   </div>
+
+  <section>
+    <h2 class="h2"><%= t(".topics") %></h2>
+    <div class="card__grid-grid pt-6">
+      <div class="card__grid">
+        <div class="card__grid-text">
+          <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path("planificacio"), class: "card__link", style: "text-decoration: none;" do %>
+            <h3 class="h4 text-secondary"><%= icon "bookmark-line", style: "display: inline;" %> <%= t(".section_1_title") %></h3>
+          <% end %>
+          <ul class="list-disc pl-4">
+            <li><%= t(".section_1_item_1") %></li>
+            <li><%= t(".section_1_item_2") %></li>
+            <li><%= t(".section_1_item_3") %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card__grid">
+        <div class="card__grid-text">
+          <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path("economia"), class: "card__link", style: "text-decoration: none;" do %>
+            <h3 class="h4 text-secondary"><%= icon "bar-chart-2-line", style: "display: inline;" %> <%= t(".section_2_title") %></h3>
+          <% end %>
+          <ul class="list-disc pl-4">
+            <li><%= t(".section_2_item_1") %></li>
+            <li><%= t(".section_2_item_2") %></li>
+            <li><%= t(".section_2_item_3") %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card__grid">
+        <div class="card__grid-text">
+          <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path("serveis"), class: "card__link", style: "text-decoration: none;" do %>
+            <h3 class="h4 text-secondary"><%= icon "key-2-line", style: "display: inline;" %> <%= t(".section_3_title") %></h3>
+          <% end %>
+          <ul class="list-disc pl-4">
+            <li><%= t(".section_3_item_1") %></li>
+            <li><%= t(".section_3_item_2") %></li>
+            <li><%= t(".section_3_item_3") %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card__grid">
+        <div class="card__grid-text">
+          <%= link_to DecidimBarcelona::Application.routes.url_helpers.accountability_sections_path("etica"), class: "card__link", style: "text-decoration: none;" do %>
+            <h3 class="h4 text-secondary"><%= icon "home-2-line", style: "display: inline;" %> <%= t(".section_4_title") %></h3>
+          <% end %>
+          <ul class="list-disc pl-4">
+            <li><%= t(".section_4_item_1") %></li>
+            <li><%= t(".section_4_item_2") %></li>
+            <li><%= t(".section_4_item_3") %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="h2 pt-8"><%= t(".flow_section_heading") %></h2>
+    <div class="editor-content pt-6">
+      <p class="text-lg text-gray-2"><%= t(".flow_intro_text") %></p>
+      <div class="py-6">
+        <%= render "accountability_graph_#{I18n.locale}" %>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="h2"><%= t(".citizens_section_heading") %></h2>
+    <div class="editor-content pt-6">
+      <p class="text-lg text-gray-2"><%= t(".citizens_section_intro_text") %></p>
+      <div class="card__grid-grid pt-6">
+        <div class="card__grid">
+          <div class="card__grid-img">
+            <%= image_pack_tag "media/images/canals.jpg" %>
+          </div>
+          <div class="card__grid-text">
+            <a style="text-decoration: none;" href="<%= t(".citizens_card_1_link") %>">
+              <h3 class="h4 text-secondary"><%= t(".citizens_card_1_title") %></h3>
+            </a>
+            <span><%== t(".citizens_card_1_text") %></span>
+          </div>
+        </div>
+        <div class="card__grid">
+          <div class="card__grid-img">
+            <%= image_pack_tag "media/images/logo_decidim.png" %>
+          </div>
+          <div class="card__grid-text">
+            <a style="text-decoration: none;" href="<%= t(".citizens_card_2_link") %>">
+              <h3 class="h4 text-secondary"><%= t(".citizens_card_2_title") %></h3>
+            </a>
+            <span><%== t(".citizens_card_2_text") %></span>
+          </div>
+        </div>
+        <div class="card__grid">
+          <div class="card__grid-img">
+            <%= image_pack_tag "media/images/trobades.jpg" %>
+          </div>
+          <div class="card__grid-text">
+            <a style="text-decoration: none;" href="<%= t(".citizens_card_3_link") %>">
+              <h3 class="h4 text-secondary"><%= t(".citizens_card_3_title") %></h3>
+            </a>
+            <span><%== t(".citizens_card_3_text") %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
