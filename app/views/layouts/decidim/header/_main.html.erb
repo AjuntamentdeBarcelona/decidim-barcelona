@@ -3,6 +3,7 @@
     <div class="main-bar__logo">
       <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
     </div>
+
     <div class="main-bar__search">
       <%= render partial: "layouts/decidim/header/main_search" %>
     </div>
@@ -11,9 +12,6 @@
       <%= render partial: "layouts/decidim/header/header_language_selector" %>
       <%= render partial: "layouts/decidim/header/main_links_desktop" %>
     </div>
-
-
-
 
     <div class="lg:hidden">
       <%# Main dropdown mobile %>
