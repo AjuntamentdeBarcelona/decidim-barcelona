@@ -34,6 +34,7 @@
   gap: 0.1rem !important;
   flex-direction: column;
   padding: 0.25rem 0.5rem;
+
   span {
     display: block;
     font-weight: 400;
@@ -60,9 +61,11 @@
   .main-header__language-container > #trigger-dropdown-language-chooser {
     flex-direction: row !important;
   }
+
   #trigger-dropdown-language-chooser > svg {
     display: none;
   }
+
   #dropdown-menu-main-mobile > div.main-header__language-container {
     display: flex;
     flex-direction: row;
@@ -71,6 +74,7 @@
     color: rgb(168 44 44) !important;
     font-weight: 600 !important;
   }
+
   #dropdown-menu-language-chooser > ul > li > a,
   #dropdown-menu-language-chooser > ul > li,
   #trigger-dropdown-language-chooser > span,
