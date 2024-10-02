@@ -29,3 +29,29 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  #trigger-dropdown-language-chooser {
+    display: flex !important;
+  }
+}
+
+.main-header__language-container > #trigger-dropdown-language-chooser {
+  gap: 0.1rem !important;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem;
+  span {
+    display: block;
+    font-weight: 400 !important;
+  }
+}
+
+#dropdown-menu-language-chooser > ul > li > a {
+  font-size: 14px;
+  padding: 0.75rem;
+}
+
+.mobile_menu__language-container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

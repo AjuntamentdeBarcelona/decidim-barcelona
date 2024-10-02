@@ -291,6 +291,10 @@ es:
       system:
         login_items:
           logout: Cerrar sesión
+  locale:
+    name: Castellano
+    name_with_error: Castellano (¡error!)
+    short_name: ES
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito
