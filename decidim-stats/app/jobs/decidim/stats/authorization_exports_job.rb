@@ -5,17 +5,18 @@ module Decidim
     class AuthorizationExportsJob < ApplicationJob
       queue_as :default
 
-      def perform(user, authorization_handler_name, start_date, end_date)
+      def perform(user, organization, filters)
+        byebug
         ExportMailer.export(
           user,
           export_file_name,
-          export_data(authorization_handler_name, start_date, end_date)
+          export_data(organization, filters)
         ).deliver_now
       end
 
-      def export_data(authorization_handler_name, start_date, end_date)
+      def export_data(organization, filters)
         Decidim::Exporters::CSV.new(
-          collection(authorization_handler_name, start_date, end_date),
+          collection(organization, filters),
           serializer
         ).export
       end
@@ -24,11 +25,18 @@ module Decidim
         "authorizations_export"
       end
 
-      def collection(authorization_handler_name, start_date, end_date)
-        Decidim::Authorization.where(
-          granted_at: start_date..end_date,
-          name: authorization_handler_name
-        )
+      def collection(organization, filters)
+        Decidim::Authorization.joins(:user)
+                              .where(
+                                granted_at: filters[:start_date]..filters[:end_date],
+                                name: filters[:name]
+                              )
+        Decidim::Authorization.joins(:user)
+                              .where(decidim_users: { decidim_organization_id: organization.id })
+                              .where(
+                                granted_at: filters[:start_date]..filters[:end_date],
+                                name: filters[:name]
+                              )
       end
 
       def serializer

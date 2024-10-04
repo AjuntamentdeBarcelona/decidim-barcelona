@@ -18,9 +18,10 @@ module Decidim
       def create
         AuthorizationExportsJob.perform_later(
           current_user,
-          authorization_params[:authorization_handler_name],
-          authorization_params[:start_date],
-          authorization_params[:end_date]
+          current_organization,
+          name: authorization_params[:authorization_handler_name],
+          start_date: authorization_params[:start_date],
+          end_date: authorization_params[:end_date]
         )
 
         flash[:notice] = t("decidim.admin.exports.notice")
