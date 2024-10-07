@@ -77,6 +77,10 @@
     display: none;
   }
 
+  #trigger-dropdown-language-chooser > div > svg {
+    display: none;
+  }
+
   #dropdown-menu-main-mobile > div.main-header__language-container {
     display: flex;
     flex-direction: row;
@@ -88,7 +92,7 @@
 
   #dropdown-menu-language-chooser > ul > li > a,
   #dropdown-menu-language-chooser > ul > li,
-  #trigger-dropdown-language-chooser > span,
+  #trigger-dropdown-language-chooser > div > span,
   #trigger-dropdown-language-chooser {
     padding: 0 !important;
     font-size: 1rem !important;
