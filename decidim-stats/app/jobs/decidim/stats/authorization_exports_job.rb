@@ -6,7 +6,6 @@ module Decidim
       queue_as :default
 
       def perform(user, organization, filters)
-        byebug
         ExportMailer.export(
           user,
           export_file_name,
