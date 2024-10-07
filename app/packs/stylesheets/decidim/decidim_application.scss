@@ -47,6 +47,13 @@
   }
 }
 
+.main-header__language-container > #trigger-dropdown-language-chooser:hover {
+  background-color: #F3F4F7 !important;
+  border-radius: 0.25rem;
+  text-decoration: underline;
+  text-decoration-color: rgb(var(--secondary-rgb) / 1);
+}
+
 #dropdown-menu-language-chooser {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -55,6 +62,7 @@
 
 #dropdown-menu-language-chooser > ul > li > a {
   font-size: 14px;
+  padding: 0.5rem;
 }
 
 .mobile_menu__language-container {

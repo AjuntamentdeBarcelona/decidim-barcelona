@@ -299,8 +299,8 @@ ca:
         login_items:
           logout: Tancar sessió
   locale:
-    name: Catalan
-    name_with_error: Catalan (¡error!)
+    name: Català
+    name_with_error: Català (¡error!)
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte
