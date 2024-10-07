@@ -28,7 +28,7 @@ checksums = [
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/view_model.rb" => "141f2ea7b4c8bb35bd3966882780c225",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
-      "/app/views/layouts/decidim/header/_main.html.erb" => "ff2cc476eb72c2942cf2e69ae21b84fa"
+      "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c"
     }
   },
   {
