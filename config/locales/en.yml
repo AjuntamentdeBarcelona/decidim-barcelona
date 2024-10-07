@@ -22,6 +22,5 @@ en:
   locale:
     name: English
     name_with_error: English (error!)
-    short_name: EN
   menu:
     accountability_static: Accountability

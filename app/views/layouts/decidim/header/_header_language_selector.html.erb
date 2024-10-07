@@ -2,7 +2,10 @@
         <div class="main-header__language-container">
           <button id="trigger-dropdown-language-chooser" data-component="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
             <%= icon "global-line" %>
-            <span><%= t("short_name", scope: "locale") %></span>
+            <div class="flex flex-row">
+              <span><%= t("name", scope: "locale") %></span>
+              <%= icon "arrow-down-s-line" %>
+            <div>
             <span class="sr-only">
               <% available_locales.each do |locale| %>
                 <span lang="<%= locale %>">
@@ -16,7 +19,7 @@
             <ul class="main-footer__languag absolute" role="menu">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li class="text-secondary text-md hover:bg-secondary hover:text-white transition" role="presentation">
-                  <%= link_to locale.upcase, decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "w-full block" %>
+                  <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "w-full block" %>
                 </li>
               <% end %>
             </ul>

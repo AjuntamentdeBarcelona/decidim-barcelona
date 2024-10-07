@@ -38,12 +38,23 @@
   span {
     display: block;
     font-weight: 400;
+    color: rgb(var(--secondary-rgb) / 1);
+    font-size: 14px;
   }
+
+  svg {
+    fill: rgb(var(--secondary-rgb) / 1);
+  }
+}
+
+#dropdown-menu-language-chooser {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  align-items: center !important;
 }
 
 #dropdown-menu-language-chooser > ul > li > a {
   font-size: 14px;
-  padding: 0.7rem;
 }
 
 .mobile_menu__language-container {

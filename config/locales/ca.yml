@@ -301,7 +301,6 @@ ca:
   locale:
     name: Catalan
     name_with_error: Catalan (¡error!)
-    short_name: CA
   errors:
     messages:
       not_in_district: El codi postal no pertany al districte
