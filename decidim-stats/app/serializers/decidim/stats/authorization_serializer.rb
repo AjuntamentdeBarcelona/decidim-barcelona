@@ -13,11 +13,13 @@ module Decidim
       def serialize
         {
           id: authorization.id,
-          name: authorization.name,
-          granted_at: authorization.granted_at,
-          postal_code: metadata["postal_code"],
           date_of_birth: metadata["date_of_birth"],
-          gender: metadata["gender"]
+          postal_code: metadata["postal_code"],
+          scope_name: metadata["scope_name"],
+          scope_id: metadata["scope_id"],
+          scope_code: metadata["scope_code"],
+          gender: metadata_extras["gender"],
+          granted_at: authorization.granted_at
         }
       end
 
@@ -25,6 +27,10 @@ module Decidim
 
       def metadata
         authorization.metadata || {}
+      end
+
+      def metadata_extras
+        metadata["extras"] || {}
       end
     end
   end
