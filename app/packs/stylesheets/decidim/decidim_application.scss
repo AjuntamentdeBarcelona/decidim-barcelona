@@ -47,6 +47,10 @@
   }
 }
 
+.main-footer__language {
+  z-index: 1000;
+}
+
 .main-header__language-container > #trigger-dropdown-language-chooser:hover {
   background-color: #f3f4f7 !important;
   border-radius: 0.25rem;
