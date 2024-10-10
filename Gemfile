@@ -12,7 +12,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 
 # gem "decidim-census_sms", path: "decidim-census_sms"
 # gem "decidim-dataviz", path: "decidim-dataviz"
-# gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
+gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
 # gem "decidim-stats", path: "decidim-stats"
 # gem "decidim-valid_auth", path: "decidim-valid_auth"
 
@@ -22,7 +22,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 # gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
 
 gem "origami"
-gem "wicked_pdf", "< 2.8"
+gem "wicked_pdf", "2.8.1"
 gem "wkhtmltopdf-binary"
 
 gem "progressbar"
