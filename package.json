@@ -26,7 +26,8 @@
     "select2": "^4.1.0-rc.0",
     "tom-select": "^2.2.2",
     "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "yarn": "^1.22.22"
   },
   "version": "0.1.0",
   "engines": {
