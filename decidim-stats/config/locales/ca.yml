@@ -2,9 +2,9 @@ ca:
   decidim:
     stats:
       authorization_exports:
-        title: Export verification data
-        authorization_handler_name: Verification method
-        end_date: End date
-        start_date: Start date
-        submit: Export verification data
-        menu: Export data
+        title: Exportar dades de verificació
+        authorization_handler_name: Mètode de verificació
+        end_date: Data fi
+        start_date: Data inici
+        submit: Exportar dades
+        menu: Exportar dades
