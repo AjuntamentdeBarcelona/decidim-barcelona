@@ -7,7 +7,7 @@ DECIDIM_VERSION = "0.28.4"
 ruby RUBY_VERSION
 
 # gem "decidim", DECIDIM_VERSION
-gem "decidim", github: 'decidim/decidim', branch: 'release/0.28-stable'
+gem "decidim", github: "decidim/decidim", branch: "release/0.28-stable"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
@@ -36,7 +36,9 @@ group :development, :test do
   gem "dotenv-rails"
   gem "faker"
   gem "mdl"
+  gem "rubocop-factory_bot", "2.25.1"
   gem "rubocop-faker"
+  gem "rubocop-rspec", "2.20"
 end
 
 group :development do

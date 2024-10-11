@@ -546,7 +546,7 @@ GEM
       rails (>= 3.2.0)
     io-console (0.7.2)
     jmespath (1.6.2)
-    json (2.7.1)
+    json (2.7.2)
     jwt (2.9.3)
       base64
     kaminari (1.2.2)
@@ -678,10 +678,10 @@ GEM
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
-    parallel (1.24.0)
+    parallel (1.26.3)
     parallel_tests (4.7.2)
       parallel
-    parser (3.3.0.5)
+    parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -776,7 +776,7 @@ GEM
     redis (4.8.1)
     redis-client (0.21.0)
       connection_pool
-    regexp_parser (2.9.0)
+    regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
     request_store (1.5.1)
@@ -784,7 +784,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.6)
+    rexml (3.3.8)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -826,11 +826,11 @@ GEM
       rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.2)
-      parser (>= 3.3.0.4)
+    rubocop-ast (1.32.3)
+      parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
-    rubocop-factory_bot (2.26.0)
+    rubocop-factory_bot (2.25.1)
       rubocop (~> 1.41)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
@@ -840,13 +840,9 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rspec (2.31.0)
-      rubocop (~> 1.40)
+    rubocop-rspec (2.20.0)
+      rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
-      rubocop-factory_bot (~> 2.22)
-      rubocop-rspec_rails (~> 2.28)
-    rubocop-rspec_rails (2.29.0)
-      rubocop (~> 1.40)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.2)
       ffi (~> 1.12)
@@ -927,7 +923,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     uniform_notifier (1.16.0)
     uri (0.13.1)
     valid_email2 (4.0.6)
@@ -1016,7 +1012,9 @@ DEPENDENCIES
   rexml
   rspec
   rubocop
+  rubocop-factory_bot (= 2.25.1)
   rubocop-faker
+  rubocop-rspec (= 2.20)
   scout_apm
   sentry-rails
   sentry-ruby
