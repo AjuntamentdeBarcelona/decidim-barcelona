@@ -2,11 +2,12 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.28.3"
+DECIDIM_VERSION = "0.28.4"
 
 ruby RUBY_VERSION
 
-gem "decidim", DECIDIM_VERSION
+# gem "decidim", DECIDIM_VERSION
+gem "decidim", github: 'decidim/decidim', branch: 'release/0.28-stable'
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
