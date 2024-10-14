@@ -7,7 +7,7 @@ DECIDIM_VERSION = "0.28.4"
 ruby RUBY_VERSION
 
 # gem "decidim", DECIDIM_VERSION
-gem "decidim", github: "decidim/decidim", branch: "release/0.28-stable"
+gem "decidim", github: "ajuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 

@@ -17,19 +17,9 @@ GIT
       decidim-core (>= 0.28, < 0.29)
 
 GIT
-  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 84374037d34a3ac80dc18406834169c65869f11b
-  specs:
-    decidim-decidim_awesome (0.11.2)
-      decidim-admin (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-      sassc (~> 2.3)
-
-GIT
-  remote: https://github.com/decidim/decidim.git
-  revision: 0b143d43ca7c1420abd6f7b72c6eaecb80612ff9
-  branch: release/0.28-stable
+  remote: https://github.com/ajuntamentdeBarcelona/decidim.git
+  revision: 334f82dfa415e3d209afeaea43792518aa062fee
+  branch: bcn/0.28-branch
   specs:
     decidim (0.28.4)
       decidim-accountability (= 0.28.4)
@@ -162,6 +152,16 @@ GIT
       decidim-core (= 0.28.4)
 
 GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
+  revision: 84374037d34a3ac80dc18406834169c65869f11b
+  specs:
+    decidim-decidim_awesome (0.11.2)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 03e6c98e85a00fe47f8db2726f1a1a98e808efda
   specs:
@@ -266,7 +266,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts_as_list (1.2.2)
+    acts_as_list (1.2.3)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     addressable (2.8.7)
@@ -354,7 +354,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.19.0)
+    css_parser (1.19.1)
       addressable
     csv (3.3.0)
     dalli (3.2.8)
@@ -617,7 +617,7 @@ GEM
     multi_xml (0.6.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.16)
+    net-imap (0.4.17)
       date
       net-protocol
     net-pop (0.1.2)
@@ -707,7 +707,7 @@ GEM
       get_process_mem (~> 0.2)
       puma (>= 2.7)
     racc (1.8.1)
-    rack (2.2.9)
+    rack (2.2.10)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
