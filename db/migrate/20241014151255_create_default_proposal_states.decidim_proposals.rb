@@ -23,8 +23,10 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
 
       CustomProposal.where(decidim_component_id: component.id).find_each do |proposal|
         next if proposal.old_state == "not_answered"
+        next if proposal.old_state.nil?
 
-        proposal.update!(proposal_state: Decidim::Proposals::ProposalState.where(component:, token: proposal.old_state).first!)
+        token = I18n.t("decidim.proposals.answers.#{proposal.old_state}").downcase.tr(" ", "_").tr("ó", "o")
+        proposal.update!(proposal_state: Decidim::Proposals::ProposalState.where(component:, token:).first!)
       end
     end
   end
