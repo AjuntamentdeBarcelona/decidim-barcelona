@@ -37,9 +37,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "faker"
   gem "mdl"
-  gem "rubocop-factory_bot", "2.25.1"
   gem "rubocop-faker"
-  gem "rubocop-rspec", "2.20"
 end
 
 group :development do
