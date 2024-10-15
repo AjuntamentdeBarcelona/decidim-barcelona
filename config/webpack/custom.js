@@ -78,6 +78,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".gql", ".graphql"],
     fallback: {
+      punycode: false,
       crypto: false
     }
   },
