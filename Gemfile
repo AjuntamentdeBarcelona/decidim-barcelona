@@ -69,6 +69,7 @@ group :production do
   gem "sentry-sidekiq"
   gem "sidekiq"
   gem "stackprof"
+  gem 'ffi', '1.16.3'
 end
 
 group :test do

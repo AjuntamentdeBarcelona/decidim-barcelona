@@ -487,9 +487,7 @@ GEM
       logger
     faraday-net_http (3.3.0)
       net-http
-    ffi (1.17.0-aarch64-linux-gnu)
-    ffi (1.17.0-arm64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.16.3)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -1010,6 +1008,7 @@ DEPENDENCIES
   decidim-valid_auth!
   dotenv-rails
   faker
+  ffi (= 1.16.3)
   foreman
   letter_opener_web
   listen
