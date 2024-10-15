@@ -9,6 +9,7 @@ ruby RUBY_VERSION
 # gem "decidim", DECIDIM_VERSION
 gem "decidim", github: "ajuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch"
 gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-internal_evaluation", github: "AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
 gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-census_sms", path: "decidim-census_sms"

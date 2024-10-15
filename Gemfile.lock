@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module.git
+  revision: cf5eb7f00f957881ade8360a69655e92d95ceff0
+  branch: release/0.28-stable
+  specs:
+    decidim-internal_evaluation (0.0.1)
+      decidim-core (~> 0.28.0)
+      decidim-proposals (~> 0.28.0)
+      decidim-templates (~> 0.28.0)
+      deface (~> 1.9)
+
+GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
   revision: df16cf4de13c306348761d850d19815c8221874e
   specs:
@@ -148,6 +159,10 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
+    decidim-templates (0.28.4)
+      decidim-core (= 0.28.4)
+      decidim-forms (= 0.28.4)
+      decidim-proposals (= 0.28.4)
     decidim-verifications (0.28.4)
       decidim-core (= 0.28.4)
 
@@ -986,6 +1001,7 @@ DEPENDENCIES
   decidim-dev (= 0.28.4)
   decidim-ephemeral_participation!
   decidim-initiatives (= 0.28.4)
+  decidim-internal_evaluation!
   decidim-kids!
   decidim-navigation_maps!
   decidim-sortitions (= 0.28.4)
