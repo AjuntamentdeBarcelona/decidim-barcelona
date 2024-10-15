@@ -843,8 +843,6 @@ GEM
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
-    rubocop-factory_bot (2.25.1)
-      rubocop (~> 1.41)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
       rubocop (>= 0.82.0)
@@ -973,7 +971,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.8)
+    wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.18)
@@ -1008,7 +1006,6 @@ DEPENDENCIES
   decidim-valid_auth!
   dotenv-rails
   faker
-  ffi (= 1.16.3)
   foreman
   letter_opener_web
   listen
@@ -1027,9 +1024,7 @@ DEPENDENCIES
   rexml
   rspec
   rubocop
-  rubocop-factory_bot (= 2.25.1)
   rubocop-faker
-  rubocop-rspec (= 2.20)
   scout_apm
   sentry-rails
   sentry-ruby

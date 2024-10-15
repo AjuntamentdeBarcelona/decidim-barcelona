@@ -37,9 +37,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "faker"
   gem "mdl"
-  gem "rubocop-factory_bot", "2.25.1"
   gem "rubocop-faker"
-  gem "rubocop-rspec", "2.20"
 end
 
 group :development do
@@ -69,7 +67,6 @@ group :production do
   gem "sentry-sidekiq"
   gem "sidekiq"
   gem "stackprof"
-  gem 'ffi', '1.16.3'
 end
 
 group :test do
