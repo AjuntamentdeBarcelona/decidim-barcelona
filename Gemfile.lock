@@ -1002,6 +1002,7 @@ DEPENDENCIES
   decidim-navigation_maps!
   decidim-sortitions (= 0.28.4)
   decidim-stats!
+  decidim-templates (= 0.28.4)
   decidim-term_customizer!
   decidim-valid_auth!
   dotenv-rails
