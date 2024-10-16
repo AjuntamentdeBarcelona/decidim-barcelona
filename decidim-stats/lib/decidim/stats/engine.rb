@@ -14,7 +14,8 @@ module Decidim
           menu.add_item :authorization_exports,
                         I18n.t("authorization_exports.menu", scope: "decidim.stats"),
                         decidim_stats.authorization_exports_path,
-                        active: is_active_link?(decidim_stats.authorization_exports_path)
+                        active: is_active_link?(decidim_stats.authorization_exports_path),
+                        icon_name: "download-line"
         end
       end
     end
