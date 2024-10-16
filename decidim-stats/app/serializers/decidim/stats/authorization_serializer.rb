@@ -12,7 +12,7 @@ module Decidim
 
       def serialize
         {
-          id: authorization.id,
+          user_hash:,
           date_of_birth: metadata["date_of_birth"],
           postal_code: metadata["postal_code"],
           scope_name: metadata["scope_name"],
@@ -31,6 +31,16 @@ module Decidim
 
       def metadata_extras
         metadata["extras"] || {}
+      end
+
+      def user_hash
+        return "" unless user
+
+        Digest::SHA256.hexdigest(user.id.to_s).last(8)
+      end
+
+      def user
+        authorization.user
       end
     end
   end
