@@ -26,7 +26,6 @@ checksums = [
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "22355fa93da7c8776e7e7f56a5b207f7",
       "/app/cells/decidim/activities_cell.rb" => "dd17416a8d1efe7f26b1e759613e4db4",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
-      "/lib/decidim/view_model.rb" => "141f2ea7b4c8bb35bd3966882780c225",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
       "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c"
     }
@@ -82,7 +81,7 @@ checksums = [
       "/app/views/decidim/accountability/results/home.html.erb" => "4050a327e040350e247c9086fc432cde",
       "/app/views/decidim/accountability/results/index.html.erb" => "1b655348f4e689fb27b2892846faf586",
       "/app/views/decidim/accountability/results/_home_categories.html.erb" => "00721e6e14f5ad718a3d80ecd905999e",
-      "/app/views/decidim/accountability/results/_scope_filters.html.erb" => "457ac0cce5522504d0a33a245cd424d4",
+      "/app/views/decidim/accountability/results/_scope_filters.html.erb" => "a405bb47fe4f8f7b216165b5044c1462",
       "/app/views/decidim/accountability/results/_stats_box.html.erb" => "2ce34e1ee1a824dc4fbe36940c97f3e8",
       "/app/models/decidim/accountability/result.rb" => "e1c063ba7c39ca8996daa740c7ff6bc6",
       "/app/services/decidim/accountability/results_calculator.rb" => "4cc5ed480220f0bfe7561ad887e59576"
@@ -114,8 +113,8 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8",
-      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "72910541010305f25baf297f4a58497b"
+      "/app/helpers/decidim/proposals/application_helper.rb" => "c17dd875a166cd0cd3c09b0e596ebef5",
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337"
     }
   },
   {
