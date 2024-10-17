@@ -22,10 +22,4 @@ Rails.application.config.to_prepare do
   Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
-  # This last one will be removed once https://github.com/decidim/decidim/pull/13402 is used
-  Decidim::ViewModel.class_eval do
-    def cache_expiry_time
-      5.minutes
-    end
-  end
 end
