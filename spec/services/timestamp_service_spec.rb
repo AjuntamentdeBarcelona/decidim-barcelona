@@ -3,10 +3,11 @@
 require "rails_helper"
 
 describe TimestampService do
-  let(:subject) { service }
+  subject { service }
+
   let(:service) { described_class.new(params) }
   let(:document) { "This is a test" }
-  let(:params) { { document: document } }
+  let(:params) { { document: } }
   let(:endpoint) { "http://example.org" }
   let(:stubbed_response) { "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><dss:SignResponse Profile=\"urn:oasis:names:tc:dss:1.0:profiles:timestamping\" xmlns:dss=\"urn:oasis:names:tc:dss:1.0:core:schema\"><dss:Result><dss:ResultMajor>urn:oasis:names:tc:dss:1.0:resultmajor:Success</dss:ResultMajor><dss:ResultMessage xml:lang=\"en\">Signature created</dss:ResultMessage></dss:Result><dss:OptionalOutputs/><dss:SignatureObject><dss:Timestamp><dss:RFC3161TimeStampToken>Signature</dss:RFC3161TimeStampToken></dss:Timestamp></dss:SignatureObject></dss:SignResponse></soapenv:Body></soapenv:Envelope>" }
 
@@ -57,7 +58,7 @@ describe TimestampService do
       end
 
       context "with valid signature_type param" do
-        let(:params) { { document: document, signature_type: :xml } }
+        let(:params) { { document:, signature_type: :xml } }
 
         context "when document is a string" do
           it { is_expected.not_to be_blank }
@@ -65,7 +66,7 @@ describe TimestampService do
       end
 
       context "with invalid signature_type param" do
-        let(:params) { { document: document, signature_type: :unknown } }
+        let(:params) { { document:, signature_type: :unknown } }
 
         context "when document is a string" do
           it { is_expected.not_to be_blank }

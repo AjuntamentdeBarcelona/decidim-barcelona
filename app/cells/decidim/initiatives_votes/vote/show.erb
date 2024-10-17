@@ -1,3 +1,4 @@
+<% collect_user_extra_fields = model.initiative.type.collect_user_extra_fields %>
 <br>
 <div>
   <div>
@@ -6,18 +7,20 @@
   <div>
     <%= initiative_title %>
   </div>
-  <div>
-    <%= name_and_surname %>
-  </div>
-  <div>
-    <%= document_number %>
-  </div>
-  <div>
-    <%= date_of_birth %>
-  </div>
-  <div>
-    <%= postal_code %>
-  </div>
+  <% if collect_user_extra_fields %>
+    <div>
+      <%= name_and_surname %>
+    </div>
+    <div>
+      <%= document_number %>
+    </div>
+    <div>
+      <%= date_of_birth %>
+    </div>
+    <div>
+      <%= postal_code %>
+    </div>
+  <% end %>
   <div>
     <%= time_and_date %>
   </div>

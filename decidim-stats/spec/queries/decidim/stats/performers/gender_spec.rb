@@ -9,21 +9,23 @@ describe Decidim::Stats::Performers::Gender do
 
   let(:authorization_gender) { "foo" }
   let(:performer_gender) { authorization_gender }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let!(:authorization) do
     create(
       :authorization,
-      user: user,
+      user:,
       name: "census_sms_authorization_handler",
       metadata: {
-        gender: authorization_gender
+        extras: {
+          gender: authorization_gender
+        }
       }
     )
   end
 
   context "when looking for authorizations matching the gender" do
     it "finds the user" do
-      expect(subject.query).to eq([user])
+      expect(subject.query).to contain_exactly(user)
     end
   end
 
@@ -31,7 +33,7 @@ describe Decidim::Stats::Performers::Gender do
     let(:performer_gender) { "bar" }
 
     it "cannot find the user" do
-      expect(subject.query).to eq([])
+      expect(subject.query).to be_empty
     end
   end
 end

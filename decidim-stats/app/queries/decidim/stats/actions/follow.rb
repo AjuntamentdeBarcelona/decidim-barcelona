@@ -34,8 +34,8 @@ module Decidim
         def component_resource_queries
           Decidim
             .resource_manifests
-            .select { |manifest| manifest.component_manifest == component.manifest }
-            .map { |manifest| manifest.model_class.where(component: component) }
+            .select { |manifest| manifest.component_manifest == component.manifest && manifest.model_class.method_defined?(:component) }
+            .map { |manifest| manifest.model_class.where(component:) }
         end
       end
     end

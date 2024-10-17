@@ -5,11 +5,18 @@ ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require "spec_helper"
+require_relative "spec_helper"
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require "decidim/dev"
+
+require "simplecov"
+SimpleCov.start "rails"
+if ENV["CODECOV"]
+  require "codecov"
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, ".."))
 
@@ -31,6 +38,7 @@ Decidim::CapybaraTestHelpers.prepend(CapybaraTestHelpersPatch)
 require "decidim/ephemeral_participation/test"
 require "decidim/census_sms/verification/test"
 require "decidim/budgets/test/factories"
+require "decidim/proposals/test/factories"
 require "decidim/surveys/test/factories"
 require "decidim/system/test/factories"
 

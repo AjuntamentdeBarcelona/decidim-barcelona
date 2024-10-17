@@ -38,3 +38,10 @@ node_modules
 yarn-debug.log*
 .yarn-integrity
 .rbenv-vars
+
+public/sw.js*
+
+coverage/
+
+.nvmrc
+tailwind.config.js

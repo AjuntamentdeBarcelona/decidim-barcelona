@@ -7,7 +7,7 @@ module Decidim
 
       attribute :email
 
-      validates :email, presence: true, 'valid_email_2/email': { disposable: true }
+      validates :email, presence: true, "valid_email_2/email": { disposable: true }
 
       def email_taken?
         users_with_same_email.any?
@@ -20,7 +20,7 @@ module Decidim
           Decidim::EphemeralParticipation::DuplicatedUsers.new(
             organization: current_organization,
             excluding: current_user,
-            where_clause: { email: email }
+            where_clause: { email: }
           ).query
       end
     end

@@ -3,7 +3,7 @@
 module Decidim
   module CensusSms
     module Verification
-      class SendCode < Rectify::Command
+      class SendCode < Decidim::Command
         # Public: Initializes the command.
         #
         # form          - A form object with the params.
@@ -32,7 +32,7 @@ module Decidim
           metadata = @authorization.metadata
           metadata[:mobile_phone_number] = @form.mobile_phone_number_hash
 
-          @authorization.update(metadata: metadata, verification_metadata: verification_metadata)
+          @authorization.update(metadata:, verification_metadata:)
         end
 
         def verification_metadata

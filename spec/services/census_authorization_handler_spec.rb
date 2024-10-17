@@ -5,7 +5,8 @@ require "decidim/dev/test/authorization_shared_examples"
 require "decidim/initiatives/test/factories"
 
 describe CensusAuthorizationHandler do
-  let(:subject) { handler }
+  subject { handler }
+
   let(:handler) { described_class.from_params(params) }
   let(:document_number) { "12345678A" }
   let(:document_type) { :nie }
@@ -15,21 +16,21 @@ describe CensusAuthorizationHandler do
   let(:scope_code) { "1" }
   let(:gender) { "foo" }
   let(:scope) { double(id: 999, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let(:params) do
     {
-      user: user,
-      document_number: document_number,
-      document_type: document_type,
-      postal_code: postal_code,
-      scope_id: scope_id,
-      gender: gender,
-      date_of_birth: date_of_birth
+      user:,
+      document_number:,
+      document_type:,
+      postal_code:,
+      scope_id:,
+      gender:,
+      date_of_birth:
     }
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find).and_return(scope)
+    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
   end
 
   it_behaves_like "an authorization handler"
@@ -195,7 +196,7 @@ describe CensusAuthorizationHandler do
     end
 
     it "includes the user gender" do
-      expect(subject.metadata[:extras]).to include(gender: gender)
+      expect(subject.metadata[:extras]).to include(gender:)
     end
 
     it "includes the date of birth" do
@@ -206,8 +207,8 @@ describe CensusAuthorizationHandler do
   describe "initiative signature with extra params" do
     context "when check authorization with variation" do
       let(:organization) { create(:organization) }
-      let(:initiatives_type) { create(:initiatives_type, organization: organization) }
-      let(:initiative) { create(:initiative, organization: organization, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
+      let(:initiatives_type) { create(:initiatives_type, organization:) }
+      let(:initiative) { create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
       let(:current_user) { create(:user, organization: initiative.organization) }
       let(:context) { { current_organization: organization } }
       let(:personal_data) do
@@ -220,7 +221,7 @@ describe CensusAuthorizationHandler do
       end
       let(:vote_attributes) do
         {
-          initiative: initiative,
+          initiative:,
           author_id: current_user.id
         }
       end
@@ -235,12 +236,12 @@ describe CensusAuthorizationHandler do
           postal_code: form.postal_code,
           date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
           extras: {
-            gender: gender
+            gender:
           }
         }
       end
       let(:authorization) do
-        create(:authorization, created_at: Time.zone.today.prev_month, granted_at: Time.zone.today.prev_month, name: "name", user: current_user, metadata: metadata)
+        create(:authorization, created_at: Time.zone.today.prev_month, granted_at: Time.zone.today.prev_month, name: "name", user: current_user, metadata:)
       end
       let(:authorization_handler) do
         Decidim::AuthorizationHandler.handler_for(handler_name,

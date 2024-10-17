@@ -6,9 +6,10 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-amazon:
+s3:
   service: S3
-  access_key_id: <%= Rails.application.secrets.aws_access_key_id %>
-  secret_access_key: <%= Rails.application.secrets.aws_secret_access_key %>
-  region: eu-west-1
-  bucket: <%= ENV.fetch("AWS_BUCKET_NAME", "decidim-barcelona-new") %>
+  access_key_id: <%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
+  secret_access_key: <%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
+  bucket: <%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
+  <%= "region: #{Rails.application.secrets.dig(:storage, :s3, :region)}" if Rails.application.secrets.dig(:storage, :s3, :region) %>
+  <%= "endpoint: #{Rails.application.secrets.dig(:storage, :s3, :endpoint)}" if Rails.application.secrets.dig(:storage, :s3, :endpoint) %>

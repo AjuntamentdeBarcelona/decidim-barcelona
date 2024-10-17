@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Conflicts", type: :system do
+describe "Conflicts" do
   include_context "when managing a component with ephemerable participation"
 
   let!(:conflict) { Decidim::Verifications::Conflict.create(current_user: ephemeral_participant, managed_user: authorized_user) }
@@ -24,15 +24,15 @@ describe "Conflicts", type: :system do
 
     shared_examples "fails to transfer the users" do
       it "fails to transfer the users" do
-        within(".callout") do
+        within(".callout-wrapper") do
           expect(page).to have_content("There was a problem transfering the current participant to managed participant.")
         end
 
         previous_email = authorized_user.email
 
         expect(authorized_user.reload.email).to eq(previous_email)
-        expect(ephemeral_participant.reload.deleted?).to eq(false)
-        expect(conflict.reload.solved?).to eq(false)
+        expect(ephemeral_participant.reload.deleted?).to be false
+        expect(conflict.reload.solved?).to be false
       end
     end
 
@@ -46,7 +46,7 @@ describe "Conflicts", type: :system do
 
         context "when transfering the user" do
           before do
-            click_link(href: "/admin/conflicts/#{conflict.id}/edit")
+            find(:xpath, "//a[@href='/admin/conflicts/#{conflict.id}/edit']").click
           end
 
           context "and submitting a registered email" do
@@ -54,7 +54,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -65,7 +65,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -78,7 +78,7 @@ describe "Conflicts", type: :system do
 
         context "when transfering the user" do
           before do
-            click_link(href: "/admin/conflicts/#{conflict.id}/edit")
+            find(:xpath, "//a[@href='/admin/conflicts/#{conflict.id}/edit']").click
           end
 
           context "and submitting a registered email" do
@@ -86,7 +86,7 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             include_examples "fails to transfer the users"
@@ -97,17 +97,17 @@ describe "Conflicts", type: :system do
 
             before do
               fill_in("Email", with: email)
-              click_button("Transfer")
+              click_on("Transfer")
             end
 
             it "transfers the users successfuly" do
-              within(".callout") do
+              within(".callout-wrapper") do
                 expect(page).to have_content("The current transfer has been successfully completed.")
               end
 
               expect(authorized_user.reload.email).to eq(email)
-              expect(ephemeral_participant.reload.deleted?).to eq(true)
-              expect(conflict.reload.solved?).to eq(true)
+              expect(ephemeral_participant.reload.deleted?).to be true
+              expect(conflict.reload.solved?).to be true
             end
           end
         end

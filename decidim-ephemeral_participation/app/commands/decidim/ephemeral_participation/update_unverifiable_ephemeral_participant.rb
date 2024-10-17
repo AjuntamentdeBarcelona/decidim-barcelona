@@ -2,7 +2,7 @@
 
 module Decidim
   module EphemeralParticipation
-    class UpdateUnverifiableEphemeralParticipant < Rectify::Command
+    class UpdateUnverifiableEphemeralParticipant < Decidim::Command
       include ::Devise::Controllers::Helpers
 
       def initialize(request, user, form)
@@ -57,7 +57,7 @@ module Decidim
         Decidim::Admin::TransferUser.call(
           Decidim::Admin::TransferUserForm.from_params(
             current_user: @user,
-            conflict: conflict,
+            conflict:,
             reason: self.class.name,
             email: @form.email
           )

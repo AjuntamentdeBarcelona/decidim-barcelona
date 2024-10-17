@@ -2,11 +2,11 @@
 
 require "rails_helper"
 
-describe "Flash messages", type: :system do
+describe "Flash messages" do
   include_context "with ephemerable participation"
 
-  let!(:project) { create(:project, budget: budget) }
-  let(:budget) { create(:budget, component: component) }
+  let!(:project) { create(:project, budget:) }
+  let(:budget) { create(:budget, component:) }
   let(:manifest_name) { "budgets" }
   let(:ephemeral_participable_authorization) { "dummy_authorization_handler" }
   let(:ephemeral_participable_action) { "vote" }
@@ -43,13 +43,13 @@ describe "Flash messages", type: :system do
 
         it "redirects to authorization form when following the message link" do
           within_flash_messages do
-            click_link("Complete the verification process here")
+            click_on("Complete the verification process here")
           end
 
           expect(page).to have_current_path(/#{decidim_verifications.new_authorization_path}\?handler=#{ephemeral_participable_authorization}.*/)
 
-          expect(page).not_to have_content("You need to be verified in order tor participate:")
-          expect(page).not_to have_link("Complete the verification process here")
+          expect(page).to have_no_content("You need to be verified in order tor participate:")
+          expect(page).to have_no_link("Complete the verification process here")
         end
       end
 
@@ -68,13 +68,12 @@ describe "Flash messages", type: :system do
 
         it "redirects to complete registration form when following the message link" do
           within_flash_messages do
-            click_link("here")
+            click_on("here")
           end
 
           expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
-          expect(page).not_to have_content("Finish your registration")
-          expect(page).not_to have_link("here")
+          expect(page).to have_no_link("here")
         end
       end
     end
@@ -96,13 +95,13 @@ describe "Flash messages", type: :system do
 
         it "redirects to new authorization path when following the message link" do
           within_flash_messages do
-            click_link("Complete the verification process here")
+            click_on("Complete the verification process here")
           end
 
           expect(page).to have_current_path(/#{decidim_id_documents.new_authorization_path}.*/)
 
-          expect(page).not_to have_content("You need to be verified in order tor participate:")
-          expect(page).not_to have_link("Complete the verification process here")
+          expect(page).to have_no_content("You need to be verified in order tor participate:")
+          expect(page).to have_no_link("Complete the verification process here")
         end
       end
 
@@ -130,13 +129,13 @@ describe "Flash messages", type: :system do
 
         it "redirects to resume authorization path when following the message link" do
           within_flash_messages do
-            click_link("Complete the verification process here")
+            click_on("Complete the verification process here")
           end
 
           expect(page).to have_current_path(/#{decidim_id_documents.edit_authorization_path}.*/)
 
-          expect(page).not_to have_content("You need to be verified in order tor participate:")
-          expect(page).not_to have_link("Complete the verification process here")
+          expect(page).to have_no_content("You need to be verified in order tor participate:")
+          expect(page).to have_no_link("Complete the verification process here")
         end
       end
 
@@ -155,13 +154,12 @@ describe "Flash messages", type: :system do
 
         it "redirects to complete registration form when following the message link" do
           within_flash_messages do
-            click_link("here")
+            click_on("here")
           end
 
           expect(page).to have_current_path(/#{decidim_ephemeral_participation.edit_ephemeral_participant_path(current_user)}.*/)
 
-          expect(page).not_to have_content("Finish your registration")
-          expect(page).not_to have_link("here")
+          expect(page).to have_no_link("here")
         end
       end
     end

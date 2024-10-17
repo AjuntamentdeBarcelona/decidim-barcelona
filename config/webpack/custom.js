@@ -1,18 +1,11 @@
 /* eslint-disable */
-
-const path = require("path");
-const { config } = require("@rails/webpacker");
+const { config } = require("shakapacker");
+const { InjectManifest } = require("workbox-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   module: {
     rules: [
-      {
-        test: require.resolve("quill"),
-        loader: "expose-loader",
-        options: {
-          exposes: ["Quill"]
-        }
-      },
       {
         test: require.resolve("jquery"),
         loader: "expose-loader",
@@ -85,13 +78,49 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".gql", ".graphql"],
     fallback: {
+      punycode: false,
       crypto: false
     }
   },
   // https://github.com/rails/webpacker/issues/2932
   // As Decidim uses multiple packs, we need to enforce a single runtime, to prevent duplication
   optimization: {
-    runtimeChunk: false
+    minimizer: [
+      new TerserPlugin({
+        parallel: Number.parseInt(process.env.SHAKAPACKER_PARALLEL, 10) || true,
+        terserOptions: {
+          parse: {
+            // Let terser parse ecma 8 code but always output
+            // ES5 compliant code for older browsers
+            ecma: 8
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            comparisons: false
+          },
+          mangle: { safari10: true },
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true
+          }
+        }
+      })
+    ].filter(Boolean)
   },
-  entry: config.entrypoints
+  entry: config.entrypoints,
+  plugins: [
+    new InjectManifest({
+      swSrc: "src/decidim/sw/sw.js",
+
+      /**
+       * NOTE:
+       * @rails/webpacker outputs to '/packs',
+       * in order to make the SW run properly
+       * they must be put at the project's root folder '/'
+       */
+      swDest: "../sw.js"
+    })
+  ]
 }

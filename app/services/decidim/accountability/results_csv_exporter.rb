@@ -6,7 +6,7 @@ module Decidim
   module Accountability
     # This class handles exporting results to a CSV file.
     # Needs a `current_component` param with a `Decidim::Component`
-    class ResultsCSVExporter
+    class ResultsCsvExporter
       # Public: Initializes the service.
       # component       - A Decidim::component to import the results into.
       def initialize(component)
@@ -66,7 +66,7 @@ module Decidim
           result.decidim_accountability_status_id,
           result.progress,
           result.resource_links_from.select { |link| link.to_type == "Decidim::Proposals::Proposal" }.map(&:to_id).sort.join(";"),
-          result.weight * 100.0
+          (result.weight || 0) * 100.0
         ]
         available_locales.each do |locale|
           row << result.title[locale]

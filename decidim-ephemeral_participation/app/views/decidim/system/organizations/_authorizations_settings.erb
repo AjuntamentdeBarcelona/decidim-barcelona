@@ -1,10 +1,11 @@
-<div class="fieldset">
-  <table class="stack">
+<%= f.fields_for :available_authorizations do %>
+  <%= f.label :available_authorizations, "", class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
+  <table>
     <thead>
       <tr>
-        <th><%= f.label :available_authorizations %></th>
-        <th><%= f.label :enabled %></th>
-        <th><%= f.label :allows_ephemeral_participation %></th>
+        <th></th>
+        <th><%= f.label :enabled, t("activemodel.attributes.organization.enabled"), style: "font-size: 16px;" %></th>
+        <th><%= f.label :allows_ephemeral_participation, t("activemodel.attributes.organization.allows_ephemeral_participation"), style: "font-size: 16px;" %></th>
       </tr>
     </thead>
     <tbody>
@@ -13,15 +14,15 @@
         <% Decidim.authorization_workflows.each do |authorization_workflow| %>
             <tr>
               <td>
-                <%= ff.label authorization_workflow.description %>
+                <%= ff.label authorization_workflow.description, authorization_workflow.description, style: "font-size: 16px; font-weight: 400;" %>
               </td>
-              <td> 
+              <td>
                 <%= ff.check_box(
                       authorization_workflow.name, # attribute
                       {
                         label: false,
                         id: "organization_available_authorizations_#{authorization_workflow.name}_enabled",
-                        checked: f.object.available_authorizations&.key?(authorization_workflow.name)
+                        checked: (f.object.available_authorizations.presence || {}).key?(authorization_workflow.name)
                       }, # options
                       { allow_ephemeral_participation: false }.to_json, # checked_value
                       {}.to_json # unchecked_value
@@ -34,9 +35,9 @@
                       {
                         label: false,
                         id: "organization_available_authorizations_#{authorization_workflow.name}_allow_ephemeral_participation",
-                        checked: f.object.available_authorizations&.dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
+                        checked: (f.object.available_authorizations.presence || {}).dig(authorization_workflow.name, "allow_ephemeral_participation") == true,
                         disabled: !authorization_workflow.ephemerable,
-                        class: ("hide" if !authorization_workflow.ephemerable)
+                        class: ("hide" unless authorization_workflow.ephemerable)
                       } # options
                     ) %>
               </td>
@@ -45,14 +46,14 @@
       <% end %>
     </tbody>
   </table>
-</div>
+<% end %>
 
 <script>
   $(document).ready(function () {
-    var $allowEphemeralParticipationInputs = $('input[id^="organization_available_authorizations_"][id$="_allow_ephemeral_participation"]')
-    
-    $allowEphemeralParticipationInputs.on('change',function(){
-      $allowEphemeralParticipationInputs.each(function(){
+    const $allowEphemeralParticipationInputs = $('input[id^="organization_available_authorizations_"][id$="_allow_ephemeral_participation"]')
+
+    $allowEphemeralParticipationInputs.on('change', function() {
+      $allowEphemeralParticipationInputs.each(function() {
         $(this).prop('checked', false);
       });
       $(this).prop('checked', true);

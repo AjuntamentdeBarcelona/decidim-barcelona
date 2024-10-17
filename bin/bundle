@@ -19,7 +19,7 @@ m = Module.new do
   end
 
   def env_var_version
-    ENV["BUNDLER_VERSION"]
+    ENV.fetch("BUNDLER_VERSION", nil)
   end
 
   def cli_arg_version
@@ -39,7 +39,7 @@ m = Module.new do
   end
 
   def gemfile
-    gemfile = ENV["BUNDLE_GEMFILE"]
+    gemfile = ENV.fetch("BUNDLE_GEMFILE", nil)
     return gemfile if gemfile && !gemfile.empty?
 
     File.expand_path("../Gemfile", __dir__)
@@ -64,10 +64,8 @@ m = Module.new do
   end
 
   def bundler_version
-    @bundler_version ||= begin
-      env_var_version || cli_arg_version ||
-        lockfile_version || "#{Gem::Requirement.default}.a"
-    end
+    @bundler_version ||= env_var_version || cli_arg_version ||
+                         lockfile_version || "#{Gem::Requirement.default}.a"
   end
 
   def load_bundler!

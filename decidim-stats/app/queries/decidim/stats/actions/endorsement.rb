@@ -14,7 +14,7 @@ module Decidim
 
           @query ||=
             query_base
-            .where(decidim_user_group_id: nil)
+            .where(decidim_user_group_id: 0)
             .where(author: performers)
             .pluck(:decidim_author_id)
             .uniq
@@ -37,7 +37,7 @@ module Decidim
 
         def proposals
           Decidim::Proposals::Proposal
-            .where(component: component)
+            .where(component:)
         end
 
         def proposals_manifest?

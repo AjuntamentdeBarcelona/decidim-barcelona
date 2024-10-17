@@ -1,0 +1,39 @@
+name: Lint
+on: [push]
+
+env:
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 18.17.1
+
+jobs:
+  lint:
+    name: Lint code
+    runs-on: ubuntu:22.04
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RAILS_ENV: test
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm ci
+        name: Install JS deps
+      - run: bundle exec rubocop -P
+        name: Lint Ruby files
+      - run: bundle exec mdl *.md
+        name: Lint Markdown files
+      - run: bundle exec erblint {decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/}app/{cells,views}/**/*.erb
+        name: Lint ERB files
+      - run: npm run stylelint
+        name: Lint SCSS files
+      - run: npm run lint
+        name: Lint JS files

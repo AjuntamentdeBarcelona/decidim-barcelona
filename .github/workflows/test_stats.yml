@@ -1,0 +1,49 @@
+name: Test Stats
+on: [push]
+
+env:
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 18.17.1
+
+jobs:
+  test:
+    name: Test Stats
+    runs-on: ubuntu:22.04
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+      redis:
+        image: redis:3.2-alpine
+        ports: ["6379:6379"]
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RAILS_ENV: test
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - uses: nanasess/setup-chromedriver@v2
+      - run: bundle exec rake db:test:prepare
+        name: Setup database
+      - name: Precompile assets
+        run: |
+          npm install
+          bundle exec rake assets:precompile
+      - run: |
+          mkdir node_modules
+          bundle exec rspec decidim-stats
+        name: Run specs

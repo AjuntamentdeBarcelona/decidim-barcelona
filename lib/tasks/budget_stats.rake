@@ -8,7 +8,7 @@ namespace :budgets do
     component = Decidim::Component.find_by(id: args.component_id)
     abort("Please specify a component id") unless component
 
-    budgets = Decidim::Budgets::Budget.where(component: component)
+    budgets = Decidim::Budgets::Budget.where(component:)
     budgets.find_each do |budget|
       puts "BUDGET ##{budget.id} - #{budget.title.values.first}"
       orders = orders_for(budget)
@@ -35,9 +35,9 @@ namespace :budgets do
   end
 
   def orders_for(budget)
-    orders = Decidim::Budgets::Order.where(budget: budget)
+    orders = Decidim::Budgets::Order.where(budget:)
     {
-      orders: orders,
+      orders:,
       finished_orders: orders.finished,
       pending_orders: orders.pending,
       users: Decidim::User.where(id: orders.pluck(:decidim_user_id)),
@@ -57,7 +57,7 @@ namespace :budgets do
         gender = nil
         age = nil
         handlers.each do |handler|
-          metadata = Decidim::Authorization.find_by(name: handler, user: user).try(:metadata)
+          metadata = Decidim::Authorization.find_by(name: handler, user:).try(:metadata)
           next unless metadata
 
           gender = metadata.dig("extras", "gender") if gender.nil?

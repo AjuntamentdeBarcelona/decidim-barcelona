@@ -2,78 +2,76 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.26-stable-bcn" }.freeze
+DECIDIM_VERSION = "0.28.4"
 
 ruby RUBY_VERSION
 
-gem "decidim", DECIDIM_VERSION
+# gem "decidim", DECIDIM_VERSION
+gem "decidim", github: "ajuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch"
+gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-internal_evaluation", github: "AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
+gem "decidim-sortitions", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
+
 gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation"
-gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-navigation_maps", "~> 1.3.3"
-gem "decidim-sortitions", DECIDIM_VERSION
+gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
 gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
-# Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-decidim_awesome", "~> 0.8.3"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
+gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
 
-gem "virtus-multiparams"
-gem "wicked_pdf"
+gem "origami"
+gem "wicked_pdf", "< 2.8"
 gem "wkhtmltopdf-binary"
 
-gem "deface"
-gem "lograge"
-gem "origami"
 gem "progressbar"
 gem "puma"
-gem "uglifier"
-
-# Needed to be able to debug Puma status
-gem "barnes"
 
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "dotenv-rails"
-  gem "faker", "~> 2.14"
+  gem "faker"
+  gem "mdl"
   gem "rubocop-faker"
 end
 
 group :development do
+  gem "foreman"
   gem "letter_opener_web"
   gem "listen"
-  gem "rubocop", "~> 0.92.0"
-  gem "spring"
-  gem "spring-commands-rspec"
-  gem "spring-watcher-listen"
+  gem "rubocop"
   gem "web-console"
 end
 
 group :production do
-  # Used to restart puma workers every 6h and free memory
-  gem "puma_worker_killer"
-  # Let's kill long-running requests after the Heroku router has responded to.
-  # https://devcenter.heroku.com/articles/h12-request-timeout-in-ruby-mri#rack-timeout
   gem "aws-sdk-s3", require: false
+  gem "barnes" # Needed to be able to debug Puma status
   gem "dalli"
-  gem "fog-aws" # to remove once image migration is complete
+  gem "lograge"
+  gem "matrix"
+  gem "puma_worker_killer" # Used to restart puma workers every 6h and free memory
   gem "rack_password"
   gem "rack-ssl-enforcer"
-  gem "rack-timeout"
+  gem "rack-timeout" # Let's kill long-running requests after the Heroku router has responded to
   gem "rails_12factor"
   gem "rails_autoscale_agent"
+  gem "rexml"
   gem "scout_apm"
   gem "sentry-rails"
   gem "sentry-ruby"
   gem "sentry-sidekiq"
   gem "sidekiq"
+  gem "stackprof"
 end
 
 group :test do
+  gem "codecov", require: false
   gem "database_cleaner"
   gem "rspec"
 end

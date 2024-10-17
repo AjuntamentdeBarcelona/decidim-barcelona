@@ -4,25 +4,23 @@
 
 ---
 
-Citizen Participation and Open Government Application. 
+Citizen Participation and Open Government Application.
 
-[![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim-barcelona/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim-barcelona)
-[![codecov](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona/branch/master/graph/badge.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim-barcelona)
+[![[CI] Lint](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/lint.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/lint.yml)
+[![[CI] Test](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml)
+[![[CI] Test Census SMS](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml)
+[![[CI] Test Ephemeral Participation](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_ephemeral_participation.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_ephemeral_participation.yml)
+[![[CI] Test Stats](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml)
+[![[CI] Test Valid Auth](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_valid_auth.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_valid_auth.yml)
 [![Code Climate](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona/badges/gpa.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona)
-[![Dependency Status](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona.svg)](https://gemnasium.com/AjuntamentdeBarcelona/decidim-barcelona)
 
 This is the opensource code repository for "decidim-barcelona", based on [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
-
-## Upgrade notes
-
-- `app/views/layouts/decidim/widget.html.erb` modify the embed to remove organization's logo.
-- `app/stylesheets/decidim/email.css`, customizes the email template style of Decidim. Be careful in later updates to prevent changes in style.
 
 ## Development environment setup
 
 You can setup everything with Docker & Docker compose, run:
 
-```
+```bash
 docker-compose build
 docker-compose run --rm app bundle exec rake db:create db:schema:load db:seed
 docker-compose up

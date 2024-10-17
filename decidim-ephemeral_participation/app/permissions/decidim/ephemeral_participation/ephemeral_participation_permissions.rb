@@ -8,7 +8,7 @@ module Decidim
       include Decidim::EphemeralParticipation::EphemeralParticipationPathsHelper
 
       # rubocop:disable Metrics/PerceivedComplexity
-      # rubocop:disable Metrics/CyclomaticComplexity:
+      # rubocop:disable Metrics/CyclomaticComplexity
       def permissions
         return permission_action if regular_user?
         return permission_action if permission_action.disallowed?
@@ -17,9 +17,7 @@ module Decidim
           allow! if allowed_to_create_ephemeral_participant?
         elsif update_ephemeral_participant?
           allow! if allowed_to_update_ephemeral_participant?
-        elsif destroy_ephemeral_participant?
-          allow! if allowed_to_destroy_ephemeral_participant?
-        elsif update_unverifiable_ephemeral_participant?
+        elsif destroy_ephemeral_participant? || update_unverifiable_ephemeral_participant?
           allow! if allowed_to_destroy_ephemeral_participant?
         elsif verifying_ephemeral_participant?
           disallow! unless allowed_to_verify_ephemeral_participant?
@@ -30,7 +28,7 @@ module Decidim
         permission_action
       end
       # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/CyclomaticComplexity:
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
@@ -83,9 +81,9 @@ module Decidim
 
       def verifying_ephemeral_participant?
         update_profile? ||
-          [:create, :update].include?(permission_action.action) &&
+          ([:create, :update].include?(permission_action.action) &&
             permission_action.scope == :public &&
-            permission_action.subject == :authorization
+            permission_action.subject == :authorization)
       end
 
       # Decidim::Verifications::AuthorizationsController (direct verification worflows)
@@ -128,9 +126,9 @@ module Decidim
 
       def ephemeral_participation_permission_action?
         Decidim::EphemeralParticipation::EphemeralPermissionActionsDictionary.for(component)
-                                                                             .any? do |_, permission_action_attributes|
-          permission_action_attributes.any? do |action:, scope:, subject:|
-            permission_action.matches?(scope, action, subject)
+                                                                             .any? do |_, ephemeral_permission_actions|
+          ephemeral_permission_actions.any? do |ephemeral_permission_action|
+            permission_action.matches?(ephemeral_permission_action[:scope], ephemeral_permission_action[:action], ephemeral_permission_action[:subject])
           end
         end
       end

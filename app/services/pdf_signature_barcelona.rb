@@ -26,23 +26,21 @@ class PdfSignatureBarcelona
   def signed_pdf
     return pdf if missing_configuration?
 
-    @signed_pdf ||= begin
-      StringIO.open(pdf) do |stream|
-        parsed_pdf = Origami::PDF.read(stream)
-        parsed_pdf.append_page do |page|
-          page.add_annotation(signature_annotation)
-          parsed_pdf.sign(
-            certificate,
-            private_key.key,
-            method: "adbe.pkcs7.detached",
-            annotation: signature_annotation,
-            location: location,
-            contact: contact,
-            issuer: issuer
-          )
-        end
-        extract_signed_pdf(parsed_pdf)
+    @signed_pdf ||= StringIO.open(pdf) do |stream|
+      parsed_pdf = Origami::PDF.read(stream)
+      parsed_pdf.append_page do |page|
+        page.add_annotation(signature_annotation)
+        parsed_pdf.sign(
+          certificate,
+          private_key.key,
+          method: "adbe.pkcs7.detached",
+          annotation: signature_annotation,
+          location:,
+          contact:,
+          issuer:
+        )
       end
+      extract_signed_pdf(parsed_pdf)
     end
   end
 
@@ -75,7 +73,7 @@ class PdfSignatureBarcelona
       annotation.set_indirect(true)
       annotation.Matrix = [1, 0, 0, 1, 0, 0]
       annotation.BBox = [0, 0, width, height]
-      annotation.write(caption, x: size, y: (height / 2) - (size / 2), size: size)
+      annotation.write(caption, x: size, y: (height / 2) - (size / 2), size:)
     end
   end
 
@@ -87,7 +85,7 @@ class PdfSignatureBarcelona
       Origami::Annotation::Widget::Signature.new.tap do |annotation|
         annotation.set_indirect(true)
         annotation.Rect = Origami::Rectangle[llx: height, lly: width + height, urx: width + height, ury: width]
-        annotation.set_normal_appearance(text_annotation(width: width, height: height))
+        annotation.set_normal_appearance(text_annotation(width:, height:))
       end
     end
   end

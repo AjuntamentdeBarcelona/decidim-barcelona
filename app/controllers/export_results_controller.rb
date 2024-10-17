@@ -2,7 +2,7 @@
 
 class ExportResultsController < ApplicationController
   def csv
-    send_data Decidim::Accountability::ResultsCSVExporter.new(current_component).export, filename: "results.csv", disposition: "attachment"
+    send_data Decidim::Accountability::ResultsCsvExporter.new(current_component).export, filename: "results.csv", disposition: "attachment"
   end
 
   private

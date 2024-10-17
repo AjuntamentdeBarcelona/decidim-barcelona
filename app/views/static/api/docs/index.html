@@ -1,0 +1,1574 @@
+<div class="content"><!-- markdownlint-disable-file link-fragments -->
+<h2>
+<a id="about-the-graphql-api" class="anchor" href="#about-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the GraphQL API</h2>
+<p><a href="https://github.com/decidim/decidim">Decidim</a> comes with an API that follows the <a href="https://graphql.org/">GraphQL</a> specification. It has a comprehensive coverage of all the public content that can be found on the website.</p>
+<p>Currently, it is read-only (except for posting comments) but intends to cover anything that is published on the regular website.</p>
+<p>Typically (although some particular installations may change that) you will find 3 relevant folders:</p>
+<ul>
+<li>
+<code>URL/api</code> The route where to make requests. Request are usually in the POST format.</li>
+<li>
+<code>URL/api/docs</code> This documentation, every Decidim site should provide one.</li>
+<li>
+<code>URL/api/graphiql</code> <a href="https://github.com/graphql/graphiql">GraphiQL</a> is a in-browser IDE for exploring GraphQL APIs. Some Decidim installations may choose to remove access to this tool. In that case you can use a <a href="https://electronjs.org/apps/graphiql">standalone version</a> and use any <code>URL/api</code> as the endpoint</li>
+</ul>
+<h3>
+<a id="using-the-graphql-api" class="anchor" href="#using-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the GraphQL APi</h3>
+<p>The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official <a href="https://graphql.org/learn/">GraphQL site</a>.</p>
+<p>Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.</p>
+<p>For instance, you can check the version of a Decidim installation by using <code>curl</code> in the terminal:</p>
+<pre lang="bash"><code>curl -sSH "Content-Type: application/json" \
+-d '{"query": "{ decidim { version } }"}' \
+https://www.decidim.barcelona/api/
+</code></pre>
+<p>Note that <code>Content-Type</code> needs to be specified.</p>
+<p>The query can also be used in GraphiQL, in that case you can skip the <code>"query"</code> text:</p>
+<pre lang="graphql"><code>{
+  decidim {
+    version
+  }
+}
+</code></pre>
+<p>Response (formatted) should look something like this:</p>
+<pre lang="json"><code>{
+  "data": {
+    "decidim": {
+      "version": "0.18.1"
+    }
+  }
+}
+</code></pre>
+<p>The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.</p>
+<p>From now on, we will skip the "query" keyword for the purpose of readability. You can skip it too if you are using GraphiQL, if you are querying directly (by using CURL for instance) you will need to include it.</p>
+<h3>
+<a id="usage-limits" class="anchor" href="#usage-limits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage limits</h3>
+<p>Decidim is just a Rails application, meaning that any particular installation may implement custom limits in order to access the API (and the application in general).</p>
+<p>By default (particular installations may change that), API uses the same limitations as the whole Decidim website, provided by the Gem <a href="https://github.com/kickstarter/rack-attack">Rack::Attack</a>. These are 100 maximum requests per minute per IP to prevent DoS attacks</p>
+<h3>
+<a id="decidim-structure-types-collections-and-polymorphism" class="anchor" href="#decidim-structure-types-collections-and-polymorphism" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decidim structure, Types, collections and Polymorphism</h3>
+<p>There are no endpoints in the GraphQL specification, instead objects are organized according to their "Type".</p>
+<p>These objects can be grouped in a single, complex query. Also, objects may accept parameters, which are "Types" as well.</p>
+<p>Each "Type" is just a pre-defined structure with fields, or just an Scalar (Strings, Integers, Booleans, ...).</p>
+<p>For instance, to obtain <em>all the participatory processes in a Decidim installation published since January 2018</em> and order them by published date, we could execute the next query:</p>
+<pre lang="graphql"><code>{
+  participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
+    slug
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+</code></pre>
+<p>Response should look like:</p>
+<pre lang="json"><code>{
+  "data": {
+    "participatoryProcesses": [
+      {
+        "slug": "consectetur-at",
+        "title": {
+          "translation": "Soluta consectetur quos fugit aut."
+        }
+      },
+      {
+        "slug": "nostrum-earum",
+        "title": {
+          "translation": "Porro hic ipsam cupiditate reiciendis."
+        }
+      }
+    ]
+  }
+}
+</code></pre>
+<h4>
+<a id="what-happened" class="anchor" href="#what-happened" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What happened?</h4>
+<p>In the former query, each keyword represents a type, the words <code>publishedSince</code>, <code>publishedAt</code>, <code>slug</code>, <code>locale</code> are scalars, all of them Strings.</p>
+<p>The other keywords however, are objects representing certain entities:</p>
+<ul>
+<li>
+<code>participatoryProcesses</code> is a type that represents a collection of participatory spaces. It accepts arguments (<code>filter</code> and <code>order</code>), which are other object types as well. <code>slug</code> and <code>title</code> are the fields of the participatory process we are interested in, there are "Types" too.</li>
+<li>
+<code>filter</code> is a <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>* input type, it has several properties that allows us to refine our search. One of them is the <code>publishedSince</code> property with the initial date from which to list entries.</li>
+<li>
+<code>order</code> is a <a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a> type, works the same way as the filter but with the goal of ordering the results.</li>
+<li>
+<code>title</code> is a <a href="#TranslatedField">TranslatedField</a> type, which allows us to deal with multi-language fields.</li>
+</ul>
+<p>Finally, note that the returned object is an array, each item of which is a representation of the object we requested.</p>
+<blockquote>
+<p>*<strong>About how filters and sorting are organized</strong></p>
+<p>There are two types of objects to filter and ordering collections in Decidim, they all work in a similar fashion. The type involved in filtering always have the suffix "Filter", for ordering it has the suffix "Sort".</p>
+<p>The types used to filter participatory spaces are: <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>, <a href="#AssemblyFilter">AssemblyFilter</a>, and so on.</p>
+<p>Other collections (or connections) may have their own filters (i.e. <a href="#ComponentFilter">ComponentFilter</a>).</p>
+<p>Each filter has its own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:</p>
+<p>We can say we have some searchable object with a multi-language field called <em>title</em>, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?</p>
+<p>In our case, we have decided to search only one particular language of a multi-language field but we let you choose which language to search.
+If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is <code>locale</code>, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).</p>
+<p>Example (this is not a real Decidim query):</p>
+<pre lang="graphql"><code> some_collection(filter: { locale: "en", title: "ideas"}) {
+   id
+ }
+</code></pre>
+<p>The same applies to sorting (<a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a>, <a href="#AssemblySort">AssemblySort</a>, etc.)</p>
+<p>In this case, the content of the field (<em>title</em>) only allows 2 values: <em>ASC</em> and <em>DESC</em>.</p>
+<p>Example of ordering alphabetically by the title content in French language:</p>
+<pre lang="graphql"><code>some_collection(order: { locale: "en", title: "asc"}) {
+  id
+}
+</code></pre>
+<p>Of course, you can combine both filter and order. Also remember to check availability of this type of behaviour for any particular filter/sort.</p>
+</blockquote>
+<h4>
+<a id="decidim-main-types" class="anchor" href="#decidim-main-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decidim main types</h4>
+<p>Decidim has 2 main types of objects through which content is provided. These are Participatory Spaces and Components.</p>
+<p>A participatory space is the first level, currently there are 5 officially supported: <em>Participatory Processes</em>, <em>Assemblies</em>, <em>Conferences</em> and <em>Initiatives</em>. For each participatory process there will correspond a collection type and a "single item" type.</p>
+<p>The previous example uses the collection type for participatory processes. You can try <code>assemblies</code>, <code>conferences</code>, or <code>initiatives</code> for the others. Note that each collection can implement their own filter and order types with different properties.</p>
+<p>As an example for a single item query, you can run:</p>
+<pre lang="graphql"><code>{
+  participatoryProcess(slug: "consectetur-at") {
+    slug
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+</code></pre>
+<p>And the response will be:</p>
+<pre lang="json"><code>{
+  "data": {
+    "participatoryProcess": {
+      "slug": "consectetur-at",
+      "title": {
+        "translation": "Soluta consectetur quos fugit aut."
+      }
+    }
+  }
+}
+</code></pre>
+<h4>
+<a id="what-is-different" class="anchor" href="#what-is-different" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is different?</h4>
+<p>First, note that we are querying, in singular, the type <code>participatoryProcess</code>, with a different parameter, <code>slug</code>*, (a String). We can use the <code>id</code> instead if we know it.</p>
+<p>Second, the response is not an Array, it is just the object we requested. We can expect to return <code>null</code> if the object is not found.</p>
+<blockquote>
+<p>* The <code>slug</code> is a convenient way to find a participatory space as is (usually) in the URL.</p>
+<p>For instance, consider this real case from Barcelona:</p>
+<p><a href="https://www.decidim.barcelona/processes/patrimonigracia">https://www.decidim.barcelona/processes/patrimonigracia</a></p>
+<p>The word <code>patrimonigracia</code> indicates the "slug".</p>
+</blockquote>
+<h4>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h4>
+<p>Every participatory space may (and should) have some components. There are 9 official components, these are <code>Proposals</code>, <code>Page</code>, <code>Meetings</code>, <code>Budgets</code>, <code>Surveys</code>, <code>Accountability</code>, <code>Debates</code>, <code>Sortitions</code> and <code>Blog</code>. Plugins may add their own components.</p>
+<p>If you know the <code>id</code>* of a specific component you can obtain it by querying it directly:</p>
+<pre lang="graphql"><code>{
+  component(id:2) {
+    id
+    name {
+      translation(locale:"en")
+    }
+    __typename
+    participatorySpace {
+      id
+      type
+    }
+  }
+}
+</code></pre>
+<p>Response:</p>
+<pre lang="json"><code>{
+  "data": {
+    "component": {
+      "id": "2",
+      "name": {
+        "translation": "Meetings"
+      },
+      "__typename": "Meetings",
+      "participatorySpace": {
+        "id": "1",
+        "type": "Decidim::ParticipatoryProcess"
+      }
+    }
+  }
+}
+</code></pre>
+<p>The process is analogue as what has been explained in the case of searching for one specific participatory process.</p>
+<blockquote>
+<p>*Note that the <code>id</code> of a component is present also in the URL after the letter "f":</p>
+<p><a href="https://www.decidim.barcelona/processes/patrimonigracia/f/3257/">https://www.decidim.barcelona/processes/patrimonigracia/f/3257/</a></p>
+<p>In this case, 3257.</p>
+</blockquote>
+<h5>
+<a id="what-about-components-collections" class="anchor" href="#what-about-components-collections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about component's collections?</h5>
+<p>Glad you asked, component's collections cannot be retrieved directly, the are available <em>in the context</em> of a participatory space.</p>
+<p>For instance, we can query all the components in an particular Assembly as follows:</p>
+<pre lang="graphql"><code>{
+  assembly(id: 3) {
+    components {
+      id
+      name {
+        translation(locale: "en")
+      }
+      __typename
+    }
+  }
+}
+</code></pre>
+<p>The response will be similar to:</p>
+<pre lang="json"><code>{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "42",
+          "name": {
+            "translation": "Accountability"
+          },
+          "__typename": "Component"
+        },
+        {
+          "id": "38",
+          "name": {
+            "translation": "Meetings"
+          },
+          "__typename": "Meetings"
+        },
+        {
+          "id": "37",
+          "name": {
+            "translation": "Page"
+          },
+          "__typename": "Pages"
+        },
+        {
+          "id": "39",
+          "name": {
+            "translation": "Proposals"
+          },
+          "__typename": "Proposals"
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p>We can also apply some filters by using the <a href="#ComponentFilter">ComponentFilter</a> type. In the next query we would like to <em>find all the components with geolocation enabled in the assembly with id=2</em>:</p>
+<pre lang="graphql"><code>{
+  assembly(id: 2) {
+    components(filter: {withGeolocationEnabled: true}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      __typename
+    }
+  }
+}
+</code></pre>
+<p>The response:</p>
+<pre lang="json"><code>{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "39",
+          "name": {
+            "translation": "Meetings"
+          },
+          "__typename": "Meetings"
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p>Note that, in this case, there is only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.</p>
+<h3>
+<a id="polymorphism-and-connections" class="anchor" href="#polymorphism-and-connections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Polymorphism and connections</h3>
+<p>Many relationships between tables in Decidim are polymorphic, this means that the related object can belong to different classes and share just a few properties in common.</p>
+<p>For instance, components in a participatory space are polymorphic, while the concept of component is generic and all of them share properties like <em>published date</em>, <em>name</em> or <em>weight</em>, they differ in the rest. <em>Proposals</em> have the <em>status</em> field while <em>Meetings</em> have an <em>agenda</em>.</p>
+<p>Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.</p>
+<p>In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator <code>... on</code>. You will know when a field is polymorphic because the property <code>__typename</code>, which tells you the type of that particular object, will change accordingly.</p>
+<p>In the previous examples we have queried for this property:</p>
+<p>Response fragment:</p>
+<pre lang="json"><code>      "components": [
+        {
+          "id": "38",
+          "name": {
+            "translation": "Meetings"
+          },
+          "__typename": "Meetings"
+        }
+</code></pre>
+<p>So, if we want to access the rest of the properties in a polymorphic object, we should do it through the <code>... on</code> operator as follows:</p>
+<pre lang="graphql"><code>{
+  assembly(id: 2) {
+    components {
+      id
+      ... on Proposals {
+
+      }
+    }
+  }
+}
+</code></pre>
+<p>Consider this query:</p>
+<pre lang="graphql"><code>{
+  assembly(id: 3) {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      ... on Proposals {
+        proposals(order: {endorsementCount: "desc"}, first: 2) {
+          edges {
+            node {
+              id
+              endorsements {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>The response:</p>
+<pre lang="json"><code>{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "39",
+          "name": {
+            "translation": "Proposals"
+          },
+          "proposals": {
+            "edges": [
+              {
+                "node": {
+                  "id": "35",
+                  "endorsements": [
+                    {
+                      "name": "Ms. Johnathon Schaefer"
+                    },
+                    {
+                      "name": "Linwood Lakin PhD 3 4 endr1"
+                    },
+                    {
+                      "name": "Gracie Emmerich"
+                    },
+                    {
+                      "name": "Randall Rath 3 4 endr3"
+                    },
+                    {
+                      "name": "Jolene Schmitt MD"
+                    },
+                    {
+                      "name": "Clarence Hammes IV 3 4 endr5"
+                    },
+                    {
+                      "name": "Omar Mayer"
+                    },
+                    {
+                      "name": "Raymundo Jaskolski 3 4 endr7"
+                    }
+                  ]
+                }
+              },
+              {
+                "node": {
+                  "id": "33",
+                  "endorsements": [
+                    {
+                      "name": "Spring Brakus"
+                    },
+                    {
+                      "name": "Reiko Simonis IV 3 2 endr1"
+                    },
+                    {
+                      "name": "Dr. Jim Denesik"
+                    },
+                    {
+                      "name": "Dr. Mack Schoen 3 2 endr3"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<h4>
+<a id="what-is-going-on" class="anchor" href="#what-is-going-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is going on?</h4>
+<p>Until the <code>... on Proposals</code> line, there is nothing new. We are requesting the <em>Assembly</em> participatory space identified by the <code>id=3</code>, then listing all its components with the type "Proposals". All the components share the <em>id</em> and <em>name</em> properties, so we can just add them at the query.</p>
+<p>After that, we want content specific from the <em>Proposals</em> type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches <em>Proposals</em>. We do that by wrapping the rest of the query in the <code>... on Proposals</code> clause.</p>
+<p>The next line is just a property of the type <em>Proposals</em> which is a type of collection called a "connection". A connection works similar as normal collection (such as <em>components</em>) but it can handle more complex cases.</p>
+<p>Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list <em>edges</em> in several <em>node</em> results. Also there are more arguments available in order to navigate between pages. This are the arguments:</p>
+<ul>
+<li>
+<code>first</code>: Returns the first <em>n</em> elements from the list</li>
+<li>
+<code>after</code>: Returns the elements in the list that come after the specified <em>cursor</em>
+</li>
+<li>
+<code>last</code>: Returns the last <em>n</em> elements from the list</li>
+<li>
+<code>before</code>: Returns the elements in the list that come before the specified <em>cursor</em>
+</li>
+</ul>
+<p>Example:</p>
+<pre lang="graphql"><code>{
+  assembly(id: 3) {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      ... on Proposals {
+        proposals(first:2,after:"Mg") {
+          pageInfo {
+            endCursor
+            startCursor
+            hasPreviousPage
+            hasNextPage
+          }
+          edges {
+            node {
+              id
+              endorsements {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>Being the response:</p>
+<pre lang="json"><code>{
+  "data": {
+    "assembly": {
+      "components": [
+        {
+          "id": "39",
+          "name": {
+            "translation": "Proposals"
+          },
+          "proposals": {
+            "pageInfo": {
+              "endCursor": "NA",
+              "startCursor": "Mw",
+              "hasPreviousPage": false,
+              "hasNextPage": true
+            },
+            "edges": [
+              {
+                "node": {
+                  "id": "32",
+                  "endorsements": []
+                }
+              },
+              {
+                "node": {
+                  "id": "31",
+                  "endorsements": [
+                    {
+                      "name": "Mr. Nicolas Raynor"
+                    },
+                    {
+                      "name": "Gerry Fritsch PhD 3 1 endr1"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p>As you can see, a part from the <em>edges</em> list, you can access to the object <em>pageInfo</em> which gives you the information needed to navigate through the different pages.</p>
+<p>For more info on how connections work, you can check the official guide:</p>
+<p><a href="https://graphql.org/learn/pagination/">https://graphql.org/learn/pagination/</a></p></div>
+<div id="sidebar"><ul class="categories">
+  <li>
+    <ul class="menu-root">
+      <li>
+        <a href="/api/docs">GraphQL Reference</a>
+    </ul>
+  </li>
+
+  <li>
+    <p>Queries</p>
+    <ul class="menu-root">
+      <li>
+        <a href="/api/docs/operation/query/" class="sidebar-link">
+          Query
+        </a>
+      </li>
+      <li>
+        <a href="/api/docs/operation/mutation/" class="sidebar-link">
+          Mutation
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/object">Objects</a></p>
+    <ul class="menu-root">
+      
+        
+      <li>
+        <a href="/api/docs/object/accountability/" class="sidebar-link">
+          Accountability
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/amendment/" class="sidebar-link">
+          Amendment
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/answeroption/" class="sidebar-link">
+          AnswerOption
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/area/" class="sidebar-link">
+          Area
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/areatype/" class="sidebar-link">
+          AreaType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/assembliestype/" class="sidebar-link">
+          AssembliesType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/assembly/" class="sidebar-link">
+          Assembly
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
+          AssemblyMember
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/attachment/" class="sidebar-link">
+          Attachment
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/blogs/" class="sidebar-link">
+          Blogs
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budget/" class="sidebar-link">
+          Budget
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budgetconnection/" class="sidebar-link">
+          BudgetConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budgetedge/" class="sidebar-link">
+          BudgetEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budgets/" class="sidebar-link">
+          Budgets
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/category/" class="sidebar-link">
+          Category
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/comment/" class="sidebar-link">
+          Comment
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/commentmutation/" class="sidebar-link">
+          CommentMutation
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/commentable/" class="sidebar-link">
+          Commentable
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
+          CommentableMutation
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/component/" class="sidebar-link">
+          Component
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/coordinates/" class="sidebar-link">
+          Coordinates
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/debate/" class="sidebar-link">
+          Debate
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/debateconnection/" class="sidebar-link">
+          DebateConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/debateedge/" class="sidebar-link">
+          DebateEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/debates/" class="sidebar-link">
+          Debates
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/decidim/" class="sidebar-link">
+          Decidim
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/fingerprint/" class="sidebar-link">
+          Fingerprint
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/hashtagtype/" class="sidebar-link">
+          HashtagType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/initiative/" class="sidebar-link">
+          Initiative
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/initiativecommitteemembertype/" class="sidebar-link">
+          InitiativeCommitteeMemberType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/initiativetype/" class="sidebar-link">
+          InitiativeType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/localizedcustomfields/" class="sidebar-link">
+          LocalizedCustomFields
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/localizedstring/" class="sidebar-link">
+          LocalizedString
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meeting/" class="sidebar-link">
+          Meeting
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetingagenda/" class="sidebar-link">
+          MeetingAgenda
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetingagendaitem/" class="sidebar-link">
+          MeetingAgendaItem
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetingconnection/" class="sidebar-link">
+          MeetingConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetingedge/" class="sidebar-link">
+          MeetingEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetingservice/" class="sidebar-link">
+          MeetingService
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/meetings/" class="sidebar-link">
+          Meetings
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/metric/" class="sidebar-link">
+          Metric
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/metrichistory/" class="sidebar-link">
+          MetricHistory
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/organization/" class="sidebar-link">
+          Organization
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/page/" class="sidebar-link">
+          Page
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/pageconnection/" class="sidebar-link">
+          PageConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/pageedge/" class="sidebar-link">
+          PageEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/pageinfo/" class="sidebar-link">
+          PageInfo
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/pages/" class="sidebar-link">
+          Pages
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryprocess/" class="sidebar-link">
+          ParticipatoryProcess
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryprocessgroup/" class="sidebar-link">
+          ParticipatoryProcessGroup
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryprocessstep/" class="sidebar-link">
+          ParticipatoryProcessStep
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryprocesstype/" class="sidebar-link">
+          ParticipatoryProcessType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryspace/" class="sidebar-link">
+          ParticipatorySpace
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryspacelink/" class="sidebar-link">
+          ParticipatorySpaceLink
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/post/" class="sidebar-link">
+          Post
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/postconnection/" class="sidebar-link">
+          PostConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/postedge/" class="sidebar-link">
+          PostEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/project/" class="sidebar-link">
+          Project
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposal/" class="sidebar-link">
+          Proposal
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposalconnection/" class="sidebar-link">
+          ProposalConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposaledge/" class="sidebar-link">
+          ProposalEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposals/" class="sidebar-link">
+          Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/question/" class="sidebar-link">
+          Question
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/questionnaire/" class="sidebar-link">
+          Questionnaire
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/result/" class="sidebar-link">
+          Result
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/resultconnection/" class="sidebar-link">
+          ResultConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/resultedge/" class="sidebar-link">
+          ResultEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/scope/" class="sidebar-link">
+          Scope
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/session/" class="sidebar-link">
+          Session
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/sortition/" class="sidebar-link">
+          Sortition
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/sortitionconnection/" class="sidebar-link">
+          SortitionConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/sortitionedge/" class="sidebar-link">
+          SortitionEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/sortitions/" class="sidebar-link">
+          Sortitions
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/statistic/" class="sidebar-link">
+          Statistic
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/status/" class="sidebar-link">
+          Status
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/survey/" class="sidebar-link">
+          Survey
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/surveyconnection/" class="sidebar-link">
+          SurveyConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/surveyedge/" class="sidebar-link">
+          SurveyEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/surveys/" class="sidebar-link">
+          Surveys
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/timelineentry/" class="sidebar-link">
+          TimelineEntry
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/traceversion/" class="sidebar-link">
+          TraceVersion
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/translatedcustomfields/" class="sidebar-link">
+          TranslatedCustomFields
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/translatedfield/" class="sidebar-link">
+          TranslatedField
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/user/" class="sidebar-link">
+          User
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/usergroup/" class="sidebar-link">
+          UserGroup
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__directive/" class="sidebar-link">
+          __Directive
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__enumvalue/" class="sidebar-link">
+          __EnumValue
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__field/" class="sidebar-link">
+          __Field
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__inputvalue/" class="sidebar-link">
+          __InputValue
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__schema/" class="sidebar-link">
+          __Schema
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/__type/" class="sidebar-link">
+          __Type
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/interface">Interfaces</a></p>
+    <ul class="menu-root">
+      
+        
+        <li>
+          <a href="/api/docs/interface/amendableentityinterface/" class="sidebar-link">
+            AmendableEntityInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/amendableinterface/" class="sidebar-link">
+            AmendableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/attachableinterface/" class="sidebar-link">
+            AttachableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/author/" class="sidebar-link">
+            Author
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/authorableinterface/" class="sidebar-link">
+            AuthorableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/categoriescontainerinterface/" class="sidebar-link">
+            CategoriesContainerInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
+            CategorizableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/coauthorableinterface/" class="sidebar-link">
+            CoauthorableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/commentableinterface/" class="sidebar-link">
+            CommentableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/componentinterface/" class="sidebar-link">
+            ComponentInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/endorsableinterface/" class="sidebar-link">
+            EndorsableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/fingerprintinterface/" class="sidebar-link">
+            FingerprintInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/initiativetypeinterface/" class="sidebar-link">
+            InitiativeTypeInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/meetingslinkedresourcesinterface/" class="sidebar-link">
+            MeetingsLinkedResourcesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/participatoryspaceinterface/" class="sidebar-link">
+            ParticipatorySpaceInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/participatoryspaceresourceableinterface/" class="sidebar-link">
+            ParticipatorySpaceResourceableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/questionnaireentityinterface/" class="sidebar-link">
+            QuestionnaireEntityInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/scopableinterface/" class="sidebar-link">
+            ScopableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
+            ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/timestampsinterface/" class="sidebar-link">
+            TimestampsInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/traceableinterface/" class="sidebar-link">
+            TraceableInterface
+          </a>
+        </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/enum">Enums</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/enum/__directivelocation/" class="sidebar-link">
+          __DirectiveLocation
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/enum/__typekind/" class="sidebar-link">
+          __TypeKind
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/union">Unions</a></p>
+    <ul class="menu-root">
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/input_object">Input Objects</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/categoryfilter/" class="sidebar-link">
+          CategoryFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/componentfilter/" class="sidebar-link">
+          ComponentFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
+          ComponentSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/participatoryprocessfilter/" class="sidebar-link">
+          ParticipatoryProcessFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/participatoryprocesssort/" class="sidebar-link">
+          ParticipatoryProcessSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/postfilter/" class="sidebar-link">
+          PostFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/postsort/" class="sidebar-link">
+          PostSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/proposalfilter/" class="sidebar-link">
+          ProposalFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/proposalsort/" class="sidebar-link">
+          ProposalSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/userentityfilter/" class="sidebar-link">
+          UserEntityFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/userentitysort/" class="sidebar-link">
+          UserEntitySort
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/scalar">Scalars</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/scalar/boolean/" class="sidebar-link">
+          Boolean
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/date/" class="sidebar-link">
+          Date
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/datetime/" class="sidebar-link">
+          DateTime
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/float/" class="sidebar-link">
+          Float
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/id/" class="sidebar-link">
+          ID
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/int/" class="sidebar-link">
+          Int
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/json/" class="sidebar-link">
+          JSON
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/string/" class="sidebar-link">
+          String
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/directive">Directives</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/directive/deprecated/" class="sidebar-link">
+          deprecated
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/include/" class="sidebar-link">
+          include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/skip/" class="sidebar-link">
+          skip
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+</div>
+
+<!-- mobile only -->
+<div id="mobile-header">
+  <a class="menu-button" onclick="document.body.classList.toggle('sidebar-open')">☰</a>
+</div>

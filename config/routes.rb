@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     debates: [:debates, Decidim::Debates::Debate]
   }
 
-  # rubocop:disable Rails/FindBy
   # rubocop:disable Layout/LineLength
   constraints host: /(www\.)?decidim\.barcelona/ do
     get "/:process_slug/:step_id/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
@@ -33,19 +32,16 @@ Rails.application.routes.draw do
                  end
       component = resource.component
       process = component.participatory_space
-      component_manifest_name = component.manifest_name
-      "/processes/#{process.id}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
+      component_manifest_name = component.manifest_name == "accountability" ? "results" : component.manifest_name
+      "/processes/#{process.slug}/f/#{component.id}/#{component_manifest_name}/#{resource.id}"
     }, constraints: { component_name: Regexp.new(component_translations.keys.join("|")), resource_id: %r{(?!meetings)[^/]*} }
   end
-  # rubocop:enable Rails/FindBy
   # rubocop:enable Layout/LineLength
 
-  authenticate :user, ->(u) { u.admin? } do
-    mount Sidekiq::Web => "/sidekiq"
-  end
-
   get "/accountability", to: "static#accountability", as: :accountability_static
-  get "/accountability/sections", to: "static#accountability_sections", as: :accountability_sections
+  get "/accountability/sections/:section", to: "static#accountability_sections", as: :accountability_sections
+
+  get "/pages/faq", to: redirect("/pages/decidim")
 
   scope "/processes/:participatory_process_slug/f/:component_id" do
     get :export_results, to: "export_results#csv"
@@ -54,11 +50,12 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
-  get "/pages/faq", to: redirect("/pages/more-information")
-
   mount Decidim::Core::Engine => "/"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-
   mount Decidim::EphemeralParticipation::Engine, at: "/", as: "decidim_ephemeral_participation"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

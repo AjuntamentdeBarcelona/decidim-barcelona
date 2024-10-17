@@ -20,11 +20,6 @@
         "corejs": false
       }
     ],
-    [
-      "@babel/plugin-transform-regenerator",
-      {
-        "async": false
-      }
-    ]
+    ["@babel/plugin-transform-regenerator", { "async": false }]
   ]
 }

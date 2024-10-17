@@ -1,35 +1,43 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<% provide :title do %>
+  <h1 class="h1"><%= t ".title" %></h1>
+<% end %>
+
 <%= decidim_form_for(@form) do |f| %>
-  <div class="field">
+  <div class="form__wrapper">
     <%= f.text_field :name, autofocus: true %>
-  </div>
 
-  <div class="field">
     <%= f.text_field :host %>
+
+    <%= f.text_area :secondary_hosts, help_text: t(".secondary_hosts_hint") %>
+
+    <%= field_set_tag f.label(:force_authentication, nil, for: nil) do %>
+      <%= f.check_box :force_users_to_authenticate_before_access_organization, label_options: { class: "form__wrapper-checkbox-label" } %>
+    <% end %>
+
+    <%= field_set_tag f.label(:users_registration_mode, nil, for: nil) do %>
+      <%= f.collection_radio_buttons :users_registration_mode,
+                                     Decidim::Organization.users_registration_modes,
+                                     :first,
+                                     ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
+        builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
+      end %>
+    <% end %>
+
+    <%= render partial: "authorizations_settings", locals: { f: } %>
+
+    <%= render partial: "advanced_settings", locals: { f: } %>
   </div>
 
-  <div class="field">
-    <%= f.text_area :secondary_hosts %>
-    <p class="help-text"><%= I18n.t("decidim.system.organizations.edit.secondary_hosts_hint") %></p>
-  </div>
-
-  <div class="field">
-    <%= f.label :force_authentication %>
-    <%= f.check_box :force_users_to_authenticate_before_access_organization %>
-  </div>
-
-  <div class="field">
-    <%= f.label :users_registration_mode %>
-    <%= f.collection_radio_buttons :users_registration_mode,
-                                   Decidim::Organization.users_registration_modes,
-                                   :first,
-                                   ->(mode) { I18n.t("decidim.system.organizations.users_registration_mode.#{mode.first}") } %>
-  </div>
-
-  <%= render partial: "authorizations_settings", locals: { f: f } %>
-
-  <%= render partial: "advanced_settings", locals: { f: f } %>
-
-  <div class="actions">
-    <%= f.submit I18n.t("decidim.system.actions.save") %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <% if @organization&.users&.first&.invitation_pending? %>
+      <%= link_to t(".resend_invitation"),
+                  resend_invitation_organization_path(@organization),
+                  method: :post,
+                  class: "button button__sm md:button__lg button__transparent-secondary",
+                  data: { confirm: t(".confirm_resend_invitation") } %>
+    <% end %>
+    <%= f.submit t("decidim.system.actions.save"), class: "button button__sm md:button__lg button__primary" %>
   </div>
 <% end %>

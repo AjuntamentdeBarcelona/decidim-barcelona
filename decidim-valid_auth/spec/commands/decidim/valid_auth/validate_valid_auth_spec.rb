@@ -10,12 +10,12 @@ describe Decidim::ValidAuth::ValidateValidAuth do
     )
   end
 
-  let(:handler) { Decidim::ValidAuth::ValidAuthForm.new(token: token, user: user) }
+  let(:handler) { Decidim::ValidAuth::ValidAuthForm.new(token:, user:) }
   let(:token) { generate(:valid_jwt) }
   let(:user) { create(:user, :confirmed) }
 
   let(:authorization) do
-    build(:authorization, :pending, user: user, name: handler.handler_name)
+    build(:authorization, :pending, user:, name: handler.handler_name)
   end
 
   context "when everything is OK" do
@@ -29,7 +29,7 @@ describe Decidim::ValidAuth::ValidateValidAuth do
 
     it "grants the authorization" do
       subject.call
-      authorization = Decidim::Authorization.find_by(user: user, name: handler.handler_name)
+      authorization = Decidim::Authorization.find_by(user:, name: handler.handler_name)
 
       expect(authorization).to be_granted
     end
