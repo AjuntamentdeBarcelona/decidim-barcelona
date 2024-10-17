@@ -154,6 +154,44 @@ ca:
             postal_code: Codi postal
             time_and_date: Data i hora
             timestamp: Segell
+      filters:
+        proposals:
+          evaluated_by_user:
+            label: Avaluació
+            values:
+              "false": No avaluat
+              "true": Avaluat
+    internal_evaluation:
+      admin:
+        internal_evaluations:
+          create:
+            error: "Hi ha hagut un problema en crear l'avaluació interna: %{message}"
+            success: Avaluació interna creada correctament.
+          form:
+            save: Desar
+            status: Estat
+            title: Avaluació per a %{title}
+          index:
+            actions: Accions
+            counter: "%{count} de %{total} avaluacions"
+            edit_evaluation: Edita l'avaluació
+            evaluation: Avaluació
+            status: Estat
+            title: Avaluacions internes
+            updated: Actualitzat
+          update:
+            error: "Hi ha hagut un problema en actualitzar l'avaluació interna: %{message}"
+            success: Avaluació interna actualitzada correctament.
+          valuation_assignments_evaluations:
+            edit_evaluation: Edita l'avaluació
+    proposals:
+      admin:
+        exports:
+          internal_evaluations: Avaluacions internes
+      models:
+        proposal:
+          fields:
+            valuators: Estat de l'avaluació
     authorization_handlers:
       census16_authorization_handler:
         explanation: Verifica't amb el padró
