@@ -2,14 +2,12 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.28.4"
+DECIDIM_VERSION = { github: "AjuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch" }.freeze
 
 ruby RUBY_VERSION
 
-# gem "decidim", DECIDIM_VERSION
-gem "decidim", github: "ajuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch"
+gem "decidim", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-internal_evaluation", github: "AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
@@ -20,6 +18,7 @@ gem "decidim-stats", path: "decidim-stats"
 gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
 gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
