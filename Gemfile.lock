@@ -1,28 +1,7 @@
 GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
-  revision: cf5eb7f00f957881ade8360a69655e92d95ceff0
-  branch: release/0.28-stable
-  specs:
-    decidim-internal_evaluation (0.0.1)
-      decidim-core (~> 0.28.0)
-      decidim-proposals (~> 0.28.0)
-      decidim-templates (~> 0.28.0)
-      deface (~> 1.9)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: df16cf4de13c306348761d850d19815c8221874e
-  specs:
-    decidim-kids (0.2.0)
-      decidim-core (>= 0.28, < 0.29)
-      decidim-system (>= 0.28, < 0.29)
-      decidim-verifications (>= 0.28, < 0.29)
-      deface (>= 1.5)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim.git
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
   revision: 9c78c1c36bb6c44a855c02acd6f58c70345853c4
-  branch: bcn/0.28-branch
+  branch: release/0.28-stable-bcn
   specs:
     decidim (0.28.4)
       decidim-accountability (= 0.28.4)
@@ -201,6 +180,27 @@ GIT
       decidim-proposals (= 0.28.4)
     decidim-verifications (0.28.4)
       decidim-core (= 0.28.4)
+
+GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
+  revision: cf5eb7f00f957881ade8360a69655e92d95ceff0
+  branch: release/0.28-stable
+  specs:
+    decidim-internal_evaluation (0.0.1)
+      decidim-core (~> 0.28.0)
+      decidim-proposals (~> 0.28.0)
+      decidim-templates (~> 0.28.0)
+      deface (~> 1.9)
+
+GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
+  revision: df16cf4de13c306348761d850d19815c8221874e
+  specs:
+    decidim-kids (0.2.0)
+      decidim-core (>= 0.28, < 0.29)
+      decidim-system (>= 0.28, < 0.29)
+      decidim-verifications (>= 0.28, < 0.29)
+      deface (>= 1.5)
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps

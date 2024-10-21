@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { github: "AjuntamentdeBarcelona/decidim", branch: "bcn/0.28-branch" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.28-stable-bcn" }.freeze
 
 ruby RUBY_VERSION
 
