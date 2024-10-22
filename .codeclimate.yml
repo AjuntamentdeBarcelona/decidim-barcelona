@@ -63,4 +63,3 @@ exclude_paths:
 - "decidim-ephemeral_participation/app/permissions/decidim/ephemeral_participation/ephemeral_participation_permissions.rb"
 - "app/services/decidim_legacy_routes.rb"
 - "app/helpers/concerns/decidim/paginate_helper_override.rb"
-- "app/helpers/concerns/decidim/layout_helper_override.rb"

@@ -10,7 +10,6 @@ Citizen Participation and Open Government Application.
 [![[CI] Test](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml)
 [![[CI] Test Census SMS](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml)
 [![[CI] Test Stats](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml)
-[![[CI] Test Valid Auth](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_valid_auth.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_valid_auth.yml)
 [![Code Climate](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona/badges/gpa.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim-barcelona)
 
 This is the opensource code repository for "decidim-barcelona", based on [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).

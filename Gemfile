@@ -15,7 +15,6 @@ gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
 gem "decidim-stats", path: "decidim-stats"
-gem "decidim-valid_auth", path: "decidim-valid_auth"
 
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"

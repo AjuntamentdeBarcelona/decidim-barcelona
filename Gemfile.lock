@@ -254,12 +254,6 @@ PATH
       decidim-core (~> 0.28.0)
       decidim-proposals (~> 0.28.0)
 
-PATH
-  remote: decidim-valid_auth
-  specs:
-    decidim-valid_auth (0.0.3)
-      decidim-verifications (~> 0.28.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -1007,7 +1001,6 @@ DEPENDENCIES
   decidim-stats!
   decidim-templates!
   decidim-term_customizer!
-  decidim-valid_auth!
   dotenv-rails
   faker
   foreman
