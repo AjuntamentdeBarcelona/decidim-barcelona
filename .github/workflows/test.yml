@@ -8,7 +8,7 @@ env:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu:22.04
+    runs-on: ubuntu-22.04
     services:
       postgres:
         image: postgres:11
@@ -47,3 +47,10 @@ jobs:
           mkdir node_modules
           bundle exec rspec
         name: Run specs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: ./tmp/screenshots
+          if-no-files-found: ignore
+          overwrite: true
