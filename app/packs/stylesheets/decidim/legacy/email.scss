@@ -1098,7 +1098,7 @@ a {
 }
 
 a:hover {
-  color: var(--secondary);
+  color: #147dc2;
 }
 
 a:active {
@@ -1190,8 +1190,8 @@ table.button {
 table.button table td {
   text-align: left;
   color: #fefefe;
-  background: $primary;
-  border: 2px solid $primary;
+  background: #c24b29;
+  border: 2px solid #c24b29;
 }
 
 table.button table td a {
@@ -1201,12 +1201,12 @@ table.button table td a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid $primary;
+  border: 0 solid #c24b29;
   border-radius: 3px;
 }
 
 table.button.radius table td {
-  border-radius: 4px;
+  border-radius: 3px;
   border: none;
 }
 
@@ -1290,7 +1290,7 @@ table.button.expanded center {
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td {
-  background: $primary;
+  background: #c24b29;
   color: #fefefe;
 }
 
