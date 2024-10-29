@@ -77,6 +77,10 @@
 .brand-bar {
   padding-top: 0.2rem !important;
   padding-bottom: 0.2rem !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
 }
 
 .bcn-cat-link > a {
@@ -102,7 +106,7 @@
     text-decoration: underline;
 }
 
-body > div.layout-container > header > div.main-bar.brand-bar > div.bcn-logo > a > span {
+body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
   display: none;
 }
 
@@ -124,7 +128,7 @@ body > div.layout-container > header > div.main-bar.brand-bar > div.bcn-logo > a
 
 @media screen and (max-width: 768px) {
     .brand-bar {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        // grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
 }
 
