@@ -7,6 +7,48 @@
 
 /* 1 - Foundation settings --------- */
 
+$email-primary: #ffe27f;
+$email-secondary: #4869ad;
+$email-tertiary: #73caea;
+
+$email-dark-0: #666d7a;
+$email-dark-100: #2c2930;
+
+$email-neutral-0: #fff;
+$email-neutral-100: #fefefe;
+$email-neutral-200: #f4f4f4;
+$email-neutral-250: #f3f3f3;
+$email-neutral-300: #ebebeb;
+$email-neutral-350: #e5e5e5;
+$email-neutral-400: #cbcbcb;
+$email-neutral-450: #cacaca;
+$email-neutral-500: #919191;
+$email-neutral-550: #8a8a8a;
+$email-neutral-600: #777;
+$email-neutral-700: #666;
+$email-neutral-800: #444;
+$email-neutral-900: #000;
+$email-neutral-1000: #0a0a0a;
+
+$email-success-0: #e1faea;
+$email-success-100: #3adb76;
+$email-success-200: #23bf5d;
+$email-success-300: #1b9448;
+
+$email-alert-0: #fce6e2;
+$email-alert-100: #ec5840;
+$email-alert-200: #e23317;
+$email-alert-300: #b42912;
+
+$email-warning-0: #fff3d9;
+$email-warning-100: #ffae00;
+$email-warning-200: #cc8b00;
+$email-warning-300: #996800;
+
+$email-link-0: #def0fc;
+$email-link-100: #5295ad;
+$email-link-200: #147dc2;
+
 .wrapper {
   width: 100%;
 }
@@ -101,12 +143,12 @@ td {
 @media only screen {
   html {
     min-height: 100%;
-    background: #f3f3f3;
+    background: $email-neutral-250;
   }
 }
 
 table.body {
-  background: #f3f3f3;
+  background: $email-neutral-250;
   height: 100%;
   width: 100%;
 }
@@ -1015,7 +1057,7 @@ p,
 td,
 th,
 a {
-  color: #0a0a0a;
+  color: $email-neutral-1000;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   padding: 0;
@@ -1084,29 +1126,29 @@ p.subheader {
   margin-bottom: 8px;
   font-weight: normal;
   line-height: 1.4;
-  color: #8a8a8a;
+  color: $email-neutral-550;
 }
 
 small {
   font-size: 80%;
-  color: #cacaca;
+  color: $email-neutral-450;
 }
 
 a {
-  color: #5295ad;
+  color: $email-link-100;
   text-decoration: none;
 }
 
 a:hover {
-  color: #147dc2;
+  color: $email-link-200;
 }
 
 a:active {
-  color: #147dc2;
+  color: $email-link-200;
 }
 
 a:visited {
-  color: #5295ad;
+  color: $email-link-100;
 }
 
 h1 a,
@@ -1121,25 +1163,25 @@ h5 a,
 h5 a:visited,
 h6 a,
 h6 a:visited {
-  color: #5295ad;
+  color: $email-link-100;
 }
 
 pre {
-  background: #f3f3f3;
+  background: $email-neutral-250;
   margin: 30px 0;
 }
 
 pre code {
-  color: #cacaca;
+  color: $email-neutral-450;
 }
 
 pre code span.callout {
-  color: #8a8a8a;
+  color: $email-neutral-550;
   font-weight: bold;
 }
 
 pre code span.callout-strong {
-  color: #ff6908;
+  color: $email-alert-100;
   font-weight: bold;
 }
 
@@ -1152,7 +1194,7 @@ table.hr th {
   max-width: 580px;
   border-top: 0;
   border-right: 0;
-  border-bottom: 1px solid #0a0a0a;
+  border-bottom: 1px solid $email-neutral-1000;
   border-left: 0;
   margin: 20px auto;
   clear: both;
@@ -1173,7 +1215,7 @@ span.preheader {
   visibility: hidden;
   mso-hide: all !important;
   font-size: 1px;
-  color: #f3f3f3;
+  color: $email-neutral-250;
   line-height: 1px;
   max-height: 0;
   max-width: 0;
@@ -1189,24 +1231,24 @@ table.button {
 
 table.button table td {
   text-align: left;
-  color: #fefefe;
-  background: #c24b29;
-  border: 2px solid #c24b29;
+  color: $email-neutral-100;
+  background: $primary;
+  border: 2px solid $primary;
 }
 
 table.button table td a {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  color: black !important;
+  color: $email-neutral-900 !important;
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid #c24b29;
+  border: 0 solid $primary;
   border-radius: 3px;
 }
 
 table.button.radius table td {
-  border-radius: 3px;
+  border-radius: 4px;
   border: none;
 }
 
@@ -1227,7 +1269,7 @@ table.button.small table tr td a:visited,
 table.button.large:hover table tr td a,
 table.button.large:active table tr td a,
 table.button.large table tr td a:visited {
-  color: #fefefe;
+  color: $email-neutral-100;
 }
 
 table.button.tiny table td,
@@ -1290,97 +1332,97 @@ table.button.expanded center {
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td {
-  background: #147dc2;
-  color: #fefefe;
+  background: $primary;
+  color: $email-neutral-100;
 }
 
 table.button:hover table a,
 table.button:visited table a,
 table.button:active table a {
-  border: 0 solid #147dc2;
+  border: 0 solid $email-link-200;
 }
 
 table.button.secondary table td {
-  background: #777;
-  color: #fefefe;
-  border: 0 solid #777;
+  background: $email-neutral-600;
+  color: $email-neutral-100;
+  border: 0 solid $email-neutral-600;
 }
 
 table.button.secondary table a {
-  color: #fefefe;
-  border: 0 solid #777;
+  color: $email-neutral-100;
+  border: 0 solid $email-neutral-600;
 }
 
 table.button.secondary:hover table td {
-  background: #919191;
-  color: #fefefe;
+  background: $email-neutral-500;
+  color: $email-neutral-100;
 }
 
 table.button.secondary:hover table a {
-  border: 0 solid #919191;
+  border: 0 solid $email-neutral-500;
 }
 
 table.button.secondary:hover table td a {
-  color: #fefefe;
+  color: $email-neutral-100;
 }
 
 table.button.secondary:active table td a {
-  color: #fefefe;
+  color: $email-neutral-100;
 }
 
 table.button.secondary table td a:visited {
-  color: #fefefe;
+  color: $email-neutral-100;
 }
 
 table.button.success table td {
-  background: #3adb76;
-  border: 0 solid #3adb76;
+  background: $email-success-100;
+  border: 0 solid $email-success-100;
 }
 
 table.button.success table a {
-  border: 0 solid #3adb76;
+  border: 0 solid $email-success-100;
 }
 
 table.button.success:hover table td {
-  background: #23bf5d;
+  background: $email-success-200;
 }
 
 table.button.success:hover table a {
-  border: 0 solid #23bf5d;
+  border: 0 solid $email-success-200;
 }
 
 table.button.alert table td {
-  background: #ec5840;
-  border: 0 solid #ec5840;
+  background: $email-alert-100;
+  border: 0 solid $email-alert-100;
 }
 
 table.button.alert table a {
-  border: 0 solid #ec5840;
+  border: 0 solid $email-alert-100;
 }
 
 table.button.alert:hover table td {
-  background: #e23317;
+  background: $email-alert-200;
 }
 
 table.button.alert:hover table a {
-  border: 0 solid #e23317;
+  border: 0 solid $email-alert-200;
 }
 
 table.button.warning table td {
-  background: #ffae00;
-  border: 0 solid #ffae00;
+  background: $email-warning-100;
+  border: 0 solid $email-warning-100;
 }
 
 table.button.warning table a {
-  border: 0 solid #ffae00;
+  border: 0 solid $email-warning-100;
 }
 
 table.button.warning:hover table td {
-  background: #cc8b00;
+  background: $email-warning-200;
 }
 
 table.button.warning:hover table a {
-  border: 0 solid #cc8b00;
+  border: 0 solid $email-warning-200;
 }
 
 table.callout {
@@ -1389,43 +1431,43 @@ table.callout {
 
 th.callout-inner {
   width: 100%;
-  border: 1px solid #cbcbcb;
+  border: 1px solid $email-neutral-400;
   padding: 10px;
-  background: #fefefe;
+  background: $email-neutral-100;
 }
 
 th.callout-inner.primary {
-  background: #def0fc;
-  border: 1px solid #444;
-  color: #0a0a0a;
+  background: $email-link-0;
+  border: 1px solid $email-neutral-800;
+  color: $email-neutral-1000;
 }
 
 th.callout-inner.secondary {
-  background: #ebebeb;
-  border: 1px solid #444;
-  color: #0a0a0a;
+  background: $email-neutral-300;
+  border: 1px solid $email-neutral-800;
+  color: $email-neutral-1000;
 }
 
 th.callout-inner.success {
-  background: #e1faea;
-  border: 1px solid #1b9448;
-  color: #fefefe;
+  background: $email-success-0;
+  border: 1px solid $email-success-300;
+  color: $email-neutral-100;
 }
 
 th.callout-inner.warning {
-  background: #fff3d9;
-  border: 1px solid #996800;
-  color: #fefefe;
+  background: $email-warning-0;
+  border: 1px solid $email-warning-300;
+  color: $email-neutral-100;
 }
 
 th.callout-inner.alert {
-  background: #fce6e2;
-  border: 1px solid #b42912;
-  color: #fefefe;
+  background: $email-alert-0;
+  border: 1px solid $email-alert-300;
+  color: $email-neutral-100;
 }
 
 .thumbnail {
-  border: solid 4px #fefefe;
+  border: solid 4px $email-neutral-100;
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
   display: inline-block;
   line-height: 0;
@@ -1452,7 +1494,7 @@ table.menu th.menu-item {
 
 table.menu td.menu-item a,
 table.menu th.menu-item a {
-  color: #5295ad;
+  color: $email-link-100;
 }
 
 table.menu.vertical td.menu-item,
@@ -1724,11 +1766,11 @@ body.outlook p {
 table.body th.decidim-bar,
 table.body td.decidim-bar {
   padding: 10px 0;
-  background-color: $primary;
+  background-color: $email-primary;
 }
 
 table.body {
-  background-color: #f3f3f3;
+  background-color: $email-neutral-250;
   margin: 20px 0;
 }
 
@@ -1742,7 +1784,7 @@ table.body {
 }
 
 .cityhall-bar {
-  background-color: #2c2930;
+  background-color: $email-dark-100;
 }
 
 .cityhall-logo {
@@ -1753,12 +1795,12 @@ table.body {
 .footnote,
 .headnote {
   padding-top: 10px;
-  color: #666;
+  color: $email-neutral-700;
   font-size: 12px;
 }
 
 table.container.main {
-  background: #fefefe;
+  background: $email-neutral-100;
 }
 
 .custom-button {
@@ -1794,7 +1836,7 @@ td {
     margin-bottom: 32px;
     font-size: 16px;
     font-weight: bold;
-    color: #2c2930;
+    color: $email-dark-100;
     display: inline-block;
     width: 49%;
 
@@ -1809,16 +1851,16 @@ td {
   }
 
   .email-content-notifications {
-    background-color: #f4f4f4;
+    background-color: $email-neutral-200;
     border-radius: 5px;
-    border: 1px #e5e5e5;
+    border: 1px $email-neutral-350;
     padding: 16px;
     margin: 32px 0;
   }
 
   .email-content-notification {
     p a {
-      color: #327f9b;
+      color: $email-link-100;
       font-weight: bold;
       text-decoration: underline;
     }
@@ -1826,15 +1868,15 @@ td {
 
   .email-element-separator {
     margin: 24px 0;
-    color: #e5e5e5;
-    border-color: #e5e5e5;
+    color: $email-neutral-350;
+    border-color: $email-neutral-350;
     height: 0;
     border-style: solid;
     border-width: 1px;
   }
 
   .email-notification-date {
-    color: #666d7a;
+    color: $email-dark-0;
     display: block;
     margin-bottom: 10px;
   }
@@ -1850,7 +1892,7 @@ td {
     text-align: center;
     display: inline-block;
     padding: 10px;
-    color: #5295ad;
+    color: $email-link-100;
     text-decoration: none;
   }
 }
