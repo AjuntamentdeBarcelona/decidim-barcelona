@@ -84,26 +84,26 @@
 }
 
 .bcn-cat-link > a {
-    font-weight: 600;
-    font-size: 20px;
-    color: black;
-    line-height: 35px;
-    letter-spacing: -0.5px;
-    background-size: 0;
-    text-decoration: none;
-    font-family: "Source Sans Pro";
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+  line-height: 35px;
+  letter-spacing: -0.5px;
+  background-size: 0;
+  text-decoration: none;
+  font-family: "Source Sans Pro";
 }
 
 .logo-mobile {
-    display: none;
+  display: none;
 }
 
 .logo-desktop {
-  padding-right: 0rem;
+  padding-right: 0;
 }
 
 .bcn-cat-link > a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
@@ -111,25 +111,19 @@ body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
 }
 
 @media screen and (max-width: 1279px) {
-    .brand-bar {
-      padding-right: 1rem !important;
-    }
+  .brand-bar {
+    padding-right: 1rem !important;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .logo-desktop {
-        display: none;
-    }
+  .logo-desktop {
+    display: none;
+  }
 
-    .logo-mobile {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .brand-bar {
-        // grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
+  .logo-mobile {
+    display: block;
+  }
 }
 
 @media (min-width: 768px) {
