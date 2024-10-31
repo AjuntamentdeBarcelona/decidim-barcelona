@@ -93,7 +93,7 @@ checksums = [
     files: {
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/models/decidim/initiative.rb" => "77c9775fcff404b16e5a382915116fe1",
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "c0f9bf5d9edaca545a7c931c0dc5c0e9",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "40c663fcb732743399b4fe79605e7823"
     }
