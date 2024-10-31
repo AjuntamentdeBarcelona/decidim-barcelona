@@ -74,6 +74,58 @@
   padding-bottom: 12px;
 }
 
+.brand-bar {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
+}
+
+.bcn-cat-link > a {
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+  line-height: 35px;
+  letter-spacing: -0.5px;
+  background-size: 0;
+  text-decoration: none;
+  font-family: "Source Sans Pro";
+}
+
+.logo-mobile {
+  display: none;
+}
+
+.logo-desktop {
+  padding-right: 0;
+}
+
+.bcn-cat-link > a:hover {
+  text-decoration: underline;
+}
+
+body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .brand-bar {
+    padding-right: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logo-desktop {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .main-header__language-container > #trigger-dropdown-language-chooser {
     display: flex !important;

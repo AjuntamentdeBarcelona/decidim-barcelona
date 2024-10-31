@@ -331,6 +331,9 @@ ca:
             valid_auth: Valid auth
   layouts:
     decidim:
+      header:
+        main:
+          organization_logo: Logo Ajuntament de Barcelona
       initiative_header_steps:
         signature_collection_period: Recollida de signatures
       system:

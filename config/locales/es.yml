@@ -324,6 +324,9 @@ es:
             census_sarria_sant_gervasi_authorization_handler: Verifícate con el padrón (8+)
   layouts:
     decidim:
+      header:
+        main:
+          organization_logo: Logo Ayuntamiento de Barcelona
       initiative_header_steps:
         signature_collection_period: Recogida de firmas
       system:
