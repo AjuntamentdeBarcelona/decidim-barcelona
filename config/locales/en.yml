@@ -19,5 +19,8 @@ en:
     decidim:
       initiative_header_steps:
         signature_collection_period: Recollida de signatures
+  locale:
+    name: English
+    name_with_error: English (error!)
   menu:
     accountability_static: Accountability

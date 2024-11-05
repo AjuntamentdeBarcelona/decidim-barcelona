@@ -154,6 +154,44 @@ es:
             postal_code: Código postal
             time_and_date: Fecha y hora
             timestamp: Sello
+      filters:
+        proposals:
+          evaluated_by_user:
+            label: Evaluación
+            values:
+              "false": No evaluado
+              "true": Evaluado
+    internal_evaluation:
+      admin:
+        internal_evaluations:
+          create:
+            error: "Hubo un problema al crear la evaluación interna: %{message}"
+            success: Evaluación interna creada correctamente.
+          form:
+            save: Guardar
+            status: Estado
+            title: Evaluación para %{title}
+          index:
+            actions: Acciones
+            counter: "%{count} de %{total} evaluaciones"
+            edit_evaluation: Editar evaluación
+            evaluation: Evaluación
+            status: Estado
+            title: Evaluaciones internas
+            updated: Actualizado
+          update:
+            error: "Hubo un problema al actualizar la evaluación interna: %{message}"
+            success: Evaluación interna actualizada correctamente.
+          valuation_assignments_evaluations:
+            edit_evaluation: Editar evaluación
+    proposals:
+      admin:
+        exports:
+          internal_evaluations: Evaluaciones internas
+      models:
+        proposal:
+          fields:
+            valuators: Estado de la evaluación
     authorization_handlers:
       census16_authorization_handler:
         explanation: Verifícate con el padrón
@@ -286,11 +324,17 @@ es:
             census_sarria_sant_gervasi_authorization_handler: Verifícate con el padrón (8+)
   layouts:
     decidim:
+      header:
+        main:
+          organization_logo: Logo Ayuntamiento de Barcelona
       initiative_header_steps:
         signature_collection_period: Recogida de firmas
       system:
         login_items:
           logout: Cerrar sesión
+  locale:
+    name: Castellano
+    name_with_error: Castellano (¡error!)
   errors:
     messages:
       not_in_district: El código postal no pertenece al distrito

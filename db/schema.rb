@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_13_060359) do
+ActiveRecord::Schema.define(version: 2024_10_31_144530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -848,6 +848,18 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
     t.index ["hash_id"], name: "index_decidim_initiatives_votes_on_hash_id"
   end
 
+  create_table "decidim_internal_evaluation_internal_evaluations", force: :cascade do |t|
+    t.bigint "decidim_proposal_id", null: false
+    t.bigint "decidim_proposal_state_id"
+    t.bigint "decidim_author_id", null: false
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_author_id"], name: "index_decidim_internal_evaluations_on_author"
+    t.index ["decidim_proposal_id"], name: "index_decidim_internal_evaluations_on_proposal"
+    t.index ["decidim_proposal_state_id"], name: "index_decidim_internal_evaluations_on_proposal_state"
+  end
+
   create_table "decidim_kids_impersonation_minor_logs", force: :cascade do |t|
     t.bigint "decidim_tutor_id"
     t.bigint "decidim_minor_id"
@@ -1446,6 +1458,17 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_note_proposal"
   end
 
+  create_table "decidim_proposals_proposal_states", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "announcement_title"
+    t.string "token", null: false
+    t.bigint "decidim_component_id", null: false
+    t.integer "proposals_count", default: 0, null: false
+    t.string "bg_color", default: "#F6F8FA", null: false
+    t.string "text_color", default: "#4B5058", null: false
+    t.index ["decidim_component_id"], name: "index_decidim_proposals_proposal_states_on_decidim_component_id"
+  end
+
   create_table "decidim_proposals_proposal_votes", id: :serial, force: :cascade do |t|
     t.integer "decidim_proposal_id", null: false
     t.integer "decidim_author_id", null: false
@@ -1485,8 +1508,10 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
     t.jsonb "title"
     t.jsonb "body"
     t.integer "follows_count", default: 0, null: false
-    t.integer "state", default: 0, null: false
+    t.integer "old_state", default: 0, null: false
     t.integer "valuation_assignments_count", default: 0
+    t.datetime "withdrawn_at"
+    t.integer "decidim_proposals_proposal_state_id"
     t.index "md5((body)::text)", name: "decidim_proposals_proposal_body_search"
     t.index "md5((title)::text)", name: "decidim_proposals_proposal_title_search"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
@@ -1855,6 +1880,7 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
+    t.boolean "email_on_assigned_proposals", default: true
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1986,6 +2012,7 @@ ActiveRecord::Schema.define(version: 2024_08_13_060359) do
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_participatory_process_types"
   add_foreign_key "decidim_participatory_processes", "decidim_scope_types"
+  add_foreign_key "decidim_proposals_proposals", "decidim_proposals_proposal_states"
   add_foreign_key "decidim_reminder_deliveries", "decidim_reminders"
   add_foreign_key "decidim_reminder_records", "decidim_reminders"
   add_foreign_key "decidim_reminders", "decidim_components"
