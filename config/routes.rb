@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   get "/pages/faq", to: redirect("/pages/decidim")
 
+  # get "/pages/accessibilitat", to: redirect("https://ajuntament.barcelona.cat/declaracio-accessibilitat/es/decidim-barcelona")
+
   scope "/processes/:participatory_process_slug/f/:component_id" do
     get :export_results, to: "export_results#csv"
 
