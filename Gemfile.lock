@@ -221,6 +221,15 @@ GIT
       sassc (~> 2.3)
 
 GIT
+  remote: https://github.com/decidim-vocdoni/decidim-module-vocdoni.git
+  revision: d0ce3fa53fa07bf21c1767666c44f6dffad22b7b
+  specs:
+    decidim-vocdoni (2.0)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      node-runner (~> 1.1)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 03e6c98e85a00fe47f8db2726f1a1a98e808efda
   specs:
@@ -634,6 +643,7 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.3)
+    node-runner (1.2.0)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-arm64-darwin)
@@ -1001,6 +1011,7 @@ DEPENDENCIES
   decidim-stats!
   decidim-templates!
   decidim-term_customizer!
+  decidim-vocdoni!
   dotenv-rails
   faker
   foreman

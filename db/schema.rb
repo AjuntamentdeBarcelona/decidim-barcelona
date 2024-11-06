@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_31_144530) do
+ActiveRecord::Schema.define(version: 2024_11_06_163358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1916,6 +1916,68 @@ ActiveRecord::Schema.define(version: 2024_10_31_144530) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
+  create_table "decidim_vocdoni_answers", force: :cascade do |t|
+    t.bigint "decidim_vocdoni_question_id"
+    t.jsonb "title"
+    t.jsonb "description"
+    t.integer "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "votes"
+    t.integer "value"
+    t.index ["decidim_vocdoni_question_id"], name: "index_decidim_vocdoni_answers_on_decidim_vocdoni_question_id"
+  end
+
+  create_table "decidim_vocdoni_elections", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.string "stream_uri"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "published_at"
+    t.datetime "blocked_at"
+    t.string "status"
+    t.bigint "decidim_component_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "vocdoni_election_id"
+    t.jsonb "election_type", default: {}
+    t.boolean "internal_census", default: false, null: false
+    t.string "verification_types", default: [], array: true
+    t.jsonb "census_attributes", default: {}
+    t.integer "last_census_update_records_added"
+    t.datetime "census_last_updated_at"
+    t.index ["decidim_component_id"], name: "index_decidim_vocdoni_elections_on_decidim_component_id"
+  end
+
+  create_table "decidim_vocdoni_questions", force: :cascade do |t|
+    t.bigint "decidim_vocdoni_election_id"
+    t.jsonb "title"
+    t.integer "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "description"
+    t.integer "answers_count", default: 0, null: false
+    t.index ["decidim_vocdoni_election_id"], name: "index_decidim_vocdoni_questions_on_decidim_vocdoni_election_id"
+  end
+
+  create_table "decidim_vocdoni_voters", force: :cascade do |t|
+    t.string "email"
+    t.string "wallet_address"
+    t.bigint "decidim_vocdoni_election_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "token"
+    t.boolean "in_vocdoni_census", default: false, null: false
+    t.index ["decidim_vocdoni_election_id"], name: "index_decidim_vocdoni_voters_on_decidim_vocdoni_election_id"
+  end
+
+  create_table "decidim_vocdoni_wallets", force: :cascade do |t|
+    t.string "private_key"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_vocdoni_wallets_on_decidim_organization_id"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -2034,6 +2096,8 @@ ActiveRecord::Schema.define(version: 2024_10_31_144530) do
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "current_user_id"
   add_foreign_key "decidim_verifications_conflicts", "decidim_users", column: "managed_user_id"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "decidim_vocdoni_voters", "decidim_vocdoni_elections"
+  add_foreign_key "decidim_vocdoni_wallets", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
