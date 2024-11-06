@@ -15,7 +15,7 @@ module Decidim
           user_hash:,
           date_of_birth: metadata["date_of_birth"],
           postal_code: metadata["postal_code"],
-          scope_name: metadata["scope_name"],
+          scope_name: metadata["scope"],
           scope_id: metadata["scope_id"],
           scope_code: metadata["scope_code"],
           gender: metadata_extras["gender"],
