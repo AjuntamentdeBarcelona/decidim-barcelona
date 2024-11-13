@@ -24,6 +24,20 @@ docker-compose run --rm app bundle exec rake db:create db:schema:load db:seed
 docker-compose up
 ```
 
+## Available tasks
+
+### Update 2024 Participatory budget proposals to fix missing translations
+
+The proposals inside the 2024 participatory budget, sometimes, are created without the translations of the copy_id generated using term_customizer.
+
+This rake task will update the content of the proposals that have not translated the content and save them with the correct translation
+
+You can call this tasks for the two languages being used in the participatory process (catalan and spanish)
+
+```bash
+bundle exec rake proposals_budget_2024_translations:update_ca_translations
+```
+
 ## License
 
 Code published under AFFERO GPL v3 (see [LICENSE-AGPLv3.txt](LICENSE-AGPLv3.txt))
