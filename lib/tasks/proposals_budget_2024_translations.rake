@@ -10,9 +10,9 @@ namespace :proposals_budget_2024_translations do
       "decidim.barcelona.pressupostos.2024.pregunta5.enunciat" => "A qui més pot interessar la proposta i estaria bé tenir en compte en el projecte?"
     }
 
-    update_content_for_lang 'ca', updated_content
+    update_content_for_lang "ca", updated_content
   end
-  
+
   desc "[SPANISH] Fix translations in proposals for the 2024 particiatory budget"
   task update_es_translations: :environment do
     updated_content = {
@@ -22,11 +22,10 @@ namespace :proposals_budget_2024_translations do
       "decidim.barcelona.pressupostos.2024.pregunta5.enunciat" => "¿A quién más puede interesarle la propuesta y estaría bien tener en cuenta en el proyecto?"
     }
 
-    update_content_for_lang 'es', updated_content
+    update_content_for_lang "es", updated_content
   end
 
   def update_content_for_lang(lang, content)
-
     puts "Processing lang #{lang}"
 
     proposals = Decidim::Proposals::Proposal.where(
@@ -40,7 +39,7 @@ namespace :proposals_budget_2024_translations do
 
       body = proposal.body[lang]
 
-      updated_content.each do |copy_id, new_text|
+      content.each do |copy_id, new_text|
         puts "Updating #{copy_id} for Proposal ID: #{proposal.id}"
 
         body[copy_id] = new_text
