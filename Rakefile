@@ -119,4 +119,7 @@ end
 
 Rake::Task["assets:precompile"].enhance do
   FileUtils.remove_dir("node_modules", true)
+  system "mv package.json package.json.bkp && mv package-lock.json package-lock.json.bkp"
+  system "npm i @vocdoni/sdk@^0.8.0 --no-save"
+  system "mv package-lock.json.bkp package-lock.json && mv package.json.bkp package.json"
 end
