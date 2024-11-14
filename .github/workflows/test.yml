@@ -37,6 +37,8 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
+      - run: |
+          sudo apt install wkhtmltopdf
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - name: Precompile assets
