@@ -45,9 +45,7 @@ jobs:
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: |
-          mkdir node_modules
-          bundle exec rspec decidim-stats
+      - run: bundle exec rspec decidim-stats
         name: Run specs
       - uses: actions/upload-artifact@v4
         if: always()
