@@ -24,7 +24,6 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 
 gem "origami"
 gem "wicked_pdf", "< 2.8"
-gem "wkhtmltopdf-binary"
 
 gem "progressbar"
 gem "puma"
