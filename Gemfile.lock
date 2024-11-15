@@ -222,7 +222,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim-vocdoni/decidim-module-vocdoni
-  revision: de4e0be756c84e241f3ec784eb51e4260608cdb3
+  revision: 2d259f513addcfe2f6e676f721a191a38bf55a5a
   specs:
     decidim-vocdoni (2.0)
       decidim-admin (>= 0.28.0, < 0.29)
