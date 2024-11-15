@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   end
 
   mount Decidim::Core::Engine => "/"
+  mount Decidim::Stats::Engine, at: "/stats", as: "decidim_stats"
   mount Decidim::EphemeralParticipation::Engine, at: "/", as: "decidim_ephemeral_participation"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   authenticate :user, ->(u) { u.admin? } do

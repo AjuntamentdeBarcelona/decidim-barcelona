@@ -25,7 +25,6 @@ gem "decidim-vocdoni", git: "https://github.com/decidim-vocdoni/decidim-module-v
 
 gem "origami"
 gem "wicked_pdf", "< 2.8"
-gem "wkhtmltopdf-binary"
 
 gem "progressbar"
 gem "puma"

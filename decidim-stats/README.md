@@ -38,6 +38,13 @@ participatory_space_type,participatory_space_id,component_id,action,metric_type,
 participatory_processes,2,4,comment,age_group,20-24,6
 ```
 
+## Authorization data export page
+
+This module adds a new admin page, “Export verification data” accessible under the Admin > Participants menu as “Export Data.”
+
+On this page, admins can fill out a form to specify a Start Date, End Date, and Verification Method. Using these parameters, the form allows the export of census data gathered during the user verification process. Internally, it exports selected metadata fields from the Authorization model.
+
+
 ## Development guide
 
 The module has different pieces:

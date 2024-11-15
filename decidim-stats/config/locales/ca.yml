@@ -1,0 +1,10 @@
+ca:
+  decidim:
+    stats:
+      authorization_exports:
+        title: Exportar dades de verificació
+        authorization_handler_name: Mètode de verificació
+        end_date: Data fi
+        start_date: Data inici
+        submit: Exportar dades
+        menu: Exportar dades
