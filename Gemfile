@@ -48,6 +48,7 @@ group :development do
 end
 
 group :production do
+  gem "appsignal"
   gem "aws-sdk-s3", require: false
   gem "barnes" # Needed to be able to debug Puma status
   gem "dalli"
