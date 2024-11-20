@@ -61,7 +61,6 @@ group :production do
   gem "rails_12factor"
   gem "rails_autoscale_agent"
   gem "rexml"
-  gem "scout_apm"
   gem "sentry-rails"
   gem "sentry-ruby"
   gem "sentry-sidekiq"

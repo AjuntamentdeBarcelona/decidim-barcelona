@@ -877,8 +877,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     sassc (2.4.0)
       ffi (~> 1.9)
-    scout_apm (5.3.7)
-      parser
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -1034,7 +1032,6 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-faker
-  scout_apm
   sentry-rails
   sentry-ruby
   sentry-sidekiq
