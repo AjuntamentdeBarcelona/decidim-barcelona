@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 4bfc73be0724b60918f93867ae0a03d662aea1fd
+  revision: f3b125243e409476b07c75a7438eafc529dd96c8
   branch: release/0.28-stable-bcn
   specs:
     decidim (0.28.4)
@@ -136,7 +136,6 @@ GIT
     decidim-forms (0.28.4)
       decidim-core (= 0.28.4)
       wicked_pdf (~> 2.1)
-      wkhtmltopdf-binary (~> 0.12)
     decidim-generators (0.28.4)
       decidim-core (= 0.28.4)
     decidim-initiatives (0.28.4)
@@ -146,7 +145,6 @@ GIT
       decidim-verifications (= 0.28.4)
       hexapdf (~> 0.32.0)
       wicked_pdf (~> 2.1)
-      wkhtmltopdf-binary (~> 0.12)
     decidim-meetings (0.28.4)
       decidim-core (= 0.28.4)
       decidim-forms (= 0.28.4)
@@ -219,6 +217,15 @@ GIT
       decidim-core (>= 0.28.0, < 0.29)
       deface (>= 1.5)
       sassc (~> 2.3)
+
+GIT
+  remote: https://github.com/decidim-vocdoni/decidim-module-vocdoni
+  revision: 2d259f513addcfe2f6e676f721a191a38bf55a5a
+  specs:
+    decidim-vocdoni (2.0)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      node-runner (~> 1.1)
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
@@ -634,6 +641,7 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.3)
+    node-runner (1.2.0)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-arm64-darwin)
@@ -968,7 +976,6 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.18)
@@ -1001,6 +1008,7 @@ DEPENDENCIES
   decidim-stats!
   decidim-templates!
   decidim-term_customizer!
+  decidim-vocdoni!
   dotenv-rails
   faker
   foreman
@@ -1030,7 +1038,6 @@ DEPENDENCIES
   stackprof
   web-console
   wicked_pdf (< 2.8)
-  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 3.1.1p18

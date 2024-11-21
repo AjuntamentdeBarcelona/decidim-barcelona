@@ -21,10 +21,10 @@ gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelon
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
 gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
+gem "decidim-vocdoni", git: "https://github.com/decidim-vocdoni/decidim-module-vocdoni"
 
 gem "origami"
 gem "wicked_pdf", "< 2.8"
-gem "wkhtmltopdf-binary"
 
 gem "progressbar"
 gem "puma"
