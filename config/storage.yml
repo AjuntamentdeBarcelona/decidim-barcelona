@@ -8,7 +8,7 @@ local:
 
 s3:
   service: S3
-  public: <%= Rails.application.secrets.dig(:storage, :s3, :public) %>
+  <%= "public: true" if Rails.application.secrets.dig(:storage, :s3, :public) %>
   access_key_id: <%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
   secret_access_key: <%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
   bucket: <%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
