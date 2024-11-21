@@ -24,6 +24,31 @@ docker-compose run --rm app bundle exec rake db:create db:schema:load db:seed
 docker-compose up
 ```
 
+## Available tasks
+
+### Notifications removal
+
+You can remove old notifications by running the `notifications:remove_old` task. You can specify the date until you want to preserve notifications and the date from which you will
+remove them. By default it will delete all the notifications from 2017-01-01 older than 1 year if no params are provided.
+
+For example, this one will remove all the notifications from 2023-11-12 to 2024-01-01:
+
+```bash
+bundle exec rake notifications:destroy_old["2024-01-01","2023-11-12"]
+```
+
+### Update 2024 Participatory budget proposals to fix missing translations
+
+The proposals inside the 2024 participatory budget, sometimes, are created without the translations of the `copy_id` generated using the Term Customizer module.
+
+This rake task will update the content of the proposals that have not translated the content and save them with the correct translation.
+
+You can call this tasks for the two languages being used in the participatory process (Catalan and Spanish):
+
+```bash
+bundle exec rake proposals_budget_2024_translations:update_ca_translations
+```
+
 ## License
 
 Code published under AFFERO GPL v3 (see [LICENSE-AGPLv3.txt](LICENSE-AGPLv3.txt))
