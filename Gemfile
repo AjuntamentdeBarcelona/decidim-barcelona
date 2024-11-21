@@ -48,6 +48,7 @@ group :development do
 end
 
 group :production do
+  gem "appsignal"
   gem "aws-sdk-s3", require: false
   gem "barnes" # Needed to be able to debug Puma status
   gem "dalli"
@@ -60,7 +61,6 @@ group :production do
   gem "rails_12factor"
   gem "rails_autoscale_agent"
   gem "rexml"
-  gem "scout_apm"
   gem "sentry-rails"
   gem "sentry-ruby"
   gem "sentry-sidekiq"

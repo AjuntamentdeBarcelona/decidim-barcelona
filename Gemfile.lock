@@ -331,6 +331,9 @@ GEM
       activesupport (>= 6.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    appsignal (4.2.0)
+      logger
+      rack
     ast (2.4.2)
     aws-eventstream (1.3.0)
     aws-partitions (1.896.0)
@@ -874,8 +877,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     sassc (2.4.0)
       ffi (~> 1.9)
-    scout_apm (5.3.7)
-      parser
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -987,6 +988,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  appsignal
   aws-sdk-s3
   barnes
   bootsnap
@@ -1030,7 +1032,6 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-faker
-  scout_apm
   sentry-rails
   sentry-ruby
   sentry-sidekiq
