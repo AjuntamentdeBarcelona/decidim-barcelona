@@ -74,6 +74,7 @@ group :production do
   gem "sentry-sidekiq"
   gem "sidekiq"
   gem "stackprof"
+  gem "figaro", "~> 1.2"
 end
 
 group :test do

@@ -516,6 +516,8 @@ GEM
     faraday-net_http (3.3.0)
       net-http
     ffi (1.16.3)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -1057,6 +1059,7 @@ DEPENDENCIES
   decidim-vocdoni!
   dotenv-rails
   faker
+  figaro (~> 1.2)
   foreman
   letter_opener_web
   listen
