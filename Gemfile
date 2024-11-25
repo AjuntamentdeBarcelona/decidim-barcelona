@@ -45,6 +45,14 @@ group :development do
   gem "listen"
   gem "rubocop"
   gem "web-console"
+
+  gem "capistrano", "~> 3.19"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails", "~> 1.6"
+  gem "capistrano-rails-console"
+  gem "capistrano-rbenv"
+  gem "capistrano-sidekiq"
 end
 
 group :production do
