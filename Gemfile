@@ -53,7 +53,6 @@ group :production do
   gem "dalli"
   gem "lograge"
   gem "matrix"
-  gem "puma_worker_killer" # Used to restart puma workers every 6h and free memory
   gem "rack_password"
   gem "rack-ssl-enforcer"
   gem "rack-timeout" # Let's kill long-running requests after the Heroku router has responded to
