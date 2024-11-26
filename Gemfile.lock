@@ -191,16 +191,6 @@ GIT
       deface (~> 1.9)
 
 GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: df16cf4de13c306348761d850d19815c8221874e
-  specs:
-    decidim-kids (0.2.0)
-      decidim-core (>= 0.28, < 0.29)
-      decidim-system (>= 0.28, < 0.29)
-      decidim-verifications (>= 0.28, < 0.29)
-      deface (>= 1.5)
-
-GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps
   revision: 7fd50e1368bae4c7955c0ba8ec5ee395273a5329
   specs:
@@ -1004,7 +994,6 @@ DEPENDENCIES
   decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-internal_evaluation!
-  decidim-kids!
   decidim-navigation_maps!
   decidim-sortitions!
   decidim-stats!
