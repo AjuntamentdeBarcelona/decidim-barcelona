@@ -117,6 +117,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
+      "/app/controllers/decidim/proposals/proposals_controller.rb" => "69420e7f27e1e7cb2688dadcc91017b3",
       "/app/helpers/decidim/proposals/application_helper.rb" => "c17dd875a166cd0cd3c09b0e596ebef5",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337",
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48b62ae409b6ed736375772946ef2aa9" # remove map from index page
