@@ -181,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
-  revision: cf5eb7f00f957881ade8360a69655e92d95ceff0
+  revision: 9c656bb021c5e2ee055c9686e43c880566d4cef1
   branch: release/0.28-stable
   specs:
     decidim-internal_evaluation (0.0.1)
@@ -189,16 +189,6 @@ GIT
       decidim-proposals (~> 0.28.0)
       decidim-templates (~> 0.28.0)
       deface (~> 1.9)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: df16cf4de13c306348761d850d19815c8221874e
-  specs:
-    decidim-kids (0.2.0)
-      decidim-core (>= 0.28, < 0.29)
-      decidim-system (>= 0.28, < 0.29)
-      decidim-verifications (>= 0.28, < 0.29)
-      deface (>= 1.5)
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-navigation_maps
@@ -540,8 +530,6 @@ GEM
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
     geom2d (0.4.1)
-    get_process_mem (0.2.7)
-      ffi (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     graphql (2.0.31)
@@ -752,9 +740,6 @@ GEM
     public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
-    puma_worker_killer (0.3.1)
-      get_process_mem (~> 0.2)
-      puma (>= 2.7)
     racc (1.8.1)
     rack (2.2.10)
     rack-attack (6.7.0)
@@ -1050,7 +1035,6 @@ DEPENDENCIES
   decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-internal_evaluation!
-  decidim-kids!
   decidim-navigation_maps!
   decidim-sortitions!
   decidim-stats!
@@ -1069,7 +1053,6 @@ DEPENDENCIES
   origami
   progressbar
   puma
-  puma_worker_killer
   rack-ssl-enforcer
   rack-timeout
   rack_password
