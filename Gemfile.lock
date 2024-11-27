@@ -1,36 +1,7 @@
 GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module.git
-  revision: cf5eb7f00f957881ade8360a69655e92d95ceff0
-  branch: release/0.28-stable
-  specs:
-    decidim-internal_evaluation (0.0.1)
-      decidim-core (~> 0.28.0)
-      decidim-proposals (~> 0.28.0)
-      decidim-templates (~> 0.28.0)
-      deface (~> 1.9)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: df16cf4de13c306348761d850d19815c8221874e
-  specs:
-    decidim-kids (0.2.0)
-      decidim-core (>= 0.28, < 0.29)
-      decidim-system (>= 0.28, < 0.29)
-      decidim-verifications (>= 0.28, < 0.29)
-      deface (>= 1.5)
-
-GIT
-  remote: https://github.com/Platoniq/decidim-module-navigation_maps
-  revision: 7fd50e1368bae4c7955c0ba8ec5ee395273a5329
-  specs:
-    decidim-navigation_maps (1.5.0)
-      decidim-admin (>= 0.28, < 0.29)
-      decidim-core (>= 0.28, < 0.29)
-
-GIT
-  remote: https://github.com/ajuntamentdeBarcelona/decidim.git
-  revision: 9c78c1c36bb6c44a855c02acd6f58c70345853c4
-  branch: bcn/0.28-branch
+  remote: https://github.com/AjuntamentdeBarcelona/decidim
+  revision: f3b125243e409476b07c75a7438eafc529dd96c8
+  branch: release/0.28-stable-bcn
   specs:
     decidim (0.28.4)
       decidim-accountability (= 0.28.4)
@@ -131,12 +102,49 @@ GIT
     decidim-debates (0.28.4)
       decidim-comments (= 0.28.4)
       decidim-core (= 0.28.4)
+    decidim-dev (0.28.4)
+      bullet (~> 7.0)
+      byebug (~> 11.0)
+      capybara (~> 3.39)
+      decidim (= 0.28.4)
+      erb_lint (~> 0.4.0)
+      factory_bot_rails (~> 6.2)
+      faker (~> 3.2)
+      i18n-tasks (~> 1.0)
+      nokogiri (~> 1.14, >= 1.14.3)
+      parallel_tests (~> 4.2)
+      puma (~> 6.2, >= 6.3.1)
+      rails-controller-testing (~> 1.0)
+      rspec (~> 3.12)
+      rspec-cells (~> 0.3.7)
+      rspec-html-matchers (~> 0.10)
+      rspec-rails (~> 6.0)
+      rspec-retry (~> 0.6.2)
+      rspec_junit_formatter (~> 0.6.0)
+      rubocop (~> 1.50.0)
+      rubocop-faker (~> 1.1)
+      rubocop-rails (~> 2.19)
+      rubocop-rspec (~> 2.20)
+      selenium-webdriver (~> 4.9)
+      simplecov (~> 0.22.0)
+      simplecov-cobertura (~> 2.1.0)
+      spring (~> 2.0)
+      spring-watcher-listen (~> 2.0)
+      w3c_rspec_validators (~> 0.3.0)
+      webmock (~> 3.18)
+      wisper-rspec (~> 1.0)
     decidim-forms (0.28.4)
       decidim-core (= 0.28.4)
       wicked_pdf (~> 2.1)
-      wkhtmltopdf-binary (~> 0.12)
     decidim-generators (0.28.4)
       decidim-core (= 0.28.4)
+    decidim-initiatives (0.28.4)
+      decidim-admin (= 0.28.4)
+      decidim-comments (= 0.28.4)
+      decidim-core (= 0.28.4)
+      decidim-verifications (= 0.28.4)
+      hexapdf (~> 0.32.0)
+      wicked_pdf (~> 2.1)
     decidim-meetings (0.28.4)
       decidim-core (= 0.28.4)
       decidim-forms (= 0.28.4)
@@ -150,6 +158,11 @@ GIT
       decidim-core (= 0.28.4)
       doc2text (~> 0.4.6)
       redcarpet (~> 3.5, >= 3.5.1)
+    decidim-sortitions (0.28.4)
+      decidim-admin (= 0.28.4)
+      decidim-comments (= 0.28.4)
+      decidim-core (= 0.28.4)
+      decidim-proposals (= 0.28.4)
     decidim-surveys (0.28.4)
       decidim-core (= 0.28.4)
       decidim-forms (= 0.28.4)
@@ -159,18 +172,60 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
+    decidim-templates (0.28.4)
+      decidim-core (= 0.28.4)
+      decidim-forms (= 0.28.4)
+      decidim-proposals (= 0.28.4)
     decidim-verifications (0.28.4)
       decidim-core (= 0.28.4)
 
 GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
+  revision: 9c656bb021c5e2ee055c9686e43c880566d4cef1
+  branch: release/0.28-stable
+  specs:
+    decidim-internal_evaluation (0.0.1)
+      decidim-core (~> 0.28.0)
+      decidim-proposals (~> 0.28.0)
+      decidim-templates (~> 0.28.0)
+      deface (~> 1.9)
+
+GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
+  revision: df16cf4de13c306348761d850d19815c8221874e
+  specs:
+    decidim-kids (0.2.0)
+      decidim-core (>= 0.28, < 0.29)
+      decidim-system (>= 0.28, < 0.29)
+      decidim-verifications (>= 0.28, < 0.29)
+      deface (>= 1.5)
+
+GIT
+  remote: https://github.com/Platoniq/decidim-module-navigation_maps
+  revision: 7fd50e1368bae4c7955c0ba8ec5ee395273a5329
+  specs:
+    decidim-navigation_maps (1.5.0)
+      decidim-admin (>= 0.28, < 0.29)
+      decidim-core (>= 0.28, < 0.29)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 84374037d34a3ac80dc18406834169c65869f11b
+  revision: a8d21e4e178f1965a6e3e73cf0c781cb78661e32
   specs:
     decidim-decidim_awesome (0.11.2)
       decidim-admin (>= 0.28.0, < 0.29)
       decidim-core (>= 0.28.0, < 0.29)
       deface (>= 1.5)
       sassc (~> 2.3)
+
+GIT
+  remote: https://github.com/decidim-vocdoni/decidim-module-vocdoni
+  revision: 2d259f513addcfe2f6e676f721a191a38bf55a5a
+  specs:
+    decidim-vocdoni (2.0)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      node-runner (~> 1.1)
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
@@ -205,12 +260,6 @@ PATH
       decidim-comments (~> 0.28.0)
       decidim-core (~> 0.28.0)
       decidim-proposals (~> 0.28.0)
-
-PATH
-  remote: decidim-valid_auth
-  specs:
-    decidim-valid_auth (0.0.3)
-      decidim-verifications (~> 0.28.0)
 
 GEM
   remote: https://rubygems.org/
@@ -282,6 +331,9 @@ GEM
       activesupport (>= 6.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    appsignal (4.2.0)
+      logger
+      rack
     ast (2.4.2)
     aws-eventstream (1.3.0)
     aws-partitions (1.896.0)
@@ -379,54 +431,6 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-dev (0.28.4)
-      bullet (~> 7.0)
-      byebug (~> 11.0)
-      capybara (~> 3.39)
-      decidim (= 0.28.4)
-      erb_lint (~> 0.4.0)
-      factory_bot_rails (~> 6.2)
-      faker (~> 3.2)
-      i18n-tasks (~> 1.0)
-      nokogiri (~> 1.14, >= 1.14.3)
-      parallel_tests (~> 4.2)
-      puma (~> 6.2, >= 6.3.1)
-      rails-controller-testing (~> 1.0)
-      rspec (~> 3.12)
-      rspec-cells (~> 0.3.7)
-      rspec-html-matchers (~> 0.10)
-      rspec-rails (~> 6.0)
-      rspec-retry (~> 0.6.2)
-      rspec_junit_formatter (~> 0.6.0)
-      rubocop (~> 1.50.0)
-      rubocop-faker (~> 1.1)
-      rubocop-rails (~> 2.19)
-      rubocop-rspec (~> 2.20)
-      selenium-webdriver (~> 4.9)
-      simplecov (~> 0.22.0)
-      simplecov-cobertura (~> 2.1.0)
-      spring (~> 2.0)
-      spring-watcher-listen (~> 2.0)
-      w3c_rspec_validators (~> 0.3.0)
-      webmock (~> 3.18)
-      wisper-rspec (~> 1.0)
-    decidim-initiatives (0.28.4)
-      decidim-admin (= 0.28.4)
-      decidim-comments (= 0.28.4)
-      decidim-core (= 0.28.4)
-      decidim-verifications (= 0.28.4)
-      hexapdf (~> 0.32.0)
-      wicked_pdf (~> 2.1)
-      wkhtmltopdf-binary (~> 0.12)
-    decidim-sortitions (0.28.4)
-      decidim-admin (= 0.28.4)
-      decidim-comments (= 0.28.4)
-      decidim-core (= 0.28.4)
-      decidim-proposals (= 0.28.4)
-    decidim-templates (0.28.4)
-      decidim-core (= 0.28.4)
-      decidim-forms (= 0.28.4)
-      decidim-proposals (= 0.28.4)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -640,6 +644,7 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.3)
+    node-runner (1.2.0)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-arm64-darwin)
@@ -839,21 +844,24 @@ GEM
       rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.32.3)
-      parser (>= 3.3.1.0)
-    rubocop-capybara (2.21.0)
+    rubocop-ast (1.31.2)
+      parser (>= 3.3.0.4)
+    rubocop-capybara (2.20.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.25.1)
       rubocop (~> 1.41)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
       rubocop (>= 0.82.0)
-    rubocop-rails (2.25.1)
+    rubocop-rails (2.24.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rspec (2.20.0)
-      rubocop (~> 1.33)
+    rubocop-rspec (2.27.1)
+      rubocop (~> 1.40)
       rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.2)
       ffi (~> 1.12)
@@ -869,8 +877,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     sassc (2.4.0)
       ffi (~> 1.9)
-    scout_apm (5.3.7)
-      parser
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -971,7 +977,6 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.18)
@@ -983,6 +988,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  appsignal
   aws-sdk-s3
   barnes
   bootsnap
@@ -994,17 +1000,17 @@ DEPENDENCIES
   decidim-census_sms!
   decidim-dataviz!
   decidim-decidim_awesome!
-  decidim-dev (= 0.28.4)
+  decidim-dev!
   decidim-ephemeral_participation!
-  decidim-initiatives (= 0.28.4)
+  decidim-initiatives!
   decidim-internal_evaluation!
   decidim-kids!
   decidim-navigation_maps!
-  decidim-sortitions (= 0.28.4)
+  decidim-sortitions!
   decidim-stats!
-  decidim-templates (= 0.28.4)
+  decidim-templates!
   decidim-term_customizer!
-  decidim-valid_auth!
+  decidim-vocdoni!
   dotenv-rails
   faker
   foreman
@@ -1026,7 +1032,6 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-faker
-  scout_apm
   sentry-rails
   sentry-ruby
   sentry-sidekiq
@@ -1034,7 +1039,6 @@ DEPENDENCIES
   stackprof
   web-console
   wicked_pdf (< 2.8)
-  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 3.1.1p18

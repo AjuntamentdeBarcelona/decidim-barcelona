@@ -8,7 +8,7 @@ env:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu:22.04
+    runs-on: ubuntu-22.04
     services:
       postgres:
         image: postgres:11
@@ -37,13 +37,20 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
+      - run: |
+          sudo apt install wkhtmltopdf
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - name: Precompile assets
         run: |
           npm install
           bundle exec rake assets:precompile
-      - run: |
-          mkdir node_modules
-          bundle exec rspec
+      - run: bundle exec rspec
         name: Run specs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: ./tmp/screenshots
+          if-no-files-found: ignore
+          overwrite: true

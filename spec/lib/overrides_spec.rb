@@ -11,7 +11,7 @@ checksums = [
     files: {
       "/app/helpers/decidim/paginate_helper.rb" => "6fd69359386319d678c7a17cf64de4d9",
       "/app/controllers/decidim/application_controller.rb" => "e86fe37834b061828536f9417fe56cd1", # ephemeral participation overrides
-      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
+      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb and include 10 in OPTIONS constant
       "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "ec2a03817027336392f1e9e0893309ab", # ephemeral participation overrides
       "/app/models/decidim/organization.rb" => "04eaf4467a1e0d891251c5cedf71f5e4", # ephemeral participation overrides
@@ -21,12 +21,12 @@ checksums = [
       "/app/permissions/decidim/permissions.rb" => "36a9c31bbf17685e80acff49f6e9b0ca", # ephemeral participation overrides
       "/app/views/decidim/shared/_login_modal.html.erb" => "a29d4fcebe8c689044e3c15f6144f3d1", # ephemeral participation overrides
       "/app/views/layouts/decidim/mailer.html.erb" => "4e308c82acd8b1dac405ff71963d8743",
+      "/app/views/layouts/decidim/newsletter_base.html.erb" => "44095c3df64a4fea34f46b61bb840b31",
       "/app/views/layouts/decidim/footer/_main_links.html.erb" => "e35f39aa247534377219915b1632e354", # ephemeral participation overrides
       "/app/views/layouts/decidim/header/_main_links_dropdown.html.erb" => "a369664c2bb36cbd2b10d90d9a7469cf", # ephemeral participation overrides
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "22355fa93da7c8776e7e7f56a5b207f7",
       "/app/cells/decidim/activities_cell.rb" => "dd17416a8d1efe7f26b1e759613e4db4",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
-      "/lib/decidim/view_model.rb" => "141f2ea7b4c8bb35bd3966882780c225",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
       "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c"
     }
@@ -82,7 +82,7 @@ checksums = [
       "/app/views/decidim/accountability/results/home.html.erb" => "4050a327e040350e247c9086fc432cde",
       "/app/views/decidim/accountability/results/index.html.erb" => "1b655348f4e689fb27b2892846faf586",
       "/app/views/decidim/accountability/results/_home_categories.html.erb" => "00721e6e14f5ad718a3d80ecd905999e",
-      "/app/views/decidim/accountability/results/_scope_filters.html.erb" => "457ac0cce5522504d0a33a245cd424d4",
+      "/app/views/decidim/accountability/results/_scope_filters.html.erb" => "a405bb47fe4f8f7b216165b5044c1462",
       "/app/views/decidim/accountability/results/_stats_box.html.erb" => "2ce34e1ee1a824dc4fbe36940c97f3e8",
       "/app/models/decidim/accountability/result.rb" => "e1c063ba7c39ca8996daa740c7ff6bc6",
       "/app/services/decidim/accountability/results_calculator.rb" => "4cc5ed480220f0bfe7561ad887e59576"
@@ -95,7 +95,7 @@ checksums = [
       "/app/views/decidim/initiatives/admin/initiatives/_signatures.html.erb" => "a57884ead149d3c455aa1037df715791",
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/models/decidim/initiative.rb" => "77c9775fcff404b16e5a382915116fe1",
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "805ba1e544cc3883baec90a357596320",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "c0f9bf5d9edaca545a7c931c0dc5c0e9",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "40c663fcb732743399b4fe79605e7823"
     }
@@ -116,8 +116,9 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8",
-      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "72910541010305f25baf297f4a58497b"
+      "/app/helpers/decidim/proposals/application_helper.rb" => "c17dd875a166cd0cd3c09b0e596ebef5",
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337",
+      "/app/views/decidim/proposals/proposals/index.html.erb" => "48b62ae409b6ed736375772946ef2aa9" # remove map from index page
     }
   },
   {

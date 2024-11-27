@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
+  default_options = Decidim::Paginable::OPTIONS
+  Decidim::Paginable.send(:remove_const, :OPTIONS)
+  Decidim::Paginable::OPTIONS = (default_options + [10]).uniq.sort.freeze
+
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
@@ -22,10 +26,4 @@ Rails.application.config.to_prepare do
   Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
-  # This last one will be removed once https://github.com/decidim/decidim/pull/13402 is used
-  Decidim::ViewModel.class_eval do
-    def cache_expiry_time
-      5.minutes
-    end
-  end
 end
