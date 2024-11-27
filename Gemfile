@@ -45,6 +45,7 @@ group :development do
   gem "listen"
   gem "rubocop"
   gem "web-console"
+  gem "wkhtmltopdf-binary"
 end
 
 group :production do
