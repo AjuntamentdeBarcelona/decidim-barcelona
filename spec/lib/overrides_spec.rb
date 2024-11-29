@@ -30,7 +30,6 @@ checksums = [
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
       "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c",
       "/app/cells/decidim/participatory_space_dropdown_metadata/show.erb" => "e1546b7776a0e1fffdbef705094c189d", # delete last activity
-      "/app/cells/decidim/author/show.erb" => "20bdef8a694a2dcb70202ac7f017060d", # remove tooltip
       "/app/views/layouts/decidim/header/_menu_breadcrumb_main_dropdown.html.erb" => "494b33a9fc70f859f766962815399445" # delete last activity
     }
   },
@@ -117,7 +116,6 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/controllers/decidim/proposals/proposals_controller.rb" => "69420e7f27e1e7cb2688dadcc91017b3",
       "/app/helpers/decidim/proposals/application_helper.rb" => "c17dd875a166cd0cd3c09b0e596ebef5",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337",
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48b62ae409b6ed736375772946ef2aa9" # remove map from index page
