@@ -30,7 +30,6 @@ checksums = [
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
       "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c",
       "/app/cells/decidim/participatory_space_dropdown_metadata/show.erb" => "e1546b7776a0e1fffdbef705094c189d", # delete last activity
-      "/app/cells/decidim/author/show.erb" => "20bdef8a694a2dcb70202ac7f017060d", # remove tooltip
       "/app/views/layouts/decidim/header/_menu_breadcrumb_main_dropdown.html.erb" => "494b33a9fc70f859f766962815399445" # delete last activity
     }
   },
