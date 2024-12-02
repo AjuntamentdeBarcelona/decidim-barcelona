@@ -11,7 +11,7 @@ checksums = [
     files: {
       "/app/helpers/decidim/paginate_helper.rb" => "6fd69359386319d678c7a17cf64de4d9",
       "/app/controllers/decidim/application_controller.rb" => "e86fe37834b061828536f9417fe56cd1", # ephemeral participation overrides
-      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb and include 10 in OPTIONS constant
+      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/decidim_form_helper.rb" => "c534a1faa8da83aab5b2190f9d7534c3", # ephemeral participation overrides
       "/app/models/decidim/component.rb" => "ec2a03817027336392f1e9e0893309ab", # ephemeral participation overrides
       "/app/models/decidim/organization.rb" => "04eaf4467a1e0d891251c5cedf71f5e4", # ephemeral participation overrides
