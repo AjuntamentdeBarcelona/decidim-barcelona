@@ -28,9 +28,7 @@ checksums = [
       "/app/cells/decidim/activities_cell.rb" => "dd17416a8d1efe7f26b1e759613e4db4",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "ff2cc476eb72c2942cf2e69ae21b84fa",
-      "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c",
-      "/app/cells/decidim/participatory_space_dropdown_metadata/show.erb" => "e1546b7776a0e1fffdbef705094c189d", # delete last activity
-      "/app/views/layouts/decidim/header/_menu_breadcrumb_main_dropdown.html.erb" => "494b33a9fc70f859f766962815399445" # delete last activity
+      "/app/views/layouts/decidim/header/_main.html.erb" => "a6496ec11e073062743a927ee3c8bd3c"
     }
   },
   {
