@@ -20,6 +20,7 @@ describe "Assemblies" do
 
       it "lists 25 assemblies per page" do
         within "#assemblies-grid" do
+          expect(page).to have_content("Results per page:\n25")
           expect(page).to have_css("[id^=assembly_]", count: 25)
         end
       end
