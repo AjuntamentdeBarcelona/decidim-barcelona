@@ -9,3 +9,9 @@ preload_app!
 
 port ENV.fetch("PORT", nil) || 3000
 environment ENV.fetch("RACK_ENV", nil) || "development"
+
+before_fork do
+  require "barnes"
+
+  Barnes.start
+end
