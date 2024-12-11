@@ -11,7 +11,7 @@ port ENV.fetch("PORT", nil) || 3000
 environment ENV.fetch("RACK_ENV", nil) || "development"
 
 before_fork do
-  require "puma_worker_killer"
+  require "barnes"
 
-  PumaWorkerKiller.enable_rolling_restart
+  Barnes.start
 end

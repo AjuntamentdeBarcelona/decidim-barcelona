@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: f3b125243e409476b07c75a7438eafc529dd96c8
-  branch: release/0.28-stable-bcn
+  revision: efc37d11110560f35edda7655e24888549afe470
+  branch: release/0.28-stable-bcn-proposal-optimization
   specs:
     decidim (0.28.4)
       decidim-accountability (= 0.28.4)
@@ -514,8 +514,6 @@ GEM
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
     geom2d (0.4.1)
-    get_process_mem (0.2.7)
-      ffi (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     graphql (2.0.31)
@@ -721,9 +719,6 @@ GEM
     public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
-    puma_worker_killer (0.3.1)
-      get_process_mem (~> 0.2)
-      puma (>= 2.7)
     racc (1.8.1)
     rack (2.2.10)
     rack-attack (6.7.0)
@@ -1022,7 +1017,6 @@ DEPENDENCIES
   origami
   progressbar
   puma
-  puma_worker_killer
   rack-ssl-enforcer
   rack-timeout
   rack_password
