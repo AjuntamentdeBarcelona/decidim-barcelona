@@ -114,6 +114,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
+      "/lib/decidim/proposals/proposal_serializer.rb" => "ea339213f4f296aaafa3708dcd5c37c4", # remove once the solution of this PR is present https://github.com/decidim/decidim/pull/13592
       "/app/helpers/decidim/proposals/application_helper.rb" => "c17dd875a166cd0cd3c09b0e596ebef5",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337"
     }
