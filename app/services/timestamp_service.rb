@@ -80,10 +80,18 @@ class TimestampService
     Rails.application.secrets.timestamp_service_url
   end
 
+  def skip_ssl_verification?
+    Decidim::Env.new("TIMESTAMP_SERVICE_SKIP_SSL").present?
+  end
+
   def timestamp_response
     return Time.current.to_s unless timestamp_service_url
 
-    resp = Faraday.post timestamp_service_url do |request|
+    connection = Faraday.new do |faraday|
+      faraday.ssl.verify = false if skip_ssl_verification?
+    end
+
+    resp = connection.post(timestamp_service_url) do |request|
       request.headers["Content-Type"] = "text/xml"
       request.body = request_message
     end
