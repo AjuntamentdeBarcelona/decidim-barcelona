@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: efc37d11110560f35edda7655e24888549afe470
+  revision: 6836a27ba93580d4bc621a1b694622980dad58f2
   branch: release/0.28-stable-bcn-proposal-optimization
   specs:
     decidim (0.28.4)
@@ -980,6 +980,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-21
   arm64-darwin-23
+  arm64-darwin-24
   x86_64-linux
 
 DEPENDENCIES
