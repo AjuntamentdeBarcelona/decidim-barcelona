@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.28-stable-bcn-proposal-optimization" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.29-stable-bcn" }.freeze
 
 ruby RUBY_VERSION
 
@@ -16,15 +16,15 @@ gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
 gem "decidim-stats", path: "decidim-stats"
 
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
-gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
-gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
-gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
-gem "decidim-vocdoni", git: "https://github.com/decidim-vocdoni/decidim-module-vocdoni"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "upgrade-0.29"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "deps/decidim-0.29"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "upgrade/0.29"
+gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "deps/decidim-0.29"
 
 gem "origami"
-gem "wicked_pdf", "< 2.8"
+gem "wicked_pdf"
 
 gem "progressbar"
 gem "puma"
