@@ -35,7 +35,8 @@ module Decidim
         def redirect_ephemeral_participant
           return redirect_to(unverifiable_ephemeral_participant_path(current_user)) if redirect_to_unverifiable_ephemeral_participant_path?
           return redirect_to(ephemeral_participation_path) if redirect_to_ephemeral_participation_path?
-          return redirect_to(edit_ephemeral_participant_path(current_user)) if redirect_to_edit_ephemeral_participant_path?
+
+          redirect_to(edit_ephemeral_participant_path(current_user)) if redirect_to_edit_ephemeral_participant_path?
         end
 
         def redirect_to_unverifiable_ephemeral_participant_path?
@@ -56,7 +57,8 @@ module Decidim
           presenter = Decidim::EphemeralParticipation::FlashMessagesPresenter.new(current_user, helpers)
 
           return (flash.now[:warning] = presenter.unverified_ephemeral_participant_message) if inform_unverified_ephemeral_participant?
-          return (flash.now[:warning] = presenter.verified_ephemeral_participant_message) if inform_verified_ephemeral_participant?
+
+          (flash.now[:warning] = presenter.verified_ephemeral_participant_message) if inform_verified_ephemeral_participant?
         end
 
         def inform_unverified_ephemeral_participant?

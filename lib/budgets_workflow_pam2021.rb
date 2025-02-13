@@ -6,7 +6,7 @@ class BudgetsWorkflowPam2021 < Decidim::Budgets::Workflows::Base
 
   # The budget resource in the user's scope is highlighted.
   def highlighted?(resource)
-    return unless user_scope_resource && !voted?(user_scope_resource)
+    return false unless user_scope_resource && !voted?(user_scope_resource)
 
     resource == user_scope_resource
   end
