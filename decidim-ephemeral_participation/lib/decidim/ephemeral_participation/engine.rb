@@ -13,7 +13,6 @@ module Decidim
         Decidim::Verifications::PerformAuthorizationStep.include(Decidim::EphemeralParticipation::PerformAuthorizationStepOverride)
         # controllers
         Decidim::ApplicationController.include(Decidim::EphemeralParticipation::ApplicationControllerOverride)
-        Decidim::Admin::ConflictsController.include(Decidim::EphemeralParticipation::ConflictsControllerOverride)
         # forms
         Decidim::AuthorizationHandler.include(Decidim::EphemeralParticipation::AuthorizationHandlerOverride)
         Decidim::Admin::ComponentForm.include(Decidim::EphemeralParticipation::ComponentFormOverride)
