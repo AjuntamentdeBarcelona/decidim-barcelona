@@ -6,7 +6,7 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
   let(:organization) do
     create(
       :organization,
-      name: "Ajuntament",
+      name: { ca: "Ajuntament", es: "Ayuntamiento" },
       default_locale: :ca,
       available_locales: [:es, :ca],
       available_authorizations: authorizations

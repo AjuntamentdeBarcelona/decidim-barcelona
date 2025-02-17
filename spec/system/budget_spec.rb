@@ -9,7 +9,7 @@ describe "Budgets", :perform_enqueued, available_authorizations: ["census_sms_au
     let!(:organization) do
       create(
         :organization,
-        name: "Ajuntament",
+        name: { ca: "Ajuntament", es: "Ayuntamiento" },
         default_locale: :ca,
         available_locales: [:es, :ca],
         available_authorizations: authorizations
