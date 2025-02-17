@@ -52,7 +52,8 @@
   min-width: 5rem;
 }
 
-.main-header__language-container > #trigger-dropdown-header-language-chooser:hover {
+.main-header__language-container
+  > #trigger-dropdown-header-language-chooser:hover {
   background-color: #f3f4f7 !important;
   border-radius: 0.25rem;
   text-decoration: underline;
