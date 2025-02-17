@@ -18,9 +18,5 @@ module DecidimBarcelona
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoloader = :zeitwerk
-
-    # Locales
-    config.i18n.available_locales = [:ca, :es]
-    config.i18n.default_locale = :ca
   end
 end
