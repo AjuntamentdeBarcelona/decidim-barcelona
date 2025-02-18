@@ -186,8 +186,8 @@ GIT
 
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
-  revision: 07ea0866fde1255ba342994adc670f49a453987f
-  branch: deps/decidim-0.29
+  revision: 7b737cedac4b7bc3da57a927b156ab1b5f565762
+  branch: main
   specs:
     decidim-internal_evaluation (0.0.1)
       decidim-core (~> 0.29.0)
@@ -217,8 +217,8 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-term_customizer
-  revision: 5fa892bda825c6d60830187789c04fdf6e4645b9
-  branch: upgrade/0.29
+  revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
+  branch: master
   specs:
     decidim-term_customizer (0.29.0)
       decidim-admin (~> 0.29.0)
@@ -226,8 +226,8 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-vocdoni
-  revision: 8b069c46a65c8468283ccafd1937dfabc5915b5b
-  branch: deps/decidim-0.29
+  revision: cba4113101a70d13dd6e73f0d07f5029d7881e9b
+  branch: main
   specs:
     decidim-vocdoni (3.0)
       decidim-admin (>= 0.29.0, < 0.30)
