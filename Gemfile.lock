@@ -236,8 +236,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 0f4c15fd9eac16538b0b6e14c6905e90a178228f
-  branch: upgrade-0.29
+  revision: 9d99a2663662e6f937150d007ce25d03db06cc2f
+  branch: upgrade-0.29-conflicts
   specs:
     decidim-decidim_awesome (0.12.0)
       decidim-admin (>= 0.29.1, < 0.30)
