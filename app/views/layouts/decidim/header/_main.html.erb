@@ -3,7 +3,7 @@
     <%= link_to "www.barcelona.cat", "https://ajuntament.barcelona.cat", target: "_blank", class: "bcnbrand-main-link", data: { external_link: "text-only" } %>
   </div>
   <div class="bcn-logo">
-    <%= link_to "https://ajuntament.barcelona.cat", target: "_blank" do %>
+    <%= link_to "https://ajuntament.barcelona.cat", target: "_blank", data: { external_link: "text-only" } do %>
       <%= image_pack_tag "media/images/bcn-logo.svg", class: "logo-desktop", alt: t(".organization_logo") %>
       <%= image_pack_tag "media/images/bcn-logo-mobile.svg", class: "logo-mobile", alt: t(".organization_logo") %>
     <% end %>
