@@ -4,8 +4,8 @@ module Decidim
   module EphemeralParticipation
     module ProjectVoteButtonCellOverride
       def vote_button_disabled?
-        return unless current_user
-        return if current_user.ephemeral_participant?
+        return false unless current_user
+        return false if current_user.ephemeral_participant?
 
         !can_have_order?
       end

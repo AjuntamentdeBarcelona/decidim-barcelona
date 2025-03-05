@@ -1,4 +1,4 @@
-FROM ruby:3.1.1
+FROM ruby:3.2.6
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_MAJOR=18
@@ -41,7 +41,7 @@ ADD ./decidim-dataviz/decidim-dataviz.gemspec /app/decidim-dataviz/decidim-datav
 ADD ./decidim-ephemeral_participation/decidim-ephemeral_participation.gemspec /app/decidim-ephemeral_participation/decidim-ephemeral_participation.gemspec
 ADD ./decidim-stats/decidim-stats.gemspec /app/decidim-stats/decidim-stats.gemspec
 ADD ./decidim-valid_auth/decidim-valid_auth.gemspec /app/decidim-valid_auth/decidim-valid_auth.gemspec
-RUN gem install bundler:2.4.14
+RUN gem install bundler:2.4.19
 RUN bundle install
 
 # Copy all the code to /app

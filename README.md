@@ -49,6 +49,15 @@ You can call this tasks for the two languages being used in the participatory pr
 bundle exec rake proposals_budget_2024_translations:update_ca_translations
 ```
 
+### Keep original authors in merged proposals
+
+When merging proposals, the resulting proposal is automatically attributed to the current organization. If you want to preserve the original authorship, you can run this task. It
+will update the merged proposal by assigning the original authors and removing the organization’s authority.
+
+```bash
+bundle exec rake rake decidim:change_merged_proposal_authors[proposal_id]
+```
+
 ## License
 
 Code published under AFFERO GPL v3 (see [LICENSE-AGPLv3.txt](LICENSE-AGPLv3.txt))

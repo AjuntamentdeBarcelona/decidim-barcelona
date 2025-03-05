@@ -6,7 +6,7 @@ describe "Authorizations with census kids", :perform_enqueued, with_authorizatio
   let(:organization) do
     create(
       :organization,
-      name: "Ajuntament",
+      name: { ca: "Ajuntament", es: "Ayuntamiento" },
       default_locale: :ca,
       available_locales: [:es, :ca],
       available_authorizations: authorizations

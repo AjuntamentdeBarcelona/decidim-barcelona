@@ -1,93 +1,60 @@
 <div class="content"><h1>
-<a id="commentable" class="anchor" href="#commentable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commentable</h1>
-<p>A commentable object</p>
+<a id="vocdonianswer" class="anchor" href="#vocdonianswer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VocdoniAnswer</h1>
+<p>An answer for an election's question</p>
 <h2>
 <a id="implements" class="anchor" href="#implements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implements</h2>
 <ul>
-   <li><code><a href="/api/docs/interface/commentableinterface">CommentableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/attachableinterface">AttachableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/traceableinterface">TraceableInterface</a></code></li>
 </ul>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The commentable's ID</p>
+   <p>The internal ID of this answer</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
+   <p>The title for this answer</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="acceptsnewcomments" class="field-name anchored">acceptsNewComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the object can have new comments or not</p>
+   <p>The description for this answer</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="commentshavealignment" class="field-name anchored">commentsHaveAlignment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="weight" class="field-name anchored">weight (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the object comments have alignment or not</p>
+   <p>The ordering weight for this answer</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="commentshavevotes" class="field-name anchored">commentsHaveVotes (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="value" class="field-name anchored">value (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the object comments have votes or not</p>
+   <p>The internal value of this answer</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="comments" class="field-name anchored">comments (<code><a href="/api/docs/object/comment">[Comment!]!</a></code>)</span>
+  <span id="versionscount" class="field-name anchored">versionsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
   <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">orderBy</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Order the comments</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">singleCommentId</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>ID of the single comment to look at</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
+   <p>Total number of versions</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="totalcommentscount" class="field-name anchored">totalCommentsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <span id="versions" class="field-name anchored">versions (<code><a href="/api/docs/object/traceversion">[TraceVersion]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The number of comments in all levels this resource holds</p>
+   <p>This object's versions</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="hascomments" class="field-name anchored">hasComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Check if the commentable has comments</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user can comment</p>
+   <p>This object's attachments</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">
@@ -234,13 +201,6 @@
       <li>
         <a href="/api/docs/object/commentmutation/" class="sidebar-link">
           CommentMutation
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/commentable/" class="sidebar-link">
-          Commentable
         </a>
       </li>
       
@@ -729,6 +689,55 @@
       
         
       <li>
+        <a href="/api/docs/object/vocdonianswer/" class="sidebar-link">
+          VocdoniAnswer
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdonielection/" class="sidebar-link">
+          VocdoniElection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdonielectionconnection/" class="sidebar-link">
+          VocdoniElectionConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdonielectionedge/" class="sidebar-link">
+          VocdoniElectionEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdonielections/" class="sidebar-link">
+          VocdoniElections
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdoniquestion/" class="sidebar-link">
+          VocdoniQuestion
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/vocdonivoter/" class="sidebar-link">
+          VocdoniVoter
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/__directive/" class="sidebar-link">
           __Directive
         </a>
@@ -1151,6 +1160,13 @@
       <li>
         <a href="/api/docs/directive/skip/" class="sidebar-link">
           skip
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/specifiedby/" class="sidebar-link">
+          specifiedBy
         </a>
       </li>
       

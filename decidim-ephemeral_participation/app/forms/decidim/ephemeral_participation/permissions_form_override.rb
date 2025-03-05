@@ -29,7 +29,7 @@ module Decidim
         end
 
         def ephemeral_participation_enabled?
-          return unless component
+          return false unless component
 
           component.ephemeral_participation_enabled?
         end

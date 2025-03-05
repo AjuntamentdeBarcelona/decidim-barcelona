@@ -7,7 +7,7 @@ module Decidim
         extend ActiveSupport::Concern
 
         def initiative_admin_user_action?
-          return unless permission_action.subject == :initiative
+          return false unless permission_action.subject == :initiative
 
           case permission_action.action
           when :print
