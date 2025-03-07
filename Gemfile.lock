@@ -1,7 +1,68 @@
 GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 0f90f8849c80e9001005af8450060f550f045b8a
-  branch: release/0.29-stable-bcn
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
+  revision: 7b737cedac4b7bc3da57a927b156ab1b5f565762
+  branch: main
+  specs:
+    decidim-internal_evaluation (0.0.1)
+      decidim-core (~> 0.29.0)
+      decidim-proposals (~> 0.29.0)
+      decidim-templates (~> 0.29.0)
+      deface (~> 1.9)
+
+GIT
+  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
+  revision: 2b35ce7e8267ba3fa020d60e8de80b438fc12389
+  branch: main
+  specs:
+    decidim-kids (0.3.0)
+      decidim-core (>= 0.29, < 0.30)
+      decidim-system (>= 0.29, < 0.30)
+      decidim-verifications (>= 0.29, < 0.30)
+      deface (>= 1.5)
+
+GIT
+  remote: https://github.com/Platoniq/decidim-module-navigation_maps
+  revision: 349e4e37360639f396f7228d9ecbad614e340535
+  branch: main
+  specs:
+    decidim-navigation_maps (1.6.0)
+      decidim-admin (>= 0.29, < 0.30)
+      decidim-core (>= 0.29, < 0.30)
+
+GIT
+  remote: https://github.com/Platoniq/decidim-module-term_customizer
+  revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
+  branch: master
+  specs:
+    decidim-term_customizer (0.29.0)
+      decidim-admin (~> 0.29.0)
+      decidim-core (~> 0.29.0)
+
+GIT
+  remote: https://github.com/Platoniq/decidim-module-vocdoni
+  revision: cba4113101a70d13dd6e73f0d07f5029d7881e9b
+  branch: main
+  specs:
+    decidim-vocdoni (3.0)
+      decidim-admin (>= 0.29.0, < 0.30)
+      decidim-core (>= 0.29.0, < 0.30)
+      node-runner (~> 1.1)
+
+GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
+  revision: 20af4aa5d4471a73ec5a06ebe5e02d33ce79bd17
+  branch: upgrade-0.29
+  specs:
+    decidim-decidim_awesome (0.12.0)
+      decidim-admin (>= 0.29.1, < 0.30)
+      decidim-core (>= 0.29.1, < 0.30)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
+  remote: https://github.com/tremend-cofe/decidim
+  revision: a3ab3467a08683828cfaec1534776badcc8c88bb
+  branch: feature/proposal-voting
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)
@@ -183,67 +244,6 @@ GIT
       decidim-forms (= 0.29.2)
     decidim-verifications (0.29.2)
       decidim-core (= 0.29.2)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
-  revision: 7b737cedac4b7bc3da57a927b156ab1b5f565762
-  branch: main
-  specs:
-    decidim-internal_evaluation (0.0.1)
-      decidim-core (~> 0.29.0)
-      decidim-proposals (~> 0.29.0)
-      decidim-templates (~> 0.29.0)
-      deface (~> 1.9)
-
-GIT
-  remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
-  revision: 2b35ce7e8267ba3fa020d60e8de80b438fc12389
-  branch: main
-  specs:
-    decidim-kids (0.3.0)
-      decidim-core (>= 0.29, < 0.30)
-      decidim-system (>= 0.29, < 0.30)
-      decidim-verifications (>= 0.29, < 0.30)
-      deface (>= 1.5)
-
-GIT
-  remote: https://github.com/Platoniq/decidim-module-navigation_maps
-  revision: 349e4e37360639f396f7228d9ecbad614e340535
-  branch: main
-  specs:
-    decidim-navigation_maps (1.6.0)
-      decidim-admin (>= 0.29, < 0.30)
-      decidim-core (>= 0.29, < 0.30)
-
-GIT
-  remote: https://github.com/Platoniq/decidim-module-term_customizer
-  revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
-  branch: master
-  specs:
-    decidim-term_customizer (0.29.0)
-      decidim-admin (~> 0.29.0)
-      decidim-core (~> 0.29.0)
-
-GIT
-  remote: https://github.com/Platoniq/decidim-module-vocdoni
-  revision: cba4113101a70d13dd6e73f0d07f5029d7881e9b
-  branch: main
-  specs:
-    decidim-vocdoni (3.0)
-      decidim-admin (>= 0.29.0, < 0.30)
-      decidim-core (>= 0.29.0, < 0.30)
-      node-runner (~> 1.1)
-
-GIT
-  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 20af4aa5d4471a73ec5a06ebe5e02d33ce79bd17
-  branch: upgrade-0.29
-  specs:
-    decidim-decidim_awesome (0.12.0)
-      decidim-admin (>= 0.29.1, < 0.30)
-      decidim-core (>= 0.29.1, < 0.30)
-      deface (>= 1.5)
-      sassc (~> 2.3)
 
 PATH
   remote: decidim-census_sms
