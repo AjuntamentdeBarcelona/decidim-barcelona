@@ -5,10 +5,10 @@ namespace :decidim do
   task :change_merged_proposal_authors, [:proposal_id] => :environment do |_task, args|
     target_proposal = Decidim::Proposals::Proposal.find(args.proposal_id)
     origin_proposals = target_proposal.linked_resources(:proposals, %w(splitted_from_component merged_from_component copied_from_component))
-    abort("[KO] No origin proposals found for the proposal given") if origin_proposals.empty?
+    raise StandardError, "No origin proposals found for the proposal #{target_proposal.id}" if origin_proposals.empty?
 
     authors = origin_proposals.map(&:authors).flatten.uniq
-    abort("[KO] The origin proposal don't have authors") if origin_proposals.empty?
+    raise StandardError, "The origin proposals of the proposal #{target_proposal.id} don't have authors" if origin_proposals.empty?
 
     authors.each do |author|
       next if target_proposal.authors.include?(author)

@@ -55,7 +55,15 @@ When merging proposals, the resulting proposal is automatically attributed to th
 will update the merged proposal by assigning the original authors and removing the organization’s authority.
 
 ```bash
-bundle exec rake rake decidim:change_merged_proposal_authors[proposal_id]
+bundle exec rake decidim:change_merged_proposal_authors[proposal_id]
+```
+
+### Change proposal category
+
+To quickly change a proposal category, you can run this task:
+
+```bash
+bundle exec rake decidim:change_proposal_category[proposal_id,category_id]
 ```
 
 ## License
