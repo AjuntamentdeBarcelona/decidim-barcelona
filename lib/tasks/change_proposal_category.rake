@@ -5,7 +5,8 @@ namespace :decidim do
   task :change_proposal_category, [:proposal_id, :category_id] => :environment do |_task, args|
     proposal = Decidim::Proposals::Proposal.find(args.proposal_id)
     category = Decidim::Category.find(args.category_id)
-    abort("[KO] Proposal already has the category given") if proposal.category == category
+    raise StandardError, "Proposal #{proposal.id} already has the category given" if proposal.category == category
+
     proposal.update(category:)
 
     puts "[OK] Proposal category updated"
