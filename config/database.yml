@@ -85,5 +85,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  pool: <%= ENV.fetch("DATABASE_POOL") { 5 } %>
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
