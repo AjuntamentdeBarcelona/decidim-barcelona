@@ -14,4 +14,9 @@ before_fork do
   require "barnes"
 
   Barnes.start
+  AppSignal::Probes.stop
+end
+
+on_worker_boot do
+  AppSignal::Probes.start
 end
