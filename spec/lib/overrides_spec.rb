@@ -29,7 +29,7 @@ checksums = [
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "3603d17b4a973b57189330a66c58126e",
       "/app/views/layouts/decidim/header/_main.html.erb" => "69acfdeade5dab8cd73e1d19f37fef2c",
-      "/app/packs/src/decidim/index.js" => "5d31a115cfa30b9f509037cc9cf9c4db"
+      "/app/packs/src/decidim/index.js" => "2c049ec1b8b79c1db50cc2424af0d6f6"
     }
   },
   {
