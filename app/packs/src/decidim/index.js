@@ -69,7 +69,7 @@ import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
-//import fetchRemoteTooltip from "src/decidim/remote_tooltips"
+// import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
