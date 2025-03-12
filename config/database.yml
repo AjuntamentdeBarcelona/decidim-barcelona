@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("DATABASE_POOL") { 30 } %>
+  pool: <%= ENV.fetch("DATABASE_POOL") { 5 } %>
   host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
   username: <%= ENV.fetch("DATABASE_USERNAME") { "" } %>
   password: <%= ENV.fetch("DATABASE_PASSWORD") { "" } %>
@@ -85,4 +85,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
