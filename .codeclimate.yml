@@ -64,3 +64,4 @@ exclude_paths:
 - "app/services/decidim_legacy_routes.rb"
 - "app/helpers/concerns/decidim/paginate_helper_override.rb"
 - "app/permissions/concerns/decidim/initiatives/admin/permissions_override.rb"
+- "app/packs/src/decidim/index.js"
