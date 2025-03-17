@@ -108,6 +108,9 @@ es:
         man: Hombre
         non_binary: No binario
         woman: Mujer
+  date:
+    formats:
+      order: d-m-y
   decidim:
     accessibility:
       external_link: Link externo

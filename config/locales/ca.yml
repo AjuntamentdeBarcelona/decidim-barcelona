@@ -108,6 +108,9 @@ ca:
         man: Home
         non_binary: No binari
         woman: Dona
+  date:
+    formats:
+      order: d-m-y
   decidim:
     accessibility:
       external_link: Link extern
