@@ -7,6 +7,7 @@ module Decidim
 
       included do
         def valid_activities
+          return []
           return @valid_activities if defined?(@valid_activities)
 
           valid_activities_count = 0
