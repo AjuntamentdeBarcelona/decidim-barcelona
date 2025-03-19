@@ -17,7 +17,7 @@ module Decidim
         Decidim::AuthorizationHandler.include(Decidim::EphemeralParticipation::AuthorizationHandlerOverride)
         Decidim::Admin::ComponentForm.include(Decidim::EphemeralParticipation::ComponentFormOverride)
         Decidim::Admin::PermissionsForm.include(Decidim::EphemeralParticipation::PermissionsFormOverride)
-        Decidim::System::UpdateOrganizationForm.include(Decidim::EphemeralParticipation::UpdateOrganizationFormOverride)
+        Decidim::System::BaseOrganizationForm.include(Decidim::EphemeralParticipation::UpdateOrganizationFormOverride)
         # models
         Decidim::Component.include(Decidim::EphemeralParticipation::ComponentOverride)
         Decidim::Organization.include(Decidim::EphemeralParticipation::OrganizationOverride)
