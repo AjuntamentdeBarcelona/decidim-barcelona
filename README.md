@@ -37,16 +37,16 @@ For example, this one will remove all the notifications from 2023-11-12 to 2024-
 bundle exec rake notifications:destroy_old["2024-01-01","2023-11-12"]
 ```
 
-### Update 2024 Participatory budget proposals to fix missing translations
+### Update proposals to fix missing translations
 
-The proposals inside the 2024 participatory budget, sometimes, are created without the translations of the `copy_id` generated using the Term Customizer module.
+The proposals, sometimes, are created without the translations of the `copy_id` generated using the Term Customizer module.
 
 This rake task will update the content of the proposals that have not translated the content and save them with the correct translation.
 
 You can call this tasks for the two languages being used in the participatory process (Catalan and Spanish):
 
 ```bash
-bundle exec rake proposals_budget_2024_translations:update_ca_translations
+bundle exec rake fix_proposals_translations:ca
 ```
 
 ### Keep original authors in merged proposals
