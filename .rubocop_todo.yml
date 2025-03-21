@@ -22,3 +22,7 @@ RSpec/PendingWithoutReason:
   Exclude:
     - 'spec/system/budgets_ephemeral_participation_spec.rb'
     - 'spec/system/budget_spec.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'lib/tasks/proposals_translations.rake'
