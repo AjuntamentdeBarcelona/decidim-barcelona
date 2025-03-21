@@ -43,7 +43,7 @@ module Decidim
             parsed_string = transform_value(string)
             next if parsed_string.blank?
 
-            hash[parsed_string[:name]] = parsed_string(:value)
+            hash[parsed_string[:name]] = parsed_string[:value]
           end
         end
 
