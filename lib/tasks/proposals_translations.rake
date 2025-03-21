@@ -56,8 +56,9 @@ namespace :fix_proposals_translations do
       body = proposal.body[lang]
 
       content.each do |copy_id, new_text|
-        puts "Updating #{copy_id} for Proposal ID: #{proposal.id}"
+        next if body[copy_id].nil?
 
+        puts "Updating #{copy_id} for Proposal ID: #{proposal.id}"
         body[copy_id] = new_text
       end
 
