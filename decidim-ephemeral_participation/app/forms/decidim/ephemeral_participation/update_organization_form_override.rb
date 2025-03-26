@@ -64,12 +64,6 @@ module Decidim
 
           errors.add(:available_authorizations, :invalid)
         end
-
-        def validate_secret_key_base_for_encryption
-          return unless Rails.application.secrets.secret_key_base&.length&.positive?
-
-          errors.add(:password, I18n.t("activemodel.errors.models.organization.attributes.password.secret_key"))
-        end
       end
     end
   end
