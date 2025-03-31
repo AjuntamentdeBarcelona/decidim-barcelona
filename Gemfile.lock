@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: d4d5aa217828a7525f4a7d69880ab95b8c33aecd
-  branch: release/0.29-stable-bcn
+  revision: cfd65d3c162d8a5e626c0ef1275881a291ce9e0a
+  branch: feature/proposal-voting
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)
