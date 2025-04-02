@@ -7,7 +7,7 @@ Decidim::TrustedIds.configure do |config|
     enabled: true,
     client_id: ENV.fetch("VALID_CLIENT_ID"),
     client_secret: ENV.fetch("VALID_CLIENT_SECRET"),
-    site: "https://identitats-pre.aoc.cat",
+    site: ENV.fetch("VALID_SITE"),
     scope: "autenticacio_usuari",
     icon: "media/images/valid-icon.png",
     icon_path: "media/images/idcat_mobil-icon.svg"
