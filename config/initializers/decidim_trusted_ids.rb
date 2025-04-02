@@ -5,11 +5,10 @@ Decidim::TrustedIds.configure do |config|
   config.omniauth_provider = "valid"
   config.omniauth = {
     enabled: true,
-    client_id: ENV.fetch("VALID_CLIENT_ID"),
-    client_secret: ENV.fetch("VALID_CLIENT_SECRET"),
-    site: ENV.fetch("VALID_SITE"),
+    client_id: Rails.application.secrets.dig(:omniauth, :valid, :client_id),
+    client_secret: Rails.application.secrets.dig(:omniauth, :valid, :client_secret),
+    site: Rails.application.secrets.dig(:omniauth, :valid, :site).presence || "https://valid-pre.aoc.cat",
     scope: "autenticacio_usuari",
-    icon: "media/images/valid-icon.png",
-    icon_path: "media/images/idcat_mobil-icon.svg"
+    icon_path: Rails.application.secrets.dig(:omniauth, :valid, :icon_path).presence || "media/images/idcat_mobil-icon.svg"
   }
 end
