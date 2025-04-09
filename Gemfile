@@ -29,11 +29,12 @@ gem "wicked_pdf"
 gem "progressbar"
 gem "puma"
 
+gem "dotenv-rails"
+
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
-  gem "dotenv-rails"
   gem "faker"
   gem "mdl"
   gem "rubocop-faker"
