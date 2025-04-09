@@ -45,6 +45,15 @@ group :development do
   gem "listen"
   gem "rubocop"
   gem "web-console"
+
+  gem "capistrano"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rails-console"
+  gem "capistrano-sidekiq"
+  gem "capistrano-rbenv"
+  gem "capistrano3-puma", "~> 6.0"
 end
 
 group :production do
@@ -72,3 +81,4 @@ group :test do
   gem "database_cleaner"
   gem "rspec"
 end
+
