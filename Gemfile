@@ -47,13 +47,13 @@ group :development do
   gem "web-console"
 
   gem "capistrano"
+  gem "capistrano3-puma", "~> 6.0"
   gem "capistrano-bundler"
   gem "capistrano-passenger"
   gem "capistrano-rails"
   gem "capistrano-rails-console"
-  gem "capistrano-sidekiq"
   gem "capistrano-rbenv"
-  gem "capistrano3-puma", "~> 6.0"
+  gem "capistrano-sidekiq"
 end
 
 group :production do
@@ -81,4 +81,3 @@ group :test do
   gem "database_cleaner"
   gem "rspec"
 end
-
