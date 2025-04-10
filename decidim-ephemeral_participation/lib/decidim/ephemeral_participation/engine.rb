@@ -5,36 +5,37 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::EphemeralParticipation
 
+      # TODO: Module pending to be removed
       config.to_prepare do
         # cells
-        Decidim::Budgets::ProjectVoteButtonCell.include(Decidim::EphemeralParticipation::ProjectVoteButtonCellOverride)
+        # Decidim::Budgets::ProjectVoteButtonCell.include(Decidim::EphemeralParticipation::ProjectVoteButtonCellOverride)
         # commands
-        Decidim::Admin::TransferUser.include(Decidim::EphemeralParticipation::TransferUserOverride)
-        Decidim::Verifications::PerformAuthorizationStep.include(Decidim::EphemeralParticipation::PerformAuthorizationStepOverride)
+        # Decidim::Admin::TransferUser.include(Decidim::EphemeralParticipation::TransferUserOverride)
+        # Decidim::Verifications::PerformAuthorizationStep.include(Decidim::EphemeralParticipation::PerformAuthorizationStepOverride)
         # controllers
-        Decidim::ApplicationController.include(Decidim::EphemeralParticipation::ApplicationControllerOverride)
+        # Decidim::ApplicationController.include(Decidim::EphemeralParticipation::ApplicationControllerOverride)
         # forms
-        Decidim::AuthorizationHandler.include(Decidim::EphemeralParticipation::AuthorizationHandlerOverride)
-        Decidim::Admin::ComponentForm.include(Decidim::EphemeralParticipation::ComponentFormOverride)
-        Decidim::Admin::PermissionsForm.include(Decidim::EphemeralParticipation::PermissionsFormOverride)
+        # Decidim::AuthorizationHandler.include(Decidim::EphemeralParticipation::AuthorizationHandlerOverride)
+        # Decidim::Admin::ComponentForm.include(Decidim::EphemeralParticipation::ComponentFormOverride)
+        # Decidim::Admin::PermissionsForm.include(Decidim::EphemeralParticipation::PermissionsFormOverride)
         Decidim::System::BaseOrganizationForm.include(Decidim::EphemeralParticipation::UpdateOrganizationFormOverride)
         # models
-        Decidim::Component.include(Decidim::EphemeralParticipation::ComponentOverride)
+        # Decidim::Component.include(Decidim::EphemeralParticipation::ComponentOverride)
         Decidim::Organization.include(Decidim::EphemeralParticipation::OrganizationOverride)
-        Decidim::PermissionAction.include(Decidim::EphemeralParticipation::PermissionActionOverride)
-        Decidim::User.include(Decidim::EphemeralParticipation::UserOverride)
-        # permissions
-        Decidim::Permissions.include(Decidim::EphemeralParticipation::PermissionsOverride)
+        # Decidim::PermissionAction.include(Decidim::EphemeralParticipation::PermissionActionOverride)
+        # Decidim::User.include(Decidim::EphemeralParticipation::UserOverride)
+        # # permissions
+        # Decidim::Permissions.include(Decidim::EphemeralParticipation::PermissionsOverride)
       end
 
-      initializer "ephemeral_participation.component_override" do
-        Decidim.component_registry.find(:budgets).tap do |component|
-          component.settings(:global) do |settings|
-            settings.attribute(:ephemeral_participation_enabled, type: :boolean, default: false)
-            settings.attribute(:ephemeral_participation_enabled_confirm_modal, type: :text, translated: true, editor: true)
-          end
-        end
-      end
+      # initializer "ephemeral_participation.component_override" do
+      #   Decidim.component_registry.find(:budgets).tap do |component|
+      #     component.settings(:global) do |settings|
+      #       settings.attribute(:ephemeral_participation_enabled, type: :boolean, default: false)
+      #       settings.attribute(:ephemeral_participation_enabled_confirm_modal, type: :text, translated: true, editor: true)
+      #     end
+      #   end
+      # end
 
       routes do
         scope :ephemeral_participation do
