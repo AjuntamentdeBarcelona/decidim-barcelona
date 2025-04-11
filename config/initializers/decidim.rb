@@ -397,7 +397,8 @@ Decidim.configure do |config|
       auth.engine = Decidim::CensusSms::Verification::Engine
       auth.renewable = true
       auth.time_between_renewals = 1.day
-      auth.ephemerable = true
+      # Uncomment the following line to make the workflow ephemeral
+      # auth.ephemeral = true
     end
   end
 end
@@ -508,7 +509,8 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   auth.renewable = true
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_authorization_metadata"
-  auth.ephemerable = true
+  # Uncomment the following line to make the workflow ephemeral
+  # auth.ephemeral = true
 
   # auth.options do |options|
   #   parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first
@@ -526,7 +528,8 @@ Decidim::Verifications.register_workflow(:census16_authorization_handler) do |au
   auth.renewable = true
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census16_authorization_metadata"
-  auth.ephemerable = true
+  # Uncomment the following line to make the workflow ephemeral
+  # auth.ephemeral = true
 end
 
 Decidim::Verifications.register_workflow(:census_kids_authorization_handler) do |auth|
@@ -541,7 +544,8 @@ Decidim::Verifications.register_workflow(:census_sarria_sant_gervasi_authorizati
   auth.renewable = true
   auth.time_between_renewals = 1.day
   auth.metadata_cell = "census_sarria_sant_gervasi_authorization_metadata"
-  auth.ephemerable = true
+  # Uncomment the following line to make the workflow ephemeral
+  # auth.ephemeral = true
 end
 
 Decidim.icons.register(name: "arrow-bottom", icon: "arrow-bottom", category: "system", description: "", engine: :core)
