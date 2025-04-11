@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_13_100211) do
+ActiveRecord::Schema[7.0].define(version: 2025_04_11_105548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1219,6 +1219,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_13_100211) do
     t.string "host", null: false
     t.string "default_locale", null: false
     t.string "available_locales", default: [], array: true
+    t.jsonb "welcome_text"
+    t.string "homepage_image"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.jsonb "description"
@@ -1267,11 +1269,11 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_13_100211) do
     t.integer "comments_max_length", default: 1000
     t.jsonb "file_upload_settings"
     t.string "machine_translation_display_priority", default: "original", null: false
-    t.jsonb "available_authorizations", default: {}
     t.string "external_domain_allowlist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
     t.jsonb "content_security_policy", default: {}
     t.jsonb "name", default: {}, null: false
+    t.string "available_authorizations", default: [], array: true
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
   end
 
