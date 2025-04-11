@@ -247,12 +247,6 @@ PATH
       decidim-core (~> 0.29.0)
 
 PATH
-  remote: decidim-ephemeral_participation
-  specs:
-    decidim-ephemeral_participation (0.0.4)
-      decidim-verifications (~> 0.29.0)
-
-PATH
   remote: decidim-stats
   specs:
     decidim-stats (0.0.3)
@@ -1050,7 +1044,6 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-decidim_awesome!
   decidim-dev!
-  decidim-ephemeral_participation!
   decidim-initiatives!
   decidim-internal_evaluation!
   decidim-navigation_maps!
