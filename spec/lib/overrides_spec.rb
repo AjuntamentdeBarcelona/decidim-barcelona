@@ -18,8 +18,8 @@ checksums = [
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "3603d17b4a973b57189330a66c58126e",
-      "/app/views/layouts/decidim/header/_main.html.erb" => "69acfdeade5dab8cd73e1d19f37fef2c",
-      "/app/packs/src/decidim/index.js" => "2c049ec1b8b79c1db50cc2424af0d6f6"
+      "/app/views/layouts/decidim/header/_main.html.erb" => "6394103a52da4be74fbf61110aa99875",
+      "/app/packs/src/decidim/index.js" => "498cd0a5a7771d3b2604b0cfd2482b15"
     }
   },
   {
@@ -65,7 +65,7 @@ checksums = [
   {
     package: "decidim-meetings",
     files: {
-      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "f885f36957b27f20535c8d5b985ecee5",
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "74c0fd04cfedb32371e21e47b60d7afb",
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "e1cc26b535c8ee0b1c731219c4d5f121",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "726b1c957fdadd355171364b3327564a",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "af3b5f11ce074f0328e172fe9dbb57c1",
