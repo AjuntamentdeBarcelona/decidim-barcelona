@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.29-stable-bcn" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "feature/proposal-voting" }.freeze
 
 ruby RUBY_VERSION
 
@@ -31,11 +31,12 @@ gem "wicked_pdf"
 gem "progressbar"
 gem "puma"
 
+gem "dotenv-rails"
+
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
-  gem "dotenv-rails"
   gem "faker"
   gem "mdl"
   gem "rubocop-faker"
@@ -47,6 +48,15 @@ group :development do
   gem "listen"
   gem "rubocop"
   gem "web-console"
+
+  gem "capistrano"
+  gem "capistrano3-puma", "~> 6.0"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rails-console"
+  gem "capistrano-rbenv"
+  gem "capistrano-sidekiq"
 end
 
 group :production do
