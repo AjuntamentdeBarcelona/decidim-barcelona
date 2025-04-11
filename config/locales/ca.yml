@@ -289,10 +289,6 @@ ca:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
           tos_agreement: En registrar-te acceptes %{link}.
-    ephemeral_participation:
-      actions:
-        verified: Si vols continuar participant al decidim.barcelona en futurs processos,
-          completa el teu registre %{link}
     initiatives:
       admin:
         initiatives_types:

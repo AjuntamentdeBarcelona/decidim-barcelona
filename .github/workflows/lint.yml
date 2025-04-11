@@ -31,7 +31,7 @@ jobs:
         name: Lint Ruby files
       - run: bundle exec mdl *.md
         name: Lint Markdown files
-      - run: bundle exec erblint {decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/}app/{cells,views}/**/*.erb
+      - run: bundle exec erblint {decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/}app/{cells,views}/**/*.erb
         name: Lint ERB files
       - run: npm run stylelint
         name: Lint SCSS files

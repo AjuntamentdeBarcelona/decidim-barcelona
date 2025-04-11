@@ -40,8 +40,8 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json --ext .js app/packs/src",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/src --fix",
-    "stylelint": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\"",
-    "stylelint-fix": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-ephemeral_participation/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\" --fix"
+    "stylelint": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\"",
+    "stylelint-fix": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\" --fix"
   },
   "stylelint": {
     "extends": "@decidim/stylelint-config",

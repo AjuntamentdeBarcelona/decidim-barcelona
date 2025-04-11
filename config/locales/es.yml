@@ -289,10 +289,6 @@ es:
         new:
           nickname_help: Tu alias (nickname) en %{organization}
           tos_agreement: Al registrarte aceptas %{link}.
-    ephemeral_participation:
-      actions:
-        verified: Si quieres continuar participando en decidim.barcelona en futuros
-          procesos, completa tu registro %{link}
     initiatives:
       initiative_signatures:
         fill_personal_data:
