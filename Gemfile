@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "feature/proposal-voting" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.29-stable-bcn" }.freeze
 
 ruby RUBY_VERSION
 
@@ -24,7 +24,7 @@ gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-
 gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
 gem "origami"
-gem "wicked_pdf"
+gem "wicked_pdf", "~> 2.7.0"
 
 gem "progressbar"
 gem "puma"
