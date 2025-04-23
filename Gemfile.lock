@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: e6d15df1ac7e7cc5e699b98d1a608374289588ff
-  branch: deps/wicked_pdf/2.7.0
+  revision: 081adb38420c2b184dbebb5807d5d4409db3085a
+  branch: release/0.29-stable-bcn
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)
