@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: cfd65d3c162d8a5e626c0ef1275881a291ce9e0a
-  branch: feature/proposal-voting
+  revision: e6d15df1ac7e7cc5e699b98d1a608374289588ff
+  branch: deps/wicked_pdf/2.7.0
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)

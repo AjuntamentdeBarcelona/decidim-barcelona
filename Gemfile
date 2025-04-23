@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "feature/proposal-voting" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "deps/wicked_pdf/2.7.0" }.freeze
 
 ruby RUBY_VERSION
 
