@@ -24,7 +24,7 @@ gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-
 gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
 gem "origami"
-gem "wicked_pdf"
+gem "wicked_pdf", "~> 2.7.0"
 
 gem "progressbar"
 gem "puma"
