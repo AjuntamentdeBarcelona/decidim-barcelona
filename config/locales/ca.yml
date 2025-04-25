@@ -31,6 +31,13 @@ ca:
         postal_code: Codi postal
       confirmation:
         verification_code: Codi de verificació
+      ephemeral_census_authorization_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        postal_code: Codi postal
+        scope_id: Districte
       mobile_phone:
         mobile_phone_number: Número de telèfon mòbil
   census16_authorization:
@@ -235,6 +242,16 @@ ca:
           gender: Sexe
           postal_code: Codi postal
         name: El padró (Sarrià-Sant Gervasi)
+      ephemeral_census_authorization_handler:
+        explanation: Verifica't amb el padró
+        fields:
+          date_of_birth: Data de naixement
+          document_number: Número de document
+          document_type: Tipus de document
+          gender: Sexe
+          postal_code: Codi postal
+          scope: Districte
+        name: El padró (ephemeral)
     budgets:
       projects:
         budget_confirm:
@@ -289,6 +306,11 @@ ca:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
           tos_agreement: En registrar-te acceptes %{link}.
+    ephemeral_census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
     initiatives:
       admin:
         initiatives_types:
@@ -327,7 +349,27 @@ ca:
             census_kids_authorization_handler: Verifica't amb el padró (8+)
             census_sarria_sant_gervasi_authorization_handler: Verifica't amb el padró de Sarrià-Sant Gervasi
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
+            ephemeral_census_authorization_handler: Verifica't amb el padró (ephemeral)
             valid_auth: Valid auth
+  ephemeral_census_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+        disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+        de dones i homes.
+      gender_prompt: Si us plau, selecciona una opció
+      genders:
+        man: Home
+        non_binary: No binari
+        woman: Dona
+      scope_prompt: Si us plau, selecciona el teu districte
+  ephemeral_census_authorization_handler:
+    age_under: Has de ser major de %{min_age} anys per validar-te
+    invalid_document: El número de document, el tipus de document, la data de naixement
+      o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
       header:
