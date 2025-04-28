@@ -75,6 +75,7 @@ group :production do
   gem "sentry-sidekiq"
   gem "sidekiq"
   gem "stackprof"
+  gem "whenever"
 end
 
 group :test do
