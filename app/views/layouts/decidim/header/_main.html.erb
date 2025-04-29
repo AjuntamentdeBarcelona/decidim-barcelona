@@ -13,17 +13,30 @@
   <% if content_for?(:focus_mode_back_button) %>
     <div class="main-bar main-bar--focus-mode-back-button">
       <%= render partial: "layouts/decidim/header/focus_mode_back_button" %>
+      <% if content_for?(:exit_focus_mode_button) %>
+        <% if content_for?(:focus_mode) %>
+          <%= render partial: "layouts/decidim/header/focus_mode_close_button" %>
+        <% elsif current_user&.ephemeral? %>
+          <%= render partial: "layouts/decidim/header/close_ephemeral_session" %>
+        <% end %>
+      <% end %>
     </div>
   <% else %>
     <div class="main-bar">
-      <div class="main-bar__logo">
-        <div class="main-bar__logo-desktop">
-          <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      <% if content_for?(:focus_mode_back_button) %>
+        <div class="main-bar main-bar--focus-mode-back-button">
+          <%= render partial: "layouts/decidim/header/focus_mode_back_button" %>
         </div>
-        <div class="main-bar__logo-mobile">
-          <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+      <% else %>
+        <div class="main-bar__logo">
+          <div class="main-bar__logo-desktop">
+            <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+          </div>
+          <div class="main-bar__logo-mobile">
+            <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <% if content_for?(:focus_mode) %>
         <%= render partial: "layouts/decidim/header/focus_mode_close_button" %>
       <% elsif current_user&.ephemeral? %>
