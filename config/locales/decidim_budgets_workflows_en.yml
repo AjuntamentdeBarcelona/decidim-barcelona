@@ -5,5 +5,6 @@ en:
         settings:
           global:
             workflow_choices:
+              ephemeral2025: "Budgets 2025 (ephemeral): allows to Vote in the participant's district and in another of free choice."
               pam2020: "PAM 2020: allows to Vote in the participant's district and in another of free choice."
               pam2021: "PAM 2021: allows to Vote in the participant's district and in another of free choice."
