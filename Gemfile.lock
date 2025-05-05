@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 29de95818af481f51113bbb58a79fe65e8919668
+  revision: 15a2b5413a5bd9348ed76a1556d850ea6873f8a8
   branch: feat/finish-successfull-voting-screen
   specs:
     decidim (0.29.2)
