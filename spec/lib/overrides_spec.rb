@@ -53,6 +53,12 @@ checksums = [
     }
   },
   {
+    package: "decidim-budgets",
+    files: {
+      "/app/cells/decidim/budgets/budget_list_item_cell.rb" => "086a72c42f94639fdb3ad68fa6dbcc3c"
+    }
+  },
+  {
     package: "decidim-initiatives",
     files: {
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
