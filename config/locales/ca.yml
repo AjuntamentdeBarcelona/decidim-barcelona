@@ -253,6 +253,9 @@ ca:
           scope: Districte
         name: El padró (ephemeral)
     budgets:
+      budgets_list:
+        see_results: Veure els resultats
+        show: Consulta els projectes
       limit_announcement:
         limit_reached: |-
           Tens vots actius a %{links}. Pots votar un màxim de 2 districtes:
@@ -267,10 +270,6 @@ ca:
               districte i no es pot afegir. Si ho desitges, pots eliminar un projecte
               ja seleccionat del districte per afegir aquest.
         budget_summary:
-          cancel_order: eliminar el teu vot i començar a votar de nou
-          checked_out:
-            description: Ja has votat en aquest districte. Si has canviat d'idea,
-              pots %{cancel_link}.
           minimum_projects_rule:
             instruction: Selecciona <strong>com a mínim %{minimum_number} projectes</strong>
               del districte i vota segons les teves preferències per a definir el
