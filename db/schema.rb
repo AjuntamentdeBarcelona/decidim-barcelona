@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_13_100211) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_17_184527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -2026,6 +2026,17 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_13_100211) do
     t.boolean "confidential", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_oauth_applications_on_decidim_organization_id"
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "organization_trusted_ids_configs", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "handler"
+    t.jsonb "settings", default: {}, null: false
+    t.integer "expiration_days"
+    t.jsonb "tos", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_trusted_ids_organization"
   end
 
   create_table "versions", force: :cascade do |t|

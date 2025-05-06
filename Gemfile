@@ -23,6 +23,8 @@ gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-
 gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "master"
 gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
+gem "decidim-trusted_ids", git: "https://github.com/PopulateTools/decidim-module-trusted-ids", branch: "upgrade/release-0.29"
+
 gem "origami"
 gem "wicked_pdf", "~> 2.7.0"
 

@@ -224,6 +224,17 @@ GIT
       node-runner (~> 1.1)
 
 GIT
+  remote: https://github.com/PopulateTools/decidim-module-trusted-ids
+  revision: 4549718325ffd8245e897b45b8654ff61eeae0f1
+  branch: upgrade/release-0.29
+  specs:
+    decidim-trusted_ids (0.8.0)
+      decidim (>= 0.28.0, < 0.30)
+      decidim-core (>= 0.28.0, < 0.30)
+      decidim-verifications (>= 0.28.0, < 0.30)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: 9da093f854b1bafb812ca093e7e61a61afe21369
   branch: main
@@ -1057,6 +1068,7 @@ DEPENDENCIES
   decidim-stats!
   decidim-templates!
   decidim-term_customizer!
+  decidim-trusted_ids!
   decidim-vocdoni!
   dotenv-rails
   faker
