@@ -64,3 +64,4 @@ exclude_paths:
 - "app/helpers/concerns/decidim/paginate_helper_override.rb"
 - "app/permissions/concerns/decidim/initiatives/admin/permissions_override.rb"
 - "app/packs/src/decidim/index.js"
+- "app/cells/concerns/decidim/budgets/budget_list_item_cell_override.rb"
