@@ -258,6 +258,10 @@ es:
         see_results: Ver los resultados
         show: Consulta los proyectos
         vote: Vota
+      limit_announcement:
+        limit_reached: |-
+          Tienes votos activos en %{links}. Puedes votar en un máximo de 2 distritos:
+          El de empadronamiento y otro. Si quieres votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
       projects:
         budget_confirm:
           description: Estos son los proyectos que has elegido y que estás a punto

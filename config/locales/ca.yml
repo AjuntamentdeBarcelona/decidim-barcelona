@@ -256,6 +256,10 @@ ca:
       budgets_list:
         see_results: Veure els resultats
         show: Consulta els projectes
+      limit_announcement:
+        limit_reached: |-
+          Tens vots actius a %{links}. Pots votar un màxim de 2 districtes:
+          El d’empadronament i un altre. Si vols votar aquest pressupost has d'<a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
       projects:
         budget_confirm:
           description: Aquests són els projectes que has seleccionat i que estàs a
