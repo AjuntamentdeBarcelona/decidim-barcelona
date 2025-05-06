@@ -253,6 +253,9 @@ ca:
           scope: Districte
         name: El padró (ephemeral)
     budgets:
+      budgets_list:
+        see_results: Veure els resultats
+        show: Consulta els projectes
       projects:
         budget_confirm:
           description: Aquests són els projectes que has seleccionat i que estàs a

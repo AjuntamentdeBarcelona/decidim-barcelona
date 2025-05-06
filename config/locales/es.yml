@@ -254,6 +254,10 @@ es:
           scope_id: Distrito
         name: El padrón (ephemeral)
     budgets:
+      budgets_list:
+        see_results: Ver los resultados
+        show: Consulta los proyectos
+        vote: Vota
       projects:
         budget_confirm:
           description: Estos son los proyectos que has elegido y que estás a punto
