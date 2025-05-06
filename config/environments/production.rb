@@ -62,7 +62,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_STORE_URL", "redis://localhost:6379") }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :sidekiq
@@ -142,12 +142,6 @@ Rails.application.configure do
           opentrack: { settings: { enable: 0 } }
         }
       }.to_json
-    }
-  end
-
-  if ENV["MEMCACHEDCLOUD_SERVERS"]
-    config.cache_store = :mem_cache_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(","), {
-      username: ENV.fetch("MEMCACHEDCLOUD_USERNAME", nil), password: ENV.fetch("MEMCACHEDCLOUD_PASSWORD", nil)
     }
   end
 
