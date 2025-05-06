@@ -255,8 +255,8 @@ es:
         name: El padrón (ephemeral)
     budgets:
       budgets_list:
-        see_more_results: Ver los resultados
-        check_more_projects: Consulta los proyectos
+        see_results: Ver los resultados
+        show: Consulta los proyectos
         vote: Vota
       projects:
         budget_confirm:

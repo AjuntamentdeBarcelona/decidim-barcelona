@@ -8,11 +8,11 @@ module Decidim
       included do
         def button_text
           key = if voting_finished?
-                  :see_more_results
+                  :see_results
                 elsif voting_open? && !voted?
                   progress? ? :progress : :vote
                 else
-                  :check_more_projects
+                  :show
                 end
 
           t(key, scope: i18n_scope)
