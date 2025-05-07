@@ -35,6 +35,13 @@ checksums = [
     }
   },
   {
+    package: "decidim-system",
+    files: {
+      "/app/cells/decidim/system/system_checks_cell.rb" => "b59c845eb450b08ae9bed94260d1b2e7",
+      "/app/forms/decidim/system/base_organization_form.rb" => "711d78632492cf9fd7b3356f38b9ba72"
+    }
+  },
+  {
     package: "decidim-accountability",
     files: {
       "/app/helpers/decidim/accountability/application_helper.rb" => "944e9a9bfc994c4b4018f3171aeb0a4c",
