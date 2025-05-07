@@ -65,6 +65,8 @@ checksums = [
   {
     package: "decidim-system",
     files: {
+      "/app/cells/decidim/system/system_checks_cell.rb" => "b59c845eb450b08ae9bed94260d1b2e7",
+      "/app/forms/decidim/system/base_organization_form.rb" => "711d78632492cf9fd7b3356f38b9ba72",
       "/app/forms/decidim/system/update_organization_form.rb" => "3fe09b001d83030207a6f5faa256ac3b", # ephemeral participation overrides
       "/app/views/decidim/system/organizations/edit.html.erb" => "01bff555e3d7680868fff210d3c393b2", # ephemeral participation overrides
       "/app/views/decidim/system/organizations/new.html.erb" => "4916cdb428d89de5afe60e279d64112f" # ephemeral participation overrides
