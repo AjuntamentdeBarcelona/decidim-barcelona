@@ -13,7 +13,7 @@ describe "Authorizations with census16", :perform_enqueued, with_authorization_w
     )
   end
 
-  let(:authorizations) { { "census16_authorization_handler" => { "allow_ephemeral_participation" => true } } }
+  let(:authorizations) { ["census16_authorization_handler"] }
   let!(:scope) { create(:scope, organization:, code: "1") }
 
   let(:response) do

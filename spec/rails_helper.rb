@@ -34,8 +34,6 @@ end
 
 Decidim::CapybaraTestHelpers.prepend(CapybaraTestHelpersPatch)
 
-# decidim-ephemeral_participation
-require "decidim/ephemeral_participation/test"
 require "decidim/census_sms/verification/test"
 require "decidim/budgets/test/factories"
 require "decidim/proposals/test/factories"

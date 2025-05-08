@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
+  Decidim::Budgets::BudgetListItemCell.include(Decidim::Budgets::BudgetListItemCellOverride)
   Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)

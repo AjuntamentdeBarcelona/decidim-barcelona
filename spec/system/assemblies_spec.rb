@@ -3,7 +3,12 @@
 require "rails_helper"
 
 describe "Assemblies" do
-  let(:organization) { create(:organization) }
+  let(:organization) do
+    create(
+      :organization,
+      default_locale: :en
+    )
+  end
 
   before do
     switch_to_host(organization.host)

@@ -20,7 +20,12 @@ describe "Proposal safe content allowed users", :perform_enqueued do
   end
   let(:allowed_users) { "" }
 
-  let(:organization) { create(:organization) }
+  let(:organization) do
+    create(
+      :organization,
+      default_locale: :en
+    )
+  end
 
   before do
     ENV["PROPOSAL_SAFE_CONTENT_ALLOWED_USERS"] = allowed_users

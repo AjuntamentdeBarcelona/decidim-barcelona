@@ -15,7 +15,7 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
 
   let(:document_number) { "12345678A" }
   let(:authorization_name) { "Verificació Pressupostos Participatius" }
-  let(:authorizations) { { "census_sms_authorization_handler" => { "allow_ephemeral_participation" => true } } }
+  let(:authorizations) { ["census_sms_authorization_handler"] }
   let(:code) { user_authorization.verification_metadata["verification_code"] }
   let(:user_authorization) { Decidim::Authorization.find_by(user:, name: "census_sms_authorization_handler") }
 
