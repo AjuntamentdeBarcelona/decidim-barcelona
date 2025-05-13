@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 18b810ae2fcc971f44eb0c2c753be926303b1285
-  branch: release/0.29-stable-bcn
+  revision: 6c5d7481a23d718bcf7cb6cf1784f62673e052c6
+  branch: fix/random-nickname-generator
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)
