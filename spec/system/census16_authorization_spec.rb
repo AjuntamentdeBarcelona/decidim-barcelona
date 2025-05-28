@@ -6,14 +6,14 @@ describe "Authorizations with census16", :perform_enqueued, with_authorization_w
   let(:organization) do
     create(
       :organization,
-      name: "Ajuntament",
+      name: { ca: "Ajuntament", es: "Ayuntamiento" },
       default_locale: :ca,
       available_locales: [:es, :ca],
       available_authorizations: authorizations
     )
   end
 
-  let(:authorizations) { { "census16_authorization_handler" => { "allow_ephemeral_participation" => true } } }
+  let(:authorizations) { ["census16_authorization_handler"] }
   let!(:scope) { create(:scope, organization:, code: "1") }
 
   let(:response) do

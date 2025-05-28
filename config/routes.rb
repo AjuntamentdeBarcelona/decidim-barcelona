@@ -50,9 +50,11 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
+  # Temporal fix for disabling global search until we fix the performance with a big database
+  match "/search", to: ->(_) { [404, {}, ["Not Found"]] }, via: :all
+
   mount Decidim::Core::Engine => "/"
   mount Decidim::Stats::Engine, at: "/stats", as: "decidim_stats"
-  mount Decidim::EphemeralParticipation::Engine, at: "/", as: "decidim_ephemeral_participation"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => "/sidekiq"

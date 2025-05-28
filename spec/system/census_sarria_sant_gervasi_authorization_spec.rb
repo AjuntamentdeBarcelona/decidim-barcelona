@@ -6,14 +6,14 @@ describe "Authorizations with census Sarria-Sant Gervasi", :perform_enqueued, wi
   let(:organization) do
     create(
       :organization,
-      name: "Ajuntament",
+      name: { ca: "Ajuntament", es: "Ayuntamiento" },
       default_locale: :ca,
       available_locales: [:es, :ca],
       available_authorizations: authorizations
     )
   end
 
-  let(:authorizations) { { "census_sarria_sant_gervasi_authorization_handler" => { "allow_ephemeral_participation" => true } } }
+  let(:authorizations) { ["census_sarria_sant_gervasi_authorization_handler"] }
   let(:scope_code) { "1" }
   let(:scope) { double(id: 5, code: scope_code, name: { "ca" => "Sarrià-Sant Gervasi" }) }
 

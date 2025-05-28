@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.28-stable-bcn" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.29-stable-bcn" }.freeze
 
 ruby RUBY_VERSION
 
@@ -13,27 +13,27 @@ gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
-gem "decidim-ephemeral_participation", path: "decidim-ephemeral_participation" # Installed but not used anymore
 gem "decidim-stats", path: "decidim-stats"
 
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
-gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.28-stable"
-gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
-gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
-gem "decidim-vocdoni", git: "https://github.com/decidim-vocdoni/decidim-module-vocdoni"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "main"
+# gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "master"
+gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
 gem "origami"
-gem "wicked_pdf", "< 2.8"
+gem "wicked_pdf", "~> 2.7.0"
 
 gem "progressbar"
 gem "puma"
+
+gem "dotenv-rails"
 
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
-  gem "dotenv-rails"
   gem "faker"
   gem "mdl"
   gem "rubocop-faker"
@@ -46,6 +46,15 @@ group :development do
   gem "rubocop"
   gem "web-console"
   gem "wkhtmltopdf-binary"
+
+  gem "capistrano"
+  gem "capistrano3-puma", "~> 6.0"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rails-console"
+  gem "capistrano-rbenv"
+  gem "capistrano-sidekiq"
 end
 
 group :production do
@@ -55,7 +64,6 @@ group :production do
   gem "dalli"
   gem "lograge"
   gem "matrix"
-  gem "puma_worker_killer" # Used to restart puma workers every 6h and free memory
   gem "rack_password"
   gem "rack-ssl-enforcer"
   gem "rack-timeout" # Let's kill long-running requests after the Heroku router has responded to
@@ -67,6 +75,7 @@ group :production do
   gem "sentry-sidekiq"
   gem "sidekiq"
   gem "stackprof"
+  gem "whenever", require: false
 end
 
 group :test do

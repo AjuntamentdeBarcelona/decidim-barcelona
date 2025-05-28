@@ -30,7 +30,7 @@
   }
 }
 
-.main-header__language-container > #trigger-dropdown-language-chooser {
+.main-header__language-container > #trigger-dropdown-header-language-chooser {
   gap: 0.1rem !important;
   flex-direction: column;
   padding: 0.25rem 0.5rem;
@@ -49,22 +49,24 @@
 
 .main-footer__language {
   z-index: 1000;
+  min-width: 5rem;
 }
 
-.main-header__language-container > #trigger-dropdown-language-chooser:hover {
+.main-header__language-container
+  > #trigger-dropdown-header-language-chooser:hover {
   background-color: #f3f4f7 !important;
   border-radius: 0.25rem;
   text-decoration: underline;
   text-decoration-color: rgb(var(--secondary-rgb) / 1);
 }
 
-#dropdown-menu-language-chooser {
+#dropdown-menu-header-language-chooser {
   margin-left: 0 !important;
   margin-right: 0 !important;
   align-items: center !important;
 }
 
-#dropdown-menu-language-chooser > ul > li > a {
+#dropdown-menu-header-language-chooser > ul > li > a {
   font-size: 14px;
   padding: 0.5rem;
 }
@@ -72,6 +74,44 @@
 .mobile_menu__language-container {
   padding-top: 12px;
   padding-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .main-header__language-container > #trigger-dropdown-header-language-chooser {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .main-header__language-container > #trigger-dropdown-header-language-chooser {
+    flex-direction: row !important;
+  }
+
+  #trigger-dropdown-header-language-chooser > svg {
+    display: none;
+  }
+
+  #trigger-dropdown-header-language-chooser > div > svg {
+    display: none;
+  }
+
+  #dropdown-menu-main-mobile > div.main-header__language-container {
+    display: flex;
+    flex-direction: row;
+    width: 10rem;
+    margin: auto;
+    color: rgb(168 44 44) !important;
+    font-weight: 600 !important;
+  }
+
+  #dropdown-menu-header-language-chooser > ul > li > a,
+  #dropdown-menu-header-language-chooser > ul > li,
+  #trigger-dropdown-header-language-chooser > div > span,
+  #trigger-dropdown-header-language-chooser {
+    padding: 0 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
 }
 
 .brand-bar {
@@ -91,7 +131,7 @@
   letter-spacing: -0.5px;
   background-size: 0;
   text-decoration: none;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .logo-mobile {
@@ -123,43 +163,5 @@ body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
 
   .logo-mobile {
     display: block;
-  }
-}
-
-@media (min-width: 768px) {
-  .main-header__language-container > #trigger-dropdown-language-chooser {
-    display: flex !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  .main-header__language-container > #trigger-dropdown-language-chooser {
-    flex-direction: row !important;
-  }
-
-  #trigger-dropdown-language-chooser > svg {
-    display: none;
-  }
-
-  #trigger-dropdown-language-chooser > div > svg {
-    display: none;
-  }
-
-  #dropdown-menu-main-mobile > div.main-header__language-container {
-    display: flex;
-    flex-direction: row;
-    width: 10rem;
-    margin: auto;
-    color: rgb(168 44 44) !important;
-    font-weight: 600 !important;
-  }
-
-  #dropdown-menu-language-chooser > ul > li > a,
-  #dropdown-menu-language-chooser > ul > li,
-  #trigger-dropdown-language-chooser > div > span,
-  #trigger-dropdown-language-chooser {
-    padding: 0 !important;
-    font-size: 1rem !important;
-    font-weight: 600 !important;
   }
 }

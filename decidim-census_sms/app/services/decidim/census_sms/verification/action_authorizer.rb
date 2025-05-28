@@ -21,7 +21,7 @@ module Decidim
         def scope_valid?
           scope_codes = options.keys.map { |k| k.gsub("#{BASE_OPTION_KEY}_", "") if k.match?(BASE_OPTION_KEY) }.compact
 
-          return unless scope_codes.any?
+          return false unless scope_codes.any?
 
           authorized_code_key = "#{BASE_OPTION_KEY}_#{authorized_code}"
 

@@ -31,6 +31,13 @@ ca:
         postal_code: Codi postal
       confirmation:
         verification_code: Codi de verificació
+      ephemeral_census_authorization_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        postal_code: Codi postal
+        scope_id: Districte
       mobile_phone:
         mobile_phone_number: Número de telèfon mòbil
   census16_authorization:
@@ -108,6 +115,9 @@ ca:
         man: Home
         non_binary: No binari
         woman: Dona
+  date:
+    formats:
+      order: d-m-y
   decidim:
     accessibility:
       external_link: Link extern
@@ -232,7 +242,24 @@ ca:
           gender: Sexe
           postal_code: Codi postal
         name: El padró (Sarrià-Sant Gervasi)
+      ephemeral_census_authorization_handler:
+        explanation: Verifica't amb el padró
+        fields:
+          date_of_birth: Data de naixement
+          document_number: Número de document
+          document_type: Tipus de document
+          gender: Sexe
+          postal_code: Codi postal
+          scope: Districte
+        name: El padró (ephemeral)
     budgets:
+      budgets_list:
+        see_results: Veure els resultats
+        show: Consulta els projectes
+      limit_announcement:
+        limit_reached: |-
+          Tens vots actius a %{links}. Pots votar un màxim de 2 districtes:
+          El d’empadronament i un altre. Si vols votar aquest pressupost has d'<a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
       projects:
         budget_confirm:
           description: Aquests són els projectes que has seleccionat i que estàs a
@@ -243,10 +270,6 @@ ca:
               districte i no es pot afegir. Si ho desitges, pots eliminar un projecte
               ja seleccionat del districte per afegir aquest.
         budget_summary:
-          cancel_order: eliminar el teu vot i començar a votar de nou
-          checked_out:
-            description: Ja has votat en aquest districte. Si has canviat d'idea,
-              pots %{cancel_link}.
           minimum_projects_rule:
             instruction: Selecciona <strong>com a mínim %{minimum_number} projectes</strong>
               del districte i vota segons les teves preferències per a definir el
@@ -286,10 +309,11 @@ ca:
         new:
           nickname_help: El teu àlies (sobrenom) a %{organization}
           tos_agreement: En registrar-te acceptes %{link}.
-    ephemeral_participation:
-      actions:
-        verified: Si vols continuar participant al decidim.barcelona en futurs processos,
-          completa el teu registre %{link}
+    ephemeral_census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
     initiatives:
       admin:
         initiatives_types:
@@ -328,7 +352,27 @@ ca:
             census_kids_authorization_handler: Verifica't amb el padró (8+)
             census_sarria_sant_gervasi_authorization_handler: Verifica't amb el padró de Sarrià-Sant Gervasi
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
+            ephemeral_census_authorization_handler: Verifica't amb el padró (ephemeral)
             valid_auth: Valid auth
+  ephemeral_census_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
+      gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+        disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+        de dones i homes.
+      gender_prompt: Si us plau, selecciona una opció
+      genders:
+        man: Home
+        non_binary: No binari
+        woman: Dona
+      scope_prompt: Si us plau, selecciona el teu districte
+  ephemeral_census_authorization_handler:
+    age_under: Has de ser major de %{min_age} anys per validar-te
+    invalid_document: El número de document, el tipus de document, la data de naixement
+      o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
       header:

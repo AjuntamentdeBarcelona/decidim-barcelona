@@ -15,6 +15,8 @@ Disallow: /processes/245/f/5649/proposals
 Disallow: /processes/documentacio/f/5649/proposals
 Disallow: /processes/pressupostos2024/f/6464/proposals
 Disallow: /processes/380/f/6464/proposals
+Disallow: /processes/pressupostos2024/f/6465/proposals
+Disallow: /processes/380/f/6465/proposals
 Disallow: /assemblies/476/f/5426/proposals
 Disallow: /assemblies/sectorempresarial/f/5426/proposals
 Disallow: /assemblies/481/f/5789/proposals

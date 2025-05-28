@@ -3,7 +3,12 @@
 require "rails_helper"
 
 describe "Assemblies" do
-  let(:organization) { create(:organization) }
+  let(:organization) do
+    create(
+      :organization,
+      default_locale: :en
+    )
+  end
 
   before do
     switch_to_host(organization.host)
@@ -20,6 +25,7 @@ describe "Assemblies" do
 
       it "lists 25 assemblies per page" do
         within "#assemblies-grid" do
+          expect(page).to have_content("Results per page:\n25")
           expect(page).to have_css("[id^=assembly_]", count: 25)
         end
       end

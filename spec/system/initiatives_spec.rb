@@ -8,7 +8,7 @@ describe "Initiatives", :perform_enqueued, available_authorizations: ["census_sm
   let!(:organization) do
     create(
       :organization,
-      name: "Ajuntament",
+      name: { ca: "Ajuntament", es: "Ayuntamiento" },
       default_locale: :ca,
       available_locales: [:es, :ca],
       available_authorizations: authorizations
@@ -34,7 +34,9 @@ describe "Initiatives", :perform_enqueued, available_authorizations: ["census_sm
 
     it "can create a new initiative" do
       click_on "Nova iniciativa"
-      expect(page).to have_content("Quina iniciativa vols iniciar?")
+      # When there is only an initiative type the user is redirected to the
+      # creation form directly
+      expect(page).to have_content("Crea una nova iniciativa")
     end
   end
 

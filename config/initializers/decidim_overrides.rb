@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
-  default_options = Decidim::Paginable::OPTIONS
-  Decidim::Paginable.send(:remove_const, :OPTIONS)
-  Decidim::Paginable::OPTIONS = (default_options + [10]).uniq.sort.freeze
-
+  Decidim::Budgets::BudgetListItemCell.include(Decidim::Budgets::BudgetListItemCellOverride)
+  Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
+  Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
@@ -26,4 +25,5 @@ Rails.application.config.to_prepare do
   Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
+  Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
 end

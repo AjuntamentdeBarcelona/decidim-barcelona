@@ -9,16 +9,12 @@ Metrics/PerceivedComplexity:
 RSpec/DescribeClass:
   Exclude:
     - 'decidim-census_sms/spec/system/census_sms_authorization_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/complete_registration_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/ephemeral_participation_button_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/flash_messages_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/session_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/successful_verification_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/user_menu_spec.rb'
-    - 'decidim-ephemeral_participation/spec/system/user/verification_conflicts_spec.rb'
     - 'spec/system/census16_authorization_spec.rb'
 
 RSpec/PendingWithoutReason:
   Exclude:
-    - 'spec/system/budgets_ephemeral_participation_spec.rb'
     - 'spec/system/budget_spec.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'lib/tasks/proposals_translations.rake'

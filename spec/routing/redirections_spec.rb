@@ -12,12 +12,7 @@ require "decidim/accountability/test/factories"
 
 describe "routing redirections", type: :request do
   let(:organization) { create(:organization, host: "decidim.barcelona", available_authorizations: authorizations) }
-  let(:authorizations) do
-    {
-      "dummy_authorization_handler" => { "allow_ephemeral_participation" => true },
-      "another_dummy_authorization_handler" => { "allow_ephemeral_participation" => false }
-    }
-  end
+  let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
   describe "debates" do
     let(:participatory_space) { create(:participatory_process, organization:, slug: "test-process") }
