@@ -9,7 +9,9 @@ module Decidim
         alias_method :progress_override, :progress
 
         def progress
-          return filtered_results.average("COALESCE(progress, 0)") if (ENV["PARTICIPATORY_SPACES_WITH_CUSTOM_ACCOUNTABILITY"] || "").split(",").include?(component.participatory_space.slug)
+          if (ENV["PARTICIPATORY_SPACES_WITH_CUSTOM_ACCOUNTABILITY"] || "").split(",").include?(component.participatory_space.slug)
+            return filtered_results.average("COALESCE(progress, 0)")
+          end
 
           progress_override
         end
