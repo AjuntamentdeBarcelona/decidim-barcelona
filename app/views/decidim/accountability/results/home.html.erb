@@ -15,7 +15,7 @@
         ) %>
   <% end %>
 
-  <%= render partial: "scope_filters", locals: { hide_subscopes: current_participatory_space.slug.to_s == "PressupostosParticipatius" } %>
+  <%= render partial: "scope_filters", locals: { hide_subscopes: (ENV["PARTICIPATORY_SPACES_WITH_CUSTOM_ACCOUNTABILITY"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
 
   <%= link_to t("decidim.accountability.results.home_header.csv_download"), Rails.application.routes.url_helpers.export_results_path(current_participatory_space, current_component), class: "button button__sm button__secondary" %>
 <% end %>
@@ -39,7 +39,7 @@
                    t("empty", scope: "decidim.accountability.results.home")) %>
       <% end %>
 
-      <% if current_participatory_space.slug.to_s == "PressupostosParticipatius" %>
+      <% if (ENV["PARTICIPATORY_SPACES_WITH_CUSTOM_ACCOUNTABILITY"] || "").split(",").include?(current_participatory_space.slug.to_s) %>
         <%= render partial: "home_scopes" %>
       <% end %>
 
