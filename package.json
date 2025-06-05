@@ -72,6 +72,6 @@
     "sass-embedded": "~1.57.1",
     "snarkjs": "github:vocdoni/snarkjs#v0.7.0-groth16browser",
     "web-worker": "^1.2.0",
-    "webpack-dev-server": "^4.8.0"
+    "webpack-dev-server": "^5.2.1"
   }
 }
