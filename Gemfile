@@ -37,6 +37,11 @@ group :development, :test do
   gem "faker"
   gem "mdl"
   gem "rubocop-faker"
+
+  gem "debug"
+  gem "ruby-lsp", require: false
+  gem "ruby-lsp-rails", require: false
+  gem "ruby-lsp-rspec", require: false
 end
 
 group :development do

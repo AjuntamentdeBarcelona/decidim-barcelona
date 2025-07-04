@@ -1,0 +1,13 @@
+{
+  "rubyLsp.addonSettings": {
+    "Ruby LSP RSpec": {
+      "enabled": true,
+      "debug": true,
+      "command": "bundle exec rspec",
+      "env": {
+        "RAILS_ENV": "test",
+        "BUNDLE_GEMFILE": "${workspaceRoot}/Gemfile"
+      }
+    }
+  }
+}
