@@ -85,7 +85,8 @@ checksums = [
       "/app/models/decidim/meetings/meeting.rb" => "b8b1b7c84b7eb2e6bca1ff2d93b2f20b",
       "/app/controllers/decidim/meetings/meetings_controller.rb" => "80a9327e6c597f590e7a4940b76f7585",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "8be62c6b0cc2f13d4be68eb5e06217de",
-      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "309974a0b89750bbf688589f60c53722"
+      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "309974a0b89750bbf688589f60c53722",
+      "/app/views/decidim/meetings/meetings/_meeting_aside.html.erb" => "99c54c0627bec765ab4d93f8ba93fe42"
     }
   },
   {
