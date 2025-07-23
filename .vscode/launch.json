@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "ruby_lsp",
+      "request": "launch",
+      "name": "rails server",
+      "program": "${workspaceRoot}/bin/rails s",
+      "env": {
+        "RAILS_ENV": "development"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "shakapacker-dev-server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "shakapacker-dev-server"],
+      "cwd": "${workspaceRoot}",
+      "env": {
+        "RAILS_ENV": "development"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "rails server + shakapacker-dev-server",
+      "configurations": ["rails server", "shakapacker-dev-server"],
+      "stopAll": true
+    }
+  ]
+}

@@ -455,6 +455,9 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
+    debug (1.11.0)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -488,6 +491,7 @@ GEM
     dotenv-rails (3.1.7)
       dotenv (= 3.1.7)
       railties (>= 6.1)
+    erb (5.0.1)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -588,6 +592,10 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.0)
+    irb (1.15.2)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     jmespath (1.6.2)
     json (2.10.1)
     jwt (2.10.1)
@@ -740,6 +748,8 @@ GEM
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     polyglot (0.3.5)
+    pp (0.6.2)
+      prettyprint
     premailer (1.27.0)
       addressable
       css_parser (>= 1.19.0)
@@ -748,6 +758,8 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
+    prettyprint (0.2.0)
+    prism (1.4.0)
     progressbar (1.13.0)
     psych (4.0.6)
       stringio
@@ -820,6 +832,11 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
+    rbs (3.9.4)
+      logger
+    rdoc (6.14.2)
+      erb
+      psych (>= 4.0.0)
     redcarpet (3.6.1)
     redis (4.8.1)
     redis-client (0.23.2)
@@ -899,6 +916,15 @@ GEM
       rubocop-rspec (~> 3, >= 3.0.1)
     rubocop-rubycw (0.1.6)
       rubocop (~> 1.0)
+    ruby-lsp (0.24.2)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 1.2, < 2.0)
+      rbs (>= 3, < 5)
+      sorbet-runtime (>= 0.5.10782)
+    ruby-lsp-rails (0.4.6)
+      ruby-lsp (>= 0.24.0, < 0.25.0)
+    ruby-lsp-rspec (0.1.25)
+      ruby-lsp (~> 0.24.0)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.3)
       ffi (~> 1.12)
@@ -949,6 +975,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    sorbet-runtime (0.5.12219)
     spring (4.2.1)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
@@ -1042,6 +1069,7 @@ DEPENDENCIES
   codecov
   dalli
   database_cleaner
+  debug
   decidim!
   decidim-census_sms!
   decidim-dataviz!
@@ -1075,6 +1103,9 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-faker
+  ruby-lsp
+  ruby-lsp-rails
+  ruby-lsp-rspec
   sentry-rails
   sentry-ruby
   sentry-sidekiq
