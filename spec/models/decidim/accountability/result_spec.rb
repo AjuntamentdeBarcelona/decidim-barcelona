@@ -19,6 +19,7 @@ module Decidim
 
           it "is valid" do
             expect { result.save! }.not_to raise_error
+            expect(result.external_id).to be_nil
           end
         end
 
@@ -27,6 +28,7 @@ module Decidim
 
           it "is valid" do
             expect { result.save! }.not_to raise_error
+            expect(result.external_id).to be_nil
           end
         end
 
@@ -42,6 +44,7 @@ module Decidim
 
             it "is valid" do
               expect { result.save! }.not_to raise_error
+              expect(result.external_id).to eq(external_id)
             end
           end
 
@@ -50,6 +53,7 @@ module Decidim
 
             it "is valid" do
               expect { result.save! }.not_to raise_error
+              expect(result.external_id).to eq(external_id)
             end
           end
         end
