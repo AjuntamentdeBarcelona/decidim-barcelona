@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "shopify.ruby-lsp",
+    "redhat.vscode-yaml",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

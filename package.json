@@ -38,6 +38,7 @@
     "extends @decidim/browserslist-config"
   ],
   "scripts": {
+    "shakapacker-dev-server": "./bin/shakapacker-dev-server",
     "lint": "eslint -c .eslintrc.json --ext .js app/packs/src",
     "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/src --fix",
     "stylelint": "stylelint \"{decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/,}app/packs/stylesheets/**/*.scss\"",
