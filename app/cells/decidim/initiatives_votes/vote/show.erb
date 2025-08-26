@@ -1,6 +1,6 @@
 <% collect_user_extra_fields = model.initiative.type.collect_user_extra_fields %>
 <br>
-<div>
+<div style="width: 100%; max-width: none; overflow: visible;">
   <div>
     <%= initiative_id %>
   </div>
@@ -25,7 +25,7 @@
     <%= time_and_date %>
   </div>
   <div style="word-wrap: break-word;">
-    <%= timestamp %>
+    <%= truncated_timestamp %>
   </div>
   <div>
     <%= hash_id %>
