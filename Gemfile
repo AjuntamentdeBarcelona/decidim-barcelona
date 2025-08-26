@@ -50,7 +50,6 @@ group :development do
   gem "listen"
   gem "rubocop"
   gem "web-console"
-  gem "wkhtmltopdf-binary"
 
   gem "capistrano"
   gem "capistrano3-puma", "~> 6.0"
