@@ -1,7 +1,8 @@
 # frozen_string_literal: true
-# This migration comes from decidim (originally 20210629172525)
 
-class FixBlockedUserNamesInActionLog < ActiveRecord::Migration[5.2]
+# This migration comes from decidim (originally 20210629172525)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
+class FixBlockedUserNamesInActionLog < ActiveRecord::Migration[6.0]
   def change
     reversible do |dir|
       dir.up do

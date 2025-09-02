@@ -1,20 +1,22 @@
-# This migration comes from decidim (originally 20180221101934)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20180221101934)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class FixNicknameIndex < ActiveRecord::Migration[5.1]
   class User < ApplicationRecord
     self.table_name = :decidim_users
+
+    include Decidim::Nicknamizable
   end
 
   def change
-    Decidim::User.where(nickname: nil)
-                 .where(deleted_at: nil)
-                 .where(managed: false)
-                 .find_each { |u| u.update_attributes(nickname: Decidim::User.nicknamize(u.name)) }
+    User.where(nickname: nil)
+        .where(deleted_at: nil)
+        .where(managed: false)
+        .find_each { |u| u.update(nickname: UserBaseEntity.nicknamize(u.name, u.decidim_organization_id)) }
 
     # rubocop:disable Rails/SkipsModelValidations
-    Decidim::User.where(nickname: nil)
-                 .update_all("nickname = ''")
+    User.where(nickname: nil).update_all("nickname = ''")
     # rubocop:enable Rails/SkipsModelValidations
 
     change_column_default :decidim_users, :nickname, ""

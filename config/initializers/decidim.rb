@@ -270,7 +270,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.pdf_signature_service = "PdfSignatureBarcelona"
+  #config.pdf_signature_service = "PdfSignatureBarcelona"
 
   # Etherpad configuration
   #

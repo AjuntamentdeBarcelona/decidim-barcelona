@@ -8,12 +8,10 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
-  Decidim::InitiativesVotes::VoteCell.include(Decidim::InitiativesVotes::VoteCellOverride)
   Decidim::Forms::UserAnswersSerializer.prepend(Decidim::Overrides::Forms::UserAnswersSerializer)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
-  Decidim::Accountability::StatusCell.include(Decidim::Accountability::StatusCellOverride)
   Decidim::Meetings::Meeting.include(Decidim::Meetings::MeetingOverride)
   Decidim::Meetings::MeetingsController.include(Decidim::Meetings::MeetingsControllerOverride)
   Decidim::Meetings::OnlineMeetingCell.include(Decidim::Meetings::OnlineMeetingCellOverride)
@@ -27,4 +25,5 @@ Rails.application.config.to_prepare do
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
+  Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
 end

@@ -1,564 +1,13 @@
 <div class="content"><h1>
 <a id="query" class="anchor" href="#query" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Query</h1>
-<p>Every GraphQL schema has a root type for both queries and mutations. The <a href="https://facebook.github.io/graphql/#sec-Type-System">query type</a> defines GraphQL operations that retrieve data from the server.</p>
-<h2>
-<a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
-<div class="field-entry ">
-  <span id="component" class="field-name anchored">component (<code><a href="/api/docs/interface/componentinterface">ComponentInterface</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists the components this space contains.</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the component to be found</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
+<p>Every GraphQL schema has a root type for both queries and mutations.</p>
+<p>The query type defines GraphQL operations that retrieve data from the server.</p>
+<p>For more information, see <a href="http://spec.graphql.org/draft/#sec-Type-System">the GraphQL spec</a>.</p></div>
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
 </div>
-<div class="field-entry ">
-  <span id="session" class="field-name anchored">session (<code><a href="/api/docs/object/session">Session</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Return's information about the logged in user</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="decidim" class="field-name anchored">decidim (<code><a href="/api/docs/object/decidim">Decidim</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Decidim's framework properties.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="organization" class="field-name anchored">organization (<code><a href="/api/docs/object/organization">Organization</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The current organization</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="hashtags" class="field-name anchored">hashtags (<code><a href="/api/docs/object/hashtagtype">[HashtagType!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The hashtags for current organization</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">name</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>The name of the hashtag</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="metrics" class="field-name anchored">metrics (<code><a href="/api/docs/object/metric">[Metric!]</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">names</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">[String!]</a></code>
-  </td>
-  <td>
-    <p>The names of the metrics you want to retrieve</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">space_type</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>The type of ParticipatorySpace you want to filter with</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">space_id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">Int</a></code>
-  </td>
-  <td>
-    <p>The ID of ParticipatorySpace you want to filter with</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="user" class="field-name anchored">user (<code><a href="/api/docs/interface/author">Author</a></code>)</span>
-  <div class="description-wrapper">
-   <p>A participant (user or group) in the current organization</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID</a></code>
-  </td>
-  <td>
-    <p>The ID of the participant</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">nickname</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>The @nickname of the participant</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="users" class="field-name anchored">users (<code><a href="/api/docs/interface/author">[Author!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participants (users or groups) for the current organization</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/userentitysort">UserEntitySort</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to order the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/userentityfilter">UserEntityFilter</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to filter the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocesses" class="field-name anchored">participatoryProcesses (<code><a href="/api/docs/object/participatoryprocess">[ParticipatoryProcess!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all participatory_processes</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
-  </td>
-  <td>
-    <p>This argument lets you filter the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
-  </td>
-  <td>
-    <p>This argument lets you order the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocess" class="field-name anchored">participatoryProcess (<code><a href="/api/docs/object/participatoryprocess">ParticipatoryProcess</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds a participatory_process</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID</a></code>
-  </td>
-  <td>
-    <p>The ID of the participatory space</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">slug</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>The slug of the participatory process</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocessgroups" class="field-name anchored">participatoryProcessGroups (<code><a href="/api/docs/object/participatoryprocessgroup">[ParticipatoryProcessGroup!]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all participatory process groups</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocessgroup" class="field-name anchored">participatoryProcessGroup (<code><a href="/api/docs/object/participatoryprocessgroup">ParticipatoryProcessGroup</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds a participatory process group</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the Participatory process group</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocesstypes" class="field-name anchored">participatoryProcessTypes (<code><a href="/api/docs/object/participatoryprocesstype">[ParticipatoryProcessType!]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>List all participatory process types</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryprocesstype" class="field-name anchored">participatoryProcessType (<code><a href="/api/docs/object/participatoryprocesstype">ParticipatoryProcessType</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds a participatory process type</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the participatory process type</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="assembliestypes" class="field-name anchored">assembliesTypes (<code><a href="/api/docs/object/assembliestype">[AssembliesType!]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all assemblies types</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="assembliestype" class="field-name anchored">assembliesType (<code><a href="/api/docs/object/assembliestype">AssembliesType</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds an assemblies type group</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the Assemblies type</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="assemblies" class="field-name anchored">assemblies (<code><a href="/api/docs/object/assembly">[Assembly!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all assemblies</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
-  </td>
-  <td>
-    <p>This argument lets you filter the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
-  </td>
-  <td>
-    <p>This argument lets you order the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="assembly" class="field-name anchored">assembly (<code><a href="/api/docs/object/assembly">Assembly</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds an assembly</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID</a></code>
-  </td>
-  <td>
-    <p>The ID of the participatory space</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="commentable" class="field-name anchored">commentable (<code><a href="/api/docs/interface/commentableinterface">CommentableInterface</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's ID</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">type</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">locale</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The locale for which to get the comments text</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">toggleTranslations</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/boolean">Boolean!</a></code>
-  </td>
-  <td>
-    <p>Whether the user asked to toggle the machine translations or not.</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="initiativestypes" class="field-name anchored">initiativesTypes (<code><a href="/api/docs/object/initiativetype">[InitiativeType!]!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all initiative types</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="initiativestype" class="field-name anchored">initiativesType (<code><a href="/api/docs/object/initiativetype">InitiativeType</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds an initiative type</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the initiative type</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="initiatives" class="field-name anchored">initiatives (<code><a href="/api/docs/object/initiative">[Initiative!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Lists all initiatives</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
-  </td>
-  <td>
-    <p>This argument lets you filter the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
-  </td>
-  <td>
-    <p>This argument lets you order the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="initiative" class="field-name anchored">initiative (<code><a href="/api/docs/object/initiative">Initiative</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Finds an initiative</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID</a></code>
-  </td>
-  <td>
-    <p>The ID of the participatory space</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div></div>
-<div id="sidebar"><ul class="categories">
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -567,7 +16,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -579,6 +28,195 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestype/" class="sidebar-link">
+          assembliesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestypes/" class="sidebar-link">
+          assembliesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/hashtags/" class="sidebar-link">
+          hashtags
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/metrics/" class="sidebar-link">
+          metrics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -632,13 +270,6 @@
       <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
         </a>
       </li>
       
@@ -1148,6 +779,13 @@
       
         
       <li>
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/timelineentry/" class="sidebar-link">
           TimelineEntry
         </a>
@@ -1283,27 +921,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -1346,13 +963,6 @@
         <li>
           <a href="/api/docs/interface/categoriescontainerinterface/" class="sidebar-link">
             CategoriesContainerInterface
-          </a>
-        </li>
-      
-        
-        <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
           </a>
         </li>
       
@@ -1437,6 +1047,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       
