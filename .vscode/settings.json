@@ -1,4 +1,14 @@
 {
+  "cSpell.words": [
+    "decidim"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
   "rubyLsp.addonSettings": {
     "Ruby LSP RSpec": {
       "enabled": true,
@@ -9,5 +19,9 @@
         "BUNDLE_GEMFILE": "${workspaceRoot}/Gemfile"
       }
     }
-  }
+  },
+  "stylelint.validate": [
+    "scss",
+    "css"
+  ],
 }
