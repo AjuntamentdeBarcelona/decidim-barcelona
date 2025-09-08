@@ -146,6 +146,9 @@ ca:
           success: L'importació de resultats ha finalitzat correctament. Pots revisar
             els resultas en l'interfície d'administració.
       results:
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
         home_header:
           csv_download: Descarregar dades en CSV
     admin:

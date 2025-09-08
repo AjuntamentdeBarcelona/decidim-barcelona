@@ -22,7 +22,7 @@ module Decidim
           if component_settings.respond_to?(:taxonomies_label) && (text = translated_attribute(component_settings.taxonomies_label).presence)
             text
           else
-            t("models.result.fields.taxonomies", scope: "decidim.accountability")
+            t("results.home.categories_label", scope: "decidim.accountability")
           end
         end
       end
