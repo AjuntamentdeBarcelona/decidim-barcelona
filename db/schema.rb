@@ -472,7 +472,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_09_01_140351) do
 
   create_table "decidim_categorizations", force: :cascade do |t|
     t.bigint "decidim_category_id", null: false
-    t.string "categorizable_type", null: false
+    t.string "categorizable_type"
     t.bigint "categorizable_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
@@ -1270,8 +1270,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_09_01_140351) do
     t.string "host", null: false
     t.string "default_locale", null: false
     t.string "available_locales", default: [], array: true
-    t.jsonb "welcome_text"
-    t.string "homepage_image"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.jsonb "description"

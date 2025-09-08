@@ -1,8 +1,10 @@
 <div class="categories section pb-8">
   <div class="accountability_without_children__grid">
     <% current_participatory_space.subscopes.order(Arel.sql("code::INTEGER ASC")).each do |scope| %>
-      <% scope_results_count = count_calculator(scope.id, "all") %>
-      <% progress = progress_calculator(scope.id, "all") %>
+      <% scope_results = Decidim::Accountability::Result.where(parent_id: nil, component: current_component).with_any_scope(scope.id) %>
+      <% scope_results_count = scope_results.count %>
+      <% filtered_results = Decidim::Accountability::Result.where(id: scope_results.pluck(:id)).where.not(id: Decidim::Accountability::Result.not_computable_results) %>
+      <% progress = filtered_results.average("COALESCE(progress, 0)") %>
       <div>
         <%= link_to results_path(filter: { with_scope: scope.id }), class: "accountability__status accountability__status__background" do %>
           <%= image_pack_tag("media/images/districte-#{scope.id}.jpg") %>

@@ -5,8 +5,8 @@
 <% end %>
 
 <div class="accountability<%= "_without_children" unless children %>__grid">
-  <% first_class_taxonomies.each do |taxonomy| %>
-    <% taxonomy_results_count = count_calculator(current_scope, taxonomy) %>
+  <% taxonomies.each do |taxonomy| %>
+    <% taxonomy_results_count = count_calculator(taxonomy.id) %>
     <% next if taxonomy_results_count == 0 %>
 
     <% subelements = cell(

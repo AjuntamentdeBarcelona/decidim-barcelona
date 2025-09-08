@@ -44,7 +44,8 @@
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope), hide_results_per_page_selector: true %>
     <% else %>
 
-      <% if first_class_taxonomies.empty? %>
+      <% taxonomies = Decidim::Taxonomy.where(id: current_component.available_taxonomy_ids) %>
+      <% if taxonomies.empty? %>
         <%= cell("decidim/announcement",
                  params[:filter].present? ?
                    t("empty_filters", scope: "decidim.accountability.results.home") :
@@ -56,8 +57,9 @@
       <% end %>
 
       <%= render partial: "home_taxonomies",
-                 locals: { children: first_class_taxonomies.select { |taxonomy| taxonomy.children.any? }.any?,
-                           show_taxonomy_image: (ENV["PARTICIPATORY_SPACES_WITH_CATEGORY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
+                 locals: { taxonomies: taxonomies,
+                           children: taxonomies.select { |taxonomy| taxonomy.children.any? }.any?,
+                           show_taxonomy_image: (ENV["PARTICIPATORY_SPACES_WITH_TAXONOMY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
     <% end %>
   </section>
 
