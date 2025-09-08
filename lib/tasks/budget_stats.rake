@@ -23,7 +23,7 @@ namespace :budgets do
         puts "   #{if key.nil?
                      "unknown"
                    else
-                     (key.presence || :empty)
+                     key.presence || :empty
                    end}: #{val}"
       end
       puts "Age stats:"
