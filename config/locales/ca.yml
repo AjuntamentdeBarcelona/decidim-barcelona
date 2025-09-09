@@ -378,6 +378,9 @@ ca:
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
+      decidim_awesome:
+        awesome_config:
+          taxonomies: Taxonomies
       header:
         main:
           organization_logo: Logo Ajuntament de Barcelona
