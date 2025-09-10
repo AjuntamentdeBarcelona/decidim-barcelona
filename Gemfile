@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "~> 0.30.0"
+DECIDIM_VERSION = "~> 0.30.1"
 
 ruby RUBY_VERSION
 
@@ -20,7 +20,7 @@ gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelon
 # gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
 gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "main"
-gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "deps/decidim-0.30"
+gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
 gem "origami"
 gem "wicked_pdf", "~> 2.7.0"
