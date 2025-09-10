@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_proposals (originally 20240209092404)
 
+# This migration comes from decidim_proposals (originally 20240209092404)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class ChangeColorFieldsOnProposalsStates < ActiveRecord::Migration[6.1]
   class ProposalState < ApplicationRecord
     self.table_name = :decidim_proposals_proposal_states

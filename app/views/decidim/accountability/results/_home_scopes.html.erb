@@ -1,23 +1,25 @@
 <div class="categories section pb-8">
-  <div class="accountability_without_children__grid">
-    <% current_participatory_space.subscopes.order(Arel.sql("code::INTEGER ASC")).each do |scope| %>
-      <% scope_results_count = count_calculator(scope.id, "all") %>
-      <% progress = progress_calculator(scope.id, "all") %>
-      <div>
-        <%= link_to results_path(filter: { with_scope: scope.id }), class: "accountability__status accountability__status__background" do %>
-          <%= image_pack_tag("media/images/districte-#{scope.id}.jpg") %>
-          <p class="accountability__status-title"><%= translated_attribute(scope.name) %></p>
-          <div class="accountability__status-progress">
-            <div style="width:<%= progress %>%"></div>
-          </div>
-          <% if component_settings.display_progress_enabled? && progress.present? %>
-            <div class="accountability__status-value">
-              <span><%= display_percentage progress %></span>
-              <span><%= display_count scope_results_count %></span>
+  <% current_participatory_space.taxonomies.where(parent_id: ENV.fetch("SCOPE_TAXONOMY_ID", -1)).each do |taxonomy| %>
+    <div class="accountability_without_children__grid">
+      <% taxonomy.children.each do |subtaxonomy| %>
+        <% scope_results_count = count_calculator(subtaxonomy.id) %>
+        <% progress = progress_calculator(subtaxonomy.id) %>
+        <div>
+          <%= link_to results_path, class: "accountability__status accountability__status__background" do %>
+            <%= image_pack_tag("media/images/taxonomy-#{subtaxonomy.id}.jpg") %>
+            <p class="accountability__status-title"><%= subtaxonomy.translated_name %></p>
+            <div class="accountability__status-progress">
+              <div style="width:<%= progress %>%"></div>
             </div>
+            <% if component_settings.display_progress_enabled? && progress.present? %>
+              <div class="accountability__status-value">
+                <span><%= display_percentage progress %></span>
+                <span><%= display_count scope_results_count %></span>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

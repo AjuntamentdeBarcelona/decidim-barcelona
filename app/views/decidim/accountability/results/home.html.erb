@@ -1,4 +1,9 @@
-<% add_decidim_page_title component_name %>
+<% add_decidim_meta_tags(
+     description: translated_attribute(current_component.participatory_space.try(:description)),
+     title: component_name,
+     url: results_url,
+     resource: current_component) %>
+
 <%= append_javascript_pack_tag "decidim_accountability" %>
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
@@ -10,17 +15,24 @@
           "decidim/accountability/status",
           nil,
           title: t("decidim.accountability.results.home_header.global_status"),
-          progress: progress_calculator(current_scope, nil).presence,
+          progress: progress_calculator(nil).presence,
           extra_classes: "accountability__status__home"
         ) %>
   <% end %>
-
-  <%= render partial: "scope_filters", locals: { hide_subscopes: (ENV["PARTICIPATORY_SPACES_WITH_CUSTOM_ACCOUNTABILITY"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
+  <div class="accountability__filters">
+    <%= render partial: "search" %>
+  </div>
 
   <%= link_to t("decidim.accountability.results.home_header.csv_download"), Rails.application.routes.url_helpers.export_results_path(current_participatory_space, current_component), class: "button button__sm button__secondary" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
+    <div class="accountability__map">
+      <%= cell "decidim/map", @all_geocoded_results, metadata_card: "decidim/accountability/result_metadata" %>
+    </div>
+  <% end %>
 
   <section class="layout-main__section">
     <div class="editor-content"><%= decidim_sanitize_admin translated_attribute(component_settings.intro) %></div>
@@ -32,7 +44,8 @@
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope), hide_results_per_page_selector: true %>
     <% else %>
 
-      <% if first_class_categories.empty? %>
+      <% taxonomies = Decidim::Taxonomy.where(id: current_component.available_taxonomy_ids) %>
+      <% if taxonomies.empty? %>
         <%= cell("decidim/announcement",
                  params[:filter].present? ?
                    t("empty_filters", scope: "decidim.accountability.results.home") :
@@ -43,9 +56,10 @@
         <%= render partial: "home_scopes" %>
       <% end %>
 
-      <%= render partial: "home_categories",
-                 locals: { children: first_class_categories.select { |category| category.subcategories.any? }.any?,
-                           show_category_image: (ENV["PARTICIPATORY_SPACES_WITH_CATEGORY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
+      <%= render partial: "home_taxonomies",
+                 locals: { taxonomies: taxonomies,
+                           children: taxonomies.select { |taxonomy| taxonomy.children.any? }.any?,
+                           show_taxonomy_image: (ENV["PARTICIPATORY_SPACES_WITH_TAXONOMY_IMAGES"] || "").split(",").include?(current_participatory_space.slug.to_s) } %>
     <% end %>
   </section>
 

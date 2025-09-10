@@ -1,6 +1,7 @@
-# This migration comes from decidim_proposals (originally 20180413135249)
 # frozen_string_literal: true
 
+# This migration comes from decidim_proposals (originally 20180413135249)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class FixNilThresholdPerProposal < ActiveRecord::Migration[5.1]
   class Component < ApplicationRecord
     self.table_name = :decidim_components

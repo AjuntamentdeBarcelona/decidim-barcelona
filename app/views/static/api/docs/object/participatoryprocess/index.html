@@ -8,49 +8,15 @@
    <li><code><a href="/api/docs/interface/categoriescontainerinterface">CategoriesContainerInterface</a></code></li>
    <li><code><a href="/api/docs/interface/participatoryspaceinterface">ParticipatorySpaceInterface</a></code></li>
    <li><code><a href="/api/docs/interface/participatoryspaceresourceableinterface">ParticipatorySpaceResourceableInterface</a></code></li>
-   <li><code><a href="/api/docs/interface/scopableinterface">ScopableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/taxonomizableinterface">TaxonomizableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/timestampsinterface">TimestampsInterface</a></code></li>
 </ul>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <span id="announcement" class="field-name anchored">announcement (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>The internal ID for this participatory process</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="hashtag" class="field-name anchored">hashtag (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The hashtag for this participatory process</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this page was created</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this page was updated</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this page was published</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="subtitle" class="field-name anchored">subtitle (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The subtitle of this participatory process.</p>
+   <p>Highlighted announcement for this participatory process.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -60,15 +26,9 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="shortdescription" class="field-name anchored">shortDescription (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="developergroup" class="field-name anchored">developerGroup (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>The short description of this participatory process.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="startdate" class="field-name anchored">startDate (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
-  <div class="description-wrapper">
-   <p>This participatory process' start date.</p>
+   <p>The promoter group of this participatory process.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -78,27 +38,21 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="hashtag" class="field-name anchored">hashtag (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The hashtag for this participatory process</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="heroimage" class="field-name anchored">heroImage (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
    <p>The hero image for this participatory process</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="promoted" class="field-name anchored">promoted (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>If this participatory process is promoted (therefore in the homepage)</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="developergroup" class="field-name anchored">developerGroup (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The promoter group of this participatory process.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="metascope" class="field-name anchored">metaScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The scope metadata of this participatory process.</p>
+   <p>The internal ID for this participatory process</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -108,9 +62,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="target" class="field-name anchored">target (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="metascope" class="field-name anchored">metaScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>Who participates in this participatory process.</p>
+   <p>The scope metadata of this participatory process.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="participatoryprocessgroup" class="field-name anchored">participatoryProcessGroup (<code><a href="/api/docs/object/participatoryprocessgroup">ParticipatoryProcessGroup</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory process group in which this process belong to</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -126,15 +86,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="scopesenabled" class="field-name anchored">scopesEnabled (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <span id="promoted" class="field-name anchored">promoted (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
   <div class="description-wrapper">
-   <p>If this participatory process has scopes enabled</p>
+   <p>If this participatory process is promoted (therefore in the homepage)</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="announcement" class="field-name anchored">announcement (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Highlighted announcement for this participatory process.</p>
+   <p>The time this page was published</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -144,15 +104,45 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="scopesenabled" class="field-name anchored">scopesEnabled (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <div class="description-wrapper">
+   <p>If this participatory process has scopes enabled</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="shortdescription" class="field-name anchored">shortDescription (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The short description of this participatory process.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The slug of the Participatory Process</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="startdate" class="field-name anchored">startDate (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
+  <div class="description-wrapper">
+   <p>This participatory process' start date.</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="steps" class="field-name anchored">steps (<code><a href="/api/docs/object/participatoryprocessstep">[ParticipatoryProcessStep]!</a></code>)</span>
   <div class="description-wrapper">
    <p>All the steps of this process.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="participatoryprocessgroup" class="field-name anchored">participatoryProcessGroup (<code><a href="/api/docs/object/participatoryprocessgroup">ParticipatoryProcessGroup</a></code>)</span>
+  <span id="subtitle" class="field-name anchored">subtitle (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>The participatory process group in which this process belong to</p>
+   <p>The subtitle of this participatory process.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="target" class="field-name anchored">target (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Who participates in this participatory process.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -188,33 +178,27 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="scope" class="field-name anchored">scope (<code><a href="/api/docs/object/scope">Scope</a></code>)</span>
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
   <div class="description-wrapper">
-   <p>The object's scope</p>
+   <p>The date and time this object was created</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was updated</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="taxonomies" class="field-name anchored">taxonomies (<code><a href="/api/docs/object/taxonomy">[Taxonomy!]</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The object's taxonomies</p>
   </div>
 </div>
 <div class="field-entry ">
   <span id="linkedparticipatoryspaces" class="field-name anchored">linkedParticipatorySpaces (<code><a href="/api/docs/object/participatoryspacelink">[ParticipatorySpaceLink!]!</a></code>)</span>
   <div class="description-wrapper">
    <p>Lists all linked participatory spaces in a polymorphic way</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The graphql_name of this participatory space.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The manifest information for the participatory space.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -255,9 +239,32 @@
 <div class="field-entry ">
   <span id="stats" class="field-name anchored">stats (<code><a href="/api/docs/object/statistic">[Statistic]</a></code>)</span>
   <div class="description-wrapper">
+   <p>The statistics collection of this participatory space</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The graphql_name of this participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The manifest information for the participatory space.</p>
   </div>
 </div></div>
-<div id="sidebar"><ul class="categories">
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -266,7 +273,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -278,6 +285,195 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestype/" class="sidebar-link">
+          assembliesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestypes/" class="sidebar-link">
+          assembliesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/hashtags/" class="sidebar-link">
+          hashtags
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/metrics/" class="sidebar-link">
+          metrics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -331,13 +527,6 @@
       <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
         </a>
       </li>
       
@@ -847,6 +1036,13 @@
       
         
       <li>
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/timelineentry/" class="sidebar-link">
           TimelineEntry
         </a>
@@ -982,27 +1178,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -1045,13 +1220,6 @@
         <li>
           <a href="/api/docs/interface/categoriescontainerinterface/" class="sidebar-link">
             CategoriesContainerInterface
-          </a>
-        </li>
-      
-        
-        <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
           </a>
         </li>
       
@@ -1136,6 +1304,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       
