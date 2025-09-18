@@ -111,7 +111,8 @@ describe "routing redirections", type: :request do
   describe "proposals" do
     let(:participatory_process) { create(:participatory_process, organization:, slug: "test-process") }
     let(:component) { create(:proposal_component, participatory_space: participatory_process) }
-    let!(:proposal) { create(:proposal, component:, extra: { slug: "test-proposal" }) }
+    let(:user) { create(:user, organization:, password: "VerySecurePassword123!", password_confirmation: "VerySecurePassword123!") }
+    let!(:proposal) { create(:proposal, component:, users: [user], extra: { slug: "test-proposal" }) }
 
     context "with the right host" do
       before do
