@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: c26669260ab18542be8fb1000eec865aec57d42b
+  revision: a4e93438701a915338fcb5eefb0dacf78edf9e69
   branch: feature/restrict-vote-comment
   specs:
     decidim (0.29.2)
@@ -734,7 +734,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    openssl (3.3.0)
+    openssl (3.3.1)
     origami (2.1.0)
       colorize (~> 0.7)
     orm_adapter (0.5.0)
