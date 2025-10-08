@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: a4e93438701a915338fcb5eefb0dacf78edf9e69
-  branch: feature/restrict-vote-comment
+  revision: 7f6da0e7e65125b9e2e9fd19c469dc90ad21e47f
+  branch: release/0.29-stable-bcn
   specs:
     decidim (0.29.2)
       decidim-accountability (= 0.29.2)
