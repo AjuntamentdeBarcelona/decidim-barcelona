@@ -16,7 +16,7 @@
     @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
 
     /* display the titles only for the first row in desktop */
-    &> :nth-child(1) &-title {
+    & > :nth-child(1) &-title {
       @apply md:block;
     }
 
@@ -30,7 +30,7 @@
   }
 }
 
-.main-header__language-container>#trigger-dropdown-header-language-chooser {
+.main-header__language-container > #trigger-dropdown-header-language-chooser {
   gap: 0.1rem !important;
   flex-direction: column;
   padding: 0.25rem 0.5rem;
@@ -52,7 +52,8 @@
   min-width: 5rem;
 }
 
-.main-header__language-container>#trigger-dropdown-header-language-chooser:hover {
+.main-header__language-container
+  > #trigger-dropdown-header-language-chooser:hover {
   background-color: #f3f4f7 !important;
   border-radius: 0.25rem;
   text-decoration: underline;
@@ -65,7 +66,7 @@
   align-items: center !important;
 }
 
-#dropdown-menu-header-language-chooser>ul>li>a {
+#dropdown-menu-header-language-chooser > ul > li > a {
   font-size: 14px;
   padding: 0.5rem;
 }
@@ -76,25 +77,25 @@
 }
 
 @media (min-width: 768px) {
-  .main-header__language-container>#trigger-dropdown-header-language-chooser {
+  .main-header__language-container > #trigger-dropdown-header-language-chooser {
     display: flex !important;
   }
 }
 
 @media (max-width: 1023px) {
-  .main-header__language-container>#trigger-dropdown-header-language-chooser {
+  .main-header__language-container > #trigger-dropdown-header-language-chooser {
     flex-direction: row !important;
   }
 
-  #trigger-dropdown-header-language-chooser>svg {
+  #trigger-dropdown-header-language-chooser > svg {
     display: none;
   }
 
-  #trigger-dropdown-header-language-chooser>div>svg {
+  #trigger-dropdown-header-language-chooser > div > svg {
     display: none;
   }
 
-  #dropdown-menu-main-mobile>div.main-header__language-container {
+  #dropdown-menu-main-mobile > div.main-header__language-container {
     display: flex;
     flex-direction: row;
     width: 10rem;
@@ -103,9 +104,9 @@
     font-weight: 600 !important;
   }
 
-  #dropdown-menu-header-language-chooser>ul>li>a,
-  #dropdown-menu-header-language-chooser>ul>li,
-  #trigger-dropdown-header-language-chooser>div>span,
+  #dropdown-menu-header-language-chooser > ul > li > a,
+  #dropdown-menu-header-language-chooser > ul > li,
+  #trigger-dropdown-header-language-chooser > div > span,
   #trigger-dropdown-header-language-chooser {
     padding: 0 !important;
     font-size: 1rem !important;
@@ -122,7 +123,7 @@
   width: auto;
 }
 
-.bcn-cat-link>a {
+.bcn-cat-link > a {
   font-weight: 600;
   font-size: 20px;
   color: black;
@@ -141,7 +142,7 @@
   padding-right: 0;
 }
 
-body>div.layout-container>header>div.brand-bar>div.bcn-logo>a>span {
+body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
   display: none;
 }
 
@@ -152,7 +153,6 @@ body>div.layout-container>header>div.brand-bar>div.bcn-logo>a>span {
 }
 
 @media screen and (max-width: 1024px) {
-
   .bcnbrand-main-link {
     width: 50%;
   }
