@@ -115,7 +115,7 @@
 }
 
 .brand-bar {
-  padding-top: 0.2rem !important;
+  padding-top: 0.7rem !important;
   padding-bottom: 0.2rem !important;
   display: flex;
   flex-direction: row;
@@ -142,10 +142,6 @@
   padding-right: 0;
 }
 
-.bcn-cat-link > a:hover {
-  text-decoration: underline;
-}
-
 body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
   display: none;
 }
@@ -157,11 +153,7 @@ body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
 }
 
 @media screen and (max-width: 1024px) {
-  .logo-desktop {
-    display: none;
-  }
-
-  .logo-mobile {
-    display: block;
+  .bcnbrand-main-link {
+    width: 50%;
   }
 }
