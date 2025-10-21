@@ -134,8 +134,17 @@
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.logo-mobile {
-  display: none;
+.bcn-footer {
+  background-color: #ff2828;
+  margin-top: 1.6rem;
+
+  svg {
+    display: none;
+  }
+}
+
+.mini-footer {
+  padding-bottom: 0 !important;
 }
 
 .logo-desktop {
@@ -155,5 +164,14 @@ body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
 @media screen and (max-width: 1024px) {
   .bcnbrand-main-link {
     width: 50%;
+  }
+
+  .bcn-footer > .brand-bar {
+    display: block;
+
+    a > img {
+      margin: auto;
+      scale: 90%;
+    }
   }
 }
