@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
-  Decidim::Proposals::ProposalLCell.include(Decidim::EmptyCacheHashOverride)
-  Decidim::Proposals::ProposalGCell.include(Decidim::EmptyCacheHashOverride)
+  if (ENV["DISABLE_PROPOSAL_CACHING"] || 0).to_i == 1
+    Decidim::Proposals::ProposalLCell.include(Decidim::EmptyCacheHashOverride)
+    Decidim::Proposals::ProposalGCell.include(Decidim::EmptyCacheHashOverride)
+  end
   Decidim::Budgets::BudgetListItemCell.include(Decidim::Budgets::BudgetListItemCellOverride)
   Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
