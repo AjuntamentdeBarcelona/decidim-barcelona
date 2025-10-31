@@ -9,6 +9,8 @@ en:
         nie: NIE
         passport: Passport
       explanation: Get verified with the census
+    footer:
+        bcn_logo: Barcelona City Council Logo
     meetings:
       meetings:
         show:
