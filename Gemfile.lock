@@ -49,6 +49,10 @@ GIT
     decidim-comments (0.29.2)
       decidim-core (= 0.29.2)
       redcarpet (~> 3.5, >= 3.5.1)
+    decidim-conferences (0.29.2)
+      decidim-core (= 0.29.2)
+      decidim-meetings (= 0.29.2)
+      wicked_pdf (~> 2.7)
     decidim-core (0.29.2)
       active_link_to (~> 1.0)
       acts_as_list (~> 1.0)
@@ -1072,6 +1076,7 @@ DEPENDENCIES
   debug
   decidim!
   decidim-census_sms!
+  decidim-conferences!
   decidim-dataviz!
   decidim-decidim_awesome!
   decidim-dev!

@@ -375,6 +375,8 @@ ca:
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
+      footer:
+        bcn_logo: Logotip de l'Ajuntament de Barcelona
       header:
         main:
           organization_logo: Logo Ajuntament de Barcelona
