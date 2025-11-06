@@ -18,7 +18,7 @@ module Decidim
         def valid?(context = nil)
           if description.blank?
             current_organization.available_locales.each do |locale|
-              self.description[locale] = "-" if description[locale].blank?
+              description[locale] = "-" if description[locale].blank?
             end
           end
           super
