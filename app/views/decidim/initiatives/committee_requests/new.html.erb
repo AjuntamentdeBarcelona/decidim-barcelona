@@ -23,13 +23,13 @@
     <div class="editor-content">
       <% if current_initiative.has_custom_fields? %>
         <div class="mb-6">
-          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
-          <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
         </div>
 
         <div class="mb-6">
-          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
-          <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
         </div>
 
         <div class="mb-6">
