@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_10_27_102245) do
+ActiveRecord::Schema[7.0].define(version: 2025_10_27_151949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
-  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
@@ -748,6 +747,18 @@ ActiveRecord::Schema[7.0].define(version: 2025_10_27_102245) do
     t.index ["decidim_user_group_id"], name: "index_decidim_endorsements_on_decidim_user_group_id"
     t.index ["resource_type", "resource_id", "decidim_author_type", "decidim_author_id", "decidim_user_group_id"], name: "idx_endorsements_rsrcs_and_authors", unique: true
     t.index ["resource_type", "resource_id"], name: "index_decidim_endorsements_on_resource_type_and_resource_id"
+  end
+
+  create_table "decidim_features", id: :serial, force: :cascade do |t|
+    t.string "manifest_name"
+    t.jsonb "name"
+    t.integer "participatory_space_id", null: false
+    t.jsonb "settings", default: {}
+    t.integer "weight", default: 0
+    t.datetime "published_at", precision: nil
+    t.jsonb "permissions"
+    t.string "participatory_space_type", null: false
+    t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_features_on_decidim_participatory_space"
   end
 
   create_table "decidim_follows", force: :cascade do |t|
@@ -1866,6 +1877,30 @@ ActiveRecord::Schema[7.0].define(version: 2025_10_27_102245) do
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
 
+  create_table "decidim_surveys_survey_answers", id: :serial, force: :cascade do |t|
+    t.jsonb "body", default: []
+    t.integer "decidim_user_id"
+    t.integer "decidim_survey_id"
+    t.integer "decidim_survey_question_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_answers_on_decidim_survey_id"
+    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answers_question_id"
+    t.index ["decidim_user_id"], name: "index_decidim_surveys_survey_answers_on_decidim_user_id"
+  end
+
+  create_table "decidim_surveys_survey_questions", id: :serial, force: :cascade do |t|
+    t.jsonb "body"
+    t.integer "decidim_survey_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.integer "position"
+    t.boolean "mandatory"
+    t.string "question_type"
+    t.jsonb "answer_options", default: []
+    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_questions_on_decidim_survey_id"
+  end
+
   create_table "decidim_surveys_surveys", id: :serial, force: :cascade do |t|
     t.integer "decidim_component_id"
     t.datetime "created_at", precision: nil, null: false
@@ -1944,6 +1979,20 @@ ActiveRecord::Schema[7.0].define(version: 2025_10_27_102245) do
     t.index ["decidim_user_id", "decidim_user_group_id"], name: "decidim_user_group_memberships_unique_user_and_group_ids", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_user_group_memberships_on_decidim_user_id"
     t.index ["role", "decidim_user_group_id"], name: "decidim_group_membership_one_creator_per_group", unique: true, where: "((role)::text = 'creator'::text)"
+  end
+
+  create_table "decidim_user_groups", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "document_number"
+    t.string "phone"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "avatar"
+    t.datetime "verified_at", precision: nil
+    t.datetime "rejected_at", precision: nil
+    t.integer "decidim_organization_id", null: false
+    t.index ["decidim_organization_id", "document_number"], name: "index_decidim_user_groups_document_number_on_organization_id", unique: true
+    t.index ["decidim_organization_id", "name"], name: "index_decidim_user_groups_names_on_organization_id", unique: true
   end
 
   create_table "decidim_user_moderations", force: :cascade do |t|
