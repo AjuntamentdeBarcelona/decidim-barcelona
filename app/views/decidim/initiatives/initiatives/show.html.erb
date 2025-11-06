@@ -176,32 +176,26 @@ edit_link(
   <div class="content-block__description">
     <div class="editor-content">
       <% if current_initiative.has_custom_fields %>
-        <% if translated_attribute(current_initiative.question).present? %>
-          <div class="initiative__field-section mb-6">
-            <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
-            <div class="initiative__field-content">
-              <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
-            </div>
+        <div class="initiative__field-section mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
+          <div class="initiative__field-content">
+            <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
           </div>
-        <% end %>
+        </div>
 
-        <% if translated_attribute(current_initiative.definition).present? %>
-          <div class="initiative__field-section mb-6">
-            <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
-            <div class="initiative__field-content">
-              <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
-            </div>
+        <div class="initiative__field-section mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
+          <div class="initiative__field-content">
+            <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
           </div>
-        <% end %>
+        </div>
 
-        <% if translated_attribute(current_initiative.reasons).present? %>
-          <div class="initiative__field-section mb-6">
-            <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
-            <div class="initiative__field-content">
-              <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
-            </div>
+        <div class="initiative__field-section mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
+          <div class="initiative__field-content">
+            <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
           </div>
-        <% end %>
+        </div>
       <% else %>
         <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
       <% end %>

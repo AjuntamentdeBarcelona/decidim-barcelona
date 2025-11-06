@@ -10,16 +10,16 @@
     <div class="card-section">
       <% if initiative.has_custom_fields? %>
         <div class="row column">
-          <strong><%= t("decidim.initiatives.show.question") %>: </strong>
-          <%= decidim_sanitize_editor translated_attribute(initiative.question) %>
-        </div>
-        <div class="row column">
           <strong><%= t("decidim.initiatives.show.definition") %>: </strong>
           <%= decidim_sanitize_editor translated_attribute(initiative.definition) %>
         </div>
         <div class="row column">
           <strong><%= t("decidim.initiatives.show.reasons") %>: </strong>
           <%= decidim_sanitize_editor translated_attribute(initiative.reasons) %>
+        </div>
+        <div class="row column">
+          <strong><%= t("decidim.initiatives.show.question") %>: </strong>
+          <%= decidim_sanitize_editor translated_attribute(initiative.question) %>
         </div>
       <% else %>
         <div class="row column">
