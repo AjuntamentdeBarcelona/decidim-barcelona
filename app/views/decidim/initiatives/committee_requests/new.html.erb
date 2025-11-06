@@ -28,14 +28,15 @@
         </div>
 
         <div class="mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
+        </div>
+
+        <div class="mb-6">
           <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
           <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
         </div>
 
-        <div class="mb-6">
-          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
-          <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
-        </div>
       <% else %>
         <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
       <% end %>
