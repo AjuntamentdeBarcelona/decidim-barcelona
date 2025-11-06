@@ -1,0 +1,12 @@
+ca:
+  decidim:
+    initiatives:
+      form:
+        question: "Pregunta"
+        definition: "Definició"
+        reasons: "Exposició de motius"
+      show:
+        question: "Pregunta"
+        definition: "Definició"
+        reasons: "Exposició de motius"
+        print: "Imprimir"
