@@ -12,6 +12,7 @@ describe "Initiative custom fields display" do
   let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
 
   before do
+    allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
     switch_to_host(organization.host)
   end
 
