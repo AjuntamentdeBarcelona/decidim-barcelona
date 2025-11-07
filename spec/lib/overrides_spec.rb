@@ -90,7 +90,6 @@ checksums = [
       "/app/views/decidim/initiatives/admin/answers/_info_initiative.html.erb" => "103183460a6692bda31b7b7c46e6b677",
       "/app/views/decidim/initiatives/committee_requests/new.html.erb" => "199506bee071e88185f8c0776932d87f",
       "/app/views/decidim/initiatives/create_initiative/fill_data.html.erb" => "f17f2ce5f48524d5c6c0e444247e50e1",
-      "/app/views/decidim/initiatives/create_initiative/promotal_committee.html.erb" => "6f818bbdbaae0618eb24bed287cf1203",
       "/app/models/decidim/initiatives_vote.rb" => "1842a9fcb559d749df116a8fc4eb4f46"
     }
   },

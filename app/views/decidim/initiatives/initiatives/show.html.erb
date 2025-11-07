@@ -35,6 +35,11 @@ edit_link(
                         send_to_technical_validation_initiative_path(current_initiative),
                         class: "button button__xl w-full button__secondary mt-4",
                         data: { confirm: t(".confirm") } %>
+
+            <%= link_to print_initiative_path(current_initiative), class: "button button__xl w-full button__text-secondary mt-4", target: "_blank" do %>
+              <%= icon "printer-line", class: "fill-current" %>
+              <%= t("decidim.initiatives.show.print") %>
+            <% end %>
           <% end %>
         </section>
       <% end %>
