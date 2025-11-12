@@ -6,7 +6,8 @@ describe "Assemblies" do
   let(:organization) do
     create(
       :organization,
-      default_locale: :en
+      default_locale: :en,
+      available_locales: [:en]
     )
   end
 

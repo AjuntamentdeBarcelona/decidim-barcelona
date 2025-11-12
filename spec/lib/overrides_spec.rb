@@ -9,7 +9,7 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/helpers/decidim/paginate_helper.rb" => "6fd69359386319d678c7a17cf64de4d9",
+      "/app/helpers/decidim/paginate_helper.rb" => "d7a08fda6fff5c0e43fbea2a83cd5346",
       "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "be1d2c978a80cca492954666677cd4bd",
       "/app/views/layouts/decidim/mailer.html.erb" => "23a555f9c674d7db4b0ea6582525e2d6",
@@ -18,15 +18,15 @@ checksums = [
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "3603d17b4a973b57189330a66c58126e",
-      "/app/views/layouts/decidim/header/_main.html.erb" => "c4f48e1064175113c72be021c8c56d33",
-      "/app/packs/src/decidim/index.js" => "5f60cf5f726fa44b1f6130f296790045",
-      "/app/views/layouts/decidim/footer/_mini.html.erb" => "ccead2f5f20557ea4db1501de943f82b"
+      "/app/views/layouts/decidim/header/_main.html.erb" => "f5cb633c39af336c6fa131063bcffcbc",
+      "/app/packs/src/decidim/index.js" => "d7af2c172c08220f50fe327d73ab33d9",
+      "/app/views/layouts/decidim/footer/_mini.html.erb" => "c67cc97db27cdcf926f60682e399f688"
     }
   },
   {
     package: "decidim-assemblies",
     files: {
-      "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "c847c0a2170fb75ec12ed5057f4469bd"
+      "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "7f8d8b3d38fa0f4b0a83a8012083ce71"
     }
   },
   {
@@ -73,7 +73,7 @@ checksums = [
       "/app/cells/decidim/initiatives_votes/vote_cell.rb" => "53ee774d8284581cdd481718ae35003e",
       "/app/views/decidim/initiatives/admin/initiatives/_signatures.html.erb" => "a57884ead149d3c455aa1037df715791",
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
-      "/app/models/decidim/initiative.rb" => "2e462e69b8a2437c9ea8cc9689764a12",
+      "/app/models/decidim/initiative.rb" => "fdd677eea29010a1afec3374b2fde5fc",
       "/app/permissions/decidim/initiatives/admin/permissions.rb" => "c0f9bf5d9edaca545a7c931c0dc5c0e9",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0"
@@ -86,8 +86,8 @@ checksums = [
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "e1cc26b535c8ee0b1c731219c4d5f121",
       "/app/cells/decidim/meetings/online_meeting_cell.rb" => "726b1c957fdadd355171364b3327564a",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "af3b5f11ce074f0328e172fe9dbb57c1",
-      "/app/models/decidim/meetings/meeting.rb" => "b8b1b7c84b7eb2e6bca1ff2d93b2f20b",
-      "/app/controllers/decidim/meetings/meetings_controller.rb" => "80a9327e6c597f590e7a4940b76f7585",
+      "/app/models/decidim/meetings/meeting.rb" => "b5bb8624a4e9bac66a9e6a9d9b64ae63",
+      "/app/controllers/decidim/meetings/meetings_controller.rb" => "f840590ead8c29c4c6fa6f9ad7d6e2e0",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "8be62c6b0cc2f13d4be68eb5e06217de",
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "309974a0b89750bbf688589f60c53722"
     }
@@ -95,7 +95,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/cells/decidim/proposals/proposal_g_cell.rb" => "5d0c11d998b62d17cf5962a205957c42",
+      "/app/cells/decidim/proposals/proposal_g_cell.rb" => "114f112b90eebae433e50950f2691d6c",
       "/app/cells/decidim/proposals/proposal_l_cell.rb" => "4743525d9b89e27aa356636c6e256a84",
       "/app/helpers/decidim/proposals/application_helper.rb" => "05c7005840dd4b6b6269e7d0c9e7a507",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "bbc7cee02125c1f8cf909219e48af337"
