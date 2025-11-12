@@ -23,7 +23,8 @@ describe "Proposal safe content allowed users", :perform_enqueued do
   let(:organization) do
     create(
       :organization,
-      default_locale: :en
+      default_locale: :en,
+      available_locales: [:en]
     )
   end
 
