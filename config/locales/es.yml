@@ -222,6 +222,16 @@ es:
           gender: Sexo
           postal_code: Código postal
           scope_id: Distrito
+          scope_code_1: Ciutat Vella
+          scope_code_2: Eixample
+          scope_code_3: Sants - Montjuïc
+          scope_code_4: Les Corts
+          scope_code_5: Sarrià - Sant Gervasi
+          scope_code_6: Gràcia
+          scope_code_7: Horta - Guinardó
+          scope_code_8: Nou Barris
+          scope_code_9: Sant Andreu
+          scope_code_10: Sant Martí
         name: El padrón
       census_kids_authorization_handler:
         explanation: Verifícate con el padrón
