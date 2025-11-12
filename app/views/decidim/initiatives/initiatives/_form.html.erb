@@ -18,9 +18,9 @@
 <%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
 
 <% if current_initiative.has_custom_fields %>
-  <%= text_editor_for(form, :definition, toolbar: :content, lines: 4, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.definition), label: t("decidim.initiatives.form.definition")) %>
+  <%= text_editor_for(form, :question, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.question), label: t("decidim.initiatives.form.question")) %>
+  <%= text_editor_for(form, :definition, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.definition), label: t("decidim.initiatives.form.definition")) %>
   <%= text_editor_for(form, :reasons, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.reasons), label: t("decidim.initiatives.form.reasons")) %>
-  <%= text_editor_for(form, :question, toolbar: :content, lines: 4, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.question), label: t("decidim.initiatives.form.question")) %>
 <% else %>
   <%= text_editor_for(form, :description, toolbar: :content, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
 <% end %>

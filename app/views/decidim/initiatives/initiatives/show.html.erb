@@ -22,7 +22,7 @@ edit_link(
         </section>
       <% end %>
     <% else %>
-      <% if allowed_to?(:edit, :initiative, initiative: current_initiative) || allowed_to?(:send_to_technical_validation, :initiative, initiative: current_initiative) %>
+      <% if allowed_to?(:edit, :initiative, initiative: current_initiative) || allowed_to?(:send_to_technical_validation, :initiative, initiative: current_initiative) || allowed_to?(:print, :initiative, initiative: current_initiative) %>
         <section class="layout-aside__section layout-aside__buttons">
           <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
             <%= link_to t(".edit"),
@@ -35,7 +35,9 @@ edit_link(
                         send_to_technical_validation_initiative_path(current_initiative),
                         class: "button button__xl w-full button__secondary mt-4",
                         data: { confirm: t(".confirm") } %>
+          <% end %>
 
+          <% if current_initiative.validating? || allowed_to?(:send_to_technical_validation, :initiative, initiative: current_initiative) %>
             <%= link_to print_initiative_path(current_initiative), class: "button button__xl w-full button__text-secondary mt-4", target: "_blank" do %>
               <%= icon "printer-line", class: "fill-current" %>
               <%= t("decidim.initiatives.show.print") %>
@@ -182,6 +184,13 @@ edit_link(
     <div class="editor-content">
       <% if current_initiative.has_custom_fields %>
         <div class="initiative__field-section mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
+          <div class="initiative__field-content">
+            <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
+          </div>
+        </div>
+
+        <div class="initiative__field-section mb-6">
           <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
           <div class="initiative__field-content">
             <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
@@ -192,13 +201,6 @@ edit_link(
           <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
           <div class="initiative__field-content">
             <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
-          </div>
-        </div>
-
-        <div class="initiative__field-section mb-6">
-          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
-          <div class="initiative__field-content">
-            <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
           </div>
         </div>
       <% else %>
