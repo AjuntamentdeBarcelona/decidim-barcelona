@@ -215,6 +215,9 @@ ca:
         name: El padró (majors de 16 anys)
       census_authorization_handler:
         explanation: Verifica't amb el padró
+        extra_explanation:
+          one: "La participació està limitada als usuaris del districte: %{scopes}"
+          other: "La participació està limitada als usuaris dels districtes: %{scopes}"
         fields:
           date_of_birth: Data de naixement
           document_number: Número de document

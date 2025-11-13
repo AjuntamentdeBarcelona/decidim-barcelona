@@ -215,6 +215,9 @@ es:
         name: El padrón (mayores de 16 años)
       census_authorization_handler:
         explanation: Verifícate con el padrón
+        extra_explanation:
+          one: "La participación está limitada a usuarios del distrito: %{scopes}"
+          other: "La participación está limitada a usuarios de los distritos: %{scopes}"
         fields:
           date_of_birth: Fecha de nacimiento
           document_number: Número de documento
