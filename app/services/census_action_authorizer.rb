@@ -39,6 +39,8 @@ class CensusActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
   end
 
   def scope_valid?
+    return false if authorization.nil?
+
     scope = authorization.metadata[BASE_OPTION_KEY]
     scope.present? && allowed_scopes.include?(scope.to_s)
   end
