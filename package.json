@@ -61,7 +61,7 @@
     "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
-    "@decidim/dev": "^0.29.2",
+    "@decidim/dev": "^0.31.0-rc2",
     "@decidim/eslint-config": "^0.29.2",
     "@decidim/prettier-config": "^0.29.2",
     "@decidim/stylelint-config": "^0.29.2",
