@@ -18,7 +18,7 @@ checksums = [
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
       "/app/cells/decidim/user_profile_cell.rb" => "71216a17c7eea8dd8ebc1ea3907efaef",
       "/lib/decidim/search_resource_fields_mapper.rb" => "3603d17b4a973b57189330a66c58126e",
-      "/app/views/layouts/decidim/header/_main.html.erb" => "6394103a52da4be74fbf61110aa99875"
+      "/app/views/layouts/decidim/header/_main.html.erb" => "2cda0f82a0ac644c1ba89f84d5c60b97"
     }
   },
   {
@@ -52,7 +52,7 @@ checksums = [
       "/app/views/decidim/accountability/results/home.html.erb" => "59a4e334c79fbed14fe83f01efd1372b",
       "/app/views/decidim/accountability/results/index.html.erb" => "09b2a4265c59c0e0ce21b9360a687a01",
       "/app/views/decidim/accountability/results/_home_taxonomies.html.erb" => "81f24acdee131c85827e08eccd551c22",
-      "/app/models/decidim/accountability/result.rb" => "fc2b2774dd6d7deb99b6ba96a810fb45",
+      "/app/models/decidim/accountability/result.rb" => "b31a4c94561f0cea7b60ab2d275a8b99",
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc"
     }
   },
@@ -68,7 +68,7 @@ checksums = [
       "/lib/decidim/exporters/initiative_votes_pdf.rb" => "e71f75f2cf1dc508fd8ccee37254c5c1",
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/models/decidim/initiative.rb" => "8b6a205a8b83cf0501e989f70a5aed4a",
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "35079208442b3fca258f3f17e6daf12d",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "b26494f17e65d164822b03e912dfe9e7",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0"
     }
