@@ -1,7 +1,9 @@
 {
   "recommendations": [
-    "shopify.ruby-lsp",
+    "dbaeumer.vscode-eslint",
     "redhat.vscode-yaml",
-    "streetsidesoftware.code-spell-checker"
+    "shopify.ruby-lsp",
+    "streetsidesoftware.code-spell-checker",
+    "stylelint.vscode-stylelint",
   ]
 }

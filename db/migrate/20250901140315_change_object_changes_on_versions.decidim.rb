@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20240722215500)
-# This file has been modified by `decidim upgrade:migrations` task on 2025-11-24 15:44:34 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2025-11-24 16:23:05 UTC
 class ChangeObjectChangesOnVersions < ActiveRecord::Migration[6.1]
   def up
     rename_column :versions, :object_changes, :old_object_changes

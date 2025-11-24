@@ -320,6 +320,9 @@ GEM
     decidim-comments (0.30.4)
       decidim-core (= 0.30.4)
       redcarpet (~> 3.5, >= 3.5.1)
+    decidim-conferences (0.30.4)
+      decidim-core (= 0.30.4)
+      decidim-meetings (= 0.30.4)
     decidim-core (0.30.4)
       active_link_to (~> 1.0)
       acts_as_list (~> 1.0)
@@ -1158,6 +1161,7 @@ DEPENDENCIES
   debug
   decidim (~> 0.30.4)
   decidim-census_sms!
+  decidim-conferences (~> 0.30.4)
   decidim-dataviz!
   decidim-decidim_awesome (~> 0.13.2)
   decidim-dev (~> 0.30.4)
