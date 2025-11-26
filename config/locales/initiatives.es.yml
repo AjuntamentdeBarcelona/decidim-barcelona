@@ -3,10 +3,14 @@ es:
     initiatives:
       form:
         question: "Pregunta"
-        definition: "Definición"
+        question_help: "Propuesta de pregunta o texto que encabezará la recogida de firmas"
+        definition: "Definición de la iniciativa"
+        definition_help: "¿Qué queréis? Exponed aquello para lo que pedís la firma"
         reasons: "Exposición de motivos"
+        reasons_help: "¿Por qué lo pedís? Explicad los hechos y razones que justifican vuestra petición"
+        title_help: "¿Cómo se debe llamar esta iniciativa?"
       show:
         question: "Pregunta"
-        definition: "Definición"
+        definition: "Definición de la iniciativa"
         reasons: "Exposición de motivos"
         print: "Imprimir"

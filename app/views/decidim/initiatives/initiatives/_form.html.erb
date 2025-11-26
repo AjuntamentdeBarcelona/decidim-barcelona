@@ -15,12 +15,12 @@
                   } %>
 <% end %>
 
-<%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title) %>
+<%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.title), help_text: t("decidim.initiatives.form.title_help") %>
 
 <% if current_initiative.has_custom_fields %>
-  <%= text_editor_for(form, :question, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.question), label: t("decidim.initiatives.form.question")) %>
-  <%= text_editor_for(form, :definition, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.definition), label: t("decidim.initiatives.form.definition")) %>
-  <%= text_editor_for(form, :reasons, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.reasons), label: t("decidim.initiatives.form.reasons")) %>
+  <%= text_editor_for(form, :question, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.question), label: t("decidim.initiatives.form.question"), help_text: t("decidim.initiatives.form.question_help")) %>
+  <%= text_editor_for(form, :definition, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.definition), label: t("decidim.initiatives.form.definition"), help_text: t("decidim.initiatives.form.definition_help")) %>
+  <%= text_editor_for(form, :reasons, toolbar: :content, lines: 6, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.reasons), label: t("decidim.initiatives.form.reasons"), help_text: t("decidim.initiatives.form.reasons_help")) %>
 <% else %>
   <%= text_editor_for(form, :description, toolbar: :content, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
 <% end %>

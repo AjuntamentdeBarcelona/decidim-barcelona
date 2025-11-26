@@ -13,13 +13,13 @@
 
     <%= f.hidden_field :type_id %>
 
-    <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
+    <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title), help_text: t("decidim.initiatives.form.title_help") %>
 
-    <%= text_editor_for(f, :definition, toolbar: :content, lines: 8, value: translated_attribute(f.object.definition), label: t("decidim.initiatives.form.definition")) %>
+    <%= text_editor_for(f, :definition, toolbar: :content, lines: 8, value: translated_attribute(f.object.definition), label: t("decidim.initiatives.form.definition"), help_text: t("decidim.initiatives.form.definition_help")) %>
 
-    <%= text_editor_for(f, :reasons, toolbar: :content, lines: 8, value: translated_attribute(f.object.reasons), label: t("decidim.initiatives.form.reasons")) %>
+    <%= text_editor_for(f, :reasons, toolbar: :content, lines: 8, value: translated_attribute(f.object.reasons), label: t("decidim.initiatives.form.reasons"), help_text: t("decidim.initiatives.form.reasons_help")) %>
 
-    <%= text_editor_for(f, :question, toolbar: :content, lines: 8, value: translated_attribute(f.object.question), label: t("decidim.initiatives.form.question")) %>
+    <%= text_editor_for(f, :question, toolbar: :content, lines: 8, value: translated_attribute(f.object.question), label: t("decidim.initiatives.form.question"), help_text: t("decidim.initiatives.form.question_help")) %>
 
     <%= f.text_field :hashtag %>
 

@@ -11,20 +11,20 @@
 
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :title } %>
+        <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :title }, help_text: t("decidim.initiatives.form.title_help") %>
       </div>
 
       <% if current_initiative.has_custom_fields %>
         <div class="row column">
-          <%= form.translated :editor, :definition, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :definition }, label: t("decidim.initiatives.form.definition") %>
+          <%= form.translated :editor, :definition, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :definition }, label: t("decidim.initiatives.form.definition"), help_text: t("decidim.initiatives.form.definition_help") %>
         </div>
 
         <div class="row column">
-          <%= form.translated :editor, :reasons, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :reasons }, label: t("decidim.initiatives.form.reasons") %>
+          <%= form.translated :editor, :reasons, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :reasons }, label: t("decidim.initiatives.form.reasons"), help_text: t("decidim.initiatives.form.reasons_help") %>
         </div>
 
         <div class="row column">
-          <%= form.translated :editor, :question, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :question }, label: t("decidim.initiatives.form.question") %>
+          <%= form.translated :editor, :question, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :question }, label: t("decidim.initiatives.form.question"), help_text: t("decidim.initiatives.form.question_help") %>
         </div>
 
       <% else %>

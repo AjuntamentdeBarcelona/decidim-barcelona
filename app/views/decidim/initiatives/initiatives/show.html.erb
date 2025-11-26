@@ -184,8 +184,7 @@ edit_link(
     <div class="editor-content">
       <% if current_initiative.has_custom_fields %>
         <div class="initiative__field-section mb-6">
-          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
-          <div class="initiative__field-content">
+          <div class="initiative__field-content text-2xl">
             <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
           </div>
         </div>
