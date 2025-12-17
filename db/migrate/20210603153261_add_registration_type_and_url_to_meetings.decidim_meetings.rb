@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_meetings (originally 20201016112641)
 
+# This migration comes from decidim_meetings (originally 20201016112641)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class AddRegistrationTypeAndUrlToMeetings < ActiveRecord::Migration[5.2]
   class Meetings < ApplicationRecord
     self.table_name = :decidim_meetings_meetings
@@ -12,8 +13,9 @@ class AddRegistrationTypeAndUrlToMeetings < ActiveRecord::Migration[5.2]
     add_column :decidim_meetings_meetings, :registration_url, :string
 
     Meetings.reset_column_information
-    # rubocop:disable Rails/SkipsModelValidations
-    Meetings.where(decidim_author_type: "Decidim::Organization").update_all(registration_type: "on_this_platform")
-    # rubocop:enable Rails/SkipsModelValidations
+    Meetings.find_each do |meeting|
+      meeting.registration_type = "on_this_platform" if meeting.decidim_author_type == "Decidim::Organization"
+      meeting.save!
+    end
   end
 end

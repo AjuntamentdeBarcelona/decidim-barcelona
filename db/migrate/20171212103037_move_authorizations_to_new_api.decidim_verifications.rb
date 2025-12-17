@@ -1,6 +1,7 @@
-# This migration comes from decidim_verifications (originally 20171030133426)
 # frozen_string_literal: true
 
+# This migration comes from decidim_verifications (originally 20171030133426)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:14 UTC
 #
 # Assumes to authorizations in the old format (as rectify form classes) will be
 # registered as the underscored class name using the new API. For example, a
@@ -23,8 +24,8 @@ class MoveAuthorizationsToNewApi < ActiveRecord::Migration[5.1]
     self.table_name = :decidim_organizations
   end
 
-  class Feature < ApplicationRecord
-    self.table_name = :decidim_features
+  class Component < ApplicationRecord
+    self.table_name = :decidim_components
   end
 
   def up
@@ -36,10 +37,10 @@ class MoveAuthorizationsToNewApi < ActiveRecord::Migration[5.1]
       organization.update!(available_authorizations: migrated_authorizations)
     end
 
-    Feature.find_each do |feature|
-      next if feature.permissions.nil?
+    Component.find_each do |component|
+      next if component.permissions.nil?
 
-      feature.permissions.transform_values! do |value|
+      component.permissions.transform_values! do |value|
         next if value.nil?
 
         {
@@ -48,7 +49,7 @@ class MoveAuthorizationsToNewApi < ActiveRecord::Migration[5.1]
         }
       end
 
-      feature.save!
+      component.save!
     end
   end
 
@@ -61,14 +62,14 @@ class MoveAuthorizationsToNewApi < ActiveRecord::Migration[5.1]
       organization.update!(available_authorizations: migrated_authorizations)
     end
 
-    Feature.find_each do |feature|
-      feature.permissions.transform_values! do |value|
+    Component.find_each do |component|
+      component.permissions.transform_values! do |value|
         workflow = Decidim::Verifications.find_workflow_manifest(value)
 
         workflow.form.underscore
       end
 
-      feature.save!
+      component.save!
     end
   end
 end

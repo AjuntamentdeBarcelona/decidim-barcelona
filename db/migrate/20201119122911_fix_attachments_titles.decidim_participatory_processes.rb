@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_participatory_processes (originally 20201006072346)
 
+# This migration comes from decidim_participatory_processes (originally 20201006072346)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
   def up
     reset_column_information
@@ -16,14 +17,11 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
                  Decidim.default_locale
 
         # rubocop:disable Rails/SkipsModelValidations
-        attachment.update_columns(
-          title: {
-            locale => attachment.title
-          },
-          description: {
-            locale => attachment.description
-          }
-        )
+        values = {}
+        values[:title] = { locale => attachment.title } unless attachment.title.is_a?(Hash)
+        values[:description] = { locale => attachment.description } unless attachment.description.is_a?(Hash)
+
+        attachment.update_columns(values)
         # rubocop:enable Rails/SkipsModelValidations
       end
     end
