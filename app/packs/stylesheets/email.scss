@@ -3,6 +3,7 @@
 /* Index:
   1 - Foundation settings
   2 - Custom styles
+  3 - Barcelona custom newsletter template
 */
 
 /* 1 - Foundation settings --------- */
@@ -1896,3 +1897,7 @@ td {
     text-decoration: none;
   }
 }
+
+/* 3 - Barcelona custom newsletter template --------- */
+
+@import "stylesheets/custom-newsletter-barcelona";

@@ -1,0 +1,48 @@
+// Barcelona custom newsletter template styles
+
+.custom-newsletter-barcelona {
+  &__header {
+    padding: 12px 0;
+  }
+
+  &__header-logo {
+    vertical-align: middle;
+
+    img {
+      max-width: 180px;
+      height: auto;
+    }
+  }
+
+  &__header-date {
+    text-align: right;
+    vertical-align: middle;
+    font-size: 14px;
+    color: $email-neutral-700;
+  }
+
+  &__spacer {
+    height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  &__footer {
+    float: right;
+    text-align: right;
+    padding-right: 16px;
+  }
+
+  &__legal {
+    padding: 20px;
+    text-align: center;
+
+    p {
+      margin: 0 0 10px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

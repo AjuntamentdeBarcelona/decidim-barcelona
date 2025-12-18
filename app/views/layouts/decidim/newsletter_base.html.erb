@@ -21,7 +21,11 @@
           <center>
             <%= yield %>
 
-            <% if content_for?(:note) or content_for?(:unsubscribe) %>
+            <% if content_for?(:custom_footer) %>
+              <table class="container main">
+                <%= yield(:custom_footer) %>
+              </table>
+            <% elsif content_for?(:note) or content_for?(:unsubscribe) %>
               <table class="container">
                 <tr>
                   <td>
