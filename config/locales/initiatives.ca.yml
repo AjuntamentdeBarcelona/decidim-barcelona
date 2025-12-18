@@ -1,0 +1,16 @@
+ca:
+  decidim:
+    initiatives:
+      form:
+        question: "Pregunta"
+        question_help: "Proposta de pregunta o text que encapçalarà la recollida de signatures"
+        definition: "Definició de la iniciativa"
+        definition_help: "Què voleu? Exposeu allò pel que demaneu la signatura"
+        reasons: "Exposició de motius"
+        reasons_help: "Per què ho demaneu? Expliqueu els fets i raons que justifiquen la vostra petició"
+        title_help: "Com s'ha d'anomenar aquesta iniciativa?"
+      show:
+        question: "Pregunta"
+        definition: "Definició de la iniciativa"
+        reasons: "Exposició de motius"
+        print: "Imprimir"

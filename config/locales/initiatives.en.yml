@@ -1,0 +1,12 @@
+en:
+  decidim:
+    initiatives:
+      form:
+        question: "Question"
+        definition: "Definition"
+        reasons: "Statement of reasons"
+      show:
+        question: "Question"
+        definition: "Definition"
+        reasons: "Statement of reasons"
+        print: "Print"

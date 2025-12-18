@@ -170,3 +170,8 @@ body > div.layout-container > header > div.brand-bar > div.bcn-logo > a > span {
     }
   }
 }
+
+// Reduce spacing between field label and help text in forms
+.form__wrapper .help-text {
+  margin-top: 0.25rem;
+}
