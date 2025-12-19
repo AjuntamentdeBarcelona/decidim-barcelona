@@ -214,6 +214,7 @@ es:
           scope_id: Distrito
         name: El padrón (mayores de 16 años)
       census_authorization_handler:
+        admin_explanation: Adipisicing irure officia consequat est sint incididunt quis reprehenderit elit anim.
         explanation: Verifícate con el padrón
         extra_explanation:
           one: "La participación está limitada a usuarios del distrito: %{scopes}"

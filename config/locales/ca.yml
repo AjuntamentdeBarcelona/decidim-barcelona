@@ -214,6 +214,7 @@ ca:
           scope: Districte
         name: El padró (majors de 16 anys)
       census_authorization_handler:
+        admin_explanation: Adipisicing irure officia consequat est sint incididunt quis reprehenderit elit anim.
         explanation: Verifica't amb el padró
         extra_explanation:
           one: "La participació està limitada als usuaris del districte: %{scopes}"
