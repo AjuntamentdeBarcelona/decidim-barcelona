@@ -512,15 +512,15 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
   # Uncomment the following line to make the workflow ephemeral
   # auth.ephemeral = true
 
-  # auth.options do |options|
-  #   parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first
+  auth.options do |options|
+    district_codes = %w(1 2 3 4 5 6 7 8 9 10)
 
-  #   Decidim::Scope.where(parent: parent_scope).pluck(:code).each do |code|
-  #     options.attribute :"scope_code_#{code}", type: :boolean, required: false
-  #   end
-  # end
+    district_codes.each do |code|
+      options.attribute :"scope_code_#{code}", type: :boolean, required: false
+    end
+  end
 
-  # auth.action_authorizer = "Decidim::CensusSms::Verification::ActionAuthorizer"
+  auth.action_authorizer = "CensusActionAuthorizer"
 end
 
 Decidim::Verifications.register_workflow(:census16_authorization_handler) do |auth|

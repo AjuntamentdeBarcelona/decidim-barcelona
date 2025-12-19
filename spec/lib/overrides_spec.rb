@@ -32,7 +32,8 @@ checksums = [
   {
     package: "decidim-admin",
     files: {
-      "/app/commands/decidim/admin/publish_component.rb" => "48b73691b2aea10191ed427702a74359" # revert https://github.com/decidim/decidim/pull/10690
+      "/app/commands/decidim/admin/publish_component.rb" => "48b73691b2aea10191ed427702a74359", # revert https://github.com/decidim/decidim/pull/10690
+      "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "622d3356de8f90cadf9eb73ee9e18960"
     }
   },
   {
