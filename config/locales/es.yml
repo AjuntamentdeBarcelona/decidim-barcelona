@@ -119,6 +119,30 @@ es:
     formats:
       order: d-m-y
   decidim:
+    newsletter_templates:
+      barcelona_custom:
+        name: Plantilla Barcelona personalizada
+        footer:
+          data_protection_html: >-
+            Te recordamos que puedes acceder a la información sobre el tratamiento de tus
+            datos de carácter personal a través del siguiente enlace o enlaces: %{link}
+          data_protection_link_text: tractament 0262 - Decidim Barcelona
+          data_protection_url: "https://seuelectronica.ajuntament.barcelona.cat/es/proteccion-de-datos/consultar-el-registro-de-tratamientos?tractament=0262"
+          manage_subscriptions_html: >-
+            Has recibido este correo electrónico porque estás suscrita a boletines de noticias
+            en decidim.barcelona. Puedes cambiar esta opción en la %{notifications_settings_link}.
+            Para desactivar la recepción este tipo de correo electrónico, %{unsubscribe_link}.
+          notifications_settings: configuración de las notificaciones
+          unsubscribe: date de baja
+          contact_html: "%{link}"
+          contact_link_text: "¿Tienes alguna duda? ¿Quieres reportar una incidencia?"
+          contact_page_slug: duda-incidencia
+      barcelona_custom_settings_form:
+        body: Contenido
+        main_image: Imagen principal (opcional)
+        interpolations_hint: >-
+          Puedes usar las siguientes variables: %{name} (nombre del
+          destinatario), %{organization_name} (nombre de la organización)
     accessibility:
       external_link: Link externo
       front_page_link: Ir a la página principal
