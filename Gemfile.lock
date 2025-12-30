@@ -1010,7 +1010,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.16.0)
-    uri (1.0.3)
+    uri (1.0.4)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
