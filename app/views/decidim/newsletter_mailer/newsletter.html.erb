@@ -12,10 +12,10 @@
         <%== t("decidim.newsletter_templates.barcelona_custom.footer.manage_subscriptions_html",
               notifications_settings_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.notifications_settings"),
                             @newsletter.notifications_settings_url,
-                            class: "unsubscribe"),
+                            class: "unsubscribe").html_safe,
               unsubscribe_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.unsubscribe"),
                             @newsletter.unsubscribe_newsletters_url(u: @encrypted_token),
-                            class: "unsubscribe")).html_safe %>
+                            class: "unsubscribe").html_safe) %>
 
         <%== t("decidim.newsletter_templates.barcelona_custom.footer.contact_html",
               link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.contact_link_text"),
