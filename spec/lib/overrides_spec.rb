@@ -76,7 +76,21 @@ checksums = [
       "/app/models/decidim/initiative.rb" => "2e462e69b8a2437c9ea8cc9689764a12",
       "/app/permissions/decidim/initiatives/admin/permissions.rb" => "c0f9bf5d9edaca545a7c931c0dc5c0e9",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
-      "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0"
+      "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0",
+      "/app/forms/decidim/initiatives/initiative_form.rb" => "c7fbfb87345216a9f7fd8f1e76f8890e",
+      "/app/forms/decidim/initiatives/admin/initiative_form.rb" => "c77010966ee37688745535d8ac4b3f37",
+      "/app/commands/decidim/initiatives/create_initiative.rb" => "f191bae5b5cbcd59fcf70058fac6bd6d",
+      "/app/commands/decidim/initiatives/update_initiative.rb" => "40893a128dd04508d7a506f1f5415bdd",
+      "/app/commands/decidim/initiatives/admin/update_initiative.rb" => "b710c8451fba4cf1bb199488b94680b0",
+      "/app/serializers/decidim/initiatives/initiative_serializer.rb" => "eaff0cb9ef0b0d191ad959236b61fd3f",
+      "/app/views/decidim/initiatives/initiatives/show.html.erb" => "156550250f72e53d3dcce1d2a57a8750",
+      "/app/views/decidim/initiatives/initiatives/_form.html.erb" => "3132bef2e64bfb6efc9035320c562d3e",
+      "/app/views/decidim/initiatives/initiatives/print.html.erb" => "fb8432d1af36bcc8bfa0e2b46c78c236",
+      "/app/views/decidim/initiatives/admin/initiatives/_form.html.erb" => "2b76ff0df854bf15b2e6f33107f8eb6a",
+      "/app/views/decidim/initiatives/admin/answers/_info_initiative.html.erb" => "103183460a6692bda31b7b7c46e6b677",
+      "/app/views/decidim/initiatives/committee_requests/new.html.erb" => "199506bee071e88185f8c0776932d87f",
+      "/app/views/decidim/initiatives/create_initiative/fill_data.html.erb" => "f17f2ce5f48524d5c6c0e444247e50e1",
+      "/app/models/decidim/initiatives_vote.rb" => "1842a9fcb559d749df116a8fc4eb4f46"
     }
   },
   {
