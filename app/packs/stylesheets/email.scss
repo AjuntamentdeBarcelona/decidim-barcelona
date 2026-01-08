@@ -3,6 +3,7 @@
 /* Index:
   1 - Foundation settings
   2 - Custom styles
+  3 - Barcelona custom newsletter template
 */
 
 /* 1 - Foundation settings --------- */
@@ -1797,6 +1798,7 @@ table.body {
   padding-top: 10px;
   color: $email-neutral-700;
   font-size: 12px;
+  background-color: #f2f2f2;
 }
 
 table.container.main {
@@ -1896,3 +1898,7 @@ td {
     text-decoration: none;
   }
 }
+
+/* 3 - Barcelona custom newsletter template --------- */
+
+@import "stylesheets/custom-newsletter-barcelona";
