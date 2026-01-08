@@ -214,7 +214,11 @@ ca:
           scope: Districte
         name: El padró (majors de 16 anys)
       census_authorization_handler:
+        admin_explanation: En seleccionar-lo es desplegarà una llista dels districtes. Selecciona els districtes als que es permet realitzar l'acció. Si no en selecciones cap, es comportarà com si els haguessis seleccionat tots.
         explanation: Verifica't amb el padró
+        extra_explanation:
+          one: "La participació està limitada als usuaris del districte: %{scopes}"
+          other: "La participació està limitada als usuaris dels districtes: %{scopes}"
         fields:
           date_of_birth: Data de naixement
           document_number: Número de document
@@ -222,6 +226,16 @@ ca:
           gender: Sexe
           postal_code: Codi postal
           scope: Districte
+          scope_code_1: Ciutat Vella
+          scope_code_2: Eixample
+          scope_code_3: Sants - Montjuïc
+          scope_code_4: Les Corts
+          scope_code_5: Sarrià - Sant Gervasi
+          scope_code_6: Gràcia
+          scope_code_7: Horta - Guinardó
+          scope_code_8: Nou Barris
+          scope_code_9: Sant Andreu
+          scope_code_10: Sant Martí
         name: El padró
       census_kids_authorization_handler:
         explanation: Verifica't amb el padró
