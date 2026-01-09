@@ -1,0 +1,51 @@
+<% add_decidim_meta_tags({
+                           image_url: current_initiative.type.attached_uploader(:banner_image).url,
+                           description: translated_attribute(current_initiative.description).presence ||
+                                       translated_attribute(current_initiative.question).presence || "",
+                           title: translated_attribute(current_initiative.title),
+                           url: initiative_url(current_initiative.id)
+                         }) %>
+
+<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
+<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).url %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h2 class="title-decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
+  </div>
+
+  <%= cell "decidim/coauthorships", OpenStruct.new(identities: current_initiative.committee_members.excluding_author.approved.map(&:user).reject(&:deleted?).prepend(current_initiative.author) ) %>
+
+  <div class="form__wrapper">
+
+    <span class="text-gray-2"><%= l current_initiative.published_at || current_initiative.created_at, format: :decidim_short %></span>
+
+    <div class="editor-content">
+      <% if current_initiative.has_custom_fields? %>
+        <div class="mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.definition") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.definition) %>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.reasons") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.reasons) %>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="h4 mb-3"><%= t("decidim.initiatives.show.question") %></h3>
+          <%= decidim_sanitize_editor translated_attribute(current_initiative.question) %>
+        </div>
+
+      <% else %>
+        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+      <% end %>
+    </div>
+
+    <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
+
+    <div class="form__wrapper-block">
+      <%= logged_link_to t("continue", scope: "decidim.initiatives.committee_requests.new"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
+    </div>
+  </div>
+<% end %>

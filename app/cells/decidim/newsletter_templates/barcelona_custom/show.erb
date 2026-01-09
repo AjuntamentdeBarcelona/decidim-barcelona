@@ -1,0 +1,97 @@
+<table class="main container">
+  <tr>
+    <td class="custom-newsletter-barcelona__header">
+      <table class="row">
+        <tr>
+          <th class="small-6 large-6 first columns custom-newsletter-barcelona__header-logo">
+            <%= image_tag("https://ajbcn-decidim-barcelona.s3.eu-west-1.amazonaws.com/variants/u902t8d2nl8ien11q38jvebydrbi/logo-ajbcn.png", alt: t("layouts.decidim.footer.bcn_logo")) %>
+          </th>
+          <th class="small-6 large-6 last columns custom-newsletter-barcelona__header-date">
+            <span>
+              <%= l(Date.today, format: "%d/%m/%y") %>
+            </span>
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="decidim-bar">
+      <table class="row collapse">
+        <tr>
+          <th class="small-3 large-3 first columns decidim-bar"></th>
+          <th class="small-6 large-6 columns decidim-bar">
+            <table>
+              <tr>
+                <th>
+                  <center>
+                    <%= render partial: "layouts/decidim/mailer_logo", formats: [:html], locals: { organization:, custom_url_for_mail_root: } %>
+                  </center>
+                </th>
+              </tr>
+            </table>
+          </th>
+          <th class="small-3 large-3 last columns decidim-bar"></th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table class="spacer">
+        <tbody>
+          <tr>
+            <td class="custom-newsletter-barcelona__spacer"> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <% if has_main_image? %>
+        <table class="row content image">
+          <tr>
+            <th class="small-12 first columns text-center">
+              <%= main_image %>
+            </th>
+            <th class="expander"></th>
+          </tr>
+        </table>
+      <% end %>
+
+      <table class="row content">
+        <tr>
+          <th class="small-12 first columns">
+            <%= body %>
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="small-12 first columns">
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="expander"></th>
+          <th class="small-12 first columns cityhall-bar">
+            <div class="decidim-logo custom-newsletter-barcelona__footer">
+              <% if custom_url_for_mail_root.present? %>
+                <%= link_to organization_name(organization).html_safe, custom_url_for_mail_root %>
+              <% else %>
+                <%= link_to organization_name(organization).html_safe, decidim.root_url(host: organization.host) %>
+              <% end %>
+            </div>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

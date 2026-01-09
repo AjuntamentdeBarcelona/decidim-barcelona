@@ -1006,6 +1006,10 @@ ActiveRecord::Schema[7.0].define(version: 2025_11_24_162304) do
     t.jsonb "offline_votes", default: {}
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.jsonb "question"
+    t.jsonb "definition"
+    t.jsonb "reasons"
+    t.boolean "has_custom_fields", default: false, null: false
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_area_id"], name: "index_decidim_initiatives_on_decidim_area_id"

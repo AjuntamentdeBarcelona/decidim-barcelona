@@ -9,6 +9,8 @@ module Decidim
       OLD_SCOPE_ID = 1
       OLD_SIGNATURES = 15_000
 
+      translatable_fields :question, :definition, :reasons
+
       def supports_required
         return OLD_SIGNATURES if OLD_INITIATIVES.include?(id)
 
