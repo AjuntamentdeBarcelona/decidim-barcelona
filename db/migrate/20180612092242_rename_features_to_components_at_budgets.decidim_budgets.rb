@@ -1,6 +1,7 @@
-# This migration comes from decidim_budgets (originally 20180305133340)
 # frozen_string_literal: true
 
+# This migration comes from decidim_budgets (originally 20180305133340)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class RenameFeaturesToComponentsAtBudgets < ActiveRecord::Migration[5.1]
   def change
     rename_column :decidim_budgets_orders, :decidim_feature_id, :decidim_component_id

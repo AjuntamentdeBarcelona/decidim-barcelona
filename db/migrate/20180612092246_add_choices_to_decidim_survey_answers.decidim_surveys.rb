@@ -1,6 +1,7 @@
-# This migration comes from decidim_surveys (originally 20180405014929)
 # frozen_string_literal: true
 
+# This migration comes from decidim_surveys (originally 20180405014929)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
   class SurveyAnswer < ApplicationRecord
     self.table_name = :decidim_surveys_survey_answers

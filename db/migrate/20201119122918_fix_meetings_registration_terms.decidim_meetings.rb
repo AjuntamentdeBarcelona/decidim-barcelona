@@ -1,18 +1,19 @@
 # frozen_string_literal: true
-# This migration comes from decidim_meetings (originally 20201016065302)
 
+# This migration comes from decidim_meetings (originally 20201016065302)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class FixMeetingsRegistrationTerms < ActiveRecord::Migration[5.2]
   def up
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Meetings::Meeting.find_each do |meeting|
+      Decidim::Meetings::Meeting.unscoped.find_each do |meeting|
         next if meeting.component.nil?
         # Only user-created meetings have this problem
         next if meeting.official?
 
         # Since user-created meetings have no way to override the `registration_terms` field
-        # and it's supposed to use the component defaults,
+        # and it is supposed to use the component defaults,
         # we can safely override this.
         meeting.registration_terms = meeting.component.settings.default_registration_terms
         meeting.save!

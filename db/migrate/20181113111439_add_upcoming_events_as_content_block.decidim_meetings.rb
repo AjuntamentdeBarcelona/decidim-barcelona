@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_meetings (originally 20180809134748)
 
+# This migration comes from decidim_meetings (originally 20180809134748)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class AddUpcomingEventsAsContentBlock < ActiveRecord::Migration[5.2]
   class Organization < ApplicationRecord
     self.table_name = :decidim_organizations
@@ -12,7 +13,7 @@ class AddUpcomingEventsAsContentBlock < ActiveRecord::Migration[5.2]
 
   def change
     Organization.find_each do |organization|
-      next if ContentBlock.where(decidim_organization_id: organization.id).where(manifest_name: "upcoming_events").exists?
+      next if ContentBlock.where(decidim_organization_id: organization.id).exists?(manifest_name: "upcoming_events")
 
       last_weight = ContentBlock.where(decidim_organization_id: organization.id).order("weight DESC").limit(1).pluck(:weight).last.to_i
 
