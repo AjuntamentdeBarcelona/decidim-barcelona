@@ -4,23 +4,29 @@
   <% content_for :custom_footer do %>
     <tr>
       <td class="footnote custom-newsletter-barcelona__legal">
-        <%== t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_html",
-              link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_link_text"),
-                            t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_url"),
-                            class: "unsubscribe")).html_safe %>
+        <p>
+          <%== t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_html",
+                link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_link_text"),
+                              t("decidim.newsletter_templates.barcelona_custom.footer.data_protection_url"),
+                              class: "unsubscribe")).html_safe %>
+        </p>
 
-        <%== t("decidim.newsletter_templates.barcelona_custom.footer.manage_subscriptions_html",
-              notifications_settings_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.notifications_settings"),
-                            @newsletter.notifications_settings_url,
-                            class: "unsubscribe").html_safe,
-              unsubscribe_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.unsubscribe"),
-                            @newsletter.unsubscribe_newsletters_url(u: @encrypted_token),
-                            class: "unsubscribe").html_safe) %>
+        <p>
+          <%== t("decidim.newsletter_templates.barcelona_custom.footer.manage_subscriptions_html",
+                notifications_settings_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.notifications_settings"),
+                              @newsletter.notifications_settings_url,
+                              class: "unsubscribe").html_safe,
+                unsubscribe_link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.unsubscribe"),
+                              @newsletter.unsubscribe_newsletters_url(u: @encrypted_token),
+                              class: "unsubscribe").html_safe) %>
+        </p>
 
-        <%== t("decidim.newsletter_templates.barcelona_custom.footer.contact_html",
-              link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.contact_link_text"),
-                            decidim.page_url(t("decidim.newsletter_templates.barcelona_custom.footer.contact_page_slug"), host: @organization.host),
-                            class: "unsubscribe")).html_safe %>
+        <p>
+          <%== t("decidim.newsletter_templates.barcelona_custom.footer.contact_html",
+                link: link_to(t("decidim.newsletter_templates.barcelona_custom.footer.contact_link_text"),
+                              decidim.page_url(t("decidim.newsletter_templates.barcelona_custom.footer.contact_page_slug"), host: @organization.host),
+                              class: "unsubscribe")).html_safe %>
+        </p>
       </td>
     </tr>
   <% end %>
