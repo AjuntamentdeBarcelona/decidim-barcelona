@@ -1,6 +1,6 @@
 <%= decidim_sanitize_newsletter cell.to_s %>
 
-<% if @newsletter.template.manifest_name == "barcelona_custom" %>
+<% if @newsletter.template.manifest_name == "barcelona_custom" || @newsletter.template.manifest_name == "image_text_cta" %>
   <% content_for :custom_footer do %>
     <tr>
       <td class="footnote custom-newsletter-barcelona__legal">
