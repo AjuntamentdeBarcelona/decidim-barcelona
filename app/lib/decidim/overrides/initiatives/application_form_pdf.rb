@@ -3,7 +3,7 @@
 module Decidim
   module Overrides
     module Initiatives
-      module ApplicationFormPDF
+      module ApplicationFormPdf
         private
 
         def add_initiative_metadata_box

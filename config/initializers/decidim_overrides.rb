@@ -33,5 +33,5 @@ Rails.application.config.to_prepare do
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
-  Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPDF)
+  Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
 end
