@@ -23,7 +23,6 @@ module Decidim
             composer.text(translated_attribute(initiative.description), style: :td)
           end
         end
-
       end
     end
   end
