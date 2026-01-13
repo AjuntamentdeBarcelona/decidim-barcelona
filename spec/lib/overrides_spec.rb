@@ -85,9 +85,9 @@ checksums = [
       "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0",
       "/app/views/decidim/initiatives/initiatives/_form.html.erb" => "713247a276d1b254af3ecfa056b7c515",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
-      "/app/views/decidim/initiatives/initiatives/print.html.erb" => "fb8432d1af36bcc8bfa0e2b46c78c236",
       "/app/views/decidim/initiatives/initiatives/show.html.erb" => "ded00b29db875fca2aeb3864718eeb8c",
-      "/lib/decidim/exporters/initiative_votes_pdf.rb" => "e71f75f2cf1dc508fd8ccee37254c5c1"
+      "/lib/decidim/exporters/initiative_votes_pdf.rb" => "e71f75f2cf1dc508fd8ccee37254c5c1",
+      "/lib/decidim/initiatives/application_form_pdf.rb" => "aeb6955c0fddfba398bad252e6359e32"
     }
   },
   {
