@@ -35,14 +35,24 @@
 
   &__legal {
     padding: 20px;
-    text-align: center;
+    font-size: 12px !important;
+    color: #666 !important;
 
     p {
-      margin: 0 0 10px;
+      text-align: center;
+      margin: 0 0 20px;
+      font-size: 12px !important;
+      color: #666 !important;
 
       &:last-child {
-        margin: 0;
+        margin-bottom: 0;
       }
+    }
+
+    a {
+      font-weight: normal;
+      text-decoration: none;
+      color: $email-link-100 !important;
     }
   }
 }
