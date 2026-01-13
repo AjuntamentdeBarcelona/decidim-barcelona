@@ -1,16 +1,15 @@
-<% add_decidim_meta_tags({
-                           image_url: current_initiative.type.attached_uploader(:banner_image).url,
-                           description: translated_attribute(current_initiative.description),
-                           title: translated_attribute(current_initiative.title),
-                           url: initiative_url(current_initiative.id)
-                         }) %>
+<% add_decidim_meta_tags(
+     description: translated_attribute(current_initiative.description),
+     title: translated_attribute(current_initiative.title),
+     url: initiative_url(current_initiative.id),
+     resource: current_initiative) %>
 
 <%
-edit_link(
-  resource_locator(current_participatory_space).edit,
-  :read,
-  :initiative
-)
+  edit_link(
+    resource_locator(current_participatory_space).edit,
+    :read,
+    :initiative
+  )
 %>
 
 <%= content_for :aside do %>
@@ -72,18 +71,18 @@ edit_link(
             </button>
           </div>
         </div>
-          <% if current_initiative.committee_members.empty? %>
+        <% if current_initiative.committee_members.empty? %>
             <span class="initiative__aside__element__data-text">
               <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
             </span>
-          <% end %>
-          <% current_initiative.committee_members.each do |request| %>
-            <div class="author" data-id="<%= request.id %>">
-              <div class="profile__group__list">
-                <%= card_for request.user %>
-              </div>
+        <% end %>
+        <% current_initiative.committee_members.each do |request| %>
+          <div class="author" data-id="<%= request.id %>">
+            <div class="profile__group__list">
+              <%= card_for request.user %>
             </div>
-          <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
@@ -107,7 +106,7 @@ edit_link(
       <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
         <div class="initiative__aside__element__data">
           <p class="initiative__aside__element__data-title">
-          <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
+            <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
           </p>
           <span class="initiative__aside__element__data-text">
             <span class="text-sm font-normal text-gray-2 block">
@@ -239,8 +238,8 @@ edit_link(
   <% if current_initiative.commentable? && current_initiative.published? %>
     <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
-  <div class="ml-auto">
-    <%= cell "decidim/share_button", nil %>
+  <div class="ml-auto lg:ml-0">
+    <%= cell "decidim/share_widget", current_initiative %>
   </div>
 </section>
 
