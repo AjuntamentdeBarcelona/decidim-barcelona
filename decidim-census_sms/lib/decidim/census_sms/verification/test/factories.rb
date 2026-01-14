@@ -28,7 +28,7 @@ FactoryBot.define do
 
       verification_metadata do
         {
-          mobile_phone_number: Digest::MD5.hexdigest("#{mobile_phone_number.gsub(/[^0-9]/, "")}-#{Rails.application.secrets.secret_key_base}")
+          mobile_phone_number: Digest::MD5.hexdigest("#{mobile_phone_number.gsub(/[^0-9]/, "")}-#{Rails.application.secret_key_base}")
         }
       end
     end

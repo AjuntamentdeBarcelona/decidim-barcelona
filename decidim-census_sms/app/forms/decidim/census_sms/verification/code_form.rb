@@ -19,7 +19,7 @@ module Decidim
         # A mobile phone can only be verified once but it should be private.
         def mobile_phone_number_hash
           Digest::MD5.hexdigest(
-            "#{mobile_phone_number}-#{Rails.application.secrets.secret_key_base}"
+            "#{mobile_phone_number}-#{Rails.application.secret_key_base}"
           )
         end
 

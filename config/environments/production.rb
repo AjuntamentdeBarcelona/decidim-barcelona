@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.enable_reloading = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -18,56 +16,77 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
-  # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
+  # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
+  # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
-  # Disable serving static files from the `/public` folder by default since
-  # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
+  # config.public_file_server.enabled = false
 
   # Compress CSS using a preprocessor.
+  # 
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  # Do not fall back to assets pipeline if a precompiled asset is missed.
+  
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", nil) if ENV["RAILS_ASSET_HOST"].present?
+  config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?
 
   # Specifies the header that your server uses for sending files.
-  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
+  # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local
+  config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  # config.action_cable.url = "wss://example.com/cable"
+  # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
+
+  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
+  # Can be used together with config.force_ssl for Strict-Transport-Security and secure cookies.
+  # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
-  config.middleware.use Rack::SslEnforcer, except_hosts: ENV["EXCEPT_SSL_HOSTS"].to_s.split(",")
 
-  if ENV["STAGING_PASSWORD"].present?
-    # Block users that do not know a given password
-    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
-  end
+  # Skip http-to-https redirect for the default health check endpoint.
+  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
-  # Include generic and useful information about system operation, but avoid logging too much
-  # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = %w(debug info warn error fatal).include?(ENV.fetch("RAILS_LOG_LEVEL", nil)) ? ENV.fetch("RAILS_LOG_LEVEL", nil) : :info
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  config.logger = ActiveSupport::Logger.new(STDOUT)
+    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+end
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [ :request_id ]
+  config.action_mailer.smtp_settings = {
+    :address        => Decidim::Env.new("SMTP_ADDRESS").to_s,
+    :port           => Decidim::Env.new("SMTP_PORT", 587).to_i,
+    :authentication => Decidim::Env.new("SMTP_AUTHENTICATION", "plain").to_s,
+    :user_name      => Decidim::Env.new("SMTP_USERNAME").to_s,
+    :password       => Decidim::Env.new("SMTP_PASSWORD").to_s,
+    :domain         => Decidim::Env.new("SMTP_DOMAIN").to_s,
+    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+    :openssl_verify_mode => 'none'
+  }
+
+  # "info" includes generic and useful information about system operation, but avoids logging too much
+  # information to avoid inadvertent exposure of personally identifiable information (PII). If you
+  # want to log everything, set the level to "debug".
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_STORE_URL", "redis://localhost:6379") }
+  # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  config.active_job.queue_adapter = :sidekiq
-  # config.active_job.queue_name_prefix = "decidim_barcelona_production"
+  config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?
+  # config.active_job.queue_name_prefix = "decidim_development_app_production"
 
+  # Disable caching for Action Mailer templates even if Action Controller
+  # caching is enabled.
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -76,84 +95,22 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = [:en]
+  config.i18n.fallbacks = true
 
-  # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
-
-  # Log disallowed deprecations.
-  config.active_support.disallowed_deprecation = :log
-
-  # Tell Active Support which deprecation messages to disallow.
-  config.active_support.disallowed_deprecation_warnings = []
-
-  # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = Logger::Formatter.new
-  config.action_mailer.smtp_settings = {
-    address: Rails.application.secrets.smtp_address,
-    port: Rails.application.secrets.smtp_port,
-    authentication: Rails.application.secrets.smtp_authentication,
-    user_name: Rails.application.secrets.smtp_username,
-    password: Rails.application.secrets.smtp_password,
-    domain: Rails.application.secrets.smtp_domain,
-    enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
-    openssl_verify_mode: "none"
-  }
-
-  # Use a different logger for distributed setups.
-  # require 'syslog/logger'
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger = ActiveSupport::Logger.new($stdout)
-    logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
-  end
+  # Don't log any deprecations.
+  config.active_support.report_deprecations = false
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Inserts middleware to perform automatic connection switching.
-  # The `database_selector` hash is used to pass options to the DatabaseSelector
-  # middleware. The `delay` is used to determine how long to wait after a write
-  # to send a subsequent read to the primary.
-  #
-  # The `database_resolver` class is used by the middleware to determine which
-  # database is appropriate to use based on the time delay.
-  #
-  # The `database_resolver_context` class is used by the middleware to set
-  # timestamps for the last write to the primary. The resolver uses the context
-  # class timestamps to determine how long to wait before reading from the
-  # replica.
-  #
-  # By default Rails will store a last write timestamp in the session. The
-  # DatabaseSelector middleware is designed as such you can define your own
-  # strategy for connection switching and pass that into the middleware through
-  # these configuration options.
-  # config.active_record.database_selector = { delay: 2.seconds }
-  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # Only use :id for inspections in production.
+  config.active_record.attributes_for_inspect = [ :id ]
 
-  if Rails.application.secrets.sendgrid
-    config.action_mailer.default_options = {
-      "X-SMTPAPI" => {
-        filters: {
-          clicktrack: { settings: { enable: 0 } },
-          opentrack: { settings: { enable: 0 } }
-        }
-      }.to_json
-    }
-  end
-
-  config.lograge.enabled = true
-  config.lograge.formatter = Lograge::Formatters::Json.new
-  config.lograge.custom_options = lambda do |event|
-    {
-      remote_ip: event.payload[:remote_ip],
-      params: event.payload[:params].except("controller", "action", "format", "utf8"),
-      user_id: event.payload[:user_id],
-      organization_id: event.payload[:organization_id],
-      referer: event.payload[:referer]
-    }
-  end
+  # Enable DNS rebinding protection and other `Host` header attacks.
+  # config.hosts = [
+  #   "example.com",     # Allow requests from example.com
+  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+  # ]
+  # Skip DNS rebinding protection for the default health check endpoint.
+  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end

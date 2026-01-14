@@ -152,7 +152,7 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:unique_id) do
       Digest::MD5.hexdigest(
-        "#{document_number}-#{Rails.application.secrets.secret_key_base}"
+        "#{document_number}-#{Rails.application.secret_key_base}"
       )
     end
 

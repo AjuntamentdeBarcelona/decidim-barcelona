@@ -14,7 +14,7 @@ module Decidim
       # A person can only be verified once but their data should be private.
       def unique_id
         Digest::MD5.hexdigest(
-          "#{person_identifier}-#{person_name}-#{person_surnames}-#{Rails.application.secrets.secret_key_base}"
+          "#{person_identifier}-#{person_name}-#{person_surnames}-#{Rails.application.secret_key_base}"
         )
       end
 
