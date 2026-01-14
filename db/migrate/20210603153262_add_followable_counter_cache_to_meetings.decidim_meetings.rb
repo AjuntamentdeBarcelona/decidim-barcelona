@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_meetings (originally 20210310120731)
-# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2026-01-14 16:12:36 UTC
 class AddFollowableCounterCacheToMeetings < ActiveRecord::Migration[5.2]
+  class Meeting < ApplicationRecord
+    self.table_name = :decidim_meetings_meetings
+    include Decidim::HasComponent
+    include Decidim::Followable
+  end
+
   def change
     add_column :decidim_meetings_meetings, :follows_count, :integer, null: false, default: 0, index: true
 
     reversible do |dir|
       dir.up do
-        Decidim::Meetings::Meeting.reset_column_information
-        Decidim::Meetings::Meeting.unscoped.find_each do |record|
+        Meeting.reset_column_information
+        Meeting.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

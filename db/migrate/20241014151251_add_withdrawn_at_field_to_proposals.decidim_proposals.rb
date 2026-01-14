@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_proposals (originally 20240110203500)
-# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2026-01-14 16:12:36 UTC
 class AddWithdrawnAtFieldToProposals < ActiveRecord::Migration[6.1]
   class CustomProposal < Decidim::Proposals::ApplicationRecord
     self.table_name = "decidim_proposals_proposals"
     STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
-    enum state: STATES, _default: "not_answered"
+    enum :state, STATES, default: "not_answered"
   end
 
   def up
