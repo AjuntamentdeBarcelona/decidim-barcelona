@@ -28,7 +28,7 @@ Rails.application.config.to_prepare do
   Decidim::ActivitiesCell.include(Decidim::ActivitiesCellOverride)
   Decidim::UserProfileCell.include(Decidim::UserProfileCellOverride)
   Decidim::Proposals::ProposalPresenter.include(Decidim::Proposals::ProposalPresenterOverride)
-  Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
+  Decidim::Forms::QuestionnaireUserResponses.include(Decidim::Forms::QuestionnaireUserResponsesOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)

@@ -2,19 +2,19 @@
 
 module Decidim
   module Forms
-    module QuestionnaireUserAnswersOverride
+    module QuestionnaireUserResponsesOverride
       extend ActiveSupport::Concern
 
       included do
         # Override method sorting answers by created_at to match the order of the admin page
         def query
-          answers = Answer.not_separator
+          responses = Response.not_separator
                           .not_title_and_description
                           .joins(:question)
                           .where(questionnaire: @questionnaire)
 
-          answers.sort_by { |answer| answer.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
-                 .sort_by { |question_answers| question_answers.map(&:created_at).min }
+          responses.sort_by { |response| response.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
+                 .sort_by { |question_responses| question_responses.map(&:created_at).min }
         end
       end
     end
