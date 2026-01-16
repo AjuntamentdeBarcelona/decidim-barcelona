@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
-  Decidim::Budgets::BudgetListItemCell.include(Decidim::Budgets::BudgetListItemCellOverride)
   Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
-  Decidim::Forms::UserAnswersSerializer.prepend(Decidim::Overrides::Forms::UserAnswersSerializer)
+  Decidim::Forms::UserResponsesSerializer.prepend(Decidim::Overrides::Forms::UserResponsesSerializer)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::InitiativesVote.include(Decidim::InitiativesVoteOverride)
   Decidim::Initiatives::InitiativeForm.include(Decidim::Initiatives::InitiativeFormOverride)

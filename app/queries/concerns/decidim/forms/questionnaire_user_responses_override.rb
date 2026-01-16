@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        # Override method sorting answers by created_at to match the order of the admin page
+        # Override method sorting responses by created_at to match the order of the admin page
         def query
           responses = Response.not_separator
                           .not_title_and_description
