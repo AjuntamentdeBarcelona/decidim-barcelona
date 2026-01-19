@@ -11,10 +11,10 @@ checksums = [
     files: {
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
-      "/app/models/decidim/accountability/result.rb" => "b31a4c94561f0cea7b60ab2d275a8b99",
+      "/app/models/decidim/accountability/result.rb" => "8f931d128886b5de9e8702c700aa7062",
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc",
-      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "c625b98e44afa52709281c9722795a45",
-      "/app/views/decidim/accountability/admin/results/index.html.erb" => "5593e0c0e8a9a6dd09672ceda2f59e45",
+      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "2be2be45ca9ca6b8c15c96ab97d0cd12",
+      "/app/views/decidim/accountability/admin/results/index.html.erb" => "50080eca9bc6c3852016c11c97faa1d2",
       "/app/views/decidim/accountability/results/_home_aside.html.erb" => "a74de3e38a3c1bc94f677cb23d29385b",
       "/app/views/decidim/participatory_spaces/_result.html.erb" => "7565cfff63e0e70bc7286d86bf5b162e"
     }
@@ -73,7 +73,6 @@ checksums = [
       "/app/views/decidim/initiatives/admin/initiatives/_form.html.erb" => "4e70d8ae04471aed5498a4730409ae2f",
       "/app/views/decidim/initiatives/committee_requests/new.html.erb" => "b392c3c8a559e0e1018779f48fbb494a",
       "/app/views/decidim/initiatives/create_initiative/fill_data.html.erb" => "3fd8dee87a359ba9aa8b9f4220a09767",
-      "/app/views/decidim/initiatives/initiative_signatures/fill_personal_data.html.erb" => "bcb89928e3798ec9901b1da5f75919e0",
       "/app/views/decidim/initiatives/initiatives/_form.html.erb" => "bb622b91163bfc35c11f75415927a93e",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
       "/app/views/decidim/initiatives/initiatives/show.html.erb" => "367a5a49123d8b37c22a15f9a9f3dc19",
@@ -97,7 +96,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/helpers/decidim/proposals/application_helper.rb" => "e539b6feb12c515ec24ed6d3efd6e29e",
+      "/app/helpers/decidim/proposals/application_helper.rb" => "6210b3b088bec19e76fda73d42297ccc",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "a82899d804c96fc40b3e1fade979e827"
     }
   },
