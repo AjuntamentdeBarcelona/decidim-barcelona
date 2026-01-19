@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
@@ -24,13 +26,12 @@ Rails.application.configure do
   # config.public_file_server.enabled = false
 
   # Compress CSS using a preprocessor.
-  # 
+  #
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
-  
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?
+  config.asset_host = ENV["RAILS_ASSET_HOST"] if ENV["RAILS_ASSET_HOST"].present?
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
@@ -55,22 +56,22 @@ Rails.application.configure do
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-end
+    config.logger = ActiveSupport::Logger.new($stdout)
+                                         .tap { |logger| logger.formatter = Logger::Formatter.new }
+                                         .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+  end
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
   config.action_mailer.smtp_settings = {
-    :address        => Decidim::Env.new("SMTP_ADDRESS").to_s,
-    :port           => Decidim::Env.new("SMTP_PORT", 587).to_i,
+    :address => Decidim::Env.new("SMTP_ADDRESS").to_s,
+    :port => Decidim::Env.new("SMTP_PORT", 587).to_i,
     :authentication => Decidim::Env.new("SMTP_AUTHENTICATION", "plain").to_s,
-    :user_name      => Decidim::Env.new("SMTP_USERNAME").to_s,
-    :password       => Decidim::Env.new("SMTP_PASSWORD").to_s,
-    :domain         => Decidim::Env.new("SMTP_DOMAIN").to_s,
+    :user_name => Decidim::Env.new("SMTP_USERNAME").to_s,
+    :password => Decidim::Env.new("SMTP_PASSWORD").to_s,
+    :domain => Decidim::Env.new("SMTP_DOMAIN").to_s,
     :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
-    :openssl_verify_mode => 'none'
+    :openssl_verify_mode => "none"
   }
 
   # "info" includes generic and useful information about system operation, but avoids logging too much
@@ -82,7 +83,7 @@ end
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?
+  config.active_job.queue_adapter = ENV["QUEUE_ADAPTER"] if ENV["QUEUE_ADAPTER"].present?
   # config.active_job.queue_name_prefix = "decidim_development_app_production"
 
   # Disable caching for Action Mailer templates even if Action Controller
@@ -104,7 +105,7 @@ end
   config.active_record.dump_schema_after_migration = false
 
   # Only use :id for inspections in production.
-  config.active_record.attributes_for_inspect = [ :id ]
+  config.active_record.attributes_for_inspect = [:id]
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [

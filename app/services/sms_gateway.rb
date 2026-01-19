@@ -54,11 +54,11 @@ class SmsGateway
       		<vodh:VODHeader xmlns:vodh="http://www.vodafone.com/soap/header/">
       			<vodh:commandId>ServiceDelivery</vodh:commandId>
       			<vodh:authentication>
-            <vodh:username>#{Decidim::Env.new("SMS_USERNAME").to_s}</vodh:username>
-            <vodh:password>#{Decidim::Env.new("SMS_PASSWORD").to_s}</vodh:password>
+            <vodh:username>#{Decidim::Env.new("SMS_USERNAME")}</vodh:username>
+            <vodh:password>#{Decidim::Env.new("SMS_PASSWORD")}</vodh:password>
       			</vodh:authentication>
       			<vodh:service>
-            <vodh:serviceID>#{Decidim::Env.new("SMS_SERVICE_ID").to_s}</vodh:serviceID>
+            <vodh:serviceID>#{Decidim::Env.new("SMS_SERVICE_ID")}</vodh:serviceID>
       				<vodh:serviceType>SMS</vodh:serviceType>
       			</vodh:service>
       		</vodh:VODHeader>
@@ -67,7 +67,7 @@ class SmsGateway
       		<vodb:VODBody xmlns:vodb="http://www.vodafone.com/soap/body/" version="1.0">
       			<vodb:contextID></vodb:contextID >
       			<vodb:destAddress>#{mobile_phone_number}</vodb:destAddress>
-      			<vodb:subServiceId>#{Decidim::Env.new("SMS_SUB_SERVICE_ID").to_s}</vodb:subServiceId>
+      			<vodb:subServiceId>#{Decidim::Env.new("SMS_SUB_SERVICE_ID")}</vodb:subServiceId>
             <vodb:messageBody>#{text}</vodb:messageBody>
       			<vodb:bodyIsText>true</vodb:bodyIsText>
       			<vodb:deliveryReport>false</vodb:deliveryReport>
