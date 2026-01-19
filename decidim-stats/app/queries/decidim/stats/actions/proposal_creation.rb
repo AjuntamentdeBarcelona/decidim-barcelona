@@ -15,7 +15,6 @@ module Decidim
           @query ||=
             Decidim::Coauthorship
             .where(author: performers)
-            .where(user_group: nil)
             .where(coauthorable: component_proposals)
             .pluck(:decidim_author_id)
             .uniq

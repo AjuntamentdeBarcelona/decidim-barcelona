@@ -3,7 +3,7 @@
 module Decidim
   module Stats
     module Actions
-      class Endorsement
+      class Like
         def initialize(component, performers)
           @component = component
           @performers = performers
@@ -13,8 +13,8 @@ module Decidim
           return [] unless proposals_manifest?
 
           @query ||=
-            query_base
-            .where(decidim_user_group_id: 0)
+            Decidim::Like
+            .where(resource: proposals)
             .where(author: performers)
             .pluck(:decidim_author_id)
             .uniq
@@ -26,13 +26,6 @@ module Decidim
 
         def component_manifest
           component.manifest
-        end
-
-        def query_base
-          Decidim::Endorsement.where(resource: proposals)
-        rescue NameError
-          Decidim::Proposals::ProposalEndorsement
-            .where(proposal: proposals)
         end
 
         def proposals
