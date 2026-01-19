@@ -380,9 +380,7 @@ Decidim.configure do |config|
   config.cache_expiry_time = ENV["DECIDIM_CACHE_EXPIRY_TIME"].to_i.minutes if ENV["DECIDIM_CACHE_EXPIRY_TIME"].present?
   config.stats_cache_expiry_time = ENV["DECIDIM_STATS_CACHE_EXPIRY_TIME"].to_i.minutes if ENV["DECIDIM_STATS_CACHE_EXPIRY_TIME"].present?
   config.expire_session_after = ENV["DECIDIM_EXPIRE_SESSION_AFTER"].to_i.minutes if ENV["DECIDIM_EXPIRE_SESSION_AFTER"].present?
-  if ENV["DECIDIM_ENABLE_REMEMBER_ME"].present? && ENV["DECIDIM_ENABLE_REMEMBER_ME"] != "auto"
-    config.enable_remember_me = ENV["DECIDIM_ENABLE_REMEMBER_ME"] == "true"
-  end
+  config.enable_remember_me = ENV["DECIDIM_ENABLE_REMEMBER_ME"] == "true" if ENV["DECIDIM_ENABLE_REMEMBER_ME"].present? && ENV["DECIDIM_ENABLE_REMEMBER_ME"] != "auto"
   config.session_timeout_interval = ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].to_i.seconds if ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].present?
   config.follow_http_x_forwarded_host = ENV["DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST"].present?
   config.maximum_conversation_message_length = ENV.fetch("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
@@ -429,9 +427,7 @@ end
 
 if Decidim.module_installed? :budgets
   Decidim::Budgets.configure do |config|
-    unless ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"] == "auto"
-      config.enable_proposal_linking = ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"].present?
-    end
+    config.enable_proposal_linking = ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"].present? unless ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"] == "auto"
   end
 end
 
