@@ -10,15 +10,12 @@ checksums = [
     package: "decidim-accountability",
     files: {
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
-      "/app/cells/decidim/accountability/status/status.erb" => "f9a9e64f6a4c503d6cd8b49cb6f9b197",
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
       "/app/models/decidim/accountability/result.rb" => "b31a4c94561f0cea7b60ab2d275a8b99",
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc",
-      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "2be2be45ca9ca6b8c15c96ab97d0cd12",
-      "/app/views/decidim/accountability/admin/results/index.html.erb" => "50080eca9bc6c3852016c11c97faa1d2",
-      "/app/views/decidim/accountability/results/_home_taxonomies.html.erb" => "81f24acdee131c85827e08eccd551c22",
-      "/app/views/decidim/accountability/results/home.html.erb" => "59a4e334c79fbed14fe83f01efd1372b",
-      "/app/views/decidim/accountability/results/index.html.erb" => "09b2a4265c59c0e0ce21b9360a687a01",
+      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "c625b98e44afa52709281c9722795a45",
+      "/app/views/decidim/accountability/admin/results/index.html.erb" => "5593e0c0e8a9a6dd09672ceda2f59e45",
+      "/app/views/decidim/accountability/results/_home_aside.html.erb" => "a74de3e38a3c1bc94f677cb23d29385b",
       "/app/views/decidim/participatory_spaces/_result.html.erb" => "7565cfff63e0e70bc7286d86bf5b162e"
     }
   },
@@ -100,8 +97,8 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/helpers/decidim/proposals/application_helper.rb" => "6210b3b088bec19e76fda73d42297ccc",
-      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "b12cfb5e55aff4756d757e71e580c547"
+      "/app/helpers/decidim/proposals/application_helper.rb" => "e539b6feb12c515ec24ed6d3efd6e29e",
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "a82899d804c96fc40b3e1fade979e827"
     }
   },
   {

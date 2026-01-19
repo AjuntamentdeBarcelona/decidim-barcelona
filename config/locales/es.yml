@@ -170,6 +170,9 @@ es:
           success: La importación de resultados ha terminado correctamente. Puedes
             revisar los resultados en la interfaz de administración.
       results:
+        home:
+          categories_label: Categorías
+          subcategories_label: Subcategorías
         home_header:
           csv_download: Descargar datos en CSV
     admin:
