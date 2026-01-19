@@ -52,6 +52,11 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
+  if ENV["STAGING_PASSWORD"].present?
+    # Block users that do not know a given password
+    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
+  end
+
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
@@ -63,6 +68,10 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
+
+  # Use a different cache store in production.
+  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_STORE_URL", "redis://localhost:6379") }
+
   config.action_mailer.smtp_settings = {
     :address => Decidim::Env.new("SMTP_ADDRESS").to_s,
     :port => Decidim::Env.new("SMTP_PORT", 587).to_i,
@@ -114,4 +123,16 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
+  config.lograge.custom_options = lambda do |event|
+    {
+      remote_ip: event.payload[:remote_ip],
+      params: event.payload[:params].except("controller", "action", "format", "utf8"),
+      user_id: event.payload[:user_id],
+      organization_id: event.payload[:organization_id],
+      referer: event.payload[:referer]
+    }
+  end
 end
