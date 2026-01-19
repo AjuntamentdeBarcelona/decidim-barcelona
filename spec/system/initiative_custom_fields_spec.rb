@@ -49,7 +49,6 @@ describe "Initiative custom fields display" do
       expect(page).to have_content("Definició de prov")
       expect(page).to have_content("Raons de prov")
     end
-
   end
 
   context "when initiative has legacy description field" do

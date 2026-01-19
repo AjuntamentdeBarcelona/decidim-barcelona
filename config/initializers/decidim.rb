@@ -108,17 +108,17 @@ Decidim.configure do |config|
   # }
   if ENV["MAPS_STATIC_PROVIDER"].present?
     static_provider = ENV["MAPS_STATIC_PROVIDER"]
-    dynamic_provider = ENV["MAPS_DYNAMIC_PROVIDER"]
-    dynamic_url = ENV["MAPS_DYNAMIC_URL"]
-    static_url = ENV["MAPS_STATIC_URL"]
+    dynamic_provider = ENV.fetch("MAPS_DYNAMIC_PROVIDER", nil)
+    dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+    static_url = ENV.fetch("MAPS_STATIC_URL", nil)
     static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
     config.maps = {
       provider: static_provider,
-      api_key: ENV["MAPS_STATIC_API_KEY"],
+      api_key: ENV.fetch("MAPS_STATIC_API_KEY", nil),
       static: { url: static_url },
       dynamic: {
         provider: dynamic_provider,
-        api_key: ENV["MAPS_DYNAMIC_API_KEY"]
+        api_key: ENV.fetch("MAPS_DYNAMIC_API_KEY", nil)
       }
     }
     config.maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"].present?
@@ -280,7 +280,7 @@ Decidim.configure do |config|
   if ENV["ETHERPAD_SERVER"].present?
     config.etherpad = {
       server: ENV["ETHERPAD_SERVER"],
-      api_key: ENV["ETHERPAD_API_KEY"],
+      api_key: ENV.fetch("ETHERPAD_API_KEY", nil),
       api_version: ENV.fetch("ETHERPAD_API_VERSION", "1.2.1")
     }
   end
@@ -368,7 +368,7 @@ Decidim.configure do |config|
   # ]
 
   # Admin admin password configurations
-  admin_password_strong = ENV["DECIDIM_ADMIN_PASSWORD_STRONG"]
+  admin_password_strong = ENV.fetch("DECIDIM_ADMIN_PASSWORD_STRONG", nil)
   # When the strong password is not configured, default to true
   config.admin_password_strong = admin_password_strong.nil? ? true : admin_password_strong.present?
   config.admin_password_expiration_days = ENV.fetch("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", "90").to_i
@@ -381,9 +381,7 @@ Decidim.configure do |config|
   config.stats_cache_expiry_time = ENV["DECIDIM_STATS_CACHE_EXPIRY_TIME"].to_i.minutes if ENV["DECIDIM_STATS_CACHE_EXPIRY_TIME"].present?
   config.expire_session_after = ENV["DECIDIM_EXPIRE_SESSION_AFTER"].to_i.minutes if ENV["DECIDIM_EXPIRE_SESSION_AFTER"].present?
   config.enable_remember_me = ENV["DECIDIM_ENABLE_REMEMBER_ME"].present? unless ENV["DECIDIM_ENABLE_REMEMBER_ME"] == "auto"
-  if ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].present?
-    config.session_timeout_interval = ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].to_i.seconds
-  end
+  config.session_timeout_interval = ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].to_i.seconds if ENV["DECIDIM_SESSION_TIMEOUT_INTERVAL"].present?
   config.follow_http_x_forwarded_host = ENV["DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST"].present?
   config.maximum_conversation_message_length = ENV.fetch("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
   config.password_blacklist = ENV["DECIDIM_PASSWORD_BLACKLIST"].split(",").map(&:strip) if ENV["DECIDIM_PASSWORD_BLACKLIST"].present?
@@ -422,42 +420,14 @@ end
 if Decidim.module_installed? :meetings
   Decidim::Meetings.configure do |config|
     config.upcoming_meeting_notification = ENV.fetch("DECIDIM_MEETINGS_UPCOMING_NOTIFICATION", "2").to_i.days
-    if ENV["DECIDIM_MEETINGS_EMBEDDABLE_SERVICES"].present?
-      config.embeddable_services = ENV["DECIDIM_MEETINGS_EMBEDDABLE_SERVICES"].split(",").map(&:strip)
-    end
-    unless ENV["DECIDIM_MEETINGS_ENABLE_PROPOSAL_LINKING"] == "auto"
-      config.enable_proposal_linking = ENV["DECIDIM_MEETINGS_ENABLE_PROPOSAL_LINKING"].present?
-    end
-  end
-end
-
-if Decidim.module_installed? :budgets
-  Decidim::Budgets.configure do |config|
-    unless ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"] == "auto"
-      config.enable_proposal_linking = ENV["DECIDIM_BUDGETS_ENABLE_PROPOSAL_LINKING"].present?
-    end
-  end
-end
-
-if Decidim.module_installed? :accountability
-  Decidim::Accountability.configure do |config|
-    unless ENV["DECIDIM_ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING"] == "auto"
-      config.enable_proposal_linking = ENV["DECIDIM_ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING"].present?
-    end
-  end
-end
-
-if Decidim.module_installed? :consultations
-  Decidim::Consultations.configure do |config|
-    config.stats_cache_expiration_time = ENV.fetch("DECIDIM_CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME", "5").to_i.minutes
+    config.embeddable_services = ENV["DECIDIM_MEETINGS_EMBEDDABLE_SERVICES"].split(",").map(&:strip) if ENV["DECIDIM_MEETINGS_EMBEDDABLE_SERVICES"].present?
+    config.enable_proposal_linking = ENV["DECIDIM_MEETINGS_ENABLE_PROPOSAL_LINKING"].present? unless ENV["DECIDIM_MEETINGS_ENABLE_PROPOSAL_LINKING"] == "auto"
   end
 end
 
 if Decidim.module_installed? :initiatives
   Decidim::Initiatives.configure do |config|
-    unless ENV["DECIDIM_INITIATIVES_CREATION_ENABLED"] == "auto"
-      config.creation_enabled = ENV["DECIDIM_INITIATIVES_CREATION_ENABLED"].present?
-    end
+    config.creation_enabled = ENV["DECIDIM_INITIATIVES_CREATION_ENABLED"].present? unless ENV["DECIDIM_INITIATIVES_CREATION_ENABLED"] == "auto"
     config.similarity_threshold = ENV.fetch("DECIDIM_INITIATIVES_SIMILARITY_THRESHOLD", "0.25").to_f
     config.similarity_limit = ENV.fetch("DECIDIM_INITIATIVES_SIMILARITY_LIMIT", "5").to_i
     config.minimum_committee_members = ENV.fetch("DECIDIM_INITIATIVES_MINIMUM_COMMITTEE_MEMBERS", "2").to_i
@@ -467,9 +437,7 @@ if Decidim.module_installed? :initiatives
     config.second_notification_percentage = ENV.fetch("DECIDIM_INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE", "66").to_i
     config.stats_cache_expiration_time = ENV.fetch("DECIDIM_INITIATIVES_STATS_CACHE_EXPIRATION_TIME", "5").to_i.minutes
     config.max_time_in_validating_state = ENV.fetch("DECIDIM_INITIATIVES_MAX_TIME_IN_VALIDATING_STATE", "0").to_i.days
-    unless ENV["DECIDIM_INITIATIVES_PRINT_ENABLED"] == "auto"
-      config.print_enabled = ENV["DECIDIM_INITIATIVES_PRINT_ENABLED"].present?
-    end
+    config.print_enabled = ENV["DECIDIM_INITIATIVES_PRINT_ENABLED"].present? unless ENV["DECIDIM_INITIATIVES_PRINT_ENABLED"] == "auto"
     config.do_not_require_authorization = ENV["DECIDIM_INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION"].present?
   end
 end
