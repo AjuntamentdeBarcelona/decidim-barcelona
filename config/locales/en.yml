@@ -19,6 +19,11 @@ en:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
   layouts:
     decidim:
+      footer:
+        bcn_logo: Barcelona City Council Logo
+      header:
+        main:
+          organization_logo: Barcelona City Council Logo
       initiative_header_steps:
         signature_collection_period: Recollida de signatures
   locale:
