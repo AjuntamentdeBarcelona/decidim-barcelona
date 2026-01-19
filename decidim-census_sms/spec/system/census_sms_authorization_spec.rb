@@ -117,7 +117,7 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
 
     context "when the user has completed the first authorization step" do
       let!(:code) { "012345" }
-      let!(:authorization) { create(:authorization, :pending, name: "census_sms_authorization_handler", user:, verification_metadata: { verification_code: code, code_sent_at: Time.current }) }
+      let!(:authorization) { create(:authorization, :pending, name: "census_sms_authorization_handler", user:, granted_at: nil, verification_metadata: { verification_code: code, code_sent_at: Time.current }) }
 
       it "can resume the authorization" do
         visit decidim_verifications.authorizations_path

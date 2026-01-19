@@ -387,16 +387,14 @@ Decidim.configure do |config|
   config.password_blacklist = ENV["DECIDIM_PASSWORD_BLACKLIST"].split(",").map(&:strip) if ENV["DECIDIM_PASSWORD_BLACKLIST"].present?
   config.allow_open_redirects = ENV["DECIDIM_ALLOW_OPEN_REDIRECTS"].present? if ENV["DECIDIM_ALLOW_OPEN_REDIRECTS"].present?
 
-  if ENV["SMS_SERVICE_URL"].present? && ENV["SMS_USERNAME"].present? && ENV["SMS_PASSWORD"].present?
-    config.sms_gateway_service = "SmsGateway"
+  config.sms_gateway_service = "SmsGateway" if ENV["SMS_SERVICE_URL"].present? && ENV["SMS_USERNAME"].present? && ENV["SMS_PASSWORD"].present?
 
-    Decidim::Verifications.register_workflow(:census_sms_authorization_handler) do |auth|
-      auth.engine = Decidim::CensusSms::Verification::Engine
-      auth.renewable = true
-      auth.time_between_renewals = 1.day
-      # Uncomment the following line to make the workflow ephemeral
-      # auth.ephemeral = true
-    end
+  Decidim::Verifications.register_workflow(:census_sms_authorization_handler) do |auth|
+    auth.engine = Decidim::CensusSms::Verification::Engine
+    auth.renewable = true
+    auth.time_between_renewals = 1.day
+    # Uncomment the following line to make the workflow ephemeral
+    # auth.ephemeral = true
   end
 end
 

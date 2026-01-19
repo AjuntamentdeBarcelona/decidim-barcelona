@@ -6,6 +6,7 @@ describe "Assemblies" do
   let(:organization) do
     create(
       :organization,
+      available_locales: [:en],
       default_locale: :en
     )
   end
@@ -20,6 +21,7 @@ describe "Assemblies" do
 
     context "and requesting the assemblies path" do
       before do
+        data_consent(true, visit_root: true)
         visit decidim_assemblies.assemblies_path
       end
 
