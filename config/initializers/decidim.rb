@@ -533,6 +533,4 @@ end
 
 Decidim.icons.register(name: "arrow-bottom", icon: "arrow-bottom", category: "system", description: "", engine: :core)
 Decidim.icons.register(name: "audio", icon: "audio", category: "system", description: "", engine: :core)
-Decidim.icons.register(name: "fingerprint-2-line", icon: "fingerprint-2-line", category: "system", description: "", engine: :core)
 Decidim.icons.register(name: "link-intact", icon: "link-intact", category: "system", description: "", engine: :core)
-Decidim.icons.register(name: "route-line", icon: "route-line", category: "system", description: "", engine: :core)
