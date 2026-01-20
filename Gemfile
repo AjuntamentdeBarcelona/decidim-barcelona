@@ -55,6 +55,7 @@ group :development do
   gem "capistrano"
   gem "capistrano3-puma", "~> 6.0"
   gem "capistrano-bundler"
+  gem "capistrano-nvm", require: false
   gem "capistrano-passenger"
   gem "capistrano-rails"
   gem "capistrano-rails-console"
