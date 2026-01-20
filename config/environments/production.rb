@@ -38,7 +38,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
+  config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "s3").to_s
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -52,11 +52,6 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
-  if ENV["STAGING_PASSWORD"].present?
-    # Block users that do not know a given password
-    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
-  end
-
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
@@ -68,9 +63,6 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
-
-  # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_STORE_URL", "redis://localhost:6379") }
 
   config.action_mailer.smtp_settings = {
     :address => Decidim::Env.new("SMTP_ADDRESS").to_s,
@@ -134,5 +126,33 @@ Rails.application.configure do
       organization_id: event.payload[:organization_id],
       referer: event.payload[:referer]
     }
+  end
+
+  # Settings specified here will take precedence over those in config/application.rb.
+
+  # Code is not reloaded between requests.
+  config.cache_classes = true
+
+  # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
+  # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
+  # `config/secrets.yml.key`.
+  config.read_encrypted_secrets = true
+
+  # Disable serving static files from the `/public` folder by default since
+  # Apache or NGINX already handles this.
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+
+  # Use a different cache store in production.
+  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_STORE_URL", "redis://localhost:6379") }
+
+  # Send deprecation notices to registered listeners.
+  config.active_support.deprecation = :notify
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
+  if ENV["STAGING_PASSWORD"].present?
+    # Block users that do not know a given password
+    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
   end
 end
