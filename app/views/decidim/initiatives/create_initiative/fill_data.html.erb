@@ -1,0 +1,80 @@
+<% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
+<% announcement_body = capture do %>
+  <div class="max-w-full prose">
+    <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
+    <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  </div>
+<% end %>
+
+<%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
+<%= decidim_form_for(@form, url: fill_data_create_initiative_index_path, method: :put, html: { class: "form-defaults new_initiative_form", novalidate: false }) do |f| %>
+  <div class="form__wrapper">
+    <%= form_required_explanation %>
+
+    <%= f.hidden_field :type_id %>
+
+    <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title), help_text: t("decidim.initiatives.form.title_help") %>
+
+    <%= text_editor_for(f, :definition, toolbar: :content, lines: 8, value: translated_attribute(f.object.definition), label: t("decidim.initiatives.form.definition"), help_text: t("decidim.initiatives.form.definition_help")) %>
+
+    <%= text_editor_for(f, :reasons, toolbar: :content, lines: 8, value: translated_attribute(f.object.reasons), label: t("decidim.initiatives.form.reasons"), help_text: t("decidim.initiatives.form.reasons_help")) %>
+
+    <%= text_editor_for(f, :question, toolbar: :content, lines: 8, value: translated_attribute(f.object.question), label: t("decidim.initiatives.form.question"), help_text: t("decidim.initiatives.form.question_help")) %>
+
+    <%= f.text_field :hashtag %>
+
+    <% signature_type_options = signature_type_options(f.object) %>
+    <% if signature_type_options.length == 1 %>
+      <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
+    <% else %>
+      <%= f.select :signature_type, signature_type_options %>
+    <% end %>
+
+    <% if scopes.length == 1 %>
+      <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
+    <% else %>
+      <%= f.select :scope_id, scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] }, required: true, include_blank: t(".select_scope") %>
+    <% end %>
+
+    <% if initiative_type.custom_signature_end_date_enabled? %>
+      <%= f.date_field :signature_end_date %>
+    <% end %>
+
+    <% if initiative_type.area_enabled? %>
+      <%= f.areas_select :area_id, areas_for_select(current_organization), prompt: t(".select_area") %>
+    <% end %>
+
+    <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+      <%= f.select :decidim_user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, include_blank: current_user.name %>
+    <% end %>
+
+    <% if initiative_type.attachments_enabled? %>
+      <%= f.attachment :documents,
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_documents"),
+                       button_label: t("decidim.initiatives.form.add_documents"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+      <%= f.attachment :photos,
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_image"),
+                       button_label: t("decidim.initiatives.form.add_image"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_image"),
+                       help_text: t("image_legend", scope: "decidim.initiatives.form") %>
+    <% end %>
+
+    <% if @form.state_updatable? %>
+      <%= f.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] }, {} %>
+    <% end %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t(".back") %>
+      <% end %>
+      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
+    </div>
+  </div>
+<% end %>

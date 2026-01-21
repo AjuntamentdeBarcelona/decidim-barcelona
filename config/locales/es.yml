@@ -119,6 +119,30 @@ es:
     formats:
       order: d-m-y
   decidim:
+    newsletter_templates:
+      barcelona_custom:
+        name: Plantilla Barcelona personalizada
+        footer:
+          data_protection_html: >-
+            Te recordamos que puedes acceder a la información sobre el tratamiento de tus
+            datos de carácter personal a través del siguiente enlace o enlaces: %{link}
+          data_protection_link_text: tractament 0262 - Decidim Barcelona
+          data_protection_url: "https://seuelectronica.ajuntament.barcelona.cat/es/proteccion-de-datos/consultar-el-registro-de-tratamientos?tractament=0262"
+          manage_subscriptions_html: >-
+            Has recibido este correo electrónico porque estás suscrita a boletines de noticias
+            en decidim.barcelona. Puedes cambiar esta opción en la %{notifications_settings_link}.
+            Para desactivar la recepción este tipo de correo electrónico, %{unsubscribe_link}.
+          notifications_settings: configuración de las notificaciones
+          unsubscribe: date de baja
+          contact_html: "%{link}"
+          contact_link_text: "¿Tienes alguna duda? ¿Quieres reportar una incidencia?"
+          contact_page_slug: duda-incidencia
+      barcelona_custom_settings_form:
+        body: Contenido
+        main_image: Imagen principal (opcional)
+        interpolations_hint: >-
+          Puedes usar las siguientes variables: %{name} (nombre del
+          destinatario), %{organization_name} (nombre de la organización)
     accessibility:
       external_link: Link externo
       front_page_link: Ir a la página principal
@@ -214,7 +238,11 @@ es:
           scope_id: Distrito
         name: El padrón (mayores de 16 años)
       census_authorization_handler:
+        admin_explanation: Al seleccionarlo se desplagrará una lista de los distritos. Selecciona los distritos a los que se permite realizar la acción. Si no seleccionas ninguno, se comportará como si los hubieras seleccionado todos.
         explanation: Verifícate con el padrón
+        extra_explanation:
+          one: "La participación está limitada a usuarios del distrito: %{scopes}"
+          other: "La participación está limitada a usuarios de los distritos: %{scopes}"
         fields:
           date_of_birth: Fecha de nacimiento
           document_number: Número de documento
@@ -222,6 +250,16 @@ es:
           gender: Sexo
           postal_code: Código postal
           scope_id: Distrito
+          scope_code_1: Ciutat Vella
+          scope_code_2: Eixample
+          scope_code_3: Sants - Montjuïc
+          scope_code_4: Les Corts
+          scope_code_5: Sarrià - Sant Gervasi
+          scope_code_6: Gràcia
+          scope_code_7: Horta - Guinardó
+          scope_code_8: Nou Barris
+          scope_code_9: Sant Andreu
+          scope_code_10: Sant Martí
         name: El padrón
       census_kids_authorization_handler:
         explanation: Verifícate con el padrón

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_10_27_151949) do
+ActiveRecord::Schema[7.0].define(version: 2025_11_06_124042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -443,7 +443,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_10_27_151949) do
 
   create_table "decidim_categorizations", force: :cascade do |t|
     t.bigint "decidim_category_id", null: false
-    t.string "categorizable_type", null: false
+    t.string "categorizable_type"
     t.bigint "categorizable_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
@@ -916,6 +916,10 @@ ActiveRecord::Schema[7.0].define(version: 2025_10_27_151949) do
     t.jsonb "offline_votes", default: {}
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
+    t.jsonb "question"
+    t.jsonb "definition"
+    t.jsonb "reasons"
+    t.boolean "has_custom_fields", default: false, null: false
     t.index "md5((description)::text)", name: "decidim_initiatives_description_search"
     t.index ["answered_at"], name: "index_decidim_initiatives_on_answered_at"
     t.index ["decidim_area_id"], name: "index_decidim_initiatives_on_decidim_area_id"

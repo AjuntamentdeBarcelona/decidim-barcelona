@@ -45,3 +45,5 @@ coverage/
 
 .nvmrc
 tailwind.config.js
+
+.idea/
