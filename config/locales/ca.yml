@@ -356,6 +356,8 @@ ca:
         nie: NIE
         passport: Passaport
     initiatives:
+      actions:
+        vote_comment: Votar el comentari
       admin:
         initiatives_types:
           form:
@@ -384,6 +386,25 @@ ca:
           default: Per defecte?
           enabled: Habilitat
           locale: Idioma
+    components:
+      accountability:
+        actions:
+          vote_comment: Votar el comentari
+      blogs:
+        actions:
+          vote_comment: Votar el comentari
+      budgets:
+        actions:
+          vote_comment: Votar el comentari
+      debates:
+        actions:
+          vote_comment: Votar el comentari
+      meetings:
+        actions:
+          vote_comment: Votar el comentari
+      sortitions:
+        actions:
+          vote_comment: Votar el comentari
     verifications:
       authorizations:
         first_login:
