@@ -357,6 +357,8 @@ es:
         nie: NIE
         passport: Pasaporte
     initiatives:
+      actions:
+        vote_comment: Votar comentario
       initiative_signatures:
         fill_personal_data:
           document_hint: '* El número del documento corresponde al documento utilizado en la verificación contra el padrón (DNI, Pasaporte o NIE).'
@@ -380,6 +382,25 @@ es:
           default: ¿Por defecto?
           enabled: Habilitado
           locale: Idioma
+    components:
+      accountability:
+        actions:
+          vote_comment: Votar comentario
+      blogs:
+        actions:
+          vote_comment: Votar comentario
+      budgets:
+        actions:
+          vote_comment: Votar comentario
+      debates:
+        actions:
+          vote_comment: Votar comentario
+      meetings:
+        actions:
+          vote_comment: Votar comentario
+      sortitions:
+        actions:
+          vote_comment: Votar comentario
     verifications:
       authorizations:
         first_login:

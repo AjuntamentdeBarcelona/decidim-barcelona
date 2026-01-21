@@ -6,7 +6,7 @@ DECIDIM_VERSION = "~> 0.31.0"
 
 ruby RUBY_VERSION
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.31-stable-bcn"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_01_14_161267) do
+ActiveRecord::Schema[7.2].define(version: 2026_01_21_114343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1462,6 +1462,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_01_14_161267) do
     t.jsonb "content_security_policy", default: {}
     t.jsonb "name", default: {}, null: false
     t.string "available_authorizations", default: [], array: true
+    t.jsonb "short_name", default: {}, null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
   end
 
