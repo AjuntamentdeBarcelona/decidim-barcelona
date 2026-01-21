@@ -20,7 +20,7 @@ checksums = [
       "/lib/decidim/search_resource_fields_mapper.rb" => "3603d17b4a973b57189330a66c58126e",
       "/app/views/layouts/decidim/header/_main.html.erb" => "f5cb633c39af336c6fa131063bcffcbc",
       "/app/packs/src/decidim/index.js" => "d7af2c172c08220f50fe327d73ab33d9",
-      "/app/views/layouts/decidim/footer/_mini.html.erb" => "ccead2f5f20557ea4db1501de943f82b",
+      "/app/views/layouts/decidim/footer/_mini.html.erb" => "c67cc97db27cdcf926f60682e399f688",
       "/app/cells/decidim/newsletter_templates/image_text_cta/show.erb" => "08881fe2df7d87db0497376b08821594"
     }
   },
