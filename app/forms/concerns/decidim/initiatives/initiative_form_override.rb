@@ -16,7 +16,6 @@ module Decidim
         def map_model(model)
           self.type_id = model.type.id
           self.scope_id = model.scope&.id
-          self.decidim_user_group_id = model.decidim_user_group_id
           self.signature_type = model.signature_type || initiative_type.signature_type
           self.title = translated_attribute(model.title)
           self.description = translated_attribute(model.description)

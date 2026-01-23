@@ -9,7 +9,7 @@ module Decidim
         private
 
         def correct_secret_key_base?
-          Rails.application.secrets.secret_key_base&.length == 64
+          Rails.application.secret_key_base&.length == 64
         end
       end
     end

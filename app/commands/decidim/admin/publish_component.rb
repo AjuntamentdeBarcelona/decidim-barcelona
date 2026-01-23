@@ -19,6 +19,7 @@ module Decidim
       def call
         publish_component
         publish_event
+        component.manifest.run_hooks(:publish, component)
 
         broadcast(:ok)
       end
@@ -35,6 +36,9 @@ module Decidim
           visibility: "all"
         ) do
           component.publish!
+          component.update!(
+            visible: true
+          )
           component
         end
       end

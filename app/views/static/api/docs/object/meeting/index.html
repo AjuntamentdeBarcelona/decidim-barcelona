@@ -6,52 +6,18 @@
 <ul>
    <li><code><a href="/api/docs/interface/attachableinterface">AttachableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/authorableinterface">AuthorableInterface</a></code></li>
-   <li><code><a href="/api/docs/interface/categorizableinterface">CategorizableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/commentableinterface">CommentableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/followableinterface">FollowableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/localizableinterface">LocalizableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/meetingslinkedresourcesinterface">MeetingsLinkedResourcesInterface</a></code></li>
    <li><code><a href="/api/docs/interface/questionnaireentityinterface">QuestionnaireEntityInterface</a></code></li>
-   <li><code><a href="/api/docs/interface/scopableinterface">ScopableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/referableinterface">ReferableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/servicesinterface">ServicesInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/taxonomizableinterface">TaxonomizableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/timestampsinterface">TimestampsInterface</a></code></li>
 </ul>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
-<div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>ID of this meeting</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Reference for this meeting</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The title of this meeting.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The description of this meeting.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="starttime" class="field-name anchored">startTime (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this meeting starts</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="endtime" class="field-name anchored">endTime (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this meeting ends</p>
-  </div>
-</div>
 <div class="field-entry ">
   <span id="agenda" class="field-name anchored">agenda (<code><a href="/api/docs/object/meetingagenda">MeetingAgenda</a></code>)</span>
   <div class="description-wrapper">
@@ -59,57 +25,9 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="closed" class="field-name anchored">closed (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="attendeescount" class="field-name anchored">attendeesCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether this meeting is closed or not.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="iswithdrawn" class="field-name anchored">isWithdrawn (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether this meeting is withdrawn or not.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="closingreport" class="field-name anchored">closingReport (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The closing report of this meeting.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="videourl" class="field-name anchored">videoUrl (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>URL for the video of the session, if any</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="audiourl" class="field-name anchored">audioUrl (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>URL for the audio of the session, if any</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="withdrawnat" class="field-name anchored">withdrawnAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this meeting was withdrawn</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="withdrawn" class="field-name anchored">withdrawn (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether this meeting has been withdrawn or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this minutes was created</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The date and time this minutes was updated</p>
+   <p>Amount of attendees to this meeting</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -119,9 +37,45 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="attendeecount" class="field-name anchored">attendeeCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <span id="audiourl" class="field-name anchored">audioUrl (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>Amount of attendees to this meeting</p>
+   <p>URL for the audio of the session, if any</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="closed" class="field-name anchored">closed (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether this meeting is closed or not.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="closedat" class="field-name anchored">closedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this meeting was closed</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="closingreport" class="field-name anchored">closingReport (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The closing report of this meeting.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="commentsenabled" class="field-name anchored">commentsEnabled (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether the comments are enabled or not</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="commentsendtime" class="field-name anchored">commentsEndTime (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The ending time when the comments will be allowed on this meeting</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="commentsstarttime" class="field-name anchored">commentsStartTime (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The starting time when the comments will be allowed on this meeting</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -131,45 +85,39 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="privatemeeting" class="field-name anchored">privateMeeting (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="customizeregistrationemail" class="field-name anchored">customizeRegistrationEmail (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the meeting is private or not (it can only be true if transparent)</p>
+   <p>The email to customize for the registration</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="transparent" class="field-name anchored">transparent (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>For private meetings, information is public if transparent</p>
+   <p>The description of this meeting.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="registrationsenabled" class="field-name anchored">registrationsEnabled (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="endtime" class="field-name anchored">endTime (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the registrations are enabled or not</p>
+   <p>The time this meeting ends</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="registrationterms" class="field-name anchored">registrationTerms (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The registration terms</p>
+   <p>ID of this meeting</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="remainingslots" class="field-name anchored">remainingSlots (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <span id="iframeaccesslevel" class="field-name anchored">iframeAccessLevel (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>Amount of slots available for this meeting</p>
+   <p>The iframe access level of the meeting</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="registrationformenabled" class="field-name anchored">registrationFormEnabled (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="iframeembedtype" class="field-name anchored">iframeEmbedType (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the registrations have a form or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="registrationform" class="field-name anchored">registrationForm (<code><a href="/api/docs/object/questionnaire">Questionnaire</a></code>)</span>
-  <div class="description-wrapper">
-   <p>If registration requires to fill a form, this is the questionnaire</p>
+   <p>The type of displaying of the online meeting URL</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -185,15 +133,87 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="address" class="field-name anchored">address (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <span id="onlinemeetingurl" class="field-name anchored">onlineMeetingUrl (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The physical address of this meeting (used for geolocation)</p>
+   <p>The URL of the meeting (when the type is online)</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="coordinates" class="field-name anchored">coordinates (<code><a href="/api/docs/object/coordinates">Coordinates</a></code>)</span>
+  <span id="privatemeeting" class="field-name anchored">privateMeeting (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Physical coordinates for this meeting</p>
+   <p>Whether the meeting is private or not (it can only be true if transparent)</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="publicparticipants" class="field-name anchored">publicParticipants (<code><a href="/api/docs/object/user">[User]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The list of users participating to this meeting</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The time this page was published</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationform" class="field-name anchored">registrationForm (<code><a href="/api/docs/object/questionnaire">Questionnaire</a></code>)</span>
+  <div class="description-wrapper">
+   <p>If registration requires to fill a form, this is the questionnaire</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationformenabled" class="field-name anchored">registrationFormEnabled (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether the registrations have a form or not</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationterms" class="field-name anchored">registrationTerms (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The registration terms</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationtype" class="field-name anchored">registrationType (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The type of registration (disabled, on this platform or different platform)</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationurl" class="field-name anchored">registrationUrl (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>URL for the registration form</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="registrationsenabled" class="field-name anchored">registrationsEnabled (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether the registrations are enabled or not</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="remainingslots" class="field-name anchored">remainingSlots (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Amount of slots available for this meeting</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="starttime" class="field-name anchored">startTime (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The time this meeting starts</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The title of this meeting.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="transparent" class="field-name anchored">transparent (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>For private meetings, information is public if transparent</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -203,15 +223,27 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="onlinemeetingurl" class="field-name anchored">onlineMeetingUrl (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="url" class="field-name anchored">url (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The URL of the meeting (when the type is online)</p>
+   <p>The URL for this meeting</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="iframeembedtype" class="field-name anchored">iframeEmbedType (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <span id="videourl" class="field-name anchored">videoUrl (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>The type of displaying of the online meeting URL</p>
+   <p>URL for the video of the session, if any</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="withdrawn" class="field-name anchored">withdrawn (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether this meeting has been withdrawn or not</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="withdrawnat" class="field-name anchored">withdrawnAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this meeting was withdrawn</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -227,21 +259,51 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was created</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was updated</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="address" class="field-name anchored">address (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The physical address (location) of this result</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="coordinates" class="field-name anchored">coordinates (<code><a href="/api/docs/object/coordinates">Coordinates</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Physical coordinates for this result</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The reference for this record</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="followscount" class="field-name anchored">followsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The number of followers of the resource</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
   <div class="description-wrapper">
    <p>This object's attachments</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="scope" class="field-name anchored">scope (<code><a href="/api/docs/object/scope">Scope</a></code>)</span>
+  <span id="taxonomies" class="field-name anchored">taxonomies (<code><a href="/api/docs/object/taxonomy">[Taxonomy!]</a></code>)</span>
   <div class="description-wrapper">
-   <p>The object's scope</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="category" class="field-name anchored">category (<code><a href="/api/docs/object/category">Category</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The object's category</p>
+   <p>The object's taxonomies</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -251,32 +313,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
-  </div>
-</div>
-<div class="field-entry ">
   <span id="acceptsnewcomments" class="field-name anchored">acceptsNewComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
    <p>Whether the object can have new comments or not</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="commentshavealignment" class="field-name anchored">commentsHaveAlignment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether the object comments have alignment or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="commentshavevotes" class="field-name anchored">commentsHaveVotes (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether the object comments have votes or not</p>
-  </div>
-</div>
-<div class="field-entry ">
   <span id="comments" class="field-name anchored">comments (<code><a href="/api/docs/object/comment">[Comment!]!</a></code>)</span>
   <div class="description-wrapper">
+   <p>The list of replies in this comment</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -309,9 +354,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="totalcommentscount" class="field-name anchored">totalCommentsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <span id="commentshavealignment" class="field-name anchored">commentsHaveAlignment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The number of comments in all levels this resource holds</p>
+   <p>Whether the object comments have alignment or not</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="commentshavevotes" class="field-name anchored">commentsHaveVotes (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether the object comments have votes or not</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -321,12 +372,28 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="totalcommentscount" class="field-name anchored">totalCommentsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The number of comments in all levels this resource holds</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
    <p>Check if the current user can comment</p>
   </div>
 </div></div>
-<div id="sidebar"><ul class="categories">
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -335,7 +402,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -347,6 +414,188 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conference/" class="sidebar-link">
+          conference
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conferences/" class="sidebar-link">
+          conferences
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -370,34 +619,6 @@
       
         
       <li>
-        <a href="/api/docs/object/answeroption/" class="sidebar-link">
-          AnswerOption
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/area/" class="sidebar-link">
-          Area
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/areatype/" class="sidebar-link">
-          AreaType
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assembliestype/" class="sidebar-link">
-          AssembliesType
-        </a>
-      </li>
-      
-        
-      <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
         </a>
@@ -405,15 +626,15 @@
       
         
       <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
+        <a href="/api/docs/object/attachment/" class="sidebar-link">
+          Attachment
         </a>
       </li>
       
         
       <li>
-        <a href="/api/docs/object/attachment/" class="sidebar-link">
-          Attachment
+        <a href="/api/docs/object/attachmentcollection/" class="sidebar-link">
+          AttachmentCollection
         </a>
       </li>
       
@@ -489,6 +710,41 @@
       
         
       <li>
+        <a href="/api/docs/object/conference/" class="sidebar-link">
+          Conference
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencemedialink/" class="sidebar-link">
+          ConferenceMediaLink
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencepartner/" class="sidebar-link">
+          ConferencePartner
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferenceregistrationtype/" class="sidebar-link">
+          ConferenceRegistrationType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencespeaker/" class="sidebar-link">
+          ConferenceSpeaker
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/coordinates/" class="sidebar-link">
           Coordinates
         </a>
@@ -533,13 +789,6 @@
       <li>
         <a href="/api/docs/object/fingerprint/" class="sidebar-link">
           Fingerprint
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/hashtagtype/" class="sidebar-link">
-          HashtagType
         </a>
       </li>
       
@@ -629,15 +878,8 @@
       
         
       <li>
-        <a href="/api/docs/object/metric/" class="sidebar-link">
-          Metric
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/metrichistory/" class="sidebar-link">
-          MetricHistory
+        <a href="/api/docs/object/milestone/" class="sidebar-link">
+          Milestone
         </a>
       </li>
       
@@ -783,8 +1025,29 @@
       
         
       <li>
+        <a href="/api/docs/object/proposalmutation/" class="sidebar-link">
+          ProposalMutation
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposalstate/" class="sidebar-link">
+          ProposalState
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposalsmutation/" class="sidebar-link">
+          ProposalsMutation
         </a>
       </li>
       
@@ -804,8 +1067,22 @@
       
         
       <li>
+        <a href="/api/docs/object/questionmatrixrow/" class="sidebar-link">
+          QuestionMatrixRow
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/questionnaire/" class="sidebar-link">
           Questionnaire
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/responseoption/" class="sidebar-link">
+          ResponseOption
         </a>
       </li>
       
@@ -916,8 +1193,8 @@
       
         
       <li>
-        <a href="/api/docs/object/timelineentry/" class="sidebar-link">
-          TimelineEntry
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
         </a>
       </li>
       
@@ -946,62 +1223,6 @@
       <li>
         <a href="/api/docs/object/user/" class="sidebar-link">
           User
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/usergroup/" class="sidebar-link">
-          UserGroup
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonianswer/" class="sidebar-link">
-          VocdoniAnswer
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielection/" class="sidebar-link">
-          VocdoniElection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielectionconnection/" class="sidebar-link">
-          VocdoniElectionConnection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielectionedge/" class="sidebar-link">
-          VocdoniElectionEdge
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielections/" class="sidebar-link">
-          VocdoniElections
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdoniquestion/" class="sidebar-link">
-          VocdoniQuestion
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonivoter/" class="sidebar-link">
-          VocdoniVoter
         </a>
       </li>
       
@@ -1051,27 +1272,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -1086,6 +1286,13 @@
         <li>
           <a href="/api/docs/interface/amendableinterface/" class="sidebar-link">
             AmendableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/attachablecollectioninterface/" class="sidebar-link">
+            AttachableCollectionInterface
           </a>
         </li>
       
@@ -1119,13 +1326,6 @@
       
         
         <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
-          </a>
-        </li>
-      
-        
-        <li>
           <a href="/api/docs/interface/coauthorableinterface/" class="sidebar-link">
             CoauthorableInterface
           </a>
@@ -1147,13 +1347,6 @@
       
         
         <li>
-          <a href="/api/docs/interface/endorsableinterface/" class="sidebar-link">
-            EndorsableInterface
-          </a>
-        </li>
-      
-        
-        <li>
           <a href="/api/docs/interface/fingerprintinterface/" class="sidebar-link">
             FingerprintInterface
           </a>
@@ -1161,8 +1354,29 @@
       
         
         <li>
+          <a href="/api/docs/interface/followableinterface/" class="sidebar-link">
+            FollowableInterface
+          </a>
+        </li>
+      
+        
+        <li>
           <a href="/api/docs/interface/initiativetypeinterface/" class="sidebar-link">
             InitiativeTypeInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/likeableinterface/" class="sidebar-link">
+            LikeableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/localizableinterface/" class="sidebar-link">
+            LocalizableInterface
           </a>
         </li>
       
@@ -1196,6 +1410,13 @@
       
         
         <li>
+          <a href="/api/docs/interface/referableinterface/" class="sidebar-link">
+            ReferableInterface
+          </a>
+        </li>
+      
+        
+        <li>
           <a href="/api/docs/interface/scopableinterface/" class="sidebar-link">
             ScopableInterface
           </a>
@@ -1205,6 +1426,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       
@@ -1250,12 +1478,26 @@
     <p><a href="/api/docs/union">Unions</a></p>
     <ul class="menu-root">
       
+      
+      <li>
+        <a href="/api/docs/union/componentmutation/" class="sidebar-link">
+          ComponentMutation
+        </a>
+      </li>
+      
     </ul>
   </li>
 
   <li>
     <p><a href="/api/docs/input_object">Input Objects</a></p>
     <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/answerinput/" class="sidebar-link">
+          AnswerInput
+        </a>
+      </li>
       
       
       <li>
@@ -1303,6 +1545,13 @@
       <li>
         <a href="/api/docs/input_object/postsort/" class="sidebar-link">
           PostSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/proposalattributes/" class="sidebar-link">
+          ProposalAttributes
         </a>
       </li>
       

@@ -8,7 +8,7 @@ require "bundler/setup"
 
 # Add the Decidim override load path to override webpacker functionality
 $LOAD_PATH.unshift "#{Gem.loaded_specs["decidim-core"].full_gem_path}/lib/gem_overrides"
-require "shakapacker"
+require "decidim/shakapacker/shakapacker"
 require "shakapacker/webpack_runner"
 
 APP_ROOT = File.expand_path("..", __dir__)

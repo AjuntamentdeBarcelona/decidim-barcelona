@@ -2,8 +2,8 @@ name: Test
 on: [push]
 
 env:
-  RUBY_VERSION: 3.2.6
-  NODE_VERSION: 18.17.1
+  RUBY_VERSION: 3.3.4
+  NODE_VERSION: 22.14.0
 
 jobs:
   test:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready

@@ -43,7 +43,7 @@ module Decidim
       def actions
         [
           Decidim::Stats::Actions::Comment,
-          Decidim::Stats::Actions::Endorsement,
+          Decidim::Stats::Actions::Like,
           Decidim::Stats::Actions::Follow,
           Decidim::Stats::Actions::ProposalCreation,
           Decidim::Stats::Actions::ProposalVote

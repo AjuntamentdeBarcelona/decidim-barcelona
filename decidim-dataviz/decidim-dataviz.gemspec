@@ -7,15 +7,15 @@ Gem::Specification.new do |s|
   s.name = "decidim-dataviz"
   s.summary = "A dataviz component for decidim's participatory processes."
   s.description = s.summary
-  s.required_ruby_version = ">= 3.1"
-  s.version = "0.0.3"
+  s.required_ruby_version = ">= 3.3"
+  s.version = "0.0.4"
   s.authors = ["David Morcillo Muñoz"]
   s.email = ["david.morcillo@gmail.com"]
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", "~> 0.29.0"
+  s.add_dependency "decidim-core", "~> 0.31.0"
 
-  s.add_development_dependency "decidim-dev", "~> 0.29.0"
+  s.add_development_dependency "decidim-dev", "~> 0.31.0"
   s.metadata["rubygems_mfa_required"] = "true"
 end

@@ -22,8 +22,8 @@ describe Decidim::Stats::Runner do
   let!(:draft) { create(:collaborative_draft, component:) }
   let!(:draft_follow) { create(:follow, followable: draft) }
   let!(:draft_follower) { draft_follow.user }
-  let!(:endorsement) { create(:endorsement, resource: proposal, author: create(:user, organization: proposal.organization)) }
-  let(:proposal_endorser) { endorsement.author }
+  let!(:like) { create(:like, resource: proposal, author: create(:user, organization: proposal.organization)) }
+  let(:proposal_liker) { like.author }
   let!(:comment) { create(:comment, root_commentable: proposal) }
   let(:proposal_comment_author) { comment.author }
   let!(:vote) { create(:proposal_vote, proposal:) }
@@ -39,7 +39,7 @@ describe Decidim::Stats::Runner do
       proposal_author,
       proposal_follower,
       draft_follower,
-      proposal_endorser,
+      proposal_liker,
       proposal_comment_author,
       proposal_vote_author
     ]
@@ -79,8 +79,8 @@ describe Decidim::Stats::Runner do
     check_data_element(data[2], :gender, "non_binary", 1)
   end
 
-  it "counts the endorsements" do
-    data = subject.select { |(_, _, _, action, _, _), _| action == :endorsement }.to_a
+  it "counts the likes" do
+    data = subject.select { |(_, _, _, action, _, _), _| action == :like }.to_a
     expect(data.count).to eq 3
 
     check_data_element(data[0], :age_group, "25-29", 1)
