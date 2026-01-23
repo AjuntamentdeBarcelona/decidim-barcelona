@@ -50,6 +50,7 @@ import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
@@ -69,6 +70,7 @@ import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
+// Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
 // import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
@@ -200,6 +202,7 @@ const initializer = (element = document) => {
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
+  // Temporary disabling this feature because we have a poor performance. See https://github.com/decidim/decidim/issues/14431
   // element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
