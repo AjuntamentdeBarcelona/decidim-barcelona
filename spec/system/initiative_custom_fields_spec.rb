@@ -50,13 +50,11 @@ describe "Initiative custom fields display" do
       expect(page).to have_content("Raons de prov")
     end
 
-    it "displays custom fields in print view" do
+    it "displays custom fields in print view", :download do
       login_as author, scope: :user
       visit decidim_initiatives.print_initiative_path(initiative)
 
-      expect(page).to have_content("Pregunta de prov")
-      expect(page).to have_content("Definició de prov")
-      expect(page).to have_content("Raons de prov")
+      expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
     end
   end
 

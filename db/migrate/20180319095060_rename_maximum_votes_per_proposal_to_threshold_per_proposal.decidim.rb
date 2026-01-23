@@ -1,10 +1,11 @@
-# This migration comes from decidim (originally 20180314085339)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20180314085339)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class RenameMaximumVotesPerProposalToThresholdPerProposal < ActiveRecord::Migration[5.1]
   def up
-    execute <<~SQL
-      UPDATE decidim_features
+    execute <<~SQL.squish
+      UPDATE decidim_components
       SET settings = jsonb_set(
         settings::jsonb,
         array['global'],
@@ -15,8 +16,8 @@ class RenameMaximumVotesPerProposalToThresholdPerProposal < ActiveRecord::Migrat
   end
 
   def down
-    execute <<~SQL
-      UPDATE decidim_features
+    execute <<~SQL.squish
+      UPDATE decidim_components
       SET settings = jsonb_set(
         settings::jsonb,
         array['global'],

@@ -13,14 +13,21 @@
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The description of this initiative.</p>
+   <p>The initiative author</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="committeemembers" class="field-name anchored">committeeMembers (<code><a href="/api/docs/object/initiativecommitteemembertype">[InitiativeCommitteeMemberType]</a></code>)</span>
   <div class="description-wrapper">
+   <p>The committee members list</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The description of this initiative.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -30,39 +37,23 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
+  <span id="initiativesupportscount" class="field-name anchored">initiativeSupportsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>The time this initiative was published</p>
+<div class="deprecation-notice ">
+  <span class="deprecation-title">Deprecation notice</span>
+  <p>initiativeSupportsCount has been collapsed in onlineVotes parameter</p>
+</div>
+   <p>The number of supports in this initiative</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="initiativevotescount" class="field-name anchored">initiativeVotesCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>Reference prefix for this initiative</p>
-  </div>
+<div class="deprecation-notice ">
+  <span class="deprecation-title">Deprecation notice</span>
+  <p>initiativeVotesCount has been collapsed in onlineVotes parameter</p>
 </div>
-<div class="field-entry ">
-  <span id="state" class="field-name anchored">state (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Current status of the initiative</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="signaturetype" class="field-name anchored">signatureType (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Signature type of the initiative</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="signaturestartdate" class="field-name anchored">signatureStartDate (<code><a href="/api/docs/scalar/date">Date!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The signature start date</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="signatureenddate" class="field-name anchored">signatureEndDate (<code><a href="/api/docs/scalar/date">Date!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The signature end date</p>
+   <p>The number of votes in this initiative</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -78,34 +69,45 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="initiativevotescount" class="field-name anchored">initiativeVotesCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
   <div class="description-wrapper">
-<div class="deprecation-notice ">
-  <span class="deprecation-title">Deprecation notice</span>
-  <p>initiativeVotesCount has been collapsed in onlineVotes parameter</p>
-</div>
-   <p>The number of votes in this initiative</p>
+   <p>The time this initiative was published</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="initiativesupportscount" class="field-name anchored">initiativeSupportsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
+  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
   <div class="description-wrapper">
-<div class="deprecation-notice ">
-  <span class="deprecation-title">Deprecation notice</span>
-  <p>initiativeSupportsCount has been collapsed in onlineVotes parameter</p>
-</div>
-   <p>The number of supports in this initiative</p>
+   <p>Reference prefix for this initiative</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="author" class="field-name anchored">author (<code><a href="/api/docs/interface/author">Author!</a></code>)</span>
+  <span id="signatureenddate" class="field-name anchored">signatureEndDate (<code><a href="/api/docs/scalar/date">Date!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The initiative author</p>
+   <p>The signature end date</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="committeemembers" class="field-name anchored">committeeMembers (<code><a href="/api/docs/object/initiativecommitteemembertype">[InitiativeCommitteeMemberType]</a></code>)</span>
+  <span id="signaturestartdate" class="field-name anchored">signatureStartDate (<code><a href="/api/docs/scalar/date">Date!</a></code>)</span>
   <div class="description-wrapper">
+   <p>The signature start date</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="signaturetype" class="field-name anchored">signatureType (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Signature type of the initiative</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The slug of the initiative</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="state" class="field-name anchored">state (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Current status of the initiative</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -142,24 +144,6 @@
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
    <p>The participatory space's unique ID</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The graphql_name of this participatory space.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The manifest information for the participatory space.</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -200,9 +184,32 @@
 <div class="field-entry ">
   <span id="stats" class="field-name anchored">stats (<code><a href="/api/docs/object/statistic">[Statistic]</a></code>)</span>
   <div class="description-wrapper">
+   <p>The statistics collection of this participatory space</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The graphql_name of this participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The manifest information for the participatory space.</p>
   </div>
 </div></div>
-<div id="sidebar"><ul class="categories">
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -211,7 +218,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -223,6 +230,209 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestype/" class="sidebar-link">
+          assembliesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestypes/" class="sidebar-link">
+          assembliesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conference/" class="sidebar-link">
+          conference
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conferences/" class="sidebar-link">
+          conferences
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/hashtags/" class="sidebar-link">
+          hashtags
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/metrics/" class="sidebar-link">
+          metrics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -276,13 +486,6 @@
       <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
         </a>
       </li>
       
@@ -360,6 +563,34 @@
       <li>
         <a href="/api/docs/object/component/" class="sidebar-link">
           Component
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conference/" class="sidebar-link">
+          Conference
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencemedialink/" class="sidebar-link">
+          ConferenceMediaLink
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencepartner/" class="sidebar-link">
+          ConferencePartner
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencespeaker/" class="sidebar-link">
+          ConferenceSpeaker
         </a>
       </li>
       
@@ -792,6 +1023,13 @@
       
         
       <li>
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/timelineentry/" class="sidebar-link">
           TimelineEntry
         </a>
@@ -927,27 +1165,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -990,13 +1207,6 @@
         <li>
           <a href="/api/docs/interface/categoriescontainerinterface/" class="sidebar-link">
             CategoriesContainerInterface
-          </a>
-        </li>
-      
-        
-        <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
           </a>
         </li>
       
@@ -1081,6 +1291,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       

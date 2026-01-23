@@ -10,7 +10,7 @@ module Decidim
 
         # Override to include new fields
         def build_initiative
-          Initiative.new(
+          @initiative = Initiative.new(
             organization: form.current_organization,
             title: { current_locale => form.title },
             description: { current_locale => form.description },

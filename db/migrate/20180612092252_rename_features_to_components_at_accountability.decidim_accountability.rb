@@ -1,6 +1,7 @@
-# This migration comes from decidim_accountability (originally 20180305133145)
 # frozen_string_literal: true
 
+# This migration comes from decidim_accountability (originally 20180305133145)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class RenameFeaturesToComponentsAtAccountability < ActiveRecord::Migration[5.1]
   def change
     rename_column :decidim_accountability_statuses, :decidim_feature_id, :decidim_component_id
