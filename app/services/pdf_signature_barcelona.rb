@@ -108,15 +108,15 @@ class PdfSignatureBarcelona
   end
 
   def signer_private_key
-    Rails.application.secrets.pdf_signer_private_key
+    Decidim::Env.new("PDF_SIGNER_PRIVATE_KEY").to_s
   end
 
   def pdf_certificate
-    Rails.application.secrets.pdf_signer_certificate
+    Decidim::Env.new("PDF_SIGNER_CERTIFICATE").to_s
   end
 
   def signature_certificate_password
-    Rails.application.secrets.signature_certificate_password
+    Decidim::Env.new("SIGNATURE_CERTIFICATE_PASSWORD").to_s
   end
 
   def caption

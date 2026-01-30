@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_conferences (originally 20210310134942)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-11-24 16:23:04 UTC
 class AddFollowableCounterCacheToConferences < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_conferences, :follows_count, :integer, null: false, default: 0, index: true
@@ -8,7 +9,7 @@ class AddFollowableCounterCacheToConferences < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         Decidim::Conference.reset_column_information
-        Decidim::Conference.find_each do |record|
+        Decidim::Conference.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

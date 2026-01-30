@@ -10,7 +10,7 @@ module Decidim
           @author ||= if official?
                         Decidim::Proposals::OfficialAuthorPresenter.new
                       else
-                        coauthorship = coauthorships.includes(:author, :user_group).first
+                        coauthorships.includes(:author).first.author.presenter
                         return coauthorship.user_group.presenter if coauthorship&.user_group
                         return coauthorship.author.presenter if coauthorship&.author
 

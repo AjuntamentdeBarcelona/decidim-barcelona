@@ -61,7 +61,8 @@ describe "routing redirections", type: :request do
       end
 
       it "doesn't redirect" do
-        expect { get("/debates/test-debate") }.to raise_error(ActionController::RoutingError)
+        get("/debates/test-debate")
+        expect(response).not_to have_http_status(:redirect)
       end
     end
   end
@@ -103,7 +104,8 @@ describe "routing redirections", type: :request do
       end
 
       it "doesn't redirect" do
-        expect { get("/action_plans/test-result") }.to raise_error(ActionController::RoutingError)
+        get("/action_plans/test-result")
+        expect(response).not_to have_http_status(:redirect)
       end
     end
   end
@@ -111,7 +113,8 @@ describe "routing redirections", type: :request do
   describe "proposals" do
     let(:participatory_process) { create(:participatory_process, organization:, slug: "test-process") }
     let(:component) { create(:proposal_component, participatory_space: participatory_process) }
-    let!(:proposal) { create(:proposal, component:, extra: { slug: "test-proposal" }) }
+    let(:user) { create(:user, organization:, password: "VerySecurePassword123!", password_confirmation: "VerySecurePassword123!") }
+    let!(:proposal) { create(:proposal, component:, users: [user], extra: { slug: "test-proposal" }) }
 
     context "with the right host" do
       before do
@@ -145,7 +148,8 @@ describe "routing redirections", type: :request do
       end
 
       it "doesn't redirect" do
-        expect { get("/proposals/test-proposal") }.to raise_error(ActionController::RoutingError)
+        get("/proposals/test-proposal")
+        expect(response).not_to have_http_status(:redirect)
       end
     end
   end

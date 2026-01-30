@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-# This migration comes from decidim_participatory_processes (originally 20201013105520)
 
+# This migration comes from decidim_participatory_processes (originally 20201013105520)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class RenameNameColumnToTitleInDecidimParticipatoryProcessGroups < ActiveRecord::Migration[5.2]
   def up
     rename_column :decidim_participatory_process_groups, :name, :title
-    PaperTrail::Version.where(item_type: "Decidim::ParticipatoryProcessGroup").find_each do |version|
+    PaperTrail::Version.where(item_type: "Decidim::ParticipatoryProcessGroup").each do |version|
       # rubocop:disable Rails/SkipsModelValidations
       version.update_attribute(:object_changes, version.object_changes.gsub(/^name:/, "title:")) if version.object_changes.present?
       # rubocop:enable Rails/SkipsModelValidations

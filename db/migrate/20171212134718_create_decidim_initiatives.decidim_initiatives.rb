@@ -1,6 +1,7 @@
-# This migration comes from decidim_initiatives (originally 20170906094044)
 # frozen_string_literal: true
 
+# This migration comes from decidim_initiatives (originally 20170906094044)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 # Migration that creates the decidim_initiatives table
 class CreateDecidimInitiatives < ActiveRecord::Migration[5.1]
   def change
@@ -11,12 +12,12 @@ class CreateDecidimInitiatives < ActiveRecord::Migration[5.1]
       t.integer :decidim_organization_id,
                 foreign_key: true,
                 index: {
-                  name: 'index_decidim_initiatives_on_decidim_organization_id'
+                  name: "index_decidim_initiatives_on_decidim_organization_id"
                 }
 
       # Text search indexes for initiatives.
-      t.index :title, name: 'decidim_initiatives_title_search'
-      t.index :description, name: 'decidim_initiatives_description_search'
+      t.index :title, name: "decidim_initiatives_title_search"
+      t.index :description, name: "decidim_initiatives_description_search"
 
       t.references :decidim_author, index: true
       t.string :banner_image

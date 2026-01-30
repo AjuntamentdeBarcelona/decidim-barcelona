@@ -1,6 +1,7 @@
-# This migration comes from decidim_initiatives (originally 20170906091626)
 # frozen_string_literal: true
 
+# This migration comes from decidim_initiatives (originally 20170906091626)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class CreateDecidimInitiativesTypes < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_initiatives_types do |t|
@@ -11,7 +12,7 @@ class CreateDecidimInitiativesTypes < ActiveRecord::Migration[5.1]
       t.integer :decidim_organization_id,
                 foreign_key: true,
                 index: {
-                  name: 'index_decidim_initiative_types_on_decidim_organization_id'
+                  name: "index_decidim_initiative_types_on_decidim_organization_id"
                 }
 
       t.timestamps

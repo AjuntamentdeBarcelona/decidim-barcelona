@@ -15,9 +15,7 @@ module Decidim
             description: { current_locale => form.description },
             question: { current_locale => form.question },
             definition: { current_locale => form.definition },
-            reasons: { current_locale => form.reasons },
-            hashtag: form.hashtag,
-            decidim_user_group_id: form.decidim_user_group_id
+            reasons: { current_locale => form.reasons }
           }
 
           if form.signature_type_updatable?

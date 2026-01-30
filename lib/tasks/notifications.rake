@@ -18,7 +18,7 @@ namespace :notifications do
 
     total = 0
     dates.each do |date|
-      notifications = Decidim::Notification.where("created_at < ?", date)
+      notifications = Decidim::Notification.where(created_at: ...date)
       total += notifications.count
       puts "Destroying #{notifications.count} notifications older than #{date}..."
       notifications.destroy_all

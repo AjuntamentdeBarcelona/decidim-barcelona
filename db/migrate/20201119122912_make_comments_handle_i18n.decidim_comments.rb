@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_comments (originally 20200706123136)
 
+# This migration comes from decidim_comments (originally 20200706123136)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class MakeCommentsHandleI18n < ActiveRecord::Migration[5.2]
   class User < ApplicationRecord
     self.table_name = :decidim_users
@@ -22,8 +23,8 @@ class MakeCommentsHandleI18n < ActiveRecord::Migration[5.2]
     Organization.reset_column_information
 
     Comment.find_each do |comment|
-      locale, org_id = User.where(id: comment.decidim_author_id).pluck(:locale, :decidim_organization_id).first
-      locale = locale.presence || Organization.find_by_id(org_id)&.default_locale || Organization.first.default_locale
+      locale, org_id = User.where(id: comment.decidim_author_id).pick(:locale, :decidim_organization_id)
+      locale = locale.presence || Organization.find(org_id).default_locale
 
       comment.new_body = {
         locale => comment.body

@@ -4,77 +4,23 @@
 <h2>
 <a id="implements" class="anchor" href="#implements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implements</h2>
 <ul>
+   <li><code><a href="/api/docs/interface/attachablecollectioninterface">AttachableCollectionInterface</a></code></li>
    <li><code><a href="/api/docs/interface/attachableinterface">AttachableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/categoriescontainerinterface">CategoriesContainerInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/followableinterface">FollowableInterface</a></code></li>
    <li><code><a href="/api/docs/interface/participatoryspaceinterface">ParticipatorySpaceInterface</a></code></li>
    <li><code><a href="/api/docs/interface/participatoryspaceresourceableinterface">ParticipatorySpaceResourceableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/referableinterface">ReferableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/taxonomizableinterface">TaxonomizableInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/timestampsinterface">TimestampsInterface</a></code></li>
+   <li><code><a href="/api/docs/interface/traceableinterface">TraceableInterface</a></code></li>
 </ul>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <span id="announcement" class="field-name anchored">announcement (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
-   <p>The internal ID for this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="subtitle" class="field-name anchored">subtitle (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The subtitle of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="shortdescription" class="field-name anchored">shortDescription (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The sort description of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The description of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The slug of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="hashtag" class="field-name anchored">hashtag (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The hashtag for this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this assembly was created</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this assembly was updated</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The time this assembly was published</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Reference for this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="heroimage" class="field-name anchored">heroImage (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The hero image for this assembly</p>
+   <p>Highlighted announcement for this assembly</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -84,129 +30,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="promoted" class="field-name anchored">promoted (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <span id="children" class="field-name anchored">children (<code><a href="/api/docs/object/assembly">[Assembly]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>If this assembly is promoted (therefore in the homepage)</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="developergroup" class="field-name anchored">developerGroup (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The promoter group of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="metascope" class="field-name anchored">metaScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The scope metadata of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="localarea" class="field-name anchored">localArea (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The organization area of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="target" class="field-name anchored">target (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Who participates in this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryscope" class="field-name anchored">participatoryScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>What is decided on this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatorystructure" class="field-name anchored">participatoryStructure (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>How it is decided on this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="scopesenabled" class="field-name anchored">scopesEnabled (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
-  <div class="description-wrapper">
-   <p>If this assembly has scopes enabled</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="privatespace" class="field-name anchored">privateSpace (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
-  <div class="description-wrapper">
-   <p>If this assembly is a private space</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="area" class="field-name anchored">area (<code><a href="/api/docs/object/area">Area</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Area of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="parent" class="field-name anchored">parent (<code><a href="/api/docs/object/assembly">Assembly</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The parent assembly of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="parentspath" class="field-name anchored">parentsPath (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Assembly hierarchy representation</p>
+   <p>Children of this assembly</p>
   </div>
 </div>
 <div class="field-entry ">
   <span id="childrencount" class="field-name anchored">childrenCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
    <p>Number of children assemblies</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="purposeofaction" class="field-name anchored">purposeOfAction (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Purpose of action</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="composition" class="field-name anchored">composition (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Composition of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="assemblytype" class="field-name anchored">assemblyType (<code><a href="/api/docs/object/assembliestype">AssembliesType</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Type of the assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="creationdate" class="field-name anchored">creationDate (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Creation date of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdby" class="field-name anchored">createdBy (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The creator of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="createdbyother" class="field-name anchored">createdByOther (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Custom creator</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="duration" class="field-name anchored">duration (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Duration of this assembly</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="includedat" class="field-name anchored">includedAt (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Included at</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -222,6 +54,78 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="composition" class="field-name anchored">composition (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Composition of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdby" class="field-name anchored">createdBy (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The creator of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdbyother" class="field-name anchored">createdByOther (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Custom creator</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="creationdate" class="field-name anchored">creationDate (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Creation date of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="description" class="field-name anchored">description (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The description of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="developergroup" class="field-name anchored">developerGroup (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The promoter group of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="duration" class="field-name anchored">duration (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Duration of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="facebookhandler" class="field-name anchored">facebookHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Facebook handler</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="githubhandler" class="field-name anchored">githubHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>GitHub handler</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="heroimage" class="field-name anchored">heroImage (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The hero image for this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="includedat" class="field-name anchored">includedAt (<code><a href="/api/docs/scalar/date">Date</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Included at</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="instagramhandler" class="field-name anchored">instagramHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Instagram handler</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="internalorganisation" class="field-name anchored">internalOrganisation (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
    <p>Internal organisation of this assembly</p>
@@ -234,9 +138,99 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="localarea" class="field-name anchored">localArea (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The organization area of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="metascope" class="field-name anchored">metaScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The scope metadata of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="parent" class="field-name anchored">parent (<code><a href="/api/docs/object/assembly">Assembly</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The parent assembly of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="parentspath" class="field-name anchored">parentsPath (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Assembly hierarchy representation</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="participatoryscope" class="field-name anchored">participatoryScope (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>What is decided on this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="participatorystructure" class="field-name anchored">participatoryStructure (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>How it is decided on this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="privatespace" class="field-name anchored">privateSpace (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <div class="description-wrapper">
+   <p>If this assembly is a private space</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="promoted" class="field-name anchored">promoted (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <div class="description-wrapper">
+   <p>If this assembly is promoted (therefore in the homepage)</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="publishedat" class="field-name anchored">publishedAt (<code><a href="/api/docs/scalar/datetime">DateTime!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The time this assembly was published</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="purposeofaction" class="field-name anchored">purposeOfAction (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Purpose of action</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="scopesenabled" class="field-name anchored">scopesEnabled (<code><a href="/api/docs/scalar/boolean">Boolean</a></code>)</span>
+  <div class="description-wrapper">
+   <p>If this assembly has scopes enabled</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="shortdescription" class="field-name anchored">shortDescription (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The sort description of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="slug" class="field-name anchored">slug (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The slug of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="specialfeatures" class="field-name anchored">specialFeatures (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
   <div class="description-wrapper">
    <p>Special features of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="subtitle" class="field-name anchored">subtitle (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The subtitle of this assembly</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="target" class="field-name anchored">target (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Who participates in this assembly</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -246,15 +240,15 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="instagramhandler" class="field-name anchored">instagramHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <span id="url" class="field-name anchored">url (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>Instagram handler</p>
+   <p>The URL of this assembly</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="facebookhandler" class="field-name anchored">facebookHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <span id="weight" class="field-name anchored">weight (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Facebook handler</p>
+   <p>The weight for this object</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -264,27 +258,39 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="githubhandler" class="field-name anchored">githubHandler (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
+  <span id="followscount" class="field-name anchored">followsCount (<code><a href="/api/docs/scalar/int">Int</a></code>)</span>
   <div class="description-wrapper">
-   <p>GitHub handler</p>
+   <p>The number of followers of the resource</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="announcement" class="field-name anchored">announcement (<code><a href="/api/docs/object/translatedfield">TranslatedField</a></code>)</span>
+  <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
-   <p>Highlighted announcement for this assembly</p>
+   <p>The reference for this record</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="members" class="field-name anchored">members (<code><a href="/api/docs/object/assemblymember">[AssemblyMember]!</a></code>)</span>
+  <span id="versions" class="field-name anchored">versions (<code><a href="/api/docs/object/traceversion">[TraceVersion]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Members of this assembly</p>
+   <p>This object's versions</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="children" class="field-name anchored">children (<code><a href="/api/docs/object/assembly">[Assembly]!</a></code>)</span>
+  <span id="versionscount" class="field-name anchored">versionsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Children of this assembly</p>
+   <p>Total number of versions</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="createdat" class="field-name anchored">createdAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was created</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="updatedat" class="field-name anchored">updatedAt (<code><a href="/api/docs/scalar/datetime">DateTime</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The date and time this object was updated</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -314,9 +320,21 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="taxonomies" class="field-name anchored">taxonomies (<code><a href="/api/docs/object/taxonomy">[Taxonomy!]</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The object's taxonomies</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="linkedparticipatoryspaces" class="field-name anchored">linkedParticipatorySpaces (<code><a href="/api/docs/object/participatoryspacelink">[ParticipatorySpaceLink!]!</a></code>)</span>
   <div class="description-wrapper">
    <p>Lists all linked participatory spaces in a polymorphic way</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="attachmentcollections" class="field-name anchored">attachmentCollections (<code><a href="/api/docs/object/attachmentcollection">[AttachmentCollection]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>This object's attachment collections</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -326,21 +344,9 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <span id="allowssteps" class="field-name anchored">allowsSteps (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The graphql_name of this participatory space.</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The manifest information for the participatory space.</p>
+   <p>The participatory space allows steps</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -379,11 +385,46 @@
   </div>
 </div>
 <div class="field-entry ">
+  <span id="hassteps" class="field-name anchored">hasSteps (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space allows steps</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space's unique ID</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="manifest" class="field-name anchored">manifest (<code><a href="/api/docs/object/participatoryspacemanifest">ParticipatorySpaceManifest!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The manifest information for the participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
   <span id="stats" class="field-name anchored">stats (<code><a href="/api/docs/object/statistic">[Statistic]</a></code>)</span>
   <div class="description-wrapper">
+   <p>The statistics collection of this participatory space</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="title" class="field-name anchored">title (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The graphql_name of this participatory space.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The participatory space class name. i.e. Decidim::ParticipatoryProcess</p>
   </div>
 </div></div>
-<div id="sidebar"><ul class="categories">
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -392,7 +433,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -404,6 +445,188 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conference/" class="sidebar-link">
+          conference
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conferences/" class="sidebar-link">
+          conferences
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -427,34 +650,6 @@
       
         
       <li>
-        <a href="/api/docs/object/answeroption/" class="sidebar-link">
-          AnswerOption
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/area/" class="sidebar-link">
-          Area
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/areatype/" class="sidebar-link">
-          AreaType
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assembliestype/" class="sidebar-link">
-          AssembliesType
-        </a>
-      </li>
-      
-        
-      <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
         </a>
@@ -462,15 +657,15 @@
       
         
       <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
+        <a href="/api/docs/object/attachment/" class="sidebar-link">
+          Attachment
         </a>
       </li>
       
         
       <li>
-        <a href="/api/docs/object/attachment/" class="sidebar-link">
-          Attachment
+        <a href="/api/docs/object/attachmentcollection/" class="sidebar-link">
+          AttachmentCollection
         </a>
       </li>
       
@@ -546,6 +741,41 @@
       
         
       <li>
+        <a href="/api/docs/object/conference/" class="sidebar-link">
+          Conference
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencemedialink/" class="sidebar-link">
+          ConferenceMediaLink
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencepartner/" class="sidebar-link">
+          ConferencePartner
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferenceregistrationtype/" class="sidebar-link">
+          ConferenceRegistrationType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/conferencespeaker/" class="sidebar-link">
+          ConferenceSpeaker
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/coordinates/" class="sidebar-link">
           Coordinates
         </a>
@@ -590,13 +820,6 @@
       <li>
         <a href="/api/docs/object/fingerprint/" class="sidebar-link">
           Fingerprint
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/hashtagtype/" class="sidebar-link">
-          HashtagType
         </a>
       </li>
       
@@ -686,15 +909,8 @@
       
         
       <li>
-        <a href="/api/docs/object/metric/" class="sidebar-link">
-          Metric
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/metrichistory/" class="sidebar-link">
-          MetricHistory
+        <a href="/api/docs/object/milestone/" class="sidebar-link">
+          Milestone
         </a>
       </li>
       
@@ -840,8 +1056,29 @@
       
         
       <li>
+        <a href="/api/docs/object/proposalmutation/" class="sidebar-link">
+          ProposalMutation
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposalstate/" class="sidebar-link">
+          ProposalState
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/proposalsmutation/" class="sidebar-link">
+          ProposalsMutation
         </a>
       </li>
       
@@ -861,8 +1098,22 @@
       
         
       <li>
+        <a href="/api/docs/object/questionmatrixrow/" class="sidebar-link">
+          QuestionMatrixRow
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/questionnaire/" class="sidebar-link">
           Questionnaire
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/responseoption/" class="sidebar-link">
+          ResponseOption
         </a>
       </li>
       
@@ -973,8 +1224,8 @@
       
         
       <li>
-        <a href="/api/docs/object/timelineentry/" class="sidebar-link">
-          TimelineEntry
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
         </a>
       </li>
       
@@ -1003,62 +1254,6 @@
       <li>
         <a href="/api/docs/object/user/" class="sidebar-link">
           User
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/usergroup/" class="sidebar-link">
-          UserGroup
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonianswer/" class="sidebar-link">
-          VocdoniAnswer
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielection/" class="sidebar-link">
-          VocdoniElection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielectionconnection/" class="sidebar-link">
-          VocdoniElectionConnection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielectionedge/" class="sidebar-link">
-          VocdoniElectionEdge
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonielections/" class="sidebar-link">
-          VocdoniElections
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdoniquestion/" class="sidebar-link">
-          VocdoniQuestion
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/vocdonivoter/" class="sidebar-link">
-          VocdoniVoter
         </a>
       </li>
       
@@ -1108,27 +1303,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -1143,6 +1317,13 @@
         <li>
           <a href="/api/docs/interface/amendableinterface/" class="sidebar-link">
             AmendableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/attachablecollectioninterface/" class="sidebar-link">
+            AttachableCollectionInterface
           </a>
         </li>
       
@@ -1176,13 +1357,6 @@
       
         
         <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
-          </a>
-        </li>
-      
-        
-        <li>
           <a href="/api/docs/interface/coauthorableinterface/" class="sidebar-link">
             CoauthorableInterface
           </a>
@@ -1204,13 +1378,6 @@
       
         
         <li>
-          <a href="/api/docs/interface/endorsableinterface/" class="sidebar-link">
-            EndorsableInterface
-          </a>
-        </li>
-      
-        
-        <li>
           <a href="/api/docs/interface/fingerprintinterface/" class="sidebar-link">
             FingerprintInterface
           </a>
@@ -1218,8 +1385,29 @@
       
         
         <li>
+          <a href="/api/docs/interface/followableinterface/" class="sidebar-link">
+            FollowableInterface
+          </a>
+        </li>
+      
+        
+        <li>
           <a href="/api/docs/interface/initiativetypeinterface/" class="sidebar-link">
             InitiativeTypeInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/likeableinterface/" class="sidebar-link">
+            LikeableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/localizableinterface/" class="sidebar-link">
+            LocalizableInterface
           </a>
         </li>
       
@@ -1253,6 +1441,13 @@
       
         
         <li>
+          <a href="/api/docs/interface/referableinterface/" class="sidebar-link">
+            ReferableInterface
+          </a>
+        </li>
+      
+        
+        <li>
           <a href="/api/docs/interface/scopableinterface/" class="sidebar-link">
             ScopableInterface
           </a>
@@ -1262,6 +1457,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       
@@ -1307,12 +1509,26 @@
     <p><a href="/api/docs/union">Unions</a></p>
     <ul class="menu-root">
       
+      
+      <li>
+        <a href="/api/docs/union/componentmutation/" class="sidebar-link">
+          ComponentMutation
+        </a>
+      </li>
+      
     </ul>
   </li>
 
   <li>
     <p><a href="/api/docs/input_object">Input Objects</a></p>
     <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/answerinput/" class="sidebar-link">
+          AnswerInput
+        </a>
+      </li>
       
       
       <li>
@@ -1360,6 +1576,13 @@
       <li>
         <a href="/api/docs/input_object/postsort/" class="sidebar-link">
           PostSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/proposalattributes/" class="sidebar-link">
+          ProposalAttributes
         </a>
       </li>
       

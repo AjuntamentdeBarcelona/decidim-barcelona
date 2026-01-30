@@ -1,8 +1,35 @@
 ---
 en:
+  census16_authorization_handler:
+    age_under: You must be older than %{min_age} years to verify yourself
+    invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
+  census_authorization_handler:
+    age_under: You must be older than %{min_age} years to verify yourself
+    invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
+  census_kids_authorization_handler:
+    age_under: You must be older than %{min_age} years to verify yourself
+    invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
+  census_sarria_sant_gervasi_authorization_handler:
+    age_under: You must be older than %{min_age} years to verify yourself
+    invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
+  ephemeral_census_authorization_handler:
+    age_under: You must be older than %{min_age} years to verify yourself
+    invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
   decidim:
     authorization_handlers:
-      census_authorization_handler: Census authorization
+      census_authorization_handler:
+        fields:
+          scope_code_1: Ciutat Vella
+          scope_code_2: Eixample
+          scope_code_3: Sants - Montjuïc
+          scope_code_4: Les Corts
+          scope_code_5: Sarrià - Sant Gervasi
+          scope_code_6: Gràcia
+          scope_code_7: Horta - Guinardó
+          scope_code_8: Nou Barris
+          scope_code_9: Sant Andreu
+          scope_code_10: Sant Martí
+        name: Census authorization
     census_authorization_handler:
       document_types:
         dni: DNI
@@ -19,6 +46,11 @@ en:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
   layouts:
     decidim:
+      footer:
+        bcn_logo: Barcelona City Council Logo
+      header:
+        main:
+          organization_logo: Barcelona City Council Logo
       initiative_header_steps:
         signature_collection_period: Recollida de signatures
   locale:

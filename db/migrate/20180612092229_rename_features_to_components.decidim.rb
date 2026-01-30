@@ -1,6 +1,7 @@
-# This migration comes from decidim (originally 20180305132906)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20180305132906)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:12 UTC
 class RenameFeaturesToComponents < ActiveRecord::Migration[5.1]
   class ActionLog < ApplicationRecord
     self.table_name = :decidim_action_logs
@@ -27,6 +28,7 @@ class RenameFeaturesToComponents < ActiveRecord::Migration[5.1]
     ActionLog.find_each do |log|
       new_extra = log.extra.dup
       next if new_extra["component"].present?
+
       new_extra["component"] = new_extra["feature"]
       new_extra.delete("feature")
       log.extra = new_extra

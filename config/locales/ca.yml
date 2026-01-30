@@ -170,6 +170,9 @@ ca:
           success: L'importació de resultats ha finalitzat correctament. Pots revisar
             els resultas en l'interfície d'administració.
       results:
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
         home_header:
           csv_download: Descarregar dades en CSV
     admin:
@@ -353,6 +356,8 @@ ca:
         nie: NIE
         passport: Passaport
     initiatives:
+      actions:
+        vote_comment: Votar el comentari
       admin:
         initiatives_types:
           form:
@@ -381,6 +386,25 @@ ca:
           default: Per defecte?
           enabled: Habilitat
           locale: Idioma
+    components:
+      accountability:
+        actions:
+          vote_comment: Votar el comentari
+      blogs:
+        actions:
+          vote_comment: Votar el comentari
+      budgets:
+        actions:
+          vote_comment: Votar el comentari
+      debates:
+        actions:
+          vote_comment: Votar el comentari
+      meetings:
+        actions:
+          vote_comment: Votar el comentari
+      sortitions:
+        actions:
+          vote_comment: Votar el comentari
     verifications:
       authorizations:
         first_login:
@@ -413,6 +437,9 @@ ca:
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
+      decidim_awesome:
+        awesome_config:
+          taxonomies: Taxonomies
       footer:
         bcn_logo: Logotip de l'Ajuntament de Barcelona
       header:

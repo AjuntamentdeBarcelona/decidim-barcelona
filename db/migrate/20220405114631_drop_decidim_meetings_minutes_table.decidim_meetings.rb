@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_meetings (originally 20210512100333)
 
+# This migration comes from decidim_meetings (originally 20210512100333)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class DropDecidimMeetingsMinutesTable < ActiveRecord::Migration[6.0]
   class Minutes < ApplicationRecord
     self.table_name = "decidim_meetings_minutes"
@@ -73,7 +74,7 @@ end
 private
 
 def blank_minutes?(meeting)
-  meeting.video_url.blank? &&
+  (meeting.video_url.blank? &&
     meeting.audio_url.blank? &&
-    meeting.minutes_description.blank? || meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.all?(&:blank?)
+    meeting.minutes_description.blank?) || (meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.all?(&:blank?))
 end

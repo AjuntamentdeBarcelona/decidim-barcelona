@@ -6,15 +6,15 @@ Gem::Specification.new do |s|
   s.name = "decidim-census_sms"
   s.summary = "A verification workflow for Decidim Barcelona."
   s.description = s.summary
-  s.required_ruby_version = ">= 3.1"
-  s.version = "0.0.3"
+  s.required_ruby_version = ">= 3.3"
+  s.version = "0.0.4"
   s.authors = ["Vera Rojman"]
   s.email = ["vera@platoniq.net"]
 
   s.files = Dir["{app,config,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", "~> 0.29.0"
+  s.add_dependency "decidim-core", "~> 0.31.0"
 
-  s.add_development_dependency "decidim-dev", "~> 0.29.0"
+  s.add_development_dependency "decidim-dev", "~> 0.31.0"
   s.metadata["rubygems_mfa_required"] = "true"
 end
