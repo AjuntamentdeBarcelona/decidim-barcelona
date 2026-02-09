@@ -369,6 +369,10 @@ ca:
       initiative_signatures:
         fill_personal_data:
           document_hint: '* El número de document correspon al document utilizat en la verificació amb el padró (DNI, Passport o NIE).'
+      signatures:
+        workflows:
+          ephemeral_census_authorization:
+            name: Signar sense registre (Padró)
     meetings:
       meetings:
         show:
