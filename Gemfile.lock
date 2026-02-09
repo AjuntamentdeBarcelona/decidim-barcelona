@@ -518,7 +518,7 @@ GEM
       railties (>= 6.1.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.14.0)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -604,7 +604,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jmespath (1.6.2)
-    json (2.10.1)
+    json (2.18.1)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -638,7 +638,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.6)
+    logger (1.7.0)
     lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -677,8 +677,8 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
-    net-http (0.7.0)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     net-imap (0.5.6)
       date
       net-protocol
