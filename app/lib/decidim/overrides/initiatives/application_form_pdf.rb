@@ -114,7 +114,7 @@ module Decidim
           rows = [
             [header_cell(t("type_label")), value_cell(translated_attribute(initiative.type.title))],
             [header_cell(t("scope_label")), value_cell(translated_attribute(initiative.scope&.name).presence || "-")],
-            [header_cell(t("signatures_label")), value_cell(initiative.supports_count)]
+            [header_cell(t("signatures_label")), value_cell(initiative.supports_required)]
           ]
           composer.table(rows, **default_table_style)
         end
