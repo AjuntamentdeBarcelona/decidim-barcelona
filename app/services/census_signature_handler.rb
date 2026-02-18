@@ -4,6 +4,7 @@
 class CensusSignatureHandler < Decidim::Initiatives::SignatureHandler
   AVAILABLE_GENDERS = %w(man woman non_binary).freeze
 
+  attribute :name_and_surname, String
   attribute :document_number, String
   attribute :document_type, Symbol
   attribute :postal_code, String
@@ -11,8 +12,16 @@ class CensusSignatureHandler < Decidim::Initiatives::SignatureHandler
   attribute :date_of_birth, Date
   attribute :gender, String
 
+  validates :date_of_birth, presence: true
+  validates :document_type, inclusion: { in: [:dni, :nie, :passport] }, presence: true
+  validates :document_number, format: { with: /\A[A-z0-9]*\z/ }, presence: true
+  validates :name_and_surname, presence: true
+  validates :postal_code, presence: true, format: { with: /\A[0-9]*\z/ }
+  validates :scope_id, presence: true
+
   def metadata
     {
+      name_and_surname:,
       document_number: sanitized_document_number,
       document_type:,
       postal_code: sanitized_postal_code,

@@ -7,8 +7,12 @@
     <%= form.text_field :document_number %>
   </div>
 
+  <div class="field">
+    <%= form.text_field :name_and_surname %>
+  </div>
+
   <div class="field date">
-    <%= form.date_select :date_of_birth, start_year: 1900, end_year: 14.years.ago.year, default: 35.years.ago, prompt: { day: t("census_authorization.form.date_select.day"), month: t("census_authorization.form.date_select.month"), year: t("census_authorization.form.date_select.year") } %>
+    <%= form.date_select :date_of_birth, start_year: 1900, end_year: 14.years.ago.year, default: 35.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
   </div>
 
   <div class="field">
@@ -17,7 +21,7 @@
 
   <div class="field">
     <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
-    <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t("census_authorization.form.scope_prompt") %>
+    <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
   </div>
 
   <div class="field">
@@ -25,9 +29,9 @@
           :gender,
           CensusAuthorizationHandler::AVAILABLE_GENDERS,
           :to_s,
-          ->(gender) { t("census_authorization.form.genders.#{gender}") },
-          prompt: t("census_authorization.form.gender_prompt")
+          ->(gender) { t(".genders.#{gender}") },
+          prompt: t(".gender_prompt")
         ) %>
-    <p class="help-text"><%= t "census_authorization.form.gender_help" %></p>
+    <p class="help-text"><%= t ".gender_help" %></p>
   </div>
 </div>
