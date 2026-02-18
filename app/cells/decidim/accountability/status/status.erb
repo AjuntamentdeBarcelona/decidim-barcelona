@@ -1,5 +1,7 @@
 <% if options[:show_taxonomy_image] && Shakapacker.manifest.lookup("media/images/taxonomy-#{model.id}.jpg") %>
-  <%= image_pack_tag("media/images/taxonomy-#{model.id}.jpg") %>
+  <div class="-mx-4 -mt-4 aspect-[21/9] overflow-hidden rounded-t">
+    <%= image_pack_tag("media/images/taxonomy-#{model.id}.jpg", class: "w-full h-full object-cover") %>
+  </div>
 <% end %>
 
 <p class="accountability__status-title"><%= title %></p>
