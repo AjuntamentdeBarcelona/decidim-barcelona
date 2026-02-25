@@ -10,12 +10,15 @@ checksums = [
     package: "decidim-accountability",
     files: {
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
+      "/app/cells/decidim/accountability/status/status.erb" => "f9a9e64f6a4c503d6cd8b49cb6f9b197",
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
       "/app/models/decidim/accountability/result.rb" => "bce64abbf8638be72a24ae109794a0df",
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc",
       "/app/views/decidim/accountability/admin/results/_form.html.erb" => "2be2be45ca9ca6b8c15c96ab97d0cd12",
       "/app/views/decidim/accountability/admin/results/index.html.erb" => "50080eca9bc6c3852016c11c97faa1d2",
       "/app/views/decidim/accountability/results/_home_aside.html.erb" => "a74de3e38a3c1bc94f677cb23d29385b",
+      "/app/views/decidim/accountability/results/_one_level_taxonomies.html.erb" => "3285460a675f13d5db1fbe0a39a155fd",
+      "/app/views/decidim/accountability/results/_two_levels_taxonomies.html.erb" => "47b46188786d8ba654ecdba1ab996ebe",
       "/app/views/decidim/participatory_spaces/_result.html.erb" => "7565cfff63e0e70bc7286d86bf5b162e"
     }
   },
