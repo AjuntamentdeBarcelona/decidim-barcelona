@@ -1,0 +1,35 @@
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= proposal_wizard_step_title action_name %>
+  </h1>
+</div>
+
+<%= wizard_steps(@step) %>
+
+<% if @step == :step_4 %>
+    <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
+       if component_settings.proposal_edit_time == "limited"
+         body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+       end %>
+
+  <%= cell(
+    "decidim/announcement",
+    {
+      title: t("decidim.proposals.proposals.preview.announcement_title"),
+      body: body_messages
+    },
+    callout_class: "warning"
+  ) %>
+<% else %>
+  <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
+<% end %>
+
+<% if proposal_wizard_step_help_text?(@step) %>
+  <% callout_step_help_text_class ||= nil %>
+  <%= cell(
+    "decidim/announcement",
+    translated_attribute(component_settings.try("proposal_wizard_#{@step}_help_text")),
+    callout_class: callout_step_help_text_class,
+    id: "proposal_wizard_help_text"
+  ) %>
+<% end %>
