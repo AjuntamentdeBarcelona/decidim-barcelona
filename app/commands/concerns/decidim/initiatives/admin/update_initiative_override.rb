@@ -16,8 +16,7 @@ module Decidim
               description: form.description,
               question: form.question,
               definition: form.definition,
-              reasons: form.reasons,
-              hashtag: form.hashtag
+              reasons: form.reasons
             }
 
             if form.signature_type_updatable?

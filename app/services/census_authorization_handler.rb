@@ -57,7 +57,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   def unique_id
     Digest::MD5.hexdigest(
-      "#{document_number}-#{Rails.application.secrets.secret_key_base}"
+      "#{document_number}-#{Rails.application.secret_key_base}"
     )
   end
 
@@ -112,7 +112,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
     return @response if defined?(@response)
 
-    response ||= Faraday.post Rails.application.secrets.census_url do |request|
+    response ||= Faraday.post Decidim::Env.new("CENSUS_URL").to_s do |request|
       request.headers["Content-Type"] = "text/xml"
       request.body = request_body
     end

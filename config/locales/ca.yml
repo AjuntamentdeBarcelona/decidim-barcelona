@@ -29,6 +29,14 @@ ca:
         document_type: Tipus de document
         gender: Sexe
         postal_code: Codi postal
+      census_signature_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        name_and_surname: Nom i cognoms
+        postal_code: Codi postal
+        scope_id: Districte
       confirmation:
         verification_code: Codi de verificació
       ephemeral_census_authorization_handler:
@@ -36,6 +44,14 @@ ca:
         document_number: Número de document
         document_type: Tipus de document
         gender: Sexe
+        postal_code: Codi postal
+        scope_id: Districte
+      initiative_census_authorization_handler:
+        date_of_birth: Data de naixement
+        document_number: Número de document
+        document_type: Tipus de document
+        gender: Sexe
+        name_and_surname: Nom i cognoms
         postal_code: Codi postal
         scope_id: Districte
       mobile_phone:
@@ -170,6 +186,9 @@ ca:
           success: L'importació de resultats ha finalitzat correctament. Pots revisar
             els resultas en l'interfície d'administració.
       results:
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
         home_header:
           csv_download: Descarregar dades en CSV
     admin:
@@ -290,6 +309,9 @@ ca:
           postal_code: Codi postal
           scope: Districte
         name: El padró (ephemeral)
+      initiative_census_authorization_handler:
+        explanation: Verifica't amb el padró (Signatura d'iniciatives)
+        name: El padró (Signatura d'iniciatives)
     budgets:
       budgets_list:
         see_results: Veure els resultats
@@ -352,7 +374,14 @@ ca:
         dni: DNI
         nie: NIE
         passport: Passaport
+    initiative_census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passaport
     initiatives:
+      actions:
+        vote_comment: Votar el comentari
       admin:
         initiatives_types:
           form:
@@ -362,8 +391,27 @@ ca:
         supports:
           title: Llistat d'adhesions
       initiative_signatures:
+        ephemeral_census_authorization:
+          form:
+            date_select:
+              day: Dia
+              month: Mes
+              year: Any
+            gender_help: Aquestes dades són voluntàries i es demanen en compliment d'allò
+              disposat a l'article 56 de la LLEI 17/2015, del 21 de juliol, d'igualtat efectiva
+              de dones i homes.
+            gender_prompt: Si us plau, selecciona una opció
+            genders:
+              man: Home
+              non_binary: No binari
+              woman: Dona
+            scope_prompt: Si us plau, selecciona el teu districte
         fill_personal_data:
           document_hint: '* El número de document correspon al document utilizat en la verificació amb el padró (DNI, Passport o NIE).'
+      signatures:
+        workflows:
+          ephemeral_census_authorization:
+            name: Signar sense registre (Padró)
     meetings:
       meetings:
         show:
@@ -381,6 +429,25 @@ ca:
           default: Per defecte?
           enabled: Habilitat
           locale: Idioma
+    components:
+      accountability:
+        actions:
+          vote_comment: Votar el comentari
+      blogs:
+        actions:
+          vote_comment: Votar el comentari
+      budgets:
+        actions:
+          vote_comment: Votar el comentari
+      debates:
+        actions:
+          vote_comment: Votar el comentari
+      meetings:
+        actions:
+          vote_comment: Votar el comentari
+      sortitions:
+        actions:
+          vote_comment: Votar el comentari
     verifications:
       authorizations:
         first_login:
@@ -391,6 +458,7 @@ ca:
             census_sarria_sant_gervasi_authorization_handler: Verifica't amb el padró de Sarrià-Sant Gervasi
             census_sms_authorization_handler: Verifica't amb el padró i el teu mòbil
             ephemeral_census_authorization_handler: Verifica't amb el padró (ephemeral)
+            initiative_census_authorization_handler: Verifica't amb el padró (signatura d'iniciatives)
             valid_auth: Valid auth
   ephemeral_census_authorization:
     form:
@@ -411,8 +479,15 @@ ca:
     age_under: Has de ser major de %{min_age} anys per validar-te
     invalid_document: El número de document, el tipus de document, la data de naixement
       o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
+  initiative_census_authorization_handler:
+    age_under: Has de ser major de %{min_age} anys per validar-te
+    invalid_document: El número de document, el tipus de document, la data de naixement
+      o el codi postal són incorrectes. Si us plau, revisa aquestes dades.
   layouts:
     decidim:
+      decidim_awesome:
+        awesome_config:
+          taxonomies: Taxonomies
       footer:
         bcn_logo: Logotip de l'Ajuntament de Barcelona
       header:

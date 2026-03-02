@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_templates (originally 20221006055954)
 
+# This migration comes from decidim_templates (originally 20221006055954)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:14 UTC
 class AddFieldValuesAndTargetToDecidimTemplates < ActiveRecord::Migration[6.0]
   class Template < ApplicationRecord
     self.table_name = :decidim_templates_templates

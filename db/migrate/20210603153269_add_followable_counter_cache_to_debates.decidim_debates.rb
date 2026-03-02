@@ -1,20 +1,18 @@
 # frozen_string_literal: true
-# This migration comes from decidim_debates (originally 20210310120652)
 
+# This migration comes from decidim_debates (originally 20210310120652)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class AddFollowableCounterCacheToDebates < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_debates_debates, :follows_count, :integer, null: false, default: 0, index: true
 
-=begin
-    # This is too slow, it will be done after running all the migrations
     reversible do |dir|
       dir.up do
         Decidim::Debates::Debate.reset_column_information
-        Decidim::Debates::Debate.find_each do |record|
+        Decidim::Debates::Debate.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end
     end
-=end
   end
 end

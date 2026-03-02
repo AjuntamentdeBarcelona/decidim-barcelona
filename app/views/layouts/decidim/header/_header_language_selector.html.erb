@@ -1,6 +1,6 @@
 <% if available_locales.length > 1 %>
   <div class="main-header__language-container">
-    <button id="trigger-dropdown-header-language-chooser" data-component="dropdown" data-target="dropdown-menu-header-language-chooser" class="main-footer__language-trigger">
+    <button id="trigger-dropdown-header-language-chooser" data-controller="dropdown" data-target="dropdown-menu-header-language-chooser" class="main-footer__language-trigger">
       <%= icon "global-line", style: "display:block" %>
       <div class="flex flex-row">
         <span><%= t("name", scope: "locale") %></span>

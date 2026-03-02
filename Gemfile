@@ -2,11 +2,11 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.29-stable-bcn" }.freeze
+DECIDIM_VERSION = "~> 0.31.0"
 
 ruby RUBY_VERSION
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim", git: "https://github.com/AjuntamentdeBarcelona/decidim", branch: "release/0.31-stable-bcn"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
@@ -17,11 +17,11 @@ gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-stats", path: "decidim-stats"
 
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
-gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "release/0.29-stable"
-# gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
-gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "master"
-gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "main"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+# gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/openpoke/decidim-module-term_customizer", branch: "main"
+# gem "decidim-vocdoni", git: "https://github.com/Platoniq/decidim-module-vocdoni", branch: "main"
 
 gem "origami"
 gem "wicked_pdf", "~> 2.7.0"
@@ -55,6 +55,7 @@ group :development do
   gem "capistrano"
   gem "capistrano3-puma", "~> 6.0"
   gem "capistrano-bundler"
+  gem "capistrano-nvm", require: false
   gem "capistrano-passenger"
   gem "capistrano-rails"
   gem "capistrano-rails-console"

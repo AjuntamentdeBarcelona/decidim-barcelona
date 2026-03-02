@@ -231,7 +231,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
         }
       end
       let(:attributes) { personal_data.merge(vote_attributes) }
-      let(:form) { Decidim::Initiatives::VoteForm.from_params(attributes).with_context(context) }
+      let(:form) { Decidim::Initiatives::LegacySignatureHandler.from_params(attributes).with_context(context) }
       let(:handler_name) { described_class.handler_name }
       let(:metadata) do
         {

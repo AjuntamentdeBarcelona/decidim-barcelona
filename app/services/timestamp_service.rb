@@ -77,7 +77,7 @@ class TimestampService
   end
 
   def timestamp_service_url
-    Rails.application.secrets.timestamp_service_url
+    Decidim::Env.new("TIMESTAMP_SERVICE_URL").to_s.presence
   end
 
   def skip_ssl_verification?

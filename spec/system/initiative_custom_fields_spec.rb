@@ -49,15 +49,6 @@ describe "Initiative custom fields display" do
       expect(page).to have_content("Definició de prov")
       expect(page).to have_content("Raons de prov")
     end
-
-    it "displays custom fields in print view" do
-      login_as author, scope: :user
-      visit decidim_initiatives.print_initiative_path(initiative)
-
-      expect(page).to have_content("Pregunta de prov")
-      expect(page).to have_content("Definició de prov")
-      expect(page).to have_content("Raons de prov")
-    end
   end
 
   context "when initiative has legacy description field" do

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_proposals (originally 20190215113158)
 
+# This migration comes from decidim_proposals (originally 20190215113158)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class UseMd5Indexes < ActiveRecord::Migration[5.2]
   def up
     remove_index :decidim_proposals_proposals, name: "decidim_proposals_proposal_title_search"

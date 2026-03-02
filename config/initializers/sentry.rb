@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if Rails.application.secrets.sentry_enabled
+if Decidim::Env.new("SENTRY_ENABLED").present?
   Sentry.init do |config|
     config.dsn = ENV.fetch("SENTRY_DSN", nil)
     config.traces_sample_rate = ENV.fetch("SENTRY_TRACES_SAMPLE_RATE", "0.5").to_f

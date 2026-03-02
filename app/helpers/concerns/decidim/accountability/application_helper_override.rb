@@ -18,12 +18,16 @@ module Decidim
           end
         end
 
-        def categories_label
-          if component_settings.respond_to?(:categories_label) && (text = translated_attribute(component_settings.categories_label).presence)
+        def taxonomies_label
+          if component_settings.respond_to?(:taxonomies_label) && (text = translated_attribute(component_settings.taxonomies_label).presence)
             text
           else
             t("results.home.categories_label", scope: "decidim.accountability")
           end
+        end
+
+        def show_taxonomy_images?
+          (ENV.fetch("PARTICIPATORY_SPACES_WITH_TAXONOMY_IMAGES", "")).split(",").include?(current_participatory_space.slug.to_s)
         end
       end
     end

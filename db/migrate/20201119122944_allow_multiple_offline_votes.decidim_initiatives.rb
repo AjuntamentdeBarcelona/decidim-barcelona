@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_initiatives (originally 20191118105634)
 
+# This migration comes from decidim_initiatives (originally 20191118105634)
+# This file has been modified by `decidim upgrade:migrations` task on 2025-09-01 14:03:13 UTC
 class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
   class InitiativesTypeScope < ApplicationRecord
     self.table_name = :decidim_initiatives_type_scopes
@@ -8,7 +9,7 @@ class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
 
   class Initiative < ApplicationRecord
     self.table_name = :decidim_initiatives
-    belongs_to :scoped_type, foreign_key: "scoped_type_id", class_name: "InitiativesTypeScope"
+    belongs_to :scoped_type, class_name: "InitiativesTypeScope"
   end
 
   def change

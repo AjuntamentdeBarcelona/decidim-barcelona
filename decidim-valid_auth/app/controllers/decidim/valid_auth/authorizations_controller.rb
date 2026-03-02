@@ -32,7 +32,7 @@ module Decidim
       private
 
       def valid_link
-        Rails.application.secrets.valid_auth_url + validate_authorization_url
+        Decidim::Env.new("VALID_AUTH_URL").to_s + validate_authorization_url
       end
 
       def load_authorization

@@ -1,19 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
-  if (ENV["DISABLE_PROPOSAL_CACHING"] || 0).to_i == 1
-    Decidim::Proposals::ProposalLCell.include(Decidim::EmptyCacheHashOverride)
-    Decidim::Proposals::ProposalGCell.include(Decidim::EmptyCacheHashOverride)
-  end
-  Decidim::Budgets::BudgetListItemCell.include(Decidim::Budgets::BudgetListItemCellOverride)
   Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
-  Decidim::InitiativesVotes::VoteCell.include(Decidim::InitiativesVotes::VoteCellOverride)
-  Decidim::Forms::UserAnswersSerializer.prepend(Decidim::Overrides::Forms::UserAnswersSerializer)
+  Decidim::Forms::UserResponsesSerializer.prepend(Decidim::Overrides::Forms::UserResponsesSerializer)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::InitiativesVote.include(Decidim::InitiativesVoteOverride)
   Decidim::Initiatives::InitiativeForm.include(Decidim::Initiatives::InitiativeFormOverride)
@@ -21,10 +15,9 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::CreateInitiative.include(Decidim::Initiatives::CreateInitiativeOverride)
   Decidim::Initiatives::UpdateInitiative.include(Decidim::Initiatives::UpdateInitiativeOverride)
   Decidim::Initiatives::Admin::UpdateInitiative.include(Decidim::Initiatives::Admin::UpdateInitiativeOverride)
-  Decidim::Initiatives::InitiativeSerializer.include(Decidim::Initiatives::InitiativeSerializerOverride)
+  Decidim::Initiatives::OpenDataInitiativeSerializer.include(Decidim::Initiatives::OpenDataInitiativeSerializerOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
-  Decidim::Accountability::StatusCell.include(Decidim::Accountability::StatusCellOverride)
   Decidim::Meetings::Meeting.include(Decidim::Meetings::MeetingOverride)
   Decidim::Meetings::MeetingsController.include(Decidim::Meetings::MeetingsControllerOverride)
   Decidim::Meetings::OnlineMeetingCell.include(Decidim::Meetings::OnlineMeetingCellOverride)
@@ -34,8 +27,10 @@ Rails.application.config.to_prepare do
   Decidim::ActivitiesCell.include(Decidim::ActivitiesCellOverride)
   Decidim::UserProfileCell.include(Decidim::UserProfileCellOverride)
   Decidim::Proposals::ProposalPresenter.include(Decidim::Proposals::ProposalPresenterOverride)
-  Decidim::Forms::QuestionnaireUserAnswers.include(Decidim::Forms::QuestionnaireUserAnswersOverride)
+  Decidim::Forms::QuestionnaireUserResponses.include(Decidim::Forms::QuestionnaireUserResponsesOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
+  Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
+  Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
 end
