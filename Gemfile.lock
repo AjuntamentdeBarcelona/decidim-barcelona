@@ -161,10 +161,10 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 9ce4acae26a1161799cd0fc9ac767dcbaa11eadf
+  revision: 531ba55d95ddeadaebaf2ee068c46b5247851f58
   branch: main
   specs:
-    decidim-decidim_awesome (0.14.0)
+    decidim-decidim_awesome (0.14.1)
       active_hashcash (~> 0.4.0)
       decidim-admin (>= 0.31.0, < 0.32)
       decidim-core (>= 0.31.0, < 0.32)
