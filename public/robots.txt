@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /profiles/
 Disallow: /search
+Disallow: /meetings
 Disallow: /processes/1/f/1/proposals
 Disallow: /processes/pam/f/1/proposals
 Disallow: /processes/78/f/3733/proposals
@@ -21,6 +22,10 @@ Disallow: /assemblies/476/f/5426/proposals
 Disallow: /assemblies/sectorempresarial/f/5426/proposals
 Disallow: /assemblies/481/f/5789/proposals
 Disallow: /assemblies/consell-esport/f/5789/proposals
+Disallow: /assemblies/673/f/6863/debates/263
+Disallow: /assemblies/parlaamblalcalde/f/6863/debates/263
+Disallow: /assemblies/673/f/6863/debates/268
+Disallow: /assemblies/parlaamblalcalde/f/6863/debates/268
 
 User-agent: AhrefsBot
 Disallow: /
