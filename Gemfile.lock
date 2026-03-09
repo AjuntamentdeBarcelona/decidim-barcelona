@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: 1414b90ba18706db303bf1f20fc1a34cf634fe5a
+  revision: 581a2ee43219bc37544bd0bf28cc0e7254bf25b3
   branch: feature/paginated-comments
   specs:
     decidim (0.31.2)
