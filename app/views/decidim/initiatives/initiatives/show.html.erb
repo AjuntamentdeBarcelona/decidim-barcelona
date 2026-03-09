@@ -52,9 +52,11 @@
       </section>
     <% end %>
 
-    <section class="layout-aside__section">
-      <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
-    </section>
+    <% if current_initiative.open? || current_initiative.accepted? %>
+      <section class="layout-aside__section">
+        <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
+      </section>
+    <% end %>
 
     <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
       <div class="layout-aside__section">

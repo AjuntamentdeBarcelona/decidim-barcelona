@@ -68,7 +68,7 @@ checksums = [
       "/app/commands/decidim/initiatives/update_initiative.rb" => "c896e47fe1a483e84fc322415fe9fbe1",
       "/app/forms/decidim/initiatives/admin/initiative_form.rb" => "1d64b4f288d01ae9a92e2e4d21f255ae",
       "/app/forms/decidim/initiatives/initiative_form.rb" => "f2639ec62a47d846487fc4c13515ee67",
-      "/app/models/decidim/initiative.rb" => "76a878c0ca29045f95c54fc1ccaaeb66",
+      "/app/models/decidim/initiative.rb" => "a40cde635a1b6072ab0a4ee108776e96",
       "/app/models/decidim/initiatives_vote.rb" => "38089ef62a1a9fd2cdf32592eb069529",
       "/app/permissions/decidim/initiatives/admin/permissions.rb" => "54a861b5666c067fc14a800358957620",
       "/app/serializers/decidim/initiatives/open_data_initiative_serializer.rb" => "5e213e9ad04444b4ed9495be7fdcdfc9",
@@ -78,7 +78,7 @@ checksums = [
       "/app/views/decidim/initiatives/create_initiative/fill_data.html.erb" => "97647ae2df8ee7d06a055146b7889167",
       "/app/views/decidim/initiatives/initiatives/_form.html.erb" => "bb622b91163bfc35c11f75415927a93e",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
-      "/app/views/decidim/initiatives/initiatives/show.html.erb" => "367a5a49123d8b37c22a15f9a9f3dc19",
+      "/app/views/decidim/initiatives/initiatives/show.html.erb" => "4f8c5bd84ec781b3ef79f854be4fbb64",
       "/lib/decidim/exporters/initiative_votes_pdf.rb" => "403878d9e4e31e6e80f26ae6af54df5a",
       "/lib/decidim/initiatives/application_form_pdf.rb" => "aeb6955c0fddfba398bad252e6359e32"
     }
