@@ -1,7 +1,7 @@
-FROM ruby:3.2.6
+FROM ruby:3.3.4
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV NODE_MAJOR=18
+ENV NODE_MAJOR=22
 
 # Install system dependencies
 RUN apt-get update -qq && apt-get install -y \
@@ -40,7 +40,7 @@ ADD ./decidim-census_sms/decidim-census_sms.gemspec /app/decidim-census_sms/deci
 ADD ./decidim-dataviz/decidim-dataviz.gemspec /app/decidim-dataviz/decidim-dataviz.gemspec
 ADD ./decidim-stats/decidim-stats.gemspec /app/decidim-stats/decidim-stats.gemspec
 ADD ./decidim-valid_auth/decidim-valid_auth.gemspec /app/decidim-valid_auth/decidim-valid_auth.gemspec
-RUN gem install bundler:2.4.19
+RUN gem install bundler:2.7.2
 RUN bundle install
 
 # Copy all the code to /app

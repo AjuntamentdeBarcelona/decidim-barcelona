@@ -30,8 +30,8 @@
   },
   "version": "0.1.0",
   "engines": {
-    "node": "18.17.1",
-    "npm": "9.6.7",
+    "node": "~22.14",
+    "npm": "~10.9",
     "yarn": "~1.22.1"
   },
   "browserslist": [
