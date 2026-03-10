@@ -148,6 +148,8 @@ Rails.application.configure do
 
   if ENV["STAGING_PASSWORD"].present?
     # Block users that do not know a given password
-    config.middleware.use RackPassword::Block, auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)]
+    config.middleware.use RackPassword::Block,
+                          auth_codes: [ENV.fetch("STAGING_PASSWORD", nil)],
+                          custom_rule: ->(request) { request.xhr? }
   end
 end
