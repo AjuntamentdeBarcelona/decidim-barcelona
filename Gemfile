@@ -8,6 +8,7 @@ ruby RUBY_VERSION
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
@@ -89,3 +90,4 @@ group :test do
   gem "database_cleaner"
   gem "rspec"
 end
+

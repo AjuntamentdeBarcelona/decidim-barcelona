@@ -446,23 +446,6 @@ if Decidim.module_installed? :initiatives
   end
 end
 
-if Decidim.module_installed? :elections
-  Decidim::Elections.configure do |config|
-    config.setup_minimum_hours_before_start = ENV.fetch("ELECTIONS_SETUP_MINIMUM_HOURS_BEFORE_START", "3").to_i
-    config.start_vote_maximum_hours_before_start = ENV.fetch("ELECTIONS_START_VOTE_MAXIMUM_HOURS_BEFORE_START", "6").to_i
-    config.voter_token_expiration_minutes = ENV.fetch("ELECTIONS_VOTER_TOKEN_EXPIRATION_MINUTES", "120").to_i
-  end
-
-  Decidim::Votings.configure do |config|
-    config.check_census_max_requests = ENV.fetch("ELECTIONS_VOTINGS_CHECK_CENSUS_MAX_REQUESTS", "5").to_i
-    config.throttling_period = ENV.fetch("ELECTIONS_VOTINGS_THROTTLING_PERIOD", "1").to_i.minutes
-  end
-
-  Decidim::Votings::Census.configure do |config|
-    config.census_access_codes_export_expiry_time = ENV.fetch("ELECTIONS_VOTINGS_CENSUS_ACCESS_CODES_EXPORT_EXPIRY_TIME", "2").to_i.days
-  end
-end
-
 if Decidim.module_installed? :verifications
   Decidim::Verifications.configure do |config|
     config.document_types = if ENV["VERIFICATIONS_DOCUMENT_TYPES"].present?

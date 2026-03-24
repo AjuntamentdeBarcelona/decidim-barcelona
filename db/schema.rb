@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_09_131158) do
+ActiveRecord::Schema[7.2].define(version: 2026_03_24_083258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -776,6 +776,74 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_09_131158) do
     t.datetime "updated_at", null: false
     t.index ["decidim_author_id"], name: "decidim_editor_images_author"
     t.index ["decidim_organization_id"], name: "decidim_editor_images_constraint_organization"
+  end
+
+  create_table "decidim_elections_elections", force: :cascade do |t|
+    t.integer "decidim_component_id"
+    t.jsonb "title"
+    t.jsonb "description"
+    t.jsonb "announcement"
+    t.datetime "start_at", precision: nil
+    t.datetime "end_at", precision: nil
+    t.string "results_availability", default: "after_end", null: false
+    t.datetime "published_at", precision: nil
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "census_manifest"
+    t.jsonb "census_settings", default: {}, null: false
+    t.datetime "published_results_at"
+    t.integer "votes_count", default: 0, null: false
+    t.index ["census_manifest"], name: "index_decidim_elections_elections_on_census_manifest"
+    t.index ["deleted_at"], name: "index_decidim_elections_elections_on_deleted_at"
+    t.index ["end_at"], name: "index_decidim_elections_elections_on_end_at"
+    t.index ["published_at"], name: "index_decidim_elections_elections_on_published_at"
+    t.index ["start_at"], name: "index_decidim_elections_elections_on_start_at"
+  end
+
+  create_table "decidim_elections_questions", force: :cascade do |t|
+    t.bigint "election_id", null: false
+    t.jsonb "body", default: {}, null: false
+    t.jsonb "description", default: {}
+    t.boolean "mandatory", default: false, null: false
+    t.string "question_type", default: "multiple_option", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "published_results_at"
+    t.datetime "voting_enabled_at"
+    t.integer "votes_count", default: 0, null: false
+    t.integer "response_options_count", default: 0, null: false
+    t.index ["election_id"], name: "index_questions_on_election_id"
+  end
+
+  create_table "decidim_elections_response_options", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.jsonb "body", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "votes_count", default: 0, null: false
+    t.index ["question_id"], name: "index_response_options_on_question_id"
+  end
+
+  create_table "decidim_elections_voters", force: :cascade do |t|
+    t.bigint "election_id", null: false
+    t.jsonb "data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["election_id"], name: "index_decidim_elections_voters_on_election_id"
+  end
+
+  create_table "decidim_elections_votes", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "response_option_id", null: false
+    t.string "voter_uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id", "voter_uid", "response_option_id"], name: "index_elections_votes_on__voter_uid_and_response", unique: true
+    t.index ["question_id"], name: "index_decidim_elections_votes_on_question_id"
+    t.index ["response_option_id"], name: "index_decidim_elections_votes_on_response_option_id"
+    t.index ["voter_uid"], name: "index_decidim_elections_votes_on_voter_uid"
   end
 
   create_table "decidim_follows", force: :cascade do |t|
@@ -2343,6 +2411,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_09_131158) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_elections_questions", "decidim_elections_elections", column: "election_id"
+  add_foreign_key "decidim_elections_response_options", "decidim_elections_questions", column: "question_id"
+  add_foreign_key "decidim_elections_voters", "decidim_elections_elections", column: "election_id"
+  add_foreign_key "decidim_elections_votes", "decidim_elections_questions", column: "question_id"
+  add_foreign_key "decidim_elections_votes", "decidim_elections_response_options", column: "response_option_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_kids_minor_accounts", "decidim_users", column: "decidim_minor_id"
