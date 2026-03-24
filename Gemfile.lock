@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim
-  revision: cd58543e9853d73d806d6de8670f87ded444f9e3
+  revision: 0e243f7b2d991d8a0885edea5d4e5746f889db07
   branch: release/0.31-stable-bcn
   specs:
     decidim (0.31.2)
@@ -153,6 +153,10 @@ GIT
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
+    decidim-elections (0.31.2)
+      decidim-admin (= 0.31.2)
+      decidim-core (= 0.31.2)
+      decidim-forms (= 0.31.2)
     decidim-forms (0.31.2)
       decidim-core (= 0.31.2)
     decidim-generators (0.31.2)
@@ -1183,6 +1187,7 @@ DEPENDENCIES
   decidim-dataviz!
   decidim-decidim_awesome!
   decidim-dev!
+  decidim-elections!
   decidim-initiatives!
   decidim-internal_evaluation!
   decidim-kids!
