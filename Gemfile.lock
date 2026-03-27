@@ -826,7 +826,7 @@ GEM
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
     prettyprint (0.2.0)
-    prism (1.8.0)
+    prism (1.9.0)
     progressbar (1.13.0)
     psych (5.3.1)
       date
@@ -908,8 +908,10 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rbs (3.9.4)
+    rbs (4.0.2)
       logger
+      prism (>= 1.6.0)
+      tsort
     rdoc (7.1.0)
       erb
       psych (>= 4.0.0)
@@ -1009,7 +1011,7 @@ GEM
     rubocop-rubycw (0.2.2)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    ruby-lsp (0.26.1)
+    ruby-lsp (0.26.9)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 5)
