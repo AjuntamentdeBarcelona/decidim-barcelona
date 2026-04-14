@@ -32,18 +32,25 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "92fcbb653e524ac19af32c7be9a73882"
+      "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "92fcbb653e524ac19af32c7be9a73882",
+      "/app/helpers/decidim/assemblies/assemblies_helper.rb" => "eb67b3c8d3691ffe518555afb3d401a7"
+    }
+  },
+  {
+    package: "decidim-participatory_processes",
+    files: {
+      "/app/helpers/decidim/participatory_processes/participatory_process_helper.rb" => "4eb6ef6ebb0464ba4bac6abc25f795f7"
     }
   },
   {
     package: "decidim-core",
     files: {
+      "/app/cells/decidim/card_metadata_cell.rb" => "bc17decb622eac3f7974708b348e60b1",
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "1133508a27279abcc0871f25d6ac3bd8",
       "/app/cells/decidim/user_profile_cell.rb" => "0f20d006ccf4df77c59e3a2333a28a10",
       "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/paginate_helper.rb" => "d7a08fda6fff5c0e43fbea2a83cd5346",
-      "/app/helpers/decidim/sanitize_helper.rb" => "1678d150d24431215c410cd8b1677be0",
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "7edc1be320cdd9605bec4e0caba132d5",
       "/app/views/layouts/decidim/footer/_mini.html.erb" => "c67cc97db27cdcf926f60682e399f688",
       "/app/views/layouts/decidim/header/_main.html.erb" => "a090eeca739613446d2eab8f4de513b1",
@@ -63,6 +70,7 @@ checksums = [
   {
     package: "decidim-initiatives",
     files: {
+      "/app/helpers/decidim/initiatives/initiatives_helper.rb" => "97e56053e5efad3ec3caf3dd3301f841",
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/commands/decidim/initiatives/admin/update_initiative.rb" => "951ffea897cc47bae5a2bfc7952ac0d3",
       "/app/commands/decidim/initiatives/create_initiative.rb" => "b9787dcddb50c802e12a3425dffd6528",
