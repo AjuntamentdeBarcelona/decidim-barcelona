@@ -418,6 +418,13 @@ es:
     sms:
       text: 'Tu código para verificarte en Decidim Barcelona es: %{code}'
     system:
+      dashboard:
+        show:
+          cache: Caché
+          clear_cache: Limpiar caché
+          clear_cache_confirmation: Limpiar la caché empeorará temporalmente el rendimiento mientras se reconstruye. ¿Estás segura de que quieres continuar?
+      cache:
+        clear_success: La caché se ha limpiado correctamente.
       organizations:
         edit:
           title: Editar organización
