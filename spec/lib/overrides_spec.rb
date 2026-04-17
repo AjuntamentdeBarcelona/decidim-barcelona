@@ -110,7 +110,8 @@ checksums = [
     package: "decidim-proposals",
     files: {
       "/app/helpers/decidim/proposals/application_helper.rb" => "6210b3b088bec19e76fda73d42297ccc",
-      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "400df0fffc5fa1b52ef09344409d5c78"
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "400df0fffc5fa1b52ef09344409d5c78",
+      "/app/views/decidim/proposals/proposals/_wizard_header.html.erb" => "60700214b35bbca30979a1ca4d0b0bb6"
     }
   },
   {
