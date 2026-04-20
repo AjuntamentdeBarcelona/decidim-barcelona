@@ -117,7 +117,9 @@ checksums = [
     package: "decidim-system",
     files: {
       "/app/cells/decidim/system/system_checks_cell.rb" => "42e1b5525b5a9df1705cae3ef29ad9c4",
-      "/app/forms/decidim/system/base_organization_form.rb" => "7746537171d886d9e7e9fc6d798012e7"
+      "/app/controllers/decidim/system/dashboard_controller.rb" => "558a911b6805540a360ec65aa9df1ad0",
+      "/app/forms/decidim/system/base_organization_form.rb" => "7746537171d886d9e7e9fc6d798012e7",
+      "/app/views/decidim/system/dashboard/show.html.erb" => "a125b7d7dbdcb2bbf0e4292baa8e3c33"
     }
   },
   {

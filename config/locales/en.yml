@@ -16,6 +16,14 @@ en:
     age_under: You must be older than %{min_age} years to verify yourself
     invalid_document: The document number, document type, date of birth or postal code are incorrect. Please check these details.
   decidim:
+    system:
+      dashboard:
+        show:
+          cache: Cache
+          clear_cache: Clear cache
+          clear_cache_confirmation: Clearing the cache will temporarily degrade performance while it is rebuilt. Are you sure you want to proceed?
+      cache:
+        clear_success: Cache has been successfully cleared.
     authorization_handlers:
       census_authorization_handler:
         fields:

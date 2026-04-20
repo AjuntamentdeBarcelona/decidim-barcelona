@@ -50,6 +50,12 @@ Rails.application.routes.draw do
     post :import_results, to: "decidim/accountability/admin/import_results#create"
   end
 
+  Decidim::System::Engine.routes.draw do
+    authenticate(:admin) do
+      resource :cache, only: [:destroy]
+    end
+  end
+
   mount Decidim::Core::Engine => "/"
   mount Decidim::Stats::Engine, at: "/stats", as: "decidim_stats"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

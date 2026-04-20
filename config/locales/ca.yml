@@ -422,6 +422,13 @@ ca:
     sms:
       text: 'El teu codi per verificar-te a Decidim Barcelona és: %{code}'
     system:
+      dashboard:
+        show:
+          cache: Memòria cau
+          clear_cache: Netejar memòria cau
+          clear_cache_confirmation: Netejar la memòria cau empitjorarà temporalment el rendiment mentre es reconstrueix. Estàs segura que vols continuar?
+      cache:
+        clear_success: La memòria cau s'ha netejat correctament.
       organizations:
         edit:
           title: Edita organització
