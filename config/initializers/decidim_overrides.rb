@@ -37,4 +37,5 @@ Rails.application.config.to_prepare do
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
   Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
+  Decidim::Verifications::AuthorizationsController.include(Decidim::Verifications::AuthorizationsControllerOverride)
 end
