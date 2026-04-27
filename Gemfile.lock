@@ -234,6 +234,18 @@ GIT
       sassc (~> 2.3)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-extra_censuses
+  revision: ccfab5ce6e45a31a5d390e28e9b3c20ab66a406c
+  branch: main
+  specs:
+    decidim-extra_censuses (0.1.0)
+      decidim-admin (>= 0.31.0, < 0.32)
+      decidim-core (>= 0.31.0, < 0.32)
+      decidim-elections (>= 0.31.0, < 0.32)
+      decidim-surveys (>= 0.31.0, < 0.32)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
   revision: 8cd8bafc273b34ff7dae7c0dcbf231062aa68466
   branch: main
@@ -1188,6 +1200,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev!
   decidim-elections!
+  decidim-extra_censuses!
   decidim-initiatives!
   decidim-internal_evaluation!
   decidim-kids!
