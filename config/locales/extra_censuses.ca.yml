@@ -1,0 +1,138 @@
+ca:
+  activemodel:
+    attributes:
+      custom_csv:
+        columns: Columnes
+        file: Fitxer
+        remove_all: Elimina totes les dades actuals del cens
+    errors:
+      models:
+        custom_csv:
+          attributes:
+            columns:
+              blank_name: La columna %{index} ha de tenir un nom
+              invalid_type: 'La columna %{index} té un tipus no vàlid: %{type}'
+              voters_exist: No es pot canviar la configuració mentre existeixin dades
+                al cens. Elimina primer les dades existents.
+            file:
+              columns_not_configured: Configura primer les columnes
+              extra_columns: 'Columnes inesperades al CSV: %{columns}. Utilitza només
+                les columnes configurades.'
+              malformed_csv: 'El fitxer CSV està mal format: %{message}'
+              missing_columns: 'Falten columnes al CSV: %{columns}'
+              validation_error: 'Fila %{row}, columna ''%{column}'': %{error}'
+              voters_exist: No es pot pujar el fitxer mentre existeixin dades al cens.
+                Elimina primer les dades existents.
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          census_updates: Actualitzacions del cens
+    elections:
+      admin:
+        census:
+          update:
+            success_config_only: Configuració del cens desada. Puja un fitxer CSV per
+              completar la configuració.
+        census_updates:
+          create:
+            error: S'ha produït un error en crear l'entrada
+            success: Entrada creada correctament
+          destroy:
+            success: Entrada eliminada correctament
+          errors:
+            already_exists: Ja existeix una entrada amb aquestes dades
+            blank_column: "%{column} no pot estar en blanc"
+          index:
+            actions: Accions
+            clear: Neteja
+            confirm_delete: Estàs segur que vols eliminar aquesta entrada?
+            created_at: Creat el
+            delete: Elimina
+            entries_count:
+              one: 1 entrada única
+              other: "%{count} entrades úniques"
+            import_from_survey: Importa des d'enquesta
+            new_entry: Nova entrada
+            search: Cerca
+            search_placeholder: Cerca...
+            title: Estat del cens
+            user_identifier: Identificador d'usuari
+          new:
+            cancel: Cancel·la
+            create: Crea entrada
+            title: Nova entrada de cens
+        censuses:
+          column_row:
+            column_name: 'Nom de la columna:'
+            column_type: 'Tipus de columna:'
+            delete: Elimina
+          custom_csv_form:
+            cancel: Cancel·la
+            census_attributes: Atributs del cens
+            column_types:
+              alphanumeric: Només text A-Z 0-9
+              date: Data
+              free_text: Entrada de text lliure
+              number: Número
+              text_trim: Text (elimina espais)
+            current_configuration: Configuració actual
+            description: Crea el teu propi cens amb atributs personalitzats. El requisit
+              principal és que la combinació d'atributs sigui única (no hi pot haver
+              2 files amb la mateixa combinació)
+            edit_columns: Edita columnes
+            new_column: "+ Nova columna"
+            remove_before_upload: Si vols pujar un nou cens o canviar la configuració,
+              primer has d'eliminar les dades existents.
+            save_configuration: Desa la configuració
+            upload_description_html: Ha de ser un fitxer en format CSV amb les columnes
+              definides a dalt. Ha d'estar separat per punt i coma (;)
+            upload_file: Puja fitxer
+            upload_title: Puja un fitxer CSV
+        survey_imports:
+          create:
+            error: No s'ha pogut desar la configuració
+            success: Configuració d'importació d'enquesta desada correctament
+          errors:
+            question_not_found: No s'han trobat una o més preguntes mapejades
+            unmapped_column: La columna '%{column}' ha d'estar mapejada a una pregunta
+          import:
+            no_valid_entries: No hi ha entrades vàlides per importar
+            success: La importació de %{count} entrades s'ha encuat i es processarà
+              en segon pla
+          index:
+            back_to_census: Torna al cens
+            cancel: Cancel·la
+            change_survey: Canvia d'enquesta
+            import_count:
+              one: Importa 1 entrada
+              other: Importa %{count} entrades
+            no_responses: No s'han trobat respostes a l'enquesta seleccionada
+            no_valid_entries: No hi ha entrades vàlides per importar. Totes les respostes
+              estan incompletes o ja existeixen al cens.
+            ready_to_import: A punt per importar
+            skipped: Omès
+            title: Importa des d'enquesta
+          new:
+            cancel: Cancel·la
+            census_column: Columna del cens
+            field_mapping: Mapeig de camps
+            field_mapping_description: Assigna cada columna del cens a una pregunta
+              corresponent de l'enquesta
+            no_columns_warning: Configura primer les columnes del cens abans de configurar
+              la importació de l'enquesta
+            no_surveys_warning: No s'han trobat components d'enquesta en aquest espai
+              participatiu. Crea primer una enquesta.
+            save_configuration: Desa la configuració
+            select_component: Selecciona un component d'enquesta
+            select_question: Selecciona una pregunta
+            select_survey: Selecciona una enquesta
+            survey: Enquesta
+            survey_component: Component d'enquesta
+            survey_question: Pregunta de l'enquesta
+            title: Configura la importació des d'enquesta
+      censuses:
+        custom_csv:
+          label: CSV personalitzat
+        custom_csv_form:
+          invalid: Les dades proporcionades no coincideixen amb cap votant registrat

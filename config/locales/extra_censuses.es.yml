@@ -1,0 +1,138 @@
+es:
+  activemodel:
+    attributes:
+      custom_csv:
+        columns: Columnas
+        file: Archivo
+        remove_all: Eliminar todos los datos del censo actual
+    errors:
+      models:
+        custom_csv:
+          attributes:
+            columns:
+              blank_name: La columna %{index} debe tener un nombre
+              invalid_type: 'La columna %{index} tiene un tipo no válido: %{type}'
+              voters_exist: No se puede cambiar la configuración mientras existan datos
+                en el censo. Elimina primero los datos existentes.
+            file:
+              columns_not_configured: Configura primero las columnas
+              extra_columns: 'Columnas inesperadas en el CSV: %{columns}. Utiliza únicamente
+                las columnas configuradas.'
+              malformed_csv: 'El archivo CSV está mal formado: %{message}'
+              missing_columns: 'Faltan columnas en el CSV: %{columns}'
+              validation_error: 'Fila %{row}, columna ''%{column}'': %{error}'
+              voters_exist: No se puede subir el archivo mientras existan datos en el
+                censo. Elimina primero los datos existentes.
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          census_updates: Actualizaciones del censo
+    elections:
+      admin:
+        census:
+          update:
+            success_config_only: Configuración del censo guardada. Sube un archivo CSV
+              para completar la configuración.
+        census_updates:
+          create:
+            error: Se ha producido un error al crear la entrada
+            success: Entrada creada correctamente
+          destroy:
+            success: Entrada eliminada correctamente
+          errors:
+            already_exists: Ya existe una entrada con estos datos
+            blank_column: "%{column} no puede estar en blanco"
+          index:
+            actions: Acciones
+            clear: Limpiar
+            confirm_delete: ¿Estás seguro de que quieres eliminar esta entrada?
+            created_at: Creado el
+            delete: Eliminar
+            entries_count:
+              one: 1 entrada única
+              other: "%{count} entradas únicas"
+            import_from_survey: Importar desde encuesta
+            new_entry: Nueva entrada
+            search: Buscar
+            search_placeholder: Buscar...
+            title: Estado del censo
+            user_identifier: Identificador de usuario
+          new:
+            cancel: Cancelar
+            create: Crear entrada
+            title: Nueva entrada de censo
+        censuses:
+          column_row:
+            column_name: 'Nombre de la columna:'
+            column_type: 'Tipo de columna:'
+            delete: Eliminar
+          custom_csv_form:
+            cancel: Cancelar
+            census_attributes: Atributos del censo
+            column_types:
+              alphanumeric: Solo texto A-Z 0-9
+              date: Fecha
+              free_text: Entrada de texto libre
+              number: Número
+              text_trim: Texto (eliminar espacios)
+            current_configuration: Configuración actual
+            description: Crea tu propio censo con atributos personalizados. El requisito
+              principal es que la combinación de atributos sea única (no puede haber
+              2 filas con la misma combinación)
+            edit_columns: Editar columnas
+            new_column: "+ Nueva columna"
+            remove_before_upload: Si quieres subir un nuevo censo o cambiar la configuración,
+              primero debes eliminar los datos existentes.
+            save_configuration: Guardar configuración
+            upload_description_html: Debe ser un archivo en formato CSV con las columnas
+              definidas arriba. Debe estar separado por punto y coma (;)
+            upload_file: Subir archivo
+            upload_title: Sube un archivo CSV
+        survey_imports:
+          create:
+            error: No se ha podido guardar la configuración
+            success: Configuración de importación de encuesta guardada correctamente
+          errors:
+            question_not_found: No se han encontrado una o más preguntas mapeadas
+            unmapped_column: La columna '%{column}' debe estar mapeada a una pregunta
+          import:
+            no_valid_entries: No hay entradas válidas para importar
+            success: La importación de %{count} entradas se ha encolado y se procesará
+              en segundo plano
+          index:
+            back_to_census: Volver al censo
+            cancel: Cancelar
+            change_survey: Cambiar encuesta
+            import_count:
+              one: Importar 1 entrada
+              other: Importar %{count} entradas
+            no_responses: No se han encontrado respuestas en la encuesta seleccionada
+            no_valid_entries: No hay entradas válidas para importar. Todas las respuestas
+              están incompletas o ya existen en el censo.
+            ready_to_import: Listo para importar
+            skipped: Omitido
+            title: Importar desde encuesta
+          new:
+            cancel: Cancelar
+            census_column: Columna del censo
+            field_mapping: Mapeo de campos
+            field_mapping_description: Asigna cada columna del censo a una pregunta
+              correspondiente de la encuesta
+            no_columns_warning: Configura primero las columnas del censo antes de configurar
+              la importación de la encuesta
+            no_surveys_warning: No se han encontrado componentes de encuesta en este
+              espacio participativo. Crea primero una encuesta.
+            save_configuration: Guardar configuración
+            select_component: Selecciona un componente de encuesta
+            select_question: Selecciona una pregunta
+            select_survey: Selecciona una encuesta
+            survey: Encuesta
+            survey_component: Componente de encuesta
+            survey_question: Pregunta de la encuesta
+            title: Configurar importación desde encuesta
+      censuses:
+        custom_csv:
+          label: CSV personalizado
+        custom_csv_form:
+          invalid: Los datos proporcionados no coinciden con ningún votante registrado
