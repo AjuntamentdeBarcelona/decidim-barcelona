@@ -116,6 +116,12 @@ checksums = [
     }
   },
   {
+    package: "decidim-verifications",
+    files: {
+      "/app/controllers/decidim/verifications/authorizations_controller.rb" => "cfcb7af376bda64dbd3e2d5db87c6859"
+    }
+  },
+  {
     package: "decidim-system",
     files: {
       "/app/cells/decidim/system/system_checks_cell.rb" => "42e1b5525b5a9df1705cae3ef29ad9c4",
