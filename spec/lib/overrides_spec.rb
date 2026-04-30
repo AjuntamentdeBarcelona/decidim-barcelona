@@ -120,6 +120,15 @@ checksums = [
     }
   },
   {
+    # fix census permissions in surveys https://github.com/decidim/decidim/pull/16671
+    package: "decidim-surveys",
+    files: {
+      "/app/controllers/decidim/surveys/surveys_controller.rb" => "78f245485d5c50e6a51a15c30452f5c7",
+      "/app/helpers/decidim/surveys/survey_helper.rb" => "e739d31a79e5d1efe835b4037344566b",
+      "/app/views/decidim/surveys/surveys/no_permission.html.erb" => "d006a82a44ebd343092b322c3b87b6cb"
+    }
+  },
+  {
     package: "decidim-system",
     files: {
       "/app/cells/decidim/system/system_checks_cell.rb" => "42e1b5525b5a9df1705cae3ef29ad9c4",

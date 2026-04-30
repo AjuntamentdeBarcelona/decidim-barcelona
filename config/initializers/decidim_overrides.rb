@@ -38,4 +38,6 @@ Rails.application.config.to_prepare do
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
   Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
   Decidim::Verifications::AuthorizationsController.include(Decidim::Verifications::AuthorizationsControllerOverride)
+  Decidim::Surveys::SurveysController.include(Decidim::Surveys::SurveysControllerOverride)
+  Decidim::Surveys::SurveyHelper.include(Decidim::Surveys::SurveyHelperOverride)
 end
