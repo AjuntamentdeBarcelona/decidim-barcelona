@@ -110,7 +110,9 @@ checksums = [
     package: "decidim-proposals",
     files: {
       "/app/helpers/decidim/proposals/application_helper.rb" => "6210b3b088bec19e76fda73d42297ccc",
-      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "400df0fffc5fa1b52ef09344409d5c78"
+      "/app/presenters/decidim/proposals/proposal_presenter.rb" => "400df0fffc5fa1b52ef09344409d5c78",
+      "/app/views/decidim/proposals/proposals/_votes_count.html.erb" => "f5247f762666de9cf09635fce3a13ce7", # Delete this once the core PR is merged (https://github.com/decidim/decidim/pull/16650)
+      "/app/cells/decidim/proposals/proposal_vote/show.erb" => "b8b19a77296da757ea0e827d6decd596" # Delete this once the core PR is merged (https://github.com/decidim/decidim/pull/16650)
     }
   },
   {
