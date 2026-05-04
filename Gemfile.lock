@@ -243,7 +243,6 @@ GIT
       decidim-core (>= 0.31.0, < 0.32)
       decidim-elections (>= 0.31.0, < 0.32)
       decidim-surveys (>= 0.31.0, < 0.32)
-      deface (>= 1.5)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
@@ -744,7 +743,7 @@ GEM
       bigdecimal (>= 3.1, < 5)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.2)
+    net-imap (0.6.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -1109,7 +1108,7 @@ GEM
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.5.0)
     tilt (2.7.0)
-    timeout (0.6.0)
+    timeout (0.6.1)
     tomlrb (2.0.3)
     trailblazer-option (0.1.2)
     tsort (0.2.0)
