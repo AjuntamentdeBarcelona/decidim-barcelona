@@ -301,6 +301,7 @@ es:
           scope_id: Distrito
         name: El padrón (Sarrirà-Sant Gervasi)
       ephemeral_census_authorization_handler:
+        admin_explanation: Al seleccionarlo se desplagrará una lista de los distritos. Selecciona los distritos a los que se permite realizar la acción. Si no seleccionas ninguno, se comportará como si los hubieras seleccionado todos.
         explanation: Verifícate con el padrón
         fields:
           date_of_birth: Fecha de nacimiento

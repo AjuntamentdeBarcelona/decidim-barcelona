@@ -300,6 +300,7 @@ ca:
           postal_code: Codi postal
         name: El padró (Sarrià-Sant Gervasi)
       ephemeral_census_authorization_handler:
+        admin_explanation: En seleccionar-lo es desplegarà una llista dels districtes. Selecciona els districtes als que es permet realitzar l'acció. Si no en selecciones cap, es comportarà com si els haguessis seleccionat tots.
         explanation: Verifica't amb el padró
         fields:
           date_of_birth: Data de naixement
