@@ -243,7 +243,6 @@ GIT
       decidim-core (>= 0.31.0, < 0.32)
       decidim-elections (>= 0.31.0, < 0.32)
       decidim-surveys (>= 0.31.0, < 0.32)
-      deface (>= 1.5)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
@@ -609,7 +608,7 @@ GEM
     google-protobuf (4.33.4-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.4.17)
+    graphql (2.4.18)
       base64
       fiber-storage
       logger
