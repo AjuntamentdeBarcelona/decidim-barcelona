@@ -243,7 +243,6 @@ GIT
       decidim-core (>= 0.31.0, < 0.32)
       decidim-elections (>= 0.31.0, < 0.32)
       decidim-surveys (>= 0.31.0, < 0.32)
-      deface (>= 1.5)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
@@ -498,6 +497,8 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    decidim-collaborative_texts (0.31.2)
+      decidim-core (= 0.31.2)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -1195,6 +1196,7 @@ DEPENDENCIES
   debug
   decidim!
   decidim-census_sms!
+  decidim-collaborative_texts!
   decidim-conferences!
   decidim-dataviz!
   decidim-decidim_awesome!

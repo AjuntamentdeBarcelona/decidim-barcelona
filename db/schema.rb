@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_24_083258) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_12_110931) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -59,6 +59,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_24_083258) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "decidim_accountability_milestones", id: :serial, force: :cascade do |t|
@@ -498,6 +501,50 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_24_083258) do
     t.index ["coauthorable_type", "coauthorable_id"], name: "index_coauthorable_on_coauthorship"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_coauthorships_on_decidim_author"
     t.index ["decidim_user_group_id"], name: "index_user_group_on_coauthorsihp"
+  end
+
+  create_table "decidim_collaborative_texts_documents", force: :cascade do |t|
+    t.integer "decidim_component_id"
+    t.string "title"
+    t.jsonb "announcement"
+    t.boolean "accepting_suggestions", default: false, null: false
+    t.datetime "published_at", precision: nil
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "suggestions_count", default: 0, null: false
+    t.integer "document_versions_count", default: 0, null: false
+    t.index ["coauthorships_count"], name: "idx_decidim_collaborative_texts_documents_coauthorships_count"
+    t.index ["deleted_at"], name: "index_decidim_collaborative_texts_documents_on_deleted_at"
+    t.index ["document_versions_count"], name: "idx_decidim_collaborative_texts_documents_versions_count"
+    t.index ["published_at"], name: "index_decidim_collaborative_texts_documents_on_published_at"
+    t.index ["suggestions_count"], name: "idx_decidim_collaborative_texts_documents_suggestions_count"
+  end
+
+  create_table "decidim_collaborative_texts_suggestions", force: :cascade do |t|
+    t.bigint "document_version_id", null: false
+    t.string "decidim_author_type"
+    t.bigint "decidim_author_id"
+    t.jsonb "changeset", default: {}, null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_author_type", "decidim_author_id"], name: "index_collaborative_texts_suggestions_on_author"
+    t.index ["document_version_id"], name: "index_collaborative_texts_suggestions_on_version_id"
+  end
+
+  create_table "decidim_collaborative_texts_versions", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.string "body"
+    t.boolean "draft", default: false, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "suggestions_count", default: 0, null: false
+    t.index ["deleted_at"], name: "index_decidim_collaborative_texts_versions_on_deleted_at"
+    t.index ["document_id"], name: "index_decidim_collaborative_texts_versions_on_document_id"
+    t.index ["suggestions_count"], name: "idx_decidim_collaborative_texts_versions_suggestions_count"
   end
 
   create_table "decidim_comments_comment_votes", id: :serial, force: :cascade do |t|
