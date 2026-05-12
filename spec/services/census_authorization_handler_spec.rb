@@ -101,7 +101,7 @@ describe CensusAuthorizationHandler do
         let(:date_of_birth) { (CensusActionAuthorizer::DEFAULT_MIN_AGE - 1).years.ago }
 
         it "is still valid at the handler level (age is enforced per-action)" do
-          is_expected.to be_valid
+          expect(subject).to be_valid
         end
       end
 
