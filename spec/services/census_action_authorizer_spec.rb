@@ -270,10 +270,24 @@ describe CensusActionAuthorizer do
 
       context "when min_age is zero" do
         let(:options) { { "min_age" => "0" } }
-        let(:date_of_birth) { 5.years.ago.to_date.to_s }
+        let(:date_of_birth) { (CensusActionAuthorizer::DEFAULT_MIN_AGE - 1).years.ago.to_date.to_s }
 
-        it "treats zero as no minimum age and authorizes the user" do
-          expect(subject.first).to eq(:ok)
+        it "falls back to the default minimum age and does not authorize the user" do
+          expect(subject.first).to eq(:unauthorized)
+        end
+      end
+
+      context "when min_age is configured below the default minimum age" do
+        let(:options) { { "min_age" => (CensusActionAuthorizer::DEFAULT_MIN_AGE - 4).to_s } }
+        let(:date_of_birth) { (CensusActionAuthorizer::DEFAULT_MIN_AGE - 1).years.ago.to_date.to_s }
+
+        it "clamps the configured value up to the default minimum age" do
+          expect(subject.first).to eq(:unauthorized)
+        end
+
+        it "exposes the clamped value in the extra explanation" do
+          explanations = subject.last[:extra_explanation]
+          expect(explanations.first[:params][:min_age]).to eq(CensusActionAuthorizer::DEFAULT_MIN_AGE)
         end
       end
     end
@@ -343,10 +357,10 @@ describe CensusActionAuthorizer do
 
     context "when age options are explicitly cleared in the admin form" do
       let(:options) { { "min_age" => "", "max_age" => "" } }
-      let(:date_of_birth) { 5.years.ago.to_date.to_s }
+      let(:date_of_birth) { (CensusActionAuthorizer::DEFAULT_MIN_AGE - 1).years.ago.to_date.to_s }
 
-      it "treats both as no restriction and authorizes the user" do
-        expect(subject.first).to eq(:ok)
+      it "falls back to the default minimum age and does not authorize the user" do
+        expect(subject.first).to eq(:unauthorized)
       end
     end
 

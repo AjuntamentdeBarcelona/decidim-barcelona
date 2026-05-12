@@ -68,27 +68,21 @@ class CensusActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
     scope.present? && allowed_scopes.include?(scope.to_s)
   end
 
-  # Returns the configured minimum age, falling back to DEFAULT_MIN_AGE only
-  # when the option is missing entirely (permissions configured before this
-  # attribute was introduced). An admin who explicitly sets 0 disables the
-  # minimum age check.
+  # Returns the configured minimum age, clamped to DEFAULT_MIN_AGE. Admins can
+  # only raise the baseline; any configured value below DEFAULT_MIN_AGE (or a
+  # missing/non-positive value) is overridden so the 14-year floor always
+  # holds, regardless of what was stored in the permission options.
   def min_age
-    return DEFAULT_MIN_AGE unless option_configured?("min_age")
+    configured = option_value("min_age").presence&.to_i
+    return DEFAULT_MIN_AGE unless configured&.positive?
 
-    value = option_value("min_age").to_i
-    return 0 unless value.positive?
-
-    value
+    [configured, DEFAULT_MIN_AGE].max
   end
 
   # max_age is opt-in: zero or a missing option means "no upper bound".
   def max_age
     configured = option_value("max_age").presence&.to_i
     configured if configured&.positive?
-  end
-
-  def option_configured?(key)
-    options.has_key?(key) || options.has_key?(key.to_sym)
   end
 
   def option_value(key)

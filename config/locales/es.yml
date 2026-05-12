@@ -270,9 +270,9 @@ es:
           document_type: Tipo de documento
           gender: Sexo
           max_age: Edad máxima
-          max_age_explanation: Déjalo a 0 para no aplicar ninguna edad máxima
+          max_age_explanation: "Deja 0 para mantener la configuración predeterminada: sin límite de edad máxima."
           min_age: Edad mínima
-          min_age_explanation: Déjalo a 0 para no aplicar ninguna edad mínima
+          min_age_explanation: "Según la normativa vigente, la edad mínima es de 14 años. Para menores de 14 años: utiliza el módulo Decidim Kids."
           postal_code: Código postal
           scope_id: Distrito
           scope_code_1: Ciutat Vella
@@ -320,9 +320,9 @@ es:
           document_type: Tipo de documento
           gender: Sexo
           max_age: Edad máxima
-          max_age_explanation: Déjalo a 0 para no aplicar ninguna edad máxima
+          max_age_explanation: "Deja 0 para mantener la configuración predeterminada: sin límite de edad máxima."
           min_age: Edad mínima
-          min_age_explanation: Déjalo a 0 para no aplicar ninguna edad mínima
+          min_age_explanation: "Según la normativa vigente, la edad mínima es de 14 años. Para menores de 14 años: utiliza el módulo Decidim Kids."
           postal_code: Código postal
           scope_id: Distrito
           scope_code_1: Ciutat Vella

@@ -6,8 +6,6 @@ require "digest/md5"
 # This class performs a check against the official census database in order
 # to verify the citizen's residence.
 class CensusKidsAuthorizationHandler < CensusAuthorizationHandler
-  validate :age_limit
-
   def age_limit
     errors.add(:date_of_birth, I18n.t("census_kids_authorization_handler.age_under", min_age: 8)) unless age && age >= 8
   end

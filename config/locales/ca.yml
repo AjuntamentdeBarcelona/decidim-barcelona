@@ -270,9 +270,9 @@ ca:
           document_type: Tipus de document
           gender: Sexe
           max_age: Edat màxima
-          max_age_explanation: Deixa-ho a 0 per no aplicar cap edat màxima
+          max_age_explanation: "Deixa 0 si vols mantenir la configuració per defecte: cap límit d'edat màxima."
           min_age: Edat mínima
-          min_age_explanation: Deixa-ho a 0 per no aplicar cap edat mínima
+          min_age_explanation: "L'edat mínima per normativa vigent és de 14 anys. Per a menors de 14 anys: feu servir el mòdul Decidim Kids."
           postal_code: Codi postal
           scope: Districte
           scope_code_1: Ciutat Vella
@@ -319,9 +319,9 @@ ca:
           document_type: Tipus de document
           gender: Sexe
           max_age: Edat màxima
-          max_age_explanation: Deixa-ho a 0 per no aplicar cap edat màxima
+          max_age_explanation: "Deixa 0 si vols mantenir la configuració per defecte: cap límit d'edat màxima."
           min_age: Edat mínima
-          min_age_explanation: Deixa-ho a 0 per no aplicar cap edat mínima
+          min_age_explanation: "L'edat mínima per normativa vigent és de 14 anys. Per a menors de 14 anys: feu servir el mòdul Decidim Kids."
           postal_code: Codi postal
           scope: Districte
           scope_code_1: Ciutat Vella
