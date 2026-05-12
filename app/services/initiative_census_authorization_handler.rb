@@ -7,6 +7,7 @@ class InitiativeCensusAuthorizationHandler < CensusAuthorizationHandler
   attribute :name_and_surname, String
 
   validates :name_and_surname, presence: true
+  validate :age_limit
 
   def metadata
     super.merge(name_and_surname:)
@@ -14,5 +15,9 @@ class InitiativeCensusAuthorizationHandler < CensusAuthorizationHandler
 
   def user_transferrable?
     duplicate.present? && user&.ephemeral?
+  end
+
+  def age_limit
+    errors.add(:date_of_birth, I18n.t("census_authorization_handler.age_under", min_age: 14)) unless age && age >= 14
   end
 end

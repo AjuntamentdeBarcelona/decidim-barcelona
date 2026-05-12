@@ -97,10 +97,12 @@ describe CensusAuthorizationHandler do
         it { is_expected.not_to be_valid }
       end
 
-      context "when it's under 14" do
-        let(:date_of_birth) { 13.years.ago }
+      context "when the user is under the action authorizer default minimum age" do
+        let(:date_of_birth) { (CensusActionAuthorizer::DEFAULT_MIN_AGE - 1).years.ago }
 
-        it { is_expected.not_to be_valid }
+        it "is still valid at the handler level (age is enforced per-action)" do
+          is_expected.to be_valid
+        end
       end
 
       context "when data from a date field is provided" do

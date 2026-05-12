@@ -258,6 +258,8 @@ ca:
         name: El padró (majors de 16 anys)
       census_authorization_handler:
         admin_explanation: En seleccionar-lo es desplegarà una llista dels districtes. Selecciona els districtes als que es permet realitzar l'acció. Si no en selecciones cap, es comportarà com si els haguessis seleccionat tots.
+        age_extra_explanation: "La participació està limitada als usuaris d'almenys %{min_age} anys."
+        age_extra_explanation_range: "La participació està limitada als usuaris entre %{min_age} i %{max_age} anys."
         explanation: Verifica't amb el padró
         extra_explanation:
           one: "La participació està limitada als usuaris del districte: %{scopes}"
@@ -267,6 +269,10 @@ ca:
           document_number: Número de document
           document_type: Tipus de document
           gender: Sexe
+          max_age: Edat màxima
+          max_age_explanation: Deixa-ho a 0 per no aplicar cap edat màxima
+          min_age: Edat mínima
+          min_age_explanation: Deixa-ho a 0 per no aplicar cap edat mínima
           postal_code: Codi postal
           scope: Districte
           scope_code_1: Ciutat Vella
@@ -301,12 +307,21 @@ ca:
         name: El padró (Sarrià-Sant Gervasi)
       ephemeral_census_authorization_handler:
         admin_explanation: En seleccionar-lo es desplegarà una llista dels districtes. Selecciona els districtes als que es permet realitzar l'acció. Si no en selecciones cap, es comportarà com si els haguessis seleccionat tots.
+        age_extra_explanation: "La participació està limitada als usuaris d'almenys %{min_age} anys."
+        age_extra_explanation_range: "La participació està limitada als usuaris entre %{min_age} i %{max_age} anys."
         explanation: Verifica't amb el padró
+        extra_explanation:
+          one: "La participació està limitada als usuaris del districte: %{scopes}"
+          other: "La participació està limitada als usuaris dels districtes: %{scopes}"
         fields:
           date_of_birth: Data de naixement
           document_number: Número de document
           document_type: Tipus de document
           gender: Sexe
+          max_age: Edat màxima
+          max_age_explanation: Deixa-ho a 0 per no aplicar cap edat màxima
+          min_age: Edat mínima
+          min_age_explanation: Deixa-ho a 0 per no aplicar cap edat mínima
           postal_code: Codi postal
           scope: Districte
           scope_code_1: Ciutat Vella
