@@ -11,8 +11,31 @@
 
 <%= form.fields_for(:authorization_handlers_options) do |options_form| %>
   <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
+    <% age_pair_rendered = false %>
     <% attributes.each do |name, attribute| %>
-      <% field_content = capture do %>
+      <% if %w(census_authorization_handler ephemeral_census_authorization_handler).include?(handler_name) && %w(min_age max_age).include?(name.to_s) %>
+        <% next if age_pair_rendered %>
+
+        <% age_pair_rendered = true %>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <% [:min_age, :max_age].each do |age_name| %>
+            <% age_attribute = attributes[age_name] %>
+            <% next unless age_attribute %>
+            <div>
+              <%= settings_attribute_input(
+                    attribute_options_form,
+                    age_attribute,
+                    age_name,
+                    "decidim.authorization_handlers.#{handler_name}.fields",
+                    tabs_prefix: "#{age_name}_tabs_prefix"
+                  ) %>
+              <% if I18n.exists?("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %>
+                <p class="help-text"><%== t("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
         <%= settings_attribute_input(
               attribute_options_form,
               attribute,
@@ -23,11 +46,6 @@
         <% if I18n.exists?("decidim.authorization_handlers.#{handler_name}.fields.#{name}_explanation") %>
           <p class="help-text"><%== t("decidim.authorization_handlers.#{handler_name}.fields.#{name}_explanation") %></p>
         <% end %>
-      <% end %>
-      <% if %w(census_authorization_handler ephemeral_census_authorization_handler).include?(handler_name) && %w(min_age max_age).include?(name.to_s) %>
-        <%= content_tag(:div, field_content, class: "mt-4") %>
-      <% else %>
-        <%= field_content %>
       <% end %>
     <% end %>
   <% end %>
