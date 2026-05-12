@@ -28,7 +28,7 @@
                     age_name,
                     "decidim.authorization_handlers.#{handler_name}.fields",
                     tabs_prefix: "#{age_name}_tabs_prefix",
-                    **(age_name == :min_age ? { min: CensusActionAuthorizer::DEFAULT_MIN_AGE } : {})
+                    **(age_name == :min_age ? { min: CensusActionAuthorizer::DEFAULT_MIN_AGE, class: "js-min-age-floor", data: { floor: CensusActionAuthorizer::DEFAULT_MIN_AGE } } : {})
                   ) %>
               <% if I18n.exists?("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %>
                 <p class="help-text"><%== t("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %></p>
@@ -53,3 +53,16 @@
 <% end %>
 <br>
 <%= form.error_for(:base) %>
+
+<script>
+  (function() {
+    document.querySelectorAll(".js-min-age-floor").forEach(function(input) {
+      input.addEventListener("blur", function() {
+        var floor = Number(input.dataset.floor);
+        if (input.value !== "" && Number(input.value) < floor) {
+          input.value = floor;
+        }
+      });
+    });
+  })();
+</script>
