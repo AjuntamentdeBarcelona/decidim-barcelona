@@ -47,6 +47,8 @@ GIT
     decidim-budgets (0.31.2)
       decidim-comments (= 0.31.2)
       decidim-core (= 0.31.2)
+    decidim-collaborative_texts (0.31.2)
+      decidim-core (= 0.31.2)
     decidim-comments (0.31.2)
       decidim-core (= 0.31.2)
       redcarpet (~> 3.5, >= 3.5.1)
@@ -243,7 +245,6 @@ GIT
       decidim-core (>= 0.31.0, < 0.32)
       decidim-elections (>= 0.31.0, < 0.32)
       decidim-surveys (>= 0.31.0, < 0.32)
-      deface (>= 1.5)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
@@ -1195,6 +1196,7 @@ DEPENDENCIES
   debug
   decidim!
   decidim-census_sms!
+  decidim-collaborative_texts!
   decidim-conferences!
   decidim-dataviz!
   decidim-decidim_awesome!
