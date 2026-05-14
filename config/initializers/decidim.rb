@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require Rails.root.join("app/services/census_action_authorizer")
+
 Decidim.configure do |config|
   config.timestamp_service = "TimestampService"
   config.pdf_signature_service = "PdfSignatureBarcelona"
@@ -28,6 +30,9 @@ Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth
     district_codes.each do |code|
       options.attribute :"scope_code_#{code}", type: :boolean, required: false
     end
+
+    options.attribute :min_age, type: :integer, required: false, default: CensusActionAuthorizer::DEFAULT_MIN_AGE
+    options.attribute :max_age, type: :integer, required: false
   end
 
   auth.action_authorizer = "CensusActionAuthorizer"
@@ -71,6 +76,9 @@ Decidim::Verifications.register_workflow(:ephemeral_census_authorization_handler
     district_codes.each do |code|
       options.attribute :"scope_code_#{code}", type: :boolean, required: false
     end
+
+    options.attribute :min_age, type: :integer, required: false, default: CensusActionAuthorizer::DEFAULT_MIN_AGE
+    options.attribute :max_age, type: :integer, required: false
   end
 
   auth.action_authorizer = "CensusActionAuthorizer"

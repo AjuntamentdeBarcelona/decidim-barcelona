@@ -1,0 +1,68 @@
+<%
+  handler_name = local_assigns[:handler_name]
+  ephemeral_warning = local_assigns[:ephemeral_warning]
+  schema = form.object.options_schema(handler_name)
+  attributes = form.object.options_attributes(handler_name)
+%>
+
+<% if ephemeral_warning %>
+  <%= cell("decidim/announcement", t(".ephemeral_warning", path: decidim_admin.authorization_workflows_path), callout_class: "warning" ) %>
+<% end %>
+
+<%= form.fields_for(:authorization_handlers_options) do |options_form| %>
+  <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
+    <% age_pair_rendered = false %>
+    <% attributes.each do |name, attribute| %>
+      <% if %w(census_authorization_handler ephemeral_census_authorization_handler).include?(handler_name) && %w(min_age max_age).include?(name.to_s) %>
+        <% next if age_pair_rendered %>
+
+        <% age_pair_rendered = true %>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <% [:min_age, :max_age].each do |age_name| %>
+            <% age_attribute = attributes[age_name] %>
+            <% next unless age_attribute %>
+            <div>
+              <%= settings_attribute_input(
+                    attribute_options_form,
+                    age_attribute,
+                    age_name,
+                    "decidim.authorization_handlers.#{handler_name}.fields",
+                    tabs_prefix: "#{age_name}_tabs_prefix",
+                    **(age_name == :min_age ? { min: CensusActionAuthorizer::DEFAULT_MIN_AGE, class: "js-min-age-floor", data: { floor: CensusActionAuthorizer::DEFAULT_MIN_AGE } } : {})
+                  ) %>
+              <% if I18n.exists?("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %>
+                <p class="help-text"><%== t("decidim.authorization_handlers.#{handler_name}.fields.#{age_name}_explanation") %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <%= settings_attribute_input(
+              attribute_options_form,
+              attribute,
+              name,
+              "decidim.authorization_handlers.#{handler_name}.fields",
+              tabs_prefix: "#{name}_tabs_prefix"
+            ) %>
+        <% if I18n.exists?("decidim.authorization_handlers.#{handler_name}.fields.#{name}_explanation") %>
+          <p class="help-text"><%== t("decidim.authorization_handlers.#{handler_name}.fields.#{name}_explanation") %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<br>
+<%= form.error_for(:base) %>
+
+<script>
+  (function() {
+    document.querySelectorAll(".js-min-age-floor").forEach(function(input) {
+      input.addEventListener("blur", function() {
+        var floor = Number(input.dataset.floor);
+        if (input.value !== "" && Number(input.value) < floor) {
+          input.value = floor;
+        }
+      });
+    });
+  })();
+</script>
