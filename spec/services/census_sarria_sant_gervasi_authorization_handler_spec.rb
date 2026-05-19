@@ -14,7 +14,8 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
   let(:date_of_birth) { Date.civil(1987, 9, 17) }
   let(:scope_code) { "1" }
   let(:gender) { "foo" }
-  let(:scope) { double(id: 5, code: scope_code, name: { "ca" => "Sarrià-Sant Gervasi" }) }
+  let(:taxonomy) { double(name: { "ca" => "Sarrià-Sant Gervasi" }) }
+  let(:taxonomy_scope) { double(scope_id: 5, scope_code:, taxonomy:) }
   let(:user) { create(:user) }
   let(:params) do
     {
@@ -29,7 +30,7 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
+    allow(Decidim::TaxonomyScope).to receive(:find_by).and_return(taxonomy_scope)
   end
 
   it_behaves_like "an authorization handler"
@@ -116,7 +117,8 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
     end
 
     context "when the scope is not from sarria sant gervasi" do
-      let(:scope) { double(id: 6, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
+      let(:taxonomy) { double(name: { "ca" => "Ciutat Vella" }) }
+      let(:taxonomy_scope) { double(scope_id: 6, scope_code:, taxonomy:) }
 
       before do
         allow(handler)
@@ -193,11 +195,11 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
     end
 
     it "includes the scope id" do
-      expect(subject.metadata).to include(scope_id: scope.id)
+      expect(subject.metadata).to include(scope_id: taxonomy_scope.scope_id)
     end
 
     it "includes the scope code" do
-      expect(subject.metadata).to include(scope_code: scope.code)
+      expect(subject.metadata).to include(scope_code: taxonomy_scope.scope_code)
     end
 
     it "includes the user gender" do
@@ -235,9 +237,9 @@ describe CensusSarriaSantGervasiAuthorizationHandler do
       let(:handler_name) { described_class.handler_name }
       let(:metadata) do
         {
-          scope: scope.name["ca"],
-          scope_id: scope.id,
-          scope_code: scope.code,
+          scope: taxonomy.name["ca"],
+          scope_id: taxonomy_scope.scope_id,
+          scope_code: taxonomy_scope.scope_code,
           postal_code: form.postal_code,
           date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
           extras: {

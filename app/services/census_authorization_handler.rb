@@ -37,16 +37,16 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
       date_of_birth: date_of_birth&.strftime("%Y-%m-%d"),
       postal_code:,
       scope: scope_name,
-      scope_id: scope&.id,
-      scope_code: scope&.code,
+      scope_id: taxonomy_scope&.scope_id,
+      scope_code: taxonomy_scope&.scope_code,
       extras: {
         gender:
       }
     )
   end
 
-  def scope
-    @scope ||= Decidim::Scope.find_by(id: scope_id)
+  def taxonomy_scope
+    @taxonomy_scope ||= Decidim::TaxonomyScope.find_by(scope_id:)
   end
 
   def census_document_types
@@ -78,9 +78,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   private
 
   def scope_name
-    return nil unless scope
-
-    scope.name["ca"]
+    taxonomy_scope&.taxonomy&.name&.dig("ca")
   end
 
   def sanitized_document_type
@@ -155,6 +153,6 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def valid_postal_code
-    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, scope.code)
+    errors.add(:postal_code, :not_in_district) unless PostalCodeDistricts.valid?(postal_code, taxonomy_scope&.scope_code)
   end
 end

@@ -52,21 +52,23 @@ class BudgetsWorkflowEphemeral2025 < Decidim::Budgets::Workflows::Base
   #
   # Returns Object (Decidim::Budgets:Budget).
   def user_scope_resource
-    return unless user_authorization_scope
+    return unless user_authorization_taxonomy
 
     @user_scope_resource ||= budgets.find do |resource|
-      resource.scope == user_authorization_scope
+      resource.taxonomies.exists?(id: user_authorization_taxonomy.id)
     end
   end
 
-  # The user's scope from the verifcation
+  # The user's district taxonomy resolved from the verification.
   #
-  # Returns Object (Scope).
-  def user_authorization_scope
+  # Returns Object (Decidim::Taxonomy).
+  def user_authorization_taxonomy
     return unless user_authorization
 
-    @user_authorization_scope ||= Decidim::Scope.find_by(
-      "name->>'ca' = '#{user_authorization.metadata["scope"]}'"
+    @user_authorization_taxonomy ||= Decidim::Taxonomy.find_by(
+      "name ->> 'ca' = ? AND decidim_organization_id = ?",
+      user_authorization.metadata["scope"],
+      user.organization.id
     )
   end
 end

@@ -15,7 +15,8 @@ describe Census16AuthorizationHandler do
   let(:scope_id) { 123 }
   let(:scope_code) { "1" }
   let(:gender) { "foo" }
-  let(:scope) { double(id: 999, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
+  let(:taxonomy) { double(name: { "ca" => "Ciutat Vella" }) }
+  let(:taxonomy_scope) { double(scope_id:, scope_code:, taxonomy:) }
   let(:user) { create(:user) }
   let(:params) do
     {
@@ -31,7 +32,7 @@ describe Census16AuthorizationHandler do
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
+    allow(Decidim::TaxonomyScope).to receive(:find_by).and_return(taxonomy_scope)
   end
 
   it_behaves_like "an authorization handler"
@@ -189,11 +190,11 @@ describe Census16AuthorizationHandler do
     end
 
     it "includes the scope id" do
-      expect(subject.metadata).to include(scope_id: scope.id)
+      expect(subject.metadata).to include(scope_id: taxonomy_scope.scope_id)
     end
 
     it "includes the scope code" do
-      expect(subject.metadata).to include(scope_code: scope.code)
+      expect(subject.metadata).to include(scope_code: taxonomy_scope.scope_code)
     end
 
     it "includes the user gender" do
@@ -231,9 +232,9 @@ describe Census16AuthorizationHandler do
       let(:handler_name) { described_class.handler_name }
       let(:metadata) do
         {
-          scope: scope.name["ca"],
-          scope_id: scope.id,
-          scope_code: scope.code,
+          scope: taxonomy.name["ca"],
+          scope_id: taxonomy_scope.scope_id,
+          scope_code: taxonomy_scope.scope_code,
           postal_code: form.postal_code,
           date_of_birth: form.date_of_birth&.strftime("%Y-%m-%d"),
           extras: {

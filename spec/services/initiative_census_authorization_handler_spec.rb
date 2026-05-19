@@ -15,7 +15,8 @@ describe InitiativeCensusAuthorizationHandler do
   let(:scope_id) { 123 }
   let(:scope_code) { "1" }
   let(:gender) { "foo" }
-  let(:scope) { double(id: 999, code: scope_code, name: { "ca" => "Ciutat Vella" }) }
+  let(:taxonomy) { double(name: { "ca" => "Ciutat Vella" }) }
+  let(:taxonomy_scope) { double(scope_id:, scope_code:, taxonomy:) }
   let(:user) { create(:user, organization:) }
   let(:params) do
     {
@@ -30,7 +31,7 @@ describe InitiativeCensusAuthorizationHandler do
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
+    allow(Decidim::TaxonomyScope).to receive(:find_by).and_return(taxonomy_scope)
     allow(handler)
       .to receive(:response)
       .and_return(Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!)
