@@ -78,7 +78,11 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   private
 
   def scope_name
-    taxonomy_scope&.taxonomy&.name&.dig("ca")
+    taxonomy&.name&.dig("ca")
+  end
+
+  def taxonomy
+    taxonomy_scope&.taxonomy
   end
 
   def sanitized_document_type
