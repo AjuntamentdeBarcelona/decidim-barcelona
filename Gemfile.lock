@@ -610,7 +610,7 @@ GEM
     google-protobuf (4.33.4-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    graphql (2.4.17)
+    graphql (2.4.18)
       base64
       fiber-storage
       logger
