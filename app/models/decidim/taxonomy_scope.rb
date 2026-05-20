@@ -10,6 +10,7 @@ module Decidim
 
     belongs_to :taxonomy, class_name: "Decidim::Taxonomy"
 
-    validates :scope_id, :taxonomy_id, presence: true, uniqueness: true
+    validates :scope_id, presence: true, uniqueness: true
+    validates :taxonomy_id, uniqueness: true
   end
 end
