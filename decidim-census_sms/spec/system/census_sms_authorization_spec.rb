@@ -20,6 +20,9 @@ describe "Census + SMS authorization", :perform_enqueued, with_authorization_wor
   let(:user_authorization) { Decidim::Authorization.find_by(user:, name: "census_sms_authorization_handler") }
 
   let!(:scope) { create(:scope, organization:, code: "1") }
+  let!(:parent_taxonomy) { create(:taxonomy, name: { "ca" => "Ciutat" }, organization:) }
+  let!(:district_taxonomy) { create(:taxonomy, name: scope.name, parent: parent_taxonomy, organization:) }
+  let!(:taxonomy_scope) { Decidim::TaxonomyScope.create!(taxonomy: district_taxonomy, scope_id: scope.id, scope_code: scope.code) }
 
   let(:response) do
     Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!

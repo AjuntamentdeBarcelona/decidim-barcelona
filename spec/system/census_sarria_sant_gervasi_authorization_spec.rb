@@ -15,7 +15,8 @@ describe "Authorizations with census Sarria-Sant Gervasi", :perform_enqueued, wi
 
   let(:authorizations) { ["census_sarria_sant_gervasi_authorization_handler"] }
   let(:scope_code) { "1" }
-  let(:scope) { double(id: 5, code: scope_code, name: { "ca" => "Sarrià-Sant Gervasi" }) }
+  let(:taxonomy) { double(name: { "ca" => "Sarrià-Sant Gervasi" }) }
+  let(:taxonomy_scope) { double(scope_id: 5, scope_code:, taxonomy:) }
 
   let(:response) do
     Nokogiri::XML("<codiRetorn>01</codiRetorn>").remove_namespaces!
@@ -32,7 +33,7 @@ describe "Authorizations with census Sarria-Sant Gervasi", :perform_enqueued, wi
   end
 
   before do
-    allow(Decidim::Scope).to receive(:find_by).and_return(scope)
+    allow(Decidim::TaxonomyScope).to receive(:find_by).and_return(taxonomy_scope)
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(CensusSarriaSantGervasiAuthorizationHandler).to receive(:response).and_return(response)
     # rubocop:enable RSpec/AnyInstance

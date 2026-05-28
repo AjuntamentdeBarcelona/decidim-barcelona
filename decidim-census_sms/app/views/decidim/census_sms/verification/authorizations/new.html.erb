@@ -27,8 +27,8 @@
       </div>
 
       <div class="field">
-        <% parent_scope = Decidim::Scope.where("name->>'ca' = 'Ciutat'").first %>
-        <%= form.collection_select :scope_id, current_organization.scopes.where(parent: parent_scope), :id, ->(scope){ translated_attribute(scope.name) }, prompt: t(".scope_prompt") %>
+        <% parent_taxonomy = current_organization.taxonomies.find_by("name ->> 'ca' = ?", "Ciutat") %>
+        <%= form.collection_select :scope_id, Decidim::TaxonomyScope.where(taxonomy: parent_taxonomy&.children), :scope_id, ->(ts){ translated_attribute(ts.taxonomy.name) }, prompt: t(".scope_prompt") %>
       </div>
 
       <div class="field">

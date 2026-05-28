@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_12_110931) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_19_125533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -2132,6 +2132,16 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_12_110931) do
     t.index ["root_taxonomy_id"], name: "index_decidim_taxonomy_filters_on_root_taxonomy_id"
   end
 
+  create_table "decidim_taxonomy_scopes", force: :cascade do |t|
+    t.bigint "taxonomy_id", null: false
+    t.bigint "scope_id", null: false
+    t.string "scope_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scope_id"], name: "index_decidim_taxonomy_scopes_on_scope_id", unique: true
+    t.index ["taxonomy_id"], name: "index_decidim_taxonomy_scopes_on_taxonomy_id", unique: true
+  end
+
   create_table "decidim_templates_templates", force: :cascade do |t|
     t.integer "decidim_organization_id", null: false
     t.string "templatable_type"
@@ -2488,6 +2498,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_12_110931) do
   add_foreign_key "decidim_static_pages", "decidim_organizations"
   add_foreign_key "decidim_taxonomy_filter_items", "decidim_taxonomies", column: "taxonomy_item_id"
   add_foreign_key "decidim_taxonomy_filters", "decidim_taxonomies", column: "root_taxonomy_id"
+  add_foreign_key "decidim_taxonomy_scopes", "decidim_taxonomies", column: "taxonomy_id"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
