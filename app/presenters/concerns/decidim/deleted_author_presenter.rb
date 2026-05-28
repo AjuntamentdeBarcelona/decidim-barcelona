@@ -8,5 +8,9 @@ module Decidim
     def name
       I18n.t("decidim.profile.deleted")
     end
+
+    def avatar_url(_variant = nil)
+      ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
+    end
   end
 end
