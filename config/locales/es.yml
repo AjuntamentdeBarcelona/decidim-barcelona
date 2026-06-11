@@ -513,6 +513,7 @@ es:
   layouts:
     decidim:
       footer:
+        accessibility: Accesibilidad
         bcn_logo: Logotipo del Ayuntamiento de Barcelona
       header:
         main:
