@@ -522,6 +522,7 @@ ca:
         awesome_config:
           taxonomies: Taxonomies
       footer:
+        accessibility: Accessibilitat
         bcn_logo: Logotip de l'Ajuntament de Barcelona
       header:
         main:

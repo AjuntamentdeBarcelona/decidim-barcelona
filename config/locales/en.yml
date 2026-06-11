@@ -55,6 +55,7 @@ en:
   layouts:
     decidim:
       footer:
+        accessibility: Accessibility
         bcn_logo: Barcelona City Council Logo
       header:
         main:
