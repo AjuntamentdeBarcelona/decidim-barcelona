@@ -66,6 +66,7 @@ checksums = [
   {
     package: "decidim-forms",
     files: {
+      "/app/models/decidim/forms/question.rb" => "92531f8217998320bfae5ac4d5f8e7e8", # fix display_conditions_for_other_questions inverse_of in question_override.rb
       "/app/queries/decidim/forms/questionnaire_user_responses.rb" => "d9a56ef2b9b1e06040143272adf8d7d0",
       "/app/views/decidim/forms/admin/questionnaires/responses/show.html.erb" => "05f8b5e851ddf60f5d2e62de64c4eb8b",
       "/lib/decidim/forms/user_responses_serializer.rb" => "71762d1083ba1bdf4c0acd44a0cc7371"
