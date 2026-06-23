@@ -9,6 +9,7 @@ Rails.application.config.to_prepare do
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
   Decidim::Forms::UserResponsesSerializer.prepend(Decidim::Overrides::Forms::UserResponsesSerializer)
+  Decidim::Forms::Question.include(Decidim::Forms::QuestionOverride)
   Decidim::Initiative.include(Decidim::InitiativeOverride)
   Decidim::InitiativesVote.include(Decidim::InitiativesVoteOverride)
   Decidim::Initiatives::InitiativeForm.include(Decidim::Initiatives::InitiativeFormOverride)
