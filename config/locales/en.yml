@@ -52,6 +52,9 @@ en:
           register: Register to the meeting
     sms:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
+    statistics:
+      in_person_attendees_count: Attendees
+      in_person_attendees_count_tooltip: The total number of attendees of the closed in-person meetings in this space.
   layouts:
     decidim:
       footer:

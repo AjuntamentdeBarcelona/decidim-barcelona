@@ -443,6 +443,9 @@ es:
         project_proposals: 'Propuestas incluidas en este proyecto:'
     sms:
       text: 'Tu código para verificarte en Decidim Barcelona es: %{code}'
+    statistics:
+      in_person_attendees_count: Asistentes
+      in_person_attendees_count_tooltip: El número total de asistentes de los encuentros presenciales finalizados de este espacio.
     system:
       dashboard:
         show:
