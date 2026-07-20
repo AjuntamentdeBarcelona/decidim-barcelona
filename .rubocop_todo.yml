@@ -10,7 +10,7 @@ RSpec/DescribeClass:
   Exclude:
     - 'decidim-census_sms/spec/system/census_sms_authorization_spec.rb'
     - 'spec/system/census16_authorization_spec.rb'
-    - 'spec/lib/in_person_attendees_count_stat_spec.rb'
+    - 'spec/lib/meetings_attendees_count_stat_spec.rb'
 
 RSpec/PendingWithoutReason:
   Exclude:
