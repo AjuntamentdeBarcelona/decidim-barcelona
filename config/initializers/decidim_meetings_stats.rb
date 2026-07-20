@@ -6,8 +6,6 @@ Decidim.find_component_manifest(:meetings).stats.register(
   admin: false,
   icon_name: "group-line",
   tooltip_key: "meetings_attendees_count_tooltip"
-) do |components, _start_at, _end_at|
-  Decidim::Meetings::Meeting.closed.not_hidden.published
-                            .where(component: components, closing_visible: true)
-                            .sum(:attendees_count)
+) do |components, start_at, end_at|
+  Decidim.find_component_manifest(:meetings).stats.resolve(:attendees_count, components, start_at, end_at)
 end
