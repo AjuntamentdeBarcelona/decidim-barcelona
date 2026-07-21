@@ -26,6 +26,8 @@ checksums = [
     package: "decidim-admin",
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "4aea28b33468227392384324a3845b2e", # revert https://github.com/decidim/decidim/pull/10690
+      "/app/controllers/decidim/admin/officializations_controller.rb" => "2bdcdd8fd2024c71346a6a05b9724343", # resend invitation added in officializations_controller_override.rb
+      "/app/views/decidim/admin/officializations/index.html.erb" => "e68f2a9b4887212f21756de25394ff53", # resend invitation action added to the table
       "/app/views/decidim/admin/resource_permissions/_options_form.html.erb" => "995160c04f1cd0173e4bfb2d690bacbd",
       "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "84cb53c2b272dc5f5724f272887f3b11"
     }
