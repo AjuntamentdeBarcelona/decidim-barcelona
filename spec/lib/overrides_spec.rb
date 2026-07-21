@@ -107,7 +107,9 @@ checksums = [
       "/app/controllers/decidim/meetings/meetings_controller.rb" => "da1a19e72fc0692c259671b9fdc8dc8b",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "7f393c50d7a01bc24f6a3d08d5590e10",
       "/app/models/decidim/meetings/meeting.rb" => "ffcce46a24c3912e742db2ff79bb2588",
-      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "3d0a04c264dd2c88212789e0e5bc803b"
+      "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "3d0a04c264dd2c88212789e0e5bc803b",
+      # Delete this once we are using the version with this PR: https://github.com/decidim/decidim/pull/17342 and remove all the changes included in this PR: https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/750
+      "/lib/decidim/meetings/component.rb" => "1a89fdd79dbf48262ce8aeeec67198cd"
     }
   },
   {

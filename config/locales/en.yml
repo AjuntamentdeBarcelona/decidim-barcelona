@@ -52,6 +52,9 @@ en:
           register: Register to the meeting
     sms:
       text: 'Your code to be verified at Decidim Barcelona is: %{code}'
+    statistics:
+      meetings_attendees_count: Attendees
+      meetings_attendees_count_tooltip: The total number of attendees of the meetings held within this participation space. This figure is not added to the Participants figure.
   layouts:
     decidim:
       footer:
