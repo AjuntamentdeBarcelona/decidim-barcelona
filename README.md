@@ -1,16 +1,14 @@
-![decidim-barcelona logo](https://raw.githubusercontent.com/AjuntamentdeBarcelona/decidim.barcelona/master/app/assets/images/decidim-logo.png)
-
-# decidim-barcelona
-
----
-
-Citizen Participation and Open Government Application.
+# Decidim Barcelona
 
 [![[CI] Lint](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/lint.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test.yml)
 [![[CI] Test Census SMS](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_census_sms.yml)
 [![[CI] Test Stats](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml/badge.svg)](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/actions/workflows/test_stats.yml)
 [![Maintainability](https://qlty.sh/gh/AjuntamentdeBarcelona/projects/decidim-barcelona/maintainability.svg)](https://qlty.sh/gh/AjuntamentdeBarcelona/projects/decidim-barcelona)
+
+![decidim-barcelona logo](app/packs/images/decidim-barcelona.jpg)
+
+Citizen Participation and Open Government Application.
 
 This is the opensource code repository for "decidim-barcelona", based on [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
@@ -22,6 +20,15 @@ You can setup everything with Docker & Docker compose, run:
 docker-compose build
 docker-compose run --rm app bundle exec rake db:create db:schema:load db:seed
 docker-compose up
+```
+
+You can also setup locally if you have the required dependencies:
+
+```bash
+bundle install
+npm i
+bundle exec rake db:create db:schema:load db:seed
+bin/dev
 ```
 
 ## Available tasks
