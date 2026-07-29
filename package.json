@@ -10,11 +10,7 @@
     "formBuilder": "^3.19.7",
     "inline-attacher": "^0.0.7",
     "jsrender": "^1.0.13",
-    "leaflet.featuregroup.subgroup": "^1.0.2",
-    "marked": "^5.1.2",
-    "tom-select": "^2.2.2",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "leaflet.featuregroup.subgroup": "^1.0.2"
   },
   "version": "0.1.0",
   "engines": {
@@ -40,13 +36,6 @@
     "@decidim/eslint-config": "^0.32.0",
     "@decidim/prettier-config": "^0.32.0",
     "@decidim/stylelint-config": "^0.32.0",
-    "@webpack-cli/serve": "^1.6.1",
-    "buffer": "^6.0.3",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-import": "^2.29.0",
-    "postcss-scss": "^4.0.9",
-    "process": "^0.11.10",
-    "sass-embedded": "^1.92.1",
     "shakapacker": "^9.7.0"
   }
 }
