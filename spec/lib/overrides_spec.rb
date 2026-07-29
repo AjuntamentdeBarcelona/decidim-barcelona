@@ -144,13 +144,6 @@ checksums = [
       "/app/forms/decidim/system/base_organization_form.rb" => "7746537171d886d9e7e9fc6d798012e7",
       "/app/views/decidim/system/dashboard/show.html.erb" => "a125b7d7dbdcb2bbf0e4292baa8e3c33"
     }
-  },
-  {
-    # Fix origami date compatibility with Ruby 3.0 monkey-patching it on origami_date.rb
-    package: "origami",
-    files: {
-      "/lib/origami/string.rb" => "1a8d718ef6a044183298eb92b650be75"
-    }
   }
 ]
 
