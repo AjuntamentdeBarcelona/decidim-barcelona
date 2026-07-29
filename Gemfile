@@ -22,30 +22,31 @@ gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelon
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "deps/decidim-0.32"
 gem "decidim-term_customizer", git: "https://github.com/fblupi/decidim-module-term_customizer", branch: "deps/decidim-0.32"
 
-gem "progressbar"
-gem "puma"
+gem "bootsnap", "~> 1.3"
+
+gem "puma", ">= 6.3.1"
 
 gem "dotenv-rails"
+gem "progressbar"
 
 group :development, :test do
-  gem "bootsnap"
-  gem "byebug", platform: :mri
+  gem "byebug", "~> 11.0", platform: :mri
+
+  gem "brakeman", "~> 8.0"
   gem "decidim-dev", DECIDIM_VERSION
-  gem "faker"
-  gem "mdl"
-  gem "rubocop-faker"
+  gem "net-imap", "~> 0.5.0"
+  gem "net-pop", "~> 0.1.1"
 
   gem "debug"
+  gem "mdl"
   gem "ruby-lsp", require: false
   gem "ruby-lsp-rails", require: false
   gem "ruby-lsp-rspec", require: false
 end
 
 group :development do
-  gem "foreman"
   gem "letter_opener_web"
   gem "listen"
-  gem "rubocop"
   gem "web-console"
 
   gem "capistrano"
@@ -71,6 +72,4 @@ end
 
 group :test do
   gem "codecov", require: false
-  gem "database_cleaner"
-  gem "rspec"
 end
