@@ -2,18 +2,16 @@
 
 require Rails.root.join("app/services/census_action_authorizer")
 
-Decidim.configure do |config|
-  config.timestamp_service = "TimestampService"
-  config.pdf_signature_service = "PdfSignatureBarcelona"
-  config.sms_gateway_service = "SmsGateway" if ENV["SMS_SERVICE_URL"].present? && ENV["SMS_USERNAME"].present? && ENV["SMS_PASSWORD"].present?
+Decidim.timestamp_service = "TimestampService"
+Decidim.pdf_signature_service = "PdfSignatureBarcelona"
+Decidim.sms_gateway_service = "SmsGateway" if ENV["SMS_SERVICE_URL"].present? && ENV["SMS_USERNAME"].present? && ENV["SMS_PASSWORD"].present?
 
-  Decidim::Verifications.register_workflow(:census_sms_authorization_handler) do |auth|
-    auth.engine = Decidim::CensusSms::Verification::Engine
-    auth.renewable = true
-    auth.time_between_renewals = 1.day
-    # Uncomment the following line to make the workflow ephemeral
-    # auth.ephemeral = true
-  end
+Decidim::Verifications.register_workflow(:census_sms_authorization_handler) do |auth|
+  auth.engine = Decidim::CensusSms::Verification::Engine
+  auth.renewable = true
+  auth.time_between_renewals = 1.day
+  # Uncomment the following line to make the workflow ephemeral
+  # auth.ephemeral = true
 end
 
 Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|

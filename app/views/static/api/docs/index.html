@@ -1,574 +1,44 @@
 <div class="content"><!-- markdownlint-disable-file link-fragments -->
-<h2>
-<a id="about-the-graphql-api" class="anchor" href="#about-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the GraphQL API</h2>
+<h2 id="about-the-graphql-api">About the GraphQL API<a href="#about-the-graphql-api" aria-label="Link to heading 'About the GraphQL API'" data-heading-content="About the GraphQL API" class="anchor"></a></h2>
 <p><a href="https://github.com/decidim/decidim">Decidim</a> comes with an API that follows the <a href="https://graphql.org/">GraphQL</a> specification. It has a comprehensive coverage of all the public content that can be found on the website.</p>
 <p>Currently, it is read-only (except for posting comments) but intends to cover anything that is published on the regular website.</p>
 <p>Typically (although some particular installations may change that) you will find 3 relevant folders:</p>
 <ul>
-<li>
-<code>URL/api</code> The route where to make requests. Request are usually in the POST format.</li>
-<li>
-<code>URL/api/docs</code> This documentation, every Decidim site should provide one.</li>
-<li>
-<code>URL/api/graphiql</code> <a href="https://github.com/graphql/graphiql">GraphiQL</a> is a in-browser IDE for exploring GraphQL APIs. Some Decidim installations may choose to remove access to this tool. In that case you can use a <a href="https://electronjs.org/apps/graphiql">standalone version</a> and use any <code>URL/api</code> as the endpoint</li>
+<li><code>URL/api</code> The route where to make requests. Request are usually in the POST format.</li>
+<li><code>URL/api/docs</code> This documentation, every Decidim site should provide one.</li>
+<li><code>URL/api/graphiql</code> <a href="https://github.com/graphql/graphiql">GraphiQL</a> is a in-browser IDE for exploring GraphQL APIs. Some Decidim installations may choose to remove access to this tool. In that case you can use a <a href="https://electronjs.org/apps/graphiql">standalone version</a> and use any <code>URL/api</code> as the endpoint</li>
 </ul>
-<h3>
-<a id="using-the-graphql-api" class="anchor" href="#using-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the GraphQL API</h3>
+<h3 id="using-the-graphql-api">Using the GraphQL API<a href="#using-the-graphql-api" aria-label="Link to heading 'Using the GraphQL API'" data-heading-content="Using the GraphQL API" class="anchor"></a></h3>
 <p>The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official <a href="https://graphql.org/learn/">GraphQL site</a>.</p>
+<p>For additional examples of queries and mutations, check the additional <a href="https://docs.decidim.org/en/develop/develop/api/index.html">GraphQL API documentation</a> of Decidim.</p>
 <p>Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.</p>
 <p>For instance, you can check the version of a Decidim installation by using <code>curl</code> in the terminal:</p>
-<pre lang="bash"><code>curl -sSH "Content-Type: application/json" \
--d '{"query": "{ decidim { version } }"}' \
-https://www.decidim.barcelona/api/
-</code></pre>
+<pre lang="bash" style="background-color:#2b303b;"><code><span style="color:#8fa1b3;">curl</span><span style="color:#bf616a;"> -sSH </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Content-Type: application/json</span><span style="color:#c0c5ce;">&quot; \
+</span><span style="color:#bf616a;">-d </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">{&quot;query&quot;: &quot;{ decidim { version } }&quot;}</span><span style="color:#c0c5ce;">&#39; \
+</span><span style="color:#c0c5ce;">https://www.decidim.barcelona/api/
+</span></code></pre>
 <p>Note that <code>Content-Type</code> needs to be specified.</p>
-<p>The query can also be used in GraphiQL, in that case you can skip the <code>"query"</code> text:</p>
-<pre lang="graphql"><code>{
-  decidim {
-    version
-  }
-}
-</code></pre>
+<p>The query can also be used in GraphiQL, in that case you can skip the <code>&quot;query&quot;</code> text:</p>
+<pre lang="graphql" style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">{
+</span><span style="color:#c0c5ce;">  decidim {
+</span><span style="color:#c0c5ce;">    version
+</span><span style="color:#c0c5ce;">  }
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
 <p>Response (formatted) should look something like this:</p>
-<pre lang="json"><code>{
-  "data": {
-    "decidim": {
-      "version": "0.18.1"
-    }
-  }
-}
-</code></pre>
-<p>The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.</p>
-<p>From now on, we will skip the "query" keyword for the purpose of readability. You can skip it too if you are using GraphiQL, if you are querying directly (by using CURL for instance) you will need to include it.</p>
-<h3>
-<a id="signing-in-to-the-api" class="anchor" href="#signing-in-to-the-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signing in to the API</h3>
-<p>In case you want to use the API as a sign in user to perform mutations representing a user in Decidim, you have two available options for such integrations through the system administration panel:</p>
-<ol>
-<li>Creating an OAuth application and implementing the OAuth authentication flow for the users of your application. Use this option for participant-facing applications where the participants represent themselves in Decidim through the API.</li>
-<li>Creating API credentials and signing in to the API with these credentials to perform the operations as a signed in machine user. Use this option for machine-to-machine automations where there is no real end user interacting with Decidim.</li>
-</ol>
-<p>If you only want to test the GraphQL queries as a signed in user, you can use the normal Decidim authentication functionality to sign in and then use the GraphiQL IDE to perform these queries as a signed in user.</p>
-<h4>
-<a id="oauth-flow-for-participant-facing-applications" class="anchor" href="#oauth-flow-for-participant-facing-applications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OAuth flow for participant-facing applications</h4>
-<p>Participant-facing applications where the participants need to interact with Decidim through GraphQL mutations can be integrated using OAuth applications. In order to configure such integration capability from the system administration panel, create a new OAuth application and provide the necessary details for your integration. Note that the "application type" for such applications would typically be "Public". For more information regarding the application types, refer to <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-2.1">RFC 6749 Section 2.1. (OAuth client types)</a>.</p>
-<p>In order to use the OAuth access tokens to represent the user through the API, please select the following scopes as "Available" scopes for the application:</p>
-<ul>
-<li>
-<code>user</code> - Authenticated users have the ability to represent a logged in user in Decidim</li>
-<li>
-<code>api:read</code> - Authenticated users have the ability to read data from the API</li>
-<li>
-<code>api:write</code> - Authenticated users have the ability to write data through the API (in case your external application needs to perform mutations over the API on behalf of the user)</li>
-</ul>
-<p>Once configured, you can now use any OAuth authentication library to perform the OAuth authentication flow with your application users and receive an access token to utilize the Decidim API representing the signed in user. Please note that with public OAuth clients especially (and recommended also for confidential clients), you have to use <a href="https://datatracker.ietf.org/doc/html/rfc7636">PKCE</a> with the authorization flow.</p>
-<p>Once the OAuth application is created, you can authenticate against it with the following steps:</p>
-<ol>
-<li>Send the user to perform an OAuth authorization request at Decidim with the required API scopes (<code>user</code>, <code>api:read</code> and <code>api:write</code> if you want to perform mutations over the API). Along with the authorization request, also send the additional parameters required by PKCE (<code>code_challenge</code> and <code>code_challenge_method</code>).</li>
-<li>Receive an OAuth authorization code back to your application's configured redirect URI.</li>
-<li>Utilizing the received authorization code, request an OAuth access token from the OAuth token endpoint. Along with the token request, also send the additional parameter required by PKCE <code>code_verifier</code>.</li>
-<li>The issued token is a JSON Web Token (JWT) when the authorization request contains the defined scopes. This token can be now used to represent the user in further calls to the API by passing the token with its type (<code>Bearer</code>) within the HTTP Authorization header with the request to the API.</li>
-</ol>
-<p>When doing the requests to the API, you also need to pass the OAuth client ID within the <code>X-Jwt-Aud</code> header of the requests in order for the token to be recognized as a valid token for the issued client. Passing the bearer token to the <code>Authorization</code> header and the OAuth client ID to the <code>X-Jwt-Aud</code> header, you can send the following HTTP request to the API to validate that the token works and the user is recognized as signed in:</p>
-<pre lang="http"><code>POST /api HTTP/1.1
-Accept: application/json
-Authorization: Bearer token
-Content-Length: 53
-Content-Type: application/json
-Host: DOMAIN
-X-Jwt-Aud: OAUTH_CLIENT_ID
-
-{"query":"{ session { user { id name nickname } } }"}
-</code></pre>
-<p>You should see the user details in the response in case the token is valid and you have configured the API correctly. If the response does not contain the user details, please refer to the Decidim configuration documentation.</p>
-<p>Once the interaction with the API is completed, it is recommended to revoke the tokens, which is similar to the user signing out of the application. This can be done utilizing the OAuth revocation endpoint provided by Decidim. After the token is revoked, it is no longer valid and the user has to perform a re-authorization the next time they want to utilize the API.</p>
-<p>In case you need tokens with a longer life span, you can either look into the Decidim documentation to extend the validity period of the access tokens or enable refresh tokens for the OAuth application when configuring it. However, note that tokens with longer lifespan can weaken the security of your system and make your application users vulnerable to security threats. Such use cases should be carefully planned and the security concerns should be addressed seriously.</p>
-<h4>
-<a id="api-credentials-flow-for-machine-to-machine-automations" class="anchor" href="#api-credentials-flow-for-machine-to-machine-automations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API credentials flow for machine-to-machine automations</h4>
-<p>The API credentials represent an administrative user in Decidim that performs administrative tasks on behalf of the end users. This type of integration flows should never live on devices that the participants have access to. These types of integrations are meant for different types of automations, such as transferring proposal answers or meeting reports back to Decidim from an external system automatically, e.g. once a day.</p>
-<p>Note that these credentials are highly sensitive and have elevated permissions, so take good care of the system security where you are planning to store these credentials. If these credentials end up in participants' hands, the whole system is compromised and no longer secure. You should always primarily create OAuth integrations where the end users will manually perform the authorization for the application to perform actions on behalf of them.</p>
-<p>Once you have validated that this is the correct way for your integration to operate, you can create the API credentials from the system administration panel. You will receive an API key and API secret after creating the credentials. These credentials should be also manually rotated on a regular basis to prevent unauthorized access to the system with these credentials in case they are leaked. The credentials have to be manually rotated in order to prevent external applications breaking because they cannot rotate the credentials themselves and they are typically statically configured for these applications.</p>
-<p>Given you have issued the API key and API secret, you can now send a sign in request to the API using these credentials as follows:</p>
-<pre lang="bash"><code>curl -s -i -H "Content-type: application/x-www-form-urlencoded" \
-  -d "api_user[key]=PASTE_API_KEY_HERE" \
-  -d "api_user[secret]=PASTE_API_SECRET_HERE" \
-  -X POST https://DOMAIN/api/sign_in | grep 'Authorization' | cut -d ' ' -f2-
-</code></pre>
-<p>After running this command, you should see the following string in the console, where <code>token</code> is replaced with the access token:</p>
-<pre lang="bash"><code>Bearer token
-</code></pre>
-<p>This string is passed to the following requests within the HTTP <code>Authorization</code> header to represent the user during API calls. You can use the following example query to test it out and confirm that signing in works as expected:</p>
-<pre lang="bash"><code>curl -w "\n" -H "Content-Type: application/json" \
-  -H "Authorization: Bearer token" \
-  -d '{"query":"{ session { user { id name nickname } } }"}' \
-  -X POST https://DOMAIN/api
-</code></pre>
-<p>You should see the user details in the response in case the token is valid and you have configured the API correctly. If the response does not contain the user details, please refer to the Decidim configuration documentation.</p>
-<p>Once the API interaction is done, you should always make an HTTP DELETE request to <code>/api/sign_out</code> with the same token in order to revoke the token from further access as follows:</p>
-<pre lang="bash"><code>curl -s -o /dev/null -w "HTTP %{http_code}\n" \
-  -H "Authorization: Bearer token" \
-  -X DELETE http://DOMAIN/api/sign_out
-</code></pre>
-<h3>
-<a id="usage-limits" class="anchor" href="#usage-limits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage limits</h3>
-<p>Decidim is just a Rails application, meaning that any particular installation may implement custom limits in order to access the API (and the application in general).</p>
-<p>By default (particular installations may change that), API uses the same limitations as the whole Decidim website, provided by the Gem <a href="https://github.com/kickstarter/rack-attack">Rack::Attack</a>. These are 100 maximum requests per minute per IP to prevent DoS attacks</p>
-<h3>
-<a id="decidim-structure-types-collections-and-polymorphism" class="anchor" href="#decidim-structure-types-collections-and-polymorphism" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decidim structure, Types, collections and Polymorphism</h3>
-<p>There are no endpoints in the GraphQL specification, instead objects are organized according to their "Type".</p>
-<p>These objects can be grouped in a single, complex query. Also, objects may accept parameters, which are "Types" as well.</p>
-<p>Each "Type" is just a pre-defined structure with fields, or just an Scalar (Strings, Integers, Booleans, ...).</p>
-<p>For instance, to obtain <em>all the participatory processes in a Decidim installation published since January 2018</em> and order them by published date, we could execute the next query:</p>
-<pre lang="graphql"><code>{
-  participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
-    slug
-    title {
-      translation(locale: "en")
-    }
-  }
-}
-</code></pre>
-<p>Response should look like:</p>
-<pre lang="json"><code>{
-  "data": {
-    "participatoryProcesses": [
-      {
-        "slug": "consectetur-at",
-        "title": {
-          "translation": "Soluta consectetur quos fugit aut."
-        }
-      },
-      {
-        "slug": "nostrum-earum",
-        "title": {
-          "translation": "Porro hic ipsam cupiditate reiciendis."
-        }
-      }
-    ]
-  }
-}
-</code></pre>
-<h4>
-<a id="what-happened" class="anchor" href="#what-happened" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What happened?</h4>
-<p>In the former query, each keyword represents a type, the words <code>publishedSince</code>, <code>publishedAt</code>, <code>slug</code>, <code>locale</code> are scalars, all of them Strings.</p>
-<p>The other keywords however, are objects representing certain entities:</p>
-<ul>
-<li>
-<code>participatoryProcesses</code> is a type that represents a collection of participatory spaces. It accepts arguments (<code>filter</code> and <code>order</code>), which are other object types as well. <code>slug</code> and <code>title</code> are the fields of the participatory process we are interested in, there are "Types" too.</li>
-<li>
-<code>filter</code> is a <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>* input type, it has several properties that allows us to refine our search. One of them is the <code>publishedSince</code> property with the initial date from which to list entries.</li>
-<li>
-<code>order</code> is a <a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a> type, works the same way as the filter but with the goal of ordering the results.</li>
-<li>
-<code>title</code> is a <a href="#TranslatedField">TranslatedField</a> type, which allows us to deal with multi-language fields.</li>
-</ul>
-<p>Finally, note that the returned object is an array, each item of which is a representation of the object we requested.</p>
-<blockquote>
-<p>*<strong>About how filters and sorting are organized</strong></p>
-<p>There are two types of objects to filter and ordering collections in Decidim, they all work in a similar fashion. The type involved in filtering always have the suffix "Filter", for ordering it has the suffix "Sort".</p>
-<p>The types used to filter participatory spaces are: <a href="#ParticipatoryProcessFilter">ParticipatoryProcessFilter</a>, <a href="#AssemblyFilter">AssemblyFilter</a>, and so on.</p>
-<p>Other collections (or connections) may have their own filters (i.e. <a href="#ComponentFilter">ComponentFilter</a>).</p>
-<p>Each filter has its own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:</p>
-<p>We can say we have some searchable object with a multi-language field called <em>title</em>, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?</p>
-<p>In our case, we have decided to search only one particular language of a multi-language field but we let you choose which language to search.
-If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is <code>locale</code>, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).</p>
-<p>Example (this is not a real Decidim query):</p>
-<pre lang="graphql"><code> some_collection(filter: { locale: "en", title: "ideas"}) {
-   id
- }
-</code></pre>
-<p>The same applies to sorting (<a href="#ParticipatoryProcessSort">ParticipatoryProcessSort</a>, <a href="#AssemblySort">AssemblySort</a>, etc.)</p>
-<p>In this case, the content of the field (<em>title</em>) only allows 2 values: <em>ASC</em> and <em>DESC</em>.</p>
-<p>Example of ordering alphabetically by the title content in French language:</p>
-<pre lang="graphql"><code>some_collection(order: { locale: "en", title: "asc"}) {
-  id
-}
-</code></pre>
-<p>Of course, you can combine both filter and order. Also remember to check availability of this type of behaviour for any particular filter/sort.</p>
-</blockquote>
-<h4>
-<a id="decidim-main-types" class="anchor" href="#decidim-main-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decidim main types</h4>
-<p>Decidim has 2 main types of objects through which content is provided. These are Participatory Spaces and Components.</p>
-<p>A participatory space is the first level, currently there are 5 officially supported: <em>Participatory Processes</em>, <em>Assemblies</em>, <em>Conferences</em> and <em>Initiatives</em>. For each participatory process there will correspond a collection type and a "single item" type.</p>
-<p>The previous example uses the collection type for participatory processes. You can try <code>assemblies</code>, <code>conferences</code>, or <code>initiatives</code> for the others. Note that each collection can implement their own filter and order types with different properties.</p>
-<p>As an example for a single item query, you can run:</p>
-<pre lang="graphql"><code>{
-  participatoryProcess(slug: "consectetur-at") {
-    slug
-    title {
-      translation(locale: "en")
-    }
-  }
-}
-</code></pre>
-<p>And the response will be:</p>
-<pre lang="json"><code>{
-  "data": {
-    "participatoryProcess": {
-      "slug": "consectetur-at",
-      "title": {
-        "translation": "Soluta consectetur quos fugit aut."
-      }
-    }
-  }
-}
-</code></pre>
-<h4>
-<a id="what-is-different" class="anchor" href="#what-is-different" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is different?</h4>
-<p>First, note that we are querying, in singular, the type <code>participatoryProcess</code>, with a different parameter, <code>slug</code>*, (a String). We can use the <code>id</code> instead if we know it.</p>
-<p>Second, the response is not an Array, it is just the object we requested. We can expect to return <code>null</code> if the object is not found.</p>
-<blockquote>
-<p>* The <code>slug</code> is a convenient way to find a participatory space as is (usually) in the URL.</p>
-<p>For instance, consider this real case from Barcelona:</p>
-<p><a href="https://www.decidim.barcelona/processes/patrimonigracia">https://www.decidim.barcelona/processes/patrimonigracia</a></p>
-<p>The word <code>patrimonigracia</code> indicates the "slug".</p>
-</blockquote>
-<h4>
-<a id="components" class="anchor" href="#components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Components</h4>
-<p>Every participatory space may (and should) have some components. There are 9 official components, these are <code>Proposals</code>, <code>Page</code>, <code>Meetings</code>, <code>Budgets</code>, <code>Surveys</code>, <code>Accountability</code>, <code>Debates</code>, <code>Sortitions</code> and <code>Blog</code>. Plugins may add their own components.</p>
-<p>If you know the <code>id</code>* of a specific component you can obtain it by querying it directly:</p>
-<pre lang="graphql"><code>{
-  component(id:2) {
-    id
-    name {
-      translation(locale:"en")
-    }
-    __typename
-    participatorySpace {
-      id
-      type
-    }
-  }
-}
-</code></pre>
-<p>Response:</p>
-<pre lang="json"><code>{
-  "data": {
-    "component": {
-      "id": "2",
-      "name": {
-        "translation": "Meetings"
-      },
-      "__typename": "Meetings",
-      "participatorySpace": {
-        "id": "1",
-        "type": "Decidim::ParticipatoryProcess"
-      }
-    }
-  }
-}
-</code></pre>
-<p>The process is analogue as what has been explained in the case of searching for one specific participatory process.</p>
-<blockquote>
-<p>*Note that the <code>id</code> of a component is present also in the URL after the letter "f":</p>
-<p><a href="https://www.decidim.barcelona/processes/patrimonigracia/f/3257/">https://www.decidim.barcelona/processes/patrimonigracia/f/3257/</a></p>
-<p>In this case, 3257.</p>
-</blockquote>
-<h5>
-<a id="what-about-components-collections" class="anchor" href="#what-about-components-collections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about component's collections?</h5>
-<p>Glad you asked, component's collections cannot be retrieved directly, the are available <em>in the context</em> of a participatory space.</p>
-<p>For instance, we can query all the components in an particular Assembly as follows:</p>
-<pre lang="graphql"><code>{
-  assembly(id: 3) {
-    components {
-      id
-      name {
-        translation(locale: "en")
-      }
-      __typename
-    }
-  }
-}
-</code></pre>
-<p>The response will be similar to:</p>
-<pre lang="json"><code>{
-  "data": {
-    "assembly": {
-      "components": [
-        {
-          "id": "42",
-          "name": {
-            "translation": "Accountability"
-          },
-          "__typename": "Component"
-        },
-        {
-          "id": "38",
-          "name": {
-            "translation": "Meetings"
-          },
-          "__typename": "Meetings"
-        },
-        {
-          "id": "37",
-          "name": {
-            "translation": "Page"
-          },
-          "__typename": "Pages"
-        },
-        {
-          "id": "39",
-          "name": {
-            "translation": "Proposals"
-          },
-          "__typename": "Proposals"
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>We can also apply some filters by using the <a href="#ComponentFilter">ComponentFilter</a> type. In the next query we would like to <em>find all the components with geolocation enabled in the assembly with id=2</em>:</p>
-<pre lang="graphql"><code>{
-  assembly(id: 2) {
-    components(filter: {withGeolocationEnabled: true}) {
-      id
-      name {
-        translation(locale: "en")
-      }
-      __typename
-    }
-  }
-}
-</code></pre>
-<p>The response:</p>
-<pre lang="json"><code>{
-  "data": {
-    "assembly": {
-      "components": [
-        {
-          "id": "39",
-          "name": {
-            "translation": "Meetings"
-          },
-          "__typename": "Meetings"
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>Note that, in this case, there is only one component returned, "Meetings". In some cases Proposals can be geolocated too therefore would be returned in this query.</p>
-<h3>
-<a id="polymorphism-and-connections" class="anchor" href="#polymorphism-and-connections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Polymorphism and connections</h3>
-<p>Many relationships between tables in Decidim are polymorphic, this means that the related object can belong to different classes and share just a few properties in common.</p>
-<p>For instance, components in a participatory space are polymorphic, while the concept of component is generic and all of them share properties like <em>published date</em>, <em>name</em> or <em>weight</em>, they differ in the rest. <em>Proposals</em> have the <em>status</em> field while <em>Meetings</em> have an <em>agenda</em>.</p>
-<p>Another example are the case of linked resources, these are properties that may link objects of different nature between components or participatory spaces.</p>
-<p>In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator <code>... on</code>. You will know when a field is polymorphic because the property <code>__typename</code>, which tells you the type of that particular object, will change accordingly.</p>
-<p>In the previous examples we have queried for this property:</p>
-<p>Response fragment:</p>
-<pre lang="json"><code>      "components": [
-        {
-          "id": "38",
-          "name": {
-            "translation": "Meetings"
-          },
-          "__typename": "Meetings"
-        }
-</code></pre>
-<p>So, if we want to access the rest of the properties in a polymorphic object, we should do it through the <code>... on</code> operator as follows:</p>
-<pre lang="graphql"><code>{
-  assembly(id: 2) {
-    components {
-      id
-      ... on Proposals {
-
-      }
-    }
-  }
-}
-</code></pre>
-<p>Consider this query:</p>
-<pre lang="graphql"><code>{
-  assembly(id: 3) {
-    components(filter: {type: "Proposals"}) {
-      id
-      name {
-        translation(locale: "en")
-      }
-      ... on Proposals {
-        proposals(order: {likeCount: "desc"}, first: 2) {
-          edges {
-            node {
-              id
-              likes {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre>
-<p>The response:</p>
-<pre lang="json"><code>{
-  "data": {
-    "assembly": {
-      "components": [
-        {
-          "id": "39",
-          "name": {
-            "translation": "Proposals"
-          },
-          "proposals": {
-            "edges": [
-              {
-                "node": {
-                  "id": "35",
-                  "likes": [
-                    {
-                      "name": "Ms. Johnathon Schaefer"
-                    },
-                    {
-                      "name": "Linwood Lakin PhD 3 4 endr1"
-                    },
-                    {
-                      "name": "Gracie Emmerich"
-                    },
-                    {
-                      "name": "Randall Rath 3 4 endr3"
-                    },
-                    {
-                      "name": "Jolene Schmitt MD"
-                    },
-                    {
-                      "name": "Clarence Hammes IV 3 4 endr5"
-                    },
-                    {
-                      "name": "Omar Mayer"
-                    },
-                    {
-                      "name": "Raymundo Jaskolski 3 4 endr7"
-                    }
-                  ]
-                }
-              },
-              {
-                "node": {
-                  "id": "33",
-                  "likes": [
-                    {
-                      "name": "Spring Brakus"
-                    },
-                    {
-                      "name": "Reiko Simonis IV 3 2 endr1"
-                    },
-                    {
-                      "name": "Dr. Jim Denesik"
-                    },
-                    {
-                      "name": "Dr. Mack Schoen 3 2 endr3"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<h4>
-<a id="what-is-going-on" class="anchor" href="#what-is-going-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is going on?</h4>
-<p>Until the <code>... on Proposals</code> line, there is nothing new. We are requesting the <em>Assembly</em> participatory space identified by the <code>id=3</code>, then listing all its components with the type "Proposals". All the components share the <em>id</em> and <em>name</em> properties, so we can just add them at the query.</p>
-<p>After that, we want content specific from the <em>Proposals</em> type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches <em>Proposals</em>. We do that by wrapping the rest of the query in the <code>... on Proposals</code> clause.</p>
-<p>The next line is just a property of the type <em>Proposals</em> which is a type of collection called a "connection". A connection works similar as normal collection (such as <em>components</em>) but it can handle more complex cases.</p>
-<p>Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list <em>edges</em> in several <em>node</em> results. Also there are more arguments available in order to navigate between pages. This are the arguments:</p>
-<ul>
-<li>
-<code>first</code>: Returns the first <em>n</em> elements from the list</li>
-<li>
-<code>after</code>: Returns the elements in the list that come after the specified <em>cursor</em>
-</li>
-<li>
-<code>last</code>: Returns the last <em>n</em> elements from the list</li>
-<li>
-<code>before</code>: Returns the elements in the list that come before the specified <em>cursor</em>
-</li>
-</ul>
-<p>Example:</p>
-<pre lang="graphql"><code>{
-  assembly(id: 3) {
-    components(filter: {type: "Proposals"}) {
-      id
-      name {
-        translation(locale: "en")
-      }
-      ... on Proposals {
-        proposals(first:2,after:"Mg") {
-          pageInfo {
-            endCursor
-            startCursor
-            hasPreviousPage
-            hasNextPage
-          }
-          edges {
-            node {
-              id
-              likes {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre>
-<p>Being the response:</p>
-<pre lang="json"><code>{
-  "data": {
-    "assembly": {
-      "components": [
-        {
-          "id": "39",
-          "name": {
-            "translation": "Proposals"
-          },
-          "proposals": {
-            "pageInfo": {
-              "endCursor": "NA",
-              "startCursor": "Mw",
-              "hasPreviousPage": false,
-              "hasNextPage": true
-            },
-            "edges": [
-              {
-                "node": {
-                  "id": "32",
-                  "likes": []
-                }
-              },
-              {
-                "node": {
-                  "id": "31",
-                  "likes": [
-                    {
-                      "name": "Mr. Nicolas Raynor"
-                    },
-                    {
-                      "name": "Gerry Fritsch PhD 3 1 endr1"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  }
-}
-</code></pre>
-<p>As you can see, a part from the <em>edges</em> list, you can access to the object <em>pageInfo</em> which gives you the information needed to navigate through the different pages.</p>
-<p>For more info on how connections work, you can check the official guide:</p>
-<p><a href="https://graphql.org/learn/pagination/">https://graphql.org/learn/pagination/</a></p></div>
+<pre lang="json" style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">{
+</span><span style="color:#c0c5ce;">  &quot;</span><span style="color:#a3be8c;">data</span><span style="color:#c0c5ce;">&quot;: {
+</span><span style="color:#c0c5ce;">    &quot;</span><span style="color:#a3be8c;">decidim</span><span style="color:#c0c5ce;">&quot;: {
+</span><span style="color:#c0c5ce;">      &quot;</span><span style="color:#a3be8c;">version</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">0.18.1</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">    }
+</span><span style="color:#c0c5ce;">  }
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
+<p>For additional examples of queries and mutations, check the additional <a href="https://docs.decidim.org/en/develop/develop/api/index.html">GraphQL API documentation</a> of Decidim.</p></div>
 <div id="sidebar"><div id="search">
-  <img src="/api/docs/assets/images/search.svg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14" />
+  </svg>
   <input autocomplete="off" placeholder="Search" />
 </div>
 <ul class="categories">
@@ -678,8 +148,29 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/query/moderatedusers/" class="sidebar-link">
+          moderatedUsers
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/moderations/" class="sidebar-link">
+          moderations
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/query/organization/" class="sidebar-link">
           organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participantdetails/" class="sidebar-link">
+          participantDetails
         </a>
       </li>
       
@@ -706,20 +197,6 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
-        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
-          participatoryProcessType
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
-          participatoryProcessTypes
-        </a>
-      </li>
-      
-      
-      <li>
         <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
           participatoryProcesses
         </a>
@@ -729,6 +206,20 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/query/session/" class="sidebar-link">
           session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/staticpagetopics/" class="sidebar-link">
+          staticPageTopics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/staticpages/" class="sidebar-link">
+          staticPages
         </a>
       </li>
       
@@ -813,6 +304,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/attachmentcollection/" class="sidebar-link">
           AttachmentCollection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/badgescore/" class="sidebar-link">
+          BadgeScore
         </a>
       </li>
       
@@ -979,8 +477,22 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/debatemutation/" class="sidebar-link">
+          DebateMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/debates/" class="sidebar-link">
           Debates
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/debatesmutation/" class="sidebar-link">
+          DebatesMutation
         </a>
       </li>
       
@@ -1084,6 +596,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/meetingmutation/" class="sidebar-link">
+          MeetingMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/meetingservice/" class="sidebar-link">
           MeetingService
         </a>
@@ -1098,8 +617,22 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/meetingsmutation/" class="sidebar-link">
+          MeetingsMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/milestone/" class="sidebar-link">
           Milestone
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/moderation/" class="sidebar-link">
+          Moderation
         </a>
       </li>
       
@@ -1147,6 +680,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/participantdetails/" class="sidebar-link">
+          ParticipantDetails
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/participatoryprocess/" class="sidebar-link">
           ParticipatoryProcess
         </a>
@@ -1163,13 +703,6 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/participatoryprocessstep/" class="sidebar-link">
           ParticipatoryProcessStep
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/participatoryprocesstype/" class="sidebar-link">
-          ParticipatoryProcessType
         </a>
       </li>
       
@@ -1301,6 +834,20 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/reportable/" class="sidebar-link">
+          Reportable
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/reportableuser/" class="sidebar-link">
+          ReportableUser
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/responseoption/" class="sidebar-link">
           ResponseOption
         </a>
@@ -1343,29 +890,15 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
-        <a href="/api/docs/object/sortition/" class="sidebar-link">
-          Sortition
+        <a href="/api/docs/object/staticpage/" class="sidebar-link">
+          StaticPage
         </a>
       </li>
       
         
       <li>
-        <a href="/api/docs/object/sortitionconnection/" class="sidebar-link">
-          SortitionConnection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/sortitionedge/" class="sidebar-link">
-          SortitionEdge
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/sortitions/" class="sidebar-link">
-          Sortitions
+        <a href="/api/docs/object/staticpagetopic/" class="sidebar-link">
+          StaticPageTopic
         </a>
       </li>
       
@@ -1450,6 +983,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/user/" class="sidebar-link">
           User
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/usermoderation/" class="sidebar-link">
+          UserModeration
         </a>
       </li>
       
@@ -1686,6 +1226,41 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/enum/accessmodeenum/" class="sidebar-link">
+          AccessModeEnum
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/enum/iframeaccesslevelenum/" class="sidebar-link">
+          IframeAccessLevelEnum
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/enum/iframeembedtypeenum/" class="sidebar-link">
+          IframeEmbedTypeEnum
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/enum/registrationtypeenum/" class="sidebar-link">
+          RegistrationTypeEnum
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/enum/typeofmeetingenum/" class="sidebar-link">
+          TypeOfMeetingEnum
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/enum/__directivelocation/" class="sidebar-link">
           __DirectiveLocation
         </a>
@@ -1728,8 +1303,43 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/answerproposalattributes/" class="sidebar-link">
+          AnswerProposalAttributes
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/categoryfilter/" class="sidebar-link">
           CategoryFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/closedebateattributes/" class="sidebar-link">
+          CloseDebateAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/closedebateinput/" class="sidebar-link">
+          CloseDebateInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/closemeetingattributes/" class="sidebar-link">
+          CloseMeetingAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/closemeetinginput/" class="sidebar-link">
+          CloseMeetingInput
         </a>
       </li>
       
@@ -1758,6 +1368,41 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
           ComponentSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/createdebateinput/" class="sidebar-link">
+          CreateDebateInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/createmeetinginput/" class="sidebar-link">
+          CreateMeetingInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/createproposalinput/" class="sidebar-link">
+          CreateProposalInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/debateattributes/" class="sidebar-link">
+          DebateAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/meetingattributes/" class="sidebar-link">
+          MeetingAttributes
         </a>
       </li>
       
@@ -1812,6 +1457,34 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/unvoteproposalinput/" class="sidebar-link">
+          UnvoteProposalInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/updatedebateinput/" class="sidebar-link">
+          UpdateDebateInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/updatemeetinginput/" class="sidebar-link">
+          UpdateMeetingInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/updateproposalinput/" class="sidebar-link">
+          UpdateProposalInput
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/userentityfilter/" class="sidebar-link">
           UserEntityFilter
         </a>
@@ -1821,6 +1494,27 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/userentitysort/" class="sidebar-link">
           UserEntitySort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/voteproposalinput/" class="sidebar-link">
+          VoteProposalInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/withdrawmeetinginput/" class="sidebar-link">
+          WithdrawMeetingInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/withdrawproposalinput/" class="sidebar-link">
+          WithdrawProposalInput
         </a>
       </li>
       

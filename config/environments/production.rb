@@ -71,7 +71,7 @@ Rails.application.configure do
     :user_name => Decidim::Env.new("SMTP_USERNAME").to_s,
     :password => Decidim::Env.new("SMTP_PASSWORD").to_s,
     :domain => Decidim::Env.new("SMTP_DOMAIN").to_s,
-    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
     :openssl_verify_mode => "none"
   }
 

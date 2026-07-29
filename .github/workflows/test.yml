@@ -2,13 +2,13 @@ name: Test
 on: [push]
 
 env:
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
   NODE_VERSION: 22.14.0
 
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     services:
       postgres:
         image: postgres:14
@@ -38,7 +38,7 @@ jobs:
           bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
       - run: |
-          sudo apt update && sudo apt install wkhtmltopdf
+          sudo apt update && sudo apt install wkhtmltopdf libvips libvips-tools
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - name: Precompile assets
