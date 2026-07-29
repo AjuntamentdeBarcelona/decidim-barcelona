@@ -1055,15 +1055,6 @@ GEM
     selma (0.5.1-arm64-darwin)
     selma (0.5.1-x86_64-linux)
     semantic_range (3.1.1)
-    sentry-rails (5.26.0)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.26.0)
-    sentry-ruby (5.26.0)
-      bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-    sentry-sidekiq (5.26.0)
-      sentry-ruby (~> 5.26.0)
-      sidekiq (>= 3.0)
     shakapacker (9.7.0)
       activesupport (>= 5.2)
       package_json
@@ -1231,9 +1222,6 @@ DEPENDENCIES
   ruby-lsp
   ruby-lsp-rails
   ruby-lsp-rspec
-  sentry-rails
-  sentry-ruby
-  sentry-sidekiq
   sidekiq
   stackprof
   web-console
