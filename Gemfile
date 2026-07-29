@@ -18,7 +18,6 @@ gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-stats", path: "decidim-stats"
 
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "upgrade-32"
-# gem "decidim-extra_censuses", git: "https://github.com/openpoke/decidim-module-extra_censuses", branch: "main"
 gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "deps/decidim-0.32"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "deps/decidim-0.32"
 gem "decidim-term_customizer", git: "https://github.com/fblupi/decidim-module-term_customizer", branch: "deps/decidim-0.32"
@@ -62,18 +61,11 @@ end
 group :production do
   gem "appsignal"
   gem "aws-sdk-s3", require: false
-  gem "barnes" # Needed to be able to debug Puma status
-  gem "dalli"
   gem "lograge"
-  gem "matrix"
   gem "rack_password"
-  gem "rack-ssl-enforcer"
-  gem "rack-timeout" # Let's kill long-running requests after the Heroku router has responded to
-  gem "rails_12factor"
-  gem "rails_autoscale_agent"
+  gem "rack-timeout"
   gem "rexml"
   gem "sidekiq"
-  gem "stackprof"
   gem "whenever", require: false
 end
 
