@@ -52,10 +52,9 @@ group :development do
   gem "web-console"
 
   gem "capistrano"
-  gem "capistrano3-puma", "~> 6.0"
+  gem "capistrano3-puma", "~> 8.0"
   gem "capistrano-bundler"
   gem "capistrano-nvm", require: false
-  gem "capistrano-passenger"
   gem "capistrano-rails"
   gem "capistrano-rails-console"
   gem "capistrano-rbenv"
