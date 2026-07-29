@@ -23,8 +23,6 @@ gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelon
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "deps/decidim-0.32"
 gem "decidim-term_customizer", git: "https://github.com/fblupi/decidim-module-term_customizer", branch: "deps/decidim-0.32"
 
-gem "wicked_pdf", "~> 2.7.0"
-
 gem "progressbar"
 gem "puma"
 
