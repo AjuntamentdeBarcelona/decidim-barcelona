@@ -32,7 +32,7 @@ module Decidim
       private
 
       def authorization_params
-        params.require(:authorization_exports).permit(:authorization_handler_name, :start_date, :end_date)
+        params.expect(authorization_exports: [:authorization_handler_name, :start_date, :end_date])
       end
     end
   end

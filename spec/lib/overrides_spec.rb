@@ -149,13 +149,15 @@ checksums = [
 
 describe "Overridden files", type: :view do
   checksums.each do |item|
-    spec = Gem::Specification.find_by_name(item[:package])
+    gem_spec = Gem::Specification.find_by_name(item[:package])
+    next unless gem_spec
 
     item[:files].each do |file, signature|
-      next unless spec
-
-      it "#{spec.gem_dir}#{file} matches checksum" do
-        expect(md5("#{spec.gem_dir}#{file}")).to eq(signature)
+      # gem_dir is interpolated into the example name at definition time, but the example
+      # body re-resolves it so no outer local variable leaks in (RSpec/LeakyLocalVariable).
+      it "#{gem_spec.gem_dir}#{file} matches checksum" do
+        gem_dir = Gem::Specification.find_by_name(item[:package]).gem_dir
+        expect(md5("#{gem_dir}#{file}")).to eq(signature)
       end
     end
   end

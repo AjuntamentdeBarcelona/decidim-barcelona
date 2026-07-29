@@ -44,7 +44,7 @@ describe PdfSignatureBarcelona do
           output_pdf = HexaPDF::Document.new(io: StringIO.new(subject))
           expect(original_pdf.pages.count).to eq(1)
           # HexaPDF returns nil (no AcroForm) rather than false for an unsigned document
-          expect(original_pdf.signed?).to be_falsey
+          expect(original_pdf).not_to be_signed
           expect(output_pdf.pages.count).to eq(2)
           expect(output_pdf.signed?).to be true
         end
