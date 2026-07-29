@@ -7,7 +7,8 @@
     "@decidim/webpacker": "^0.32.0",
     "codemirror": "^5.65.16",
     "form-storage": "^1.3.5",
-    "formBuilder": "^3.19.7",
+    "formBuilder": "^3.20.0",
+    "formbuilder-languages": "^1.2.0",
     "inline-attacher": "^0.0.7",
     "jsrender": "^1.0.13",
     "leaflet.featuregroup.subgroup": "^1.0.2"
