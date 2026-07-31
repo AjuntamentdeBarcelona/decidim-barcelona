@@ -1,0 +1,140 @@
+<% add_decidim_page_title(t("decidim.admin.titles.participants")) %>
+
+<div class="card" id="user-groups">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title"><%= t "decidim.admin.titles.participants" %></h1>
+  </div>
+  <%= admin_filter_selector %>
+  <div class="table-stacked">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th><%= sort_link(query, :name, t(".name"), default_order: :desc) %></th>
+        <th><%= sort_link(query, :nickname, t(".nickname"), default_order: :desc) %></th>
+        <th><%= sort_link(query, :created_at, t(".created_at"), default_order: :desc) %></th>
+        <th><%= sort_link(query, :officialized_at, t(".status"), default_order: :desc) %></th>
+        <th><%= t(".badge") %></th>
+        <th><%= sort_link(query, :user_moderation_report_count, t(".reports"), default_order: :desc) %></th>
+        <th><%= t(".actions") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr data-user-id="<%= user.id %>">
+          <% if user.nickname.present? %>
+            <td data-label="<%= t(".name") %>">
+              <%= link_to user.name, decidim.profile_path(user.nickname) %>
+            </td>
+            <td data-label="<%= t(".nickname") %>">
+              <%= link_to user.nickname, decidim.profile_path(user.nickname) %>
+            </td>
+          <% else %>
+            <td data-label="<%= t(".name") %>">
+              <%= user.name %>
+            </td>
+            <td data-label="<%= t(".nickname") %>">
+              <%= user.nickname %>
+            </td>
+          <% end %>
+          <td data-label="<%= t(".created_at") %>">
+            <%= l user.created_at, format: :short %>
+          </td>
+          <td data-label="<%= t(".status") %>">
+            <%= user.officialized? ? t(".officialized") : t(".not_officialized") %>
+          </td>
+          <td data-label="<%= t(".badge") %>">
+            <%= translated_attribute(user.officialized_as) %>
+          </td>
+          <td data-label="<%= t(".reports") %>">
+            <%= user.report_count %>
+          </td>
+          <td data-label="<%= t(".actions") %>" class="table-list__actions">
+            <button type="button" data-controller="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.nickname.presence || user.id) %>">
+              <%= icon "more-fill", class: "text-secondary" %>
+            </button>
+
+            <div class="inline-block relative">
+              <ul id="actions-user-<%= user.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                <% if allowed_to?(:block, :admin_user, user: user) %>
+                  <% if user.blocked? %>
+                    <li class="dropdown__item">
+                      <%= link_to user_block_path(user_id: user.id), method: :delete, class: "dropdown__button dropdown__button--danger" do %>
+                        <%= icon "forbid-2-line" %>
+                        <%= t(".unblock") %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li class="dropdown__item">
+                      <%= link_to new_user_block_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "forbid-2-line" %>
+                        <%= t(".block") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <hr>
+                <% end %>
+
+                <% if allowed_to?(:show_email, :user, user: user) %>
+                  <li class="dropdown__item">
+                    <%= link_to show_email_officialization_path(user_id: user.id), class: "dropdown__button", data: { full_name: user.name, dialog_open: "show-email-modal" } do %>
+                      <%= icon "mail-open-line" %>
+                      <%= t(".show_email") %>
+                    <% end %>
+                  </li>
+                <% end %>
+
+                <% unless user.blocked? %>
+                  <% if user.invited_to_sign_up? && allowed_to?(:invite, :admin_user, user: user) %>
+                    <li class="dropdown__item">
+                      <%= link_to resend_invitation_officialization_path(user_id: user.id), method: :post, class: "dropdown__button" do %>
+                        <%= icon "refresh-line" %>
+                        <%= t("actions.resend_invitation", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% unless current_user == user %>
+                    <li class="dropdown__item">
+                      <%= link_to current_or_new_conversation_path_with(user), class: "dropdown__button" do %>
+                        <%= icon "mail-line" %>
+                        <%= t(".send_message") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <hr>
+
+                  <% if user.officialized? %>
+                    <li class="dropdown__item">
+                      <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t(".reofficialize") %>
+                      <% end %>
+                    </li>
+                    <li class="dropdown__item">
+                      <%= link_to officialization_path(user.id), method: :delete, class: "dropdown__button" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t(".unofficialize") %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li class="dropdown__item">
+                      <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "checkbox-circle-line" %>
+                        <%= t(".officialize") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate @users %>
+<%= render "show_email_modal" %>
