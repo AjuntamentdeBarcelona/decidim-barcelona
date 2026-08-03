@@ -1178,6 +1178,7 @@ DEPENDENCIES
   decidim-templates (~> 0.32.0)
   decidim-term_customizer!
   dotenv-rails
+  faker
   letter_opener_web
   listen
   lograge

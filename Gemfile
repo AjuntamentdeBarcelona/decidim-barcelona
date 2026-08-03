@@ -27,6 +27,7 @@ gem "bootsnap", "~> 1.3"
 gem "puma", ">= 6.3.1"
 
 gem "dotenv-rails"
+gem "faker"
 gem "progressbar"
 
 group :development, :test do
