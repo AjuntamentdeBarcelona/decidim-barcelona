@@ -24,6 +24,7 @@ Rails.application.config.to_prepare do
   Decidim::Meetings::OnlineMeetingCell.include(Decidim::Meetings::OnlineMeetingCellOverride)
   Decidim::Meetings::MeetingsHelper.include(Decidim::Meetings::MeetingsHelperOverride)
   Decidim::Meetings::JoinMeetingButtonCell.include(Decidim::Meetings::JoinMeetingButtonCellOverride)
+  Decidim::ContentBlocks::HtmlCell.include(Decidim::ContentBlocks::HtmlCellOverride)
   Decidim::ContentBlocks::LastActivityCell.include(Decidim::ContentBlocks::LastActivityCellOverride)
   Decidim::ActivitiesCell.include(Decidim::ActivitiesCellOverride)
   Decidim::UserProfileCell.include(Decidim::UserProfileCellOverride)
