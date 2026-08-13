@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/fblupi/decidim-module-term_customizer
-  revision: 11fc77be32a01224d432ba223a5190d5fd2acbb1
+  revision: ab489cf3272f6b0c01146a7a08e546b517eb6677
   branch: deps/decidim-0.32
   specs:
     decidim-term_customizer (0.32)
