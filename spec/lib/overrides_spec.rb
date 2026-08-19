@@ -27,13 +27,15 @@ checksums = [
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "4aea28b33468227392384324a3845b2e", # revert https://github.com/decidim/decidim/pull/10690
       "/app/views/decidim/admin/resource_permissions/_options_form.html.erb" => "995160c04f1cd0173e4bfb2d690bacbd",
-      "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "84cb53c2b272dc5f5724f272887f3b11"
+      "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "84cb53c2b272dc5f5724f272887f3b11",
+      "/app/controllers/concerns/decidim/admin/filterable.rb" => "3c54a6066a60af9fd079dfe18d97c40f" # filtered_collection replaced in admin/assemblies_controller_override.rb, backport https://github.com/decidim/decidim/pull/17500
     }
   },
   {
     package: "decidim-assemblies",
     files: {
       "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "92fcbb653e524ac19af32c7be9a73882",
+      "/app/controllers/decidim/assemblies/admin/assemblies_controller.rb" => "2e7ae7ed6406facce95e8819ae6e0a79", # show all children in admin list, backport https://github.com/decidim/decidim/pull/17500
       "/app/helpers/decidim/assemblies/assemblies_helper.rb" => "eb67b3c8d3691ffe518555afb3d401a7" # fix double-escaping https://github.com/decidim/decidim/pull/16419
     }
   },
