@@ -26,6 +26,7 @@ checksums = [
     package: "decidim-admin",
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "4aea28b33468227392384324a3845b2e", # revert https://github.com/decidim/decidim/pull/10690
+      "/app/controllers/concerns/decidim/admin/filterable.rb" => "3c54a6066a60af9fd079dfe18d97c40f", # filtered_collection replaced in admin/assemblies_controller_override.rb, backport https://github.com/decidim/decidim/pull/17500
       "/app/views/decidim/admin/resource_permissions/_options_form.html.erb" => "995160c04f1cd0173e4bfb2d690bacbd",
       "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "142629c45195cfa36dc5a4350aac6a7f"
     }
@@ -33,6 +34,7 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
+      "/app/controllers/decidim/assemblies/admin/assemblies_controller.rb" => "2e7ae7ed6406facce95e8819ae6e0a79", # show all children in admin list, backport https://github.com/decidim/decidim/pull/17500
       "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "92fcbb653e524ac19af32c7be9a73882"
     }
   },

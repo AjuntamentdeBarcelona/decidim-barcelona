@@ -33,6 +33,7 @@ Rails.application.config.to_prepare do
   Decidim::Forms::QuestionnaireUserResponses.include(Decidim::Forms::QuestionnaireUserResponsesOverride)
   Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   Decidim::Assemblies::AssembliesController.include(Decidim::Assemblies::AssembliesControllerOverride)
+  Decidim::Assemblies::Admin::AssembliesController.prepend(Decidim::Assemblies::Admin::AssembliesControllerOverride)
   Decidim::Accountability::ApplicationHelper.include(Decidim::Accountability::ApplicationHelperOverride)
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
   Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
