@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Initiative custom fields display" do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, default_locale: :ca, available_locales: [:ca, :es]) }
   let(:author) { create(:user, :confirmed, organization:) }
   let(:other_user) { create(:user, :confirmed, organization:) }
   let!(:author_authorization) { create(:authorization, user: author, name: "census_sms_authorization_handler") }

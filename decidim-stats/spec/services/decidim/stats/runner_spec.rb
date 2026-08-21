@@ -19,9 +19,9 @@ describe Decidim::Stats::Runner do
   let(:component) { proposal.component }
   let!(:proposal_follow) { create(:follow, followable: proposal) }
   let!(:proposal_follower) { proposal_follow.user }
-  let!(:draft) { create(:collaborative_draft, component:) }
-  let!(:draft_follow) { create(:follow, followable: draft) }
-  let!(:draft_follower) { draft_follow.user }
+  let!(:other_proposal) { create(:proposal, component: proposal.component) }
+  let!(:other_follow) { create(:follow, followable: other_proposal) }
+  let!(:other_follower) { other_follow.user }
   let!(:like) { create(:like, resource: proposal, author: create(:user, organization: proposal.organization)) }
   let(:proposal_liker) { like.author }
   let!(:comment) { create(:comment, root_commentable: proposal) }
@@ -38,7 +38,7 @@ describe Decidim::Stats::Runner do
     [
       proposal_author,
       proposal_follower,
-      draft_follower,
+      other_follower,
       proposal_liker,
       proposal_comment_author,
       proposal_vote_author

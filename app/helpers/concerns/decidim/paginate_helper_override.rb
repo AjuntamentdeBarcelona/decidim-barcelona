@@ -16,7 +16,7 @@ module Decidim
           if collection.total_pages.positive? && !paginate_params.delete(:hide_results_per_page_selector)
             template += render partial: "decidim/shared/results_per_page", locals: { per_page: }, formats: [:html]
           end
-          template += paginate collection, window: 2, outer_window: 1, theme: "decidim", params: paginate_params
+          template += paginate collection, window: 2, outer_window: 1, theme: "decidim", params: pagination_params(paginate_params)
           template.html_safe
         end
       end

@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 
-require "origami"
+require "hexapdf"
 require "tempfile"
 
 # Service to add a signature to a pdf using certificates provided to
@@ -26,21 +26,24 @@ class PdfSignatureBarcelona
   def signed_pdf
     return pdf if missing_configuration?
 
-    @signed_pdf ||= StringIO.open(pdf) do |stream|
-      parsed_pdf = Origami::PDF.read(stream)
-      parsed_pdf.append_page do |page|
-        page.add_annotation(signature_annotation)
-        parsed_pdf.sign(
-          certificate,
-          private_key.key,
-          method: "adbe.pkcs7.detached",
-          annotation: signature_annotation,
-          location:,
-          contact:,
-          issuer:
-        )
-      end
-      extract_signed_pdf(parsed_pdf)
+    @signed_pdf ||= begin
+      file = Tempfile.new("signed_pdf")
+      document = HexaPDF::Document.new(io: StringIO.new(pdf))
+      document.sign(
+        file.path,
+        signature: signature_widget(document),
+        certificate:,
+        key: private_key.key,
+        certificate_chain: [],
+        reason: caption,
+        location:,
+        contact_info: contact,
+        signature_size: 10_000
+      )
+      File.binread(file.path)
+    ensure
+      file.close
+      file.unlink
     end
   end
 
@@ -50,44 +53,28 @@ class PdfSignatureBarcelona
     [pdf_certificate, certificate, private_key, signature_certificate_password].any?(&:blank?)
   end
 
-  def extract_signed_pdf(parsed_pdf)
-    file = Tempfile.new("signed_pdf")
-    begin
-      parsed_pdf.save(file.path)
-      File.binread(file.path)
-    ensure
-      file.close
-      file.unlink
-    end
-  end
-
-  def text_annotation(options = {})
+  # The signature lives on a page of its own, appended after the document
+  # contents, with the caption rendered as the widget appearance.
+  def signature_widget(document, options = {})
     width = options.fetch(:width, 200.0)
     height = options.fetch(:height, 50.0)
     size = options.fetch(:size, 8)
 
-    Origami::Annotation::AppearanceStream.new.tap do |annotation|
-      annotation.Type = Origami::Name.new("XObject")
-      annotation.Resources = Origami::Resources.new
-      annotation.Resources.ProcSet = [Origami::Name.new("Text")]
-      annotation.set_indirect(true)
-      annotation.Matrix = [1, 0, 0, 1, 0, 0]
-      annotation.BBox = [0, 0, width, height]
-      annotation.write(caption, x: size, y: (height / 2) - (size / 2), size:)
-    end
-  end
+    page = document.pages.add
 
-  def signature_annotation(options = {})
-    @signature_annotation ||= begin
-      width = options.fetch(:width, 200.0)
-      height = options.fetch(:height, 50.0)
+    form = document.acro_form(create: true)
+    form.signature_flag(:append_only)
+    field = form.create_signature_field("signature")
 
-      Origami::Annotation::Widget::Signature.new.tap do |annotation|
-        annotation.set_indirect(true)
-        annotation.Rect = Origami::Rectangle[llx: height, lly: width + height, urx: width + height, ury: width]
-        annotation.set_normal_appearance(text_annotation(width:, height:))
-      end
-    end
+    widget = field.create_widget(page, Rect: [height, width, width + height, width + height])
+    widget.flag(:print)
+    appearance = (widget[:AP] ||= {})[:N] ||= document.add({ Type: :XObject, Subtype: :Form })
+    appearance[:BBox] = [0, 0, widget[:Rect].width, widget[:Rect].height]
+    appearance.canvas
+              .font("Helvetica", size:)
+              .text(caption, at: [size, (height / 2) - (size / 2)])
+
+    document.add({ Type: :Sig }).tap { |signature| field.field_value = signature }
   end
 
   def certificate
@@ -133,10 +120,6 @@ class PdfSignatureBarcelona
 
   def contact
     "suport@decidim.barcelona"
-  end
-
-  def issuer
-    "Decidim"
   end
 
   def date

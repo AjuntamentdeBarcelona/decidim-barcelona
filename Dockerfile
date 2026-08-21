@@ -1,4 +1,4 @@
-FROM ruby:3.3.4
+FROM ruby:3.4.7
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_MAJOR=22
@@ -7,7 +7,7 @@ ENV NODE_MAJOR=22
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     graphviz \
-    imagemagick \
+    libvips42t64 \
     libicu-dev \
     libpq-dev \
     nodejs \
@@ -31,7 +31,7 @@ ENV \
   BUNDLE_JOBS=10 \
   BUNDLE_PATH=/usr/local/bundle \
   BUNDLE_RETRY=3 \
-  GEM_HOME=/bundle
+  GEM_HOME=/usr/local/bundle
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 # Copy Gemfile and install bundler dependencies
@@ -40,7 +40,7 @@ ADD ./decidim-census_sms/decidim-census_sms.gemspec /app/decidim-census_sms/deci
 ADD ./decidim-dataviz/decidim-dataviz.gemspec /app/decidim-dataviz/decidim-dataviz.gemspec
 ADD ./decidim-stats/decidim-stats.gemspec /app/decidim-stats/decidim-stats.gemspec
 ADD ./decidim-valid_auth/decidim-valid_auth.gemspec /app/decidim-valid_auth/decidim-valid_auth.gemspec
-RUN gem install bundler:2.7.2
+RUN gem install bundler:4.0.6
 RUN bundle install
 
 # Copy all the code to /app
