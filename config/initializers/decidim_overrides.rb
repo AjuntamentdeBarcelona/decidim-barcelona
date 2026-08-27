@@ -38,4 +38,6 @@ Rails.application.config.to_prepare do
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
   Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
   Decidim::Verifications::AuthorizationsController.include(Decidim::Verifications::AuthorizationsControllerOverride)
+  Decidim::Blogs::Admin::ApplicationController.prepend(Decidim::Blogs::Admin::ApplicationControllerOverride)
+  Decidim::Blogs::ContentBlocks::HighlightedPostsCell.include(Decidim::Blogs::ContentBlocks::HighlightedPostsCellOverride)
 end
