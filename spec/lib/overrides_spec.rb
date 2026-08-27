@@ -39,6 +39,13 @@ checksums = [
     }
   },
   {
+    package: "decidim-blogs",
+    files: {
+      "/app/cells/decidim/blogs/content_blocks/highlighted_posts_cell.rb" => "db3a671acc70e124c475c09b2b2b7f70", # order posts by published_at in highlighted_posts_cell_override.rb, backport https://github.com/decidim/decidim/pull/17575
+      "/app/controllers/decidim/blogs/admin/application_controller.rb" => "5d394124dd3cab8bc9be23519b1580a6" # order admin posts list by published_at in admin/application_controller_override.rb, backport https://github.com/decidim/decidim/pull/17575
+    }
+  },
+  {
     package: "decidim-core",
     files: {
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
