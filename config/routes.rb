@@ -56,6 +56,14 @@ Rails.application.routes.draw do
     end
   end
 
+  Decidim::Admin::Engine.routes.draw do
+    resources :officializations, only: [], param: :user_id do
+      member do
+        post :resend_invitation
+      end
+    end
+  end
+
   mount Decidim::Core::Engine => "/"
   mount Decidim::Stats::Engine, at: "/stats", as: "decidim_stats"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
