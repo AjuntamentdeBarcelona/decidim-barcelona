@@ -55,6 +55,7 @@ checksums = [
       "/app/cells/decidim/user_profile_cell.rb" => "0f20d006ccf4df77c59e3a2333a28a10",
       "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/paginate_helper.rb" => "bdedfc156661546c73ab428ebb139e8a",
+      "/app/helpers/decidim/sanitize_helper.rb" => "70dd1b42b07ae0038821f65ad49e0cb6", # fix double escaping in decidim_html_escape, backport https://github.com/decidim/decidim/pull/17604
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "7edc1be320cdd9605bec4e0caba132d5",
       "/app/presenters/decidim/official_author_presenter.rb" => "dbfb2fefa1c75d703e65443cd68014c2",
       "/app/views/layouts/decidim/footer/_main_legal.html.erb" => "d4d3e477b5eb6840b915a836b1a7f417",
