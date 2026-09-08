@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_29_103257) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_08_061645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -849,10 +849,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_29_103257) do
     t.bigint "election_id", null: false
     t.boolean "mandatory", default: false, null: false
     t.integer "max_choices"
+    t.integer "min_choices"
     t.integer "position"
     t.datetime "published_results_at"
     t.string "question_type", default: "multiple_option", null: false
     t.integer "response_options_count", default: 0, null: false
+    t.jsonb "settings", default: {}, null: false
     t.datetime "updated_at", null: false
     t.integer "votes_count", default: 0, null: false
     t.datetime "voting_enabled_at"
@@ -862,6 +864,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_29_103257) do
   create_table "decidim_elections_response_options", force: :cascade do |t|
     t.jsonb "body", default: {}, null: false
     t.datetime "created_at", null: false
+    t.string "group_id"
     t.bigint "question_id", null: false
     t.datetime "updated_at", null: false
     t.integer "votes_count", default: 0, null: false
@@ -2411,11 +2414,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_29_103257) do
   add_foreign_key "decidim_reminders", "decidim_users"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
-  add_foreign_key "decidim_scopes", "decidim_organizations", name: "decidim_scopes_decidim_organization_id_fkey"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
-  add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id", name: "decidim_scopes_scope_type_id_fkey"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
-  add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id", name: "decidim_scopes_parent_id_fkey"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
   add_foreign_key "decidim_taxonomy_filter_items", "decidim_taxonomies", column: "taxonomy_item_id"
   add_foreign_key "decidim_taxonomy_filters", "decidim_taxonomies", column: "root_taxonomy_id"
