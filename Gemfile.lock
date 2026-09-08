@@ -21,6 +21,17 @@ GIT
       deface (>= 1.5)
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-extra_censuses
+  revision: 157c135bb1af68bfa7216959886b5880d8444dbd
+  specs:
+    decidim-extra_censuses (0.3.0)
+      decidim-admin (>= 0.32.0, < 0.33)
+      decidim-core (>= 0.32.0, < 0.33)
+      decidim-elections (>= 0.32.0, < 0.33)
+      decidim-surveys (>= 0.32.0, < 0.33)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: b302681b8f734a6c078a867aead7c599d8d8abc5
   branch: upgrade-32
@@ -1171,6 +1182,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev (~> 0.32.0)
   decidim-elections (~> 0.32.0)
+  decidim-extra_censuses!
   decidim-initiatives (~> 0.32.0)
   decidim-internal_evaluation!
   decidim-kids!
