@@ -19,9 +19,9 @@ gem "decidim-stats", path: "decidim-stats"
 
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "upgrade-32"
 gem "decidim-extra_censuses", git: "https://github.com/Platoniq/decidim-module-extra_censuses"
-gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "deps/decidim-0.32"
-gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "deps/decidim-0.32"
-gem "decidim-term_customizer", git: "https://github.com/fblupi/decidim-module-term_customizer", branch: "deps/decidim-0.32"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
+gem "decidim-term_customizer", git: "https://github.com/openpoke/decidim-module-term_customizer"
 
 gem "bootsnap", "~> 1.3"
 
