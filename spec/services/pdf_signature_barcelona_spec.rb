@@ -40,10 +40,11 @@ describe PdfSignatureBarcelona do
 
       context "with a valid pdf" do
         it "returns a signed pdf with a page added" do
-          original_pdf = Origami::PDF.read("spec/fixtures/example_pdf.pdf")
-          output_pdf = Origami::PDF.read(StringIO.new(subject))
+          original_pdf = HexaPDF::Document.open("spec/fixtures/example_pdf.pdf")
+          output_pdf = HexaPDF::Document.new(io: StringIO.new(subject))
           expect(original_pdf.pages.count).to eq(1)
-          expect(original_pdf.signed?).to be false
+          # HexaPDF returns nil (no AcroForm) rather than false for an unsigned document
+          expect(original_pdf).not_to be_signed
           expect(output_pdf.pages.count).to eq(2)
           expect(output_pdf.signed?).to be true
         end

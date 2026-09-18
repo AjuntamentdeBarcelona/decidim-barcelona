@@ -19,7 +19,7 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
 
   validates :date_of_birth, presence: true
   validates :document_type, inclusion: { in: [:dni, :nie, :passport] }, presence: true
-  validates :document_number, format: { with: /\A[A-z0-9]*\z/ }, presence: true
+  validates :document_number, format: { with: /\A[A-Za-z0-9]*\z/ }, presence: true
   validates :postal_code, presence: true, format: { with: /\A[0-9]*\z/ }
   validates :scope_id, presence: true
 

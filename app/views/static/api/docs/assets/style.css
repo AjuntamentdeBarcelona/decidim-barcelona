@@ -1,4 +1,3 @@
-@import "//hello.myfonts.net/count/2c4b9d";
 * {
   box-sizing: border-box;
 }
@@ -134,33 +133,45 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: "ProximaNova-Light";
-  src: url("webfonts/2C4B9D_B_0.eot");
-  src: url("webfonts/2C4B9D_B_0.eot?#iefix") format("embedded-opentype"), url("webfonts/2C4B9D_B_0.woff2") format("woff2"), url("webfonts/2C4B9D_B_0.woff") format("woff"), url("webfonts/2C4B9D_B_0.ttf") format("truetype");
+:root {
+  --bg-primary: #fff;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #fafafa;
+  --bg-code: #eee;
+  --bg-code-block: #272822;
+  --text-primary: #444;
+  --text-secondary: #999;
+  --text-link: #de4f4f;
+  --text-code: #525252;
+  --border-color: #eee;
+  --border-color-secondary: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
-@font-face {
-  font-family: "ProximaNova-Semibold";
-  src: url("webfonts/2C4B9D_C_0.eot");
-  src: url("webfonts/2C4B9D_C_0.eot?#iefix") format("embedded-opentype"), url("webfonts/2C4B9D_C_0.woff2") format("woff2"), url("webfonts/2C4B9D_C_0.woff") format("woff"), url("webfonts/2C4B9D_C_0.ttf") format("truetype");
-}
-@font-face {
-  font-family: "ProximaNova-Regular";
-  src: url("webfonts/2C4B9D_D_0.eot");
-  src: url("webfonts/2C4B9D_D_0.eot?#iefix") format("embedded-opentype"), url("webfonts/2C4B9D_D_0.woff2") format("woff2"), url("webfonts/2C4B9D_D_0.woff") format("woff"), url("webfonts/2C4B9D_D_0.ttf") format("truetype");
-}
-@font-face {
-  font-family: "ProximaNova-Bold";
-  src: url("webfonts/2C4B9D_E_0.eot");
-  src: url("webfonts/2C4B9D_E_0.eot?#iefix") format("embedded-opentype"), url("webfonts/2C4B9D_E_0.woff2") format("woff2"), url("webfonts/2C4B9D_E_0.woff") format("woff"), url("webfonts/2C4B9D_E_0.ttf") format("truetype");
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --bg-tertiary: #2a2a2a;
+    --bg-code: #333;
+    --bg-code-block: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #888;
+    --text-link: #ff6b6b;
+    --text-code: #d4d4d4;
+    --border-color: #333;
+    --border-color-secondary: #444;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+  }
 }
 body {
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   font-weight: 400;
-  color: #444;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
 h1,
@@ -169,8 +180,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "ProximaNova-Semibold";
-  font-weight: 200;
+  font-weight: 600;
 }
 
 em {
@@ -190,7 +200,7 @@ em {
   left: 0;
   width: 100%;
   height: 100px;
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
 }
 
 #top-nav {
@@ -203,6 +213,11 @@ em {
   text-decoration: none;
 }
 
+@media (prefers-color-scheme: dark) {
+  #top-nav {
+    background-color: #0a0a0a;
+  }
+}
 #top-nav-links {
   list-style-type: none;
   position: absolute;
@@ -228,8 +243,8 @@ em {
 #site-nav {
   position: relative;
   height: 70px;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
   padding: 14px 30px;
 }
 
@@ -263,7 +278,7 @@ em {
 }
 
 #sidebar {
-  background-color: #fff;
+  background-color: var(--bg-primary);
   position: fixed;
   z-index: 2;
   top: 30px;
@@ -275,8 +290,8 @@ em {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  font-family: "ProximaNova-Semibold";
-  border-right: 1px solid #eee;
+  font-weight: 600;
+  border-right: 1px solid var(--border-color);
   font-size: 16px;
   line-height: 1.1em;
 }
@@ -290,16 +305,16 @@ em {
 }
 
 #sidebar a {
-  color: #444;
+  color: var(--text-primary);
   text-decoration: none;
 }
 
 #sidebar a:hover {
-  color: #de4f4f;
+  color: var(--text-link);
 }
 
 #sidebar a.current {
-  color: #de4f4f;
+  color: var(--text-link);
 }
 
 #sidebar a.H2 {
@@ -308,16 +323,16 @@ em {
 
 #sidebar .categories > li > p {
   margin-top: 1.5em;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   text-transform: uppercase;
   padding-top: 1.2em;
   margin-bottom: 1em;
-  color: #999;
+  color: var(--text-secondary);
   font-size: 0.8em;
 }
 
 #sidebar .sub-menu {
-  font-family: "ProximaNova-Regular";
+  font-weight: 400;
   padding-left: 20px;
   margin: 0.6em 0;
   font-size: 14px;
@@ -325,7 +340,7 @@ em {
 
 #sidebar .sub-menu .active {
   position: relative;
-  color: #de4f4f;
+  color: var(--text-link);
 }
 
 #sidebar .sub-menu .active:before {
@@ -338,24 +353,25 @@ em {
   height: 0;
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
-  border-left: 6px solid #de4f4f;
+  border-left: 6px solid var(--text-link);
 }
 
 #sidebar #search {
   display: flex;
   position: relative;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color-secondary);
   border-radius: 5px;
   padding: 0.01em 16px;
   margin-bottom: 20px;
 }
 
-#sidebar #search img {
+#sidebar #search svg {
   position: absolute;
   left: 10px;
   height: 16px;
   width: 16px;
+  fill: currentColor;
 }
 
 #sidebar #search input {
@@ -364,16 +380,21 @@ em {
   width: 100%;
   padding-left: 15px;
   background-color: transparent;
-  color: #444;
+  color: var(--text-primary);
   border: none;
   font-size: 14px;
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
 }
 
 #sidebar #search input:focus {
   outline: none;
 }
 
+@media (prefers-color-scheme: dark) {
+  #sidebar #search svg {
+    filter: brightness(0) invert(1);
+  }
+}
 #sidebar-mobile {
   display: none;
   margin-bottom: 20px;
@@ -396,7 +417,7 @@ em {
 }
 
 #content strong {
-  font-family: "ProximaNova-Bold";
+  font-weight: 700;
 }
 
 #content h1 {
@@ -413,7 +434,7 @@ em {
   font-size: 1.5em;
   margin-top: 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   position: relative;
 }
 
@@ -497,7 +518,7 @@ em {
 }
 
 #content a {
-  color: #de4f4f;
+  color: var(--text-link);
 }
 
 #content img {
@@ -509,13 +530,14 @@ em {
   font-size: 0.8em;
   line-height: 1.6em;
   padding: 1px 4px;
-  background-color: #eee;
+  background-color: var(--bg-code);
+  color: var(--text-code);
   margin: 0 2px;
 }
 
 #content blockquote {
   padding-left: 1.3em;
-  border-left: #eee solid 0.2em;
+  border-left: var(--border-color) solid 0.2em;
   font-style: italic;
 }
 
@@ -593,7 +615,7 @@ em {
 }
 
 #content pre code {
-  background-color: #272822;
+  background-color: var(--bg-code-block);
   padding: 0;
   margin: 0;
 }
@@ -605,7 +627,7 @@ em {
 }
 
 #content .highlight.html .code:after {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
@@ -620,7 +642,7 @@ em {
 }
 
 #content .highlight.js .code:after {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
@@ -635,7 +657,7 @@ em {
 }
 
 #content .highlight.bash .code:after {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
@@ -650,7 +672,7 @@ em {
 }
 
 #content .highlight.css .code:after {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
@@ -665,7 +687,7 @@ em {
 }
 
 #content .highlight.jsx .code:after {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
@@ -785,23 +807,23 @@ em {
 }
 
 #content > table tr {
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
 }
 
 #content > table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background-color: var(--bg-secondary);
 }
 
 #content > table th {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   padding: 12px 13px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   vertical-align: middle;
   text-align: left;
 }
 
 #content > table td {
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   vertical-align: middle;
   padding: 6px 13px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -812,12 +834,12 @@ em {
 #content .bottom-nav {
   height: 44px;
   margin: 30px 0 25px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 25px;
 }
 
 #content .bottom-nav a {
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
   margin: 0 5px;
 }
 
@@ -827,7 +849,7 @@ em {
 
 #content .edit-link a {
   color: #aaa;
-  font-family: "ProximaNova-Semibold";
+  font-weight: 600;
 }
 
 #content .edit-link a:before {
@@ -862,9 +884,9 @@ em {
   left: 0;
   width: 100%;
   height: 40px;
-  background-color: #fff;
+  background-color: var(--bg-primary);
   display: none;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 4px var(--shadow-color);
 }
 
 #mobile-header .menu-button {
@@ -891,6 +913,11 @@ em {
   height: 30px;
 }
 
+@media (prefers-color-scheme: dark) {
+  #mobile-header .menu-button {
+    filter: brightness(0) invert(1);
+  }
+}
 #mobile-shade {
   z-index: 1;
   display: none;
@@ -943,14 +970,14 @@ em {
     left: 0;
     padding-top: 60px;
     border-right: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px var(--shadow-color);
     transition: transform 0.3s ease;
     transform: translate3d(-120%, 0, 0);
     display: block;
   }
 }
 .api {
-  background: #fafafa;
+  background: var(--bg-tertiary);
 }
 
 .api h3 {
@@ -994,7 +1021,7 @@ em {
   margin-left: 15px;
   font-size: 0.9em;
   font-weight: 200;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .api dd {
@@ -1298,7 +1325,7 @@ pre .xml .cdata {
 }
 
 pre {
-  background: #272822;
+  background: var(--bg-code-block);
   color: #f8f8f2;
 }
 
@@ -1485,4 +1512,24 @@ pre {
 
 .deprecation-notice span {
   font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  .deprecation-notice {
+    background: #3d1a0f;
+    color: #ffb499;
+  }
+}
+.resize-handle {
+  position: fixed;
+  left: 300px;
+  top: 30px;
+  bottom: 0;
+  width: 10px;
+  cursor: ew-resize;
+  z-index: 3;
+  background-color: transparent;
+}
+.resize-handle:hover {
+  background-color: var(--shadow-color);
 }

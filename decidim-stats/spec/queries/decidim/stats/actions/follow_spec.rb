@@ -13,10 +13,10 @@ describe Decidim::Stats::Actions::Follow do
   let(:component) { proposal.component }
   let!(:proposal_follow) { create(:follow, followable: proposal) }
   let!(:proposal_follower) { proposal_follow.user }
-  let!(:draft) { create(:collaborative_draft, component:) }
-  let!(:draft_follow) { create(:follow, followable: draft) }
-  let!(:draft_follower) { draft_follow.user }
-  let(:followers) { proposal.authors.pluck(:id) | draft.authors.pluck(:id) | [proposal_follower.id, draft_follower.id] }
+  let!(:other_proposal) { create(:proposal, component: proposal.component) }
+  let!(:other_follow) { create(:follow, followable: other_proposal) }
+  let!(:other_follower) { other_follow.user }
+  let(:followers) { proposal.authors.pluck(:id) | other_proposal.authors.pluck(:id) | [proposal_follower.id, other_follower.id] }
 
   context "when looking for follow authors matching the component" do
     it "finds the user IDs following any resource in the component" do

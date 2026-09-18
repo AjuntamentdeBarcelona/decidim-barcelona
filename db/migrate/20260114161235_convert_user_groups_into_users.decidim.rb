@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20250217192438)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-07-30 12:44:55 UTC
 class ConvertUserGroupsIntoUsers < ActiveRecord::Migration[7.0]
   class User < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
@@ -34,8 +35,8 @@ class ConvertUserGroupsIntoUsers < ActiveRecord::Migration[7.0]
   def up
     User.old_group.find_each do |group|
       if group.email.blank? || another_user_with_same_email_in_organization?(group)
-        group.update_attribute(:email, "user_group_#{group.id}@#{group.organization.host}.invalid")
         group.update_attribute(:extended_data, (group.extended_data || {}).merge("patched" => true, "previous_email" => group.email))
+        group.update_attribute(:email, "user_group_#{group.id}@#{group.organization.host}.invalid")
 
         group.reload
       end
@@ -50,7 +51,8 @@ class ConvertUserGroupsIntoUsers < ActiveRecord::Migration[7.0]
     User.new_group.find_each do |group|
       group.update_attribute(:officialized_at, nil)
       group.update_attribute(:type, "Decidim::UserGroup")
-      group.update_attribute(:extended_data, (group.extended_data || {}).except("group"))
+      group.update_attribute(:email, group.extended_data["previous_email"]) if group.extended_data["previous_email"].present?
+      group.update_attribute(:extended_data, (group.extended_data || {}).except("group", "patched", "previous_email"))
     end
   end
   # rubocop:enable Rails/SkipsModelValidations

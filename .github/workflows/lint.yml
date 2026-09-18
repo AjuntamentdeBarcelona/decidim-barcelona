@@ -2,13 +2,13 @@ name: Lint
 on: [push]
 
 env:
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
   NODE_VERSION: 22.14.0
 
 jobs:
   lint:
     name: Lint code
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
@@ -31,7 +31,7 @@ jobs:
         name: Lint Ruby files
       - run: bundle exec mdl *.md
         name: Lint Markdown files
-      - run: bundle exec erblint {decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/}app/{cells,views}/**/*.erb
+      - run: bundle exec erb_lint {decidim-census_sms/,decidim-dataviz/,decidim-stats/,decidim-valid_auth/}app/{cells,views}/**/*.erb
         name: Lint ERB files
       - run: npm run stylelint
         name: Lint SCSS files

@@ -51,7 +51,6 @@ exclude_patterns = [
   "app/services/decidim_legacy_routes.rb",
   "app/views/static/api/docs/assets/style.css",
   "config/initializers/decidim.rb",
-  "config/initializers/origami_date.rb",
   "db/**/*",
   "decidim-core/app/assets/stylesheets/decidim/email.css",
   "decidim-dataviz/app/assets/documents/**/*",
