@@ -30,6 +30,18 @@ GIT
       deface (>= 1.5)
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-term_customizer
+  revision: bfd4737cb999b17897d4439d282fdc03cde974c4
+  branch: fix/sets-page-performance
+  specs:
+    decidim-term_customizer (0.32)
+      decidim-admin (~> 0.32.0)
+      decidim-core (~> 0.32.0)
+    decidim-term_customizer (0.32.0)
+      decidim-admin (~> 0.32.0)
+      decidim-core (~> 0.32.0)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: 56bb90b791059c782112337288512e5cf242c98c
   branch: upgrade-32
@@ -239,14 +251,6 @@ GIT
       decidim-forms (= 0.32.1)
     decidim-verifications (0.32.1)
       decidim-core (= 0.32.1)
-
-GIT
-  remote: https://github.com/openpoke/decidim-module-term_customizer
-  revision: 2958656ced1a6c1cc85dadfe1f0bbe53b1490102
-  specs:
-    decidim-term_customizer (0.32)
-      decidim-admin (~> 0.32.0)
-      decidim-core (~> 0.32.0)
 
 PATH
   remote: decidim-census_sms
