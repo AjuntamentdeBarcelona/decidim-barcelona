@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-extra_censuses
-  revision: 976e4cd589e6fe6892f91c6cc8ada0dede689215
+  revision: 1462993445754d633d0d1d05154f2910913504b3
   specs:
     decidim-extra_censuses (0.3.0)
       decidim-admin (>= 0.32.0, < 0.33)
