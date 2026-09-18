@@ -484,6 +484,13 @@ ca:
       sortitions:
         actions:
           vote_comment: Votar el comentari
+    # Remove oncee we have these translations available in the module
+    term_customizer:
+      admin:
+        translation_sets:
+          form:
+            components_error: No s'han pogut carregar els components de l'espai participatiu seleccionat. Si us plau, torneu a seleccionar l'espai participatiu.
+            components_loading: S'estan carregant els components...
     verifications:
       authorizations:
         first_login:
