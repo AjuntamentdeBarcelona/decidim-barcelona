@@ -56,7 +56,7 @@ checksums = [
       "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/paginate_helper.rb" => "bdedfc156661546c73ab428ebb139e8a",
       "/app/helpers/decidim/sanitize_helper.rb" => "70dd1b42b07ae0038821f65ad49e0cb6", # fix double escaping in decidim_html_escape, backport https://github.com/decidim/decidim/pull/17604
-      "/app/packs/stylesheets/decidim/legacy/email.scss" => "7edc1be320cdd9605bec4e0caba132d5",
+      "/app/packs/stylesheets/decidim/legacy/email.scss" => "f60e0fc1de4db8493a67329696cd5598",
       "/app/presenters/decidim/official_author_presenter.rb" => "dbfb2fefa1c75d703e65443cd68014c2",
       "/app/views/layouts/decidim/footer/_main_legal.html.erb" => "d4d3e477b5eb6840b915a836b1a7f417",
       "/app/views/layouts/decidim/footer/_mini.html.erb" => "c67cc97db27cdcf926f60682e399f688",
@@ -69,7 +69,6 @@ checksums = [
   {
     package: "decidim-forms",
     files: {
-      "/app/models/decidim/forms/question.rb" => "92531f8217998320bfae5ac4d5f8e7e8", # fix display_conditions_for_other_questions inverse_of in question_override.rb
       "/app/queries/decidim/forms/questionnaire_user_responses.rb" => "d9a56ef2b9b1e06040143272adf8d7d0",
       "/app/views/decidim/forms/admin/questionnaires/responses/show.html.erb" => "1e47e22c0b715e870b54421bf250bef8",
       "/lib/decidim/forms/user_responses_serializer.rb" => "71762d1083ba1bdf4c0acd44a0cc7371"
@@ -94,7 +93,7 @@ checksums = [
       "/app/views/decidim/initiatives/create_initiative/fill_data.html.erb" => "085d3c9cd67eb06f2bcf3a5285f09168",
       "/app/views/decidim/initiatives/initiatives/_form.html.erb" => "d52fcbfa2a682b57fa4ab3be9aa7dc3a",
       "/app/views/decidim/initiatives/initiatives/_progress_bar.html.erb" => "849e1ad297a15bb00e34122d3b845ff9",
-      "/app/views/decidim/initiatives/initiatives/show.html.erb" => "f7f97b517d429eab978a205f20df188d",
+      "/app/views/decidim/initiatives/initiatives/show.html.erb" => "5066e70417f3017e0d57cb008954013b",
       "/lib/decidim/exporters/initiative_votes_pdf.rb" => "3c68da5b72db76322cbef28ce9452299",
       "/lib/decidim/initiatives/application_form_pdf.rb" => "3aa6f0d51983542b63e013cba48b5a1f"
     }
@@ -108,7 +107,7 @@ checksums = [
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "6dcb71229b789b7ceef2736c2322fc7c",
       "/app/controllers/decidim/meetings/meetings_controller.rb" => "289c2d32078ba889af6e5bdf68bddc47",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "7f393c50d7a01bc24f6a3d08d5590e10",
-      "/app/models/decidim/meetings/meeting.rb" => "eaeb66d61b1a2db5b69dc20bf25167d5",
+      "/app/models/decidim/meetings/meeting.rb" => "0f787e5cbec87a936b877ec10d23f725",
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "3d0a04c264dd2c88212789e0e5bc803b",
       # Delete this once we are using the version with this PR: https://github.com/decidim/decidim/pull/17342 and remove all the changes included in this PR: https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/750
       "/lib/decidim/meetings/component.rb" => "cd3061f1336476f26f6c7d90153653de"
@@ -117,7 +116,7 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
-      "/app/helpers/decidim/proposals/application_helper.rb" => "8d4f7a7598f10f1b6123533bee8fbd3a",
+      "/app/helpers/decidim/proposals/application_helper.rb" => "989633dddbf4fb2bac98fef58be83522",
       "/app/presenters/decidim/proposals/proposal_presenter.rb" => "400df0fffc5fa1b52ef09344409d5c78"
     }
   },
