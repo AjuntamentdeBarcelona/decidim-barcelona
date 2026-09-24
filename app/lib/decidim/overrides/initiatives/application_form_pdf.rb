@@ -60,7 +60,7 @@ module Decidim
         end
 
         def header_cell(label, padding: [3, 5, 3, 5])
-          { content: layout.text(label, style: :table_header), padding: padding }
+          { content: layout.text(label, style: :table_header), padding: }
         end
 
         def value_cell(value, col_span: nil)

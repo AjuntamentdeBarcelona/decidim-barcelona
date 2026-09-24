@@ -9,7 +9,7 @@ module Decidim
             layout.text((index + 1).to_s, style: :vote_td),
             layout.text(model.author.nickname, style: :vote_td),
             layout.text(I18n.l(model.created_at, format: "%Y-%m-%d %H:%M:%S %Z"), style: :vote_td),
-            layout.text(truncate(model.hash_id), style: :vote_td)
+            layout.text(truncate(model.hash_id.to_s), style: :vote_td)
           ]
 
           if collect_user_extra_fields
@@ -18,7 +18,7 @@ module Decidim
             cell += [
               layout.text(metadata[:name_and_surname].presence || "", style: :vote_td),
               layout.text(metadata[:document_number].presence || "", style: :vote_td),
-              layout.text(metadata[:date_of_birth].presence || "", style: :vote_td),
+              layout.text(metadata[:date_of_birth].to_s, style: :vote_td),
               layout.text(metadata[:postal_code].presence || "", style: :vote_td)
             ]
           end

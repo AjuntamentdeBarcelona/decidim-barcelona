@@ -480,6 +480,13 @@ es:
       sortitions:
         actions:
           vote_comment: Votar comentario
+    # Remove oncee we have these translations available in the module
+    term_customizer:
+      admin:
+        translation_sets:
+          form:
+            components_error: No se han podido cargar los componentes del espacio participativo seleccionado. Por favor, seleccione de nuevo el espacio participativo.
+            components_loading: Cargando los componentes...
     verifications:
       authorizations:
         first_login:
