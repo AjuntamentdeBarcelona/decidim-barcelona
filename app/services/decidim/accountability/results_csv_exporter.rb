@@ -32,6 +32,7 @@ module Decidim
             progress
             proposal_ids
             relative_weight
+            position
           )
 
           available_locales = @component.participatory_space.organization.available_locales
@@ -66,7 +67,8 @@ module Decidim
           result.decidim_accountability_status_id,
           result.progress,
           result.resource_links_from.select { |link| link.to_type == "Decidim::Proposals::Proposal" }.map(&:to_id).sort.join(";"),
-          (result.weight || 0) * 100.0
+          (result.weight || 0) * 100.0,
+          result.position
         ]
         available_locales.each do |locale|
           row << result.title[locale]

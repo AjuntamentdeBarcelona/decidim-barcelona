@@ -11,10 +11,15 @@ checksums = [
     files: {
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
       "/app/cells/decidim/accountability/status/status.erb" => "f9a9e64f6a4c503d6cd8b49cb6f9b197",
+      "/app/commands/decidim/accountability/admin/create_result.rb" => "1bb7534070b15208cb27d75ee69cd84f", # results position (display order)
+      "/app/commands/decidim/accountability/admin/update_result.rb" => "ca437fa0af7d3ddf05685f23ee008339", # results position (display order)
+      "/app/controllers/decidim/accountability/admin/results_controller.rb" => "6bffa7d67ab743a5af75bc76382f4766", # results position (display order)
+      "/app/controllers/decidim/accountability/results_controller.rb" => "99ee79d9a959888459c1f2ea2370e625", # results position (display order)
+      "/app/forms/decidim/accountability/admin/result_form.rb" => "5514ab52d225bcb70dee33f4ab360a4f", # results position (display order)
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
-      "/app/models/decidim/accountability/result.rb" => "bb890c4d83a1a0a80367781445d4ff11",
+      "/app/models/decidim/accountability/result.rb" => "bb890c4d83a1a0a80367781445d4ff11", # results position (display order)
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc",
-      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "1afbe7a56cada69eac1c52073df1a0fc",
+      "/app/views/decidim/accountability/admin/results/_form.html.erb" => "1afbe7a56cada69eac1c52073df1a0fc", # results position (display order)
       "/app/views/decidim/accountability/admin/results/index.html.erb" => "50080eca9bc6c3852016c11c97faa1d2",
       "/app/views/decidim/accountability/results/_home_aside.html.erb" => "a74de3e38a3c1bc94f677cb23d29385b",
       "/app/views/decidim/accountability/results/_one_level_taxonomies.html.erb" => "3285460a675f13d5db1fbe0a39a155fd",

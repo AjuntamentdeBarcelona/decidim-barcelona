@@ -75,11 +75,15 @@
       </div>
 
       <div class="row column">
-        <%= form.text_field :external_id %>
+        <%= form.number_field :position, min: 0, step: 1, help_text: t("decidim.accountability.admin.results.form.position_help") %>
       </div>
 
       <div class="row column">
-        <%= form.text_field :weight %>
+        <%= form.text_field :weight, help_text: t("decidim.accountability.admin.results.form.weight_help") %>
+      </div>
+
+      <div class="row column">
+        <%= form.text_field :external_id %>
       </div>
 
     </div>
