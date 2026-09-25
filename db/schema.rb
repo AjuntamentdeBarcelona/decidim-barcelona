@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_08_061645) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_24_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_061645) do
     t.integer "legacy_id"
     t.float "longitude"
     t.integer "parent_id"
+    t.integer "position"
     t.decimal "progress", precision: 5, scale: 2
     t.string "reference"
     t.date "start_date"
@@ -98,6 +99,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_08_061645) do
     t.float "weight", default: 1.0
     t.index ["decidim_accountability_status_id"], name: "decidim_accountability_results_on_status_id"
     t.index ["decidim_component_id", "external_id"], name: "decidim_accountability_results_on_external_id", unique: true
+    t.index ["decidim_component_id", "position"], name: "index_decidim_accountability_results_on_component_and_position"
     t.index ["decidim_component_id"], name: "index_decidim_accountability_results_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_accountability_results_on_decidim_scope_id"
     t.index ["deleted_at"], name: "index_decidim_accountability_results_on_deleted_at"

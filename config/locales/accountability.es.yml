@@ -1,4 +1,16 @@
 es:
+  activemodel:
+    attributes:
+      result:
+        position: Orden de posición
+        weight: Ponderación
+  decidim:
+    accountability:
+      admin:
+        results:
+          form:
+            position_help: Posición de este resultado en los listados públicos y de administración. Se ordena de menor a mayor, como en el resto de Decidim. Si se deja vacío, aparece al final.
+            weight_help: Solo interviene en el cálculo automático del progreso de un resultado a partir de sus subresultados. No afecta al orden. Dejar en 1 si no se utiliza progreso ponderado.
   static:
     accountability:
       meta_tags:

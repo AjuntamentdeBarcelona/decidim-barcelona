@@ -38,6 +38,13 @@ module Decidim::Accountability
             expect(other_result.weight).to eq(0.45)
           end
 
+          it "imports the position" do
+            subject.import!
+
+            expect(result.reload.position).to eq 2
+            expect(other_result.reload.position).to eq 1
+          end
+
           it "does not create new results" do
             expect { subject.import! }.not_to(change(Decidim::Accountability::ResultWithWeightedProgress, :count))
           end

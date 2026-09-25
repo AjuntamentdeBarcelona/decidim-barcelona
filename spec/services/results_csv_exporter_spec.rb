@@ -13,7 +13,7 @@ module Decidim::Accountability
     let(:current_user) { create(:user, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-    let!(:parent_result) { create(:result, component: current_component, external_id: "pm-act-423") }
+    let!(:parent_result) { create(:result, component: current_component, external_id: "pm-act-423", position: 3) }
 
     describe "#export" do
       before do
@@ -29,6 +29,7 @@ module Decidim::Accountability
         expect(@first_row["external_id"]).to eq(parent_result.external_id)
         expect(@first_row["relative_weight"].to_f).to eq(parent_result.weight * 100.0)
         expect(@first_row["result_id"].to_i).to eq(parent_result.id)
+        expect(@first_row["position"].to_i).to eq(3)
       end
 
       context "when result is nil" do
