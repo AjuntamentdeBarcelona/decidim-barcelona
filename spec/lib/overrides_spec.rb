@@ -11,6 +11,7 @@ checksums = [
     files: {
       "/app/cells/decidim/accountability/result_l/extra_data.erb" => "58368fec1e36bff35cc3ea24c2109076",
       "/app/cells/decidim/accountability/status/status.erb" => "f9a9e64f6a4c503d6cd8b49cb6f9b197",
+      "/app/controllers/decidim/accountability/results_controller.rb" => "99ee79d9a959888459c1f2ea2370e625", # taxonomy children fallback for components migrated from categories
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
       "/app/models/decidim/accountability/result.rb" => "bb890c4d83a1a0a80367781445d4ff11",
       "/app/services/decidim/accountability/results_calculator.rb" => "e48030665ab5eb6b313d816f74773cdc",

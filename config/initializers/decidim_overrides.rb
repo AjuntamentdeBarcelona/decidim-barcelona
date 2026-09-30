@@ -19,6 +19,7 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::OpenDataInitiativeSerializer.include(Decidim::Initiatives::OpenDataInitiativeSerializerOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
   Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
+  Decidim::Accountability::ResultsController.prepend(Decidim::Accountability::ResultsControllerOverride)
   Decidim::Meetings::Meeting.include(Decidim::Meetings::MeetingOverride)
   Decidim::Meetings::MeetingsController.include(Decidim::Meetings::MeetingsControllerOverride)
   Decidim::Meetings::OnlineMeetingCell.include(Decidim::Meetings::OnlineMeetingCellOverride)
