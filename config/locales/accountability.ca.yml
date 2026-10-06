@@ -1,4 +1,16 @@
 ca:
+  activemodel:
+    attributes:
+      result:
+        position: Ordre de posició
+        weight: Ponderació
+  decidim:
+    accountability:
+      admin:
+        results:
+          form:
+            position_help: Posició d'aquest resultat als llistats públics i d'administració. S'ordena de menor a major, com a la resta de Decidim. Si es deixa buit, apareix al final.
+            weight_help: Només intervé en el càlcul automàtic del progrés d'un resultat a partir dels seus subresultats. No afecta l'ordre. Deixeu 1 si no utilitzeu progrés ponderat.
   static:
     accountability:
       meta_tags:

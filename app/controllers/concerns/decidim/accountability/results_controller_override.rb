@@ -5,6 +5,17 @@ module Decidim
     module ResultsControllerOverride
       private
 
+      # Same query as the gem (top-level results plus their sub-results), ordered by the
+      # admin-defined position, each result followed by its own sub-results.
+      def results
+        @results ||= begin
+          parent_id = params[:parent_id].presence
+          search.result.where(
+            parent_id: [parent_id] + Result.where(parent_id:).pluck(:id)
+          ).ordered_by_position_grouped_by_parent.page(params[:page]).per(12)
+        end
+      end
+
       # Components migrated from the old categories only have the categories as
       # filter items, not the intermediate per-space node between them and the
       # root, so the root has no available direct children and the view renders
