@@ -19,20 +19,8 @@ GIT
       deface (>= 1.5)
 
 GIT
-  remote: https://github.com/Platoniq/decidim-module-extra_censuses
-  revision: 1462993445754d633d0d1d05154f2910913504b3
-  specs:
-    decidim-extra_censuses (0.3.0)
-      decidim-admin (>= 0.32.0, < 0.33)
-      decidim-core (>= 0.32.0, < 0.33)
-      decidim-elections (>= 0.32.0, < 0.33)
-      decidim-surveys (>= 0.32.0, < 0.33)
-      deface (>= 1.5)
-
-GIT
   remote: https://github.com/Platoniq/decidim-module-term_customizer
   revision: bfd4737cb999b17897d4439d282fdc03cde974c4
-  branch: fix/sets-page-performance
   specs:
     decidim-term_customizer (0.32)
       decidim-admin (~> 0.32.0)
@@ -43,8 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: 56bb90b791059c782112337288512e5cf242c98c
-  branch: upgrade-32
+  revision: b302681b8f734a6c078a867aead7c599d8d8abc5
   specs:
     decidim-decidim_awesome (0.15.0)
       active_hashcash (~> 0.4.0)
@@ -251,6 +238,17 @@ GIT
       decidim-forms (= 0.32.1)
     decidim-verifications (0.32.1)
       decidim-core (= 0.32.1)
+
+GIT
+  remote: https://github.com/openpoke/decidim-module-extra_censuses
+  revision: 67332aa01f11d8c218774ee978ee38130fb86396
+  specs:
+    decidim-extra_censuses (0.3.0)
+      decidim-admin (>= 0.32.0, < 0.33)
+      decidim-core (>= 0.32.0, < 0.33)
+      decidim-elections (>= 0.32.0, < 0.33)
+      decidim-surveys (>= 0.32.0, < 0.33)
+      deface (>= 1.5)
 
 PATH
   remote: decidim-census_sms

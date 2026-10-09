@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_09_083040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -868,6 +868,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
     t.datetime "created_at", null: false
     t.string "group_id"
     t.bigint "question_id", null: false
+    t.jsonb "settings", default: {}, null: false
     t.datetime "updated_at", null: false
     t.integer "votes_count", default: 0, null: false
     t.index ["question_id"], name: "index_response_options_on_question_id"
@@ -883,6 +884,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
 
   create_table "decidim_elections_votes", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.integer "position"
     t.bigint "question_id", null: false
     t.bigint "response_option_id", null: false
     t.datetime "updated_at", null: false
