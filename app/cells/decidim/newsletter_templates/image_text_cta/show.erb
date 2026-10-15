@@ -1,10 +1,14 @@
-<% if organization_primary_color %>
 <style>
+<% if organization_primary_color %>
 table.button table td {
   background: <%= organization_primary_color %> !important
 }
-</style>
 <% end %>
+table.button table td a {
+  color: #fff !important;
+  font-weight: bold !important
+}
+</style>
 
 <table class="main container">
   <tr>
