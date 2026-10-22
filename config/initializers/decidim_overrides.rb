@@ -18,7 +18,6 @@ Rails.application.config.to_prepare do
   Decidim::Initiatives::Admin::UpdateInitiative.include(Decidim::Initiatives::Admin::UpdateInitiativeOverride)
   Decidim::Initiatives::OpenDataInitiativeSerializer.include(Decidim::Initiatives::OpenDataInitiativeSerializerOverride)
   Decidim::Accountability::Result.include(Decidim::Accountability::ResultOverride)
-  Decidim::Accountability::ResultsCalculator.include(Decidim::Accountability::ResultsCalculatorOverride)
   Decidim::Accountability::ResultsController.prepend(Decidim::Accountability::ResultsControllerOverride)
   Decidim::Accountability::Admin::ResultsController.include(Decidim::Accountability::Admin::ResultsControllerOverride)
   Decidim::Accountability::Admin::ResultForm.include(Decidim::Accountability::Admin::ResultFormOverride)
