@@ -36,10 +36,6 @@ module Decidim
                  inverse_of: :parent,
                  dependent: :destroy
 
-        def self.not_computable_results
-          [11_098, 11_131]
-        end
-
         private
 
         def remove_external_id
