@@ -728,7 +728,7 @@ GEM
       tomlrb
     mixlib-shellout (3.3.9)
       chef-utils
-    msgpack (1.8.0)
+    msgpack (1.8.6)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
     net-http (0.9.1)
