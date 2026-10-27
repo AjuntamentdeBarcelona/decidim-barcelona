@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_09_083040) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_27_122607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -324,7 +324,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_09_083040) do
   create_table "decidim_authorizations", id: :serial, force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.integer "decidim_user_id", null: false
+    t.integer "failed_attempts", default: 0, null: false
     t.datetime "granted_at", precision: nil
+    t.datetime "locked_at"
     t.jsonb "metadata"
     t.string "name", null: false
     t.string "unique_id"
@@ -639,6 +641,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_09_083040) do
     t.string "role"
     t.datetime "updated_at", precision: nil, null: false
     t.index ["decidim_conference_id", "decidim_user_id", "role"], name: "index_unique_user_and_conference_role", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_conference_user_role_on_decidim_user_id"
   end
 
   create_table "decidim_conferences", force: :cascade do |t|
