@@ -16,6 +16,8 @@ module Decidim
       end
 
       def create
+        enforce_permission_to :index, :authorization_workflow
+
         AuthorizationExportsJob.perform_later(
           current_user,
           current_organization,

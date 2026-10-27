@@ -4,9 +4,13 @@ class StaticController < Decidim::ApplicationController
   helper_method :current_section, :sections
   before_action :check_section, only: :accountability_sections
 
-  def accountability; end
+  def accountability
+    enforce_permission_to :read, :public_page
+  end
 
-  def accountability_sections; end
+  def accountability_sections
+    enforce_permission_to :read, :public_page
+  end
 
   private
 
