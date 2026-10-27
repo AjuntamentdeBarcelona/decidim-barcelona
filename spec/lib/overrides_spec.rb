@@ -60,6 +60,12 @@ checksums = [
     }
   },
   {
+    package: "decidim-decidim_awesome",
+    files: {
+      "/app/views/layouts/decidim/decidim_awesome/_awesome_config.html.erb" => "5d17899dbde9399032cac312db3ac02e" # drop locale: nil from form_builder_i18n_path, global engines are mounted under /:locale since decidim 0.32.2; remove when https://github.com/decidim-ice/decidim-module-decidim_awesome/issues/680 is fixed upstream
+    }
+  },
+  {
     package: "decidim-forms",
     files: {
       "/app/queries/decidim/forms/questionnaire_user_responses.rb" => "d9a56ef2b9b1e06040143272adf8d7d0",

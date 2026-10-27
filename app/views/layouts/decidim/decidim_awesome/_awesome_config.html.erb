@@ -1,0 +1,32 @@
+<script>
+window.DecidimAwesome = <%= raw(json_escape(javascript_config_vars)) %>;
+window.DecidimAwesome.currentLocale = "<%= current_locale %>";
+window.DecidimAwesome.version = "<%= Decidim::DecidimAwesome::VERSION %>";
+window.DecidimAwesome.editorUploaderPath = "<%= decidim_decidim_awesome.editor_images_path %>";
+window.DecidimAwesome.renameScopeLabelPath = "<%= decidim_admin_decidim_awesome.rename_scope_label_path %>";
+window.DecidimAwesome.i18n = {
+  "dragAndDropImage": "<%= j t(".drag_and_drop_image") %>",
+  "autosavedSuccess": "<%= j t(".autosaved_success") %>",
+  "autosavedError": "<%= j t(".autosaved_error") %>",
+  "autosavedRetrieved": "<%= j t(".autosaved_retrieved") %>",
+  "taxonomies": "<%= j t(".taxonomies") %>",
+  "hashtags": "<%= j t(".hashtags") %>",
+  "proposals": "<%= j t(".proposals") %>",
+  "meetings": "<%= j t(".meetings") %>",
+  "amendments": "<%= j t(".amendments") %>",
+  "items": "<%= j t(".items") %>",
+  "selectDeselectAll": "<%= j t(".select_deselect_all") %>",
+  "officialAuthor": "<%= j t("decidim.blogs.models.post.fields.official_blog_post") %>",
+}
+<% if awesome_authorization_groups.present? && current_user&.admin? %>
+window.DecidimAwesome.awesomeAuthorizationGroups = <%= raw(json_escape(awesome_authorization_groups)) %>;
+window.DecidimAwesome.i18n.awesomeAuthorizationGroupsPlaceholder = "<%= j t(".awesome_authorization_groups_placeholder") %>";
+<% end %>
+window.DecidimAwesome.formBuilderLangsLocation = "<%= decidim_decidim_awesome.form_builder_i18n_path %>";
+<% if defined?(questionnaire) && (questionnaire rescue nil)&.id %>
+  window.DecidimAwesome.current_questionnaire = "edit_questionnaire_<%= questionnaire.id %>";
+  <% if defined? visitor_already_responded? %>
+  window.DecidimAwesome.questionnaire_answered = <%= visitor_already_responded? %>;
+  <% end %>
+<% end %>
+</script>

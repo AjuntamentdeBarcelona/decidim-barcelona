@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module
   revision: 8352585271f71177eda531e689b06a73beb268be
+  branch: main
   specs:
     decidim-internal_evaluation (0.0.4)
       decidim-core (~> 0.32.0)
@@ -11,6 +12,7 @@ GIT
 GIT
   remote: https://github.com/AjuntamentdeBarcelona/decidim-module-kids
   revision: 9db203bad147d1fe702411d9142afdad8b94dd50
+  branch: main
   specs:
     decidim-kids (0.6.0)
       decidim-core (>= 0.32, < 0.33)
@@ -20,7 +22,8 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-term_customizer
-  revision: bfd4737cb999b17897d4439d282fdc03cde974c4
+  revision: f5a7b3f9a710a9dffd92421dc3db92d78912615d
+  branch: main
   specs:
     decidim-term_customizer (0.32)
       decidim-admin (~> 0.32.0)
@@ -31,9 +34,10 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: b302681b8f734a6c078a867aead7c599d8d8abc5
+  revision: b54294b7f4f991886dc75f8f94bb558105b768b8
+  branch: main
   specs:
-    decidim-decidim_awesome (0.15.0)
+    decidim-decidim_awesome (0.15.1)
       active_hashcash (~> 0.4.0)
       decidim-admin (>= 0.32, < 0.33)
       decidim-core (>= 0.32, < 0.33)
@@ -43,6 +47,7 @@ GIT
 GIT
   remote: https://github.com/openpoke/decidim-module-extra_censuses
   revision: 67332aa01f11d8c218774ee978ee38130fb86396
+  branch: main
   specs:
     decidim-extra_censuses (0.3.0)
       decidim-admin (>= 0.32.0, < 0.33)
