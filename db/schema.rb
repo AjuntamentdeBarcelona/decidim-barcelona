@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -324,7 +324,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
   create_table "decidim_authorizations", id: :serial, force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.integer "decidim_user_id", null: false
+    t.integer "failed_attempts", default: 0, null: false
     t.datetime "granted_at", precision: nil
+    t.datetime "locked_at"
     t.jsonb "metadata"
     t.string "name", null: false
     t.string "unique_id"
@@ -381,6 +383,52 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["decidim_author_id"], name: "decidim_awesome_editor_images_author"
     t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
+  end
+
+  create_table "decidim_awesome_follow_up_questionnaire_messages", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.string "author_type", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.bigint "decidim_user_id"
+    t.bigint "follow_up_questionnaire_id", null: false
+    t.string "session_token"
+    t.bigint "status_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_fuqm_on_author"
+    t.index ["decidim_user_id"], name: "index_fuqm_on_decidim_user_id"
+    t.index ["follow_up_questionnaire_id", "decidim_user_id", "session_token", "created_at"], name: "index_fuqm_on_respondent_created_at"
+    t.index ["follow_up_questionnaire_id"], name: "index_fuqm_on_follow_up_questionnaire_id"
+    t.index ["session_token"], name: "index_fuqm_on_session_token"
+    t.index ["status_id"], name: "index_fuqm_on_status_id"
+  end
+
+  create_table "decidim_awesome_follow_up_questionnaire_statuses", force: :cascade do |t|
+    t.string "color", null: false
+    t.datetime "created_at", null: false
+    t.bigint "follow_up_questionnaire_id", null: false
+    t.jsonb "name", default: {}, null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_up_questionnaire_id"], name: "index_fuqs_on_follow_up_questionnaire_id"
+  end
+
+  create_table "decidim_awesome_follow_up_questionnaires", force: :cascade do |t|
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_questionnaire_id", null: false
+    t.jsonb "name", default: {}, null: false
+    t.integer "position", default: 0, null: false
+    t.string "reply_to"
+    t.string "responder_email_field"
+    t.string "responder_name_field"
+    t.jsonb "settings", default: {}, null: false
+    t.datetime "updated_at", null: false
+    t.index ["active", "position"], name: "index_decidim_awesome_fuq_on_active_position"
+    t.index ["decidim_component_id"], name: "index_decidim_awesome_fuq_on_component_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_awesome_fuq_on_organization_id"
+    t.index ["decidim_questionnaire_id"], name: "index_decidim_awesome_fuq_on_questionnaire_id", unique: true
   end
 
   create_table "decidim_awesome_proposal_extra_fields", force: :cascade do |t|
@@ -639,6 +687,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
     t.string "role"
     t.datetime "updated_at", precision: nil, null: false
     t.index ["decidim_conference_id", "decidim_user_id", "role"], name: "index_unique_user_and_conference_role", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_conference_user_role_on_decidim_user_id"
   end
 
   create_table "decidim_conferences", force: :cascade do |t|
@@ -868,6 +917,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
     t.datetime "created_at", null: false
     t.string "group_id"
     t.bigint "question_id", null: false
+    t.jsonb "settings", default: {}, null: false
     t.datetime "updated_at", null: false
     t.integer "votes_count", default: 0, null: false
     t.index ["question_id"], name: "index_response_options_on_question_id"
@@ -883,6 +933,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
 
   create_table "decidim_elections_votes", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.integer "position"
     t.bigint "question_id", null: false
     t.bigint "response_option_id", null: false
     t.datetime "updated_at", null: false
@@ -2387,6 +2438,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_28_120335) do
   add_foreign_key "decidim_awesome_config_constraints", "decidim_awesome_config"
   add_foreign_key "decidim_awesome_editor_images", "decidim_organizations"
   add_foreign_key "decidim_awesome_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_awesome_follow_up_questionnaire_messages", "decidim_awesome_follow_up_questionnaire_statuses", column: "status_id"
+  add_foreign_key "decidim_awesome_follow_up_questionnaire_messages", "decidim_awesome_follow_up_questionnaires", column: "follow_up_questionnaire_id"
+  add_foreign_key "decidim_awesome_follow_up_questionnaire_statuses", "decidim_awesome_follow_up_questionnaires", column: "follow_up_questionnaire_id"
+  add_foreign_key "decidim_awesome_follow_up_questionnaires", "decidim_components"
+  add_foreign_key "decidim_awesome_follow_up_questionnaires", "decidim_organizations"
   add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
