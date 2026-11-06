@@ -19,8 +19,12 @@ Rails.application.routes.draw do
                                                                     component_name: Regexp.new(component_translations.keys.join("|"))
                                                                   }
 
-    get "/:process_slug/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
-                                                         constraints: { process_slug: %r{(?!meetings)[^/]*}, process_id: /[^0-9]+/, component_name: Regexp.new(component_translations.keys.join("|")) }
+    # Since decidim 0.32.2 global engines are mounted under "/:locale" (e.g. the meetings directory lives at
+    # "/ca/meetings"), so a locale must never be taken as a legacy process slug.
+    constraints(->(req) { I18n.available_locales.map(&:to_s).exclude?(req.path_parameters[:process_slug]) }) do
+      get "/:process_slug/:component_name/(:resource_id)", to: redirect(DecidimLegacyRoutes.new(component_translations)),
+                                                           constraints: { process_slug: %r{(?!meetings)[^/]*}, process_id: /[^0-9]+/, component_name: Regexp.new(component_translations.keys.join("|")) }
+    end
 
     get "/:component_name/:resource_id", to: redirect { |params, _request|
       component_translation = component_translations[params[:component_name].to_sym]
