@@ -6,6 +6,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        protected
+
         def per_page
           if Decidim::Paginable::OPTIONS.include?(params[:per_page])
             params[:per_page].to_i

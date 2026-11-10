@@ -12,8 +12,8 @@ checksums = [
       "/app/cells/decidim/accountability/status/status.erb" => "f9a9e64f6a4c503d6cd8b49cb6f9b197",
       "/app/commands/decidim/accountability/admin/create_result.rb" => "1bb7534070b15208cb27d75ee69cd84f", # results position (display order)
       "/app/commands/decidim/accountability/admin/update_result.rb" => "ca437fa0af7d3ddf05685f23ee008339", # results position (display order)
-      "/app/controllers/decidim/accountability/admin/results_controller.rb" => "6bffa7d67ab743a5af75bc76382f4766", # results position (display order)
-      "/app/controllers/decidim/accountability/results_controller.rb" => "99ee79d9a959888459c1f2ea2370e625", # results position (display order), taxonomy children fallback for components migrated from categories
+      "/app/controllers/decidim/accountability/admin/results_controller.rb" => "a52c5a13a4c6911b7a552ac6a0819934", # results position (display order)
+      "/app/controllers/decidim/accountability/results_controller.rb" => "4d7855df474730dbb583bda549f9e5ff", # results position (display order), taxonomy children fallback for components migrated from categories
       "/app/forms/decidim/accountability/admin/result_form.rb" => "5514ab52d225bcb70dee33f4ab360a4f", # results position (display order)
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
       "/app/models/decidim/accountability/result.rb" => "bb890c4d83a1a0a80367781445d4ff11", # external_id cleanup + results position (display order)
@@ -41,23 +41,14 @@ checksums = [
     }
   },
   {
-    package: "decidim-blogs",
-    files: {
-      "/app/cells/decidim/blogs/content_blocks/highlighted_posts_cell.rb" => "db3a671acc70e124c475c09b2b2b7f70", # order posts by published_at in highlighted_posts_cell_override.rb, backport https://github.com/decidim/decidim/pull/17575
-      "/app/controllers/decidim/blogs/admin/application_controller.rb" => "5d394124dd3cab8bc9be23519b1580a6" # order admin posts list by published_at in admin/application_controller_override.rb, backport https://github.com/decidim/decidim/pull/17575
-    }
-  },
-  {
     package: "decidim-core",
     files: {
       "/app/cells/decidim/activities_cell.rb" => "d0fa2a5b195fef8e4901cb84470e90a3",
       "/app/cells/decidim/content_blocks/html_cell.rb" => "67df12cd1caefa3a8ddb7d340dcd057f", # revert sanitization from CVE-2026-45572 to allow JavaScript
-      "/app/cells/decidim/member/show.erb" => "9ca7a09e2b6ccb75462ee0db04cdddfc", # remove capitalize class from member role text, backport https://github.com/decidim/decidim/pull/17585
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "1133508a27279abcc0871f25d6ac3bd8",
       "/app/cells/decidim/user_profile_cell.rb" => "0f20d006ccf4df77c59e3a2333a28a10",
-      "/app/controllers/concerns/decidim/paginable.rb" => "a42381a0883c92df189ac61cebea3047", # update per_page method in assemblies_controller_override.rb
+      "/app/controllers/concerns/decidim/paginable.rb" => "4634ff10b44912e07a4a4dc8620f6743", # update per_page method in assemblies_controller_override.rb
       "/app/helpers/decidim/paginate_helper.rb" => "bdedfc156661546c73ab428ebb139e8a",
-      "/app/helpers/decidim/sanitize_helper.rb" => "70dd1b42b07ae0038821f65ad49e0cb6", # fix double escaping in decidim_html_escape, backport https://github.com/decidim/decidim/pull/17604
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "f60e0fc1de4db8493a67329696cd5598",
       "/app/presenters/decidim/official_author_presenter.rb" => "dbfb2fefa1c75d703e65443cd68014c2",
       "/app/views/layouts/decidim/footer/_main_legal.html.erb" => "d4d3e477b5eb6840b915a836b1a7f417",
@@ -66,6 +57,12 @@ checksums = [
       "/app/views/layouts/decidim/mailer.html.erb" => "6a08103c75e5db737a38cd365428a177",
       "/app/views/layouts/decidim/newsletter_base.html.erb" => "28111c73d348ec8d1cdc1180d3ff5d21",
       "/lib/decidim/search_resource_fields_mapper.rb" => "b0e0b9f28304241a0f2d6742a6460821"
+    }
+  },
+  {
+    package: "decidim-decidim_awesome",
+    files: {
+      "/app/views/layouts/decidim/decidim_awesome/_awesome_config.html.erb" => "5d17899dbde9399032cac312db3ac02e" # drop locale: nil from form_builder_i18n_path, global engines are mounted under /:locale since decidim 0.32.2; remove when https://github.com/decidim-ice/decidim-module-decidim_awesome/issues/680 is fixed upstream
     }
   },
   {
@@ -87,7 +84,7 @@ checksums = [
       "/app/forms/decidim/initiatives/initiative_form.rb" => "b20b9aa28b1a3ecac27e0d3915f5b13b",
       "/app/models/decidim/initiative.rb" => "aa232a88c8656fc3f98a1466939bdff7",
       "/app/models/decidim/initiatives_vote.rb" => "f94e485caed75a2938781eb66541fb56",
-      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "54a861b5666c067fc14a800358957620",
+      "/app/permissions/decidim/initiatives/admin/permissions.rb" => "c14e8fef07db3746de23348e05edb606",
       "/app/serializers/decidim/initiatives/open_data_initiative_serializer.rb" => "5e213e9ad04444b4ed9495be7fdcdfc9",
       "/app/views/decidim/initiatives/admin/answers/_info_initiative.html.erb" => "103183460a6692bda31b7b7c46e6b677",
       "/app/views/decidim/initiatives/admin/initiatives/_form.html.erb" => "38094b4cc81a0c2fb8cfd0c641a40bb7",
@@ -107,7 +104,7 @@ checksums = [
       "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "e1cc26b535c8ee0b1c731219c4d5f121",
       "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "dba7e8b77e04abfe953e0a312b9106f1",
       "/app/cells/decidim/meetings/join_meeting_button_cell.rb" => "6dcb71229b789b7ceef2736c2322fc7c",
-      "/app/controllers/decidim/meetings/meetings_controller.rb" => "289c2d32078ba889af6e5bdf68bddc47",
+      "/app/controllers/decidim/meetings/meetings_controller.rb" => "7d4e23b02b5ef49eef0a4ba45f7b1bc9",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "7f393c50d7a01bc24f6a3d08d5590e10",
       "/app/models/decidim/meetings/meeting.rb" => "0f787e5cbec87a936b877ec10d23f725",
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "3d0a04c264dd2c88212789e0e5bc803b",
@@ -125,7 +122,7 @@ checksums = [
   {
     package: "decidim-verifications",
     files: {
-      "/app/controllers/decidim/verifications/authorizations_controller.rb" => "41f6899dc28e9f987a0d437e5aa25daf"
+      "/app/controllers/decidim/verifications/authorizations_controller.rb" => "4e49a3e5657438383729c2923070a5d4"
     }
   },
   {
