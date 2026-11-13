@@ -113,6 +113,12 @@ checksums = [
     }
   },
   {
+    package: "decidim-meetings_guest_registrations",
+    files: {
+      "/app/cells/decidim/meetings/join_meeting_button/show.erb" => "b7d4fadccfeea2163484a9a06c1e70d0" # the app copy wins over the module one, so it carries the guest registration branch too
+    }
+  },
+  {
     package: "decidim-proposals",
     files: {
       "/app/helpers/decidim/proposals/application_helper.rb" => "989633dddbf4fb2bac98fef58be83522",

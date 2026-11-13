@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_13_100614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_catalog.plpgsql"
@@ -1283,6 +1283,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
     t.index ["decidim_meeting_id"], name: "index_decidim_meetings_agendas_on_decidim_meeting_id"
   end
 
+  create_table "decidim_meetings_guest_registrations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "decidim_meeting_id", null: false
+    t.bigint "decidim_meetings_registration_id", null: false
+    t.text "email", null: false
+    t.string "email_digest", null: false
+    t.string "locale", null: false
+    t.text "name", null: false
+    t.text "phone", null: false
+    t.string "session_token", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_meeting_id", "email_digest"], name: "index_guest_registrations_on_meeting_and_email_digest", unique: true
+    t.index ["decidim_meetings_registration_id"], name: "index_guest_registrations_on_registration_id", unique: true
+  end
+
   create_table "decidim_meetings_invites", force: :cascade do |t|
     t.datetime "accepted_at", precision: nil
     t.datetime "created_at", precision: nil, null: false
@@ -1329,6 +1344,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
     t.datetime "end_time", precision: nil
     t.jsonb "extra"
     t.integer "follows_count", default: 0, null: false
+    t.boolean "guest_registrations_enabled", default: false, null: false
+    t.jsonb "guest_registrations_privacy_text"
     t.integer "iframe_access_level", default: 0
     t.integer "iframe_embed_type", default: 0
     t.float "latitude"
@@ -1397,7 +1414,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
     t.string "code"
     t.datetime "created_at", precision: nil, null: false
     t.bigint "decidim_meeting_id", null: false
-    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_user_id"
     t.boolean "public_participation", default: false
     t.string "status", default: "registered"
     t.datetime "updated_at", precision: nil, null: false
@@ -2459,6 +2476,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_27_130329) do
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_kids_minor_accounts", "decidim_users", column: "decidim_minor_id"
   add_foreign_key "decidim_kids_minor_accounts", "decidim_users", column: "decidim_tutor_id"
+  add_foreign_key "decidim_meetings_guest_registrations", "decidim_meetings_meetings", column: "decidim_meeting_id", on_delete: :cascade
+  add_foreign_key "decidim_meetings_guest_registrations", "decidim_meetings_registrations", on_delete: :cascade
   add_foreign_key "decidim_navigation_maps_blueprint_areas", "decidim_navigation_maps_blueprints"
   add_foreign_key "decidim_navigation_maps_blueprints", "decidim_content_blocks"
   add_foreign_key "decidim_navigation_maps_blueprints", "decidim_organizations"
