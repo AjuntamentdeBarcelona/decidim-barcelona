@@ -1,5 +1,7 @@
 <% if render_waitlist_button? %>
   <%= render :waitlist_button %>
+<% elsif guest_registration_available? %>
+  <%= link_to i18n_join_text, guest_registration_path, class: button_classes %>
 <% elsif model.can_be_joined_by?(current_user) && !model.has_registration_for?(current_user) %>
   <% if model.registration_form_enabled? %>
     <%= action_authorized_link_to(
