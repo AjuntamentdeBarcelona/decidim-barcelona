@@ -4,6 +4,8 @@ module Decidim
   module Assemblies
     module Admin
       module AssembliesControllerOverride
+        private
+
         # Backport of https://github.com/decidim/decidim/pull/17500: the children
         # expansion request (JS format) renders no pagination controls, so
         # paginating it made child assemblies beyond the first page unreachable.

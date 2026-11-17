@@ -4,7 +4,6 @@ Rails.application.config.to_prepare do
   Decidim::System::SystemChecksCell.include(Decidim::System::SystemChecksCellOverride)
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
-  Decidim::SanitizeHelper.include(Decidim::SanitizeHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
@@ -42,6 +41,4 @@ Rails.application.config.to_prepare do
   Decidim::Exporters::InitiativeVotesPDF.prepend(Decidim::Overrides::Exporters::InitiativeVotesPdf)
   Decidim::Initiatives::ApplicationFormPDF.prepend(Decidim::Overrides::Initiatives::ApplicationFormPdf)
   Decidim::Verifications::AuthorizationsController.include(Decidim::Verifications::AuthorizationsControllerOverride)
-  Decidim::Blogs::Admin::ApplicationController.prepend(Decidim::Blogs::Admin::ApplicationControllerOverride)
-  Decidim::Blogs::ContentBlocks::HighlightedPostsCell.include(Decidim::Blogs::ContentBlocks::HighlightedPostsCellOverride)
 end

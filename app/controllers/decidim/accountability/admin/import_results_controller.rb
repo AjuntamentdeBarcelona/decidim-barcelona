@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to import results from a csv file for the Accountability component
       class ImportResultsController < Admin::ApplicationController
+        # Authorized by the parent's enforce_component_permissions before_action (:manage, :component).
+        # rubocop:disable Decidim/EnforcePermissionTo
         def new
           @errors = []
         end
@@ -18,6 +20,7 @@ module Decidim
           flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
           redirect_to Rails.application.routes.url_helpers.import_results_path(current_participatory_process, current_component)
         end
+        # rubocop:enable Decidim/EnforcePermissionTo
 
         private
 
@@ -26,7 +29,7 @@ module Decidim
         end
 
         def current_participatory_process
-          @current_participatory_process ||= ParticipatoryProcess.find_by(slug: params[:participatory_process_slug])
+          @current_participatory_process ||= ParticipatoryProcess.where(organization: current_organization).find_by(slug: params[:participatory_process_slug])
         end
       end
     end

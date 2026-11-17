@@ -7,6 +7,8 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          protected
+
           # Same collection as the gem, ordered by the admin-defined position so the
           # admin list matches the public one.
           def collection

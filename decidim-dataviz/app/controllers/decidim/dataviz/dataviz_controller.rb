@@ -8,6 +8,8 @@ module Decidim
 
       helper_method :available_dataviz
 
+      # Authorized by Decidim::Components::BaseController before_actions (:read, :component and authorize_participatory_space).
+      # rubocop:disable Decidim/EnforcePermissionTo
       def index
         redirect_to action: :show, id: available_dataviz.first
       end
@@ -16,6 +18,7 @@ module Decidim
         @id = params[:id]
         raise ActiveRecord::RecordNotFound unless available_dataviz.include?(@id)
       end
+      # rubocop:enable Decidim/EnforcePermissionTo
 
       private
 

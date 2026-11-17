@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.32-stable" }.freeze
+DECIDIM_VERSION = "0.32.2"
 
 ruby RUBY_VERSION
 
@@ -17,11 +17,11 @@ gem "decidim-census_sms", path: "decidim-census_sms"
 gem "decidim-dataviz", path: "decidim-dataviz"
 gem "decidim-stats", path: "decidim-stats"
 
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "upgrade-32"
-gem "decidim-extra_censuses", git: "https://github.com/Platoniq/decidim-module-extra_censuses"
-gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module"
-gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids"
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "fix/sets-page-performance"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-extra_censuses", git: "https://github.com/openpoke/decidim-module-extra_censuses", branch: "main"
+gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "main"
+gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "main"
 
 gem "bootsnap", "~> 1.3"
 

@@ -168,6 +168,34 @@ describe "routing redirections", type: :request do
         expect { get("/meetings/meetings?page=2") }.not_to raise_error
       end
 
+      %w(ca es en).each do |locale|
+        it "renders the localized meetings directory for #{locale}" do
+          get("/#{locale}/meetings")
+          expect(response).to have_http_status(:ok)
+        end
+      end
+
+      it "renders the localized meetings directory on the production host" do
+        organization.update!(host: "www.decidim.barcelona")
+        host! organization.host
+
+        get("/ca/meetings")
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "does not treat the localized meetings directory subpaths as legacy routes" do
+        get("/ca/meetings/meetings?page=2")
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "still redirects legacy process paths" do
+        process = create(:participatory_process, organization:, slug: "test-process")
+        process_component = create(:meeting_component, participatory_space: process)
+
+        expect(get("/test-process/meetings"))
+          .to redirect_to("/processes/#{process.slug}/f/#{process_component.id}")
+      end
+
       context "when browsing the meetings of an assembly" do
         it "does not try to redirect" do
           expect { get("/assemblies/#{participatory_space.slug}/f/#{component.id}/meetings/#{meeting.id}") }.not_to raise_error
