@@ -21,6 +21,7 @@ gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-modu
 gem "decidim-extra_censuses", git: "https://github.com/openpoke/decidim-module-extra_censuses", branch: "main"
 gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "main"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
+gem "decidim-meetings_guest_registrations", git: "https://github.com/Platoniq/decidim-module-meetings_guest_registrations", branch: "feature/guest-registrations"
 gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "main"
 
 gem "bootsnap", "~> 1.3"
