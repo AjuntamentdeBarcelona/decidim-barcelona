@@ -2,7 +2,7 @@ name: Test
 on: [push]
 
 env:
-  RUBY_VERSION: 3.4.7
+  RUBY_VERSION: 3.4.13
   NODE_VERSION: 22.14.0
 
 jobs:
