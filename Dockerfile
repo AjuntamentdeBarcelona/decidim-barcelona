@@ -1,4 +1,4 @@
-FROM ruby:3.4.7
+FROM ruby:3.4.13
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_MAJOR=22
