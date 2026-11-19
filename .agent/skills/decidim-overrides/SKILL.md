@@ -3,9 +3,9 @@ name: decidim-overrides
 description: Conventions for overriding or extending decidim gem code in this app (controllers, commands, forms, models, cells, helpers, views, routes). Use whenever a change touches behavior that lives in a decidim gem, when copying a gem view into app/views, when wiring an *Override concern, or when spec/lib/overrides_spec.rb fails after a decidim upgrade.
 ---
 
-# Overriding decidim gem code in decidim-barcelona
+# Overriding decidim gem code in a decidim instance
 
-This app customizes the decidim gems (installed from the `AjuntamentdeBarcelona/decidim` fork) without patching the gems themselves. Every override follows the same four conventions. **All of them end with registering the original gem file in `spec/lib/overrides_spec.rb` — never skip that step.**
+This app customizes the decidim gems without patching the gems themselves. Every override follows the same four conventions. **All of them end with registering the original gem file in `spec/lib/overrides_spec.rb` — never skip that step.**
 
 Find the installed gem source with `bundle show <gem>` (e.g. `bundle show decidim-admin`).
 
@@ -45,7 +45,9 @@ Wire it in `config/initializers/decidim_overrides.rb`, inside the existing `Rail
 
 Copy the full gem view to the same path under `app/views/` and apply the change there (e.g. `app/views/decidim/admin/officializations/index.html.erb`). Plain copies, no source-marker comments — repo style.
 
-Note: decidim_awesome applies Deface overrides by virtual path, so they still compose on top of app-level copies. If the copied view looks different in the browser than in the file, check for Deface overrides before assuming a bug.
+Exception: if the project already uses Deface for its own overrides (`.deface` files under its `app/overrides/`), follow that convention for small, localized changes instead of copying the whole view. Either way, the original gem view still gets its checksum entry (section 4).
+
+Note: Some decidim modules applies Deface overrides by virtual path, so they still compose on top of app-level copies. If the copied view looks different in the browser than in the file, check for Deface overrides before assuming a bug.
 
 ## 3. Engine routes
 
@@ -75,7 +77,7 @@ md5 -q "$(bundle show decidim-admin)/app/views/decidim/admin/officializations/in
 
 Rules:
 
-- This includes classes that are only *extended* via an `include`d concern (e.g. `meetings_controller.rb` is tracked even though only a concern touches it) — the override depends on the gem file's internals, so upstream changes there need review too.
+- This includes classes that are only _extended_ via an `include`d concern (e.g. `meetings_controller.rb` is tracked even though only a concern touches it) — the override depends on the gem file's internals, so upstream changes there need review too.
 - Add a short trailing comment saying why/where it is overridden; link the upstream PR if the override is a backport/revert that can be deleted later.
 - Verify with `bundle exec rspec spec/lib/overrides_spec.rb`.
 
