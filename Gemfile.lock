@@ -1160,6 +1160,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-25
+  arm64-darwin-27
   x86_64-linux-gnu
 
 DEPENDENCIES
@@ -1214,7 +1215,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-  ruby 3.4.7
+  ruby 3.4.13
 
 BUNDLED WITH
   4.0.6
