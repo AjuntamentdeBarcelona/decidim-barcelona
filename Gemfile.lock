@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/Platoniq/decidim-module-meetings_guest_registrations
-  revision: f1b1d2c78730c5faa4f4df2ebffe27fed9cf087d
+  revision: ca65571b7d6142bf14d66faa1978c34e3cbf00d4
   branch: main
   specs:
     decidim-meetings_guest_registrations (0.1.0)
