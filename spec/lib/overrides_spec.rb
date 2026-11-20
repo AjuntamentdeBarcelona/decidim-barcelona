@@ -29,6 +29,7 @@ checksums = [
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "4aea28b33468227392384324a3845b2e", # revert https://github.com/decidim/decidim/pull/10690
       "/app/controllers/concerns/decidim/admin/filterable.rb" => "c44e4fad43a41597c00bb8702fc00e8a", # filtered_collection replaced in admin/assemblies_controller_override.rb, backport https://github.com/decidim/decidim/pull/17500
+      "/app/permissions/decidim/admin/permissions.rb" => "4cc0cf41e4681c966589cf18bb98b6ee", # trash actions for space admins in admin/permissions_override.rb, backport https://github.com/decidim/decidim/pull/18138
       "/app/views/decidim/admin/resource_permissions/_options_form.html.erb" => "995160c04f1cd0173e4bfb2d690bacbd",
       "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "142629c45195cfa36dc5a4350aac6a7f"
     }
@@ -107,6 +108,7 @@ checksums = [
       "/app/controllers/decidim/meetings/meetings_controller.rb" => "7d4e23b02b5ef49eef0a4ba45f7b1bc9",
       "/app/helpers/decidim/meetings/meetings_helper.rb" => "7f393c50d7a01bc24f6a3d08d5590e10",
       "/app/models/decidim/meetings/meeting.rb" => "0f787e5cbec87a936b877ec10d23f725",
+      "/app/views/decidim/meetings/admin/meetings/_meeting_actions.html.erb" => "345f18af84fbe3d399f338e12154aaa1", # drop misleading "created by a participant" tooltip on disabled trash action, backport https://github.com/decidim/decidim/pull/18138
       "/app/views/decidim/meetings/meetings/_meeting_agenda.html.erb" => "3d0a04c264dd2c88212789e0e5bc803b",
       # Delete this once we are using the version with this PR: https://github.com/decidim/decidim/pull/17342 and remove all the changes included in this PR: https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/750
       "/lib/decidim/meetings/component.rb" => "cd3061f1336476f26f6c7d90153653de"

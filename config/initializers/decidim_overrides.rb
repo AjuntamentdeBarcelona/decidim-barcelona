@@ -5,6 +5,7 @@ Rails.application.config.to_prepare do
   Decidim::System::BaseOrganizationForm.include(Decidim::System::BaseOrganizationFormOverride)
   Decidim::PaginateHelper.include(Decidim::PaginateHelperOverride)
   Decidim::Initiatives::Admin::Permissions.prepend(Decidim::Initiatives::Admin::PermissionsOverride)
+  Decidim::Admin::Permissions.prepend(Decidim::Admin::PermissionsOverride)
   Decidim::SearchResourceFieldsMapper.prepend(Decidim::Overrides::SearchResourceFieldsMapper)
   Decidim::Initiatives::InitiativeMetadataGCell.include(Decidim::Initiatives::InitiativeMetadataGCellOverride)
   Decidim::Forms::UserResponsesSerializer.prepend(Decidim::Overrides::Forms::UserResponsesSerializer)
