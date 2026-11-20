@@ -47,7 +47,7 @@ Copy the full gem view to the same path under `app/views/` and apply the change 
 
 Exception: if the project already uses Deface for its own overrides (`.deface` files under its `app/overrides/`), follow that convention for small, localized changes instead of copying the whole view. Either way, the original gem view still gets its checksum entry (section 4).
 
-Note: Some decidim modules applies Deface overrides by virtual path, so they still compose on top of app-level copies. If the copied view looks different in the browser than in the file, check for Deface overrides before assuming a bug.
+Note: Some decidim modules apply Deface overrides by virtual path, so they still compose on top of app-level copies. If the copied view looks different in the browser than in the file, check for Deface overrides before assuming a bug.
 
 ## 3. Engine routes
 
@@ -68,7 +68,10 @@ end
 Every gem file that is overridden **or extended** must be listed in `spec/lib/overrides_spec.rb` under its `package:` block, mapping the gem-relative path to the MD5 of the **original gem file** (not the app copy):
 
 ```bash
+# macOS
 md5 -q "$(bundle show decidim-admin)/app/views/decidim/admin/officializations/index.html.erb"
+# Linux / CI
+md5sum "$(bundle show decidim-admin)/app/views/decidim/admin/officializations/index.html.erb" | cut -d' ' -f1
 ```
 
 ```ruby

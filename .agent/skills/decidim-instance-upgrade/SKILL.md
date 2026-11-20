@@ -11,9 +11,12 @@ description: "Step-by-step procedure for upgrading decidim in a decidim instance
 
    Sources: `https://github.com/decidim/decidim/releases/tag/vX.Y.Z` and `https://github.com/decidim/decidim/blob/vX.Y.Z/CHANGELOG.md`. Collect every "Upgrade notes" item (commands, rake tasks, migrations, config changes, removed features) into one ordered list; it drives step 3.
 
-2. Note required Ruby, Node and bundler versions for the target (decidim's `.ruby-version`, `.node-version`, `Gemfile.lock` `BUNDLED WITH`).
+2. Note required Ruby, Node and bundler versions for the target (decidim's `.ruby-version`, `.node-version`, `Gemfile.lock` `BUNDLED WITH`). Treat them as a minimum: if the instance is already on a newer compatible version, keep it and never downgrade.
 3. For every third-party decidim module in the `Gemfile`, check whether a release or branch compatible with the target exists. If not, find an upgrade branch or PR and flag it.
-4. Collect every backport in `spec/lib/overrides_spec.rb` (comments linking a decidim PR) and check whether the PR is included in the target release. Those overrides can be deleted.
+4. Collect every override in `spec/lib/overrides_spec.rb` whose comment links an upstream PR or issue and classify it:
+   - Backports of a decidim PR: check whether the PR is included in the target release. If it is, the override can be deleted.
+   - Reverts of a decidim PR: they are deliberate and stay. Only re-check that they still apply.
+   - Waiting on a third-party module fix: check whether the module version chosen in the previous step includes it.
 
 ## 2. Gemfile and local modules
 
@@ -47,6 +50,7 @@ Keep these in sync:
 - `.ruby-version`, `.node-version`
 - `Dockerfile`, if present (base image, Node version, bundler version, system packages)
 - `RUBY_VERSION` / `NODE_VERSION` and `runs-on` in all `.github/workflows/*.yml`
+- `engines` in `package.json` (Node and npm)
 
 ## 7. Dependency updates
 
@@ -58,7 +62,7 @@ Keep these in sync:
 ## 8. Verification
 
 1. `bundle exec rspec spec/lib/overrides_spec.rb` green.
-2. `bundle exec rspec`.
+2. Run the same spec commands as the CI test workflows (read `.github/workflows/` to see which). `bundle exec rspec` alone only covers the root `spec/`; local modules usually have their own run (e.g. `bundle exec rspec <module-dir>`).
 3. Run the same linters as the CI lint workflow (read `.github/workflows/` to see which).
 4. Assets compile (`bin/shakapacker`).
 5. Smoke test in the browser on the most customized areas (the ones with overrides) and on every third-party module.
@@ -84,5 +88,5 @@ Propose a title and description, and keep both simple.
   - Overrides removed because upstream now ships them (with the upstream PR) and new overrides (with why and when to remove them). Checksum-only updates do not need detail.
   - Dependency updates (from/to version).
   - One-time tasks added by us, with one line on what they do.
-- Related issues: a `Closes #ID` line for every open issue this PR fixes.
+- Related issues: one line per open issue this PR fixes, using the template's keyword if it has one (e.g. `Fixes #ID`), otherwise `Closes #ID`.
 - One-time actions, if any: commands to run before deployment (e.g. install a new Ruby version or system packages) and after deployment (upgrade rake tasks, `data:migrate`), in order.
