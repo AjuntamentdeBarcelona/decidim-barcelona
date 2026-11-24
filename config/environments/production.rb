@@ -53,7 +53,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Skip http-to-https redirect for the default health check endpoint.
-  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+  config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     config.logger = ActiveSupport::Logger.new($stdout)
@@ -63,6 +63,9 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
+
+  # Don't log any requests to the health check endpoint.
+  config.silence_healthcheck_path = "/up"
 
   config.action_mailer.smtp_settings = {
     :address => Decidim::Env.new("SMTP_ADDRESS").to_s,

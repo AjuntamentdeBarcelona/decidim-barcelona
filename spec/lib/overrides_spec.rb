@@ -13,7 +13,7 @@ checksums = [
       "/app/commands/decidim/accountability/admin/create_result.rb" => "1bb7534070b15208cb27d75ee69cd84f", # results position (display order)
       "/app/commands/decidim/accountability/admin/update_result.rb" => "ca437fa0af7d3ddf05685f23ee008339", # results position (display order)
       "/app/controllers/decidim/accountability/admin/results_controller.rb" => "a52c5a13a4c6911b7a552ac6a0819934", # results position (display order)
-      "/app/controllers/decidim/accountability/results_controller.rb" => "4d7855df474730dbb583bda549f9e5ff", # results position (display order), taxonomy children fallback for components migrated from categories
+      "/app/controllers/decidim/accountability/results_controller.rb" => "d4a054211ffd57884d31ed4adfe641e1", # results position (display order), taxonomy children fallback for components migrated from categories
       "/app/forms/decidim/accountability/admin/result_form.rb" => "5514ab52d225bcb70dee33f4ab360a4f", # results position (display order)
       "/app/helpers/decidim/accountability/application_helper.rb" => "3f294bce774933c061c551ea692c8c4c",
       "/app/models/decidim/accountability/result.rb" => "bb890c4d83a1a0a80367781445d4ff11", # external_id cleanup + results position (display order)
@@ -28,7 +28,6 @@ checksums = [
     package: "decidim-admin",
     files: {
       "/app/commands/decidim/admin/publish_component.rb" => "4aea28b33468227392384324a3845b2e", # revert https://github.com/decidim/decidim/pull/10690
-      "/app/controllers/concerns/decidim/admin/filterable.rb" => "c44e4fad43a41597c00bb8702fc00e8a", # filtered_collection replaced in admin/assemblies_controller_override.rb, backport https://github.com/decidim/decidim/pull/17500
       "/app/permissions/decidim/admin/permissions.rb" => "4cc0cf41e4681c966589cf18bb98b6ee", # trash actions for space admins in admin/permissions_override.rb, backport https://github.com/decidim/decidim/pull/18138
       "/app/views/decidim/admin/resource_permissions/_options_form.html.erb" => "995160c04f1cd0173e4bfb2d690bacbd",
       "/app/views/decidim/admin/resource_permissions/edit.html.erb" => "142629c45195cfa36dc5a4350aac6a7f"
@@ -37,7 +36,6 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/controllers/decidim/assemblies/admin/assemblies_controller.rb" => "31a25fd8202298812ad920deac76ecb4", # show all children in admin list, backport https://github.com/decidim/decidim/pull/17500
       "/app/controllers/decidim/assemblies/assemblies_controller.rb" => "92fcbb653e524ac19af32c7be9a73882"
     }
   },
@@ -49,7 +47,7 @@ checksums = [
       "/app/cells/decidim/content_blocks/last_activity_cell.rb" => "1133508a27279abcc0871f25d6ac3bd8",
       "/app/cells/decidim/user_profile_cell.rb" => "0f20d006ccf4df77c59e3a2333a28a10",
       "/app/controllers/concerns/decidim/paginable.rb" => "4634ff10b44912e07a4a4dc8620f6743", # update per_page method in assemblies_controller_override.rb
-      "/app/helpers/decidim/paginate_helper.rb" => "bdedfc156661546c73ab428ebb139e8a",
+      "/app/helpers/decidim/paginate_helper.rb" => "524793b7089d0571d46fa9be7dd6e74a",
       "/app/packs/stylesheets/decidim/legacy/email.scss" => "f60e0fc1de4db8493a67329696cd5598",
       "/app/presenters/decidim/official_author_presenter.rb" => "dbfb2fefa1c75d703e65443cd68014c2",
       "/app/views/layouts/decidim/footer/_main_legal.html.erb" => "d4d3e477b5eb6840b915a836b1a7f417",
@@ -58,12 +56,6 @@ checksums = [
       "/app/views/layouts/decidim/mailer.html.erb" => "6a08103c75e5db737a38cd365428a177",
       "/app/views/layouts/decidim/newsletter_base.html.erb" => "28111c73d348ec8d1cdc1180d3ff5d21",
       "/lib/decidim/search_resource_fields_mapper.rb" => "b0e0b9f28304241a0f2d6742a6460821"
-    }
-  },
-  {
-    package: "decidim-decidim_awesome",
-    files: {
-      "/app/views/layouts/decidim/decidim_awesome/_awesome_config.html.erb" => "5d17899dbde9399032cac312db3ac02e" # drop locale: nil from form_builder_i18n_path, global engines are mounted under /:locale since decidim 0.32.2; remove when https://github.com/decidim-ice/decidim-module-decidim_awesome/issues/680 is fixed upstream
     }
   },
   {
@@ -79,7 +71,7 @@ checksums = [
     files: {
       "/app/cells/decidim/initiatives/initiative_metadata_g_cell.rb" => "e41380534ae3c4c441530a6739e3746a",
       "/app/commands/decidim/initiatives/admin/update_initiative.rb" => "951ffea897cc47bae5a2bfc7952ac0d3",
-      "/app/commands/decidim/initiatives/create_initiative.rb" => "9235f42166d1be00314c633812eeed2e",
+      "/app/commands/decidim/initiatives/create_initiative.rb" => "0ee7ac48459fca0186cb11c827d30855",
       "/app/commands/decidim/initiatives/update_initiative.rb" => "fcee3478de665f6b505df682b6d2ad07",
       "/app/forms/decidim/initiatives/admin/initiative_form.rb" => "1bec52ba9fda0b68c5c7ece3bc0a1b08",
       "/app/forms/decidim/initiatives/initiative_form.rb" => "b20b9aa28b1a3ecac27e0d3915f5b13b",
@@ -130,7 +122,7 @@ checksums = [
   {
     package: "decidim-verifications",
     files: {
-      "/app/controllers/decidim/verifications/authorizations_controller.rb" => "4e49a3e5657438383729c2923070a5d4"
+      "/app/controllers/decidim/verifications/authorizations_controller.rb" => "c402215dbbb4450d3803caab88d4da1a"
     }
   },
   {

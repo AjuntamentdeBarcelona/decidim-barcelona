@@ -5,6 +5,8 @@ description: "Step-by-step procedure for upgrading decidim in a decidim instance
 
 # Upgrading decidim
 
+Before the first edit, create the working branch from an up-to-date default branch, named `deps/decidim-<target>` (e.g. `deps/decidim-0.32.3`).
+
 ## 1. Research (no edits yet)
 
 1. Read the release notes and the `CHANGELOG.md` of **every version** after the current one up to the target, in order, not only the target. For example, upgrading from 0.28.2 to 0.28.5 means reading 0.28.3, 0.28.4 and 0.28.5, and upgrading from 0.28.x to 0.29.2 means reading 0.29.0, 0.29.1 and 0.29.2.
@@ -33,7 +35,7 @@ Follow the `decidim-overrides` skill. In short:
 
 1. `bundle exec rspec spec/lib/overrides_spec.rb`: every failure is a gem file that changed upstream.
 2. For each one, diff the gem file between the old and new tag, port the relevant upstream change into the app copy or concern, then update the MD5.
-3. Delete overrides that are no longer needed (backport landed, bug fixed upstream): the concern or view copy, its wiring in `config/initializers/decidim_overrides.rb`, its spec, and its checksum entry.
+3. Delete overrides that are no longer needed (backport landed, bug fixed upstream): the concern, view copy or `.deface` file, its wiring in `config/initializers/decidim_overrides.rb` if any, its spec, and its checksum entry.
 4. Also handle overridden files that were **renamed or removed** upstream (the spec fails with a missing file).
 5. Grep `app/` for methods and constants removed upstream that our views or concerns still call.
 

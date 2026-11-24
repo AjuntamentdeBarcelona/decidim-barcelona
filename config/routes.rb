@@ -3,6 +3,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  get "up", to: "rails/health#show", as: :rails_health_check
+
   component_translations = {
     action_plans: [:results, Decidim::Accountability::Result],
     meetings: [:meetings, Decidim::Meetings::Meeting],

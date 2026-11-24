@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "0.32.2"
+DECIDIM_VERSION = "0.32.3"
 
 ruby RUBY_VERSION
 
@@ -22,7 +22,7 @@ gem "decidim-extra_censuses", git: "https://github.com/openpoke/decidim-module-e
 gem "decidim-internal_evaluation", git: "https://github.com/AjuntamentdeBarcelona/decidim-internal-evaluation-module", branch: "main"
 gem "decidim-kids", git: "https://github.com/AjuntamentdeBarcelona/decidim-module-kids", branch: "main"
 gem "decidim-meetings_guest_registrations", git: "https://github.com/Platoniq/decidim-module-meetings_guest_registrations", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "main"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
 
 gem "bootsnap", "~> 1.3"
 

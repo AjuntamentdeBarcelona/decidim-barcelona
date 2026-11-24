@@ -131,9 +131,6 @@ ca:
         man: Home
         non_binary: No binari
         woman: Dona
-  date:
-    formats:
-      order: d-m-y
   decidim:
     newsletter_templates:
       barcelona_custom:
