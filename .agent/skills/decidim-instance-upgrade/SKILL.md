@@ -35,7 +35,7 @@ Follow the `decidim-overrides` skill. In short:
 
 1. `bundle exec rspec spec/lib/overrides_spec.rb`: every failure is a gem file that changed upstream.
 2. For each one, diff the gem file between the old and new tag, port the relevant upstream change into the app copy or concern, then update the MD5.
-3. Delete overrides that are no longer needed (backport landed, bug fixed upstream): the concern or view copy, its wiring in `config/initializers/decidim_overrides.rb`, its spec, and its checksum entry.
+3. Delete overrides that are no longer needed (backport landed, bug fixed upstream): the concern, view copy or `.deface` file, its wiring in `config/initializers/decidim_overrides.rb` if any, its spec, and its checksum entry.
 4. Also handle overridden files that were **renamed or removed** upstream (the spec fails with a missing file).
 5. Grep `app/` for methods and constants removed upstream that our views or concerns still call.
 
