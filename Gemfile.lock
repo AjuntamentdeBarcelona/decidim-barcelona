@@ -21,6 +21,17 @@ GIT
       deface (>= 1.5)
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-meetings_guest_registrations
+  revision: ca65571b7d6142bf14d66faa1978c34e3cbf00d4
+  branch: main
+  specs:
+    decidim-meetings_guest_registrations (0.1.0)
+      decidim-core (>= 0.32, < 0.33)
+      decidim-forms (>= 0.32, < 0.33)
+      decidim-meetings (>= 0.32, < 0.33)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
   revision: 84a4f38507aabddacb06d9a7f5a2699fcea8da9c
   branch: main
@@ -1198,6 +1209,7 @@ DEPENDENCIES
   decidim-initiatives (= 0.32.3)
   decidim-internal_evaluation!
   decidim-kids!
+  decidim-meetings_guest_registrations!
   decidim-stats!
   decidim-templates (= 0.32.3)
   decidim-term_customizer!
