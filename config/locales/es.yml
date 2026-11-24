@@ -131,9 +131,6 @@ es:
         man: Hombre
         non_binary: No binario
         woman: Mujer
-  date:
-    formats:
-      order: d-m-y
   decidim:
     newsletter_templates:
       barcelona_custom:

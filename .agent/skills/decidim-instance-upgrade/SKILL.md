@@ -5,6 +5,8 @@ description: "Step-by-step procedure for upgrading decidim in a decidim instance
 
 # Upgrading decidim
 
+Before the first edit, create the working branch from an up-to-date default branch, named `deps/decidim-<target>` (e.g. `deps/decidim-0.32.3`).
+
 ## 1. Research (no edits yet)
 
 1. Read the release notes and the `CHANGELOG.md` of **every version** after the current one up to the target, in order, not only the target. For example, upgrading from 0.28.2 to 0.28.5 means reading 0.28.3, 0.28.4 and 0.28.5, and upgrading from 0.28.x to 0.29.2 means reading 0.29.0, 0.29.1 and 0.29.2.

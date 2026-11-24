@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20250527122040)
-# This file has been modified by `decidim upgrade:migrations` task on 2026-07-29 10:32:29 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2026-11-24 10:30:18 UTC
 class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migration[7.0]
   class Organization < ApplicationRecord
     self.table_name = :decidim_organizations
@@ -14,6 +14,9 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
     Organization.find_each do |organization|
       content_block = Decidim::ContentBlock.find_by(organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner)
+      # The content block can be missing (e.g. an admin deleted it), so there is no banner to move
+      next if content_block.nil?
+
       settings = extract_settings(organization)
 
       # We need to do a workaround for getting the image, as ActiveStorage is polymorphic and expects that the `record_type` is the class name of the model
