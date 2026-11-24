@@ -14,11 +14,6 @@
     "leaflet.featuregroup.subgroup": "^1.0.2"
   },
   "version": "0.1.0",
-  "engines": {
-    "node": "~22.14",
-    "npm": "~10.9",
-    "yarn": "~1.22.1"
-  },
   "browserslist": [
     "extends @decidim/browserslist-config"
   ],
@@ -36,7 +31,6 @@
     "@decidim/dev": "^0.32.3",
     "@decidim/eslint-config": "^0.32.3",
     "@decidim/prettier-config": "^0.32.3",
-    "@decidim/stylelint-config": "^0.32.3",
-    "shakapacker": "^9.7.0"
+    "@decidim/stylelint-config": "^0.32.3"
   }
 }
