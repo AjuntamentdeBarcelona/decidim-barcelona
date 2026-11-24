@@ -36,7 +36,7 @@ module Decidim
 end
 ```
 
-Wire it in `config/initializers/decidim_overrides.rb`, inside the existing `Rails.application.config.to_prepare` block:
+Wire it in `config/initializers/decidim_overrides.rb`, inside its single `Rails.application.config.to_prepare` block. If the file does not exist yet, create it with that one block. Follow the existing style of the file (e.g. some repos add a comment above each line explaining the override):
 
 - `.include(...)` when **adding** new methods.
 - `.prepend(...)` when **replacing** existing methods (so `super` still works).
@@ -51,7 +51,7 @@ Note: Some decidim modules apply Deface overrides by virtual path, so they still
 
 ## 3. Engine routes
 
-Draw extra routes on the engine directly in `config/routes.rb` (see the existing `Decidim::System::Engine.routes.draw` block):
+Draw extra routes on the engine directly in `config/routes.rb`, in a `<Engine>.routes.draw` block. Reuse the block for that engine if one already exists:
 
 ```ruby
 Decidim::Admin::Engine.routes.draw do
@@ -90,7 +90,7 @@ Rules:
 
 1. Diff the new gem file against the previous release to see what changed upstream.
 2. Port relevant upstream changes into the app override (view copy or concern).
-3. If the override is no longer needed (upstream fixed it), delete the override, its wiring in `decidim_overrides.rb`, and its checksum entry.
+3. If the override is no longer needed (upstream fixed it), delete the override (concern, view copy or `.deface` file), its wiring in `decidim_overrides.rb` if any, and its checksum entry.
 4. Update the checksum to the new gem file's MD5 and re-run the spec.
 
 ## Checklist for any new override
